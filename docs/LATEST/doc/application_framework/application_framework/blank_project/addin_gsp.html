@@ -9,7 +9,7 @@
   <meta http-equiv='content-language' content='ja'>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>8.6.2. gsp-dba-maven-plugin(DBA作業支援ツール)の初期設定方法 &mdash; ∇Nablarch  5u19 ドキュメント</title>
+  <title>8.6.2. gsp-dba-maven-plugin(DBA作業支援ツール)の初期設定方法 &mdash; ∇Nablarch  5u20 ドキュメント</title>
   
 
   
@@ -35,7 +35,7 @@
   
   <link rel="canonical" href="https://nablarch.github.io/docs/LATEST/doc/application_framework/application_framework/blank_project/addin_gsp.html" />
   
-    <link rel="top" title="∇Nablarch  5u19 ドキュメント" href="../../../index.html"/>
+    <link rel="top" title="∇Nablarch  5u20 ドキュメント" href="../../../index.html"/>
         <link rel="up" title="8.6. 初期セットアップ後に必要となる設定変更" href="ModifySettings.html"/>
         <link rel="next" title="9. Nablarchアプリケーションフレームワーク設定ガイド" href="../setting_guide/index.html"/>
         <link rel="prev" title="8.6.1. 使用するRDBMSの変更手順" href="CustomizeDB.html"/>
@@ -61,7 +61,7 @@
   
 
   
-    <div id="sidebar-version">Version: 5u19</div>
+    <div id="sidebar-version">Version: 5u20</div>
   </a>
 
   <div role="search">
@@ -280,6 +280,11 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../../nablarch_api/index.html">Nablarch API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../releases/index.html">リリース情報</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../inquiry/index.html">機能追加要望・改善要望</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../inquiry/index.html#id2">JIRAへの課題起票方法</a></li>
+</ul>
+</li>
 </ul>
 
   
@@ -371,26 +376,28 @@
   <span class="nt">&lt;profiles&gt;</span>
     <span class="nt">&lt;profile&gt;</span>
       <span class="nt">&lt;id&gt;</span>my-repository<span class="nt">&lt;/id&gt;</span>
-      <span class="nt">&lt;repository&gt;</span>
-        <span class="nt">&lt;id&gt;</span>maven.seasar.org<span class="nt">&lt;/id&gt;</span>
-        <span class="nt">&lt;name&gt;</span>The Seasar Foundation Maven Repository<span class="nt">&lt;/name&gt;</span>
-        <span class="nt">&lt;url&gt;</span>http://maven.seasar.org/maven2<span class="nt">&lt;/url&gt;</span>
-        <span class="nt">&lt;snapshots&gt;</span>
-          <span class="nt">&lt;enabled&gt;</span>false<span class="nt">&lt;/enabled&gt;</span>
-        <span class="nt">&lt;/snapshots&gt;</span>
-      <span class="nt">&lt;/repository&gt;</span>
-      <span class="nt">&lt;repository&gt;</span>
-        <span class="nt">&lt;id&gt;</span>maven-snapshot.seasar.org<span class="nt">&lt;/id&gt;</span>
-        <span class="nt">&lt;name&gt;</span>The Seasar Foundation Maven Snapshot Repository<span class="nt">&lt;/name&gt;</span>
-        <span class="nt">&lt;url&gt;</span>http://maven.seasar.org/maven2-snapshot<span class="nt">&lt;/url&gt;</span>
-        <span class="nt">&lt;releases&gt;</span>
-          <span class="nt">&lt;enabled&gt;</span>false<span class="nt">&lt;/enabled&gt;</span>
-        <span class="nt">&lt;/releases&gt;</span>
-        <span class="nt">&lt;snapshots&gt;</span>
-          <span class="nt">&lt;enabled&gt;</span>true<span class="nt">&lt;/enabled&gt;</span>
-          <span class="nt">&lt;updatePolicy&gt;</span>always<span class="nt">&lt;/updatePolicy&gt;</span>
-        <span class="nt">&lt;/snapshots&gt;</span>
-      <span class="nt">&lt;/repository&gt;</span>
+      <span class="nt">&lt;pluginRepositories&gt;</span>
+        <span class="nt">&lt;pluginRepository&gt;</span>
+          <span class="nt">&lt;id&gt;</span>maven.seasar.org<span class="nt">&lt;/id&gt;</span>
+          <span class="nt">&lt;name&gt;</span>The Seasar Foundation Maven Repository<span class="nt">&lt;/name&gt;</span>
+          <span class="nt">&lt;url&gt;</span>https://maven.seasar.org/maven2<span class="nt">&lt;/url&gt;</span>
+          <span class="nt">&lt;snapshots&gt;</span>
+            <span class="nt">&lt;enabled&gt;</span>false<span class="nt">&lt;/enabled&gt;</span>
+          <span class="nt">&lt;/snapshots&gt;</span>
+        <span class="nt">&lt;/pluginRepository&gt;</span>
+        <span class="nt">&lt;pluginRepository&gt;</span>
+          <span class="nt">&lt;id&gt;</span>maven-snapshot.seasar.org<span class="nt">&lt;/id&gt;</span>
+          <span class="nt">&lt;name&gt;</span>The Seasar Foundation Maven Snapshot Repository<span class="nt">&lt;/name&gt;</span>
+          <span class="nt">&lt;url&gt;</span>https://maven.seasar.org/maven2-snapshot<span class="nt">&lt;/url&gt;</span>
+          <span class="nt">&lt;releases&gt;</span>
+            <span class="nt">&lt;enabled&gt;</span>false<span class="nt">&lt;/enabled&gt;</span>
+          <span class="nt">&lt;/releases&gt;</span>
+          <span class="nt">&lt;snapshots&gt;</span>
+            <span class="nt">&lt;enabled&gt;</span>true<span class="nt">&lt;/enabled&gt;</span>
+            <span class="nt">&lt;updatePolicy&gt;</span>always<span class="nt">&lt;/updatePolicy&gt;</span>
+          <span class="nt">&lt;/snapshots&gt;</span>
+        <span class="nt">&lt;/pluginRepository&gt;</span>
+      <span class="nt">&lt;/pluginRepositories&gt;</span>
     <span class="nt">&lt;/profile&gt;</span>
   <span class="nt">&lt;/profiles&gt;</span>
   <span class="c">&lt;!-- 中略 --&gt;</span>
@@ -633,7 +640,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../',
-            VERSION:'5u19',
+            VERSION:'5u20',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

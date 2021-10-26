@@ -9,7 +9,7 @@
   <meta http-equiv='content-language' content='ja'>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>2.3.5. アップロードを用いた一括登録機能の作成 &mdash; ∇Nablarch  5u19 ドキュメント</title>
+  <title>2.3.5. アップロードを用いた一括登録機能の作成 &mdash; ∇Nablarch  5u20 ドキュメント</title>
   
 
   
@@ -35,7 +35,7 @@
   
   <link rel="canonical" href="https://nablarch.github.io/docs/LATEST/doc/application_framework/application_framework/web/getting_started/project_upload/index.html" />
   
-    <link rel="top" title="∇Nablarch  5u19 ドキュメント" href="../../../../../index.html"/>
+    <link rel="top" title="∇Nablarch  5u20 ドキュメント" href="../../../../../index.html"/>
         <link rel="up" title="2.3. Getting Started" href="../index.html"/>
         <link rel="next" title="2.3.6. ファイルダウンロード機能の作成" href="../project_download/index.html"/>
         <link rel="prev" title="2.3.4. 削除機能の作成" href="../project_delete/index.html"/>
@@ -61,7 +61,7 @@
   
 
   
-    <div id="sidebar-version">Version: 5u19</div>
+    <div id="sidebar-version">Version: 5u20</div>
   </a>
 
   <div role="search">
@@ -280,6 +280,11 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../nablarch_api/index.html">Nablarch API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../releases/index.html">リリース情報</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../inquiry/index.html">機能追加要望・改善要望</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../inquiry/index.html#id2">JIRAへの課題起票方法</a></li>
+</ul>
+</li>
 </ul>
 
   
@@ -595,7 +600,7 @@ Exampleアプリケーションでは下記ファイルに設定が記載され�
         <span class="n">type</span> <span class="o">=</span> <span class="n">Csv</span><span class="o">.</span><span class="na">CsvType</span><span class="o">.</span><span class="na">CUSTOM</span><span class="o">)</span>
 <span class="nd">@CsvFormat</span><span class="o">(</span><span class="n">charset</span> <span class="o">=</span> <span class="s">&quot;Shift_JIS&quot;</span><span class="o">,</span> <span class="n">fieldSeparator</span> <span class="o">=</span> <span class="sc">&#39;,&#39;</span><span class="o">,</span><span class="n">ignoreEmptyLine</span> <span class="o">=</span> <span class="kc">true</span><span class="o">,</span>
         <span class="n">lineSeparator</span> <span class="o">=</span> <span class="s">&quot;\r\n&quot;</span><span class="o">,</span> <span class="n">quote</span> <span class="o">=</span> <span class="sc">&#39;&quot;&#39;</span><span class="o">,</span>
-        <span class="n">quoteMode</span> <span class="o">=</span> <span class="n">CsvDataBindConfig</span><span class="o">.</span><span class="na">QuoteMode</span><span class="o">.</span><span class="na">NORMAL</span><span class="o">,</span> <span class="n">requiredHeader</span> <span class="o">=</span> <span class="kc">true</span><span class="o">)</span>
+        <span class="n">quoteMode</span> <span class="o">=</span> <span class="n">CsvDataBindConfig</span><span class="o">.</span><span class="na">QuoteMode</span><span class="o">.</span><span class="na">NORMAL</span><span class="o">,</span> <span class="n">requiredHeader</span> <span class="o">=</span> <span class="kc">true</span><span class="o">,</span> <span class="n">emptyToNull</span> <span class="o">=</span> <span class="kc">true</span><span class="o">)</span>
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">ProjectUploadDto</span> <span class="kd">implements</span> <span class="n">Serializable</span> <span class="o">{</span>
 
     <span class="c1">// 一部項目のみ抜粋。ゲッタ及びセッタは省略</span>
@@ -827,7 +832,7 @@ Exampleアプリケーションでは下記ファイルに設定が記載され�
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../../../',
-            VERSION:'5u19',
+            VERSION:'5u20',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

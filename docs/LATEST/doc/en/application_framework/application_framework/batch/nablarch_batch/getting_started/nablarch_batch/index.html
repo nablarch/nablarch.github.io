@@ -9,7 +9,7 @@
   <meta http-equiv='content-language' content='ja'>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>4.2.3.1. Creating a Batch to Register Files to the DB &mdash; ∇Nablarch  5u19 documentation</title>
+  <title>4.2.3.1. Creating a Batch to Register Files to the DB &mdash; ∇Nablarch  5u20 documentation</title>
   
 
   
@@ -35,7 +35,7 @@
   
   <link rel="canonical" href="https://nablarch.github.io/docs/LATEST/doc/application_framework/application_framework/batch/nablarch_batch/getting_started/nablarch_batch/index.html" />
   
-    <link rel="top" title="∇Nablarch  5u19 documentation" href="../../../../../../index.html"/>
+    <link rel="top" title="∇Nablarch  5u20 documentation" href="../../../../../../index.html"/>
         <link rel="up" title="4.2.3. Getting Started" href="../getting_started.html"/>
         <link rel="next" title="4.2.4. Details of Function" href="../../feature_details.html"/>
         <link rel="prev" title="4.2.3. Getting Started" href="../getting_started.html"/>
@@ -61,7 +61,7 @@
   
 
   
-    <div id="sidebar-version">Version: 5u19</div>
+    <div id="sidebar-version">Version: 5u20</div>
   </a>
 
   <div role="search">
@@ -362,7 +362,7 @@ For responsibility assignment, refer to <a class="reference internal" href="../.
 <dd><div class="first last highlight-java"><div class="highlight"><pre><span></span><span class="nd">@Csv</span><span class="o">(</span><span class="n">properties</span> <span class="o">=</span> <span class="o">{</span><span class="cm">/** Property definition is omitted **/</span><span class="o">},</span> <span class="n">type</span> <span class="o">=</span> <span class="n">CsvType</span><span class="o">.</span><span class="na">CUSTOM</span><span class="o">)</span>
 <span class="nd">@CsvFormat</span><span class="o">(</span><span class="n">charset</span> <span class="o">=</span> <span class="s">&quot;UTF-8&quot;</span><span class="o">,</span> <span class="n">fieldSeparator</span> <span class="o">=</span> <span class="sc">&#39;,&#39;</span><span class="o">,</span>
         <span class="n">ignoreEmptyLine</span> <span class="o">=</span> <span class="kc">true</span><span class="o">,</span> <span class="n">lineSeparator</span> <span class="o">=</span> <span class="s">&quot;\r\n&quot;</span><span class="o">,</span> <span class="n">quote</span> <span class="o">=</span> <span class="sc">&#39;&quot;&#39;</span><span class="o">,</span>
-        <span class="n">quoteMode</span> <span class="o">=</span> <span class="n">QuoteMode</span><span class="o">.</span><span class="na">NORMAL</span><span class="o">,</span> <span class="n">requiredHeader</span> <span class="o">=</span> <span class="kc">false</span><span class="o">)</span>
+        <span class="n">quoteMode</span> <span class="o">=</span> <span class="n">QuoteMode</span><span class="o">.</span><span class="na">NORMAL</span><span class="o">,</span> <span class="n">requiredHeader</span> <span class="o">=</span> <span class="kc">false</span><span class="o">,</span> <span class="n">emptyToNull</span> <span class="o">=</span> <span class="kc">true</span><span class="o">)</span>
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">ZipCodeForm</span> <span class="o">{</span>
 
     <span class="c1">// Excerpt of only some items</span>
@@ -614,7 +614,7 @@ For interceptor implementation, see the implementation of <cite>ValidateData.jav
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../../../../',
-            VERSION:'5u19',
+            VERSION:'5u20',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

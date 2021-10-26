@@ -9,7 +9,7 @@
   <meta http-equiv='content-language' content='ja'>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>8.4.1. コンテナ用ウェブプロジェクトの初期セットアップ &mdash; ∇Nablarch  5u19 ドキュメント</title>
+  <title>8.4.1. コンテナ用ウェブプロジェクトの初期セットアップ &mdash; ∇Nablarch  5u20 ドキュメント</title>
   
 
   
@@ -35,7 +35,7 @@
   
   <link rel="canonical" href="https://nablarch.github.io/docs/LATEST/doc/application_framework/application_framework/blank_project/setup_containerBlankProject/setup_ContainerWeb.html" />
   
-    <link rel="top" title="∇Nablarch  5u19 ドキュメント" href="../../../../index.html"/>
+    <link rel="top" title="∇Nablarch  5u20 ドキュメント" href="../../../../index.html"/>
         <link rel="up" title="8.4. 初期セットアップ手順（コンテナ）" href="../FirstStepContainer.html"/>
         <link rel="next" title="8.4.2. コンテナ用RESTfulウェブサービスプロジェクトの初期セットアップ" href="setup_ContainerWebService.html"/>
         <link rel="prev" title="8.4. 初期セットアップ手順（コンテナ）" href="../FirstStepContainer.html"/>
@@ -61,7 +61,7 @@
   
 
   
-    <div id="sidebar-version">Version: 5u19</div>
+    <div id="sidebar-version">Version: 5u20</div>
   </a>
 
   <div role="search">
@@ -280,6 +280,11 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../nablarch_api/index.html">Nablarch API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../releases/index.html">リリース情報</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../inquiry/index.html">機能追加要望・改善要望</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../inquiry/index.html#id2">JIRAへの課題起票方法</a></li>
+</ul>
+</li>
 </ul>
 
   
@@ -390,9 +395,9 @@
 <p>カレントディレクトリを、ブランクプロジェクトを作成したいディレクトリ(任意のディレクトリで可)に変更し、以下のファイルを配置する。</p>
 <p><a class="reference download internal" href="../../../../_downloads/generateContainerWebProject.bat" download=""><code class="xref download docutils literal"><span class="pre">バッチファイル</span></code></a></p>
 <p>配置後、引数に必要なパラメータを指定しbatファイルを実行する。</p>
-<p>generateContainerWebProject.bat 5u19 &lt;&lt;groupId&gt;&gt; &lt;&lt;artifactId&gt;&gt; &lt;&lt;version&gt;&gt; &lt;&lt;package(任意)&gt;&gt;</p>
+<p>generateContainerWebProject.bat 5u20 &lt;&lt;groupId&gt;&gt; &lt;&lt;artifactId&gt;&gt; &lt;&lt;version&gt;&gt; &lt;&lt;package(任意)&gt;&gt;</p>
 <p>上記コマンドに設定するパラメータは以下の通り。
-なお、nablarchのバージョンを変更したい場合には 5u19 を変更すること。</p>
+なお、nablarchのバージョンを変更したい場合には 5u20 を変更すること。</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="15%" />
@@ -475,14 +480,14 @@ myapp-container-web     latest      dd60cbdc7722   50 years ago   449MB
 <li><code class="docutils literal"><span class="pre">${project.artifactId}:${project.version}</span></code></li>
 </ul>
 <p>また、初期設定ではベースイメージとして <a class="reference external" href="https://hub.docker.com/_/tomcat">Tomcat のイメージ</a> (外部サイト、英語)が使用される。</p>
-<p>ベースイメージは <code class="docutils literal"><span class="pre">nablarch-archetype-parent</span></code> の <code class="docutils literal"><span class="pre">pom.xml</span></code> で指定されているが、 <code class="docutils literal"><span class="pre">jib.from.image</span></code> プロパティで変更することもできる。
+<p>ベースイメージは <code class="docutils literal"><span class="pre">jib.from.image</span></code> プロパティで変更することができる。
 例えば、ベースイメージに <code class="docutils literal"><span class="pre">tomcat:9.0.31-jdk11-adoptopenjdk-hotspot</span></code> を使用したい場合は、次のように <code class="docutils literal"><span class="pre">pom.xml</span></code> に記述する。</p>
 <div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;project&gt;</span>
   <span class="c">&lt;!--省略...--&gt;</span>
   <span class="nt">&lt;properties&gt;</span>
     <span class="c">&lt;!--省略...--&gt;</span>
-    <span class="c">&lt;!-- tomcat:9.0.31-jdk11-adoptopenjdk-hotspot --&gt;</span>
-    <span class="nt">&lt;jib.from.image&gt;</span>tomcat@sha256:e1f3ec646689c558bdd1a8b7045c5eed7c0ca9dbe664a82ba47d1591e3c5faf0<span class="nt">&lt;/jib.from.image&gt;</span>
+    <span class="nt">&lt;jib.from.image&gt;</span>tomcat:9.0.36-jdk11-adoptopenjdk-hotspot<span class="nt">&lt;/jib.from.image&gt;</span>
+    <span class="c">&lt;!--省略...--&gt;</span>
   <span class="nt">&lt;/properties&gt;</span>
   <span class="c">&lt;!--省略...--&gt;</span>
 <span class="nt">&lt;/project&gt;</span>
@@ -490,8 +495,13 @@ myapp-container-web     latest      dd60cbdc7722   50 years ago   449MB
 </div>
 <div class="admonition tip">
 <p class="first admonition-title">補足</p>
-<p class="last">Dockerイメージのタグは不変ではなく更新される可能性がある。
-このため、ベースイメージの指定はダイジェストを用いる方法を推奨する。</p>
+<p>ブランクプロジェクトではイメージをタグで指定しているが、この場合、指定したイメージの最新バージョンが選択される。
+検証時と異なるバージョンが選択された場合、アプリケーションの動作に影響が出る可能性があるので、
+プロジェクトにおける検証が完了した段階で、バージョンを固定するために、イメージをダイジェストで指定することを推奨する。</p>
+<p>ダイジェストによる設定例を以下に示す。</p>
+<div class="last highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;jib.from.image&gt;</span>tomcat@sha256:7d59567f61e79f5dc1226a3ee26b4a4c2befc5cae182f7e0823199cf5885409b<span class="nt">&lt;/jib.from.image&gt;</span>
+</pre></div>
+</div>
 </div>
 </div>
 <div class="section" id="firststepruncontainerwebdockerimage">
@@ -564,7 +574,7 @@ Docker Toolboxを使用している場合は、上記例のボリューム指定
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../../',
-            VERSION:'5u19',
+            VERSION:'5u20',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

@@ -9,7 +9,7 @@
   <meta http-equiv='content-language' content='ja'>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>6.1.1. グローバルエラーハンドラ &mdash; ∇Nablarch  5u19 ドキュメント</title>
+  <title>6.1.1. グローバルエラーハンドラ &mdash; ∇Nablarch  5u20 ドキュメント</title>
   
 
   
@@ -35,7 +35,7 @@
   
   <link rel="canonical" href="https://nablarch.github.io/docs/LATEST/doc/application_framework/application_framework/handlers/common/global_error_handler.html" />
   
-    <link rel="top" title="∇Nablarch  5u19 ドキュメント" href="../../../../index.html"/>
+    <link rel="top" title="∇Nablarch  5u20 ドキュメント" href="../../../../index.html"/>
         <link rel="up" title="6.1. 共通ハンドラ" href="index.html"/>
         <link rel="next" title="6.1.2. 出力ファイル開放ハンドラ" href="file_record_writer_dispose_handler.html"/>
         <link rel="prev" title="6.1. 共通ハンドラ" href="index.html"/>
@@ -61,7 +61,7 @@
   
 
   
-    <div id="sidebar-version">Version: 5u19</div>
+    <div id="sidebar-version">Version: 5u20</div>
   </a>
 
   <div role="search">
@@ -280,6 +280,11 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../nablarch_api/index.html">Nablarch API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../releases/index.html">リリース情報</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../inquiry/index.html">機能追加要望・改善要望</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../inquiry/index.html#id2">JIRAへの課題起票方法</a></li>
+</ul>
+</li>
 </ul>
 
   
@@ -367,8 +372,9 @@
 <h2><a class="toc-backref" href="#id10">6.1.1.3. 制約</a><a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <dl class="docutils">
 <dt>できるだけハンドラキューの先頭に配置すること</dt>
-<dd><p class="first">このハンドラは未補足例外を処理するため、特に理由がない限り、できるだけハンドラキューの先頭に配置すること。</p>
-<p class="last">もし、このハンドラより手前のハンドラで例外が発生した場合は、ウェブアプリケーションサーバやJVMにより例外処理が行われる。</p>
+<dd><p class="first">このハンドラは未捕捉例外を処理するため、特に理由がない限り、できるだけハンドラキューの先頭に配置すること。</p>
+<p>もし、このハンドラより手前のハンドラで例外が発生した場合は、ウェブアプリケーションサーバやJVMにより例外処理が行われる。</p>
+<p class="last">例外を捕捉した際にスレッドコンテキストの情報をログに出力したい場合は、 <a class="reference internal" href="thread_context_clear_handler.html#thread-context-clear-handler"><span>スレッドコンテキスト変数削除ハンドラ</span></a> より後に配置すること。</p>
 </dd>
 </dl>
 </div>
@@ -509,7 +515,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../../',
-            VERSION:'5u19',
+            VERSION:'5u20',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

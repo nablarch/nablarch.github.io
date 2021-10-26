@@ -9,7 +9,7 @@
   <meta http-equiv='content-language' content='ja'>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>6.1.1. Global Error Handler &mdash; ∇Nablarch  5u19 documentation</title>
+  <title>6.1.1. Global Error Handler &mdash; ∇Nablarch  5u20 documentation</title>
   
 
   
@@ -35,7 +35,7 @@
   
   <link rel="canonical" href="https://nablarch.github.io/docs/LATEST/doc/application_framework/application_framework/handlers/common/global_error_handler.html" />
   
-    <link rel="top" title="∇Nablarch  5u19 documentation" href="../../../../index.html"/>
+    <link rel="top" title="∇Nablarch  5u20 documentation" href="../../../../index.html"/>
         <link rel="up" title="6.1. Common Handler" href="index.html"/>
         <link rel="next" title="6.1.2. Output File Release Handler" href="file_record_writer_dispose_handler.html"/>
         <link rel="prev" title="6.1. Common Handler" href="index.html"/>
@@ -61,7 +61,7 @@
   
 
   
-    <div id="sidebar-version">Version: 5u19</div>
+    <div id="sidebar-version">Version: 5u20</div>
   </a>
 
   <div role="search">
@@ -335,7 +335,8 @@
 <dl class="docutils">
 <dt>This handler should be placed at the beginning of the handler queue as far as possible</dt>
 <dd><p class="first">Since this handler processes exceptions, it should be placed at the start of the handler queue as far as possible, unless there is a particular reason.</p>
-<p class="last">If an exception has occurred in a handler that is placed before this handler, exception handling will be performed by the web application server or JVM.</p>
+<p>If an exception has occurred in a handler that is placed before this handler, exception handling will be performed by the web application server or JVM.</p>
+<p class="last">If you want to output thread context information to the log when an exception is raised, put it after <a class="reference internal" href="thread_context_clear_handler.html#thread-context-clear-handler"><span>Thread Context Variable Delete Handler</span></a>.</p>
 </dd>
 </dl>
 </div>
@@ -475,7 +476,7 @@ if the requirements cannot be satisfied with this implementation.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../../',
-            VERSION:'5u19',
+            VERSION:'5u20',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,
