@@ -9,7 +9,7 @@
   <meta http-equiv='content-language' content='ja'>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>6.1.6. スレッドコンテキスト変数削除ハンドラ &mdash; ∇Nablarch  5u19 ドキュメント</title>
+  <title>6.1.6. スレッドコンテキスト変数削除ハンドラ &mdash; ∇Nablarch  5u20 ドキュメント</title>
   
 
   
@@ -35,7 +35,7 @@
   
   <link rel="canonical" href="https://nablarch.github.io/docs/LATEST/doc/application_framework/application_framework/handlers/common/thread_context_clear_handler.html" />
   
-    <link rel="top" title="∇Nablarch  5u19 ドキュメント" href="../../../../index.html"/>
+    <link rel="top" title="∇Nablarch  5u20 ドキュメント" href="../../../../index.html"/>
         <link rel="up" title="6.1. 共通ハンドラ" href="index.html"/>
         <link rel="next" title="6.1.7. データベース接続管理ハンドラ" href="database_connection_management_handler.html"/>
         <link rel="prev" title="6.1.5. スレッドコンテキスト変数管理ハンドラ" href="thread_context_handler.html"/>
@@ -61,7 +61,7 @@
   
 
   
-    <div id="sidebar-version">Version: 5u19</div>
+    <div id="sidebar-version">Version: 5u20</div>
   </a>
 
   <div role="search">
@@ -280,6 +280,11 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../nablarch_api/index.html">Nablarch API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../releases/index.html">リリース情報</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../inquiry/index.html">機能追加要望・改善要望</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../inquiry/index.html#id2">JIRAへの課題起票方法</a></li>
+</ul>
+</li>
 </ul>
 
   
@@ -369,7 +374,7 @@
 <div class="section" id="id5">
 <h2><a class="toc-backref" href="#id9">6.1.6.3. 制約</a><a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>本ハンドラは極力手前側に配置すること。
-なぜなら往路処理では、本ハンドラより手前のハンドラではスレッドコンテキストにアクセスできなくなるため。</p>
+なぜなら復路処理では、本ハンドラより手前のハンドラではスレッドコンテキストにアクセスできなくなるため。</p>
 </div>
 <div class="section" id="thread-context-clear-handler-clear">
 <span id="id6"></span><h2><a class="toc-backref" href="#id10">6.1.6.4. スレッドコンテキストの削除処理</a><a class="headerlink" href="#thread-context-clear-handler-clear" title="このヘッドラインへのパーマリンク">¶</a></h2>
@@ -410,7 +415,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../../',
-            VERSION:'5u19',
+            VERSION:'5u20',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

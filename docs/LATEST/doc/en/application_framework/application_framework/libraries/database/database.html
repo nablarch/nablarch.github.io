@@ -9,7 +9,7 @@
   <meta http-equiv='content-language' content='ja'>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>7.3.1. Database Access (JDBC Wrapper) &mdash; ∇Nablarch  5u19 documentation</title>
+  <title>7.3.1. Database Access (JDBC Wrapper) &mdash; ∇Nablarch  5u20 documentation</title>
   
 
   
@@ -35,7 +35,7 @@
   
   <link rel="canonical" href="https://nablarch.github.io/docs/LATEST/doc/application_framework/application_framework/libraries/database/database.html" />
   
-    <link rel="top" title="∇Nablarch  5u19 documentation" href="../../../../index.html"/>
+    <link rel="top" title="∇Nablarch  5u20 documentation" href="../../../../index.html"/>
         <link rel="up" title="7.3. Database Access" href="../database_management.html"/>
         <link rel="next" title="7.3.2. Universal DAO" href="universal_dao.html"/>
         <link rel="prev" title="7.3. Database Access" href="../database_management.html"/>
@@ -61,7 +61,7 @@
   
 
   
-    <div id="sidebar-version">Version: 5u19</div>
+    <div id="sidebar-version">Version: 5u20</div>
   </a>
 
   <div role="search">
@@ -933,7 +933,7 @@ If standardized, since the function may cause unexpected bugs when SQL is change
 from
   user
 where
-  $if (userName) {user_name like :user_name%}
+  $if (userName) {user_name like :userName%}
   and $if (userKbn) {user_kbn in (&#39;1&#39;, &#39;2&#39;)}
   and birthday = :birthday
 </pre></div>
@@ -1054,7 +1054,7 @@ Case: Represents the switching candidate for the order by clause.
 from
   user
 where
-  user_name = :user_name
+  user_name = :userName
 $sort(sortId) {
   (user_id_asc  user_id asc)
   (user_id_desc user_id desc)
@@ -1449,16 +1449,18 @@ For details of implementation <a class="reference external" href="https://nablar
 </table>
 <p>Configure <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/core/db/statement/BasicSqlLoader.html" title="nablarch.core.db.statement.BasicSqlLoader">BasicSqlLoader</a> to replace the placeholders, as shown in the following example:</p>
 <div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;component</span> <span class="na">name=</span><span class="s">&quot;statementFactory&quot;</span> <span class="na">class=</span><span class="s">&quot;nablarch.core.db.statement.BasicStatementFactory&quot;</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;component</span> <span class="na">name=</span><span class="s">&quot;sqlLoader&quot;</span> <span class="na">class=</span><span class="s">&quot;nablarch.core.db.statement.BasicSqlLoader&quot;</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;sqlLoaderCallback&quot;</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;list&gt;</span>
-        <span class="c">&lt;!-- Replace #SCHEMA# in SQL statement with specified value --&gt;</span>
-        <span class="nt">&lt;component</span> <span class="na">class=</span><span class="s">&quot;nablarch.core.db.statement.sqlloader.SchemaReplacer&quot;</span><span class="nt">&gt;</span>
-          <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;schemaName&quot;</span> <span class="na">value=</span><span class="s">&quot;${nablarch.schemaReplacer.schemaName}&quot;</span><span class="nt">/&gt;</span>
-        <span class="nt">&lt;/component&gt;</span>
-      <span class="nt">&lt;/list&gt;</span>
-    <span class="nt">&lt;/property&gt;</span>
-  <span class="nt">&lt;/component&gt;</span>
+  <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;sqlLoader&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;component</span> <span class="na">name=</span><span class="s">&quot;sqlLoader&quot;</span> <span class="na">class=</span><span class="s">&quot;nablarch.core.db.statement.BasicSqlLoader&quot;</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;sqlLoaderCallback&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;list&gt;</span>
+          <span class="c">&lt;!-- Replace #SCHEMA# in SQL statement with specified value --&gt;</span>
+          <span class="nt">&lt;component</span> <span class="na">class=</span><span class="s">&quot;nablarch.core.db.statement.sqlloader.SchemaReplacer&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;schemaName&quot;</span> <span class="na">value=</span><span class="s">&quot;${nablarch.schemaReplacer.schemaName}&quot;</span><span class="nt">/&gt;</span>
+          <span class="nt">&lt;/component&gt;</span>
+        <span class="nt">&lt;/list&gt;</span>
+      <span class="nt">&lt;/property&gt;</span>
+    <span class="nt">&lt;/component&gt;</span>
+  <span class="nt">&lt;/property&gt;</span>
 <span class="nt">&lt;/component&gt;</span>
 </pre></div>
 </div>
@@ -1555,7 +1557,7 @@ For details of implementation <a class="reference external" href="https://nablar
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../../',
-            VERSION:'5u19',
+            VERSION:'5u20',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

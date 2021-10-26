@@ -9,7 +9,7 @@
   <meta http-equiv='content-language' content='ja'>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>2.3.5. Create a Batch registration Function Using Upload &mdash; ∇Nablarch  5u19 documentation</title>
+  <title>2.3.5. Create a Batch registration Function Using Upload &mdash; ∇Nablarch  5u20 documentation</title>
   
 
   
@@ -35,7 +35,7 @@
   
   <link rel="canonical" href="https://nablarch.github.io/docs/LATEST/doc/application_framework/application_framework/web/getting_started/project_upload/index.html" />
   
-    <link rel="top" title="∇Nablarch  5u19 documentation" href="../../../../../index.html"/>
+    <link rel="top" title="∇Nablarch  5u20 documentation" href="../../../../../index.html"/>
         <link rel="up" title="2.3. Getting Started" href="../index.html"/>
         <link rel="next" title="2.3.6. Create a File Download Function" href="../project_download/index.html"/>
         <link rel="prev" title="2.3.4. Create a Delete Function" href="../project_delete/index.html"/>
@@ -61,7 +61,7 @@
   
 
   
-    <div id="sidebar-version">Version: 5u19</div>
+    <div id="sidebar-version">Version: 5u20</div>
   </a>
 
   <div role="search">
@@ -562,7 +562,7 @@ In the Example Application, the configuration is described in the following file
         <span class="n">type</span> <span class="o">=</span> <span class="n">Csv</span><span class="o">.</span><span class="na">CsvType</span><span class="o">.</span><span class="na">CUSTOM</span><span class="o">)</span>
 <span class="nd">@CsvFormat</span><span class="o">(</span><span class="n">charset</span> <span class="o">=</span> <span class="s">&quot;Shift_JIS&quot;</span><span class="o">,</span> <span class="n">fieldSeparator</span> <span class="o">=</span> <span class="sc">&#39;,&#39;</span><span class="o">,</span><span class="n">ignoreEmptyLine</span> <span class="o">=</span> <span class="kc">true</span><span class="o">,</span>
         <span class="n">lineSeparator</span> <span class="o">=</span> <span class="s">&quot;\r\n&quot;</span><span class="o">,</span> <span class="n">quote</span> <span class="o">=</span> <span class="sc">&#39;&quot;&#39;</span><span class="o">,</span>
-        <span class="n">quoteMode</span> <span class="o">=</span> <span class="n">CsvDataBindConfig</span><span class="o">.</span><span class="na">QuoteMode</span><span class="o">.</span><span class="na">NORMAL</span><span class="o">,</span> <span class="n">requiredHeader</span> <span class="o">=</span> <span class="kc">true</span><span class="o">)</span>
+        <span class="n">quoteMode</span> <span class="o">=</span> <span class="n">CsvDataBindConfig</span><span class="o">.</span><span class="na">QuoteMode</span><span class="o">.</span><span class="na">NORMAL</span><span class="o">,</span> <span class="n">requiredHeader</span> <span class="o">=</span> <span class="kc">true</span><span class="o">,</span> <span class="n">emptyToNull</span> <span class="o">=</span> <span class="kc">true</span><span class="o">)</span>
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">ProjectUploadDto</span> <span class="kd">implements</span> <span class="n">Serializable</span> <span class="o">{</span>
 
     <span class="c1">// Excerpt of some items only.Getter and setter are omitted</span>
@@ -793,7 +793,7 @@ implement by referring to <a class="reference internal" href="../../../libraries
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../../../',
-            VERSION:'5u19',
+            VERSION:'5u20',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

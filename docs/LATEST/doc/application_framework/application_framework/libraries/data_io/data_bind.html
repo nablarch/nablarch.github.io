@@ -9,7 +9,7 @@
   <meta http-equiv='content-language' content='ja'>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>7.4.1. データバインド &mdash; ∇Nablarch  5u19 ドキュメント</title>
+  <title>7.4.1. データバインド &mdash; ∇Nablarch  5u20 ドキュメント</title>
   
 
   
@@ -35,7 +35,7 @@
   
   <link rel="canonical" href="https://nablarch.github.io/docs/LATEST/doc/application_framework/application_framework/libraries/data_io/data_bind.html" />
   
-    <link rel="top" title="∇Nablarch  5u19 ドキュメント" href="../../../../index.html"/>
+    <link rel="top" title="∇Nablarch  5u20 ドキュメント" href="../../../../index.html"/>
         <link rel="up" title="7.4. 様々なフォーマットのデータへのアクセス" href="../data_converter.html"/>
         <link rel="next" title="7.4.2. 汎用データフォーマット" href="data_format.html"/>
         <link rel="prev" title="7.4. 様々なフォーマットのデータへのアクセス" href="../data_converter.html"/>
@@ -61,7 +61,7 @@
   
 
   
-    <div id="sidebar-version">Version: 5u19</div>
+    <div id="sidebar-version">Version: 5u20</div>
   </a>
 
   <div role="search">
@@ -280,6 +280,11 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../nablarch_api/index.html">Nablarch API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../releases/index.html">リリース情報</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../inquiry/index.html">機能追加要望・改善要望</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../inquiry/index.html#id2">JIRAへの課題起票方法</a></li>
+</ul>
+</li>
 </ul>
 
   
@@ -690,7 +695,8 @@ Java Beansクラスに定義されたアノテーションをもとにデータ�
         <span class="n">ignoreEmptyLine</span> <span class="o">=</span> <span class="kc">false</span><span class="o">,</span>
         <span class="n">requiredHeader</span> <span class="o">=</span> <span class="kc">false</span><span class="o">,</span>
         <span class="n">charset</span> <span class="o">=</span> <span class="s">&quot;UTF-8&quot;</span><span class="o">,</span>
-        <span class="n">quoteMode</span> <span class="o">=</span> <span class="n">CsvDataBindConfig</span><span class="o">.</span><span class="na">QuoteMode</span><span class="o">.</span><span class="na">ALL</span><span class="o">)</span>
+        <span class="n">quoteMode</span> <span class="o">=</span> <span class="n">CsvDataBindConfig</span><span class="o">.</span><span class="na">QuoteMode</span><span class="o">.</span><span class="na">ALL</span><span class="o">,</span>
+        <span class="n">emptyToNull</span> <span class="o">=</span> <span class="kc">true</span><span class="o">)</span>
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">Person</span> <span class="o">{</span>
     <span class="kd">private</span> <span class="n">Integer</span> <span class="n">age</span><span class="o">;</span>
     <span class="kd">private</span> <span class="n">String</span> <span class="n">name</span><span class="o">;</span>
@@ -1142,7 +1148,7 @@ Java Beansクラスにバインドする場合とMapクラスにバインドす�
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../../',
-            VERSION:'5u19',
+            VERSION:'5u20',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

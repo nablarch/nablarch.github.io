@@ -9,7 +9,7 @@
   <meta http-equiv='content-language' content='ja'>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>8.6.1. 使用するRDBMSの変更手順 &mdash; ∇Nablarch  5u19 ドキュメント</title>
+  <title>8.6.1. 使用するRDBMSの変更手順 &mdash; ∇Nablarch  5u20 ドキュメント</title>
   
 
   
@@ -35,7 +35,7 @@
   
   <link rel="canonical" href="https://nablarch.github.io/docs/LATEST/doc/application_framework/application_framework/blank_project/CustomizeDB.html" />
   
-    <link rel="top" title="∇Nablarch  5u19 ドキュメント" href="../../../index.html"/>
+    <link rel="top" title="∇Nablarch  5u20 ドキュメント" href="../../../index.html"/>
         <link rel="up" title="8.6. 初期セットアップ後に必要となる設定変更" href="ModifySettings.html"/>
         <link rel="next" title="8.6.2. gsp-dba-maven-plugin(DBA作業支援ツール)の初期設定方法" href="addin_gsp.html"/>
         <link rel="prev" title="8.6. 初期セットアップ後に必要となる設定変更" href="ModifySettings.html"/>
@@ -61,7 +61,7 @@
   
 
   
-    <div id="sidebar-version">Version: 5u19</div>
+    <div id="sidebar-version">Version: 5u20</div>
   </a>
 
   <div role="search">
@@ -280,6 +280,11 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../../nablarch_api/index.html">Nablarch API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../releases/index.html">リリース情報</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../inquiry/index.html">機能追加要望・改善要望</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../inquiry/index.html#id2">JIRAへの課題起票方法</a></li>
+</ul>
+</li>
 </ul>
 
   
@@ -551,6 +556,7 @@ jndiResourceName</td>
 <li>Nablarchバッチ</li>
 <li>コンテナ版ウェブ</li>
 <li>コンテナ版RESTfulウェブサービス</li>
+<li>コンテナ版Nablarchバッチ</li>
 </ul>
 </td>
 <td>なし</td>
@@ -593,6 +599,7 @@ jndiResourceName</td>
 <tr class="row-even"><td><ul class="first last simple">
 <li>コンテナ版ウェブ</li>
 <li>コンテナ版RESTfulウェブサービス</li>
+<li>コンテナ版Nablarchバッチ</li>
 </ul>
 </td>
 <td><ul class="first last simple">
@@ -950,6 +957,7 @@ SET SCHEMA sample;
 <li><a class="reference internal" href="setup_blankProject/setup_NablarchBatch.html#firststepbatchstartuptest"><span>Nablarchバッチの疎通確認</span></a></li>
 <li><a class="reference internal" href="setup_containerBlankProject/setup_ContainerWeb.html#firststepcontainerwebstartuptest"><span>コンテナ用ウェブの疎通確認</span></a></li>
 <li><a class="reference internal" href="setup_containerBlankProject/setup_ContainerWebService.html#firststepcontainerwebservicestartuptest"><span>コンテナ用RESTfulウェブサービスの疎通確認</span></a></li>
+<li><a class="reference internal" href="setup_containerBlankProject/setup_ContainerBatch.html#firststepcontainerbatchstartuptest"><span>コンテナ用Nablarchバッチの疎通確認</span></a></li>
 </ul>
 </div>
 </div>
@@ -987,7 +995,7 @@ SET SCHEMA sample;
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../',
-            VERSION:'5u19',
+            VERSION:'5u20',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

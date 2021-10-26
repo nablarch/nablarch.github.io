@@ -9,7 +9,7 @@
   <meta http-equiv='content-language' content='ja'>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>11.1. Docker Containerization &mdash; ∇Nablarch  5u19 documentation</title>
+  <title>11.1. Docker Containerization &mdash; ∇Nablarch  5u20 documentation</title>
   
 
   
@@ -35,7 +35,7 @@
   
   <link rel="canonical" href="https://nablarch.github.io/docs/LATEST/doc/application_framework/application_framework/cloud_native/containerize/index.html" />
   
-    <link rel="top" title="∇Nablarch  5u19 documentation" href="../../../../index.html"/>
+    <link rel="top" title="∇Nablarch  5u20 documentation" href="../../../../index.html"/>
         <link rel="up" title="11. Nablarch Cloud Native Support" href="../index.html"/>
         <link rel="next" title="11.2. Distributed Tracing" href="../distributed_tracing/index.html"/>
         <link rel="prev" title="11. Nablarch Cloud Native Support" href="../index.html"/>
@@ -61,7 +61,7 @@
   
 
   
-    <div id="sidebar-version">Version: 5u19</div>
+    <div id="sidebar-version">Version: 5u20</div>
   </a>
 
   <div role="search">
@@ -308,8 +308,9 @@
 <li><a class="reference internal" href="#the-twelve-factor-app" id="id4">The Twelve-Factor App</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#modifications-required-for-nablarch-applications" id="id5">Modifications required for Nablarch applications</a></li>
-<li><a class="reference internal" href="#archetype-for-container" id="id6">Archetype for container</a></li>
+<li><a class="reference internal" href="#modifications-required-for-nablarch-web-applications" id="id5">Modifications required for Nablarch web applications</a></li>
+<li><a class="reference internal" href="#modifications-required-for-nablarch-batch-applications" id="id6">Modifications required for Nablarch batch applications</a></li>
+<li><a class="reference internal" href="#archetype-for-container" id="id7">Archetype for container</a></li>
 </ul>
 </div>
 <p>This chapter describes how to turn an application created with Nablarch into a Docker container image in a cloud-native manner.</p>
@@ -329,16 +330,16 @@ For example, it is necessary to keep the application stateless in order to have 
 <p>The modifications of the Nablarch application needed for containerization described in this chapter are based on the method described in this <a class="reference external" href="https://12factor.net/">The Twelve-Factor App</a> (external site).</p>
 </div>
 </div>
-<div class="section" id="modifications-required-for-nablarch-applications">
-<span id="modify-nablarch-app-for-cloud-native"></span><h2><a class="toc-backref" href="#id5">11.1.2. Modifications required for Nablarch applications</a><a class="headerlink" href="#modifications-required-for-nablarch-applications" title="Permalink to this headline">¶</a></h2>
-<p>If building a Nablarch application using <a class="reference internal" href="../../blank_project/setup_blankProject/setup_Web.html#firststepgeneratewebblankproject"><span>the standard web application blank project</span></a> ,
+<div class="section" id="modifications-required-for-nablarch-web-applications">
+<span id="modify-nablarch-app-for-cloud-native"></span><h2><a class="toc-backref" href="#id5">11.1.2. Modifications required for Nablarch web applications</a><a class="headerlink" href="#modifications-required-for-nablarch-web-applications" title="Permalink to this headline">¶</a></h2>
+<p>If building a Nablarch web application using <a class="reference internal" href="../../blank_project/setup_blankProject/setup_Web.html#firststepgeneratewebblankproject"><span>the standard web application blank project</span></a> ,
 the following points are in violation of <a class="reference external" href="https://12factor.net/">The Twelve-Factor App</a> (external site).</p>
 <dl class="docutils">
 <dt>Stateless</dt>
 <dd><p class="first">The <a class="reference external" href="https://12factor.net/processes">VI. Processes</a> (external site) is said that the application must be stateless.
 That is, an individual application must not hold state.</p>
 <p>The standard blank project violates this policy because state management using HTTP sessions is enabled.</p>
-<p class="last">See <a class="reference internal" href="../../libraries/stateless_web_app.html#stateless-web-app"><span>Making Web Applications Stateless</span></a> for configuration to make a Nablarch application stateless.</p>
+<p class="last">See <a class="reference internal" href="../../libraries/stateless_web_app.html#stateless-web-app"><span>Making Web Applications Stateless</span></a> for configuration to make a Nablarch web application stateless.</p>
 </dd>
 <dt>Log output</dt>
 <dd><p class="first">The <a class="reference external" href="https://12factor.net/logs">XI. Logs</a> (external site) is said that all application logs should be written to standard output and not output to a file.</p>
@@ -353,10 +354,22 @@ which are switched for each environment, should be configured from environment v
 </dd>
 </dl>
 </div>
+<div class="section" id="modifications-required-for-nablarch-batch-applications">
+<span id="modify-nablarch-batch-for-cloud-native"></span><h2><a class="toc-backref" href="#id6">11.1.3. Modifications required for Nablarch batch applications</a><a class="headerlink" href="#modifications-required-for-nablarch-batch-applications" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://12factor.net/">The Twelve-Factor App</a> (external site) is a methodology for developing SaaS applications, but many of its factor can also be applied when developing batch applications suitable for cloud environments.</p>
+<p>If building a Nablarch batch application using <a class="reference internal" href="../../blank_project/setup_blankProject/setup_NablarchBatch.html#firststepgeneratebatchblankproject"><span>the standard Nablarch batch application blank project</span></a> ,
+the points that need to be modified are as follows.</p>
+<dl class="docutils">
+<dt>Log output</dt>
+<dd>(Omitted as it is identical to the Nablarch web application)</dd>
+<dt>Configuration using environment variables</dt>
+<dd>(Omitted as it is identical to the Nablarch web application)</dd>
+</dl>
+</div>
 <div class="section" id="archetype-for-container">
-<span id="nablarch-container-archetype"></span><h2><a class="toc-backref" href="#id6">11.1.3. Archetype for container</a><a class="headerlink" href="#archetype-for-container" title="Permalink to this headline">¶</a></h2>
-<p>Nablarch provides an archetype for web applications that are designed to run on Docker containers.</p>
-<p>Blank projects generated using this archetype have the modifications described in <a class="reference internal" href="#modify-nablarch-app-for-cloud-native"><span>Modifications required for Nablarch applications</span></a> applied in advance.
+<span id="nablarch-container-archetype"></span><h2><a class="toc-backref" href="#id7">11.1.4. Archetype for container</a><a class="headerlink" href="#archetype-for-container" title="Permalink to this headline">¶</a></h2>
+<p>Nablarch provides archetypes for web and batch applications that are designed to run on Docker containers.</p>
+<p>Blank projects generated using this archetype have the modifications described in such as <a class="reference internal" href="#modify-nablarch-app-for-cloud-native"><span>Modifications required for Nablarch web applications</span></a> and <a class="reference internal" href="#modify-nablarch-batch-for-cloud-native"><span>Modifications required for Nablarch batch applications</span></a> applied in advance.
 Also, a Maven plugin called <a class="reference external" href="https://github.com/GoogleContainerTools/jib/tree/master/jib-maven-plugin">Jib</a> (external site) is built in for easy generation of Docker containers, so developers can start developing Nablarch applications for Docker containers soon.</p>
 <div class="admonition tip">
 <p class="first admonition-title">Tip</p>
@@ -415,7 +428,7 @@ The description of the configuration is abstracted for Java applications and all
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../../',
-            VERSION:'5u19',
+            VERSION:'5u20',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

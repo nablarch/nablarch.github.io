@@ -9,7 +9,7 @@
   <meta http-equiv='content-language' content='ja'>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>11.1. Dockerコンテナ化 &mdash; ∇Nablarch  5u19 ドキュメント</title>
+  <title>11.1. Dockerコンテナ化 &mdash; ∇Nablarch  5u20 ドキュメント</title>
   
 
   
@@ -35,7 +35,7 @@
   
   <link rel="canonical" href="https://nablarch.github.io/docs/LATEST/doc/application_framework/application_framework/cloud_native/containerize/index.html" />
   
-    <link rel="top" title="∇Nablarch  5u19 ドキュメント" href="../../../../index.html"/>
+    <link rel="top" title="∇Nablarch  5u20 ドキュメント" href="../../../../index.html"/>
         <link rel="up" title="11. Nablarchクラウドネイティブ対応" href="../index.html"/>
         <link rel="next" title="11.2. 分散トレーシング" href="../distributed_tracing/index.html"/>
         <link rel="prev" title="11. Nablarchクラウドネイティブ対応" href="../index.html"/>
@@ -61,7 +61,7 @@
   
 
   
-    <div id="sidebar-version">Version: 5u19</div>
+    <div id="sidebar-version">Version: 5u20</div>
   </a>
 
   <div role="search">
@@ -280,6 +280,11 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../nablarch_api/index.html">Nablarch API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../releases/index.html">リリース情報</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../inquiry/index.html">機能追加要望・改善要望</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../inquiry/index.html#id2">JIRAへの課題起票方法</a></li>
+</ul>
+</li>
 </ul>
 
   
@@ -336,41 +341,42 @@
 <div class="contents local topic" id="id1">
 <p class="topic-title first">目次</p>
 <ul class="simple">
-<li><a class="reference internal" href="#requirement-for-cloud-native" id="id6">クラウド環境に適したシステムに必要なこと</a><ul>
-<li><a class="reference internal" href="#id3" id="id7">クラウドネイティブ</a></li>
-<li><a class="reference internal" href="#the-twelve-factor-app" id="id8">The Twelve-Factor App</a></li>
+<li><a class="reference internal" href="#requirement-for-cloud-native" id="id7">クラウド環境に適したシステムに必要なこと</a><ul>
+<li><a class="reference internal" href="#id3" id="id8">クラウドネイティブ</a></li>
+<li><a class="reference internal" href="#the-twelve-factor-app" id="id9">The Twelve-Factor App</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#nablarch" id="id9">Nablarchアプリケーションに必要な修正</a></li>
-<li><a class="reference internal" href="#nablarch-container-archetype" id="id10">コンテナ用のアーキタイプ</a></li>
+<li><a class="reference internal" href="#nablarch" id="id10">Nablarchウェブアプリケーションに必要な修正</a></li>
+<li><a class="reference internal" href="#modify-nablarch-batch-for-cloud-native" id="id11">Nablarchバッチアプリケーションに必要な修正</a></li>
+<li><a class="reference internal" href="#nablarch-container-archetype" id="id12">コンテナ用のアーキタイプ</a></li>
 </ul>
 </div>
 <p>本章では、Nablarchで作ったアプリケーションを、クラウドネイティブを意識した形でDockerコンテナイメージにする方法について説明する。</p>
 <p>まず、コンテナ化するためには従来のNablarchアプリケーションに対して、どのような修正を入れなければならないのかについて説明する。
 そして、あらかじめコンテナ化のための設定を組み込んだブランクプロジェクトを作成する、専用のアーキタイプについて説明する。</p>
 <div class="section" id="requirement-for-cloud-native">
-<span id="id2"></span><h2><a class="toc-backref" href="#id6">11.1.1. クラウド環境に適したシステムに必要なこと</a><a class="headerlink" href="#requirement-for-cloud-native" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<span id="id2"></span><h2><a class="toc-backref" href="#id7">11.1.1. クラウド環境に適したシステムに必要なこと</a><a class="headerlink" href="#requirement-for-cloud-native" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <div class="section" id="id3">
-<h3><a class="toc-backref" href="#id7">11.1.1.1. クラウドネイティブ</a><a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3><a class="toc-backref" href="#id8">11.1.1.1. クラウドネイティブ</a><a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p><strong>クラウドネイティブ</strong> とは、はじめからAWSなどのクラウド環境で動かすことを前提とし、クラウド環境に最適化して開発されたシステムのことを指す。</p>
 <p>クラウド環境に適したシステムには、オンプレミス環境で動かすような従来のシステムとは異なる設計が必要となる。
 例えば、スケーラビリティを持たせるためにアプリケーションが状態を持たないようにするといった対応が必要になる。</p>
 </div>
 <div class="section" id="the-twelve-factor-app">
-<h3><a class="toc-backref" href="#id8">11.1.1.2. The Twelve-Factor App</a><a class="headerlink" href="#the-twelve-factor-app" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3><a class="toc-backref" href="#id9">11.1.1.2. The Twelve-Factor App</a><a class="headerlink" href="#the-twelve-factor-app" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p><a class="reference external" href="https://12factor.net/ja/">The Twelve-Factor App</a> (外部サイト)とは、 <a class="reference external" href="https://jp.heroku.com/">Heroku</a> (外部サイト、英語)のエンジニアが提唱したシステム開発の方法論で、クラウド環境に適したシステムを開発するときに考慮すべきことを12の要素（Twelve-Factor）にまとめたものになる。</p>
 <p>本章で説明するコンテナ化のために必要となるNablarchアプリケーションの修正内容は、この <a class="reference external" href="https://12factor.net/ja/">The Twelve-Factor App</a> (外部サイト)で説明されている方法をもとにしている。</p>
 </div>
 </div>
 <div class="section" id="nablarch">
-<span id="modify-nablarch-app-for-cloud-native"></span><h2><a class="toc-backref" href="#id9">11.1.2. Nablarchアプリケーションに必要な修正</a><a class="headerlink" href="#nablarch" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p><a class="reference internal" href="../../blank_project/setup_blankProject/setup_Web.html#firststepgeneratewebblankproject"><span>標準のウェブアプリケーションのブランクプロジェクト</span></a> を使ってNablarchアプリケーションを構築した場合、以下の点が <a class="reference external" href="https://12factor.net/ja/">The Twelve-Factor App</a> (外部サイト)に反した状態になっている。</p>
+<span id="modify-nablarch-app-for-cloud-native"></span><h2><a class="toc-backref" href="#id10">11.1.2. Nablarchウェブアプリケーションに必要な修正</a><a class="headerlink" href="#nablarch" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><a class="reference internal" href="../../blank_project/setup_blankProject/setup_Web.html#firststepgeneratewebblankproject"><span>標準のウェブアプリケーションのブランクプロジェクト</span></a> を使ってNablarchウェブアプリケーションを構築した場合、以下の点が <a class="reference external" href="https://12factor.net/ja/">The Twelve-Factor App</a> (外部サイト)に反した状態になっている。</p>
 <dl class="docutils">
 <dt>ステートレス</dt>
 <dd><p class="first"><a class="reference external" href="https://12factor.net/ja/processes">VI. プロセス</a> (外部サイト)では、アプリケーションはステートレスでなければならないとされている。
 つまり、個々のアプリケーションは状態を保持してはいけない、ということになる。</p>
 <p>標準のブランクプロジェクトでは、HTTPセッションを使った状態管理が有効となっているため、この方針に反している。</p>
-<p class="last">Nablarchアプリケーションをステートレスにするための設定については、 <a class="reference internal" href="../../libraries/stateless_web_app.html#stateless-web-app"><span>Webアプリケーションをステートレスにする</span></a> を参照。</p>
+<p class="last">Nablarchウェブアプリケーションをステートレスにするための設定については、 <a class="reference internal" href="../../libraries/stateless_web_app.html#stateless-web-app"><span>Webアプリケーションをステートレスにする</span></a> を参照。</p>
 </dd>
 <dt>ログ出力</dt>
 <dd><p class="first"><a class="reference external" href="https://12factor.net/ja/logs">XI. ログ</a> (外部サイト)では、アプリケーションのログはすべて標準出力に書き出し、ファイルには出力すべきでないとされている。</p>
@@ -384,10 +390,21 @@
 </dd>
 </dl>
 </div>
+<div class="section" id="modify-nablarch-batch-for-cloud-native">
+<span id="id4"></span><h2><a class="toc-backref" href="#id11">11.1.3. Nablarchバッチアプリケーションに必要な修正</a><a class="headerlink" href="#modify-nablarch-batch-for-cloud-native" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><a class="reference external" href="https://12factor.net/ja/">The Twelve-Factor App</a> (外部サイト)はSaaSアプリケーションを開発するための方法論であるが、その要素の多くは、クラウド環境に適したバッチアプリケーションを開発するときにおいても適用できる。</p>
+<p><a class="reference internal" href="../../blank_project/setup_blankProject/setup_NablarchBatch.html#firststepgeneratebatchblankproject"><span>標準のバッチアプリケーションのブランクプロジェクト</span></a> を使ってNablarchバッチアプリケーションを構築した場合に修正が必要な点は、以下の通りである。</p>
+<dl class="docutils">
+<dt>ログ出力</dt>
+<dd>(Nablarchウェブアプリケーションのものと同じなので記述省略)</dd>
+<dt>環境変数を使った設定</dt>
+<dd>(Nablarchウェブアプリケーションのものと同じなので記述省略)</dd>
+</dl>
+</div>
 <div class="section" id="nablarch-container-archetype">
-<span id="id4"></span><h2><a class="toc-backref" href="#id10">11.1.3. コンテナ用のアーキタイプ</a><a class="headerlink" href="#nablarch-container-archetype" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>Nablarchでは、Dockerコンテナ上で動かすことを前提としたウェブアプリケーションのアーキタイプを用意している。</p>
-<p>このアーキタイプを使って生成されるブランクプロジェクトには、 <a class="reference internal" href="#modify-nablarch-app-for-cloud-native"><span>Nablarchアプリケーションに必要な修正</span></a> で説明した修正があらかじめ適用されている。
+<span id="id5"></span><h2><a class="toc-backref" href="#id12">11.1.4. コンテナ用のアーキタイプ</a><a class="headerlink" href="#nablarch-container-archetype" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>Nablarchでは、Dockerコンテナ上で動かすことを前提としたウェブアプリケーションとバッチアプリケーションのアーキタイプを用意している。</p>
+<p>このアーキタイプを使って生成されるブランクプロジェクトには、 <a class="reference internal" href="#modify-nablarch-app-for-cloud-native"><span>Nablarchウェブアプリケーションに必要な修正</span></a> や <a class="reference internal" href="#modify-nablarch-batch-for-cloud-native"><span>Nablarchバッチアプリケーションに必要な修正</span></a> で説明した修正があらかじめ適用されている。
 また、 <a class="reference external" href="https://github.com/GoogleContainerTools/jib/tree/master/jib-maven-plugin">Jib</a> (外部サイト、英語)というDockerコンテナを簡単に生成するためのMavenプラグインが組み込まれているため、開発者はすぐにDockerコンテナ用のNablarchアプリケーションの開発を始めることができる。</p>
 <div class="admonition tip">
 <p class="first admonition-title">補足</p>
@@ -446,7 +463,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../../',
-            VERSION:'5u19',
+            VERSION:'5u20',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

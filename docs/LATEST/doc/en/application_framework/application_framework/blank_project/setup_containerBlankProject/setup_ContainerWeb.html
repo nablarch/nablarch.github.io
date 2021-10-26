@@ -9,7 +9,7 @@
   <meta http-equiv='content-language' content='ja'>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>8.4.1. Initial Setup of Web Project for Container &mdash; ∇Nablarch  5u19 documentation</title>
+  <title>8.4.1. Initial Setup of Web Project for Container &mdash; ∇Nablarch  5u20 documentation</title>
   
 
   
@@ -35,7 +35,7 @@
   
   <link rel="canonical" href="https://nablarch.github.io/docs/LATEST/doc/application_framework/application_framework/blank_project/setup_containerBlankProject/setup_ContainerWeb.html" />
   
-    <link rel="top" title="∇Nablarch  5u19 documentation" href="../../../../index.html"/>
+    <link rel="top" title="∇Nablarch  5u20 documentation" href="../../../../index.html"/>
         <link rel="up" title="8.4. Initial Setup Procedure(container)" href="../FirstStepContainer.html"/>
         <link rel="next" title="8.4.2. Initial Setup of RESTful Web Service Project for Container" href="setup_ContainerWebService.html"/>
         <link rel="prev" title="8.4. Initial Setup Procedure(container)" href="../FirstStepContainer.html"/>
@@ -61,7 +61,7 @@
   
 
   
-    <div id="sidebar-version">Version: 5u19</div>
+    <div id="sidebar-version">Version: 5u20</div>
   </a>
 
   <div role="search">
@@ -357,9 +357,9 @@
 <p>Change the current directory to the directory where the blank project (can be any directory) is to be created, and place the following file.</p>
 <p><a class="reference download internal" href="../../../../_downloads/generateContainerWebProject.bat" download=""><code class="xref download docutils literal"><span class="pre">Batch</span> <span class="pre">file</span></code></a></p>
 <p>After placing the file, specify the necessary parameters in the arguments and execute the bat file.</p>
-<p>generateContainerWebProject.bat 5u19 &lt;&lt;groupId&gt;&gt; &lt;&lt;artifactId&gt;&gt; &lt;&lt;version&gt;&gt; &lt;&lt;package(optional)&gt;&gt;</p>
+<p>generateContainerWebProject.bat 5u20 &lt;&lt;groupId&gt;&gt; &lt;&lt;artifactId&gt;&gt; &lt;&lt;version&gt;&gt; &lt;&lt;package(optional)&gt;&gt;</p>
 <p>The parameters to be set in the above command are as follows.
-If you want to change the version of nablarch, change 5u19 .</p>
+If you want to change the version of nablarch, change 5u20 .</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="13%" />
@@ -442,14 +442,14 @@ myapp-container-web     latest      dd60cbdc7722   50 years ago   449MB
 <li><code class="docutils literal"><span class="pre">${project.artifactId}:${project.version}</span></code></li>
 </ul>
 <p><a class="reference external" href="https://hub.docker.com/_/tomcat">Tomcat image</a> (External sites) is used as base image by default.</p>
-<p>The base image is specified in <code class="docutils literal"><span class="pre">pom.xml</span></code> in <code class="docutils literal"><span class="pre">nablarch-archetype-parent</span></code> but can be changed with the <code class="docutils literal"><span class="pre">jib.from.image</span></code> property.
+<p>The base image can be changed with the <code class="docutils literal"><span class="pre">jib.from.image</span></code> property.
 For example, if you want to use <code class="docutils literal"><span class="pre">tomcat:9.0.31-jdk11-adoptopenjdk-hotspot</span></code> for your base image, you would write it in <code class="docutils literal"><span class="pre">pom.xml</span></code> .</p>
 <div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;project&gt;</span>
   <span class="cp">&lt;! -- Omitted ...--&gt;</span>
   <span class="nt">&lt;properties&gt;</span>
     <span class="cp">&lt;! -- Omitted ...--&gt;</span>
-    <span class="c">&lt;!-- tomcat:9.0.31-jdk11-adoptopenjdk-hotspot --&gt;</span>
-    <span class="nt">&lt;jib.from.image&gt;</span>tomcat@sha256:e1f3ec646689c558bdd1a8b7045c5eed7c0ca9dbe664a82ba47d1591e3c5faf0<span class="nt">&lt;/jib.from.image&gt;</span>
+    <span class="nt">&lt;jib.from.image&gt;</span>tomcat:9.0.36-jdk11-adoptopenjdk-hotspot<span class="nt">&lt;/jib.from.image&gt;</span>
+    <span class="cp">&lt;! -- Omitted ...--&gt;</span>
   <span class="nt">&lt;/properties&gt;</span>
   <span class="cp">&lt;! -- Omitted ...--&gt;</span>
 <span class="nt">&lt;/project&gt;</span>
@@ -457,8 +457,15 @@ For example, if you want to use <code class="docutils literal"><span class="pre"
 </div>
 <div class="admonition tip">
 <p class="first admonition-title">Tip</p>
-<p class="last">Docker image tags are not immutable and may be updated.
-Therefore, it is recommended to use a digest to specify the base image.</p>
+<blockquote>
+<div><p>In the blank project, the base image is specified with a Docker image tag. In this case, the latest version of the specified image will be selected.
+If a different version is selected than at the time of verification, it may affect the operation of the application.
+Therefore, it is recommended to specify the base image as a digest in order to specify exactly which version, after the test is completed.</p>
+<p>An example of setting by digest is shown below.</p>
+</div></blockquote>
+<div class="last highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;jib.from.image&gt;</span>tomcat@sha256:7d59567f61e79f5dc1226a3ee26b4a4c2befc5cae182f7e0823199cf5885409b<span class="nt">&lt;/jib.from.image&gt;</span>
+</pre></div>
+</div>
 </div>
 </div>
 <div class="section" id="run-a-container-image">
@@ -531,7 +538,7 @@ Thus, if you are using the Docker Toolbox, you must specify the volume as <code 
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../../',
-            VERSION:'5u19',
+            VERSION:'5u20',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,
