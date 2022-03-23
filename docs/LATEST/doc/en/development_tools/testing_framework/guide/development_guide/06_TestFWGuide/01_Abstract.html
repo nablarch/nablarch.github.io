@@ -9,7 +9,7 @@
   <meta http-equiv='content-language' content='ja'>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>3.2.1. Automated Testing Framework &mdash; ∇Nablarch  5u20 documentation</title>
+  <title>3.2.1. Automated Testing Framework &mdash; ∇Nablarch  5u21 documentation</title>
   
 
   
@@ -35,7 +35,7 @@
   
   <link rel="canonical" href="https://nablarch.github.io/docs/LATEST/doc/development_tools/testing_framework/guide/development_guide/06_TestFWGuide/01_Abstract.html" />
   
-    <link rel="top" title="∇Nablarch  5u20 documentation" href="../../../../../index.html"/>
+    <link rel="top" title="∇Nablarch  5u21 documentation" href="../../../../../index.html"/>
         <link rel="up" title="3.2. How to Use the Automated Test Framework" href="index.html"/>
         <link rel="next" title="3.2.2. Testing a Class that Uses the Database" href="02_DbAccessTest.html"/>
         <link rel="prev" title="3.2. How to Use the Automated Test Framework" href="index.html"/>
@@ -61,7 +61,7 @@
   
 
   
-    <div id="sidebar-version">Version: 5u20</div>
+    <div id="sidebar-version">Version: 5u21</div>
   </a>
 
   <div role="search">
@@ -125,6 +125,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../../../application_framework/example/index.html">Example</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../../../application_framework/example/index.html#procedure-to-build-the-environment">Procedure to build the environment</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../../application_framework/example/index.html#application-execution-procedure">Application execution procedure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../application_framework/example/index.html#running-on-java-11-or-higher">Running on Java 11 or higher</a></li>
 </ul>
 </li>
 </ul>
@@ -247,6 +248,18 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../nablarch_api/index.html">Nablarch API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../about_nablarch/versionup_policy.html">Nablarch upgrade policy</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../about_nablarch/versionup_policy.html#release-unit">Release unit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../about_nablarch/versionup_policy.html#types-of-upgrades">Types of upgrades</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../about_nablarch/versionup_policy.html#version-numbering-system">Version numbering system</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../about_nablarch/versionup_policy.html#backward-compatibility-policy">Backward compatibility policy</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../about_nablarch/versionup_policy.html#extent-to-which-backward-compatibility-is-maintained">Extent to which backward compatibility is maintained</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../about_nablarch/versionup_policy.html#contents-of-backward-compatibility-maintenance">Contents of backward compatibility maintenance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../about_nablarch/versionup_policy.html#backward-compatibility-exception">Backward compatibility exception</a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 
   
@@ -306,6 +319,10 @@
 <h3>3.2.1.1.1. Junit4 base<a class="headerlink" href="#junit4-base" title="Permalink to this headline">¶</a></h3>
 <p>The automated testing framework is based on JUnit4.
 The framework uses the functions provided in JUnit 4, such as various annotations, the assert method, and the Matcher class.</p>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p class="last">If you want to run the automated testing framework with JUnit 5, see <a class="reference internal" href="#run-ntf-on-junit5-with-vintage-engine"><span>Running The Automated Testing Framework with JUnit 5</span></a>.</p>
+</div>
 </div>
 <div class="section" id="externalization-of-test-data">
 <h3>3.2.1.1.2. Externalization of test data<a class="headerlink" href="#externalization-of-test-data" title="Permalink to this headline">¶</a></h3>
@@ -698,8 +715,78 @@ The format of all cells should be configured to String before test data is creat
 </div>
 </div>
 </div>
+<div class="section" id="how-to-write-a-date">
+<h3>3.2.1.4.6. How to write a date<a class="headerlink" href="#how-to-write-a-date" title="Permalink to this headline">¶</a></h3>
+<p>The dates can be written in the following format.</p>
+<ul class="simple">
+<li>yyyyMMddHHmmssSSS</li>
+<li>yyyy-MM-dd HH:mm:ss.SSS</li>
+</ul>
+<p>The millisecond or all of the time can be omitted as follows.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="31%" />
+<col width="69%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">How to omit</th>
+<th class="head">Behavior when omitted</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><div class="first last line-block">
+<div class="line">Omit millisecond</div>
+<div class="line">・yyyMMddHHmmss</div>
+<div class="line">・yyy-MM-dd HH:mm:ss</div>
+</div>
+</td>
+<td>It is treated as if 0 is specified as millisecond.</td>
+</tr>
+<tr class="row-odd"><td><div class="first last line-block">
+<div class="line">Omit all of time</div>
+<div class="line">・yyyMMdd</div>
+<div class="line">・yyy-MM-dd</div>
+</div>
+</td>
+<td>It is treated as if 00:00:00.000 is specified as the time.</td>
+</tr>
+</tbody>
+</table>
+<p>An example is shown below.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="43%" />
+<col width="57%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Description example</th>
+<th class="head">Evaluation Results</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>20210123123456789</td>
+<td>2021/1/23 12:34:56.789</td>
+</tr>
+<tr class="row-odd"><td>20210123123456</td>
+<td>2021/1/23 12:34:56.000</td>
+</tr>
+<tr class="row-even"><td>20210123</td>
+<td>2021/1/23 00:00:00.000</td>
+</tr>
+<tr class="row-odd"><td>2021-01-23 12:34:56.789</td>
+<td>2021/1/23 12:34:56.789</td>
+</tr>
+<tr class="row-even"><td>2021-01-23 12:34:56</td>
+<td>2021/1/23 12:34:56.000</td>
+</tr>
+<tr class="row-odd"><td>2021-01-23</td>
+<td>2021/1/23 00:00:00.000</td>
+</tr>
+</tbody>
+</table>
+</div>
 <div class="section" id="special-ways-to-write-in-a-cell">
-<span id="special-notation-in-cell"></span><h3>3.2.1.4.6. Special ways to write in a cell<a class="headerlink" href="#special-ways-to-write-in-a-cell" title="Permalink to this headline">¶</a></h3>
+<span id="special-notation-in-cell"></span><h3>3.2.1.4.7. Special ways to write in a cell<a class="headerlink" href="#special-ways-to-write-in-a-cell" title="Permalink to this headline">¶</a></h3>
 <p>A number of special notations are provided to improve the convenience of automated testing.
 The following table is written with a special method of writing provided in this framework.</p>
 <table border="1" class="docutils">
@@ -998,6 +1085,77 @@ EXPECTED_COMPLETE_TABLE=TABLE4
 </div>
 </div>
 </div>
+<div class="section" id="running-the-automated-testing-framework-with-junit-5">
+<span id="run-ntf-on-junit5-with-vintage-engine"></span><h2>3.2.1.6. Running The Automated Testing Framework with JUnit 5<a class="headerlink" href="#running-the-automated-testing-framework-with-junit-5" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="junit-vintage">
+<h3>3.2.1.6.1. JUnit Vintage<a class="headerlink" href="#junit-vintage" title="Permalink to this headline">¶</a></h3>
+<p>JUnit 5 has a project called JUnit Vintage.
+This project provides the feature to run tests written in JUnit 4 with JUnit 5.
+By using this feature, you can run the automated testing framework with JUnit 5.</p>
+<div class="admonition important">
+<p class="first admonition-title">Important</p>
+<p>This feature is just running JUnit 4 tests as JUnit 4.
+Therefore, even though you use this feature, you can not use the features of JUnit 5 in tests of JUnit 4.</p>
+<p class="last">This feature can be used to assist in the gradual migration from JUnit 4 to JUnit 5.
+For instructions on migrating from JUnit 4 to JUnit 5, please refer to <a class="reference external" href="https://junit.org/junit5/docs/5.8.2/user-guide/#migrating-from-junit4">the official guide (external site)</a>.</p>
+</div>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p class="last">See <a class="reference internal" href="JUnit5_Extension.html#ntf-junit5-extension"><span>Extensions for JUnit 5</span></a> for information on how to use the automated testing framework with JUnit 5 tests.</p>
+</div>
+<p>In the following, we will explain how to use JUnit Vintage to run the automated testing framework with JUnit 5.</p>
+</div>
+<div class="section" id="prerequisite">
+<h3>3.2.1.6.2. Prerequisite<a class="headerlink" href="#prerequisite" title="Permalink to this headline">¶</a></h3>
+<p>In order to use JUnit 5, the following conditions must be met.</p>
+<ul class="simple">
+<li>Java 8 or higher</li>
+<li>maven-surefire-plugin must be 2.22.0 or higher</li>
+</ul>
+</div>
+<div class="section" id="add-dependencies">
+<h3>3.2.1.6.3. Add dependencies<a class="headerlink" href="#add-dependencies" title="Permalink to this headline">¶</a></h3>
+<p>JUnit Vintage can be enabled by adding the following two artifacts to the dependencies in pom.xml.</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">org.junit.jupiter:junit-jupiter</span></code></li>
+<li><code class="docutils literal"><span class="pre">org.junit.vintage:junit-vintage-engine</span></code></li>
+</ul>
+<p>An example of pom.xml is given below.</p>
+<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;dependencyManagement&gt;</span>
+  <span class="nt">&lt;dependencies&gt;</span>
+    ...
+
+    <span class="c">&lt;!-- Load the bom provided by JUnit in order to align the versions. --&gt;</span>
+    <span class="nt">&lt;dependency&gt;</span>
+      <span class="nt">&lt;groupId&gt;</span>org.junit<span class="nt">&lt;/groupId&gt;</span>
+      <span class="nt">&lt;artifactId&gt;</span>junit-bom<span class="nt">&lt;/artifactId&gt;</span>
+      <span class="nt">&lt;version&gt;</span>5.8.2<span class="nt">&lt;/version&gt;</span>
+      <span class="nt">&lt;type&gt;</span>pom<span class="nt">&lt;/type&gt;</span>
+      <span class="nt">&lt;scope&gt;</span>import<span class="nt">&lt;/scope&gt;</span>
+    <span class="nt">&lt;/dependency&gt;</span>
+  <span class="nt">&lt;/dependencies&gt;</span>
+<span class="nt">&lt;/dependencyManagement&gt;</span>
+
+<span class="nt">&lt;dependencies&gt;</span>
+  ...
+
+  <span class="c">&lt;!-- Add the following dependencies --&gt;</span>
+  <span class="nt">&lt;dependency&gt;</span>
+    <span class="nt">&lt;groupId&gt;</span>org.junit.jupiter<span class="nt">&lt;/groupId&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>junit-jupiter<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="nt">&lt;scope&gt;</span>test<span class="nt">&lt;/scope&gt;</span>
+  <span class="nt">&lt;/dependency&gt;</span>
+  <span class="nt">&lt;dependency&gt;</span>
+    <span class="nt">&lt;groupId&gt;</span>org.junit.vintage<span class="nt">&lt;/groupId&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>junit-vintage-engine<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="nt">&lt;scope&gt;</span>test<span class="nt">&lt;/scope&gt;</span>
+  <span class="nt">&lt;/dependency&gt;</span>
+<span class="nt">&lt;/dependencies&gt;</span>
+</pre></div>
+</div>
+<p>With the above settings, you can now run the automated testing framework with JUnit 5.</p>
+</div>
+</div>
 </div>
 
 
@@ -1012,7 +1170,7 @@ EXPECTED_COMPLETE_TABLE=TABLE4
 
     <div role="contentinfo">
         <p>
-            &copy; Copyright 2010-2021, TIS Inc.
+            &copy; Copyright 2010-2022, TIS Inc.
         </p>
     </div>
     Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
@@ -1033,7 +1191,7 @@ EXPECTED_COMPLETE_TABLE=TABLE4
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../../../',
-            VERSION:'5u20',
+            VERSION:'5u21',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

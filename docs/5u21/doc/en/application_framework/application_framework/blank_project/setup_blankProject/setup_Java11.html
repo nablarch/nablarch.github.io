@@ -328,7 +328,9 @@ Therefore, in a blank project for containers the procedures of this chapter are 
 </div>
 <div class="section" id="add-dependent-module">
 <span id="setup-blank-project-for-java11-add-dependencies"></span><h2>8.3.5.1. Add dependent module<a class="headerlink" href="#add-dependent-module" title="Permalink to this headline">¶</a></h2>
-<p>Add the following modules to the created blank project POM.</p>
+<p>With Java 11, some modules, such as JAXB, have been removed from the standard library.
+Removed modules need to be explicitly added to dependencies.
+Therefore, add the following modules to the created blank project POM.</p>
 <div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;dependencies&gt;</span>
   <span class="c">&lt;!-- Omitted --&gt;</span>
   <span class="c">&lt;!-- Add the following. --&gt;</span>

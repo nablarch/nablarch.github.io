@@ -60,3 +60,9 @@ nablarch.fw.web.upload
 nablarch.fw.web.upload.util
 nablarch.fw.web.useragent
 nablarch.test.core.http
+nablarch.test.junit5.extension
+nablarch.test.junit5.extension.batch
+nablarch.test.junit5.extension.db
+nablarch.test.junit5.extension.http
+nablarch.test.junit5.extension.integration
+nablarch.test.junit5.extension.messaging

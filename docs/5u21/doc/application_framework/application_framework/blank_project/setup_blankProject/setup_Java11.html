@@ -366,7 +366,9 @@
 </div>
 <div class="section" id="setup-blank-project-for-java11-add-dependencies">
 <span id="id1"></span><h2>8.3.5.1. 依存モジュールの追加<a class="headerlink" href="#setup-blank-project-for-java11-add-dependencies" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>作成したブランクプロジェクトのPOMに以下のモジュールを追加する。</p>
+<p>Java 11で、JAXBなど一部のモジュールが標準ライブラリから削除された。
+削除されたモジュールは明示的に依存関係に追加する必要がある。
+このため、作成したブランクプロジェクトのPOMに以下のモジュールを追加する。</p>
 <div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;dependencies&gt;</span>
   <span class="c">&lt;!-- 中略 --&gt;</span>
   <span class="c">&lt;!-- 以下を追加する。 --&gt;</span>

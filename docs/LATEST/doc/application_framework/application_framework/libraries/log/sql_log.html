@@ -9,7 +9,7 @@
   <meta http-equiv='content-language' content='ja'>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>7.1.1.2.2. SQLログの出力 &mdash; ∇Nablarch  5u20 ドキュメント</title>
+  <title>7.1.1.2.2. SQLログの出力 &mdash; ∇Nablarch  5u21 ドキュメント</title>
   
 
   
@@ -35,7 +35,7 @@
   
   <link rel="canonical" href="https://nablarch.github.io/docs/LATEST/doc/application_framework/application_framework/libraries/log/sql_log.html" />
   
-    <link rel="top" title="∇Nablarch  5u20 ドキュメント" href="../../../../index.html"/>
+    <link rel="top" title="∇Nablarch  5u21 ドキュメント" href="../../../../index.html"/>
         <link rel="up" title="7.1. ログ出力" href="../log.html"/>
         <link rel="next" title="7.1.1.2.3. パフォーマンスログの出力" href="performance_log.html"/>
         <link rel="prev" title="7.1.1.2.1. 障害ログの出力" href="failure_log.html"/>
@@ -61,7 +61,7 @@
   
 
   
-    <div id="sidebar-version">Version: 5u20</div>
+    <div id="sidebar-version">Version: 5u21</div>
   </a>
 
   <div role="search">
@@ -125,6 +125,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../example/index.html">Example</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../example/index.html#id1">環境構築手順について</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../example/index.html#id2">アプリケーションの実行手順について</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../example/index.html#java-11">Java 11 以上で動かす場合について</a></li>
 </ul>
 </li>
 </ul>
@@ -281,6 +282,18 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../nablarch_api/index.html">Nablarch API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../releases/index.html">リリース情報</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../about_nablarch/versionup_policy.html">Nablarch のバージョンアップ方針</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../about_nablarch/versionup_policy.html#versionup-policy-release-type">リリース単位</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../about_nablarch/versionup_policy.html#versionup-policy-versionup-type">バージョンアップの種類</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../about_nablarch/versionup_policy.html#versionup-policy-product-version-number">バージョンの番号体系</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../about_nablarch/versionup_policy.html#versionup-policy-backward-compatibility-policy">後方互換性ポリシー</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../about_nablarch/versionup_policy.html#id8">後方互換性を維持する範囲</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../about_nablarch/versionup_policy.html#versionup-policy-backward-compatibility-contents">後方互換性維持の内容</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../about_nablarch/versionup_policy.html#versionup-policy-backward-compatibility-is-not-maintained">後方互換性の例外</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../inquiry/index.html">機能追加要望・改善要望</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../../../inquiry/index.html#id2">JIRAへの課題起票方法</a></li>
 </ul>
@@ -346,6 +359,7 @@
 <li><a class="reference internal" href="#id2" id="id6">SQLログの出力方針</a></li>
 <li><a class="reference internal" href="#id3" id="id7">使用方法</a><ul>
 <li><a class="reference internal" href="#sql-log-setting" id="id8">SQLログの設定を行う</a></li>
+<li><a class="reference internal" href="#json" id="id9">JSON形式の構造化ログとして出力する</a></li>
 </ul>
 </li>
 </ul>
@@ -761,6 +775,262 @@
 </dd>
 </dl>
 </div>
+<div class="section" id="json">
+<span id="sql-log-json-setting"></span><h3><a class="toc-backref" href="#id9">7.1.1.2.2.2.2. JSON形式の構造化ログとして出力する</a><a class="headerlink" href="#json" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p><a class="reference internal" href="../log.html#log-json-log-setting"><span>JSON形式の構造化ログとして出力する</span></a> 設定を行うことでログをJSON形式で出力できるが、
+<a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/core/db/statement/SqlLogFormatter.html" title="nablarch.core.db.statement.SqlLogFormatter">SqlLogFormatter</a> では
+SQLログの各項目はmessageの値に文字列として出力される。
+SQLログの各項目もJSONの値として出力するには、
+<a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/core/db/statement/SqlJsonLogFormatter.html" title="nablarch.core.db.statement.SqlJsonLogFormatter">SqlJsonLogFormatter</a> を使用する。
+設定は、 <a class="reference internal" href="../log.html#log-app-log-setting"><span>各種ログの設定を行う</span></a> で説明したプロパティファイルに行う。</p>
+<dl class="docutils">
+<dt>記述ルール</dt>
+<dd><p class="first"><a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/core/db/statement/SqlJsonLogFormatter.html" title="nablarch.core.db.statement.SqlJsonLogFormatter">SqlJsonLogFormatter</a> を用いる際に
+指定するプロパティは以下の通り。</p>
+<dl class="last docutils">
+<dt>sqlLogFormatter.className <code class="docutils literal"><span class="pre">必須</span></code></dt>
+<dd>JSON形式でログを出力する場合、
+<a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/core/db/statement/SqlJsonLogFormatter.html" title="nablarch.core.db.statement.SqlJsonLogFormatter">SqlJsonLogFormatter</a> を指定する。</dd>
+<dt>sqlLogFormatter.startRetrieveTargets</dt>
+<dd><p class="first"><a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/core/db/statement/SqlPStatement.html#retrieve--" title="nablarch.core.db.statement.SqlPStatement.retrieve()">SqlPStatement#retrieve</a>
+の開始時のログ出力項目。カンマ区切りで指定する。</p>
+<dl class="docutils">
+<dt>指定可能な出力項目</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">メソッド名:</th><td class="field-body">methodName</td>
+</tr>
+<tr class="field-even field"><th class="field-name">SQL文:</th><td class="field-body">sql</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">取得開始位置:</th><td class="field-body">startPosition</td>
+</tr>
+<tr class="field-even field"><th class="field-name">取得最大件数:</th><td class="field-body">size</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">タイムアウト時間:</th><td class="field-body">queryTimeout</td>
+</tr>
+<tr class="field-even field"><th class="field-name">フェッチする行数:</th><td class="field-body">fetchSize</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">付加情報:</th><td class="field-body">additionalInfo</td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+<p class="last">デフォルトは全ての出力項目が対象となる。</p>
+</dd>
+<dt>sqlLogFormatter.endRetrieveTargets</dt>
+<dd><p class="first"><a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/core/db/statement/SqlPStatement.html#retrieve--" title="nablarch.core.db.statement.SqlPStatement.retrieve()">SqlPStatement#retrieve</a>
+の終了時のログ出力項目。カンマ区切りで指定する。</p>
+<dl class="docutils">
+<dt>指定可能な出力項目</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">メソッド名:</th><td class="field-body">methodName</td>
+</tr>
+<tr class="field-even field"><th class="field-name">実行時間:</th><td class="field-body">executeTime</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">データ取得時間:</th><td class="field-body">retrieveTime</td>
+</tr>
+<tr class="field-even field"><th class="field-name">検索件数:</th><td class="field-body">count</td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+<p class="last">デフォルトは全ての出力項目が対象となる。</p>
+</dd>
+<dt>sqlLogFormatter.startExecuteTargets</dt>
+<dd><p class="first"><a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/core/db/statement/SqlPStatement.html#execute--" title="nablarch.core.db.statement.SqlPStatement.execute()">SqlPStatement#execute</a>
+の開始時のログ出力項目。カンマ区切りで指定する。</p>
+<dl class="docutils">
+<dt>指定可能な出力項目</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">メソッド名:</th><td class="field-body">methodName</td>
+</tr>
+<tr class="field-even field"><th class="field-name">SQL文:</th><td class="field-body">sql</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">付加情報:</th><td class="field-body">additionalInfo</td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+<p class="last">デフォルトは全ての出力項目が対象となる。</p>
+</dd>
+<dt>sqlLogFormatter.endExecuteTargets</dt>
+<dd><p class="first"><a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/core/db/statement/SqlPStatement.html#execute--" title="nablarch.core.db.statement.SqlPStatement.execute()">SqlPStatement#execute</a>
+の終了時のログ出力項目。カンマ区切りで指定する。</p>
+<dl class="docutils">
+<dt>指定可能な出力項目</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">メソッド名:</th><td class="field-body">methodName</td>
+</tr>
+<tr class="field-even field"><th class="field-name">実行時間:</th><td class="field-body">executeTime</td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+<p class="last">デフォルトは全ての出力項目が対象となる。</p>
+</dd>
+<dt>sqlLogFormatter.startExecuteQueryTargets</dt>
+<dd><p class="first"><a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/core/db/statement/SqlPStatement.html#executeQuery--" title="nablarch.core.db.statement.SqlPStatement.executeQuery()">SqlPStatement#executeQuery</a>
+の開始時のログ出力項目。カンマ区切りで指定する。</p>
+<dl class="docutils">
+<dt>指定可能な出力項目</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">メソッド名:</th><td class="field-body">methodName</td>
+</tr>
+<tr class="field-even field"><th class="field-name">SQL文:</th><td class="field-body">sql</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">付加情報:</th><td class="field-body">additionalInfo</td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+<p class="last">デフォルトは全ての出力項目が対象となる。</p>
+</dd>
+<dt>sqlLogFormatter.endExecuteQueryTargets</dt>
+<dd><p class="first"><a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/core/db/statement/SqlPStatement.html#executeQuery--" title="nablarch.core.db.statement.SqlPStatement.executeQuery()">SqlPStatement#executeQuery</a>
+の終了時のログ出力項目。カンマ区切りで指定する。</p>
+<dl class="docutils">
+<dt>指定可能な出力項目</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">メソッド名:</th><td class="field-body">methodName</td>
+</tr>
+<tr class="field-even field"><th class="field-name">実行時間:</th><td class="field-body">executeTime</td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+<p class="last">デフォルトは全ての出力項目が対象となる。</p>
+</dd>
+<dt>sqlLogFormatter.startExecuteUpdateTargets</dt>
+<dd><p class="first"><a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/core/db/statement/SqlPStatement.html#executeUpdate--" title="nablarch.core.db.statement.SqlPStatement.executeUpdate()">SqlPStatement#executeUpdate</a>
+の開始時のログ出力項目。カンマ区切りで指定する。</p>
+<dl class="docutils">
+<dt>指定可能な出力項目</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">メソッド名:</th><td class="field-body">methodName</td>
+</tr>
+<tr class="field-even field"><th class="field-name">SQL文:</th><td class="field-body">sql</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">付加情報:</th><td class="field-body">additionalInfo</td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+<p class="last">デフォルトは全ての出力項目が対象となる。</p>
+</dd>
+<dt>sqlLogFormatter.endExecuteUpdateTargets</dt>
+<dd><p class="first"><a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/core/db/statement/SqlPStatement.html#executeUpdate--" title="nablarch.core.db.statement.SqlPStatement.executeUpdate()">SqlPStatement#executeUpdate</a>
+の終了時のログ出力項目。カンマ区切りで指定する。</p>
+<dl class="docutils">
+<dt>指定可能な出力項目</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">メソッド名:</th><td class="field-body">methodName</td>
+</tr>
+<tr class="field-even field"><th class="field-name">実行時間:</th><td class="field-body">executeTime</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">更新件数:</th><td class="field-body">updateCount</td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+<p class="last">デフォルトは全ての出力項目が対象となる。</p>
+</dd>
+<dt>sqlLogFormatter.startExecuteBatchTargets</dt>
+<dd><p class="first"><a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/core/db/statement/SqlStatement.html#executeBatch--" title="nablarch.core.db.statement.SqlStatement.executeBatch()">SqlStatement#executeBatch</a>
+の開始時のログ出力項目。カンマ区切りで指定する。</p>
+<dl class="docutils">
+<dt>指定可能な出力項目</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">メソッド名:</th><td class="field-body">methodName</td>
+</tr>
+<tr class="field-even field"><th class="field-name">SQL文:</th><td class="field-body">sql</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">付加情報:</th><td class="field-body">additionalInfo</td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+<p class="last">デフォルトは全ての出力項目が対象となる。</p>
+</dd>
+<dt>sqlLogFormatter.endExecuteBatchTargets</dt>
+<dd><p class="first"><a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/core/db/statement/SqlStatement.html#executeBatch--" title="nablarch.core.db.statement.SqlStatement.executeBatch()">SqlStatement#executeBatch</a>
+の終了時のログ出力項目。カンマ区切りで指定する。</p>
+<dl class="docutils">
+<dt>指定可能な出力項目</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">メソッド名:</th><td class="field-body">methodName</td>
+</tr>
+<tr class="field-even field"><th class="field-name">実行時間:</th><td class="field-body">executeTime</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">バッチ件数:</th><td class="field-body">batchCount</td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+<p class="last">デフォルトは全ての出力項目が対象となる。</p>
+</dd>
+<dt>sqlLogFormatter.structuredMessagePrefix</dt>
+<dd>フォーマット後のメッセージ文字列が JSON 形式に整形されていることを識別できるようにするために、メッセージの先頭に付与するマーカー文字列。
+メッセージの先頭にこのマーカーがある場合、 <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/core/log/basic/JsonLogFormatter.html" title="nablarch.core.log.basic.JsonLogFormatter">JsonLogFormatter</a> はメッセージを JSON データとして処理する。
+デフォルトは <code class="docutils literal"><span class="pre">&quot;$JSON$&quot;</span></code> となる。</dd>
+</dl>
+</dd>
+<dt>記述例</dt>
+<dd><div class="first last highlight-properties"><div class="highlight"><pre><span></span><span class="na">sqlLogFormatter.className</span><span class="o">=</span><span class="s">nablarch.core.db.statement.SqlJsonLogFormatter</span>
+<span class="na">sqlLogFormatter.structuredMessagePrefix</span><span class="o">=</span><span class="s">$JSON$</span>
+<span class="na">sqlLogFormatter.startRetrieveTargets</span><span class="o">=</span><span class="s">methodName,sql,start,startPosition,size,additionalInfo</span>
+<span class="na">sqlLogFormatter.endRetrieveTargets</span><span class="o">=</span><span class="s">methodName,executeTime,retrieveTime,count</span>
+<span class="na">sqlLogFormatter.startExecuteTargets</span><span class="o">=</span><span class="s">methodName,sql,additionalInfo</span>
+<span class="na">sqlLogFormatter.endExecuteTargets</span><span class="o">=</span><span class="s">methodName,executeTime</span>
+<span class="na">sqlLogFormatter.startExecuteQueryTargets</span><span class="o">=</span><span class="s">methodName,sql,additionalInfo</span>
+<span class="na">sqlLogFormatter.endExecuteQueryTargets</span><span class="o">=</span><span class="s">methodName,executeTime</span>
+<span class="na">sqlLogFormatter.startExecuteUpdateTargets</span><span class="o">=</span><span class="s">methodName,sql,additionalInfo</span>
+<span class="na">sqlLogFormatter.endExecuteUpdateTargets</span><span class="o">=</span><span class="s">methodName,executeTime,updateCount</span>
+<span class="na">sqlLogFormatter.startExecuteBatchTargets</span><span class="o">=</span><span class="s">methodName,sql,additionalInfo</span>
+<span class="na">sqlLogFormatter.endExecuteBatchTargets</span><span class="o">=</span><span class="s">methodName,executeTime,updateCount</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</div>
 </div>
 </div>
 
@@ -776,7 +1046,7 @@
 
     <div role="contentinfo">
         <p>
-            &copy; Copyright 2010-2021, TIS Inc.
+            &copy; Copyright 2010-2022, TIS Inc.
         </p>
     </div>
     Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
@@ -797,7 +1067,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../../',
-            VERSION:'5u20',
+            VERSION:'5u21',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

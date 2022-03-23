@@ -9,7 +9,7 @@
   <meta http-equiv='content-language' content='ja'>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>7.17. Session Store &mdash; ∇Nablarch  5u20 documentation</title>
+  <title>7.17. Session Store &mdash; ∇Nablarch  5u21 documentation</title>
   
 
   
@@ -35,7 +35,7 @@
   
   <link rel="canonical" href="https://nablarch.github.io/docs/LATEST/doc/application_framework/application_framework/libraries/session_store.html" />
   
-    <link rel="top" title="∇Nablarch  5u20 documentation" href="../../../index.html"/>
+    <link rel="top" title="∇Nablarch  5u21 documentation" href="../../../index.html"/>
         <link rel="up" title="7. Libraries Provided by Nablarch" href="index.html"/>
         <link rel="next" title="7.17.4.2.1. Implementation Example with Registration Function" href="session_store/create_example.html"/>
         <link rel="prev" title="7.16. Service Availability Check" href="service_availability.html"/>
@@ -61,7 +61,7 @@
   
 
   
-    <div id="sidebar-version">Version: 5u20</div>
+    <div id="sidebar-version">Version: 5u21</div>
   </a>
 
   <div role="search">
@@ -125,6 +125,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../example/index.html">Example</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../example/index.html#procedure-to-build-the-environment">Procedure to build the environment</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../example/index.html#application-execution-procedure">Application execution procedure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../example/index.html#running-on-java-11-or-higher">Running on Java 11 or higher</a></li>
 </ul>
 </li>
 </ul>
@@ -247,6 +248,18 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../../nablarch_api/index.html">Nablarch API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../about_nablarch/versionup_policy.html">Nablarch upgrade policy</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../about_nablarch/versionup_policy.html#release-unit">Release unit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../about_nablarch/versionup_policy.html#types-of-upgrades">Types of upgrades</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../about_nablarch/versionup_policy.html#version-numbering-system">Version numbering system</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../about_nablarch/versionup_policy.html#backward-compatibility-policy">Backward compatibility policy</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../about_nablarch/versionup_policy.html#extent-to-which-backward-compatibility-is-maintained">Extent to which backward compatibility is maintained</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../about_nablarch/versionup_policy.html#contents-of-backward-compatibility-maintenance">Contents of backward compatibility maintenance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../about_nablarch/versionup_policy.html#backward-compatibility-exception">Backward compatibility exception</a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 
   
@@ -571,14 +584,28 @@ the goal is also to retain the safest data possible and reduce the risk of embed
 <p>Implementation example of session store during login/logout is shown below.</p>
 <dl class="docutils">
 <dt>Login to the application</dt>
-<dd><div class="first last highlight-java"><div class="highlight"><pre><span></span><span class="c1">// Delete existing session store before login</span>
-<span class="n">SessionUtil</span><span class="o">.</span><span class="na">invalidate</span><span class="o">(</span><span class="n">ctx</span><span class="o">);</span>
+<dd><div class="first last highlight-java"><div class="highlight"><pre><span></span><span class="c1">// Change session ID before login</span>
+<span class="n">SessionUtil</span><span class="o">.</span><span class="na">changeId</span><span class="o">(</span><span class="n">ctx</span><span class="o">);</span>
+
+<span class="c1">// Regenerate CSRF token (If you are using the CSRF Token Verification Handler)</span>
+<span class="n">CsrfTokenUtil</span><span class="o">.</span><span class="na">regenerateCsrfToken</span><span class="o">(</span><span class="n">ctx</span><span class="o">);</span>
 
 <span class="c1">// Save login user information in session store</span>
 <span class="n">SessionUtil</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">ctx</span><span class="o">,</span> <span class="s">&quot;user&quot;</span><span class="o">,</span> <span class="n">user</span><span class="o">,</span> <span class="s">&quot;db&quot;</span><span class="o">);</span>
 </pre></div>
 </div>
 </dd>
+</dl>
+<div class="admonition important">
+<p class="first admonition-title">Important</p>
+<p>If all of the following conditions are met, a CSRF token must be regenerated at login.</p>
+<ul class="simple">
+<li>Using the <a class="reference internal" href="../handlers/web/csrf_token_verification_handler.html#csrf-token-verification-handler"><span>CSRF Token Verification Handler</span></a></li>
+<li>Only change session ID at login (keep session information)</li>
+</ul>
+<p class="last">See <a class="reference internal" href="../handlers/web/csrf_token_verification_handler.html#csrf-token-verification-handler-regeneration"><span>Regeneration of CSRF tokens</span></a> for more information.</p>
+</div>
+<dl class="docutils">
 <dt>Logout from the application</dt>
 <dd><div class="first last highlight-java"><div class="highlight"><pre><span></span><span class="c1">// Invalidate the entire session store</span>
 <span class="n">SessionUtil</span><span class="o">.</span><span class="na">invalidate</span><span class="o">(</span><span class="n">ctx</span><span class="o">);</span>
@@ -873,7 +900,7 @@ You can store the session expiration date in the database by changing the settin
 
     <div role="contentinfo">
         <p>
-            &copy; Copyright 2010-2021, TIS Inc.
+            &copy; Copyright 2010-2022, TIS Inc.
         </p>
     </div>
     Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
@@ -894,7 +921,7 @@ You can store the session expiration date in the database by changing the settin
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../',
-            VERSION:'5u20',
+            VERSION:'5u21',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

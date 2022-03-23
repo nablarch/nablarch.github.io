@@ -9,7 +9,7 @@
   <meta http-equiv='content-language' content='ja'>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>8.6.1. 使用するRDBMSの変更手順 &mdash; ∇Nablarch  5u20 ドキュメント</title>
+  <title>8.6.1. 使用するRDBMSの変更手順 &mdash; ∇Nablarch  5u21 ドキュメント</title>
   
 
   
@@ -35,7 +35,7 @@
   
   <link rel="canonical" href="https://nablarch.github.io/docs/LATEST/doc/application_framework/application_framework/blank_project/CustomizeDB.html" />
   
-    <link rel="top" title="∇Nablarch  5u20 ドキュメント" href="../../../index.html"/>
+    <link rel="top" title="∇Nablarch  5u21 ドキュメント" href="../../../index.html"/>
         <link rel="up" title="8.6. 初期セットアップ後に必要となる設定変更" href="ModifySettings.html"/>
         <link rel="next" title="8.6.2. gsp-dba-maven-plugin(DBA作業支援ツール)の初期設定方法" href="addin_gsp.html"/>
         <link rel="prev" title="8.6. 初期セットアップ後に必要となる設定変更" href="ModifySettings.html"/>
@@ -61,7 +61,7 @@
   
 
   
-    <div id="sidebar-version">Version: 5u20</div>
+    <div id="sidebar-version">Version: 5u21</div>
   </a>
 
   <div role="search">
@@ -125,6 +125,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../example/index.html">Example</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../example/index.html#id1">環境構築手順について</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../example/index.html#id2">アプリケーションの実行手順について</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../example/index.html#java-11">Java 11 以上で動かす場合について</a></li>
 </ul>
 </li>
 </ul>
@@ -281,6 +282,18 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../../nablarch_api/index.html">Nablarch API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../releases/index.html">リリース情報</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../about_nablarch/versionup_policy.html">Nablarch のバージョンアップ方針</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../about_nablarch/versionup_policy.html#versionup-policy-release-type">リリース単位</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../about_nablarch/versionup_policy.html#versionup-policy-versionup-type">バージョンアップの種類</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../about_nablarch/versionup_policy.html#versionup-policy-product-version-number">バージョンの番号体系</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../about_nablarch/versionup_policy.html#versionup-policy-backward-compatibility-policy">後方互換性ポリシー</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../about_nablarch/versionup_policy.html#id8">後方互換性を維持する範囲</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../about_nablarch/versionup_policy.html#versionup-policy-backward-compatibility-contents">後方互換性維持の内容</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../about_nablarch/versionup_policy.html#versionup-policy-backward-compatibility-is-not-maintained">後方互換性の例外</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../../../inquiry/index.html">機能追加要望・改善要望</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../../inquiry/index.html#id2">JIRAへの課題起票方法</a></li>
 </ul>
@@ -398,32 +411,7 @@
 </div>
 <div class="section" id="oracle">
 <h4>8.6.1.2.1.2. Oracle<a class="headerlink" href="#oracle" title="このヘッドラインへのパーマリンク">¶</a></h4>
-<p>OracleのJDBCドライバはMavenのセントラルリポジトリに公開されていないため、ローカルのMavenリポジトリに登録する必要がある。</p>
-<p>JDBCドライバをWebから取得する場合は、以下のサイトから入手する。</p>
-<table border="1" class="colwidths-given white-space-normal docutils">
-<colgroup>
-<col width="38%" />
-<col width="63%" />
-</colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">配布サイトの名前</th>
-<th class="head">URL</th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr class="row-even"><td>JDBC, SQLJ, Oracle JPublisher and Universal Connection Pool (UCP)</td>
-<td><a class="reference external" href="http://www.oracle.com/technetwork/jp/database/features/jdbc/index-099275-ja.html">http://www.oracle.com/technetwork/jp/database/features/jdbc/index-099275-ja.html</a> (外部サイト)</td>
-</tr>
-</tbody>
-</table>
-<p>以下に、入手したJDBCドライバをローカルのMavenリポジトリに登録するコマンドの例を示す。</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>mvn install:install-file -DgroupId<span class="o">=</span>com.oracle -DartifactId<span class="o">=</span>ojdbc6 -Dversion<span class="o">=</span><span class="m">11</span>.2.0.4.0 -Dpackaging<span class="o">=</span>jar -Dfile<span class="o">=</span>ojdbc6.jar
-</pre></div>
-</div>
-<div class="admonition tip">
-<p class="first admonition-title">補足</p>
-<p class="last">ローカルのMavenリポジトリへの登録には、<a class="reference external" href="https://maven.apache.org/plugins/maven-install-plugin/install-file-mojo.html">maven-install-plugin(外部サイト、英語)</a>  を使用している。</p>
-</div>
+<p>Oracleの場合、JDBCドライバはMavenのセントラルリポジトリに公開されているため登録は不要である。</p>
 </div>
 <div class="section" id="postgresql">
 <h4>8.6.1.2.1.3. PostgreSQL<a class="headerlink" href="#postgresql" title="このヘッドラインへのパーマリンク">¶</a></h4>
@@ -719,9 +707,9 @@ nablarch.db.schema=SAMPLE
     <span class="nt">&lt;dependencies&gt;</span>
       <span class="c">&lt;!-- 中略 --&gt;</span>
       <span class="nt">&lt;dependency&gt;</span>
-        <span class="nt">&lt;groupId&gt;</span>com.oracle<span class="nt">&lt;/groupId&gt;</span>
+        <span class="nt">&lt;groupId&gt;</span>com.oracle.database.jdbc<span class="nt">&lt;/groupId&gt;</span>
         <span class="nt">&lt;artifactId&gt;</span>ojdbc6<span class="nt">&lt;/artifactId&gt;</span>
-        <span class="nt">&lt;version&gt;</span>11.2.0.4.0<span class="nt">&lt;/version&gt;</span>
+        <span class="nt">&lt;version&gt;</span>11.2.0.4<span class="nt">&lt;/version&gt;</span>
         <span class="nt">&lt;scope&gt;</span>runtime<span class="nt">&lt;/scope&gt;</span>
       <span class="nt">&lt;/dependency&gt;</span>
       <span class="c">&lt;!-- 中略 --&gt;</span>
@@ -974,7 +962,7 @@ SET SCHEMA sample;
 
     <div role="contentinfo">
         <p>
-            &copy; Copyright 2010-2021, TIS Inc.
+            &copy; Copyright 2010-2022, TIS Inc.
         </p>
     </div>
     Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
@@ -995,7 +983,7 @@ SET SCHEMA sample;
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../',
-            VERSION:'5u20',
+            VERSION:'5u21',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

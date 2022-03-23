@@ -9,7 +9,7 @@
   <meta http-equiv='content-language' content='ja'>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>8.6.1. Procedure for Changing the RDBMS used &mdash; ∇Nablarch  5u20 documentation</title>
+  <title>8.6.1. Procedure for Changing the RDBMS used &mdash; ∇Nablarch  5u21 documentation</title>
   
 
   
@@ -35,7 +35,7 @@
   
   <link rel="canonical" href="https://nablarch.github.io/docs/LATEST/doc/application_framework/application_framework/blank_project/CustomizeDB.html" />
   
-    <link rel="top" title="∇Nablarch  5u20 documentation" href="../../../index.html"/>
+    <link rel="top" title="∇Nablarch  5u21 documentation" href="../../../index.html"/>
         <link rel="up" title="8.6. Configuration Changes Required After Initial Setup" href="ModifySettings.html"/>
         <link rel="next" title="8.6.2. Initial Configuration Method of gsp-dba-maven-plugin (DBA Work Support Tool)" href="addin_gsp.html"/>
         <link rel="prev" title="8.6. Configuration Changes Required After Initial Setup" href="ModifySettings.html"/>
@@ -61,7 +61,7 @@
   
 
   
-    <div id="sidebar-version">Version: 5u20</div>
+    <div id="sidebar-version">Version: 5u21</div>
   </a>
 
   <div role="search">
@@ -125,6 +125,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../example/index.html">Example</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../example/index.html#procedure-to-build-the-environment">Procedure to build the environment</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../example/index.html#application-execution-procedure">Application execution procedure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../example/index.html#running-on-java-11-or-higher">Running on Java 11 or higher</a></li>
 </ul>
 </li>
 </ul>
@@ -247,6 +248,18 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../../nablarch_api/index.html">Nablarch API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../about_nablarch/versionup_policy.html">Nablarch upgrade policy</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../about_nablarch/versionup_policy.html#release-unit">Release unit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../about_nablarch/versionup_policy.html#types-of-upgrades">Types of upgrades</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../about_nablarch/versionup_policy.html#version-numbering-system">Version numbering system</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../about_nablarch/versionup_policy.html#backward-compatibility-policy">Backward compatibility policy</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../about_nablarch/versionup_policy.html#extent-to-which-backward-compatibility-is-maintained">Extent to which backward compatibility is maintained</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../about_nablarch/versionup_policy.html#contents-of-backward-compatibility-maintenance">Contents of backward compatibility maintenance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../about_nablarch/versionup_policy.html#backward-compatibility-exception">Backward compatibility exception</a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 
   
@@ -360,32 +373,7 @@
 </div>
 <div class="section" id="oracle">
 <h4>8.6.1.2.1.2. Oracle<a class="headerlink" href="#oracle" title="Permalink to this headline">¶</a></h4>
-<p>Since the Oracle JDBC driver is not published in the Maven central repository, it is necessary to register it in the local Maven repository.</p>
-<p>The JDBC driver can be downloaded from the following site on the Internet.</p>
-<table border="1" class="colwidths-given white-space-normal docutils">
-<colgroup>
-<col width="38%" />
-<col width="63%" />
-</colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">Distribution site name</th>
-<th class="head">URL</th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr class="row-even"><td>JDBC, SQLJ, Oracle JPublisher and Universal Connection Pool (UCP)</td>
-<td><a class="reference external" href="http://www.oracle.com/technetwork/jp/database/features/jdbc/index-099275-ja.html">http://www.oracle.com/technetwork/jp/database/features/jdbc/index-099275-ja.html</a> (External site)</td>
-</tr>
-</tbody>
-</table>
-<p>An example of the command to register the downloaded JDBC driver to the local Maven repository is shown below.</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>mvn install:install-file -DgroupId<span class="o">=</span>com.oracle -DartifactId<span class="o">=</span>ojdbc6 -Dversion<span class="o">=</span><span class="m">11</span>.2.0.4.0 -Dpackaging<span class="o">=</span>jar -Dfile<span class="o">=</span>ojdbc6.jar
-</pre></div>
-</div>
-<div class="admonition tip">
-<p class="first admonition-title">Tip</p>
-<p class="last"><a class="reference external" href="https://maven.apache.org/plugins/maven-install-plugin/install-file-mojo.html">maven-install-plugin(external site)</a> is used for registration to the local Maven repository.</p>
-</div>
+<p>In the case of Oracle, registration is not required because the JDBC driver is published in the Maven central repository.</p>
 </div>
 <div class="section" id="postgresql">
 <h4>8.6.1.2.1.3. PostgreSQL<a class="headerlink" href="#postgresql" title="Permalink to this headline">¶</a></h4>
@@ -681,9 +669,9 @@ When running in a production container environment, the OS environment variables
     <span class="nt">&lt;dependencies&gt;</span>
       <span class="c">&lt;!-- Omitted --&gt;</span>
       <span class="nt">&lt;dependency&gt;</span>
-        <span class="nt">&lt;groupId&gt;</span>com.oracle<span class="nt">&lt;/groupId&gt;</span>
+        <span class="nt">&lt;groupId&gt;</span>com.oracle.database.jdbc<span class="nt">&lt;/groupId&gt;</span>
         <span class="nt">&lt;artifactId&gt;</span>ojdbc6<span class="nt">&lt;/artifactId&gt;</span>
-        <span class="nt">&lt;version&gt;</span>11.2.0.4.0<span class="nt">&lt;/version&gt;</span>
+        <span class="nt">&lt;version&gt;</span>11.2.0.4<span class="nt">&lt;/version&gt;</span>
         <span class="nt">&lt;scope&gt;</span>runtime<span class="nt">&lt;/scope&gt;</span>
       <span class="nt">&lt;/dependency&gt;</span>
       <span class="c">&lt;!-- Omitted --&gt;</span>
@@ -937,7 +925,7 @@ SET SCHEMA sample;
 
     <div role="contentinfo">
         <p>
-            &copy; Copyright 2010-2021, TIS Inc.
+            &copy; Copyright 2010-2022, TIS Inc.
         </p>
     </div>
     Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
@@ -958,7 +946,7 @@ SET SCHEMA sample;
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../',
-            VERSION:'5u20',
+            VERSION:'5u21',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

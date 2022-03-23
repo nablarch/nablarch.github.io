@@ -1,4 +1,5 @@
 nablarch.fw.web
+nablarch.fw.web.servlet
 nablarch.test
 nablarch.test.core.batch
 nablarch.test.core.db

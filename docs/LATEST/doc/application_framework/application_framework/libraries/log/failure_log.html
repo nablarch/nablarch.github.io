@@ -9,7 +9,7 @@
   <meta http-equiv='content-language' content='ja'>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>7.1.1.2.1. 障害ログの出力 &mdash; ∇Nablarch  5u20 ドキュメント</title>
+  <title>7.1.1.2.1. 障害ログの出力 &mdash; ∇Nablarch  5u21 ドキュメント</title>
   
 
   
@@ -35,7 +35,7 @@
   
   <link rel="canonical" href="https://nablarch.github.io/docs/LATEST/doc/application_framework/application_framework/libraries/log/failure_log.html" />
   
-    <link rel="top" title="∇Nablarch  5u20 ドキュメント" href="../../../../index.html"/>
+    <link rel="top" title="∇Nablarch  5u21 ドキュメント" href="../../../../index.html"/>
         <link rel="up" title="7.1. ログ出力" href="../log.html"/>
         <link rel="next" title="7.1.1.2.2. SQLログの出力" href="sql_log.html"/>
         <link rel="prev" title="7.1. ログ出力" href="../log.html"/>
@@ -61,7 +61,7 @@
   
 
   
-    <div id="sidebar-version">Version: 5u20</div>
+    <div id="sidebar-version">Version: 5u21</div>
   </a>
 
   <div role="search">
@@ -125,6 +125,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../example/index.html">Example</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../example/index.html#id1">環境構築手順について</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../example/index.html#id2">アプリケーションの実行手順について</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../example/index.html#java-11">Java 11 以上で動かす場合について</a></li>
 </ul>
 </li>
 </ul>
@@ -281,6 +282,18 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../nablarch_api/index.html">Nablarch API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../releases/index.html">リリース情報</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../about_nablarch/versionup_policy.html">Nablarch のバージョンアップ方針</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../about_nablarch/versionup_policy.html#versionup-policy-release-type">リリース単位</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../about_nablarch/versionup_policy.html#versionup-policy-versionup-type">バージョンアップの種類</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../about_nablarch/versionup_policy.html#versionup-policy-product-version-number">バージョンの番号体系</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../about_nablarch/versionup_policy.html#versionup-policy-backward-compatibility-policy">後方互換性ポリシー</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../about_nablarch/versionup_policy.html#id8">後方互換性を維持する範囲</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../about_nablarch/versionup_policy.html#versionup-policy-backward-compatibility-contents">後方互換性維持の内容</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../about_nablarch/versionup_policy.html#versionup-policy-backward-compatibility-is-not-maintained">後方互換性の例外</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../inquiry/index.html">機能追加要望・改善要望</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../../../inquiry/index.html#id2">JIRAへの課題起票方法</a></li>
 </ul>
@@ -351,6 +364,7 @@
 <li><a class="reference internal" href="#failure-log-change-fw-failure-code" id="id17">フレームワークの障害コードを変更する</a></li>
 <li><a class="reference internal" href="#failure-log-output-src-exe-info" id="id18">派生元実行時情報を出力する</a></li>
 <li><a class="reference internal" href="#failure-log-placeholder-customize" id="id19">プレースホルダに対する出力処理をカスタマイズする</a></li>
+<li><a class="reference internal" href="#json" id="id20">JSON形式の構造化ログとして出力する</a></li>
 </ul>
 </li>
 </ul>
@@ -925,6 +939,109 @@ Stack Trace Information :
 </dd>
 </dl>
 </div>
+<div class="section" id="json">
+<span id="failure-log-json-setting"></span><h3><a class="toc-backref" href="#id20">7.1.1.2.1.2.7. JSON形式の構造化ログとして出力する</a><a class="headerlink" href="#json" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p><a class="reference internal" href="../log.html#log-json-log-setting"><span>JSON形式の構造化ログとして出力する</span></a> 設定を行うことでログをJSON形式で出力できるが、
+<a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/core/log/app/FailureLogFormatter.html" title="nablarch.core.log.app.FailureLogFormatter">FailureLogFormatter</a> では
+障害ログの各項目はmessageの値に文字列として出力される。
+障害ログの各項目もJSONの値として出力するには、
+<a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/core/log/app/FailureJsonLogFormatter.html" title="nablarch.core.log.app.FailureJsonLogFormatter">FailureJsonLogFormatter</a> を使用する。
+設定は、 <a class="reference internal" href="../log.html#log-app-log-setting"><span>各種ログの設定を行う</span></a> で説明したプロパティファイルに行う。</p>
+<dl class="docutils">
+<dt>記述ルール</dt>
+<dd><p class="first"><a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/core/log/app/FailureJsonLogFormatter.html" title="nablarch.core.log.app.FailureJsonLogFormatter">FailureJsonLogFormatter</a> を用いる際に
+指定するプロパティは以下の通り。</p>
+<dl class="docutils">
+<dt>failureLogFormatter.className <code class="docutils literal"><span class="pre">必須</span></code></dt>
+<dd>JSON形式でログを出力する場合、
+<a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/core/log/app/FailureJsonLogFormatter.html" title="nablarch.core.log.app.FailureJsonLogFormatter">FailureJsonLogFormatter</a> を指定する。</dd>
+<dt>failureLogFormatter.defaultFailureCode <code class="docutils literal"><span class="pre">必須</span></code></dt>
+<dd>デフォルトの障害コード。
+例外ハンドラで例外がエラーを捕捉した場合など、障害コードの指定がない場合に使用する。</dd>
+<dt>failureLogFormatter.defaultMessage <code class="docutils literal"><span class="pre">必須</span></code></dt>
+<dd>デフォルトのメッセージ。
+デフォルトの障害コードを使用する場合に出力するメッセージとなる。</dd>
+<dt>failureLogFormatter.language</dt>
+<dd>障害コードからメッセージを取得する際に使用する言語。
+指定がない場合は <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/core/ThreadContext.html" title="nablarch.core.ThreadContext">ThreadContext</a> に設定されている言語を使用する。</dd>
+</dl>
+<dl class="last docutils" id="failure-log-prop-notification-targets">
+<dt>failureLogFormatter.notificationTargets</dt>
+<dd><p class="first">障害通知ログの出力項目。カンマ区切りで指定する。</p>
+<dl class="last docutils">
+<dt>指定可能な出力項目およびデフォルトの出力項目</dt>
+<dd><p class="first"></p>
+<table border="1" class="colwidths-given white-space-normal last docutils">
+<colgroup>
+<col width="19%" />
+<col width="15%" />
+<col width="44%" />
+<col width="22%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">項目名</th>
+<th class="head">出力項目</th>
+<th class="head">説明</th>
+<th class="head">デフォルト出力</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>障害コード</td>
+<td>failureCode</td>
+<td>障害を一意に識別するコード。障害内容の特定に使用する。</td>
+<td>○</td>
+</tr>
+<tr class="row-odd"><td>メッセージ</td>
+<td>message</td>
+<td>障害コードに対応するメッセージ。障害内容の特定に使用する。</td>
+<td>○</td>
+</tr>
+<tr class="row-even"><td>処理対象データ</td>
+<td>data</td>
+<td>障害が発生した処理が対象としていたデータを特定するために使用する。
+データリーダを使用して読み込まれたデータオブジェクトのtoStringメソッドを呼び出し出力される。</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>連絡先</td>
+<td>contact</td>
+<td>連絡先を特定するために使用する。</td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</dd>
+<dt>failureLogFormatter.analysisTargets</dt>
+<dd>障害解析ログの出力項目。カンマ区切りで指定する。
+指定可能な出力項目とデフォルト設定は、
+<a class="reference internal" href="#failure-log-prop-notification-targets"><span>障害通知ログの出力項目</span></a> と同じ。</dd>
+<dt>failureLogFormatter.contactFilePath</dt>
+<dd>障害の連絡先情報を指定したプロパティファイルのパス。
+障害の連絡先情報を出力する場合に指定する。
+詳細は <a class="reference internal" href="#failure-log-add-contact"><span>障害ログに連絡先情報を追加する</span></a> を参照。</dd>
+<dt>failureLogFormatter.fwFailureCodeFilePath</dt>
+<dd>フレームワークの障害コードの変更情報を指定したプロパティファイルのパス。
+障害ログ出力時にフレームワークの障害コードを変更する場合に指定する。
+詳細は <a class="reference internal" href="#failure-log-change-fw-failure-code"><span>フレームワークの障害コードを変更する</span></a> を参照。</dd>
+<dt>failureLogFormatter.structuredMessagePrefix</dt>
+<dd>フォーマット後のメッセージ文字列が JSON 形式に整形されていることを識別できるようにするために、メッセージの先頭に付与するマーカー文字列。
+メッセージの先頭にこのマーカーがある場合、 <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/core/log/basic/JsonLogFormatter.html" title="nablarch.core.log.basic.JsonLogFormatter">JsonLogFormatter</a> はメッセージを JSON データとして処理する。
+デフォルトは <code class="docutils literal"><span class="pre">&quot;$JSON$&quot;</span></code> となる。</dd>
+</dl>
+</dd>
+<dt>記述例</dt>
+<dd><div class="first last highlight-properties"><div class="highlight"><pre><span></span><span class="na">failureLogFormatter.className</span><span class="o">=</span><span class="s">nablarch.core.log.app.FailureJsonLogFormatter</span>
+<span class="na">failureLogFormatter.structuredMessagePrefix</span><span class="o">=</span><span class="s">$JSON$</span>
+<span class="na">failureLogFormatter.notificationTargets</span><span class="o">=</span><span class="s">failureCode,message,contact</span>
+<span class="na">failureLogFormatter.analysisTargets</span><span class="o">=</span><span class="s">failureCode,message,data</span>
+<span class="na">failureLogFormatter.defaultFailureCode</span><span class="o">=</span><span class="s">UNEXPECTED_ERROR</span>
+<span class="na">failureLogFormatter.defaultMessage</span><span class="o">=</span><span class="s">an unexpected exception occurred.</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</div>
 </div>
 </div>
 
@@ -940,7 +1057,7 @@ Stack Trace Information :
 
     <div role="contentinfo">
         <p>
-            &copy; Copyright 2010-2021, TIS Inc.
+            &copy; Copyright 2010-2022, TIS Inc.
         </p>
     </div>
     Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
@@ -961,7 +1078,7 @@ Stack Trace Information :
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../../',
-            VERSION:'5u20',
+            VERSION:'5u21',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

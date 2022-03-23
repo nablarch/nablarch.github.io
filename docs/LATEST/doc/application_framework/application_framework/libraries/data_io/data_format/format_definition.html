@@ -9,7 +9,7 @@
   <meta http-equiv='content-language' content='ja'>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>7.4.2.3.1.1. フォーマット定義ファイルの記述ルール &mdash; ∇Nablarch  5u20 ドキュメント</title>
+  <title>7.4.2.3.1.1. フォーマット定義ファイルの記述ルール &mdash; ∇Nablarch  5u21 ドキュメント</title>
   
 
   
@@ -35,7 +35,7 @@
   
   <link rel="canonical" href="https://nablarch.github.io/docs/LATEST/doc/application_framework/application_framework/libraries/data_io/data_format/format_definition.html" />
   
-    <link rel="top" title="∇Nablarch  5u20 ドキュメント" href="../../../../../index.html"/>
+    <link rel="top" title="∇Nablarch  5u21 ドキュメント" href="../../../../../index.html"/>
         <link rel="up" title="7.4.2. 汎用データフォーマット" href="../data_format.html"/>
         <link rel="next" title="7.4.2.3.1.1.4.2.1. Fixed(固定長)のマルチフォーマット定義のサンプル集" href="multi_format_example.html"/>
         <link rel="prev" title="7.4.2. 汎用データフォーマット" href="../data_format.html"/>
@@ -61,7 +61,7 @@
   
 
   
-    <div id="sidebar-version">Version: 5u20</div>
+    <div id="sidebar-version">Version: 5u21</div>
   </a>
 
   <div role="search">
@@ -125,6 +125,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../../example/index.html">Example</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../../example/index.html#id1">環境構築手順について</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../example/index.html#id2">アプリケーションの実行手順について</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../example/index.html#java-11">Java 11 以上で動かす場合について</a></li>
 </ul>
 </li>
 </ul>
@@ -281,6 +282,18 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../nablarch_api/index.html">Nablarch API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../releases/index.html">リリース情報</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../about_nablarch/versionup_policy.html">Nablarch のバージョンアップ方針</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../about_nablarch/versionup_policy.html#versionup-policy-release-type">リリース単位</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../about_nablarch/versionup_policy.html#versionup-policy-versionup-type">バージョンアップの種類</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../about_nablarch/versionup_policy.html#versionup-policy-product-version-number">バージョンの番号体系</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../about_nablarch/versionup_policy.html#versionup-policy-backward-compatibility-policy">後方互換性ポリシー</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../about_nablarch/versionup_policy.html#id8">後方互換性を維持する範囲</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../about_nablarch/versionup_policy.html#versionup-policy-backward-compatibility-contents">後方互換性維持の内容</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../about_nablarch/versionup_policy.html#versionup-policy-backward-compatibility-is-not-maintained">後方互換性の例外</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../inquiry/index.html">機能追加要望・改善要望</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../../../../inquiry/index.html#id2">JIRAへの課題起票方法</a></li>
 </ul>
@@ -753,6 +766,29 @@ text-encoding:  <span class="s2">&quot;utf-8&quot;</span>     <span class="c1">#
 <span class="m">1</span> name  N<span class="o">(</span><span class="m">100</span><span class="o">)</span>      <span class="c1"># 名前</span>
 <span class="m">2</span> age   X9<span class="o">(</span><span class="m">3</span><span class="o">)</span>       <span class="c1"># 年齢</span>
 </pre></div>
+</div>
+<div class="admonition important">
+<p class="first admonition-title">重要</p>
+<p>JSONおよびXMLデータ形式でフィールド定義を行う場合、同一フィールド名でフィールドタイプが <code class="docutils literal"><span class="pre">OB</span></code> のものと、そうでないものを混在させてはいけない。</p>
+<p>混在させた場合、OBの定義が優先されるため、OB以外を指定したフィールドのフィールドタイプは無視される。</p>
+<p>その結果、本来OBではないフィールドの読み書き時にOB型として取り扱ってしまう。
+そのため、データとフォーマットの項目定義が合わず、データが正しく読み書きできない問題が発生する場合がある。</p>
+<dl class="last docutils">
+<dt>不適切な例</dt>
+<dd><div class="first last highlight-bash"><div class="highlight"><pre><span></span><span class="o">[</span>order<span class="o">]</span>
+<span class="m">1</span> id     N
+<span class="m">2</span> data   OB  <span class="c1"># フィールドタイプ:OB</span>
+<span class="m">3</span> detail OB
+
+<span class="o">[</span>data<span class="o">]</span>
+<span class="m">1</span> value  N
+
+<span class="o">[</span>detail<span class="o">]</span>
+<span class="m">1</span> data   N   <span class="c1"># フィールドタイプ:N  ← 不適切な記述：フィールドタイプにOBを指定したものとして取り扱われる。</span>
+</pre></div>
+</div>
+</dd>
+</dl>
 </div>
 <div class="section" id="data-format-field-definition">
 <span id="id11"></span><h3><a class="toc-backref" href="#id28">7.4.2.3.1.1.4.1. フィールド定義</a><a class="headerlink" href="#data-format-field-definition" title="このヘッドラインへのパーマリンク">¶</a></h3>
@@ -1424,7 +1460,7 @@ SX9 <br/></td>
 
     <div role="contentinfo">
         <p>
-            &copy; Copyright 2010-2021, TIS Inc.
+            &copy; Copyright 2010-2022, TIS Inc.
         </p>
     </div>
     Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
@@ -1445,7 +1481,7 @@ SX9 <br/></td>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../../../',
-            VERSION:'5u20',
+            VERSION:'5u21',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

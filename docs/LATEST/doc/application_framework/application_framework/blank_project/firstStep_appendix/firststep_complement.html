@@ -9,7 +9,7 @@
   <meta http-equiv='content-language' content='ja'>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>8.3.7. 初期セットアップ手順 補足事項 &mdash; ∇Nablarch  5u20 ドキュメント</title>
+  <title>8.3.8. 初期セットアップ手順 補足事項 &mdash; ∇Nablarch  5u21 ドキュメント</title>
   
 
   
@@ -35,10 +35,10 @@
   
   <link rel="canonical" href="https://nablarch.github.io/docs/LATEST/doc/application_framework/application_framework/blank_project/firstStep_appendix/firststep_complement.html" />
   
-    <link rel="top" title="∇Nablarch  5u20 ドキュメント" href="../../../../index.html"/>
+    <link rel="top" title="∇Nablarch  5u21 ドキュメント" href="../../../../index.html"/>
         <link rel="up" title="8.3. 初期セットアップ手順" href="../FirstStep.html"/>
         <link rel="next" title="8.4. 初期セットアップ手順（コンテナ）" href="../FirstStepContainer.html"/>
-        <link rel="prev" title="8.3.6. テーブルをキューとして使ったメッセージングを再び起動したい場合にすること" href="ResiBatchReboot.html"/>
+        <link rel="prev" title="8.3.7. テーブルをキューとして使ったメッセージングを再び起動したい場合にすること" href="ResiBatchReboot.html"/>
  
 
   
@@ -61,7 +61,7 @@
   
 
   
-    <div id="sidebar-version">Version: 5u20</div>
+    <div id="sidebar-version">Version: 5u21</div>
   </a>
 
   <div role="search">
@@ -125,6 +125,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../example/index.html">Example</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../example/index.html#id1">環境構築手順について</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../example/index.html#id2">アプリケーションの実行手順について</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../example/index.html#java-11">Java 11 以上で動かす場合について</a></li>
 </ul>
 </li>
 </ul>
@@ -281,6 +282,18 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../nablarch_api/index.html">Nablarch API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../releases/index.html">リリース情報</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../about_nablarch/versionup_policy.html">Nablarch のバージョンアップ方針</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../about_nablarch/versionup_policy.html#versionup-policy-release-type">リリース単位</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../about_nablarch/versionup_policy.html#versionup-policy-versionup-type">バージョンアップの種類</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../about_nablarch/versionup_policy.html#versionup-policy-product-version-number">バージョンの番号体系</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../about_nablarch/versionup_policy.html#versionup-policy-backward-compatibility-policy">後方互換性ポリシー</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../about_nablarch/versionup_policy.html#id8">後方互換性を維持する範囲</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../about_nablarch/versionup_policy.html#versionup-policy-backward-compatibility-contents">後方互換性維持の内容</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../about_nablarch/versionup_policy.html#versionup-policy-backward-compatibility-is-not-maintained">後方互換性の例外</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../inquiry/index.html">機能追加要望・改善要望</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../../../inquiry/index.html#id2">JIRAへの課題起票方法</a></li>
 </ul>
@@ -325,7 +338,7 @@
       
           <li><a href="../FirstStep.html">8.3. 初期セットアップ手順</a> &raquo;</li>
       
-    <li>8.3.7. 初期セットアップ手順　補足事項</li>
+    <li>8.3.8. 初期セットアップ手順　補足事項</li>
     <li class="wy-breadcrumbs-aside">
       <a href="https://github.com/nablarch" class="fa fa-github">GitHub</a>
     </li>
@@ -339,9 +352,9 @@
            <div itemprop="articleBody">
             
   <div class="section" id="id1">
-<h1>8.3.7. 初期セットアップ手順　補足事項<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<h1>8.3.8. 初期セットアップ手順　補足事項<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <div class="section" id="h2">
-<h2>8.3.7.1. H2のデータの確認方法<a class="headerlink" href="#h2" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>8.3.8.1. H2のデータの確認方法<a class="headerlink" href="#h2" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>トラブルシューティング等でH2に格納されているデータを確認する場合、以下のようにしてH2のコンソールを起動する。</p>
 <p>1.h2/bin/h2.batを実行する。</p>
 <div class="admonition tip">
@@ -397,7 +410,7 @@
 </div>
 </div>
 <div class="section" id="firststepbuiltintools">
-<span id="id2"></span><h2>8.3.7.2. アーキタイプから生成したプロジェクトに組み込まれているツール<a class="headerlink" href="#firststepbuiltintools" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<span id="id2"></span><h2>8.3.8.2. アーキタイプから生成したプロジェクトに組み込まれているツール<a class="headerlink" href="#firststepbuiltintools" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>以下のツールが、アーキタイプから生成したプロジェクトには組み込まれている。</p>
 <table border="1" class="colwidths-given white-space-normal docutils">
 <colgroup>
@@ -450,7 +463,7 @@ jacoco.execは、SonarQube及びJenkinsのプラグインで使用出来る。</
 
     <div role="contentinfo">
         <p>
-            &copy; Copyright 2010-2021, TIS Inc.
+            &copy; Copyright 2010-2022, TIS Inc.
         </p>
     </div>
     Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
@@ -471,7 +484,7 @@ jacoco.execは、SonarQube及びJenkinsのプラグインで使用出来る。</
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../../',
-            VERSION:'5u20',
+            VERSION:'5u21',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

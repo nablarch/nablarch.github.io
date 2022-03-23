@@ -62,6 +62,7 @@ nablarch.core.repository.disposal
 nablarch.core.repository.initialization
 nablarch.core.repository.jndi
 nablarch.core.text
+nablarch.core.text.json
 nablarch.core.transaction
 nablarch.core.util
 nablarch.core.util.map
@@ -118,3 +119,10 @@ nablarch.fw.web.upload
 nablarch.fw.web.upload.util
 nablarch.fw.web.useragent
 nablarch.test.core.http
+nablarch.test.junit5.extension
+nablarch.test.junit5.extension.batch
+nablarch.test.junit5.extension.db
+nablarch.test.junit5.extension.event
+nablarch.test.junit5.extension.http
+nablarch.test.junit5.extension.integration
+nablarch.test.junit5.extension.messaging

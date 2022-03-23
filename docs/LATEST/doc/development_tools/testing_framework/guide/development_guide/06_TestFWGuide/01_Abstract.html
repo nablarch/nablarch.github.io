@@ -9,7 +9,7 @@
   <meta http-equiv='content-language' content='ja'>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>3.2.1. 自動テストフレームワーク &mdash; ∇Nablarch  5u20 ドキュメント</title>
+  <title>3.2.1. 自動テストフレームワーク &mdash; ∇Nablarch  5u21 ドキュメント</title>
   
 
   
@@ -35,7 +35,7 @@
   
   <link rel="canonical" href="https://nablarch.github.io/docs/LATEST/doc/development_tools/testing_framework/guide/development_guide/06_TestFWGuide/01_Abstract.html" />
   
-    <link rel="top" title="∇Nablarch  5u20 ドキュメント" href="../../../../../index.html"/>
+    <link rel="top" title="∇Nablarch  5u21 ドキュメント" href="../../../../../index.html"/>
         <link rel="up" title="3.2. 自動テストフレームワークの使用方法" href="index.html"/>
         <link rel="next" title="3.2.2. データベースを使用するクラスのテスト" href="02_DbAccessTest.html"/>
         <link rel="prev" title="3.2. 自動テストフレームワークの使用方法" href="index.html"/>
@@ -61,7 +61,7 @@
   
 
   
-    <div id="sidebar-version">Version: 5u20</div>
+    <div id="sidebar-version">Version: 5u21</div>
   </a>
 
   <div role="search">
@@ -125,6 +125,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../../../application_framework/example/index.html">Example</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../../../application_framework/example/index.html#id1">環境構築手順について</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../../application_framework/example/index.html#id2">アプリケーションの実行手順について</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../application_framework/example/index.html#java-11">Java 11 以上で動かす場合について</a></li>
 </ul>
 </li>
 </ul>
@@ -281,6 +282,18 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../nablarch_api/index.html">Nablarch API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../releases/index.html">リリース情報</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../about_nablarch/versionup_policy.html">Nablarch のバージョンアップ方針</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../about_nablarch/versionup_policy.html#versionup-policy-release-type">リリース単位</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../about_nablarch/versionup_policy.html#versionup-policy-versionup-type">バージョンアップの種類</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../about_nablarch/versionup_policy.html#versionup-policy-product-version-number">バージョンの番号体系</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../about_nablarch/versionup_policy.html#versionup-policy-backward-compatibility-policy">後方互換性ポリシー</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../about_nablarch/versionup_policy.html#id8">後方互換性を維持する範囲</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../about_nablarch/versionup_policy.html#versionup-policy-backward-compatibility-contents">後方互換性維持の内容</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../about_nablarch/versionup_policy.html#versionup-policy-backward-compatibility-is-not-maintained">後方互換性の例外</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../inquiry/index.html">機能追加要望・改善要望</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../../../../inquiry/index.html#id2">JIRAへの課題起票方法</a></li>
 </ul>
@@ -344,6 +357,10 @@
 <h3>3.2.1.1.1. JUnit4ベース<a class="headerlink" href="#junit4" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>自動テストフレームワークは、JUnit4をベースとしている。
 各種アノテーション、assertメソッドやMatcherクラスなど、JUnit4で提供されている機能を使用する。</p>
+<div class="admonition tip">
+<p class="first admonition-title">補足</p>
+<p class="last">JUnit 5の上で自動テストフレームワークを動かしたい場合は、 <a class="reference internal" href="#run-ntf-on-junit5-with-vintage-engine"><span>JUnit 5で自動テストフレームワークを動かす</span></a> を参照のこと。</p>
+</div>
 </div>
 <div class="section" id="id3">
 <h3>3.2.1.1.2. テストデータの外部化<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h3>
@@ -733,8 +750,78 @@ Excelシートの見た目上は存在するデータを記述できる。</p>
 </div>
 </div>
 </div>
+<div class="section" id="id17">
+<h3>3.2.1.4.6. 日付の記述方法<a class="headerlink" href="#id17" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>日付は以下の形式で記述できる。</p>
+<ul class="simple">
+<li>yyyyMMddHHmmssSSS</li>
+<li>yyyy-MM-dd HH:mm:ss.SSS</li>
+</ul>
+<p>以下のように時刻のミリ秒または全部を省略することができる。</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="33%" />
+<col width="67%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">省略方法</th>
+<th class="head">省略した場合の動作</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><div class="first last line-block">
+<div class="line">ミリ秒を省略</div>
+<div class="line">・yyyMMddHHmmss</div>
+<div class="line">・yyy-MM-dd HH:mm:ss</div>
+</div>
+</td>
+<td>ミリ秒として0を指定したものとして扱われる。</td>
+</tr>
+<tr class="row-odd"><td><div class="first last line-block">
+<div class="line">時刻全部を省略</div>
+<div class="line">・yyyMMdd</div>
+<div class="line">・yyy-MM-dd</div>
+</div>
+</td>
+<td>時刻として0時0分0秒000を指定したものとして扱われる。</td>
+</tr>
+</tbody>
+</table>
+<p>例を以下に示す。</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="38%" />
+<col width="62%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">記述例</th>
+<th class="head">評価結果</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>20210123123456789</td>
+<td>2021年1月23日 12時34分56秒789</td>
+</tr>
+<tr class="row-odd"><td>20210123123456</td>
+<td>2021年1月23日 12時34分56秒000</td>
+</tr>
+<tr class="row-even"><td>20210123</td>
+<td>2021年1月23日 00時00分00秒000</td>
+</tr>
+<tr class="row-odd"><td>2021-01-23 12:34:56.789</td>
+<td>2021年1月23日 12時34分56秒789</td>
+</tr>
+<tr class="row-even"><td>2021-01-23 12:34:56</td>
+<td>2021年1月23日 12時34分56秒000</td>
+</tr>
+<tr class="row-odd"><td>2021-01-23</td>
+<td>2021年1月23日 00時00分00秒000</td>
+</tr>
+</tbody>
+</table>
+</div>
 <div class="section" id="special-notation-in-cell">
-<span id="id17"></span><h3>3.2.1.4.6. セルへの特殊な記述方法<a class="headerlink" href="#special-notation-in-cell" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<span id="id18"></span><h3>3.2.1.4.7. セルへの特殊な記述方法<a class="headerlink" href="#special-notation-in-cell" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>自動テストの利便性を向上させるために、いくつかの特殊記法を提供する。
 下記表が、本フレームワークで提供する特殊な記述方法となっている。</p>
 <table border="1" class="docutils">
@@ -745,7 +832,7 @@ Excelシートの見た目上は存在するデータを記述できる。</p>
 </colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">記述方法 (セルに記述する値)</th>
-<th class="head">自動テスト内での値 <a class="footnote-reference" href="#id24" id="id18">[3]</a></th>
+<th class="head">自動テスト内での値 <a class="footnote-reference" href="#id25" id="id19">[3]</a></th>
 <th class="head">説明</th>
 </tr>
 </thead>
@@ -758,7 +845,7 @@ Excelシートの見た目上は存在するデータを記述できる。</p>
 </tr>
 <tr class="row-even"><td>&#8220;null&#8221;</td>
 <td rowspan="2">文字列のnull</td>
-<td rowspan="8"><p class="first">文字列の前後がダブルクォート(半角、全角問わず)で囲われている場合は、前後のダブルクォートを取り除いた文字列を扱う。<a class="footnote-reference" href="#id25" id="id19">[4]</a></p>
+<td rowspan="8"><p class="first">文字列の前後がダブルクォート(半角、全角問わず)で囲われている場合は、前後のダブルクォートを取り除いた文字列を扱う。<a class="footnote-reference" href="#id26" id="id20">[4]</a></p>
 <p>例えば、「null」や「NULL」を文字列として扱う必要がある場合には、記述方法にあるように 「&#8221;null&#8221;」や「&#8221;NULL&#8221;」と記述を行う。</p>
 <p class="last">また、セルの値にスペースがあることを解りやすくする目的で、記述方法にあるよ
 うに「&#8221;1?&#8221;」や、「&#8221;?&#8221;」とすることもできる。</p>
@@ -781,11 +868,11 @@ Excelシートの見た目上は存在するデータを記述できる。</p>
 <tr class="row-even"><td>&#8220;&#8221;&#8220;</td>
 <td>&#8220;</td>
 </tr>
-<tr class="row-odd"><td>&#8220;&#8221; <a class="footnote-reference" href="#id26" id="id20">[5]</a></td>
+<tr class="row-odd"><td>&#8220;&#8221; <a class="footnote-reference" href="#id27" id="id21">[5]</a></td>
 <td>空文字列</td>
 </tr>
 <tr class="row-even"><td>${systemTime}</td>
-<td rowspan="2">システム日時 <a class="footnote-reference" href="#id27" id="id21">[6]</a></td>
+<td rowspan="2">システム日時 <a class="footnote-reference" href="#id28" id="id22">[6]</a></td>
 <td>システム日時を記載したい場合に使用する</td>
 </tr>
 <tr class="row-odd"><td>${updateTime}</td>
@@ -796,7 +883,7 @@ Excelシートの見た目上は存在するデータを記述できる。</p>
 記載された固定値</td>
 <td>データベースセットアップ時のタイムスタンプに、決まった値を使用したい場合に使用する。</td>
 </tr>
-<tr class="row-odd"><td>${文字種,文字数} <a class="footnote-reference" href="#id28" id="id22">[7]</a></td>
+<tr class="row-odd"><td>${文字種,文字数} <a class="footnote-reference" href="#id29" id="id23">[7]</a></td>
 <td>指定した文字種を指定した文字
 数分まで増幅した値</td>
 <td><p class="first">使用可能な文字列は下記の通り。</p>
@@ -813,7 +900,7 @@ Excelシートの見た目上は存在するデータを記述できる。</p>
 </tr>
 <tr class="row-odd"><td>\r</td>
 <td><em>CR</em></td>
-<td rowspan="2">改行コードを明示的に記述する場合に使用する。 <a class="footnote-reference" href="#id29" id="id23">[8]</a></td>
+<td rowspan="2">改行コードを明示的に記述する場合に使用する。 <a class="footnote-reference" href="#id30" id="id24">[8]</a></td>
 </tr>
 <tr class="row-even"><td>\n</td>
 <td><em>LF</em></td>
@@ -830,17 +917,17 @@ Excelシートの見た目上は存在するデータを記述できる。</p>
 <li><em>LF</em> は、改行コードLF(0x0A)の意</li>
 </ul>
 </div>
-<table class="docutils footnote" frame="void" id="id24" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id18">[3]</a></td><td>セルから読み込み後に自動テストフレームワークにて変換される。</td></tr>
-</tbody>
-</table>
-<p></p>
 <table class="docutils footnote" frame="void" id="id25" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id19">[4]</a></td><td><blockquote class="first">
+<tr><td class="label"><a class="fn-backref" href="#id19">[3]</a></td><td>セルから読み込み後に自動テストフレームワークにて変換される。</td></tr>
+</tbody>
+</table>
+<p></p>
+<table class="docutils footnote" frame="void" id="id26" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id20">[4]</a></td><td><blockquote class="first">
 <div>本記述方法を利用した場合であっても、文字列中のダブルクォートをエスケープする必要はない。
 以下に例を示す。</div></blockquote>
 <table border="1" class="last docutils">
@@ -872,24 +959,24 @@ Excelシートの見た目上は存在するデータを記述できる。</p>
 </tbody>
 </table>
 <p></p>
-<table class="docutils footnote" frame="void" id="id26" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id20">[5]</a></td><td>この記法を使用することで、空行を表すことができる。
-『<a class="reference internal" href="03_Tips.html#how-to-express-empty-line"><span>テストデータに空行を記述したい</span></a>』の項を参照。</td></tr>
-</tbody>
-</table>
 <table class="docutils footnote" frame="void" id="id27" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id21">[6]</a></td><td>コンポーネント設定ファイルにて設定されたSystemTimeProvider実装クラスから取得したTimestampの文字列形式に変換される。具体的には、<cite>2011-04-11 01:23:45.0</cite> というような値に変換される。</td></tr>
+<tr><td class="label"><a class="fn-backref" href="#id21">[5]</a></td><td>この記法を使用することで、空行を表すことができる。
+『<a class="reference internal" href="03_Tips.html#how-to-express-empty-line"><span>テストデータに空行を記述したい</span></a>』の項を参照。</td></tr>
 </tbody>
 </table>
-<p></p>
 <table class="docutils footnote" frame="void" id="id28" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id22">[7]</a></td><td><p class="first">本記法は単独でも使用可能であるし、組み合わせて使用することもできる。
+<tr><td class="label"><a class="fn-backref" href="#id22">[6]</a></td><td>コンポーネント設定ファイルにて設定されたSystemTimeProvider実装クラスから取得したTimestampの文字列形式に変換される。具体的には、<cite>2011-04-11 01:23:45.0</cite> というような値に変換される。</td></tr>
+</tbody>
+</table>
+<p></p>
+<table class="docutils footnote" frame="void" id="id29" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id23">[7]</a></td><td><p class="first">本記法は単独でも使用可能であるし、組み合わせて使用することもできる。
 以下に例を示す。</p>
 <table border="1" class="last docutils">
 <colgroup>
@@ -925,10 +1012,10 @@ Excelシートの見た目上は存在するデータを記述できる。</p>
 </td></tr>
 </tbody>
 </table>
-<table class="docutils footnote" frame="void" id="id29" rules="none">
+<table class="docutils footnote" frame="void" id="id30" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id23">[8]</a></td><td><p class="first">Excelセル内の改行（Alt+Enter）は<em>LF</em>として扱われる。これは本機能とは関係のないExcelの仕様である。
+<tr><td class="label"><a class="fn-backref" href="#id24">[8]</a></td><td><p class="first">Excelセル内の改行（Alt+Enter）は<em>LF</em>として扱われる。これは本機能とは関係のないExcelの仕様である。
 改行コードLFを表したい場合は、単にセル内で改行（Alt+Enter）すればよい。</p>
 <p>以下に例を示す。</p>
 <table border="1" class="last docutils">
@@ -970,10 +1057,10 @@ LF(0x0A)となる。</td>
 </table>
 </div>
 </div>
-<div class="section" id="id30">
-<h2>3.2.1.5. 注意事項<a class="headerlink" href="#id30" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <div class="section" id="id31">
-<h3>3.2.1.5.1. テストメソッドの実行順序に依存しないテストを作成する<a class="headerlink" href="#id31" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h2>3.2.1.5. 注意事項<a class="headerlink" href="#id31" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="id32">
+<h3>3.2.1.5.1. テストメソッドの実行順序に依存しないテストを作成する<a class="headerlink" href="#id32" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>テストソースコード、テストデータ作成時には、テストメソッドの実行順序によって、テスト結果が変わらないように留意する。単に順序だけでなく、クラス単体でテストしても、複数まとめてテストしても同じ結果にならなければならない。</p>
 <p>特に、本フレームワークではテスト中にコミットが行われるため、前後のテストによってデータベースの内容が変更される可能性が高い。よって、自テストクラスで必要となる事前条件については、全て自テストクラス内で準備するようにしておかなければならない。</p>
 <p>これにより、以下のような効果が得られる。</p>
@@ -993,8 +1080,8 @@ LF(0x0A)となる。</td>
 <p class="last">マスタデータの投入には、<a class="reference internal" href="../08_TestTools/02_MasterDataSetup/01_MasterDataSetupTool.html#master-data-setup-tool"><span>マスタデータ投入ツール</span></a>を使用する。また、<a class="reference internal" href="04_MasterDataRestore.html"><em>マスタデータ復旧機能</em></a>により、テスト内で発生したマスタデータの変更をテスト終了時に自動的に元の状態に戻すことができる。これにより、マスタデータに変更が必要なテストケースであっても、他のテストケースに影響無く実行できる。</p>
 </div>
 </div>
-<div class="section" id="id32">
-<h3>3.2.1.5.2. テストデータは全てExcelシートに記述する<a class="headerlink" href="#id32" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="section" id="id33">
+<h3>3.2.1.5.2. テストデータは全てExcelシートに記述する<a class="headerlink" href="#id33" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>Excelとテストソースコードとでテストデータが混在していると、可読性、保守性が低下してしまう。テストソースコード中にはテストデータを記載せず、テストデータは全てExcelシートに記載すること。</p>
 <ul class="simple">
 <li>Excelシートを見れば、テストケースのバリエーションを把握することができる。</li>
@@ -1004,7 +1091,7 @@ LF(0x0A)となる。</td>
 </ul>
 </div>
 <div class="section" id="auto-test-framework-multi-datatype">
-<span id="id33"></span><h3>3.2.1.5.3. 複数のデータタイプ使用時はデータタイプごとにまとめてデータを記述する<a class="headerlink" href="#auto-test-framework-multi-datatype" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<span id="id34"></span><h3>3.2.1.5.3. 複数のデータタイプ使用時はデータタイプごとにまとめてデータを記述する<a class="headerlink" href="#auto-test-framework-multi-datatype" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>複数のデータタイプを使用する場合、使用するデータタイプごとにまとめてデータを記述すること。
 複数のデータタイプを混在させてデータを記述してしまうと、データの読み込みが途中で終了しテストが正しく実行されない。</p>
 <p>例えば、 以下のようにデータタイプを記述した場合、 <code class="docutils literal"><span class="pre">TABLE2</span></code> までのデータしか評価されず、
@@ -1033,6 +1120,77 @@ EXPECTED_COMPLETE_TABLE=TABLE4
 </div>
 </div>
 </div>
+<div class="section" id="junit-5">
+<span id="run-ntf-on-junit5-with-vintage-engine"></span><h2>3.2.1.6. JUnit 5で自動テストフレームワークを動かす<a class="headerlink" href="#junit-5" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="junit-vintage">
+<h3>3.2.1.6.1. JUnit Vintage<a class="headerlink" href="#junit-vintage" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>JUnit 5には、JUnit Vintageというプロジェクトがある。
+このプロジェクトは、JUnit 5の上でJUnit 4で書かれたテストを実行できるようにするための機能を提供している。
+この機能を利用することで、自動テストフレームワークをJUnit 5の上で動かすことができる。</p>
+<div class="admonition important">
+<p class="first admonition-title">重要</p>
+<p>この機能は、あくまでJUnit 4のテストをJUnit 4として動かしているにすぎない。
+したがって、この機能を使ったからといって、JUnit 4のテストの中でJUnit 5の機能が使えるわけではない。</p>
+<p class="last">この機能は、JUnit 4からJUnit 5への移行を段階的進めるための補助として利用できる。
+JUnit 4からJUnit 5に移行するときの手順については、 <a class="reference external" href="https://junit.org/junit5/docs/5.8.2/user-guide/#migrating-from-junit4">公式のガイド(外部サイト、英語)</a> を参照。</p>
+</div>
+<div class="admonition tip">
+<p class="first admonition-title">補足</p>
+<p class="last">JUnit 5のテストで自動テストフレームワークを使用する方法については、 <a class="reference internal" href="JUnit5_Extension.html#ntf-junit5-extension"><span>JUnit 5用拡張機能</span></a> を参照。</p>
+</div>
+<p>以下で、JUnit Vintageを使用して自動テストフレームワークをJUnit 5で動かす方法について説明する。</p>
+</div>
+<div class="section" id="id36">
+<h3>3.2.1.6.2. 前提条件<a class="headerlink" href="#id36" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>JUnit 5を使用するには、以下の条件を満たしている必要がある。</p>
+<ul class="simple">
+<li>Java 8 以上であること</li>
+<li>maven-surefire-plugin が 2.22.0 以上であること</li>
+</ul>
+</div>
+<div class="section" id="id37">
+<h3>3.2.1.6.3. 依存関係の追加<a class="headerlink" href="#id37" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>JUnit Vintageは、pom.xmlで以下２つのアーティファクトを依存関係に追加することで有効にできる。</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">org.junit.jupiter:junit-jupiter</span></code></li>
+<li><code class="docutils literal"><span class="pre">org.junit.vintage:junit-vintage-engine</span></code></li>
+</ul>
+<p>以下に、pom.xmlの記述例を記載する。</p>
+<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;dependencyManagement&gt;</span>
+  <span class="nt">&lt;dependencies&gt;</span>
+    ...
+
+    <span class="c">&lt;!-- バージョンを揃えるため、JUnitが提供しているbomを読み込む --&gt;</span>
+    <span class="nt">&lt;dependency&gt;</span>
+      <span class="nt">&lt;groupId&gt;</span>org.junit<span class="nt">&lt;/groupId&gt;</span>
+      <span class="nt">&lt;artifactId&gt;</span>junit-bom<span class="nt">&lt;/artifactId&gt;</span>
+      <span class="nt">&lt;version&gt;</span>5.8.2<span class="nt">&lt;/version&gt;</span>
+      <span class="nt">&lt;type&gt;</span>pom<span class="nt">&lt;/type&gt;</span>
+      <span class="nt">&lt;scope&gt;</span>import<span class="nt">&lt;/scope&gt;</span>
+    <span class="nt">&lt;/dependency&gt;</span>
+  <span class="nt">&lt;/dependencies&gt;</span>
+<span class="nt">&lt;/dependencyManagement&gt;</span>
+
+<span class="nt">&lt;dependencies&gt;</span>
+  ...
+
+  <span class="c">&lt;!-- 以下の依存関係を追加する --&gt;</span>
+  <span class="nt">&lt;dependency&gt;</span>
+    <span class="nt">&lt;groupId&gt;</span>org.junit.jupiter<span class="nt">&lt;/groupId&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>junit-jupiter<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="nt">&lt;scope&gt;</span>test<span class="nt">&lt;/scope&gt;</span>
+  <span class="nt">&lt;/dependency&gt;</span>
+  <span class="nt">&lt;dependency&gt;</span>
+    <span class="nt">&lt;groupId&gt;</span>org.junit.vintage<span class="nt">&lt;/groupId&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>junit-vintage-engine<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="nt">&lt;scope&gt;</span>test<span class="nt">&lt;/scope&gt;</span>
+  <span class="nt">&lt;/dependency&gt;</span>
+<span class="nt">&lt;/dependencies&gt;</span>
+</pre></div>
+</div>
+<p>以上の設定により、自動テストフレームワークをJUnit 5の上で動かすことができるようになる。</p>
+</div>
+</div>
 </div>
 
 
@@ -1047,7 +1205,7 @@ EXPECTED_COMPLETE_TABLE=TABLE4
 
     <div role="contentinfo">
         <p>
-            &copy; Copyright 2010-2021, TIS Inc.
+            &copy; Copyright 2010-2022, TIS Inc.
         </p>
     </div>
     Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
@@ -1068,7 +1226,7 @@ EXPECTED_COMPLETE_TABLE=TABLE4
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../../../',
-            VERSION:'5u20',
+            VERSION:'5u21',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

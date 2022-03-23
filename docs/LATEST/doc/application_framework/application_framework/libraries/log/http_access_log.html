@@ -9,7 +9,7 @@
   <meta http-equiv='content-language' content='ja'>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>7.1.1.2.4. HTTPアクセスログの出力 &mdash; ∇Nablarch  5u20 ドキュメント</title>
+  <title>7.1.1.2.4. HTTPアクセスログの出力 &mdash; ∇Nablarch  5u21 ドキュメント</title>
   
 
   
@@ -35,7 +35,7 @@
   
   <link rel="canonical" href="https://nablarch.github.io/docs/LATEST/doc/application_framework/application_framework/libraries/log/http_access_log.html" />
   
-    <link rel="top" title="∇Nablarch  5u20 ドキュメント" href="../../../../index.html"/>
+    <link rel="top" title="∇Nablarch  5u21 ドキュメント" href="../../../../index.html"/>
         <link rel="up" title="7.1. ログ出力" href="../log.html"/>
         <link rel="next" title="7.1.1.2.5. メッセージングログの出力" href="messaging_log.html"/>
         <link rel="prev" title="7.1.1.2.3. パフォーマンスログの出力" href="performance_log.html"/>
@@ -61,7 +61,7 @@
   
 
   
-    <div id="sidebar-version">Version: 5u20</div>
+    <div id="sidebar-version">Version: 5u21</div>
   </a>
 
   <div role="search">
@@ -125,6 +125,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../example/index.html">Example</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../example/index.html#id1">環境構築手順について</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../example/index.html#id2">アプリケーションの実行手順について</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../example/index.html#java-11">Java 11 以上で動かす場合について</a></li>
 </ul>
 </li>
 </ul>
@@ -281,6 +282,18 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../nablarch_api/index.html">Nablarch API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../releases/index.html">リリース情報</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../about_nablarch/versionup_policy.html">Nablarch のバージョンアップ方針</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../about_nablarch/versionup_policy.html#versionup-policy-release-type">リリース単位</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../about_nablarch/versionup_policy.html#versionup-policy-versionup-type">バージョンアップの種類</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../about_nablarch/versionup_policy.html#versionup-policy-product-version-number">バージョンの番号体系</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../about_nablarch/versionup_policy.html#versionup-policy-backward-compatibility-policy">後方互換性ポリシー</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../about_nablarch/versionup_policy.html#id8">後方互換性を維持する範囲</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../about_nablarch/versionup_policy.html#versionup-policy-backward-compatibility-contents">後方互換性維持の内容</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../about_nablarch/versionup_policy.html#versionup-policy-backward-compatibility-is-not-maintained">後方互換性の例外</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../inquiry/index.html">機能追加要望・改善要望</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../../../inquiry/index.html#id2">JIRAへの課題起票方法</a></li>
 </ul>
@@ -346,6 +359,8 @@
 <li><a class="reference internal" href="#id2" id="id6">HTTPアクセスログの出力方針</a></li>
 <li><a class="reference internal" href="#id3" id="id7">使用方法</a><ul>
 <li><a class="reference internal" href="#http-access-log-setting" id="id8">HTTPアクセスログの設定を行う</a></li>
+<li><a class="reference internal" href="#json" id="id9">JSON形式の構造化ログとして出力する</a></li>
+<li><a class="reference internal" href="#http-access-log-session-store-id" id="id10">セッションストアIDについて</a></li>
 </ul>
 </li>
 </ul>
@@ -452,10 +467,12 @@ hiddenパラメータについては、 <a class="reference internal" href="../t
 <dl class="docutils">
 <dt>記述ルール</dt>
 <dd><p class="first"></p>
-<dl class="last docutils">
+<dl class="docutils">
 <dt>httpAccessLogFormatter.className</dt>
 <dd><a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/fw/web/handler/HttpAccessLogFormatter.html" title="nablarch.fw.web.handler.HttpAccessLogFormatter">HttpAccessLogFormatter</a> を実装したクラス。
 差し替える場合に指定する。</dd>
+</dl>
+<dl class="docutils" id="http-access-log-prop-begin-format">
 <dt>httpAccessLogFormatter.beginFormat</dt>
 <dd><p class="first">リクエスト処理開始時のログ出力に使用するフォーマット。</p>
 <dl class="docutils">
@@ -476,20 +493,22 @@ hiddenパラメータについては、 <a class="reference internal" href="../t
 </tr>
 <tr class="field-even field"><th class="field-name">HTTPメソッド:</th><td class="field-body">$method$</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">セッションID:</th><td class="field-body">$sessionId$</td>
+<tr class="field-odd field"><th class="field-name">HTTPセッションID:</th><td class="field-body">$sessionId$</td>
 </tr>
-<tr class="field-even field"><th class="field-name">リクエストパラメータ:</th><td class="field-body">$parameters$</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">セッションスコープ情報:</th><td class="field-body">$sessionScope$</td>
-</tr>
-<tr class="field-even field"><th class="field-name">クライアント端末IPアドレス:</th><td class="field-body">$clientIpAddress$</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">クライアント端末ホスト:</th><td class="field-body">$clientHost$</td>
-</tr>
-<tr class="field-even field"><th class="field-name" colspan="2">HTTPヘッダのUser-Agent:</th></tr>
-<tr class="field-even field"><td>&nbsp;</td><td class="field-body">$clientUserAgent$</td>
+<tr class="field-even field"><th class="field-name">セッションストアID:</th><td class="field-body">$sessionStoreId$</td>
 </tr>
 <tr class="field-odd field"><th class="field-name">リクエストパラメータ:</th><td class="field-body">$parameters$</td>
+</tr>
+<tr class="field-even field"><th class="field-name">セッションスコープ情報:</th><td class="field-body">$sessionScope$</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">クライアント端末IPアドレス:</th><td class="field-body">$clientIpAddress$</td>
+</tr>
+<tr class="field-even field"><th class="field-name">クライアント端末ホスト:</th><td class="field-body">$clientHost$</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">HTTPヘッダのUser-Agent:</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body">$clientUserAgent$</td>
+</tr>
+<tr class="field-even field"><th class="field-name">リクエストパラメータ:</th><td class="field-body">$parameters$</td>
 </tr>
 </tbody>
 </table>
@@ -543,6 +562,8 @@ hiddenパラメータについては、 <a class="reference internal" href="../t
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">ディスパッチ先クラス:</th><td class="field-body">$dispatchingClass$</td>
 </tr>
+<tr class="field-even field"><th class="field-name">セッションストアID:</th><td class="field-body">$sessionStoreId$</td>
+</tr>
 </tbody>
 </table>
 </dd>
@@ -553,6 +574,8 @@ hiddenパラメータについては、 <a class="reference internal" href="../t
 </dd>
 </dl>
 </dd>
+</dl>
+<dl class="last docutils" id="http-access-log-prop-end-format">
 <dt>httpAccessLogFormatter.endFormat</dt>
 <dd><p class="first">リクエスト処理終了時のログ出力に使用するフォーマット。</p>
 <dl class="docutils">
@@ -579,6 +602,8 @@ hiddenパラメータについては、 <a class="reference internal" href="../t
 <tr class="field-even field"><th class="field-name">最大メモリ量:</th><td class="field-body">$maxMemory$</td>
 </tr>
 <tr class="field-odd field"><th class="field-name">空きメモリ量(開始時):</th><td class="field-body">$freeMemory$</td>
+</tr>
+<tr class="field-even field"><th class="field-name">セッションストアID:</th><td class="field-body">$sessionStoreId$</td>
 </tr>
 </tbody>
 </table>
@@ -665,6 +690,215 @@ falseを指定するとリクエスト処理終了時の出力を行わない。
 </dd>
 </dl>
 </div>
+<div class="section" id="json">
+<span id="http-access-log-json-setting"></span><h3><a class="toc-backref" href="#id9">7.1.1.2.4.2.2. JSON形式の構造化ログとして出力する</a><a class="headerlink" href="#json" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p><a class="reference internal" href="../log.html#log-json-log-setting"><span>JSON形式の構造化ログとして出力する</span></a> 設定を行うことでログをJSON形式で出力できるが、
+<a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/fw/web/handler/HttpAccessLogFormatter.html" title="nablarch.fw.web.handler.HttpAccessLogFormatter">HttpAccessLogFormatter</a> では
+HTTPアクセスログの各項目はmessageの値に文字列として出力される。
+HTTPアクセスログの各項目もJSONの値として出力するには、
+<a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/fw/web/handler/HttpAccessJsonLogFormatter.html" title="nablarch.fw.web.handler.HttpAccessJsonLogFormatter">HttpAccessJsonLogFormatter</a> を使用する。
+設定は、 <a class="reference internal" href="../log.html#log-app-log-setting"><span>各種ログの設定を行う</span></a> で説明したプロパティファイルに行う。</p>
+<dl class="docutils">
+<dt>記述ルール</dt>
+<dd><p class="first"><a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/fw/web/handler/HttpAccessJsonLogFormatter.html" title="nablarch.fw.web.handler.HttpAccessJsonLogFormatter">HttpAccessJsonLogFormatter</a> を用いる際に
+指定するプロパティは以下の通り。</p>
+<dl class="docutils">
+<dt>httpAccessLogFormatter.className <code class="docutils literal"><span class="pre">必須</span></code></dt>
+<dd>JSON形式でログを出力する場合、
+<a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/fw/web/handler/HttpAccessJsonLogFormatter.html" title="nablarch.fw.web.handler.HttpAccessJsonLogFormatter">HttpAccessJsonLogFormatter</a> を指定する。</dd>
+</dl>
+<dl class="last docutils" id="http-access-log-prop-begin-targets">
+<dt>httpAccessLogFormatter.beginTargets</dt>
+<dd><p class="first">リクエスト処理開始時のログ出力項目。カンマ区切りで指定する。</p>
+<dl class="docutils">
+<dt>指定可能な出力項目およびデフォルトの出力項目</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">ラベル:</th><td class="field-body">label <code class="docutils literal"><span class="pre">デフォルト</span></code></td>
+</tr>
+<tr class="field-even field"><th class="field-name">リクエストID:</th><td class="field-body">requestId <code class="docutils literal"><span class="pre">デフォルト</span></code></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">ユーザID:</th><td class="field-body">userId <code class="docutils literal"><span class="pre">デフォルト</span></code></td>
+</tr>
+<tr class="field-even field"><th class="field-name">HTTPセッションID:</th><td class="field-body">sessionId <code class="docutils literal"><span class="pre">デフォルト</span></code></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">セッションストアID:</th><td class="field-body">sessionStoreId</td>
+</tr>
+<tr class="field-even field"><th class="field-name">URL:</th><td class="field-body">url <code class="docutils literal"><span class="pre">デフォルト</span></code></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">ポート番号:</th><td class="field-body">port <code class="docutils literal"><span class="pre">デフォルト</span></code></td>
+</tr>
+<tr class="field-even field"><th class="field-name">HTTPメソッド:</th><td class="field-body">method <code class="docutils literal"><span class="pre">デフォルト</span></code></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">クエリ文字列:</th><td class="field-body">query</td>
+</tr>
+<tr class="field-even field"><th class="field-name">リクエストパラメータ:</th><td class="field-body">parameters</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">セッションスコープ情報:</th><td class="field-body">sessionScope</td>
+</tr>
+<tr class="field-even field"><th class="field-name">クライアント端末IPアドレス:</th><td class="field-body">clientIpAddress <code class="docutils literal"><span class="pre">デフォルト</span></code></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">クライアント端末ホスト:</th><td class="field-body">clientHost <code class="docutils literal"><span class="pre">デフォルト</span></code></td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">HTTPヘッダのUser-Agent:</th></tr>
+<tr class="field-even field"><td>&nbsp;</td><td class="field-body">clientUserAgent</td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+<p class="last">出力項目の詳細は、
+<a class="reference internal" href="#http-access-log-prop-begin-format"><span>リクエスト処理開始時のログ出力に使用するフォーマット</span></a>
+のプレースホルダーと同じため省略。</p>
+</dd>
+<dt>httpAccessLogFormatter.parametersTargets</dt>
+<dd>hiddenパラメータ復号後のログ出力項目。カンマ区切りで指定する。
+指定可能な出力項目は、
+<a class="reference internal" href="#http-access-log-prop-begin-targets"><span>リクエスト処理開始時の出力項目</span></a> と同じため省略。
+デフォルトの出力項目は <code class="docutils literal"><span class="pre">label,parameters</span></code> となる。</dd>
+<dt>httpAccessLogFormatter.dispatchingClassTargets</dt>
+<dd><p class="first">ディスパッチ先クラス決定後のログ出力項目。カンマ区切りで指定する。</p>
+<dl class="last docutils">
+<dt>指定可能な出力項目およびデフォルトの出力項目</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">ラベル:</th><td class="field-body">label <code class="docutils literal"><span class="pre">デフォルト</span></code></td>
+</tr>
+<tr class="field-even field"><th class="field-name">HTTPセッションID:</th><td class="field-body">sessionId</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">セッションストアID:</th><td class="field-body">sessionStoreId</td>
+</tr>
+<tr class="field-even field"><th class="field-name">ディスパッチ先クラス:</th><td class="field-body">dispatchingClass <code class="docutils literal"><span class="pre">デフォルト</span></code></td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</dd>
+<dt>httpAccessLogFormatter.endTargets</dt>
+<dd><p class="first">リクエスト処理終了時のログ出力項目。カンマ区切りで指定する。</p>
+<dl class="docutils">
+<dt>指定可能な出力項目およびデフォルトの出力項目</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">ラベル:</th><td class="field-body">label <code class="docutils literal"><span class="pre">デフォルト</span></code></td>
+</tr>
+<tr class="field-even field"><th class="field-name">リクエストID:</th><td class="field-body">requestId <code class="docutils literal"><span class="pre">デフォルト</span></code></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">ユーザID:</th><td class="field-body">userId <code class="docutils literal"><span class="pre">デフォルト</span></code></td>
+</tr>
+<tr class="field-even field"><th class="field-name">HTTPセッションID:</th><td class="field-body">sessionId <code class="docutils literal"><span class="pre">デフォルト</span></code></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">セッションストアID:</th><td class="field-body">sessionStoreId</td>
+</tr>
+<tr class="field-even field"><th class="field-name">URL:</th><td class="field-body">url <code class="docutils literal"><span class="pre">デフォルト</span></code></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">ディスパッチ先クラス:</th><td class="field-body">dispatchingClass</td>
+</tr>
+<tr class="field-even field"><th class="field-name">ステータスコード(内部):</th><td class="field-body">statusCode</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">ステータスコード(クライアント):</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body">responseStatusCode</td>
+</tr>
+<tr class="field-even field"><th class="field-name">コンテンツパス:</th><td class="field-body">contentPath <code class="docutils literal"><span class="pre">デフォルト</span></code></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">開始日時:</th><td class="field-body">startTime <code class="docutils literal"><span class="pre">デフォルト</span></code></td>
+</tr>
+<tr class="field-even field"><th class="field-name">終了日時:</th><td class="field-body">endTime <code class="docutils literal"><span class="pre">デフォルト</span></code></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">実行時間:</th><td class="field-body">executionTime <code class="docutils literal"><span class="pre">デフォルト</span></code></td>
+</tr>
+<tr class="field-even field"><th class="field-name">最大メモリ量:</th><td class="field-body">maxMemory <code class="docutils literal"><span class="pre">デフォルト</span></code></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">空きメモリ量(開始時):</th><td class="field-body">freeMemory <code class="docutils literal"><span class="pre">デフォルト</span></code></td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+<p class="last">出力項目の詳細は、
+<a class="reference internal" href="#http-access-log-prop-end-format"><span>リクエスト処理終了時のログ出力に使用するフォーマット</span></a>
+のプレースホルダーと同じため省略。</p>
+</dd>
+<dt>httpAccessLogFormatter.datePattern</dt>
+<dd>開始日時と終了日時に使用する日時パターン。
+パターンには、 <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html" title="java.text.SimpleDateFormat">SimpleDateFormat</a> が規程している構文を指定する。
+デフォルトは <code class="docutils literal"><span class="pre">yyyy-MM-dd</span> <span class="pre">HH:mm:ss.SSS</span></code> 。</dd>
+<dt>httpAccessLogFormatter.maskingPatterns</dt>
+<dd>マスク対象のパラメータ名又は変数名を正規表現で指定する（部分一致）。
+複数指定する場合はカンマ区切り。
+リクエストパラメータとセッションスコープ情報の両方のマスキングに使用する。
+指定した正規表現は大文字小文字を区別しない。
+例えば、<code class="docutils literal"><span class="pre">password</span></code>と指定した場合、 <code class="docutils literal"><span class="pre">password</span></code> <code class="docutils literal"><span class="pre">newPassword</span></code> <code class="docutils literal"><span class="pre">password2</span></code> 等にマッチする。</dd>
+<dt>httpAccessLogFormatter.maskingChar</dt>
+<dd>マスクに使用する文字。デフォルトは <code class="docutils literal"><span class="pre">*</span></code> 。</dd>
+<dt>httpAccessLogFormatter.beginOutputEnabled</dt>
+<dd>リクエスト処理開始時の出力が有効か否か。
+デフォルトはtrue。
+falseを指定するとリクエスト処理開始時の出力を行わない。</dd>
+<dt>httpAccessLogFormatter.parametersOutputEnabled</dt>
+<dd>hiddenパラメータ復号後の出力が有効か否か。
+デフォルトはtrue。
+falseを指定するとhiddenパラメータ復号後の出力を行わない。</dd>
+<dt>httpAccessLogFormatter.dispatchingClassOutputEnabled</dt>
+<dd>ディスパッチ先クラス決定後の出力が有効か否か。
+デフォルトはtrue。
+falseを指定するとディスパッチ先クラス決定後の出力を行わない。</dd>
+<dt>httpAccessLogFormatter.endOutputEnabled</dt>
+<dd>リクエスト処理終了時の出力が有効か否か。
+デフォルトはtrue。
+falseを指定するとリクエスト処理終了時の出力を行わない。</dd>
+<dt>httpAccessLogFormatter.beginLabel</dt>
+<dd>リクエスト処理開始時ログのlabelに出力する値。
+デフォルトは <code class="docutils literal"><span class="pre">&quot;HTTP</span> <span class="pre">ACCESS</span> <span class="pre">BEGIN&quot;</span></code>。</dd>
+<dt>httpAccessLogFormatter.parametersLabel</dt>
+<dd>hiddenパラメータ復号後ログのlabelに出力する値。
+デフォルトは <code class="docutils literal"><span class="pre">&quot;PARAMETERS&quot;</span></code>。</dd>
+<dt>httpAccessLogFormatter.dispatchingClassLabel</dt>
+<dd>ディスパッチ先クラス決定後ログのlabelに出力する値。
+デフォルトは <code class="docutils literal"><span class="pre">&quot;DISPATCHING</span> <span class="pre">CLASS&quot;</span></code>。</dd>
+<dt>httpAccessLogFormatter.endLabel</dt>
+<dd>リクエスト処理終了時ログのlabelに出力する値。
+デフォルトは <code class="docutils literal"><span class="pre">&quot;HTTP</span> <span class="pre">ACCESS</span> <span class="pre">END&quot;</span></code>。</dd>
+<dt>httpAccessLogFormatter.structuredMessagePrefix</dt>
+<dd>フォーマット後のメッセージ文字列が JSON 形式に整形されていることを識別できるようにするために、メッセージの先頭に付与するマーカー文字列。
+メッセージの先頭にこのマーカーがある場合、 <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/core/log/basic/JsonLogFormatter.html" title="nablarch.core.log.basic.JsonLogFormatter">JsonLogFormatter</a> はメッセージを JSON データとして処理する。
+デフォルトは <code class="docutils literal"><span class="pre">&quot;$JSON$&quot;</span></code> となる。</dd>
+</dl>
+</dd>
+<dt>記述例</dt>
+<dd><div class="first last highlight-properties"><div class="highlight"><pre><span></span><span class="na">httpAccessLogFormatter.className</span><span class="o">=</span><span class="s">nablarch.fw.web.handler.HttpAccessJsonLogFormatter</span>
+<span class="na">httpAccessLogFormatter.structuredMessagePrefix</span><span class="o">=</span><span class="s">$JSON$</span>
+<span class="na">httpAccessLogFormatter.beginTargets</span><span class="o">=</span><span class="s">sessionId,url,method</span>
+<span class="na">httpAccessLogFormatter.parametersTargets</span><span class="o">=</span><span class="s">sessionId,parameters</span>
+<span class="na">httpAccessLogFormatter.dispatchingClassTargets</span><span class="o">=</span><span class="s">sessionId,dispatchingClass</span>
+<span class="na">httpAccessLogFormatter.endTargets</span><span class="o">=</span><span class="s">sessionId,url,statusCode,contentPath</span>
+<span class="na">httpAccessLogFormatter.beginLabel</span><span class="o">=</span><span class="s">HTTP ACCESS BEGIN</span>
+<span class="na">httpAccessLogFormatter.parametersLabel</span><span class="o">=</span><span class="s">PARAMETERS</span>
+<span class="na">httpAccessLogFormatter.dispatchingClassLabel</span><span class="o">=</span><span class="s">DISPATCHING CLASS</span>
+<span class="na">httpAccessLogFormatter.endLabel</span><span class="o">=</span><span class="s">HTTP ACCESS END</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</div>
+<div class="section" id="http-access-log-session-store-id">
+<span id="id"></span><h3><a class="toc-backref" href="#id10">7.1.1.2.4.2.3. セッションストアIDについて</a><a class="headerlink" href="#http-access-log-session-store-id" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>セッションストアIDを出力に含めた場合、 <a class="reference internal" href="../session_store.html#session-store"><span>セッションストア</span></a> が発行するセッションを識別するIDが出力される。</p>
+<p>この値は <a class="reference internal" href="../../handlers/web/SessionStoreHandler.html#session-store-handler"><span>セッション変数保存ハンドラ</span></a> の往路で記録されたものが使用される。
+したがってセッションストアIDをログに出力する場合、 <a class="reference internal" href="../../handlers/web/http_access_log_handler.html#http-access-log-handler"><span>HTTPアクセスログハンドラ</span></a> は <a class="reference internal" href="../../handlers/web/SessionStoreHandler.html#session-store-handler"><span>セッション変数保存ハンドラ</span></a> より後に配置しなければならない。</p>
+<p>セッションストアIDはリクエスト処理開始時の状態で固定されるため、以下のような仕様になる。</p>
+<ul class="simple">
+<li>セッションストアIDが発行されていないリクエストでは、途中でIDが発行されたとしても、同一リクエスト内で出力されるセッションストアIDは全て空になる</li>
+<li>途中で <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/common/web/session/SessionUtil.html#invalidate-nablarch.fw.ExecutionContext-" title="nablarch.common.web.session.SessionUtil.invalidate(nablarch.fw.ExecutionContext)">セッションを破棄</a> したり <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/common/web/session/SessionUtil.html#changeId-nablarch.fw.ExecutionContext-" title="nablarch.common.web.session.SessionUtil.changeId(nablarch.fw.ExecutionContext)">IDを変更</a> しても、ログに出力される値はリクエスト処理開始時のものから変化しない</li>
+</ul>
+</div>
 </div>
 </div>
 
@@ -680,7 +914,7 @@ falseを指定するとリクエスト処理終了時の出力を行わない。
 
     <div role="contentinfo">
         <p>
-            &copy; Copyright 2010-2021, TIS Inc.
+            &copy; Copyright 2010-2022, TIS Inc.
         </p>
     </div>
     Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
@@ -701,7 +935,7 @@ falseを指定するとリクエスト処理終了時の出力を行わない。
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../../',
-            VERSION:'5u20',
+            VERSION:'5u21',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

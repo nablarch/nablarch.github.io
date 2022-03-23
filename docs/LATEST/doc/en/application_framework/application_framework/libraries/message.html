@@ -9,7 +9,7 @@
   <meta http-equiv='content-language' content='ja'>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>7.11. Message Management &mdash; ∇Nablarch  5u20 documentation</title>
+  <title>7.11. Message Management &mdash; ∇Nablarch  5u21 documentation</title>
   
 
   
@@ -35,7 +35,7 @@
   
   <link rel="canonical" href="https://nablarch.github.io/docs/LATEST/doc/application_framework/application_framework/libraries/message.html" />
   
-    <link rel="top" title="∇Nablarch  5u20 documentation" href="../../../index.html"/>
+    <link rel="top" title="∇Nablarch  5u21 documentation" href="../../../index.html"/>
         <link rel="up" title="7. Libraries Provided by Nablarch" href="index.html"/>
         <link rel="next" title="7.12. Exclusive Control" href="exclusive_control.html"/>
         <link rel="prev" title="7.10.3. Comparison of Function between Bean Validation and Nablarch Validation" href="validation/functional_comparison.html"/>
@@ -61,7 +61,7 @@
   
 
   
-    <div id="sidebar-version">Version: 5u20</div>
+    <div id="sidebar-version">Version: 5u21</div>
   </a>
 
   <div role="search">
@@ -125,6 +125,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../example/index.html">Example</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../example/index.html#procedure-to-build-the-environment">Procedure to build the environment</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../example/index.html#application-execution-procedure">Application execution procedure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../example/index.html#running-on-java-11-or-higher">Running on Java 11 or higher</a></li>
 </ul>
 </li>
 </ul>
@@ -247,6 +248,18 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../../nablarch_api/index.html">Nablarch API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../about_nablarch/versionup_policy.html">Nablarch upgrade policy</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../about_nablarch/versionup_policy.html#release-unit">Release unit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../about_nablarch/versionup_policy.html#types-of-upgrades">Types of upgrades</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../about_nablarch/versionup_policy.html#version-numbering-system">Version numbering system</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../about_nablarch/versionup_policy.html#backward-compatibility-policy">Backward compatibility policy</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../about_nablarch/versionup_policy.html#extent-to-which-backward-compatibility-is-maintained">Extent to which backward compatibility is maintained</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../about_nablarch/versionup_policy.html#contents-of-backward-compatibility-maintenance">Contents of backward compatibility maintenance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../about_nablarch/versionup_policy.html#backward-compatibility-exception">Backward compatibility exception</a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 
   
@@ -420,7 +433,12 @@ Since Nablarch assumes that Java6 or higher is used, Unicode conversion (native2
 <div class="section" id="multi-lingual-support">
 <span id="message-multi-lang"></span><h3><a class="toc-backref" href="#id8">7.11.3.3. Multi-lingual support</a><a class="headerlink" href="#multi-lingual-support" title="Permalink to this headline">¶</a></h3>
 <p>For multilingual messages, prepare a property file for each language and configure the supported languages to <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/core/message/PropertiesStringResourceLoader.html#setLocales-java.util.List-" title="nablarch.core.message.PropertiesStringResourceLoader.setLocales(java.util.List)">PropertiesStringResourceLoader.locales</a>.
-Note that the language corresponding to the default locale ( <cite>Locale.getDefault().getLanguage()</cite> ) is not required to be added to the supported languages.</p>
+Note that the language corresponding to the default locale is not required to be added to the supported languages.</p>
+<div class="admonition important">
+<p class="first admonition-title">Important</p>
+<p>The default locale is set by <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/core/message/PropertiesStringResourceLoader.html#setDefaultLocale-java.lang.String-" title="nablarch.core.message.PropertiesStringResourceLoader.setDefaultLocale(java.lang.String)">PropertiesStringResourceLoader.defaultLocale</a> (Default language). If it is not set, the value of <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/util/Locale.html#getLanguage--" title="java.util.Locale.getLanguage()">Locale.getDefault().getLanguage()</a> is used as the default locale.</p>
+<p class="last">Since the value of <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/util/Locale.html#getLanguage--" title="java.util.Locale.getLanguage()">Locale.getDefault().getLanguage()</a> changes depending on the OS settings, using this value as the default locale may change the value depending on the environment in which it is executed and cause a failure. Be sure to set the default language.</p>
+</div>
 <p>When acquiring the message, the language used is determined by the locale returned by <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/core/ThreadContext.html#getLanguage--" title="nablarch.core.ThreadContext.getLanguage()">ThreadContext#getLanguage</a>.
 If the locale can not be acquired from <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/core/ThreadContext.html#getLanguage--" title="nablarch.core.ThreadContext.getLanguage()">ThreadContext#getLanguage</a> , <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/util/Locale.html#getDefault--" title="java.util.Locale.getDefault()">Locale.getDefault()</a> is used.</p>
 <dl class="docutils">
@@ -767,7 +785,7 @@ This class is used if the implementation class of <cite>MessageFormatter</cite> 
 
     <div role="contentinfo">
         <p>
-            &copy; Copyright 2010-2021, TIS Inc.
+            &copy; Copyright 2010-2022, TIS Inc.
         </p>
     </div>
     Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
@@ -788,7 +806,7 @@ This class is used if the implementation class of <cite>MessageFormatter</cite> 
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../',
-            VERSION:'5u20',
+            VERSION:'5u21',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

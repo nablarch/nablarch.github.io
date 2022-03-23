@@ -9,7 +9,7 @@
   <meta http-equiv='content-language' content='ja'>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>1. Efficient Java Static Checks &mdash; ∇Nablarch  5u20 documentation</title>
+  <title>1. Efficient Java Static Checks &mdash; ∇Nablarch  5u21 documentation</title>
   
 
   
@@ -35,7 +35,7 @@
   
   <link rel="canonical" href="https://nablarch.github.io/docs/LATEST/doc/development_tools/java_static_analysis/index.html" />
   
-    <link rel="top" title="∇Nablarch  5u20 documentation" href="../../index.html"/>
+    <link rel="top" title="∇Nablarch  5u21 documentation" href="../../index.html"/>
         <link rel="up" title="Nablarch development tools" href="../index.html"/>
         <link rel="next" title="2. Front-end UI development platform for advanced users" href="../ui_dev/index.html"/>
         <link rel="prev" title="Nablarch development tools" href="../index.html"/>
@@ -61,7 +61,7 @@
   
 
   
-    <div id="sidebar-version">Version: 5u20</div>
+    <div id="sidebar-version">Version: 5u21</div>
   </a>
 
   <div role="search">
@@ -125,6 +125,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../application_framework/example/index.html">Example</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../application_framework/example/index.html#procedure-to-build-the-environment">Procedure to build the environment</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../application_framework/example/index.html#application-execution-procedure">Application execution procedure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../application_framework/example/index.html#running-on-java-11-or-higher">Running on Java 11 or higher</a></li>
 </ul>
 </li>
 </ul>
@@ -247,6 +248,18 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../nablarch_api/index.html">Nablarch API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../about_nablarch/versionup_policy.html">Nablarch upgrade policy</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../about_nablarch/versionup_policy.html#release-unit">Release unit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../about_nablarch/versionup_policy.html#types-of-upgrades">Types of upgrades</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../about_nablarch/versionup_policy.html#version-numbering-system">Version numbering system</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../about_nablarch/versionup_policy.html#backward-compatibility-policy">Backward compatibility policy</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../about_nablarch/versionup_policy.html#extent-to-which-backward-compatibility-is-maintained">Extent to which backward compatibility is maintained</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../about_nablarch/versionup_policy.html#contents-of-backward-compatibility-maintenance">Contents of backward compatibility maintenance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../about_nablarch/versionup_policy.html#backward-compatibility-exception">Backward compatibility exception</a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 
   
@@ -308,7 +321,11 @@
 <li><a class="reference internal" href="#automatically-unify-the-formats-before-commit" id="id6">Automatically unify the formats before commit</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#check-if-unauthorized-apis-are-being-used" id="id7">Check if unauthorized APIs are being used</a></li>
+<li><a class="reference internal" href="#check-if-unauthorized-apis-are-being-used" id="id7">Check if unauthorized APIs are being used</a><ul>
+<li><a class="reference internal" href="#use-nablarch-intellij-plugin" id="id8">Use nablarch-intellij-plugin</a></li>
+<li><a class="reference internal" href="#use-unauthorized-api-check-tool" id="id9">Use Unauthorized API Check Tool</a></li>
+</ul>
+</li>
 </ul>
 </div>
 <p>Practice the following three to improve the quality and maintainability of code.</p>
@@ -366,12 +383,21 @@ By making effective use of this, it is possible to commit the code will in accor
 </div>
 <div class="section" id="check-if-unauthorized-apis-are-being-used">
 <span id="api-analysis"></span><h2><a class="toc-backref" href="#id7">1.3. Check if unauthorized APIs are being used</a><a class="headerlink" href="#check-if-unauthorized-apis-are-being-used" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/nablarch/nablarch-intellij-plugin/tree/master/en">nablarch-intellij-plugin</a> is used for this check.
-nablarch-intellij-plugin is a plugin to use IntelliJ IDEA for supporting Nablarch development and has the following functions.</p>
+<p>We provide two tools for this check: the IntelliJ IDEA plugin and the SpotBugs plugin which does not depend on IntelliJ IDEA.</p>
+<div class="section" id="use-nablarch-intellij-plugin">
+<h3><a class="toc-backref" href="#id8">1.3.1. Use nablarch-intellij-plugin</a><a class="headerlink" href="#use-nablarch-intellij-plugin" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="https://github.com/nablarch/nablarch-intellij-plugin/tree/master/en">nablarch-intellij-plugin</a>  is a plugin to use IntelliJ IDEA for supporting Nablarch development and has the following functions.</p>
 <ul class="simple">
 <li>Throws a warning if Nablarch private API is used.</li>
 <li>Throws warning if Java API registered in the black list is used.</li>
 </ul>
+</div>
+<div class="section" id="use-unauthorized-api-check-tool">
+<h3><a class="toc-backref" href="#id9">1.3.2. Use Unauthorized API Check Tool</a><a class="headerlink" href="#use-unauthorized-api-check-tool" title="Permalink to this headline">¶</a></h3>
+<p>Unauthorized API Check Tool is provided as a SpotBugs plugin.
+See <a class="reference external" href="https://github.com/nablarch-development-standards/nablarch-style-guide/blob/master/en/java/staticanalysis/unpublished-api/README.md">Nablarch style guide</a> for detailed specifications and instructions.
+Note that the blank project has been preconfigured to <a class="reference external" href="https://github.com/nablarch-development-standards/nablarch-style-guide/blob/master/en/java/staticanalysis/spotbugs/docs/Maven-settings.md">run in Maven</a> , so it can be checked immediately.</p>
+</div>
 </div>
 </div>
 
@@ -387,7 +413,7 @@ nablarch-intellij-plugin is a plugin to use IntelliJ IDEA for supporting Nablarc
 
     <div role="contentinfo">
         <p>
-            &copy; Copyright 2010-2021, TIS Inc.
+            &copy; Copyright 2010-2022, TIS Inc.
         </p>
     </div>
     Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
@@ -408,7 +434,7 @@ nablarch-intellij-plugin is a plugin to use IntelliJ IDEA for supporting Nablarc
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../',
-            VERSION:'5u20',
+            VERSION:'5u21',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

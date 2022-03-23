@@ -9,7 +9,7 @@
   <meta http-equiv='content-language' content='ja'>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>1. 効率的なJava静的チェック &mdash; ∇Nablarch  5u20 ドキュメント</title>
+  <title>1. 効率的なJava静的チェック &mdash; ∇Nablarch  5u21 ドキュメント</title>
   
 
   
@@ -35,7 +35,7 @@
   
   <link rel="canonical" href="https://nablarch.github.io/docs/LATEST/doc/development_tools/java_static_analysis/index.html" />
   
-    <link rel="top" title="∇Nablarch  5u20 ドキュメント" href="../../index.html"/>
+    <link rel="top" title="∇Nablarch  5u21 ドキュメント" href="../../index.html"/>
         <link rel="up" title="Nablarch開発ツール" href="../index.html"/>
         <link rel="next" title="2. フロントエンド上級者向けのUI開発基盤" href="../ui_dev/index.html"/>
         <link rel="prev" title="Nablarch開発ツール" href="../index.html"/>
@@ -61,7 +61,7 @@
   
 
   
-    <div id="sidebar-version">Version: 5u20</div>
+    <div id="sidebar-version">Version: 5u21</div>
   </a>
 
   <div role="search">
@@ -125,6 +125,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../application_framework/example/index.html">Example</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../application_framework/example/index.html#id1">環境構築手順について</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../application_framework/example/index.html#id2">アプリケーションの実行手順について</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../application_framework/example/index.html#java-11">Java 11 以上で動かす場合について</a></li>
 </ul>
 </li>
 </ul>
@@ -281,6 +282,18 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../nablarch_api/index.html">Nablarch API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../releases/index.html">リリース情報</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../about_nablarch/versionup_policy.html">Nablarch のバージョンアップ方針</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../about_nablarch/versionup_policy.html#versionup-policy-release-type">リリース単位</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../about_nablarch/versionup_policy.html#versionup-policy-versionup-type">バージョンアップの種類</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../about_nablarch/versionup_policy.html#versionup-policy-product-version-number">バージョンの番号体系</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../about_nablarch/versionup_policy.html#versionup-policy-backward-compatibility-policy">後方互換性ポリシー</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../about_nablarch/versionup_policy.html#id8">後方互換性を維持する範囲</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../about_nablarch/versionup_policy.html#versionup-policy-backward-compatibility-contents">後方互換性維持の内容</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../about_nablarch/versionup_policy.html#versionup-policy-backward-compatibility-is-not-maintained">後方互換性の例外</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../../inquiry/index.html">機能追加要望・改善要望</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../inquiry/index.html#id2">JIRAへの課題起票方法</a></li>
 </ul>
@@ -337,16 +350,20 @@
 <div class="contents local topic" id="id1">
 <p class="topic-title first">目次</p>
 <ul class="simple">
-<li><a class="reference internal" href="#code-analysis" id="id8">構文チェックを行う</a><ul>
-<li><a class="reference internal" href="#ide" id="id9">IDEでチェックする</a></li>
-<li><a class="reference internal" href="#ci" id="id10">CIでチェックする</a></li>
+<li><a class="reference internal" href="#code-analysis" id="id10">構文チェックを行う</a><ul>
+<li><a class="reference internal" href="#ide" id="id11">IDEでチェックする</a></li>
+<li><a class="reference internal" href="#ci" id="id12">CIでチェックする</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#code-format" id="id11">フォーマットを統一する</a><ul>
-<li><a class="reference internal" href="#id7" id="id12">コミット前に自動でフォーマットを統一する</a></li>
+<li><a class="reference internal" href="#code-format" id="id13">フォーマットを統一する</a><ul>
+<li><a class="reference internal" href="#id7" id="id14">コミット前に自動でフォーマットを統一する</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#api" id="id13">許可していないAPIが使用されていないかチェックする</a></li>
+<li><a class="reference internal" href="#api" id="id15">許可していないAPIが使用されていないかチェックする</a><ul>
+<li><a class="reference internal" href="#nablarch-intellij-plugin" id="id16">nablarch-intellij-pluginを使用する</a></li>
+<li><a class="reference internal" href="#id9" id="id17">使用不許可APIチェックツールを使用する</a></li>
+</ul>
+</li>
 </ul>
 </div>
 <p>コードの品質と保守性を高めるために次の３つを実践する。</p>
@@ -358,7 +375,7 @@
 <p>上記を行うために、NablarchではJetBrains社製のIDEである <a class="reference external" href="https://www.jetbrains.com/idea/">IntelliJ IDEA(外部サイト)</a> の使用を推奨している。
 本ページでは、IntelliJ IDEAを用いた効率的なJava静的チェックの方法を説明する。</p>
 <div class="section" id="code-analysis">
-<span id="id2"></span><h2><a class="toc-backref" href="#id8">1.1. 構文チェックを行う</a><a class="headerlink" href="#code-analysis" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<span id="id2"></span><h2><a class="toc-backref" href="#id10">1.1. 構文チェックを行う</a><a class="headerlink" href="#code-analysis" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>構文のチェックには、IntelliJ IDEAの静的検査機能(Inspection)を使用する。
 Inspectionは、Javaコーディングの慣例に沿っているか、潜在的なバグが含まれていないかなどをチェックし、リアルタイムに警告する機能である。</p>
 <p>Nablarch開発に使用したInspectionの設定ファイルをプロジェクト向けに提供している。
@@ -378,18 +395,18 @@ Inspectionは、Javaコーディングの慣例に沿っているか、潜在的
 カスタマイズした設定は <code class="docutils literal"><span class="pre">PROJECT_ROOT/.idea/inspectionProfiles</span></code> 配下の設定ファイルに反映される。</p>
 </div>
 <div class="section" id="ide">
-<h3><a class="toc-backref" href="#id9">1.1.1. IDEでチェックする</a><a class="headerlink" href="#ide" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3><a class="toc-backref" href="#id11">1.1.1. IDEでチェックする</a><a class="headerlink" href="#ide" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>IntelliJ IDEAのInspectionはデフォルトで設定が有効になっており、コードを書いた際にリアルタイムに実行される。
 詳細は、IntelliJの <a class="reference external" href="https://www.jetbrains.com/idea/documentation/">マニュアル</a> を参照。</p>
 </div>
 <div class="section" id="ci">
-<h3><a class="toc-backref" href="#id10">1.1.2. CIでチェックする</a><a class="headerlink" href="#ci" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3><a class="toc-backref" href="#id12">1.1.2. CIでチェックする</a><a class="headerlink" href="#ci" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>IntelliJ IDEAのInspectionは、CI(Jenkins)サーバでも実行することができる。
 設定方法は <a class="reference external" href="http://siosio.hatenablog.com/entry/2016/12/23/212140">こちら(外部サイト)</a> を参照。</p>
 </div>
 </div>
 <div class="section" id="code-format">
-<span id="id5"></span><h2><a class="toc-backref" href="#id11">1.2. フォーマットを統一する</a><a class="headerlink" href="#code-format" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<span id="id5"></span><h2><a class="toc-backref" href="#id13">1.2. フォーマットを統一する</a><a class="headerlink" href="#code-format" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>フォーマットを統一するためには、IntelliJ IDEAのデフォルトのCode Styleを使用してフォーマットを行う。
 詳細は、IntelliJの <a class="reference external" href="https://www.jetbrains.com/idea/documentation/">マニュアル</a> を参照。</p>
 <div class="admonition important">
@@ -397,19 +414,28 @@ Inspectionは、Javaコーディングの慣例に沿っているか、潜在的
 <p class="last">Code Styleの設定内容は、IDE上で効率よく確認できる。そのため、コーディング規約など、別資料を作らないこと。</p>
 </div>
 <div class="section" id="id7">
-<h3><a class="toc-backref" href="#id12">1.2.1. コミット前に自動でフォーマットを統一する</a><a class="headerlink" href="#id7" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3><a class="toc-backref" href="#id14">1.2.1. コミット前に自動でフォーマットを統一する</a><a class="headerlink" href="#id7" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>IntelliJ IDEAでは、VCSへのコミット時にコミット対象のファイルに対してフォーマット処理を行う機能を有している。
 これを有効活用することで、確実にCode Styleに従ったコードをコミットできる。</p>
 </div>
 </div>
 <div class="section" id="api">
-<span id="api-analysis"></span><h2><a class="toc-backref" href="#id13">1.3. 許可していないAPIが使用されていないかチェックする</a><a class="headerlink" href="#api" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>このチェックには、 <a class="reference external" href="https://github.com/nablarch/nablarch-intellij-plugin">nablarch-intellij-plugin</a> を使用する。
-nablarch-intellij-pluginはNablarch開発を支援するためのIntelliJ IDEA用のプラグインであり、下記の機能を有している。</p>
+<span id="api-analysis"></span><h2><a class="toc-backref" href="#id15">1.3. 許可していないAPIが使用されていないかチェックする</a><a class="headerlink" href="#api" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>このチェックにはIntelliJ IDEAのプラグインとIntelliJ IDEAに依存しないSpotBugsプラグインの2種類のツールを提供している。</p>
+<div class="section" id="nablarch-intellij-plugin">
+<h3><a class="toc-backref" href="#id16">1.3.1. nablarch-intellij-pluginを使用する</a><a class="headerlink" href="#nablarch-intellij-plugin" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p><a class="reference external" href="https://github.com/nablarch/nablarch-intellij-plugin">nablarch-intellij-plugin</a> はNablarch開発を支援するためのIntelliJ IDEA用のプラグインであり、下記の機能を有している。</p>
 <ul class="simple">
 <li>Nablarch非公開APIが使用されている場合に警告を出す</li>
 <li>ブラックリストに登録したJava APIが使用されている場合に警告を出す</li>
 </ul>
+</div>
+<div class="section" id="id9">
+<h3><a class="toc-backref" href="#id17">1.3.2. 使用不許可APIチェックツールを使用する</a><a class="headerlink" href="#id9" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>使用不許可APIチェックツールはSpotBugsのプラグインとして作成されたツールである。
+詳細な仕様と実行方法は <a class="reference external" href="https://github.com/nablarch-development-standards/nablarch-style-guide/blob/master/java/staticanalysis/unpublished-api/README.md">Nablarchスタイルガイドの解説</a> を参照。
+なお、ブランクプロジェクトには <a class="reference external" href="https://github.com/nablarch-development-standards/nablarch-style-guide/blob/master/java/staticanalysis/spotbugs/docs/Maven-settings.md">Mavenで実行するための設定</a> をあらかじめ設定してあるため、すぐにチェックを実施することが可能である。</p>
+</div>
 </div>
 </div>
 
@@ -425,7 +451,7 @@ nablarch-intellij-pluginはNablarch開発を支援するためのIntelliJ IDEA�
 
     <div role="contentinfo">
         <p>
-            &copy; Copyright 2010-2021, TIS Inc.
+            &copy; Copyright 2010-2022, TIS Inc.
         </p>
     </div>
     Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
@@ -446,7 +472,7 @@ nablarch-intellij-pluginはNablarch開発を支援するためのIntelliJ IDEA�
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../',
-            VERSION:'5u20',
+            VERSION:'5u21',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,
