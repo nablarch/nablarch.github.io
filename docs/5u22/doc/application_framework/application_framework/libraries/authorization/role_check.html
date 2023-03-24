@@ -1,0 +1,735 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv='content-language' content='ja'>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>7.15.2. アノテーションによる認可チェック &mdash; ∇Nablarch  5u22 ドキュメント</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../../_static/custom.css" type="text/css" />
+  
+
+  
+
+  
+  <link rel="canonical" href="https://nablarch.github.io/docs/LATEST/doc/application_framework/application_framework/libraries/authorization/role_check.html" />
+  
+    <link rel="top" title="∇Nablarch  5u22 ドキュメント" href="../../../../index.html"/>
+        <link rel="up" title="7.15. 認可チェック" href="../permission_check.html"/>
+        <link rel="next" title="7.16. サービス提供可否チェック" href="../service_availability.html"/>
+        <link rel="prev" title="7.15.1. ハンドラによる認可チェック" href="permission_check.html"/>
+
+<script defer data-domain="nablarch.github.io,all.fintan" src=https://plausible.io/js/script.js></script>
+
+
+  
+  <script src="../../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+  
+  <a href="../../../../index.html" id="sidebar-title" class="icon"> ∇Nablarch 
+  
+
+  
+    <div id="sidebar-version">Version: 5u22</div>
+  </a>
+
+  <div role="search">
+    <form id="google-search-form" class="wy-form" method="get" action="https://www.google.co.jp/search">
+      <input type="text" name="text" placeholder="Search docs on google" id="text"/>
+      <input type="hidden" name="q" id="q"/>
+    </form>
+  </div>
+    
+    
+
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+  
+  
+    <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../about_nablarch/index.html">Nablarchについて</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../about_nablarch/concept.html">Nablarchのコンセプト</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../about_nablarch/concept.html#robustness">Robustness</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../about_nablarch/concept.html#testability">Testability</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../about_nablarch/concept.html#ready-to-use">Ready-to-Use</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../about_nablarch/mvn_module.html">Nablarch のモジュール一覧</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../about_nablarch/license.html">Nablarchのライセンスについて</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../index.html">Nablarchアプリケーションフレームワーク</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../../index.html">アプリケーションフレームワーク</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../nablarch/index.html">1. Nablarchアプリケーションフレームワークとは</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../web/index.html">2. ウェブアプリケーション編</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../web_service/index.html">3. ウェブサービス編</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../batch/index.html">4. バッチアプリケーション編</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../messaging/index.html">5. メッセージング編</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../handlers/index.html">6. Nablarchの提供する標準ハンドラ</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../index.html">7. Nablarchが提供するライブラリ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../blank_project/index.html">8. ブランクプロジェクト</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../setting_guide/index.html">9. Nablarchアプリケーションフレームワーク設定ガイド</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../configuration/index.html">10. デフォルト設定一覧</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cloud_native/index.html">11. Nablarchクラウドネイティブ対応</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../adaptors/index.html">アダプタ</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../adaptors/log_adaptor.html">logアダプタ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../adaptors/router_adaptor.html">ルーティングアダプタ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../adaptors/webspheremq_adaptor.html">IBM WebSphere MQアダプタ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../adaptors/jaxrs_adaptor.html">JAX-RSアダプタ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../adaptors/doma_adaptor.html">Domaアダプタ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../adaptors/jsr310_adaptor.html">JSR310(Date and Time API)アダプタ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../adaptors/mail_sender_freemarker_adaptor.html">E-mail FreeMarkerアダプタ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../adaptors/mail_sender_thymeleaf_adaptor.html">E-mail Thymeleafアダプタ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../adaptors/mail_sender_velocity_adaptor.html">E-mail Velocityアダプタ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../adaptors/web_thymeleaf_adaptor.html">ウェブアプリケーション Thymeleafアダプタ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../adaptors/lettuce_adaptor.html">Lettuceアダプタ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../adaptors/slf4j_adaptor.html">SLF4Jアダプタ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../adaptors/micrometer_adaptor.html">Micrometerアダプタ</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../example/index.html">Example</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../example/index.html#id1">環境構築手順について</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../example/index.html#id2">アプリケーションの実行手順について</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../example/index.html#java-11">Java 11 以上で動かす場合について</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../extension_components/index.html">Nablarch拡張コンポーネント</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../extension_components/report/index.html">1. 帳票ライブラリ</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../extension_components/report/index.html#id2">1.1. 概要</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../extension_components/report/index.html#id3">1.2. 要求</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../extension_components/report/index.html#id7">1.3. 構造</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../extension_components/report/index.html#report-template">1.4. 実装例</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../extension_components/workflow/doc/index.html">2. ワークフローライブラリ</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../extension_components/workflow/doc/index.html#id3">2.1. 機能概要</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../extension_components/workflow/doc/index.html#id6">2.2. モジュール一覧</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../extension_components/workflow/doc/index.html#id7">2.3. 使用方法</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../extension_components/workflow/doc/index.html#xor">2.4. XORゲートウェイの進行先ノードの判定方法</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../extension_components/workflow/doc/index.html#workflow-multi-completion">2.5. マルチインスタンスの完了条件の判定方法</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../extension_components/workflow/tool/index.html">3. ワークフロー定義データ生成ツール</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../extension_components/workflow/tool/index.html#id3">3.1. モジュール一覧</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../extension_components/workflow/tool/index.html#id4">3.2. 使用方法</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../extension_components/etl/index.html">4. ETL</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../extension_components/etl/index.html#id3">4.1. モジュール一覧</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../extension_components/etl/index.html#etl-phase">4.2. ETLの各フェーズの仕様</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../extension_components/etl/index.html#id5">4.3. ETLを使用するバッチの設計ポイント</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../extension_components/etl/index.html#id9">4.4. 使用方法</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../extension_components/etl/index.html#id18">4.5. 拡張例</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../extension_components/etl/etl_maven_plugin.html">5. ETL Mavenプラグイン</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../extension_components/etl/etl_maven_plugin.html#id2">5.1. モジュール一覧</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../extension_components/etl/etl_maven_plugin.html#id3">5.2. 使用方法</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../development_tools/index.html">Nablarch開発ツール</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../development_tools/java_static_analysis/index.html">1. 効率的なJava静的チェック</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../development_tools/java_static_analysis/index.html#code-analysis">1.1. 構文チェックを行う</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../development_tools/java_static_analysis/index.html#code-format">1.2. フォーマットを統一する</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../development_tools/java_static_analysis/index.html#api">1.3. 許可していないAPIが使用されていないかチェックする</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../development_tools/ui_dev/index.html">2. フロントエンド上級者向けのUI開発基盤</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../development_tools/ui_dev/doc/index.html">2.1. Nablarch UI開発基盤 解説書</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../development_tools/ui_dev/guide/index.html">2.2. JSP/HTML作成ガイド</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../development_tools/ui_dev/guide/widget_usage/widget_list.html">2.3. UI部品の実装サンプルで提供しているウィジェットの一覧</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../development_tools/testing_framework/index.html">3. テスティングフレームワーク</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../development_tools/testing_framework/guide/development_guide/05_UnitTestGuide/index.html">3.1. 単体テスト実施方法</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../development_tools/testing_framework/guide/development_guide/06_TestFWGuide/index.html">3.2. 自動テストフレームワークの使用方法</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../development_tools/testing_framework/guide/development_guide/08_TestTools/index.html">3.3. プログラミング工程で使用するツール</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../development_tools/toolbox/index.html">4. アプリケーション開発時に使える便利なツール</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../development_tools/toolbox/JspStaticAnalysis/index.html">4.1. JSP静的解析ツール</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../development_tools/toolbox/SqlExecutor/SqlExecutor.html">4.2. Nablarch SQL Executor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../development_tools/toolbox/JspVerifier/JspVerifier.html">4.3. 業務画面JSP検証ツール</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../examples/index.html">Nablarch実装例集</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../examples/01/index.html">データベースを用いたパスワード認証機能サンプル</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../examples/01/0101_PBKDF2PasswordEncryptor.html">PBKDF2を用いたパスワード暗号化機能サンプル</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../examples/01/index.html#id3">提供パッケージ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../examples/01/index.html#id4">概要</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../examples/01/index.html#id6">構成</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../examples/01/index.html#id12">使用方法</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../examples/03/index.html">検索結果の一覧表示</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../examples/03/index.html#id3">提供パッケージ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../examples/03/index.html#id4">概要</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../examples/03/index.html#id5">構成</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../examples/03/index.html#universaldao">UniversalDaoクラス</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../examples/03/index.html#listsearchinfo">ListSearchInfoクラス</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../examples/03/index.html#pagination">Paginationクラス</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../examples/03/index.html#entitylist">EntityListクラス</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../examples/03/index.html#listsearchresult">listSearchResultタグ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../examples/03/index.html#listsearchresult-customize">業務アプリケーションへのサンプル実装(タグファイル)の取り込み方法</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../examples/03/index.html#listsearchresult-tagreference">タグリファレンス</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../examples/04/index.html">フォーマッタ機能の拡張</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../examples/04/0401_ExtendedDataFormatter.html">データフォーマッタの拡張</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../examples/04/0402_ExtendedFieldType.html">データフォーマッタ機能におけるフィールドタイプの拡張</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../examples/05/index.html">データベースを用いたファイル管理機能サンプル</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../examples/05/index.html#id2">概要</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../examples/05/index.html#id6">提供パッケージ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../examples/05/index.html#id7">機能</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../examples/05/index.html#id10">構成</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../examples/05/index.html#id15">使用方法</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../examples/08/index.html">HTMLメール送信機能サンプル</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../examples/08/index.html#id1">概要</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../examples/08/index.html#id3">要求</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../examples/08/index.html#id6">構成</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../examples/08/index.html#id14">実装例</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../examples/09/index.html">bouncycastleを使用した電子署名つきメールの送信サンプルの使用方法</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../examples/09/index.html#id3">環境準備</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../examples/09/index.html#id4">電子署名付きメール送信機能の構造</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../examples/09/index.html#id5">設定ファイルの準備</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../examples/09/index.html#id7">実行方法</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../examples/10/index.html">ログ集計サンプルの使用方法</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../examples/10/index.html#id3">提供サンプル一覧</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../examples/11/index.html">メッセージング基盤テストシミュレータサンプル</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../examples/11/index.html#id4">用途</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../examples/11/index.html#id8">特徴</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../examples/11/index.html#id12">要求</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../examples/11/index.html#id15">使用方法</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../examples/11/index.html#id18">拡張例</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../examples/12/index.html">OIDCのIDトークンを用いた認証サンプル</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../examples/12/index.html#id1">提供パッケージ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../examples/12/index.html#id3">概要</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../examples/12/index.html#id5">構成</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../examples/12/index.html#id11">使用方法</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../nablarch_api/index.html">Nablarch API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../releases/index.html">リリース情報</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../about_nablarch/versionup_policy.html">Nablarch のバージョンアップ方針</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../about_nablarch/versionup_policy.html#versionup-policy-release-type">リリース単位</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../about_nablarch/versionup_policy.html#versionup-policy-versionup-type">バージョンアップの種類</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../about_nablarch/versionup_policy.html#versionup-policy-product-version-number">バージョンの番号体系</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../about_nablarch/versionup_policy.html#versionup-policy-backward-compatibility-policy">後方互換性ポリシー</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../about_nablarch/versionup_policy.html#id8">後方互換性を維持する範囲</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../about_nablarch/versionup_policy.html#versionup-policy-backward-compatibility-contents">後方互換性維持の内容</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../about_nablarch/versionup_policy.html#versionup-policy-backward-compatibility-is-not-maintained">後方互換性の例外</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../inquiry/index.html">機能追加要望・改善要望</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../inquiry/index.html#id2">JIRAへの課題起票方法</a></li>
+</ul>
+</li>
+</ul>
+
+  
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">∇Nablarch </a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../../index.html">Nablarchアプリケーションフレームワーク</a> &raquo;</li>
+      
+          <li><a href="../../index.html">アプリケーションフレームワーク</a> &raquo;</li>
+      
+          <li><a href="../index.html">7. Nablarchが提供するライブラリ</a> &raquo;</li>
+      
+          <li><a href="../permission_check.html">7.15. 認可チェック</a> &raquo;</li>
+      
+    <li>7.15.2. アノテーションによる認可チェック</li>
+    <li class="wy-breadcrumbs-aside">
+      <a href="https://github.com/nablarch" class="fa fa-github">GitHub</a>
+    </li>
+    <li class="wy-breadcrumbs-aside">
+        <a href="https://nablarch.github.io/docs/LATEST/doc/en/index.html" class="en">English</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="role-check">
+<span id="id1"></span><h1>7.15.2. アノテーションによる認可チェック<a class="headerlink" href="#role-check" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="contents local topic" id="id2">
+<p class="topic-title first">目次</p>
+<ul class="simple">
+<li><a class="reference internal" href="#id3" id="id18">機能概要</a><ul>
+<li><a class="reference internal" href="#id4" id="id19">煩雑なデータ管理をせずに認可チェックができる</a></li>
+<li><a class="reference internal" href="#id5" id="id20">アノテーションで認可チェックができる</a></li>
+<li><a class="reference internal" href="#id6" id="id21">ハンドラによる認可チェックとの使い分け</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id7" id="id22">モジュール一覧</a></li>
+<li><a class="reference internal" href="#id8" id="id23">使用方法</a><ul>
+<li><a class="reference internal" href="#id9" id="id24">事前準備</a><ul>
+<li><a class="reference internal" href="#id10" id="id25">コンポーネントを定義する</a></li>
+<li><a class="reference internal" href="#interceptorsorder" id="id26">interceptorsOrderに追加する</a></li>
+<li><a class="reference internal" href="#id11" id="id27">ロールを定義する</a></li>
+<li><a class="reference internal" href="#id12" id="id28">ユーザのロールを保存する</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id13" id="id29">アクションのメソッドにアノテーションでロールを割り当てる</a></li>
+<li><a class="reference internal" href="#checkrole" id="id30">アノテーションに割り当てた CheckRole の設定を一覧で確認する</a></li>
+<li><a class="reference internal" href="#id14" id="id31">プログラムで判定する</a></li>
+<li><a class="reference internal" href="#jsp" id="id32">JSPで判定する</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id15" id="id33">仕組み</a></li>
+<li><a class="reference internal" href="#id16" id="id34">拡張方法</a></li>
+</ul>
+</div>
+<p>この機能は、 <a class="reference internal" href="permission_check.html"><em>ハンドラによる認可チェック</em></a> と同様にアプリケーションが提供する機能に対して認可チェックを行う。</p>
+<div class="section" id="id3">
+<h2><a class="toc-backref" href="#id18">7.15.2.1. 機能概要</a><a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="id4">
+<h3><a class="toc-backref" href="#id19">7.15.2.1.1. 煩雑なデータ管理をせずに認可チェックができる</a><a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<img alt="../../../../_images/conceptual_model.jpg" src="../../../../_images/conceptual_model.jpg" />
+<p>アノテーションによる認可チェックでは、ユーザに対してロール(役割)を割り当てる。
+また、認可チェックを行いたい機能に対しても、その機能を実行するのに必要なロールを割り当てる。
+そして、現在のユーザが実行対象の機能に割り当てられたロールを有するかどうかで、認可の判定を行う。</p>
+<p>機能とロールの割り当ては、基本的にアノテーションを用いてJavaのプログラム上で行う。
+また、ユーザとロールの割り当てについては、フレームワークでは特に方法を規定しておらず自由な方法を選択できるようにしている。</p>
+<p>このようにアノテーションによる認可チェックでは、 <a class="reference internal" href="permission_check.html"><em>ハンドラによる認可チェック</em></a> よりも単純なデータ構造で権限を管理できるようになっている。</p>
+</div>
+<div class="section" id="id5">
+<h3><a class="toc-backref" href="#id20">7.15.2.1.2. アノテーションで認可チェックができる</a><a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="nd">@CheckRole</span><span class="o">(</span><span class="s">&quot;ADMIN&quot;</span><span class="o">)</span>
+<span class="kd">public</span> <span class="n">HttpResponse</span> <span class="nf">index</span><span class="o">(</span><span class="n">HttpRequest</span> <span class="n">request</span><span class="o">,</span> <span class="n">ExecutionContext</span> <span class="n">context</span><span class="o">)</span> <span class="o">{</span>
+</pre></div>
+</div>
+<p>アノテーションによる認可チェックでは、アクションクラスのメソッドに対してアノテーションを使ってロールを割り当てることができる。
+上記例では、 <code class="docutils literal"><span class="pre">index</span></code> メソッドを実行するために <code class="docutils literal"><span class="pre">ADMIN</span></code> ロールが必要であることを定義している。</p>
+</div>
+<div class="section" id="id6">
+<h3><a class="toc-backref" href="#id21">7.15.2.1.3. ハンドラによる認可チェックとの使い分け</a><a class="headerlink" href="#id6" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>本認可チェックと <a class="reference internal" href="permission_check.html"><em>ハンドラによる認可チェック</em></a> を使い分ける基準について説明する。</p>
+<p>アノテーションによる認可チェックは、前述のとおりロール単位で権限を管理する。
+また、ロールと機能の割り当てはJavaのアノテーションで行う仕組みとなっている。
+したがって、本認可チェックを用いることが適しているのは、ロール自体の増減やロールに割り当てる機能の変更が頻繁に発生しない場合となる。</p>
+<p>例えば、権限管理が必要なロールの種類と機能の組み合わせが決まっており今後それらが大きく変化する予定がない場合は、本認可チェックを用いることで簡単に認可チェックを実現できる。</p>
+<p>一方で、ユーザが所属する部署によって権限を制御したいようなシステムでは、組織変更で部署の構成や利用できる機能の組み合わせも大きく変わることが予想される。このようなシステムで本認可チェックを用いると、変更のたびにアノテーションの書き換えが必要になり大きな修正工数が必要となる。
+このようなシステムでは、 <a class="reference internal" href="permission_check.html"><em>ハンドラによる認可チェック</em></a> を用いて権限の組み合わせをデータで管理することを推奨する。</p>
+</div>
+</div>
+<div class="section" id="id7">
+<h2><a class="toc-backref" href="#id22">7.15.2.2. モジュール一覧</a><a class="headerlink" href="#id7" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;dependency&gt;</span>
+  <span class="nt">&lt;groupId&gt;</span>com.nablarch.framework<span class="nt">&lt;/groupId&gt;</span>
+  <span class="nt">&lt;artifactId&gt;</span>nablarch-common-auth<span class="nt">&lt;/artifactId&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+<span class="nt">&lt;dependency&gt;</span>
+  <span class="nt">&lt;groupId&gt;</span>com.nablarch.framework<span class="nt">&lt;/groupId&gt;</span>
+  <span class="nt">&lt;artifactId&gt;</span>nablarch-common-auth-session<span class="nt">&lt;/artifactId&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+<span class="c">&lt;!-- デフォルトコンフィグレーションを利用する場合 --&gt;</span>
+<span class="nt">&lt;dependency&gt;</span>
+  <span class="nt">&lt;groupId&gt;</span>com.nablarch.configuration<span class="nt">&lt;/groupId&gt;</span>
+  <span class="nt">&lt;artifactId&gt;</span>nablarch-main-default-configuration<span class="nt">&lt;/artifactId&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id8">
+<h2><a class="toc-backref" href="#id23">7.15.2.3. 使用方法</a><a class="headerlink" href="#id8" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="id9">
+<h3><a class="toc-backref" href="#id24">7.15.2.3.1. 事前準備</a><a class="headerlink" href="#id9" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="section" id="id10">
+<h4><a class="toc-backref" href="#id25">7.15.2.3.1.1. コンポーネントを定義する</a><a class="headerlink" href="#id10" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;component</span> <span class="na">name=</span><span class="s">&quot;roleEvaluator&quot;</span>
+           <span class="na">class=</span><span class="s">&quot;nablarch.common.authorization.role.BasicRoleEvaluator&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;userRoleResolver&quot;</span> <span class="na">ref=</span><span class="s">&quot;userRoleResolver&quot;</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;/component&gt;</span>
+
+<span class="nt">&lt;component</span> <span class="na">name=</span><span class="s">&quot;userRoleResolver&quot;</span>
+           <span class="na">class=</span><span class="s">&quot;nablarch.common.authorization.role.session.SessionStoreUserRoleResolver&quot;</span> <span class="nt">/&gt;</span>
+</pre></div>
+</div>
+<p>アノテーションによる認可チェックを使用するためには、まず <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/common/authorization/role/BasicRoleEvaluator.html" title="nablarch.common.authorization.role.BasicRoleEvaluator">BasicRoleEvaluator</a> のコンポーネントを定義する。
+また、このとき <code class="docutils literal"><span class="pre">userRoleResolver</span></code> プロパティには <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/common/authorization/role/session/SessionStoreUserRoleResolver.html" title="nablarch.common.authorization.role.session.SessionStoreUserRoleResolver">SessionStoreUserRoleResolver</a> を設定する。</p>
+<p>なお、この設定はデフォルトコンフィグレーションとしても提供している。
+デフォルトコンフィグレーションを使う場合は、以下のようにファイルをインポートすることで同様の設定となる。</p>
+<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;import</span> <span class="na">file=</span><span class="s">&quot;nablarch/common/authorization/role/session/authorization-session.xml&quot;</span> <span class="nt">/&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="interceptorsorder">
+<h4><a class="toc-backref" href="#id26">7.15.2.3.1.2. interceptorsOrderに追加する</a><a class="headerlink" href="#interceptorsorder" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<p>アノテーションによるチェックは、Nablarchの <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/fw/Interceptor.html" title="nablarch.fw.Interceptor">インターセプタ</a> の仕組みを用いて実現している。
+したがって、既にコンポーネント定義にて <code class="docutils literal"><span class="pre">interceptorsOrder</span></code> を定義している場合は、 <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/common/authorization/role/CheckRole.html" title="nablarch.common.authorization.role.CheckRole">CheckRole</a> を追加する必要がある。</p>
+<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="c">&lt;!-- インターセプタの実行順定義 --&gt;</span>
+<span class="nt">&lt;list</span> <span class="na">name=</span><span class="s">&quot;interceptorsOrder&quot;</span><span class="nt">&gt;</span>
+  <span class="c">&lt;!-- CheckRole を追加する --&gt;</span>
+  <span class="nt">&lt;value&gt;</span>nablarch.common.authorization.role.CheckRole<span class="nt">&lt;/value&gt;</span>
+  <span class="c">&lt;!-- 他のインターセプターの記述は省略 --&gt;</span>
+<span class="nt">&lt;/list&gt;</span>
+</pre></div>
+</div>
+<p><code class="docutils literal"><span class="pre">interceptorsOrder</span></code> を定義していない場合は、この対応は不要である。</p>
+<p>また、デフォルトコンフィグレーションの <code class="docutils literal"><span class="pre">nablarch/webui/interceptors.xml</span></code> を読み込んでいる場合も特に対応は必要ない。</p>
+</div>
+<div class="section" id="id11">
+<h4><a class="toc-backref" href="#id27">7.15.2.3.1.3. ロールを定義する</a><a class="headerlink" href="#id11" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Roles</span> <span class="o">{</span>
+    <span class="cm">/** システム管理者のロール。 */</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">ROLE_ADMIN</span> <span class="o">=</span> <span class="s">&quot;ADMIN&quot;</span><span class="o">;</span>
+    <span class="cm">/** プロジェクト管理者のロール。 */</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">ROLE_PROJECT_MANAGER</span> <span class="o">=</span> <span class="s">&quot;PROJECT_MANAGER&quot;</span><span class="o">;</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>アノテーションなどで指定するロールを定義する。</p>
+<p>ロールは任意の文字列として定義する。
+システムで扱えるのであれば文字種やフォーマットに制限はないが、管理しやすいように何のロールか理解しやすい値にすることを推奨する。</p>
+<p>また、アノテーションで指定する際は定数ではなく文字列リテラルを直接指定することも可能だが、修正が容易になるように定数で管理することを推奨する。
+なお、上記例では専用の定数クラスを用意しているが、より適切なクラスがある場合はプロジェクトの事情に合わせて変更して構わない。</p>
+</div>
+<div class="section" id="id12">
+<h4><a class="toc-backref" href="#id28">7.15.2.3.1.4. ユーザのロールを保存する</a><a class="headerlink" href="#id12" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<p>アノテーションによる認可チェックでは、ユーザに割り当てられたロールをセッションストアに保存する実装をデフォルトで提供している。
+ログイン時に、ユーザに割り当てられたロールを解決してセッションストアに保存しておくことで、その後の認可チェックはセッションストアに保存されたロールの情報を用いて行われるようになる。</p>
+<p>以下に、ログイン時にロールをセッションストアに保存する実装例を記載する。</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">userRoles</span> <span class="o">=</span> <span class="n">resolveUserRoles</span><span class="o">(</span><span class="n">loginId</span><span class="o">);</span>
+<span class="n">SessionStoreUserRoleUtil</span><span class="o">.</span><span class="na">save</span><span class="o">(</span><span class="n">userRoles</span><span class="o">,</span> <span class="n">executionContext</span><span class="o">);</span>
+</pre></div>
+</div>
+<p>ここでは、ログインIDを元にユーザに割り当てられたロールの一覧を解決し、それを <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/common/authorization/role/session/SessionStoreUserRoleUtil.html" title="nablarch.common.authorization.role.session.SessionStoreUserRoleUtil">SessionStoreUserRoleUtil</a> の <code class="docutils literal"><span class="pre">save</span></code> メソッドでセッションストアに保存している。</p>
+<div class="admonition tip">
+<p class="first admonition-title">補足</p>
+<p><code class="docutils literal"><span class="pre">resolveUserRoles</span></code> メソッドが行う、ユーザからロールを解決する方法については、フレームワークでは特に規定していない。
+したがって、プロジェクトごとの事情に合わせてロールを解決する実装を作りこむことになる。</p>
+<p class="last">多くの場合はデータベースから解決することが想定される。
+例えば、ロールが「管理者」だけのようなシステムでは、ユーザの情報を管理するテーブルの「管理者フラグ」の値を見て解決するような方法が考えられる。
+また、ユーザにいくつかのロールを割り当てるようなシステムでは、ユーザとロールを関連付けるテーブルを検索することで解決するような方法が考えられる。</p>
+</div>
+</div>
+</div>
+<div class="section" id="id13">
+<h3><a class="toc-backref" href="#id29">7.15.2.3.2. アクションのメソッドにアノテーションでロールを割り当てる</a><a class="headerlink" href="#id13" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="nd">@CheckRole</span><span class="o">(</span><span class="n">Roles</span><span class="o">.</span><span class="na">ROLE_ADMIN</span><span class="o">)</span>
+<span class="kd">public</span> <span class="n">HttpResponse</span> <span class="nf">index</span><span class="o">(</span><span class="n">HttpRequest</span> <span class="n">request</span><span class="o">,</span> <span class="n">ExecutionContext</span> <span class="n">context</span><span class="o">)</span> <span class="o">{</span>
+</pre></div>
+</div>
+<p><a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/common/authorization/role/CheckRole.html" title="nablarch.common.authorization.role.CheckRole">CheckRole</a> アノテーションをアクションメソッドに設定し <code class="docutils literal"><span class="pre">value</span></code> にロールを指定することで、アクションメソッドにロールを割り当てることができる。
+上記例では、 <code class="docutils literal"><span class="pre">index</span></code> メソッドに対して <code class="docutils literal"><span class="pre">ADMIN</span></code> ロールを割り当てている。
+これにより、 <code class="docutils literal"><span class="pre">index</span></code> メソッドは <code class="docutils literal"><span class="pre">ADMIN</span></code> ロールを持つユーザだけが実行できるようになる。
+もし <code class="docutils literal"><span class="pre">ADMIN</span></code> ロールを持たないユーザがメソッドを実行しようとした場合は、 <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/fw/results/Forbidden.html" title="nablarch.fw.results.Forbidden">Forbidden</a> がスローされる。</p>
+<p>複数のロールを割り当てたい場合は、配列で指定できる。
+以下に実装例を示す。</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="nd">@CheckRole</span><span class="o">({</span><span class="n">Roles</span><span class="o">.</span><span class="na">ROLE_ADMIN</span><span class="o">,</span> <span class="n">Roles</span><span class="o">.</span><span class="na">ROLE_PROJECT_MANAGER</span><span class="o">})</span>
+<span class="kd">public</span> <span class="n">HttpResponse</span> <span class="nf">index</span><span class="o">(</span><span class="n">HttpRequest</span> <span class="n">request</span><span class="o">,</span> <span class="n">ExecutionContext</span> <span class="n">context</span><span class="o">)</span> <span class="o">{</span>
+</pre></div>
+</div>
+<p>この場合、 <code class="docutils literal"><span class="pre">index</span></code> メソッドを実行するためには <code class="docutils literal"><span class="pre">ADMIN</span></code> と <code class="docutils literal"><span class="pre">PROJECT_MANAGER</span></code> の両方のロールを保有している必要がある(AND条件)。</p>
+<p>OR条件にしたい場合は、 <code class="docutils literal"><span class="pre">anyOf</span></code> に <code class="docutils literal"><span class="pre">true</span></code> を設定する。
+以下に実装例を示す。</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="nd">@CheckRole</span><span class="o">(</span>
+    <span class="n">value</span> <span class="o">=</span> <span class="o">{</span><span class="n">Roles</span><span class="o">.</span><span class="na">ROLE_ADMIN</span><span class="o">,</span> <span class="n">Roles</span><span class="o">.</span><span class="na">ROLE_PROJECT_MANAGER</span><span class="o">},</span>
+    <span class="n">anyOf</span> <span class="o">=</span> <span class="kc">true</span>
+<span class="o">)</span>
+<span class="kd">public</span> <span class="n">HttpResponse</span> <span class="nf">index</span><span class="o">(</span><span class="n">HttpRequest</span> <span class="n">request</span><span class="o">,</span> <span class="n">ExecutionContext</span> <span class="n">context</span><span class="o">)</span> <span class="o">{</span>
+</pre></div>
+</div>
+<p>上記例では、 <code class="docutils literal"><span class="pre">index</span></code> メソッドを実行するためには <code class="docutils literal"><span class="pre">ADMIN</span></code> か <code class="docutils literal"><span class="pre">PROJECT_MANAGER</span></code> のいずれかのロールを保有していれば良いということになる。</p>
+</div>
+<div class="section" id="checkrole">
+<h3><a class="toc-backref" href="#id30">7.15.2.3.3. アノテーションに割り当てた CheckRole の設定を一覧で確認する</a><a class="headerlink" href="#checkrole" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>アクションメソッドに設定した <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/common/authorization/role/CheckRole.html" title="nablarch.common.authorization.role.CheckRole">CheckRole</a> アノテーションに誤りがないかチェックするために、アノテーションの設定状況を一覧表示する機能を提供している。
+本機能を利用することで、アノテーションの設定に漏れが無いか、設定されている内容に過不足がないかをチェックできるようになる。</p>
+<p>本機能は、システム起動時にアノテーションの設定情報を収集して、デバッグレベルでログに出力するという方法で実現している。
+以下で、設定方法について説明する。</p>
+<p>まず、 <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/common/authorization/role/CheckRoleLogger.html" title="nablarch.common.authorization.role.CheckRoleLogger">CheckRoleLogger</a> のコンポーネントを以下のように定義する。</p>
+<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="c">&lt;!-- 初期化が必要なコンポーネント --&gt;</span>
+<span class="nt">&lt;component</span> <span class="na">name=</span><span class="s">&quot;initializer&quot;</span>
+           <span class="na">class=</span><span class="s">&quot;nablarch.core.repository.initialization.BasicApplicationInitializer&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;initializeList&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;list&gt;</span>
+      <span class="c">&lt;!-- 他の初期化が必要なコンポーネントの記述は省略 --&gt;</span>
+
+      <span class="nt">&lt;component</span> <span class="na">class=</span><span class="s">&quot;nablarch.common.authorization.role.CheckRoleLogger&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;targetPackage&quot;</span> <span class="na">value=</span><span class="s">&quot;com.nablarch.example.app.web.action&quot;</span> <span class="nt">/&gt;</span>
+      <span class="nt">&lt;/component&gt;</span>
+    <span class="nt">&lt;/list&gt;</span>
+  <span class="nt">&lt;/property&gt;</span>
+<span class="nt">&lt;/component&gt;</span>
+</pre></div>
+</div>
+<p><a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/common/authorization/role/CheckRoleLogger.html" title="nablarch.common.authorization.role.CheckRoleLogger">CheckRoleLogger</a> は、初期化が必要なコンポーネントとして <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/core/repository/initialization/BasicApplicationInitializer.html" title="nablarch.core.repository.initialization.BasicApplicationInitializer">BasicApplicationInitializer</a> の <code class="docutils literal"><span class="pre">initializeList</span></code> に設定する。
+またこのとき、 <code class="docutils literal"><span class="pre">targetPackage</span></code> プロパティにアクションクラスが存在するパッケージを指定する(サブパッケージも対象となる)。</p>
+<p>なお、デフォルトでは末尾が <code class="docutils literal"><span class="pre">Action</span></code> で終わる名前のクラスが処理の対象となる。
+この設定は <code class="docutils literal"><span class="pre">targetClassPattern</span></code> プロパティに任意の正規表現を指定することで変更できる。
+詳細は <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/common/authorization/role/CheckRoleLogger.html" title="nablarch.common.authorization.role.CheckRoleLogger">CheckRoleLogger</a> のJavadocを参照のこと。</p>
+<p>上記設定が完了したら、ログレベルをデバッグレベルにしてシステムを起動する。
+これにより、システム起動時に以下のようなログが出力されるようになる。</p>
+<div class="highlight-text"><div class="highlight"><pre><span></span>2023-01-11 14:29:31.643 -DEBUG- nablarch.common.authorization.role.CheckRoleLogger [null] boot_proc = [] proc_sys = [nablarch-example-web] req_id = [null] usr_id = [null] CheckRole Annotation Settings
+class signature       role    anyOf
+com.nablarch.example.app.web.action.AuthenticationAction      index(nablarch.fw.web.HttpRequest, nablarch.fw.ExecutionContext)
+(中略)
+com.nablarch.example.app.web.action.ProjectBulkAction update(nablarch.fw.web.HttpRequest, nablarch.fw.ExecutionContext)
+com.nablarch.example.app.web.action.ProjectUploadAction       index(nablarch.fw.web.HttpRequest, nablarch.fw.ExecutionContext)        ADMIN   true
+com.nablarch.example.app.web.action.ProjectUploadAction       index(nablarch.fw.web.HttpRequest, nablarch.fw.ExecutionContext)        PROJECT_MANAGER true
+</pre></div>
+</div>
+<p>ログには、以下の要素がタブ区切りで出力されるようになっている。</p>
+<table border="1" class="colwidths-given docutils" id="id17">
+<caption><span class="caption-text">ログ出力要素</span><a class="headerlink" href="#id17" title="このテーブルへのパーマリンク">¶</a></caption>
+<colgroup>
+<col width="6%" />
+<col width="31%" />
+<col width="63%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">要素</th>
+<th class="head">説明</th>
+<th class="head">出力例</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">class</span></code></td>
+<td>クラスの完全修飾名</td>
+<td><code class="docutils literal"><span class="pre">com.nablarch.example.app.web.action.ProjectUploadAction</span></code></td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">signature</span></code></td>
+<td>メソッドのシグネチャ</td>
+<td><code class="docutils literal"><span class="pre">upload(nablarch.fw.web.HttpRequest,</span> <span class="pre">nablarch.fw.ExecutionContext)</span></code></td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">role</span></code></td>
+<td>割り当てられているロール(アノテーション未設定の場合は空)</td>
+<td><code class="docutils literal"><span class="pre">ADMIN</span></code></td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">anyOf</span></code></td>
+<td><code class="docutils literal"><span class="pre">&#64;CheckRole</span></code> の <code class="docutils literal"><span class="pre">anyOf</span></code> に設定された値(アノテーション未設定の場合は空)</td>
+<td><code class="docutils literal"><span class="pre">false</span></code></td>
+</tr>
+</tbody>
+</table>
+<p>複数のロールが割り当てられている場合、それぞれのロールは別の行に分けて出力される。
+例えば上記出力例では、 <code class="docutils literal"><span class="pre">ProjectUploadAction</span></code> の <code class="docutils literal"><span class="pre">index</span></code> メソッドには <code class="docutils literal"><span class="pre">ADMIN</span></code> と <code class="docutils literal"><span class="pre">PROJECT_MANAGER</span></code> の2つのロールが割り当てられていることが分かる。
+実装に置き換えると、以下のように設定されていることになる。</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="nd">@CheckRole</span><span class="o">(</span>
+    <span class="n">value</span> <span class="o">=</span> <span class="o">{</span><span class="n">Roles</span><span class="o">.</span><span class="na">ROLE_ADMIN</span><span class="o">,</span> <span class="n">Roles</span><span class="o">.</span><span class="na">ROLE_PROJECT_MANAGER</span><span class="o">},</span>
+    <span class="n">anyOf</span> <span class="o">=</span> <span class="kc">true</span>
+<span class="o">)</span>
+<span class="kd">public</span> <span class="n">HttpResponse</span> <span class="nf">index</span><span class="o">(</span><span class="n">HttpRequest</span> <span class="n">request</span><span class="o">,</span> <span class="n">ExecutionContext</span> <span class="n">context</span><span class="o">)</span> <span class="o">{</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id14">
+<h3><a class="toc-backref" href="#id31">7.15.2.3.4. プログラムで判定する</a><a class="headerlink" href="#id14" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>ロールの有無を、プログラム上の任意の場所で判定できる。</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="o">(</span><span class="n">CheckRoleUtil</span><span class="o">.</span><span class="na">checkRole</span><span class="o">(</span><span class="n">Roles</span><span class="o">.</span><span class="na">ROLE_ADMIN</span><span class="o">,</span> <span class="n">executionContext</span><span class="o">))</span> <span class="o">{</span>
+    <span class="c1">// ADMIN ロールを持つ場合の処理</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>プログラムでロールの有無を判定する場合は、 <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/common/authorization/role/CheckRoleUtil.html" title="nablarch.common.authorization.role.CheckRoleUtil">CheckRoleUtil</a> を使用する。
+上記例では、 <code class="docutils literal"><span class="pre">checkRole</span></code> メソッドを使って現在のユーザが <code class="docutils literal"><span class="pre">ADMIN</span></code> ロールを持っているかどうかを判定している。</p>
+<p>複数のロールを指定する場合は、 <code class="docutils literal"><span class="pre">checkRoleAllOf</span></code> メソッドか <code class="docutils literal"><span class="pre">checkRoleAnyOf</span></code> メソッドを使用して判定できる。</p>
+</div>
+<div class="section" id="jsp">
+<h3><a class="toc-backref" href="#id32">7.15.2.3.5. JSPで判定する</a><a class="headerlink" href="#jsp" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p><a class="reference internal" href="permission_check.html"><em>ハンドラによる認可チェック</em></a> では、JSPのカスタムタグで認可チェックを行い自動的にボタンの表示・非表示を切り替えるような仕組みが提供されている。
+しかし本認可チェックでは、このような仕組みは提供していない。</p>
+<p>そこでここでは、本認可チェックを採用したうえでJSPの表示・非表示をロールの有無で制御する方法について説明する。</p>
+<p>ロールによる表示の制御は、サーバー側で判定した結果をセッションストアなどに保存することで実現する。
+実装例を以下に示す。</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="n">UserContext</span> <span class="n">userContext</span> <span class="o">=</span> <span class="k">new</span> <span class="n">UserContext</span><span class="o">();</span>
+<span class="n">userContext</span><span class="o">.</span><span class="na">setAdmin</span><span class="o">(</span><span class="n">CheckRoleUtil</span><span class="o">.</span><span class="na">checkRole</span><span class="o">(</span><span class="n">Roles</span><span class="o">.</span><span class="na">ROLE_ADMIN</span><span class="o">,</span> <span class="n">executionContext</span><span class="o">));</span>
+<span class="n">userContext</span><span class="o">.</span><span class="na">setProjectManager</span><span class="o">(</span><span class="n">CheckRoleUtil</span><span class="o">.</span><span class="na">checkRole</span><span class="o">(</span><span class="n">Roles</span><span class="o">.</span><span class="na">ROLE_PROJECT_MANAGER</span><span class="o">,</span> <span class="n">executionContext</span><span class="o">));</span>
+
+<span class="n">SessionUtil</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">executionContext</span><span class="o">,</span> <span class="s">&quot;userContext&quot;</span><span class="o">,</span> <span class="n">userContext</span><span class="o">);</span>
+</pre></div>
+</div>
+<p>この例では、ログイン時にユーザのロールを判定した結果を <code class="docutils literal"><span class="pre">UserContext</span></code> クラスに保存してセッションストアに格納している(<code class="docutils literal"><span class="pre">UserContext</span></code> はただのJava Beansで、プロジェクトごとに必要に応じて作成する)。
+これにより、JSPではEL式やJSTLを使うことで以下のように表示を制御できるようになる。</p>
+<div class="highlight-jsp"><div class="highlight"><pre><span></span><span class="nt">&lt;c:if</span> <span class="na">test=</span><span class="s">&quot;${userContext.admin}&quot;</span><span class="nt">&gt;</span>
+  <span class="k">&lt;%-</span><span class="o">-</span> <span class="n">ADMIN</span> <span class="n">ロールを持つ場合に表示する</span> <span class="o">--</span><span class="k">%&gt;</span>
+<span class="nt">&lt;/c:if&gt;</span>
+<span class="nt">&lt;c:if</span> <span class="na">test=</span><span class="s">&quot;${userContext.projectManager}&quot;</span><span class="nt">&gt;</span>
+  <span class="k">&lt;%-</span><span class="o">-</span> <span class="n">PROJECT_MANAGER</span> <span class="n">ロールを持つ場合に表示する</span>  <span class="o">--</span><span class="k">%&gt;</span>
+<span class="nt">&lt;/c:if&gt;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id15">
+<h2><a class="toc-backref" href="#id33">7.15.2.4. 仕組み</a><a class="headerlink" href="#id15" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>ここでは、アノテーションによる認可チェックの仕組みについて説明する。</p>
+<img alt="../../../../_images/architecture.png" src="../../../../_images/architecture.png" />
+<p>アノテーションを用いたチェック処理の実行は、Nablarchの <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/fw/Interceptor.html" title="nablarch.fw.Interceptor">インターセプタ</a> の仕組みを利用して実現している。
+<a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/common/authorization/role/CheckRole.html" title="nablarch.common.authorization.role.CheckRole">CheckRole</a> アノテーションは、このインターセプタを実装したものとなっている。</p>
+<p><a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/common/authorization/role/CheckRole.html" title="nablarch.common.authorization.role.CheckRole">CheckRole</a> と <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/common/authorization/role/CheckRoleUtil.html" title="nablarch.common.authorization.role.CheckRoleUtil">CheckRoleUtil</a> 自体は直接認可チェックは行わず、 <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/common/authorization/role/RoleEvaluator.html" title="nablarch.common.authorization.role.RoleEvaluator">RoleEvaluator</a> に処理を委譲する。
+このとき、 <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/common/authorization/role/RoleEvaluator.html" title="nablarch.common.authorization.role.RoleEvaluator">RoleEvaluator</a> のインスタンスは <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/core/repository/SystemRepository.html" title="nablarch.core.repository.SystemRepository">SystemRepository</a> から <code class="docutils literal"><span class="pre">roleEvaluator</span></code> という名前で取得したものを使用する。
+また、チェック処理に渡すユーザIDは、 <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/core/ThreadContext.html" title="nablarch.core.ThreadContext">ThreadContext</a> の <code class="docutils literal"><span class="pre">getUserId</span></code> メソッドで取得したものを使用する。</p>
+<p><a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/common/authorization/role/RoleEvaluator.html" title="nablarch.common.authorization.role.RoleEvaluator">RoleEvaluator</a> のデフォルトの実装クラスとして、本認可チェックでは <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/common/authorization/role/BasicRoleEvaluator.html" title="nablarch.common.authorization.role.BasicRoleEvaluator">BasicRoleEvaluator</a> というクラスを提供している。
+このクラスは、ユーザに紐づくロールと引数で渡されたロールとを比較し、条件を満たすかどうかを判定するシンプルな作りとなっている。
+なお、ユーザに紐づくロールの解決は <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/common/authorization/role/UserRoleResolver.html" title="nablarch.common.authorization.role.UserRoleResolver">UserRoleResolver</a> に委譲している。</p>
+<p><a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/common/authorization/role/UserRoleResolver.html" title="nablarch.common.authorization.role.UserRoleResolver">UserRoleResolver</a> のデフォルト実装としては、　<a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/common/authorization/role/session/SessionStoreUserRoleResolver.html" title="nablarch.common.authorization.role.session.SessionStoreUserRoleResolver">SessionStoreUserRoleResolver</a> を提供している。
+このクラスは、セッションストアに保存された情報でユーザのロールを解決する仕組みとなっている。</p>
+</div>
+<div class="section" id="id16">
+<h2><a class="toc-backref" href="#id34">7.15.2.5. 拡張方法</a><a class="headerlink" href="#id16" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>前述の仕組みの説明から、 <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/common/authorization/role/RoleEvaluator.html" title="nablarch.common.authorization.role.RoleEvaluator">RoleEvaluator</a> または <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/common/authorization/role/UserRoleResolver.html" title="nablarch.common.authorization.role.UserRoleResolver">UserRoleResolver</a> の実体を差し替えることで任意の処理に拡張できることがわかる。</p>
+<p><a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/common/authorization/role/RoleEvaluator.html" title="nablarch.common.authorization.role.RoleEvaluator">RoleEvaluator</a> の実体の差し替えは、 <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/common/authorization/role/RoleEvaluator.html" title="nablarch.common.authorization.role.RoleEvaluator">RoleEvaluator</a> を実装した独自クラスを作成し、そのクラスを <code class="docutils literal"><span class="pre">roleEvaluator</span></code> という名前でコンポーネント登録することで実現できる。</p>
+<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;component</span> <span class="na">name=</span><span class="s">&quot;roleEvaluator&quot;</span> <span class="na">class=</span><span class="s">&quot;com.example.CustomRoleEvaluator&quot;</span> <span class="nt">/&gt;</span>
+</pre></div>
+</div>
+<p><a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/common/authorization/role/RoleEvaluator.html" title="nablarch.common.authorization.role.RoleEvaluator">RoleEvaluator</a> の実体には <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/common/authorization/role/BasicRoleEvaluator.html" title="nablarch.common.authorization.role.BasicRoleEvaluator">BasicRoleEvaluator</a> を使いつつ、 <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/common/authorization/role/UserRoleResolver.html" title="nablarch.common.authorization.role.UserRoleResolver">UserRoleResolver</a> の実体だけを差し替えたい場合は、 <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/common/authorization/role/BasicRoleEvaluator.html" title="nablarch.common.authorization.role.BasicRoleEvaluator">BasicRoleEvaluator</a> の <code class="docutils literal"><span class="pre">userRoleResolver</span></code> プロパティに設定するコンポーネントを差し替えればいい。
+デフォルトコンフィグレーションを利用している場合は、 <code class="docutils literal"><span class="pre">userRoleResolver</span></code> という名前のコンポーネントを設定するように定義されているので、同じ名前で独自クラスのコンポーネントを定義することで差し替えができる。</p>
+<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;component</span> <span class="na">name=</span><span class="s">&quot;userRoleResolver&quot;</span> <span class="na">class=</span><span class="s">&quot;com.example.CustomUserRoleResolver&quot;</span> <span class="nt">/&gt;</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+
+    <hr/>
+
+    <div role="contentinfo">
+        <p>
+            &copy; Copyright 2010-2023, TIS Inc.
+        </p>
+    </div>
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../',
+            VERSION:'5u22',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: ''
+        };
+    </script>
+      <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../../_static/custom.js"></script>
+      <script type="text/javascript" src="../../../../_static/translations.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
