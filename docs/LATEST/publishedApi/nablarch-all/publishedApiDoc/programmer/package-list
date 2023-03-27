@@ -1,3 +1,5 @@
+nablarch.common.authorization.role
+nablarch.common.authorization.role.session
 nablarch.common.code
 nablarch.common.code.validator
 nablarch.common.code.validator.ee

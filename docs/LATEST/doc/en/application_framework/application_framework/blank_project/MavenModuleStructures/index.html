@@ -9,7 +9,7 @@
   <meta http-equiv='content-language' content='ja'>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>8.5. Maven Archetype Configuration &mdash; ∇Nablarch  5u21 documentation</title>
+  <title>8.5. Maven Archetype Configuration &mdash; ∇Nablarch  5u22 documentation</title>
   
 
   
@@ -35,10 +35,10 @@
   
   <link rel="canonical" href="https://nablarch.github.io/docs/LATEST/doc/application_framework/application_framework/blank_project/MavenModuleStructures/index.html" />
   
-    <link rel="top" title="∇Nablarch  5u21 documentation" href="../../../../index.html"/>
+    <link rel="top" title="∇Nablarch  5u22 documentation" href="../../../../index.html"/>
         <link rel="up" title="8. Blank Project" href="../index.html"/>
         <link rel="next" title="8.6. Configuration Changes Required After Initial Setup" href="../ModifySettings.html"/>
-        <link rel="prev" title="8.4.3. Initial Setup of Nablarch batch Project for Container" href="../setup_containerBlankProject/setup_ContainerBatch.html"/>
+        <link rel="prev" title="8.4.4. Initial Setup of Nablarch batch Project for Container without DB connection" href="../setup_containerBlankProject/setup_ContainerBatch_Dbless.html"/>
 
 <script defer data-domain="nablarch.github.io,all.fintan" src=https://plausible.io/js/script.js></script>
 
@@ -63,7 +63,7 @@
   
 
   
-    <div id="sidebar-version">Version: 5u21</div>
+    <div id="sidebar-version">Version: 5u22</div>
   </a>
 
   <div role="search">
@@ -171,24 +171,15 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../../examples/01/index.html#how-to-use">How to Use</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../examples/02/index.html">Extended Validation Functions</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../../examples/02/index.html#delivery-package">Delivery package</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../examples/02/index.html#email-address-validation">Email address validation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../examples/02/index.html#validation-of-japan-telephone-numbers">Validation of Japan telephone numbers</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../examples/02/index.html#code-value-validation">Code value validation</a></li>
-</ul>
-</li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../examples/03/index.html">Display a List of Search Results</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../../examples/03/index.html#delivery-package">Delivery package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../examples/03/index.html#summary">Summary</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../examples/03/index.html#structure">Structure</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../examples/03/index.html#how-to-use">How to Use</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../examples/03/index.html#universaldao-class">UniversalDao class</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../examples/03/index.html#listsearchinfo-class">ListSearchInfo class</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../examples/03/index.html#pagination-class">Pagination class</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../examples/03/index.html#entitylist-class">EntityList class</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../examples/03/index.html#listsearchresult-tag">listSearchResult tag</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../examples/03/index.html#sort-search-results">Sort search results</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../examples/03/index.html#how-to-implement-displaying-a-list-of-all-search-results-on-a-single-screen">How to implement displaying a list of all search results on a single screen</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../examples/03/index.html#how-to-implement-the-initial-display-of-search-results-with-the-default-search-conditions">How to implement the initial display of search results with the default search conditions</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../examples/03/index.html#default-settings-for-the-search-result-list-display-function">Default settings for the search result list display function</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../examples/03/index.html#how-to-import-a-sample-implementation-tag-file-into-the-business-application">How to import a sample implementation (tag file) into the business application</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../examples/03/index.html#tag-reference">Tag Reference</a></li>
 </ul>
@@ -204,21 +195,6 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../../examples/05/index.html#functions">Functions</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../examples/05/index.html#structure">Structure</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../examples/05/index.html#how-to-use">How to Use</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../examples/06/index.html">CAPTCHA Function Sample</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../../examples/06/06_Captcha_guide.html">How to Incorporate the CAPTCHA Function</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../examples/06/index.html#delivery-package">Delivery package</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../examples/06/index.html#summary">Summary</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../examples/06/index.html#structure">Structure</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../examples/06/index.html#how-to-use">How to Use</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../examples/07/index.html">Sample UserAgent Information Acquisition Function</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../../examples/07/index.html#summary">Summary</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../examples/07/index.html#structure">Structure</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../examples/07/index.html#description-of-configuration">Description of configuration</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../examples/07/index.html#use-case">Use case</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../examples/08/index.html">Sample of HTML Email Send Function</a><ul>
@@ -245,6 +221,13 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../../examples/11/index.html#request">Request</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../examples/11/index.html#how-to-use">How to use</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../examples/11/index.html#expansion-example">Expansion example</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../examples/12/index.html">Authentication sample using OIDC ID token</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../examples/12/index.html#delivery-package">Delivery package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../examples/12/index.html#summary">Summary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../examples/12/index.html#structure">Structure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../examples/12/index.html#how-to-use">How to Use</a></li>
 </ul>
 </li>
 </ul>
@@ -319,29 +302,30 @@
 <div class="contents local topic" id="table-of-contents">
 <p class="topic-title first">Table of contents</p>
 <ul class="simple">
-<li><a class="reference internal" href="#overview-of-overall-configuration" id="id12">Overview of overall configuration</a></li>
-<li><a class="reference internal" href="#details-of-each-component" id="id13">Details of each component</a><ul>
-<li><a class="reference internal" href="#nablarch-archetype-parent-parent-project" id="id14">nablarch-archetype-parent (parent project)</a></li>
-<li><a class="reference internal" href="#pj-web-project" id="id15">pj-web project</a></li>
-<li><a class="reference internal" href="#pj-jaxrs-project" id="id16">pj-jaxrs project</a></li>
-<li><a class="reference internal" href="#pj-batch-ee-project" id="id17">pj-batch-ee project</a></li>
-<li><a class="reference internal" href="#pj-batch-project" id="id18">pj-batch project</a></li>
-<li><a class="reference internal" href="#pj-container-web-project" id="id19">pj-container-web project</a></li>
-<li><a class="reference internal" href="#pj-container-jaxrs-project" id="id20">pj-container-jaxrs project</a></li>
-<li><a class="reference internal" href="#pj-container-batch-project" id="id21">pj-container-batch project</a></li>
-<li><a class="reference internal" href="#common-configurations-for-each-project" id="id22">Common configurations for each project</a></li>
-<li><a class="reference internal" href="#build-configuration" id="id23">Build configuration</a></li>
+<li><a class="reference internal" href="#overview-of-overall-configuration" id="id14">Overview of overall configuration</a></li>
+<li><a class="reference internal" href="#details-of-each-component" id="id15">Details of each component</a><ul>
+<li><a class="reference internal" href="#nablarch-archetype-parent-parent-project" id="id16">nablarch-archetype-parent (parent project)</a></li>
+<li><a class="reference internal" href="#pj-web-project" id="id17">pj-web project</a></li>
+<li><a class="reference internal" href="#pj-jaxrs-project" id="id18">pj-jaxrs project</a></li>
+<li><a class="reference internal" href="#pj-batch-ee-project" id="id19">pj-batch-ee project</a></li>
+<li><a class="reference internal" href="#pj-batch-project" id="id20">pj-batch project</a></li>
+<li><a class="reference internal" href="#pj-batch-dbless-project" id="id21">pj-batch-dbless project</a></li>
+<li><a class="reference internal" href="#pj-container-web-project" id="id22">pj-container-web project</a></li>
+<li><a class="reference internal" href="#pj-container-jaxrs-project" id="id23">pj-container-jaxrs project</a></li>
+<li><a class="reference internal" href="#pj-container-batch-project" id="id24">pj-container-batch project</a></li>
+<li><a class="reference internal" href="#common-configurations-for-each-project" id="id25">Common configurations for each project</a></li>
+<li><a class="reference internal" href="#build-configuration" id="id26">Build configuration</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#reference-policy-for-splitting-the-projects" id="id24">[Reference] Policy for splitting the projects</a><ul>
-<li><a class="reference internal" href="#policy-for-recommended-project-configuration" id="id25">Policy for recommended project configuration</a></li>
-<li><a class="reference internal" href="#problems-when-a-project-is-divided-excessively" id="id26">Problems when a project is divided excessively</a></li>
+<li><a class="reference internal" href="#reference-policy-for-splitting-the-projects" id="id27">[Reference] Policy for splitting the projects</a><ul>
+<li><a class="reference internal" href="#policy-for-recommended-project-configuration" id="id28">Policy for recommended project configuration</a></li>
+<li><a class="reference internal" href="#problems-when-a-project-is-divided-excessively" id="id29">Problems when a project is divided excessively</a></li>
 </ul>
 </li>
 </ul>
 </div>
 <div class="section" id="overview-of-overall-configuration">
-<h2><a class="toc-backref" href="#id12">8.5.1. Overview of overall configuration</a><a class="headerlink" href="#overview-of-overall-configuration" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id14">8.5.1. Overview of overall configuration</a><a class="headerlink" href="#overview-of-overall-configuration" title="Permalink to this headline">¶</a></h2>
 <p>Nablarch offers the following archetypes: All the archetype group IDs are <code class="docutils literal"><span class="pre">com.nablarch.archetype</span></code>.</p>
 <table border="1" class="white-space-normal docutils">
 <colgroup>
@@ -366,13 +350,16 @@
 <tr class="row-odd"><td>nablarch-batch-archetype</td>
 <td>Archetype for using the Nablarch batch application runtime platform</td>
 </tr>
-<tr class="row-even"><td>nablarch-container-web-archetype</td>
+<tr class="row-even"><td>nablarch-batch-dbless-archetype</td>
+<td>Archetype for using the Nablarch batch application runtime platform without DB connection</td>
+</tr>
+<tr class="row-odd"><td>nablarch-container-web-archetype</td>
 <td>Docker container edition of the <code class="docutils literal"><span class="pre">nablarch-web-archetype</span></code> archetype</td>
 </tr>
-<tr class="row-odd"><td>nablarch-container-jaxrs-archetype</td>
+<tr class="row-even"><td>nablarch-container-jaxrs-archetype</td>
 <td>Docker container edition of the <code class="docutils literal"><span class="pre">nablarch-jaxrs-archetype</span></code> archetype</td>
 </tr>
-<tr class="row-even"><td>nablarch-container-batch-archetype</td>
+<tr class="row-odd"><td>nablarch-container-batch-archetype</td>
 <td>Docker container edition of the <code class="docutils literal"><span class="pre">nablarch-batch-archetype</span></code> archetype</td>
 </tr>
 </tbody>
@@ -412,7 +399,7 @@ The configuration description in <a class="reference internal" href="../addin_gs
 </div>
 </div>
 <div class="section" id="details-of-each-component">
-<h2><a class="toc-backref" href="#id13">8.5.2. Details of each component</a><a class="headerlink" href="#details-of-each-component" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id15">8.5.2. Details of each component</a><a class="headerlink" href="#details-of-each-component" title="Permalink to this headline">¶</a></h2>
 <p>As in the case of pj-web and pj-batch above, the details of each component will be described assuming that the project was created according to the following table.</p>
 <table border="1" class="white-space-normal docutils">
 <colgroup>
@@ -428,22 +415,25 @@ The configuration description in <a class="reference internal" href="../addin_gs
 <tr class="row-even"><td>pj-jaxrs</td>
 <td>nablarch-jaxrs-archetype</td>
 </tr>
-<tr class="row-odd"><td>pj-batch-ee</td>
+<tr class="row-odd"><td>pj-batch-dbless</td>
+<td>nablarch-batch-dbless-archetype</td>
+</tr>
+<tr class="row-even"><td>pj-batch-ee</td>
 <td>nablarch-batch-ee-archetype</td>
 </tr>
-<tr class="row-even"><td>pj-container-web</td>
+<tr class="row-odd"><td>pj-container-web</td>
 <td>nablarch-container-web-archetype</td>
 </tr>
-<tr class="row-odd"><td>pj-container-jaxrs</td>
+<tr class="row-even"><td>pj-container-jaxrs</td>
 <td>nablarch-container-jaxrs-archetype</td>
 </tr>
-<tr class="row-even"><td>pj-container-batch</td>
+<tr class="row-odd"><td>pj-container-batch</td>
 <td>nablarch-container-batch-archetype</td>
 </tr>
 </tbody>
 </table>
 <div class="section" id="nablarch-archetype-parent-parent-project">
-<span id="about-maven-parent-module"></span><h3><a class="toc-backref" href="#id14">8.5.2.1. nablarch-archetype-parent (parent project)</a><a class="headerlink" href="#nablarch-archetype-parent-parent-project" title="Permalink to this headline">¶</a></h3>
+<span id="about-maven-parent-module"></span><h3><a class="toc-backref" href="#id16">8.5.2.1. nablarch-archetype-parent (parent project)</a><a class="headerlink" href="#nablarch-archetype-parent-parent-project" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="summary">
 <h4>8.5.2.1.1. Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h4>
 <p>nablarch-archetype-parent is the parent project for the project created from each archetype.</p>
@@ -464,7 +454,7 @@ To check the configuration described in nablarch-archetype-parent, check the cac
 </div>
 </div>
 <div class="section" id="pj-web-project">
-<h3><a class="toc-backref" href="#id15">8.5.2.2. pj-web project</a><a class="headerlink" href="#pj-web-project" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id17">8.5.2.2. pj-web project</a><a class="headerlink" href="#pj-web-project" title="Permalink to this headline">¶</a></h3>
 <p>Project being packaged as a war file of the web application.</p>
 <div class="section" id="project-structure">
 <h4>8.5.2.2.1. Project structure<a class="headerlink" href="#project-structure" title="Permalink to this headline">¶</a></h4>
@@ -540,7 +530,7 @@ The main directories and files are shown below.</p>
 </div>
 </div>
 <div class="section" id="pj-jaxrs-project">
-<h3><a class="toc-backref" href="#id16">8.5.2.3. pj-jaxrs project</a><a class="headerlink" href="#pj-jaxrs-project" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id18">8.5.2.3. pj-jaxrs project</a><a class="headerlink" href="#pj-jaxrs-project" title="Permalink to this headline">¶</a></h3>
 <p>Project packaged as a war file of the RESTful web service application.</p>
 <div class="section" id="id1">
 <h4>8.5.2.3.1. Project structure<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h4>
@@ -548,7 +538,7 @@ The main directories and files are shown below.</p>
 </div>
 </div>
 <div class="section" id="pj-batch-ee-project">
-<h3><a class="toc-backref" href="#id17">8.5.2.4. pj-batch-ee project</a><a class="headerlink" href="#pj-batch-ee-project" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id19">8.5.2.4. pj-batch-ee project</a><a class="headerlink" href="#pj-batch-ee-project" title="Permalink to this headline">¶</a></h3>
 <p>Project packaged as a jar file for JSR352-compliant batch applications.</p>
 <div class="section" id="firststepbatcheeprojectstructure">
 <span id="id2"></span><h4>8.5.2.4.1. Project structure<a class="headerlink" href="#firststepbatcheeprojectstructure" title="Permalink to this headline">¶</a></h4>
@@ -617,7 +607,7 @@ generated under <code class="docutils literal"><span class="pre">target</span></
 </div>
 </div>
 <div class="section" id="pj-batch-project">
-<h3><a class="toc-backref" href="#id18">8.5.2.5. pj-batch project</a><a class="headerlink" href="#pj-batch-project" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id20">8.5.2.5. pj-batch project</a><a class="headerlink" href="#pj-batch-project" title="Permalink to this headline">¶</a></h3>
 <p>Project packaged as a jar file for Nablarch batch applications.</p>
 <div class="section" id="firststepbatchprojectstructure">
 <span id="id3"></span><h4>8.5.2.5.1. Project structure<a class="headerlink" href="#firststepbatchprojectstructure" title="Permalink to this headline">¶</a></h4>
@@ -657,9 +647,7 @@ generated under <code class="docutils literal"><span class="pre">target</span></
         |
         \---resources
             |
-            +---data
-            |
-            \---nablarch
+            \---data
 </pre></div>
 </div>
 </div>
@@ -682,11 +670,37 @@ generated under <code class="docutils literal"><span class="pre">target</span></
 </div></blockquote>
 </div>
 </div>
+<div class="section" id="pj-batch-dbless-project">
+<h3><a class="toc-backref" href="#id21">8.5.2.6. pj-batch-dbless project</a><a class="headerlink" href="#pj-batch-dbless-project" title="Permalink to this headline">¶</a></h3>
+<p>Project packaged as a jar file for Nablarch batch applications without DB connection.</p>
+<div class="section" id="firststepdblessbatchprojectstructure">
+<span id="id5"></span><h4>8.5.2.6.1. Project structure<a class="headerlink" href="#firststepdblessbatchprojectstructure" title="Permalink to this headline">¶</a></h4>
+<p>Omitted because the DB-related directory and files are excluded from <a class="reference internal" href="#firststepbatchprojectstructure"><span>pj-batch project structure</span></a> .</p>
+</div>
+<div class="section" id="id6">
+<h4>8.5.2.6.2. Release to production environment<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h4>
+<p>The executable jar and dependent libraries of the batch application are stored in the zip file
+generated under <code class="docutils literal"><span class="pre">target</span></code> during build of the batch application.</p>
+<p>Therefore, while releasing to the production environment, batch can be executed with the following procedure.</p>
+<ol class="arabic simple">
+<li>Unzip the zip file into any directory.</li>
+<li>Execute the batch with the following command.</li>
+</ol>
+<blockquote>
+<div><div class="highlight-bash"><div class="highlight"><pre><span></span>java -jar &lt;Executable jar file name&gt; ^
+    -diConfig &lt;Component configuration file &gt; ^
+    -requestPath &lt;Request path&gt; ^
+    -userId &lt;User ID&gt;
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+</div>
 <div class="section" id="pj-container-web-project">
-<span id="container-web-project-summary"></span><h3><a class="toc-backref" href="#id19">8.5.2.6. pj-container-web project</a><a class="headerlink" href="#pj-container-web-project" title="Permalink to this headline">¶</a></h3>
+<span id="container-web-project-summary"></span><h3><a class="toc-backref" href="#id22">8.5.2.7. pj-container-web project</a><a class="headerlink" href="#pj-container-web-project" title="Permalink to this headline">¶</a></h3>
 <p>Project to build a Tomcat-based Docker image where the web application is deployed.</p>
-<div class="section" id="id5">
-<h4>8.5.2.6.1. Project structure<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="id7">
+<h4>8.5.2.7.1. Project structure<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h4>
 <div class="highlight-text"><div class="highlight"><pre><span></span>myapp-container-web
 |
 |   pom.xml                     … Maven configuration file
@@ -741,24 +755,24 @@ See <a class="reference external" href="https://github.com/GoogleContainerTools/
 </dd>
 </dl>
 </div>
-<div class="section" id="id6">
-<h4>8.5.2.6.2. Tool configuration<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="id8">
+<h4>8.5.2.7.2. Tool configuration<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h4>
 <p>Omitted as it is identical to the web.</p>
 </div>
 </div>
 <div class="section" id="pj-container-jaxrs-project">
-<h3><a class="toc-backref" href="#id20">8.5.2.7. pj-container-jaxrs project</a><a class="headerlink" href="#pj-container-jaxrs-project" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id23">8.5.2.8. pj-container-jaxrs project</a><a class="headerlink" href="#pj-container-jaxrs-project" title="Permalink to this headline">¶</a></h3>
 <p>Project to build a Tomcat-based Docker image where the RESTful web services application is deployed.</p>
-<div class="section" id="id7">
-<h4>8.5.2.7.1. Project structure<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="id9">
+<h4>8.5.2.8.1. Project structure<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h4>
 <p>Omitted as it is identical to the container edition Web.</p>
 </div>
 </div>
 <div class="section" id="pj-container-batch-project">
-<h3><a class="toc-backref" href="#id21">8.5.2.8. pj-container-batch project</a><a class="headerlink" href="#pj-container-batch-project" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id24">8.5.2.9. pj-container-batch project</a><a class="headerlink" href="#pj-container-batch-project" title="Permalink to this headline">¶</a></h3>
 <p>Project to build a Docker image of a Linux Server where the Nablarch batch applications is deployed.</p>
-<div class="section" id="id8">
-<h4>8.5.2.8.1. Project structure<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="id10">
+<h4>8.5.2.9.1. Project structure<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h4>
 <p>(Descriptions of directories and files only for the elements that do not exist in the container edition Web.)</p>
 <div class="highlight-text"><div class="highlight"><pre><span></span>myapp-container-batch
 |
@@ -801,7 +815,7 @@ See <a class="reference external" href="https://github.com/GoogleContainerTools/
 </div>
 </div>
 <div class="section" id="common-configurations-for-each-project">
-<span id="about-maven-web-batch-module"></span><h3><a class="toc-backref" href="#id22">8.5.2.9. Common configurations for each project</a><a class="headerlink" href="#common-configurations-for-each-project" title="Permalink to this headline">¶</a></h3>
+<span id="about-maven-web-batch-module"></span><h3><a class="toc-backref" href="#id25">8.5.2.10. Common configurations for each project</a><a class="headerlink" href="#common-configurations-for-each-project" title="Permalink to this headline">¶</a></h3>
 <p>The following is configured respectively in each Maven project.</p>
 <ul class="simple">
 <li>Defining profiles</li>
@@ -820,7 +834,7 @@ See <a class="reference external" href="https://github.com/GoogleContainerTools/
 </ul>
 <p>Details of each are shown below.</p>
 <div class="section" id="profile-list">
-<span id="mavenmodulestructuresprofileslist"></span><h4>8.5.2.9.1. Profile list<a class="headerlink" href="#profile-list" title="Permalink to this headline">¶</a></h4>
+<span id="mavenmodulestructuresprofileslist"></span><h4>8.5.2.10.1. Profile list<a class="headerlink" href="#profile-list" title="Permalink to this headline">¶</a></h4>
 <p>Refer to <code class="docutils literal"><span class="pre">pom.xml</span></code> of each project for details on the profile that are defined.</p>
 <p>The defined profiles are shown below.</p>
 <table border="1" class="colwidths-given white-space-normal docutils">
@@ -853,7 +867,7 @@ Therefore, the project for containers has no profile defined.
 See <a class="reference internal" href="../CustomizeDB.html#container-production-config"><span>Production configuration of containers</span></a> for more information.</p>
 </div>
 <div class="section" id="how-to-use-profiles">
-<h5>8.5.2.9.1.1. How to use profiles<a class="headerlink" href="#how-to-use-profiles" title="Permalink to this headline">¶</a></h5>
+<h5>8.5.2.10.1.1. How to use profiles<a class="headerlink" href="#how-to-use-profiles" title="Permalink to this headline">¶</a></h5>
 <p>These profiles are used to create deliverables according to the environment.</p>
 <p>For example, to create a war file for the production environment, specify the production environment profile
 under the <code class="docutils literal"><span class="pre">pj-web</span></code> module and then execute the mvn command by specifying the production environment profile.</p>
@@ -869,7 +883,7 @@ under the <code class="docutils literal"><span class="pre">pj-web</span></code> 
 </div>
 </div>
 <div class="section" id="list-of-goals-added-to-the-build-phase">
-<h4>8.5.2.9.2. List of goals added to the build phase<a class="headerlink" href="#list-of-goals-added-to-the-build-phase" title="Permalink to this headline">¶</a></h4>
+<h4>8.5.2.10.2. List of goals added to the build phase<a class="headerlink" href="#list-of-goals-added-to-the-build-phase" title="Permalink to this headline">¶</a></h4>
 <p>In addition to the default build phase definition of Maven, it is configured to execute the following goals</p>
 <p>For details on the configuration, see <code class="docutils literal"><span class="pre">pom.xml</span></code> of each project and <code class="docutils literal"><span class="pre">pom.xml</span></code> of <a class="reference internal" href="#about-maven-parent-module"><span>nablarch-archetype-parent (parent project)</span></a>.</p>
 <table border="1" class="colwidths-given white-space-normal docutils">
@@ -901,24 +915,24 @@ under the <code class="docutils literal"><span class="pre">pj-web</span></code> 
 </div>
 </div>
 <div class="section" id="configuration-for-compile">
-<h4>8.5.2.9.3. Configuration for compile<a class="headerlink" href="#configuration-for-compile" title="Permalink to this headline">¶</a></h4>
+<h4>8.5.2.10.3. Configuration for compile<a class="headerlink" href="#configuration-for-compile" title="Permalink to this headline">¶</a></h4>
 <p>For details on the configuration, see <code class="docutils literal"><span class="pre">pom.xml</span></code> of each project and <code class="docutils literal"><span class="pre">pom.xml</span></code> of <a class="reference internal" href="#about-maven-parent-module"><span>nablarch-archetype-parent (parent project)</span></a>.</p>
 </div>
-<div class="section" id="id10">
-<h4>8.5.2.9.4. Tool configuration<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="id12">
+<h4>8.5.2.10.4. Tool configuration<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h4>
 <p>Tool configuration is described in <code class="docutils literal"><span class="pre">pom.xml</span></code> (each project and <a class="reference internal" href="#about-maven-parent-module"><span>nablarch-archetype-parent (parent project)</span></a>).
 Refer to <a class="reference internal" href="../firstStep_appendix/firststep_complement.html#firststepbuiltintools"><span>Tools included in projects generated from archetypes</span></a> for the tools described in the parent project.</p>
 </div>
 </div>
 <div class="section" id="build-configuration">
-<h3><a class="toc-backref" href="#id23">8.5.2.10. Build configuration</a><a class="headerlink" href="#build-configuration" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id26">8.5.2.11. Build configuration</a><a class="headerlink" href="#build-configuration" title="Permalink to this headline">¶</a></h3>
 <p>For the following cases, change pom.xml of each module.</p>
 <ul class="simple">
 <li>Add or change the dependent library used in each module. For example, modify the version of nablarch-bom to change the version of Nablarch being used.</li>
 <li>Add or change the Maven plugin used in each module.</li>
 </ul>
 <div class="section" id="example-of-changing-the-version-of-nablarch-used">
-<h4>8.5.2.10.1. Example of changing the version of Nablarch used<a class="headerlink" href="#example-of-changing-the-version-of-nablarch-used" title="Permalink to this headline">¶</a></h4>
+<h4>8.5.2.11.1. Example of changing the version of Nablarch used<a class="headerlink" href="#example-of-changing-the-version-of-nablarch-used" title="Permalink to this headline">¶</a></h4>
 <p>A configuration example when Nablarch 5u6 is used is shown below.</p>
 <div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;dependencyManagement&gt;</span>
   <span class="nt">&lt;dependencies&gt;</span>
@@ -941,7 +955,7 @@ Refer to <a class="reference internal" href="../firstStep_appendix/firststep_com
 </div>
 </div>
 <div class="section" id="example-of-adding-dependent-library">
-<h4>8.5.2.10.2. Example of adding dependent library<a class="headerlink" href="#example-of-adding-dependent-library" title="Permalink to this headline">¶</a></h4>
+<h4>8.5.2.11.2. Example of adding dependent library<a class="headerlink" href="#example-of-adding-dependent-library" title="Permalink to this headline">¶</a></h4>
 <p>An example of adding dependency to the nablarch-common-encryption for using the encryption utility in the <code class="docutils literal"><span class="pre">pj-web</span></code> module is shown below.</p>
 <p>While adding dependency, scope should be configured appropriately. If the scope is not configured, there is a possibility of the module that should be used only in the unit tests might get used in the production.</p>
 <div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;dependencies&gt;</span>
@@ -959,9 +973,9 @@ Refer to <a class="reference internal" href="../firstStep_appendix/firststep_com
 </div>
 </div>
 <div class="section" id="reference-policy-for-splitting-the-projects">
-<span id="mavenmodulestructuresmoduledivisionpolicy"></span><h2><a class="toc-backref" href="#id24">8.5.3. [Reference] Policy for splitting the projects</a><a class="headerlink" href="#reference-policy-for-splitting-the-projects" title="Permalink to this headline">¶</a></h2>
+<span id="mavenmodulestructuresmoduledivisionpolicy"></span><h2><a class="toc-backref" href="#id27">8.5.3. [Reference] Policy for splitting the projects</a><a class="headerlink" href="#reference-policy-for-splitting-the-projects" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="policy-for-recommended-project-configuration">
-<h3><a class="toc-backref" href="#id25">8.5.3.1. Policy for recommended project configuration</a><a class="headerlink" href="#policy-for-recommended-project-configuration" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id28">8.5.3.1. Policy for recommended project configuration</a><a class="headerlink" href="#policy-for-recommended-project-configuration" title="Permalink to this headline">¶</a></h3>
 <p>The following are the policy of the recommended project configuration.</p>
 <ul class="simple">
 <li>If only one application is to be created (web only, batch only, etc.), then configure a single project respectively.</li>
@@ -978,7 +992,7 @@ you will end up with duplicate entity classes in multiple Maven projects.</p>
 </div>
 </div>
 <div class="section" id="problems-when-a-project-is-divided-excessively">
-<span id="mavenmodulestructuresproblemsofexcessivelydivided"></span><h3><a class="toc-backref" href="#id26">8.5.3.2. Problems when a project is divided excessively</a><a class="headerlink" href="#problems-when-a-project-is-divided-excessively" title="Permalink to this headline">¶</a></h3>
+<span id="mavenmodulestructuresproblemsofexcessivelydivided"></span><h3><a class="toc-backref" href="#id29">8.5.3.2. Problems when a project is divided excessively</a><a class="headerlink" href="#problems-when-a-project-is-divided-excessively" title="Permalink to this headline">¶</a></h3>
 <p>Problems caused when a project is divided excessively is shown below.</p>
 <ul class="simple">
 <li>Build and deployment procedure becomes complicated.</li>
@@ -1001,7 +1015,7 @@ you will end up with duplicate entity classes in multiple Maven projects.</p>
 
     <div role="contentinfo">
         <p>
-            &copy; Copyright 2010-2022, TIS Inc.
+            &copy; Copyright 2010-2023, TIS Inc.
         </p>
     </div>
     Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
@@ -1022,7 +1036,7 @@ you will end up with duplicate entity classes in multiple Maven projects.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../../',
-            VERSION:'5u21',
+            VERSION:'5u22',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

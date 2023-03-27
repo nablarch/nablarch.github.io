@@ -9,7 +9,7 @@
   <meta http-equiv='content-language' content='ja'>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>3.1.20. リクエスト単体テストの実施方法(HTTP同期応答メッセージ送信処理) &mdash; ∇Nablarch  5u21 ドキュメント</title>
+  <title>3.1.20. リクエスト単体テストの実施方法(HTTP同期応答メッセージ送信処理) &mdash; ∇Nablarch  5u22 ドキュメント</title>
   
 
   
@@ -35,7 +35,7 @@
   
   <link rel="canonical" href="https://nablarch.github.io/docs/LATEST/doc/development_tools/testing_framework/guide/development_guide/05_UnitTestGuide/02_RequestUnitTest/http_send_sync.html" />
   
-    <link rel="top" title="∇Nablarch  5u21 ドキュメント" href="../../../../../../index.html"/>
+    <link rel="top" title="∇Nablarch  5u22 ドキュメント" href="../../../../../../index.html"/>
         <link rel="up" title="3.1. 単体テスト実施方法" href="../index.html"/>
         <link rel="next" title="3.1.21. リクエスト単体テストの実施方法(メール送信)" href="mail.html"/>
         <link rel="prev" title="3.1.19. 取引単体テストの実施方法（応答不要メッセージ送信処理）" href="../03_DealUnitTest/delayed_send.html"/>
@@ -63,7 +63,7 @@
   
 
   
-    <div id="sidebar-version">Version: 5u21</div>
+    <div id="sidebar-version">Version: 5u22</div>
   </a>
 
   <div role="search">
@@ -204,24 +204,15 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../../../../examples/01/index.html#id12">使用方法</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../../../examples/02/index.html">バリデーション機能の拡張</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../../../../examples/02/index.html#id3">提供パッケージ</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../../../examples/02/index.html#extendedvalidation-mailaddressvalidator">メールアドレスバリデーション</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../../../examples/02/index.html#extendedvalidation-japanesetelnumbervalidator">日本電話番号バリデーション</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../../../examples/02/index.html#id12">コード値精査</a></li>
-</ul>
-</li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../../../examples/03/index.html">検索結果の一覧表示</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../../../../examples/03/index.html#id3">提供パッケージ</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../../../examples/03/index.html#id4">概要</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../../../examples/03/index.html#id5">構成</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../../../examples/03/index.html#id8">使用方法</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../../examples/03/index.html#universaldao">UniversalDaoクラス</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../../../examples/03/index.html#listsearchinfo">ListSearchInfoクラス</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../../examples/03/index.html#pagination">Paginationクラス</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../../examples/03/index.html#entitylist">EntityListクラス</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../../../examples/03/index.html#listsearchresult">listSearchResultタグ</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../../../examples/03/index.html#listsearchresult-sort">検索結果の並び替え</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../../../examples/03/index.html#listsearchresult-nopaging">1画面にすべての検索結果を一覧表示する場合の実装方法</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../../../examples/03/index.html#listsearchresult-defaultcondition">デフォルトの検索条件で検索した結果を初期表示する場合の実装方法</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../../../examples/03/index.html#listsearchresult-setting">検索結果の一覧表示機能のデフォルト値設定</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../../../examples/03/index.html#listsearchresult-customize">業務アプリケーションへのサンプル実装(タグファイル)の取り込み方法</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../../../examples/03/index.html#listsearchresult-tagreference">タグリファレンス</a></li>
 </ul>
@@ -237,21 +228,6 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../../../../examples/05/index.html#id7">機能</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../../../examples/05/index.html#id10">構成</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../../../examples/05/index.html#id15">使用方法</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../../../examples/06/index.html">CAPTCHA機能サンプル</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../../../../examples/06/06_Captcha_guide.html">CAPTCHA機能の組み込み手順</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../../../examples/06/index.html#id3">提供パッケージ</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../../../examples/06/index.html#id4">概要</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../../../examples/06/index.html#id6">構成</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../../../examples/06/index.html#id21">使用方法</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../../../examples/07/index.html">UserAgent情報取得機能サンプル</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../../../../examples/07/index.html#id1">概要</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../../../examples/07/index.html#id3">構成</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../../../examples/07/index.html#id8">設定の記述</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../../../examples/07/index.html#id11">使用例</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../../../examples/08/index.html">HTMLメール送信機能サンプル</a><ul>
@@ -278,6 +254,13 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../../../../examples/11/index.html#id12">要求</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../../../examples/11/index.html#id15">使用方法</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../../../examples/11/index.html#id18">拡張例</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../examples/12/index.html">OIDCのIDトークンを用いた認証サンプル</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../../examples/12/index.html#id1">提供パッケージ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../../examples/12/index.html#id3">概要</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../../examples/12/index.html#id5">構成</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../../examples/12/index.html#id11">使用方法</a></li>
 </ul>
 </li>
 </ul>
@@ -355,7 +338,7 @@
 <span id="message-httpsendsyncmessage-test"></span><h1>3.1.20. リクエスト単体テストの実施方法(HTTP同期応答メッセージ送信処理)<a class="headerlink" href="#http" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p>リクエスト単体テスト実施方法は、<a class="reference internal" href="send_sync.html#message-sendsyncmessage-test"><span>リクエスト単体テストの実施方法(同期応答メッセージ送信処理)</span></a>を参照すること。</p>
 <p>ただし、「送信キュー」「受信キュー」を「通信先」と読み替えること。</p>
-<p>本項では、<a class="reference internal" href="send_sync.html#message-sendsyncmessage-test"><span>リクエスト単体テストの実施方法(同期応答メッセージ送信処理)</span></a>と異なる箇所の解説を行う。</p>
+<p>本項では、<a class="reference internal" href="send_sync.html#message-sendsyncmessage-test"><span>リクエスト単体テストの実施方法(同期応答メッセージ送信処理)</span></a>と異なる箇所を解説する。</p>
 <div class="section" id="http-send-sync-request-write-test-data">
 <span id="id1"></span><h2>3.1.20.1. テストデータの書き方<a class="headerlink" href="#http-send-sync-request-write-test-data" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <div class="section" id="id2">
@@ -364,7 +347,7 @@
 <a class="reference internal image-reference" href="../../../../../../_images/http_send_sync_response.png"><img alt="../../../../../../_images/http_send_sync_response.png" src="../../../../../../_images/http_send_sync_response.png" /></a>
 <div class="admonition tip">
 <p class="first admonition-title">補足</p>
-<p>RESPONSE_BODY_MESSAGES(及び後の例で使用するEXPECTED_REQUEST_BODY_MESSAGES)は、複数フィールドに分割して記述することが可能である。</p>
+<p>RESPONSE_BODY_MESSAGES(及び後の例で使用するEXPECTED_REQUEST_BODY_MESSAGES)は、複数フィールドに分割して記述可能である。</p>
 <p>文字列が長く、1セルに全部記述すると可読性が落ちる場合に分割して記述する。</p>
 <p class="last">分割する際、「フィールド名」は任意の文字列を指定する。上記の例では <code class="docutils literal"><span class="pre">XML1</span></code> 、 <code class="docutils literal"><span class="pre">XML2</span></code> 、 <code class="docutils literal"><span class="pre">XML3</span></code> としている。</p>
 </div>
@@ -378,15 +361,15 @@
 </div>
 <div class="section" id="id3">
 <h3>3.1.20.1.2. 電文を2回以上送信する場合の要求電文の期待値および、返却する応答電文（レスポンスメッセージ）の例<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>複数回電文送信を行う場合のテストは、テスティングフレームワークの以下の仕様に注意をして記述すること。</p>
+<p>複数回電文を送信する場合のテストは、テスティングフレームワークの以下の仕様に注意をして記述すること。</p>
 <ul class="simple">
 <li>同一データタイプ(以下の例では <code class="docutils literal"><span class="pre">RESPONSE_HEADER_MESSAGES</span></code> と <code class="docutils literal"><span class="pre">RESPONSE_BODY_MESSAGES</span></code> )は、それぞれ、まとめて記述する。詳細は、 <a class="reference internal" href="../../06_TestFWGuide/03_Tips.html#tips-groupid"><span>一つのシートに複数テストケースのデータを記載したい</span></a>及び、 <a class="reference internal" href="../../06_TestFWGuide/01_Abstract.html#auto-test-framework-multi-datatype"><span>複数のデータタイプ使用時はデータタイプごとにまとめてデータを記述する</span></a>を参照。</li>
 <li>同一リクエストIDの電文については、noの値を変えてまとめて記述する。</li>
 <li>同一リクエストIDの電文の場合は、電文の長さを合わせる(電文を1回送信する場合と同様の制約である。テストケース上、同一の長さにできない場合は、手動でテストを行うこと)</li>
 </ul>
-<p>以下に複数回電文送信を行う際の、返却する応答電文の記述例を示す。</p>
+<p>以下に複数回電文を送信する際の、返却する応答電文の記述例を示す。</p>
 <a class="reference internal image-reference" href="../../../../../../_images/http_send_sync_ok_pattern_response.png"><img alt="../../../../../../_images/http_send_sync_ok_pattern_response.png" src="../../../../../../_images/http_send_sync_ok_pattern_response.png" /></a>
-<p>以下に複数回電文送信を行う際の、要求電文の期待値の記述例を示す。</p>
+<p>以下に複数回電文を送信する際の、要求電文の期待値の記述例を示す。</p>
 <a class="reference internal image-reference" href="../../../../../../_images/http_send_sync_ok_pattern_expected.png"><img alt="../../../../../../_images/http_send_sync_ok_pattern_expected.png" src="../../../../../../_images/http_send_sync_ok_pattern_expected.png" /></a>
 <div class="admonition tip">
 <p class="first admonition-title">補足</p>
@@ -426,7 +409,7 @@
 <table class="docutils footnote" frame="void" id="http-send-sync-abnormal-test" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id5">[1]</a></td><td>業務アクション内で、明示的に <strong>MessagingException</strong> の制御を行っていないのであれば、
+<tr><td class="label"><a class="fn-backref" href="#id5">[1]</a></td><td>業務アクション内で、明示的に <strong>MessagingException</strong> を制御していないのであれば、
 個別のリクエスト単体テストにおいて障害系のテストを行う必要は無い。</td></tr>
 </tbody>
 </table>
@@ -477,7 +460,7 @@
 </pre></div>
 </div>
 </div></blockquote>
-<p>なお、<code class="docutils literal"><span class="pre">charset</span></code>に、文字コード名を指定することでログに出力する文字コードを変更することができる。
+<p>なお、<code class="docutils literal"><span class="pre">charset</span></code>に、文字コード名を指定することでログに出力する文字コードを変更できる。
 通常は省略可能で、省略した場合はUTF-8が使用される。</p>
 </div>
 </div>
@@ -495,7 +478,7 @@
 
     <div role="contentinfo">
         <p>
-            &copy; Copyright 2010-2022, TIS Inc.
+            &copy; Copyright 2010-2023, TIS Inc.
         </p>
     </div>
     Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
@@ -516,7 +499,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../../../../',
-            VERSION:'5u21',
+            VERSION:'5u22',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

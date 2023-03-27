@@ -9,7 +9,7 @@
   <meta http-equiv='content-language' content='ja'>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>データベースを用いたファイル管理機能サンプル &mdash; ∇Nablarch  5u21 ドキュメント</title>
+  <title>データベースを用いたファイル管理機能サンプル &mdash; ∇Nablarch  5u22 ドキュメント</title>
   
 
   
@@ -35,9 +35,9 @@
   
   <link rel="canonical" href="https://nablarch.github.io/docs/LATEST/doc/examples/05/index.html" />
   
-    <link rel="top" title="∇Nablarch  5u21 ドキュメント" href="../../index.html"/>
+    <link rel="top" title="∇Nablarch  5u22 ドキュメント" href="../../index.html"/>
         <link rel="up" title="Nablarch実装例集" href="../index.html"/>
-        <link rel="next" title="CAPTCHA機能サンプル" href="../06/index.html"/>
+        <link rel="next" title="HTMLメール送信機能サンプル" href="../08/index.html"/>
         <link rel="prev" title="データフォーマッタ機能におけるフィールドタイプの拡張" href="../04/0402_ExtendedFieldType.html"/>
 
 <script defer data-domain="nablarch.github.io,all.fintan" src=https://plausible.io/js/script.js></script>
@@ -63,7 +63,7 @@
   
 
   
-    <div id="sidebar-version">Version: 5u21</div>
+    <div id="sidebar-version">Version: 5u22</div>
   </a>
 
   <div role="search">
@@ -204,24 +204,15 @@
 <li class="toctree-l3"><a class="reference internal" href="../01/index.html#id12">使用方法</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../02/index.html">バリデーション機能の拡張</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../02/index.html#id3">提供パッケージ</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../02/index.html#extendedvalidation-mailaddressvalidator">メールアドレスバリデーション</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../02/index.html#extendedvalidation-japanesetelnumbervalidator">日本電話番号バリデーション</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../02/index.html#id12">コード値精査</a></li>
-</ul>
-</li>
 <li class="toctree-l2"><a class="reference internal" href="../03/index.html">検索結果の一覧表示</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../03/index.html#id3">提供パッケージ</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../03/index.html#id4">概要</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../03/index.html#id5">構成</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../03/index.html#id8">使用方法</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03/index.html#universaldao">UniversalDaoクラス</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../03/index.html#listsearchinfo">ListSearchInfoクラス</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03/index.html#pagination">Paginationクラス</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03/index.html#entitylist">EntityListクラス</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../03/index.html#listsearchresult">listSearchResultタグ</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../03/index.html#listsearchresult-sort">検索結果の並び替え</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../03/index.html#listsearchresult-nopaging">1画面にすべての検索結果を一覧表示する場合の実装方法</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../03/index.html#listsearchresult-defaultcondition">デフォルトの検索条件で検索した結果を初期表示する場合の実装方法</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../03/index.html#listsearchresult-setting">検索結果の一覧表示機能のデフォルト値設定</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../03/index.html#listsearchresult-customize">業務アプリケーションへのサンプル実装(タグファイル)の取り込み方法</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../03/index.html#listsearchresult-tagreference">タグリファレンス</a></li>
 </ul>
@@ -237,21 +228,6 @@
 <li class="toctree-l3"><a class="reference internal" href="#id7">機能</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#id10">構成</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#id15">使用方法</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../06/index.html">CAPTCHA機能サンプル</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../06/06_Captcha_guide.html">CAPTCHA機能の組み込み手順</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../06/index.html#id3">提供パッケージ</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../06/index.html#id4">概要</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../06/index.html#id6">構成</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../06/index.html#id21">使用方法</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../07/index.html">UserAgent情報取得機能サンプル</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../07/index.html#id1">概要</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../07/index.html#id3">構成</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../07/index.html#id8">設定の記述</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../07/index.html#id11">使用例</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../08/index.html">HTMLメール送信機能サンプル</a><ul>
@@ -278,6 +254,13 @@
 <li class="toctree-l3"><a class="reference internal" href="../11/index.html#id12">要求</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../11/index.html#id15">使用方法</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../11/index.html#id18">拡張例</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../12/index.html">OIDCのIDトークンを用いた認証サンプル</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../12/index.html#id1">提供パッケージ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../12/index.html#id3">概要</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../12/index.html#id5">構成</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../12/index.html#id11">使用方法</a></li>
 </ul>
 </li>
 </ul>
@@ -349,14 +332,9 @@
             
   <div class="section" id="dbfilemanagement-result">
 <span id="id1"></span><h1>データベースを用いたファイル管理機能サンプル<a class="headerlink" href="#dbfilemanagement-result" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<div class="admonition important">
-<p class="first admonition-title">重要</p>
-<p>本サンプルは、Nablarch 1.4系に準拠したAPIを使用している。</p>
-<p class="last">Nablarch 1.4系より新しいNablarchと組み合わせる場合は、必要に応じてカスタマイズすること。</p>
-</div>
 <div class="section" id="id2">
 <h2>概要<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>業務アプリケーションにて利用するファイルを、DBで一元管理するための機能の実装サンプルを提供する。</p>
+<p>業務アプリケーションにて使用するファイルを、DBで一元管理するための機能の実装サンプルを提供する。</p>
 <p><a class="reference external" href="https://github.com/nablarch/nablarch-biz-sample-all">ソースコード</a></p>
 <p>本サンプルは以下の用途を想定している。</p>
 <ul class="simple">
@@ -366,7 +344,7 @@
 </ul>
 <div class="admonition tip">
 <p class="first admonition-title">補足</p>
-<p class="last">本サンプルはDBとしてOracleを使用している。Oracle以外を使用する場合は、各DBに合わせた実装に修正し使用すること。</p>
+<p class="last">本サンプルはDBとしてH2を使用している。H2以外を使用する場合は、各DBに合わせた実装に修正し使用すること。</p>
 </div>
 <p>下記に例としてファイルアップロード・ダウンロード時の処理イメージを示す。</p>
 <div class="section" id="id4">
@@ -412,7 +390,7 @@
 <div class="section" id="id9">
 <h3>前提としている仕様<a class="headerlink" href="#id9" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <ul class="simple">
-<li>削除は論理削除を行う仕様である。運用時には、別途、論理削除状態のレコードのクリンナップについて検討する必要がある。</li>
+<li>削除は論理削除する仕様である。運用時には、別途、論理削除状態のレコードのクリンナップについて検討する必要がある。</li>
 <li>テーブル定義には、最小限のカラムしか存在しない。他に情報が必要な場合は、別途業務ごとにテーブルを作成することを想定している。</li>
 <li>ファイル内容のチェックについて、ファイルサイズがカラムのサイズを超えないことのみチェックする。他にチェック項目が存在する場合は、呼び出し側でチェックを行うことを想定している。</li>
 <li>ファイルの更新処理は存在しない。ファイルの更新処理相当の処理を行いたい場合は、ファイルの削除処理とファイルの登録処理を順に実行する想定となっている。</li>
@@ -500,10 +478,6 @@
 </tbody>
 </table>
 </div></blockquote>
-<div class="admonition tip">
-<p class="first admonition-title">補足</p>
-<p class="last">上記テーブルの他、サンプルではNablarchの採番機能でファイル管理IDを採番する際に、Oracleのシーケンスを使用している。</p>
-</div>
 </div>
 </div>
 </div>
@@ -533,17 +507,17 @@
 <td>fileManagement</td>
 </tr>
 <tr class="row-odd"><td>採番機能</td>
-<td>oracleSequenceIdGenerator</td>
+<td>sequenceIdGenerator</td>
 </tr>
-<tr class="row-even"><td>採番時に使用するフォーマッター</td>
+<tr class="row-even"><td>採番時に使用するフォーマッタ</td>
 <td>dbFileManagementFormatter</td>
 </tr>
 </tbody>
 </table>
 </div></blockquote>
 <p>設定例を以下に示す。</p>
-<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="c">&lt;!-- ファイル管理機能(論理名dbFileManagementのコンポーネントを、FileManagementUtilクラスが使用する) --&gt;</span>
-<span class="nt">&lt;component</span> <span class="na">name=</span><span class="s">&quot;fileManagement&quot;</span> <span class="na">class=</span><span class="s">&quot;please.change.me.common.file.management.fileManagement&quot;</span><span class="nt">&gt;</span>
+<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="c">&lt;!-- ファイル管理機能(論理名fileManagementのコンポーネントを、FileManagementUtilクラスが使用する) --&gt;</span>
+<span class="nt">&lt;component</span> <span class="na">name=</span><span class="s">&quot;fileManagement&quot;</span> <span class="na">class=</span><span class="s">&quot;please.change.me.common.file.management.DbFileManagement&quot;</span><span class="nt">&gt;</span>
 
   <span class="c">&lt;!-- 格納ファイルの最大長(単位：バイト) --&gt;</span>
   <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;maxFileSize&quot;</span> <span class="na">value=</span><span class="s">&quot;10000000&quot;</span><span class="nt">/&gt;</span>
@@ -552,25 +526,16 @@
   <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;fileIdKey&quot;</span> <span class="na">value=</span><span class="s">&quot;1103&quot;</span> <span class="nt">/&gt;</span>
 
   <span class="c">&lt;!-- 採番機能 --&gt;</span>
-  <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;idGenerator&quot;</span> <span class="na">ref=</span><span class="s">&quot;oracleSequenceIdGenerator&quot;</span> <span class="nt">/&gt;</span>
+  <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;idGenerator&quot;</span> <span class="na">ref=</span><span class="s">&quot;sequenceIdGenerator&quot;</span> <span class="nt">/&gt;</span>
 
-  <span class="c">&lt;!-- 採番時に使用するフォーマッター --&gt;</span>
+  <span class="c">&lt;!-- 採番時に使用するフォーマッタ --&gt;</span>
   <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;idFormatter&quot;</span> <span class="na">ref=</span><span class="s">&quot;dbFileManagementFormatter&quot;</span> <span class="nt">/&gt;</span>
 <span class="nt">&lt;/component&gt;</span>
 
-
 <span class="c">&lt;!-- 採番機能(ファイル管理機能から使用) --&gt;</span>
-<span class="nt">&lt;component</span> <span class="na">name=</span><span class="s">&quot;oracleSequenceIdGenerator&quot;</span> <span class="na">class=</span><span class="s">&quot;nablarch.common.idgenerator.OracleSequenceIdGenerator&quot;</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;idTable&quot;</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;map&gt;</span>
-      <span class="c">&lt;!-- keyとシーケンス名の対応付け--&gt;</span>
-      <span class="nt">&lt;entry</span> <span class="na">key=</span><span class="s">&quot;1103&quot;</span> <span class="na">value=</span><span class="s">&quot;FILE_ID_SEQ&quot;</span><span class="nt">/&gt;</span>
-    <span class="nt">&lt;/map&gt;</span>
-  <span class="nt">&lt;/property&gt;</span>
-<span class="nt">&lt;/component&gt;</span>
+<span class="nt">&lt;component</span> <span class="na">name=</span><span class="s">&quot;sequenceIdGenerator&quot;</span> <span class="na">class=</span><span class="s">&quot;nablarch.common.idgenerator.SequenceIdGenerator&quot;</span> <span class="nt">/&gt;</span>
 
-
-<span class="c">&lt;!-- 採番時に使用するフォーマッター(ファイル管理機能から使用) --&gt;</span>
+<span class="c">&lt;!-- 採番時に使用するフォーマッタ(ファイル管理機能から使用) --&gt;</span>
 <span class="nt">&lt;component</span> <span class="na">name=</span><span class="s">&quot;dbFileManagementFormatter&quot;</span> <span class="na">class=</span><span class="s">&quot;nablarch.common.idgenerator.formatter.LpadFormatter&quot;</span><span class="nt">&gt;</span>
   <span class="c">&lt;!-- 桁数 --&gt;</span>
   <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;length&quot;</span> <span class="na">value=</span><span class="s">&quot;18&quot;</span> <span class="nt">/&gt;</span>
@@ -633,7 +598,7 @@
 
     <div role="contentinfo">
         <p>
-            &copy; Copyright 2010-2022, TIS Inc.
+            &copy; Copyright 2010-2023, TIS Inc.
         </p>
     </div>
     Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
@@ -654,7 +619,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../',
-            VERSION:'5u21',
+            VERSION:'5u22',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,
