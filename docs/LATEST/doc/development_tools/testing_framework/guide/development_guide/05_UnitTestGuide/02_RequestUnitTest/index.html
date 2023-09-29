@@ -9,7 +9,7 @@
   <meta http-equiv='content-language' content='ja'>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>3.1.2. リクエスト単体テストの実施方法 &mdash; ∇Nablarch  5u22 ドキュメント</title>
+  <title>3.1.2. リクエスト単体テストの実施方法 &mdash; ∇Nablarch  5u23 ドキュメント</title>
   
 
   
@@ -35,7 +35,7 @@
   
   <link rel="canonical" href="https://nablarch.github.io/docs/LATEST/doc/development_tools/testing_framework/guide/development_guide/05_UnitTestGuide/02_RequestUnitTest/index.html" />
   
-    <link rel="top" title="∇Nablarch  5u22 ドキュメント" href="../../../../../../index.html"/>
+    <link rel="top" title="∇Nablarch  5u23 ドキュメント" href="../../../../../../index.html"/>
         <link rel="up" title="3.1. 単体テスト実施方法" href="../index.html"/>
         <link rel="next" title="3.1.3. リクエスト単体テストの実施方法(ファイルアップロード)" href="fileupload.html"/>
         <link rel="prev" title="3.1.1.2. Action/Componentのクラス単体テスト" href="../01_ClassUnitTest/02_componentUnitTest.html"/>
@@ -63,7 +63,7 @@
   
 
   
-    <div id="sidebar-version">Version: 5u22</div>
+    <div id="sidebar-version">Version: 5u23</div>
   </a>
 
   <div role="search">
@@ -170,7 +170,7 @@
 </li>
 <li class="toctree-l1 current"><a class="reference internal" href="../../../../../index.html">Nablarch開発ツール</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../../../../../java_static_analysis/index.html">1. 効率的なJava静的チェック</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../../../java_static_analysis/index.html#code-analysis">1.1. 構文チェックを行う</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../java_static_analysis/index.html#inspection">1.1. Inspectionを行う</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../../java_static_analysis/index.html#code-format">1.2. フォーマットを統一する</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../../java_static_analysis/index.html#api">1.3. 許可していないAPIが使用されていないかチェックする</a></li>
 </ul>
@@ -261,6 +261,12 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../../../../examples/12/index.html#id3">概要</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../../../examples/12/index.html#id5">構成</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../../../examples/12/index.html#id11">使用方法</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../examples/13/index.html">Logbookを用いたリクエスト/レスポンスログ出力サンプル</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../../examples/13/index.html#id1">提供パッケージ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../../examples/13/index.html#id3">概要</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../../examples/13/index.html#id6">使用方法</a></li>
 </ul>
 </li>
 </ul>
@@ -451,11 +457,11 @@
 <tr class="row-odd"><td>description</td>
 <td>そのテストケースの説明を記載する。
 ウェブアプリケーションのリクエスト単体テストで出力されるHTMLダンプファイルのファイル名
-に使用される。 <a class="footnote-reference" href="#id9" id="id7">[1]</a></td>
+に使用される。 <a class="footnote-reference" href="#id8" id="id7">[1]</a></td>
 <td>必須</td>
 </tr>
 <tr class="row-even"><td>context</td>
-<td>そのテストケースで、どのリクエストIDにどのようなユーザでリクエストを送るかを記載する。
+<td>そのテストケースでリクエストを送る際のユーザ情報を記載する。
 詳細は、<a class="reference internal" href="#request-test-user-info"><span>ユーザ情報</span></a>を参照。</td>
 <td>必須</td>
 </tr>
@@ -464,77 +470,82 @@
 詳細は、<a class="reference internal" href="#request-test-cookie-info"><span>Cookie情報</span></a>を参照。</td>
 <td>&nbsp;</td>
 </tr>
-<tr class="row-even"><td>isValidToken</td>
+<tr class="row-even"><td>queryParams</td>
+<td>そのテストケースで必要となるクエリパラメータ情報を記載する。
+詳細は、<a class="reference internal" href="#request-test-queryparams-info"><span>クエリパラメータ情報</span></a>を参照。</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>isValidToken</td>
 <td>トークンを設定する場合にはtrueを設定する。トークンの詳細については、
 <a class="reference internal" href="../../../../../../application_framework/application_framework/libraries/tag.html#tag-double-submission-server-side"><span>サーバ側の二重サブミット防止</span></a>を参照。</td>
 <td>&nbsp;</td>
 </tr>
-<tr class="row-odd"><td>setUpTable</td>
+<tr class="row-even"><td>setUpTable</td>
 <td>各テストケース実行前にデータベースに登録する場合は、同じシート内に記載したデータの<a class="reference internal" href="../../06_TestFWGuide/03_Tips.html#tips-groupid"><span>グループID</span></a>を記載する。データの投入は自動テストフレームワークに
 より行われる。</td>
 <td>&nbsp;</td>
 </tr>
-<tr class="row-even"><td>expectedStatusCode</td>
-<td>期待するHTTPステータスコードを記載する。 <a class="footnote-reference" href="#id10" id="id8">[2]</a></td>
+<tr class="row-odd"><td>expectedStatusCode</td>
+<td>期待するHTTPステータスコードを記載する。</td>
 <td>必須</td>
 </tr>
-<tr class="row-odd"><td>expectedMessageId</td>
+<tr class="row-even"><td>expectedMessageId</td>
 <td>メッセージが出力されること期待する場合は、その<strong>メッセージID</strong>を記載する。
 複数のメッセージが出力される場合はカンマ区切りで列挙する。メッセージを
 期待しない場合は空欄とする。空欄にしたが、実際にはメッセージが出力され
 た場合は、テスト失敗となる。</td>
 <td>&nbsp;</td>
 </tr>
-<tr class="row-even"><td>expectedSearch</td>
+<tr class="row-odd"><td>expectedSearch</td>
 <td>データベース検索結果がリクエストスコープに設定されることを期待する場合
 、<strong>期待する検索結果</strong>を記載する。検索結果は、同じシート内のLIST_MAPデータ
 タイプのIDで指定する。リクエストスコープから取得する際のキーは<strong>searchResult</strong>である。</td>
 <td>&nbsp;</td>
 </tr>
-<tr class="row-odd"><td>expectedTable</td>
+<tr class="row-even"><td>expectedTable</td>
 <td>データベースの内容を比較する場合、期待するテーブルの<a class="reference internal" href="../../06_TestFWGuide/03_Tips.html#tips-groupid"><span>グループID</span></a>を記載する。</td>
 <td>&nbsp;</td>
 </tr>
-<tr class="row-even"><td>forwardUri</td>
+<tr class="row-odd"><td>forwardUri</td>
 <td>期待するフォワード先URIを記載する。Actionクラスで指定したフォワード先JSPへのURIを記載する。空欄の場合はJSPへのフォワードが行われないものとしてアサートされる。システムエラー画面や認証エラー画面へ遷移することを想定するテストケースでは、その画面を描画するJSPへのURIを記載する。例えば、システムエラー画面に遷移する場合は、<cite>/jsp/systemError.jsp</cite>が期待するフォワード先URIとなる（デフォルト値の場合）。</td>
 <td>&nbsp;</td>
 </tr>
-<tr class="row-odd"><td>expectedContentLength</td>
+<tr class="row-even"><td>expectedContentLength</td>
 <td>コンテンツレングス・ヘッダの期待値を記載する。
 ファイルダウンロードをテストする場合にこのカラムに指定する。</td>
 <td>&nbsp;</td>
 </tr>
-<tr class="row-even"><td>expectedContentType</td>
+<tr class="row-odd"><td>expectedContentType</td>
 <td>コンテンツタイプ・ヘッダの期待値を記載する。
 ファイルダウンロードをテストする場合にこのカラムに指定する。</td>
 <td>&nbsp;</td>
 </tr>
-<tr class="row-odd"><td>expectedContentFileName</td>
+<tr class="row-even"><td>expectedContentFileName</td>
 <td>コンテンツディスポジション・ヘッダに指定したファイル名の期待値を記載する。
 ファイルダウンロードをテストする場合にこのカラムを指定する。</td>
 <td>&nbsp;</td>
 </tr>
-<tr class="row-even"><td>expectedMessage</td>
+<tr class="row-odd"><td>expectedMessage</td>
 <td>メッセージ同期送信処理を行う場合、期待する要求電文の <a class="reference internal" href="../../06_TestFWGuide/03_Tips.html#tips-groupid"><span>グループID</span></a>を記載する。メッセージの作成は自動テストフレームワークにより行われる。</td>
 <td>&nbsp;</td>
 </tr>
-<tr class="row-odd"><td>responseMessage</td>
+<tr class="row-even"><td>responseMessage</td>
 <td>メッセージ同期送信処理を行う場合、返却する応答電文の <a class="reference internal" href="../../06_TestFWGuide/03_Tips.html#tips-groupid"><span>グループID</span></a>を記載する。メッセージの作成は自動テストフレームワークにより行われる。</td>
 <td>&nbsp;</td>
 </tr>
-<tr class="row-even"><td>expectedMessageByClient</td>
+<tr class="row-odd"><td>expectedMessageByClient</td>
 <td>HTTPメッセージ同期送信処理を行う場合、期待する要求電文の<a class="reference internal" href="../../06_TestFWGuide/03_Tips.html#tips-groupid"><span>グループID</span></a> を記載する。
 メッセージの作成は自動テストフレームワークにより行われる。</td>
 <td>&nbsp;</td>
 </tr>
-<tr class="row-odd"><td>responseMessageByClient</td>
+<tr class="row-even"><td>responseMessageByClient</td>
 <td>HTTPメッセージ同期送信処理を行う場合、返却する応答電文の<a class="reference internal" href="../../06_TestFWGuide/03_Tips.html#tips-groupid"><span>グループID</span></a> を記載する。メッセージの作成は自動テストフレームワークにより行われる。</td>
 <td>&nbsp;</td>
 </tr>
 </tbody>
 </table>
-<p>そのテストケースにて送信するHTTP<a class="reference internal" href="#id12">リクエストパラメータ</a>ついては、この表ではなく別の表に記載する（<a class="reference internal" href="#request-test-req-params"><span>後述</span></a>）。</p>
-<table class="docutils footnote" frame="void" id="id9" rules="none">
+<p>そのテストケースにて送信するHTTP<a class="reference internal" href="#id11">リクエストパラメータ</a>ついては、この表ではなく別の表に記載する（<a class="reference internal" href="#request-test-req-params"><span>後述</span></a>）。</p>
+<table class="docutils footnote" frame="void" id="id8" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
 <tr><td class="label"><a class="fn-backref" href="#id7">[1]</a></td><td>descriptionの内容はファイル名に使用するため、OSで規定されたファイル名に使用可能な文字以外の文字の使用や、ファイル名の長さ上限を超過した場合に、
@@ -542,24 +553,16 @@ IOExceptionが発生するため、ファイル名として許可された内容
 例えば、descriptionに改行コードが含まれていた場合、ファイル名として不正であるためテスト実行時にエラーが発生する。</td></tr>
 </tbody>
 </table>
-<table class="docutils footnote" frame="void" id="id10" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id8">[2]</a></td><td><p class="first">ウェブアプリケーションのリクエスト単体テストでは、HTTPステータスコードのアサート時に、通常のブラウザで同じリダイレクトの動きとなるス
-テータスコード 302 および 303 を同一視してアサートする。 つまり予想結果と実行結果が全く同一のHTTPステータスコードであった場合だけで
-なく、予想結果が 303 で実行結果が 302 であった場合と、予想結果が 302 で実行結果が 303 の場合いずれも アサート結果は正常終了となる。</p>
-<p class="last">＜理由＞ RFC の規定では、 HTTP 1.1 を理解するブラウザに対してはリダイレクトに 303 を返すほうがよい作法といえるが、現在主要なWebコ
-ンテナはレガシーなブラウザを考慮して302のレスポンスコードを使用しているため。</p>
-</td></tr>
-</tbody>
-</table>
 </div>
 <div class="section" id="request-test-user-info">
-<span id="id11"></span><h3>3.1.2.3.3. ユーザ情報<a class="headerlink" href="#request-test-user-info" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>そのテストケースで、どのリクエストIDにどのようなユーザでリクエストを送るかを、LIST_MAPのデータタイプで記載する。
-複数のユーザ情報を使い分けることで、ユーザの権限によって処理が異なる機能をテストできる。</p>
+<span id="id9"></span><h3>3.1.2.3.3. ユーザ情報<a class="headerlink" href="#request-test-user-info" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>そのテストケースでリクエストを送る際の、リクエストID、ユーザ、HTTPメソッドを、LIST_MAPのデータタイプで記載する。
+複数のユーザ情報を使い分けることで、ユーザの権限や使用するHTTPメソッドによって処理が異なる機能をテストできる。</p>
+<p>HTTPメソッド情報は任意項目である。省略した場合はPOSTが設定される。</p>
 <p>例えば、権限によって参照可能なデータが異なる場合は、以下のようにユーザ情報を使い分ける。</p>
 <img alt="../../../../../../_images/testcase-user.png" src="../../../../../../_images/testcase-user.png" />
+<p>別の例として、同じリクエストIDで複数のHTTPメソッドを受け入れる場合は、以下のようにユーザ情報を使い分ける。</p>
+<img alt="../../../../../../_images/testcase-user2.png" src="../../../../../../_images/testcase-user2.png" />
 </div>
 <div class="section" id="cookie">
 <span id="request-test-cookie-info"></span><h3>3.1.2.3.4. Cookie情報<a class="headerlink" href="#cookie" title="このヘッドラインへのパーマリンク">¶</a></h3>
@@ -570,8 +573,17 @@ IOExceptionが発生するため、ファイル名として許可された内容
 Cookieを必要としないケースの場合には、以下例の8ケース目のように値を記載せずに空白としておくこと。</p>
 <img alt="../../../../../../_images/requestCookie.png" src="../../../../../../_images/requestCookie.png" />
 </div>
+<div class="section" id="request-test-queryparams-info">
+<span id="id10"></span><h3>3.1.2.3.5. クエリパラメータ情報<a class="headerlink" href="#request-test-queryparams-info" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>そのテストケースで必要となるクエリパラメータ情報をLIST_MAPのデータタイプで記載する。
+これにより、ケースごとに異なるクエリパラメータ情報を送信してテストを行うことが可能となる。</p>
+<p>クエリパラメータ情報は、任意項目のためクエリパラメータを必要としないケースの場合には、記載不要である。</p>
+<p>例えば、ケースよってクエリパラメータの値を変更する必要がある場合には、以下のようにクエリパラメータ情報を設定する。
+クエリパラメータを必要としないケースの場合には、以下例の3ケース目のように値を記載せずに空白としておくこと。</p>
+<img alt="../../../../../../_images/queryParams.png" src="../../../../../../_images/queryParams.png" />
+</div>
 <div class="section" id="request-test-req-params">
-<span id="id12"></span><h3>3.1.2.3.5. リクエストパラメータ<a class="headerlink" href="#request-test-req-params" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<span id="id11"></span><h3>3.1.2.3.6. リクエストパラメータ<a class="headerlink" href="#request-test-req-params" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>各テストケースで送信するHTTPパラメータを、LIST_MAPのデータタイプで記載する。</p>
 <p><a class="reference internal" href="../../08_TestTools/01_HttpDumpTool/01_HttpDumpTool.html#http-dump-tool"><span>リクエスト単体データ作成ツール</span></a> を使用して、リクエストパラメータのデータを作成する。初期画面表示のリクエスト（例えばメニュー画面からの遷移）以外は、このツールを用いてリクエストパラメータのデータを作成する。</p>
 <p>LIST_MAPのデータタイプでHTTPリクエストパラメータを記載する。IDは、<strong>requestParams</strong>とする。
@@ -589,8 +601,8 @@ Cookieを必要としないケースの場合には、以下例の8ケース目�
 <div><a class="reference internal image-reference" href="../../../../../../_images/dummy_request_param.png"><img alt="../../../../../../_images/dummy_request_param.png" src="../../../../../../_images/dummy_request_param.png" /></a>
 </div></blockquote>
 </div>
-<div class="section" id="id13">
-<h4>3.1.2.3.5.1. ひとつのキーに対して複数の値を設定する場合<a class="headerlink" href="#id13" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<div class="section" id="id12">
+<h4>3.1.2.3.6.1. ひとつのキーに対して複数の値を設定する場合<a class="headerlink" href="#id12" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <p>HTTPリクエストパラメータは、ひとつのキーに対して複数の値を設定できる。
 リクエスト単体テストでは、<strong>値をカンマ区切りで記述することにより、複数の値を表現</strong>できる。</p>
 <p>以下の例では、fooというキーに対して、oneとtwoという複数の値を設定している。</p>
@@ -634,17 +646,17 @@ Cookieを必要としないケースの場合には、以下例の8ケース目�
 </div></blockquote>
 </div>
 </div>
-<div class="section" id="id14">
-<h3>3.1.2.3.6. 各種期待値<a class="headerlink" href="#id14" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="section" id="id13">
+<h3>3.1.2.3.7. 各種期待値<a class="headerlink" href="#id13" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>検索結果、データベースを期待値と比較する場合は、
 それぞれのデータとテストケース一覧とをIDで紐付けする。</p>
-<div class="section" id="id15">
-<h4>3.1.2.3.6.1. 期待する検索結果<a class="headerlink" href="#id15" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<div class="section" id="id14">
+<h4>3.1.2.3.7.1. 期待する検索結果<a class="headerlink" href="#id14" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <p>期待する検索結果を、テストケース一覧とリンクさせる。</p>
 <img alt="../../../../../../_images/expected_search_result.png" src="../../../../../../_images/expected_search_result.png" />
 </div>
 <div class="section" id="request-test-expected-tables">
-<span id="id16"></span><h4>3.1.2.3.6.2. 期待するデータベースの状態<a class="headerlink" href="#request-test-expected-tables" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<span id="id15"></span><h4>3.1.2.3.7.2. 期待するデータベースの状態<a class="headerlink" href="#request-test-expected-tables" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <p>更新系のテストケースでは、期待するデータベースの状態を確認する為、
 期待するデータベースの状態をテストケース一覧とリンクさせる。</p>
 <a class="reference internal image-reference" href="../../../../../../_images/expected_table.png"><img alt="../../../../../../_images/expected_table.png" src="../../../../../../_images/expected_table.png" /></a>
@@ -652,9 +664,9 @@ Cookieを必要としないケースの場合には、以下例の8ケース目�
 </div>
 </div>
 <div class="section" id="howtocodingtestmethod">
-<span id="id17"></span><h2>3.1.2.4. テストメソッドの書き方<a class="headerlink" href="#howtocodingtestmethod" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<div class="section" id="id18">
-<h3>3.1.2.4.1. スーパクラスについて<a class="headerlink" href="#id18" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<span id="id16"></span><h2>3.1.2.4. テストメソッドの書き方<a class="headerlink" href="#howtocodingtestmethod" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="id17">
+<h3>3.1.2.4.1. スーパクラスについて<a class="headerlink" href="#id17" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>BasicHttpRequestTestTemplateクラスを継承する。
 このクラスでは、準備したテストデータを元に以下の手順でリクエスト単体テストを実行する。</p>
 <ul>
@@ -696,8 +708,8 @@ Cookieを必要としないケースの場合には、以下例の8ケース目�
 </pre></div>
 </div>
 </div>
-<div class="section" id="id19">
-<h3>3.1.2.4.2. テストメソッド作成<a class="headerlink" href="#id19" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="section" id="id18">
+<h3>3.1.2.4.2. テストメソッド作成<a class="headerlink" href="#id18" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>準備したテストシートに対応するメソッドを作成する。</p>
 <div class="highlight-java"><div class="highlight"><pre><span></span><span class="nd">@Test</span>
 <span class="kd">public</span> <span class="kt">void</span> <span class="nf">testMenus00101</span><span class="o">()</span> <span class="o">{</span>
@@ -705,8 +717,8 @@ Cookieを必要としないケースの場合には、以下例の8ケース目�
 </pre></div>
 </div>
 </div>
-<div class="section" id="id20">
-<h3>3.1.2.4.3. スーパクラスのメソッド呼び出し<a class="headerlink" href="#id20" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="section" id="id19">
+<h3>3.1.2.4.3. スーパクラスのメソッド呼び出し<a class="headerlink" href="#id19" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>テストメソッド内で、スーパクラスの以下のいずれかのメソッドを呼び出す。</p>
 <ul class="simple">
 <li>void execute()</li>
@@ -719,8 +731,8 @@ Cookieを必要としないケースの場合には、以下例の8ケース目�
 <span class="o">}</span>
 </pre></div>
 </div>
-<div class="section" id="id21">
-<h4>3.1.2.4.3.1. 固有の処理を追加する場合<a class="headerlink" href="#id21" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<div class="section" id="id20">
+<h4>3.1.2.4.3.1. 固有の処理を追加する場合<a class="headerlink" href="#id20" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <p>スーパクラスでは、どんなテストケースでも必要となる処理を定型化しているが、
 テストケースによっては固有の処理が必要な場合がある。
 (例えば、リクエストスコープにエンティティが格納されており、その内容を確認したい場合等)。</p>
@@ -756,8 +768,8 @@ BasicAdviceクラスには以下のメソッドが用意されており、それ
 <span class="o">}</span>
 </pre></div>
 </div>
-<div class="section" id="id22">
-<h5>3.1.2.4.3.1.1. リクエストスコープに複数種類の検索結果が格納されている場合の例<a class="headerlink" href="#id22" title="このヘッドラインへのパーマリンク">¶</a></h5>
+<div class="section" id="id21">
+<h5>3.1.2.4.3.1.1. リクエストスコープに複数種類の検索結果が格納されている場合の例<a class="headerlink" href="#id21" title="このヘッドラインへのパーマリンク">¶</a></h5>
 <p>以下の例では、リクエストスコープに「ユーザグループ」と「ユースケース」の2種類の検索結果が含まれており、
 それぞれの検索結果が期待通りであることを検証している。</p>
 <div class="highlight-java"><div class="highlight"><pre><span></span><span class="nd">@Test</span>
@@ -812,7 +824,7 @@ BasicAdviceクラスには以下のメソッドが用意されており、それ
 <span class="o">}</span>
 </pre></div>
 </div>
-<p>期待値は、エンティティのクラス単体テスト（<a class="reference internal" href="../01_ClassUnitTest/01_entityUnitTest.html#entityunittest-settergettercase"><span>setter、getterに対するテストケース</span></a>）と同様の書式で記述する。
+<p>期待値は、エンティティのクラス単体テスト（<a class="reference internal" href="../01_ClassUnitTest/01_entityUnitTest/02_entityUnitTestWithNablarchValidation.html#entityunittest-settergettercase"><span>setter、getterに対するテストケース</span></a>）と同様の書式で記述する。
 ただし、この場合はsetterの欄は不要である。</p>
 <img alt="../../../../../../_images/assert_entity.png" src="../../../../../../_images/assert_entity.png" />
 <div class="admonition tip">
@@ -866,8 +878,8 @@ BasicAdviceクラスには以下のメソッドが用意されており、それ
 </pre></div>
 </div>
 </div>
-<div class="section" id="id23">
-<h5>3.1.2.4.3.1.4. リクエストパラメータの値を検証したい場合<a class="headerlink" href="#id23" title="このヘッドラインへのパーマリンク">¶</a></h5>
+<div class="section" id="id22">
+<h5>3.1.2.4.3.1.4. リクエストパラメータの値を検証したい場合<a class="headerlink" href="#id22" title="このヘッドラインへのパーマリンク">¶</a></h5>
 <p><a class="reference internal" href="../../../../../../application_framework/application_framework/libraries/tag.html#tag-window-scope"><span>ウィンドウスコープ</span></a> の値をリセットするために、
 テスト対象機能にてリクエストパラメータを書き換える場合がある。</p>
 <p>以下の例では、テスト対象実行後のリクエストパラメータが期待通りであることを検証している。</p>
@@ -886,8 +898,8 @@ BasicAdviceクラスには以下のメソッドが用意されており、それ
 </pre></div>
 </div>
 </div>
-<div class="section" id="id24">
-<h5>3.1.2.4.3.1.5. その他の場合<a class="headerlink" href="#id24" title="このヘッドラインへのパーマリンク">¶</a></h5>
+<div class="section" id="id23">
+<h5>3.1.2.4.3.1.5. その他の場合<a class="headerlink" href="#id23" title="このヘッドラインへのパーマリンク">¶</a></h5>
 <p>前述のように、SqlResultSetやSqlRow等のよく使用されるオブジェクトについては、
 Excelに記載した期待値と直接比較するメソッドが用意されているが、
 そうでない場合については、期待値を読み込む処理を記述する必要がある。</p>
@@ -927,8 +939,8 @@ Excelに記載した期待値と直接比較するメソッドが用意されて
 </div>
 </div>
 </div>
-<div class="section" id="id25">
-<h3>3.1.2.4.4. ダウンロードファイルのテスト<a class="headerlink" href="#id25" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="section" id="id24">
+<h3>3.1.2.4.4. ダウンロードファイルのテスト<a class="headerlink" href="#id24" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>ダウンロードファイルをテストする場合は、<a class="reference internal" href="batch.html#batch-request-test"><span>リクエスト単体テストの実施方法(バッチ)</span></a> と同じ方法でファイルの期待値をExcelファイルに記載してテストする。以下にCSVファイルをダウンロードする場合のテスト例を示す。</p>
 <p><strong>期待するファイルの定義例</strong></p>
 <blockquote>
@@ -961,12 +973,12 @@ Excelに記載した期待値と直接比較するメソッドが用意されて
 </div></blockquote>
 </div>
 </div>
-<div class="section" id="id26">
-<h2>3.1.2.5. テスト起動方法<a class="headerlink" href="#id26" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="id25">
+<h2>3.1.2.5. テスト起動方法<a class="headerlink" href="#id25" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>クラス単体テストと同様。通常のJUnitテストと同じように実行する。</p>
 </div>
-<div class="section" id="id27">
-<h2>3.1.2.6. テスト結果確認（目視）<a class="headerlink" href="#id27" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="id26">
+<h2>3.1.2.6. テスト結果確認（目視）<a class="headerlink" href="#id26" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>１リクエスト毎にHTMLダンプファイルが出力される。ファイルをブラウザで開き、目視確認する。</p>
 <div class="admonition tip">
 <p class="first admonition-title">補足</p>
@@ -988,8 +1000,8 @@ HTMLダンプ出力結果が格納されるディレクトリの詳細は、 <a 
 </div>
 </div>
 </div>
-<div class="section" id="id28">
-<h2>3.1.2.7. リクエスト単体テストクラス作成時の注意点<a class="headerlink" href="#id28" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="id27">
+<h2>3.1.2.7. リクエスト単体テストクラス作成時の注意点<a class="headerlink" href="#id27" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>リクエスト単体テストでは、Web Frameworkのハンドラを経由して呼び出される点がクラス単体テストと異なる。
 この違いにより注意すべき点があるので、以下に記載する。</p>
 <div class="section" id="threadcontext">
@@ -999,8 +1011,8 @@ ThreadContextへの値設定はハンドラで実施される。
 よって、<strong>テストクラスからThreadContextへの値を設定する必要はない。</strong></p>
 <p>リクエスト単体テストでのユーザID設定方法については、前述の<a class="reference internal" href="#request-test-user-info"><span>ユーザ情報</span></a>を参照。</p>
 </div>
-<div class="section" id="id29">
-<h3>3.1.2.7.2. テストクラスでのトランザクション制御は不要<a class="headerlink" href="#id29" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="section" id="id28">
+<h3>3.1.2.7.2. テストクラスでのトランザクション制御は不要<a class="headerlink" href="#id28" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>クラス単体テストでは、Web Frameworkのハンドラが作用しない為、テストクラス内で明示的にトランザクションコミットを行っていた。リクエスト単体テストでは、トランザクション制御はハンドラで行われるので、<strong>テストクラス内で明示的にトランザクションコミットを行う必要はない。</strong></p>
 </div>
 </div>
@@ -1039,7 +1051,7 @@ ThreadContextへの値設定はハンドラで実施される。
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../../../../',
-            VERSION:'5u22',
+            VERSION:'5u23',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

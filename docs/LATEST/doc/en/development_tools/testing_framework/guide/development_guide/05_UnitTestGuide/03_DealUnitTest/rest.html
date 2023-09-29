@@ -9,7 +9,7 @@
   <meta http-equiv='content-language' content='ja'>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>3.1.9. How to Perform a Subfunction Unit Test &mdash; ∇Nablarch  5u22 documentation</title>
+  <title>3.1.9. How to Perform a Subfunction Unit Test &mdash; ∇Nablarch  5u23 documentation</title>
   
 
   
@@ -35,7 +35,7 @@
   
   <link rel="canonical" href="https://nablarch.github.io/docs/LATEST/doc/development_tools/testing_framework/guide/development_guide/05_UnitTestGuide/03_DealUnitTest/rest.html" />
   
-    <link rel="top" title="∇Nablarch  5u22 documentation" href="../../../../../../index.html"/>
+    <link rel="top" title="∇Nablarch  5u23 documentation" href="../../../../../../index.html"/>
         <link rel="up" title="3.1. How to Execute Unit Tests" href="../index.html"/>
         <link rel="next" title="3.1.10. How to Execute a Request Unit Test (Batch)" href="../02_RequestUnitTest/batch.html"/>
         <link rel="prev" title="3.1.8. How to execute a request unit test" href="../02_RequestUnitTest/rest.html"/>
@@ -63,7 +63,7 @@
   
 
   
-    <div id="sidebar-version">Version: 5u22</div>
+    <div id="sidebar-version">Version: 5u23</div>
   </a>
 
   <div role="search">
@@ -142,7 +142,7 @@
 </li>
 <li class="toctree-l1 current"><a class="reference internal" href="../../../../../index.html">Nablarch development tools</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../../../../../java_static_analysis/index.html">1. Efficient Java Static Checks</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../../../java_static_analysis/index.html#conduct-syntax-check">1.1. Conduct syntax check</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../java_static_analysis/index.html#run-inspection">1.1. Run inspection</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../../java_static_analysis/index.html#unify-the-format">1.2. Unify the format</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../../java_static_analysis/index.html#check-if-unauthorized-apis-are-being-used">1.3. Check if unauthorized APIs are being used</a></li>
 </ul>
@@ -228,6 +228,12 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../../../../examples/12/index.html#summary">Summary</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../../../examples/12/index.html#structure">Structure</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../../../examples/12/index.html#how-to-use">How to Use</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../examples/13/index.html">Sample Request/Response Log Output Using Logbook</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../../examples/13/index.html#delivery-package">Delivery package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../../examples/13/index.html#summary">Summary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../../examples/13/index.html#how-to-use">How to Use</a></li>
 </ul>
 </li>
 </ul>
@@ -346,8 +352,11 @@ In such cases, this can be done in the following ways.</p>
 <p>The testing framework for the RESTful web service runtime platform provides <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/test/core/http/RequestResponseProcessor.html" title="nablarch.test.core.http.RequestResponseProcessor">RequestResponseProcessor</a> interface
 to manipulate the request and response.</p>
 <p>Create an implementation class of this interface to fit the requirements of each application.</p>
-<p>The framework provides the <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/test/core/http/NablarchSIDManager.html" title="nablarch.test.core.http.NablarchSIDManager">NablarchSIDManager</a> as a frequently used implementation.
-This implementation is able to extract the session ID from the <code class="docutils literal"><span class="pre">Set-Cookie</span></code> header of the response and pass the value to the <code class="docutils literal"><span class="pre">Cookie</span></code> header of the request.</p>
+<p>The framework provides the <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/test/core/http/RequestResponseCookieManager.html" title="nablarch.test.core.http.RequestResponseCookieManager">RequestResponseCookieManager</a> as a frequently used implementation.
+This implementation is able to extract the Cookie with the name specified by the property from the <code class="docutils literal"><span class="pre">Set-Cookie</span></code> header of the response and pass the value to the <code class="docutils literal"><span class="pre">Cookie</span></code> header of the request.</p>
+<p>Among the implementations that handle cookies, the framework also provides <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/test/core/http/NablarchSIDManager.html" title="nablarch.test.core.http.NablarchSIDManager">NablarchSIDManager</a> as a specialized implementation for session IDs of the <a class="reference internal" href="../../../../../../application_framework/application_framework/libraries/session_store.html#session-store"><span>Session Store</span></a> .
+This implementation extracts the cookie from the <code class="docutils literal"><span class="pre">Set-Cookie</span></code> header with the default cookie name <code class="docutils literal"><span class="pre">NABLARCH_SID</span></code> of the session ID held by the <a class="reference internal" href="../../../../../../application_framework/application_framework/handlers/web/SessionStoreHandler.html#session-store-handler"><span>Session Variable Store Handler</span></a> .
+If the cookie name for the session ID is changed from the default, use <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/test/core/http/RequestResponseCookieManager.html" title="nablarch.test.core.http.RequestResponseCookieManager">RequestResponseCookieManager</a> and specify the cookie name explicitly.</p>
 <p><code class="docutils literal"><span class="pre">RequestResponseProcessor</span></code> is used to pass the value of a response received earlier during the execution of one subfunction unit test case to the next request.
 At that time, the values extracted from the response are held as states internally to be passed on to the request.
 However, if the component is configured in the following way, Nablarch&#8217;s DI container treats the instance as a singleton,
@@ -358,13 +367,18 @@ If don&#8217;t have any internal state or if want to share state between multipl
 </div>
 <div class="section" id="configure-the-implementation-class-with-the-name-defaultprocessor-in-the-component-configuration-file">
 <h3>3.1.9.2.2. Configure the implementation class with the name <code class="docutils literal"><span class="pre">defaultProcessor</span></code> in the component configuration file<a class="headerlink" href="#configure-the-implementation-class-with-the-name-defaultprocessor-in-the-component-configuration-file" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;component</span> <span class="na">name=</span><span class="s">&quot;defaultProcessor&quot;</span> <span class="na">class=</span><span class="s">&quot;nablarch.test.core.http.NablarchSIDManager&quot;</span><span class="nt">/&gt;</span>
+<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;component</span> <span class="na">name=</span><span class="s">&quot;defaultProcessor&quot;</span> <span class="na">class=</span><span class="s">&quot;nablarch.test.core.http.RequestResponseCookieManager&quot;</span><span class="nt">/&gt;</span>
+  <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;cookieName&quot;</span> <span class="na">value=</span><span class="s">&quot;JSESSIONID&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/component&gt;</span>
 </pre></div>
 </div>
 <p>And if want to set up multiple <code class="docutils literal"><span class="pre">RequestResponseProcessor</span></code>, can do so by using <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/test/core/http/ComplexRequestResponseProcessor.html" title="nablarch.test.core.http.ComplexRequestResponseProcessor">ComplexRequestResponseProcessor</a>.</p>
 <div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;component</span> <span class="na">name=</span><span class="s">&quot;defaultProcessor&quot;</span> <span class="na">class=</span><span class="s">&quot;nablarch.test.core.http.ComplexRequestResponseProcessor&quot;</span><span class="nt">&gt;</span>
   <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;processors&quot;</span><span class="nt">&gt;</span>
     <span class="nt">&lt;list&gt;</span>
+      <span class="nt">&lt;component</span> <span class="na">class=</span><span class="s">&quot;nablarch.test.core.http.RequestResponseCookieManager&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;cookieName&quot;</span> <span class="na">value=</span><span class="s">&quot;JSESSIONID&quot;</span><span class="nt">/&gt;</span>
+      <span class="nt">&lt;/component&gt;</span>
       <span class="nt">&lt;component</span> <span class="na">class=</span><span class="s">&quot;nablarch.test.core.http.NablarchSIDManager&quot;</span><span class="nt">/&gt;</span>
       <span class="nt">&lt;component</span> <span class="na">class=</span><span class="s">&quot;com.example.test.CSRFTokenManager&quot;</span><span class="nt">/&gt;</span>
     <span class="nt">&lt;/list&gt;</span>
@@ -412,7 +426,7 @@ after receiving the response.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../../../../',
-            VERSION:'5u22',
+            VERSION:'5u23',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

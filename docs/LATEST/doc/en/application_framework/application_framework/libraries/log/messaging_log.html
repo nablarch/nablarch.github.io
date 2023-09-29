@@ -9,7 +9,7 @@
   <meta http-equiv='content-language' content='ja'>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>7.1.1.2.5. Output Messaging Log &mdash; ∇Nablarch  5u22 documentation</title>
+  <title>7.1.1.2.6. Output Messaging Log &mdash; ∇Nablarch  5u23 documentation</title>
   
 
   
@@ -35,10 +35,10 @@
   
   <link rel="canonical" href="https://nablarch.github.io/docs/LATEST/doc/application_framework/application_framework/libraries/log/messaging_log.html" />
   
-    <link rel="top" title="∇Nablarch  5u22 documentation" href="../../../../index.html"/>
+    <link rel="top" title="∇Nablarch  5u23 documentation" href="../../../../index.html"/>
         <link rel="up" title="7.1. Log Output" href="../log.html"/>
         <link rel="next" title="7.2. System Repository" href="../repository.html"/>
-        <link rel="prev" title="7.1.1.2.4. Output of HTTP Access Log" href="http_access_log.html"/>
+        <link rel="prev" title="7.1.1.2.5. Output of HTTP Access Log (for RESTful Web Service)" href="jaxrs_access_log.html"/>
 
 <script defer data-domain="nablarch.github.io,all.fintan" src=https://plausible.io/js/script.js></script>
 
@@ -63,7 +63,7 @@
   
 
   
-    <div id="sidebar-version">Version: 5u22</div>
+    <div id="sidebar-version">Version: 5u23</div>
   </a>
 
   <div role="search">
@@ -142,7 +142,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../development_tools/index.html">Nablarch development tools</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../../../development_tools/java_static_analysis/index.html">1. Efficient Java Static Checks</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../../development_tools/java_static_analysis/index.html#conduct-syntax-check">1.1. Conduct syntax check</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../development_tools/java_static_analysis/index.html#run-inspection">1.1. Run inspection</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../development_tools/java_static_analysis/index.html#unify-the-format">1.2. Unify the format</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../development_tools/java_static_analysis/index.html#check-if-unauthorized-apis-are-being-used">1.3. Check if unauthorized APIs are being used</a></li>
 </ul>
@@ -230,6 +230,12 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../../examples/12/index.html#how-to-use">How to Use</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../examples/13/index.html">Sample Request/Response Log Output Using Logbook</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../examples/13/index.html#delivery-package">Delivery package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../examples/13/index.html#summary">Summary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../examples/13/index.html#how-to-use">How to Use</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../nablarch_api/index.html">Nablarch API</a></li>
@@ -294,7 +300,7 @@
       
           <li><a href="../log.html">7.1. Log Output</a> &raquo;</li>
       
-    <li>7.1.1.2.5. Output Messaging Log</li>
+    <li>7.1.1.2.6. Output Messaging Log</li>
     <li class="wy-breadcrumbs-aside">
       <a href="https://github.com/nablarch" class="fa fa-github">GitHub</a>
     </li>
@@ -308,7 +314,7 @@
            <div itemprop="articleBody">
             
   <div class="section" id="output-messaging-log">
-<span id="messaging-log"></span><h1>7.1.1.2.5. Output Messaging Log<a class="headerlink" href="#output-messaging-log" title="Permalink to this headline">¶</a></h1>
+<span id="messaging-log"></span><h1>7.1.1.2.6. Output Messaging Log<a class="headerlink" href="#output-messaging-log" title="Permalink to this headline">¶</a></h1>
 <div class="contents local topic" id="table-of-contents">
 <p class="topic-title first">Table of contents</p>
 <ul class="simple">
@@ -323,7 +329,7 @@
 <p>The messaging log is output when sending and receiving messages in  <a class="reference internal" href="../system_messaging.html#system-messaging"><span>Intersystem Messaging</span></a> .
 The log is output in the application by configuring the log output.</p>
 <div class="section" id="output-policy-for-messaging-log">
-<h2><a class="toc-backref" href="#id18">7.1.1.2.5.1. Output policy for messaging log</a><a class="headerlink" href="#output-policy-for-messaging-log" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id18">7.1.1.2.6.1. Output policy for messaging log</a><a class="headerlink" href="#output-policy-for-messaging-log" title="Permalink to this headline">¶</a></h2>
 <p>The messaging log is output to an application log that outputs the log of the entire application.</p>
 <table border="1" class="colwidths-given white-space-normal docutils" id="id17">
 <caption><span class="caption-text">Output policy for messaging log</span><a class="headerlink" href="#id17" title="Permalink to this table">¶</a></caption>
@@ -411,9 +417,9 @@ The log is output in the application by configuring the log output.</p>
 </dl>
 </div>
 <div class="section" id="how-to-use">
-<h2><a class="toc-backref" href="#id19">7.1.1.2.5.2. How to use</a><a class="headerlink" href="#how-to-use" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id19">7.1.1.2.6.2. How to use</a><a class="headerlink" href="#how-to-use" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="configure-the-messaging-log">
-<span id="messaging-log-setting"></span><h3><a class="toc-backref" href="#id20">7.1.1.2.5.2.1. Configure the messaging log</a><a class="headerlink" href="#configure-the-messaging-log" title="Permalink to this headline">¶</a></h3>
+<span id="messaging-log-setting"></span><h3><a class="toc-backref" href="#id20">7.1.1.2.6.2.1. Configure the messaging log</a><a class="headerlink" href="#configure-the-messaging-log" title="Permalink to this headline">¶</a></h3>
 <p>The messaging log is configured in the property file described in <a class="reference internal" href="../log.html#log-app-log-setting"><span>Configure various logs</span></a> .</p>
 <dl class="docutils">
 <dt>Description rules</dt>
@@ -650,7 +656,7 @@ The specified regular expression is not case-sensitive.</p>
 </dl>
 </div>
 <div class="section" id="output-as-a-structured-log-in-json-format">
-<span id="messaging-log-json-setting"></span><h3><a class="toc-backref" href="#id21">7.1.1.2.5.2.2. Output as a structured log in JSON format</a><a class="headerlink" href="#output-as-a-structured-log-in-json-format" title="Permalink to this headline">¶</a></h3>
+<span id="messaging-log-json-setting"></span><h3><a class="toc-backref" href="#id21">7.1.1.2.6.2.2. Output as a structured log in JSON format</a><a class="headerlink" href="#output-as-a-structured-log-in-json-format" title="Permalink to this headline">¶</a></h3>
 <p>Logs can be output in JSON format by using <a class="reference internal" href="../log.html#log-json-log-setting"><span>Output as a structured log in JSON format</span></a> setting, but <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/fw/messaging/logging/MessagingLogFormatter.html" title="nablarch.fw.messaging.logging.MessagingLogFormatter">MessagingLogFormatter</a> outputs each item of the failure log as a string in the message value.</p>
 <p>To output each item in the failure log as a JSON value as well, use the <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/fw/messaging/logging/MessagingJsonLogFormatter.html" title="nablarch.fw.messaging.logging.MessagingJsonLogFormatter">MessagingJsonLogFormatter</a>.
 You can configure in the property file described in <a class="reference internal" href="../log.html#log-app-log-setting"><span>Configure various logs</span></a>.</p>
@@ -835,8 +841,9 @@ Default is <code class="docutils literal"><span class="pre">&quot;HTTP</span> <s
 Default is <code class="docutils literal"><span class="pre">&quot;HTTP</span> <span class="pre">RECEIVED</span> <span class="pre">MESSAGE&quot;</span></code>。</dd>
 <dt>messagingLogFormatter.structuredMessagePrefix</dt>
 <dd>A marker string given at the beginning of a message to identify that the message string after formatting has been formatted into JSON format.
-If this marker is present at the beginning of the message, <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/core/log/basic/JsonLogFormatter.html" title="nablarch.core.log.basic.JsonLogFormatter">JsonLogFormatter</a> processes the message as JSON data.
-The default is <code class="docutils literal"><span class="pre">&quot;$JSON$&quot;</span></code>.</dd>
+If the marker string at the beginning of the message matches the marker string set in <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/core/log/basic/JsonLogFormatter.html" title="nablarch.core.log.basic.JsonLogFormatter">JsonLogFormatter</a>, <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/core/log/basic/JsonLogFormatter.html" title="nablarch.core.log.basic.JsonLogFormatter">JsonLogFormatter</a> processes the message as JSON data.
+The default is <code class="docutils literal"><span class="pre">&quot;$JSON$&quot;</span></code>.
+If you change it, set the same value in <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/core/log/basic/JsonLogFormatter.html" title="nablarch.core.log.basic.JsonLogFormatter">JsonLogFormatter</a> using LogWriter&#8217;s <code class="docutils literal"><span class="pre">structuredMessagePrefix</span></code> property (see <a class="reference internal" href="../log.html#log-basic-setting"><span>Configure log output</span></a> for LogWriter properties).</dd>
 </dl>
 </dd>
 </dl>
@@ -903,7 +910,7 @@ The default is <code class="docutils literal"><span class="pre">&quot;$JSON$&quo
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../../',
-            VERSION:'5u22',
+            VERSION:'5u23',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

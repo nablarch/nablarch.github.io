@@ -9,7 +9,7 @@
   <meta http-equiv='content-language' content='ja'>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>7.1.1.2.4. Output of HTTP Access Log &mdash; ∇Nablarch  5u22 documentation</title>
+  <title>7.1.1.2.4. Output of HTTP Access Log &mdash; ∇Nablarch  5u23 documentation</title>
   
 
   
@@ -35,9 +35,9 @@
   
   <link rel="canonical" href="https://nablarch.github.io/docs/LATEST/doc/application_framework/application_framework/libraries/log/http_access_log.html" />
   
-    <link rel="top" title="∇Nablarch  5u22 documentation" href="../../../../index.html"/>
+    <link rel="top" title="∇Nablarch  5u23 documentation" href="../../../../index.html"/>
         <link rel="up" title="7.1. Log Output" href="../log.html"/>
-        <link rel="next" title="7.1.1.2.5. Output Messaging Log" href="messaging_log.html"/>
+        <link rel="next" title="7.1.1.2.5. Output of HTTP Access Log (for RESTful Web Service)" href="jaxrs_access_log.html"/>
         <link rel="prev" title="7.1.1.2.3. Output of Performance Log" href="performance_log.html"/>
 
 <script defer data-domain="nablarch.github.io,all.fintan" src=https://plausible.io/js/script.js></script>
@@ -63,7 +63,7 @@
   
 
   
-    <div id="sidebar-version">Version: 5u22</div>
+    <div id="sidebar-version">Version: 5u23</div>
   </a>
 
   <div role="search">
@@ -142,7 +142,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../development_tools/index.html">Nablarch development tools</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../../../development_tools/java_static_analysis/index.html">1. Efficient Java Static Checks</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../../development_tools/java_static_analysis/index.html#conduct-syntax-check">1.1. Conduct syntax check</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../development_tools/java_static_analysis/index.html#run-inspection">1.1. Run inspection</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../development_tools/java_static_analysis/index.html#unify-the-format">1.2. Unify the format</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../development_tools/java_static_analysis/index.html#check-if-unauthorized-apis-are-being-used">1.3. Check if unauthorized APIs are being used</a></li>
 </ul>
@@ -228,6 +228,12 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../../examples/12/index.html#summary">Summary</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../examples/12/index.html#structure">Structure</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../examples/12/index.html#how-to-use">How to Use</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../examples/13/index.html">Sample Request/Response Log Output Using Logbook</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../examples/13/index.html#delivery-package">Delivery package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../examples/13/index.html#summary">Summary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../examples/13/index.html#how-to-use">How to Use</a></li>
 </ul>
 </li>
 </ul>
@@ -372,7 +378,7 @@ then the HTTP access and trace logs can be used together.</p>
 
 <span class="na">availableLoggersNamesOrder</span><span class="o">=</span><span class="s">ACC,ROO</span>
 
-<span class="c"># Configure the application log</span>
+<span class="c"># Configuration of the application log</span>
 <span class="na">loggers.ROO.nameRegex</span><span class="o">=</span><span class="s">.*</span>
 <span class="na">loggers.ROO.level</span><span class="o">=</span><span class="s">INFO</span>
 <span class="na">loggers.ROO.writerNames</span><span class="o">=</span><span class="s">appLog</span>
@@ -469,9 +475,6 @@ Specify to replace.</dd>
 </tr>
 <tr class="field-odd field"><th class="field-name" colspan="2">User-Agent of HTTP header:</th></tr>
 <tr class="field-odd field"><td>&nbsp;</td><td class="field-body">$clientUserAgent$</td>
-</tr>
-<tr class="field-even field"><th class="field-name" colspan="2">Request parameters:</th></tr>
-<tr class="field-even field"><td>&nbsp;</td><td class="field-body">$parameters$</td>
 </tr>
 </tbody>
 </table>
@@ -700,7 +703,7 @@ If specified as false, it is not output at the end of the request process.</dd>
 </tr>
 <tr class="field-even field"><th class="field-name">HTTP method:</th><td class="field-body">method <code class="docutils literal"><span class="pre">default</span></code></td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Query string:</th><td class="field-body">query</td>
+<tr class="field-odd field"><th class="field-name">Query string:</th><td class="field-body">queryString</td>
 </tr>
 <tr class="field-even field"><th class="field-name" colspan="2">Request parameters:</th></tr>
 <tr class="field-even field"><td>&nbsp;</td><td class="field-body">parameters</td>
@@ -777,7 +780,7 @@ The default output item is <code class="docutils literal"><span class="pre">labe
 <tr class="field-odd field"><td>&nbsp;</td><td class="field-body">dispatchingClass</td>
 </tr>
 <tr class="field-even field"><th class="field-name" colspan="2">Status code (internal):</th></tr>
-<tr class="field-even field"><td>&nbsp;</td><td class="field-body">statusCode</td>
+<tr class="field-even field"><td>&nbsp;</td><td class="field-body">statusCode <code class="docutils literal"><span class="pre">default</span></code></td>
 </tr>
 <tr class="field-odd field"><th class="field-name" colspan="2">Status code (client):</th></tr>
 <tr class="field-odd field"><td>&nbsp;</td><td class="field-body">responseStatusCode</td>
@@ -846,8 +849,9 @@ Default is <code class="docutils literal"><span class="pre">&quot;DISPATCHING</s
 Default is <code class="docutils literal"><span class="pre">&quot;HTTP</span> <span class="pre">ACCESS</span> <span class="pre">END&quot;</span></code>。</dd>
 <dt>httpAccessLogFormatter.structuredMessagePrefix</dt>
 <dd>A marker string given at the beginning of a message to identify that the message string after formatting has been formatted into JSON format.
-If this marker is present at the beginning of the message, <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/core/log/basic/JsonLogFormatter.html" title="nablarch.core.log.basic.JsonLogFormatter">JsonLogFormatter</a> processes the message as JSON data.
-The default is <code class="docutils literal"><span class="pre">&quot;$JSON$&quot;</span></code>.</dd>
+If the marker string at the beginning of the message matches the marker string set in <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/core/log/basic/JsonLogFormatter.html" title="nablarch.core.log.basic.JsonLogFormatter">JsonLogFormatter</a>, <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/core/log/basic/JsonLogFormatter.html" title="nablarch.core.log.basic.JsonLogFormatter">JsonLogFormatter</a> processes the message as JSON data.
+The default is <code class="docutils literal"><span class="pre">&quot;$JSON$&quot;</span></code>.
+If you change it, set the same value in <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/core/log/basic/JsonLogFormatter.html" title="nablarch.core.log.basic.JsonLogFormatter">JsonLogFormatter</a> using LogWriter&#8217;s <code class="docutils literal"><span class="pre">structuredMessagePrefix</span></code> property (see <a class="reference internal" href="../log.html#log-basic-setting"><span>Configure log output</span></a> for LogWriter properties).</dd>
 </dl>
 </dd>
 <dt>Example of the description</dt>
@@ -913,7 +917,7 @@ Therefore, if the session store ID is to be logged, the <a class="reference inte
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../../',
-            VERSION:'5u22',
+            VERSION:'5u23',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

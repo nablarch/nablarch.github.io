@@ -9,7 +9,7 @@
   <meta http-equiv='content-language' content='ja'>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>8.3.4. Initial Setup of the Nablarch Batch Project &mdash; ∇Nablarch  5u22 documentation</title>
+  <title>8.3.4. Initial Setup of the Nablarch Batch Project &mdash; ∇Nablarch  5u23 documentation</title>
   
 
   
@@ -35,7 +35,7 @@
   
   <link rel="canonical" href="https://nablarch.github.io/docs/LATEST/doc/application_framework/application_framework/blank_project/setup_blankProject/setup_NablarchBatch.html" />
   
-    <link rel="top" title="∇Nablarch  5u22 documentation" href="../../../../index.html"/>
+    <link rel="top" title="∇Nablarch  5u23 documentation" href="../../../../index.html"/>
         <link rel="up" title="8.3. Initial Setup Procedure" href="../FirstStep.html"/>
         <link rel="next" title="8.3.5. Initial Setup of the Nablarch Batch Project without DB connection" href="setup_NablarchBatch_Dbless.html"/>
         <link rel="prev" title="8.3.3. Initial Setup of JSR352-compliant Batch Project" href="setup_Jbatch.html"/>
@@ -63,7 +63,7 @@
   
 
   
-    <div id="sidebar-version">Version: 5u22</div>
+    <div id="sidebar-version">Version: 5u23</div>
   </a>
 
   <div role="search">
@@ -142,7 +142,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../development_tools/index.html">Nablarch development tools</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../../../development_tools/java_static_analysis/index.html">1. Efficient Java Static Checks</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../../development_tools/java_static_analysis/index.html#conduct-syntax-check">1.1. Conduct syntax check</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../development_tools/java_static_analysis/index.html#run-inspection">1.1. Run inspection</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../development_tools/java_static_analysis/index.html#unify-the-format">1.2. Unify the format</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../development_tools/java_static_analysis/index.html#check-if-unauthorized-apis-are-being-used">1.3. Check if unauthorized APIs are being used</a></li>
 </ul>
@@ -228,6 +228,12 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../../examples/12/index.html#summary">Summary</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../examples/12/index.html#structure">Structure</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../examples/12/index.html#how-to-use">How to Use</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../examples/13/index.html">Sample Request/Response Log Output Using Logbook</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../examples/13/index.html#delivery-package">Delivery package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../examples/13/index.html#summary">Summary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../examples/13/index.html#how-to-use">How to Use</a></li>
 </ul>
 </li>
 </ul>
@@ -368,9 +374,9 @@ Email send batch is not necessary when building the initial environment, but whe
 <p>Change the current directory to the directory where the blank project (can be any directory) is to be created, and place the following file.</p>
 <p><a class="reference download internal" href="../../../../_downloads/generateNablarchBatchProject.bat" download=""><code class="xref download docutils literal"><span class="pre">Batch</span> <span class="pre">file</span></code></a></p>
 <p>After placing the file, specify the necessary parameters in the arguments and execute the bat file.</p>
-<p>generateNablarchBatchProject.bat 5u22 &lt;&lt;groupId&gt;&gt; &lt;&lt;artifactId&gt;&gt; &lt;&lt;version&gt;&gt; &lt;&lt;package(optional)&gt;&gt;</p>
+<p>generateNablarchBatchProject.bat 5u23 &lt;&lt;groupId&gt;&gt; &lt;&lt;artifactId&gt;&gt; &lt;&lt;version&gt;&gt; &lt;&lt;package(optional)&gt;&gt;</p>
 <p>The parameters configured in the above command are as follows.
-If you want to change the version of Nablarch, change 5u22.
+If you want to change the version of Nablarch, change 5u23.
 Change the current directory to the directory where the blank project (can be any directory) is to be created.</p>
 <table border="1" class="docutils">
 <colgroup>
@@ -610,7 +616,7 @@ Thread Result:[200 Success] The request has succeeded.
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../../',
-            VERSION:'5u22',
+            VERSION:'5u23',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

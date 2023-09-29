@@ -9,7 +9,7 @@
   <meta http-equiv='content-language' content='ja'>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>7.19.1. タグリファレンス &mdash; ∇Nablarch  5u22 ドキュメント</title>
+  <title>7.19.1. タグリファレンス &mdash; ∇Nablarch  5u23 ドキュメント</title>
   
 
   
@@ -35,7 +35,7 @@
   
   <link rel="canonical" href="https://nablarch.github.io/docs/LATEST/doc/application_framework/application_framework/libraries/tag/tag_reference.html" />
   
-    <link rel="top" title="∇Nablarch  5u22 ドキュメント" href="../../../../index.html"/>
+    <link rel="top" title="∇Nablarch  5u23 ドキュメント" href="../../../../index.html"/>
         <link rel="up" title="7.19. JSPカスタムタグ" href="../tag.html"/>
         <link rel="next" title="7.20. データベースを使用した二重サブミット防止" href="../db_double_submit.html"/>
         <link rel="prev" title="7.19. JSPカスタムタグ" href="../tag.html"/>
@@ -63,7 +63,7 @@
   
 
   
-    <div id="sidebar-version">Version: 5u22</div>
+    <div id="sidebar-version">Version: 5u23</div>
   </a>
 
   <div role="search">
@@ -170,7 +170,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../development_tools/index.html">Nablarch開発ツール</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../../../development_tools/java_static_analysis/index.html">1. 効率的なJava静的チェック</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../../development_tools/java_static_analysis/index.html#code-analysis">1.1. 構文チェックを行う</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../development_tools/java_static_analysis/index.html#inspection">1.1. Inspectionを行う</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../development_tools/java_static_analysis/index.html#code-format">1.2. フォーマットを統一する</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../development_tools/java_static_analysis/index.html#api">1.3. 許可していないAPIが使用されていないかチェックする</a></li>
 </ul>
@@ -261,6 +261,12 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../../examples/12/index.html#id3">概要</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../examples/12/index.html#id5">構成</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../examples/12/index.html#id11">使用方法</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../examples/13/index.html">Logbookを用いたリクエスト/レスポンスログ出力サンプル</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../examples/13/index.html#id1">提供パッケージ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../examples/13/index.html#id3">概要</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../examples/13/index.html#id6">使用方法</a></li>
 </ul>
 </li>
 </ul>
@@ -675,10 +681,10 @@ httpsにする場合は <code class="docutils literal"><span class="pre">true</s
 <td>XHTMLのvalue属性。</td>
 </tr>
 <tr class="row-even"><td>disabled</td>
-<td>XHTMLのdisabled属性。</td>
+<td>XHTMLのdisabled属性 (<a class="reference internal" href="../tag.html#boolean-attribute"><span>論理属性</span></a>) 。</td>
 </tr>
 <tr class="row-odd"><td>readonly</td>
-<td>XHTMLのreadonly属性。</td>
+<td>XHTMLのreadonly属性 (<a class="reference internal" href="../tag.html#boolean-attribute"><span>論理属性</span></a>) 。</td>
 </tr>
 <tr class="row-even"><td>size</td>
 <td>XHTMLのsize属性。</td>
@@ -696,7 +702,7 @@ httpsにする場合は <code class="docutils literal"><span class="pre">true</s
 <td>HTML5のautocomplete属性。</td>
 </tr>
 <tr class="row-odd"><td>autofocus</td>
-<td>HTML5のautofocus属性。</td>
+<td>HTML5のautofocus属性 (<a class="reference internal" href="../tag.html#boolean-attribute"><span>論理属性</span></a>) 。</td>
 </tr>
 <tr class="row-even"><td>placeholder</td>
 <td>HTML5のplaceholder属性。</td>
@@ -743,13 +749,13 @@ httpsにする場合は <code class="docutils literal"><span class="pre">true</s
 <td>XHTMLのvalue属性。</td>
 </tr>
 <tr class="row-even"><td>disabled</td>
-<td>XHTMLのdisabled属性。</td>
+<td>XHTMLのdisabled属性 (<a class="reference internal" href="../tag.html#boolean-attribute"><span>論理属性</span></a>) 。</td>
 </tr>
 <tr class="row-odd"><td>autocomplete</td>
 <td>HTML5のautocomplete属性。</td>
 </tr>
 <tr class="row-even"><td>autofocus</td>
-<td>HTML5のautofocus属性。</td>
+<td>HTML5のautofocus属性 (<a class="reference internal" href="../tag.html#boolean-attribute"><span>論理属性</span></a>) 。</td>
 </tr>
 <tr class="row-odd"><td>errorCss</td>
 <td>エラーレベルのメッセージに使用するCSSクラス名。
@@ -793,13 +799,13 @@ httpsにする場合は <code class="docutils literal"><span class="pre">true</s
 <td>XHTMLのvalue属性。</td>
 </tr>
 <tr class="row-even"><td>disabled</td>
-<td>XHTMLのdisabled属性。</td>
+<td>XHTMLのdisabled属性 (<a class="reference internal" href="../tag.html#boolean-attribute"><span>論理属性</span></a>) 。</td>
 </tr>
 <tr class="row-odd"><td>autocomplete</td>
 <td>HTML5のautocomplete属性。</td>
 </tr>
 <tr class="row-even"><td>autofocus</td>
-<td>HTML5のautofocus属性。</td>
+<td>HTML5のautofocus属性 (<a class="reference internal" href="../tag.html#boolean-attribute"><span>論理属性</span></a>) 。</td>
 </tr>
 <tr class="row-odd"><td>errorCss</td>
 <td>エラーレベルのメッセージに使用するCSSクラス名。
@@ -843,13 +849,13 @@ httpsにする場合は <code class="docutils literal"><span class="pre">true</s
 <td>XHTMLのvalue属性。</td>
 </tr>
 <tr class="row-even"><td>disabled</td>
-<td>XHTMLのdisabled属性。</td>
+<td>XHTMLのdisabled属性 (<a class="reference internal" href="../tag.html#boolean-attribute"><span>論理属性</span></a>) 。</td>
 </tr>
 <tr class="row-odd"><td>autocomplete</td>
 <td>HTML5のautocomplete属性。</td>
 </tr>
 <tr class="row-even"><td>autofocus</td>
-<td>HTML5のautofocus属性。</td>
+<td>HTML5のautofocus属性 (<a class="reference internal" href="../tag.html#boolean-attribute"><span>論理属性</span></a>) 。</td>
 </tr>
 <tr class="row-odd"><td>errorCss</td>
 <td>エラーレベルのメッセージに使用するCSSクラス名。
@@ -893,13 +899,13 @@ httpsにする場合は <code class="docutils literal"><span class="pre">true</s
 <td>XHTMLのvalue属性。</td>
 </tr>
 <tr class="row-even"><td>disabled</td>
-<td>XHTMLのdisabled属性。</td>
+<td>XHTMLのdisabled属性 (<a class="reference internal" href="../tag.html#boolean-attribute"><span>論理属性</span></a>) 。</td>
 </tr>
 <tr class="row-odd"><td>autocomplete</td>
 <td>HTML5のautocomplete属性。</td>
 </tr>
 <tr class="row-even"><td>autofocus</td>
-<td>HTML5のautofocus属性。</td>
+<td>HTML5のautofocus属性 (<a class="reference internal" href="../tag.html#boolean-attribute"><span>論理属性</span></a>) 。</td>
 </tr>
 <tr class="row-odd"><td>errorCss</td>
 <td>エラーレベルのメッセージに使用するCSSクラス名。
@@ -943,13 +949,13 @@ httpsにする場合は <code class="docutils literal"><span class="pre">true</s
 <td>XHTMLのvalue属性。</td>
 </tr>
 <tr class="row-even"><td>disabled</td>
-<td>XHTMLのdisabled属性。</td>
+<td>XHTMLのdisabled属性 (<a class="reference internal" href="../tag.html#boolean-attribute"><span>論理属性</span></a>) 。</td>
 </tr>
 <tr class="row-odd"><td>autocomplete</td>
 <td>HTML5のautocomplete属性。</td>
 </tr>
 <tr class="row-even"><td>autofocus</td>
-<td>HTML5のautofocus属性。</td>
+<td>HTML5のautofocus属性 (<a class="reference internal" href="../tag.html#boolean-attribute"><span>論理属性</span></a>) 。</td>
 </tr>
 <tr class="row-odd"><td>errorCss</td>
 <td>エラーレベルのメッセージに使用するCSSクラス名。
@@ -993,13 +999,13 @@ httpsにする場合は <code class="docutils literal"><span class="pre">true</s
 <td>XHTMLのvalue属性。</td>
 </tr>
 <tr class="row-even"><td>disabled</td>
-<td>XHTMLのdisabled属性。</td>
+<td>XHTMLのdisabled属性 (<a class="reference internal" href="../tag.html#boolean-attribute"><span>論理属性</span></a>) 。</td>
 </tr>
 <tr class="row-odd"><td>autocomplete</td>
 <td>HTML5のautocomplete属性。</td>
 </tr>
 <tr class="row-even"><td>autofocus</td>
-<td>HTML5のautofocus属性。</td>
+<td>HTML5のautofocus属性 (<a class="reference internal" href="../tag.html#boolean-attribute"><span>論理属性</span></a>) 。</td>
 </tr>
 <tr class="row-odd"><td>errorCss</td>
 <td>エラーレベルのメッセージに使用するCSSクラス名。
@@ -1043,13 +1049,13 @@ httpsにする場合は <code class="docutils literal"><span class="pre">true</s
 <td>XHTMLのvalue属性。</td>
 </tr>
 <tr class="row-even"><td>disabled</td>
-<td>XHTMLのdisabled属性。</td>
+<td>XHTMLのdisabled属性 (<a class="reference internal" href="../tag.html#boolean-attribute"><span>論理属性</span></a>) 。</td>
 </tr>
 <tr class="row-odd"><td>autocomplete</td>
 <td>HTML5のautocomplete属性。</td>
 </tr>
 <tr class="row-even"><td>autofocus</td>
-<td>HTML5のautofocus属性。</td>
+<td>HTML5のautofocus属性 (<a class="reference internal" href="../tag.html#boolean-attribute"><span>論理属性</span></a>) 。</td>
 </tr>
 <tr class="row-odd"><td>errorCss</td>
 <td>エラーレベルのメッセージに使用するCSSクラス名。
@@ -1093,13 +1099,13 @@ httpsにする場合は <code class="docutils literal"><span class="pre">true</s
 <td>XHTMLのvalue属性。</td>
 </tr>
 <tr class="row-even"><td>disabled</td>
-<td>XHTMLのdisabled属性。</td>
+<td>XHTMLのdisabled属性 (<a class="reference internal" href="../tag.html#boolean-attribute"><span>論理属性</span></a>) 。</td>
 </tr>
 <tr class="row-odd"><td>autocomplete</td>
 <td>HTML5のautocomplete属性。</td>
 </tr>
 <tr class="row-even"><td>autofocus</td>
-<td>HTML5のautofocus属性。</td>
+<td>HTML5のautofocus属性 (<a class="reference internal" href="../tag.html#boolean-attribute"><span>論理属性</span></a>) 。</td>
 </tr>
 <tr class="row-odd"><td>errorCss</td>
 <td>エラーレベルのメッセージに使用するCSSクラス名。
@@ -1143,13 +1149,13 @@ httpsにする場合は <code class="docutils literal"><span class="pre">true</s
 <td>XHTMLのvalue属性。</td>
 </tr>
 <tr class="row-even"><td>disabled</td>
-<td>XHTMLのdisabled属性。</td>
+<td>XHTMLのdisabled属性 (<a class="reference internal" href="../tag.html#boolean-attribute"><span>論理属性</span></a>) 。</td>
 </tr>
 <tr class="row-odd"><td>autocomplete</td>
 <td>HTML5のautocomplete属性。</td>
 </tr>
 <tr class="row-even"><td>autofocus</td>
-<td>HTML5のautofocus属性。</td>
+<td>HTML5のautofocus属性 (<a class="reference internal" href="../tag.html#boolean-attribute"><span>論理属性</span></a>) 。</td>
 </tr>
 <tr class="row-odd"><td>errorCss</td>
 <td>エラーレベルのメッセージに使用するCSSクラス名。
@@ -1193,13 +1199,13 @@ httpsにする場合は <code class="docutils literal"><span class="pre">true</s
 <td>XHTMLのvalue属性。</td>
 </tr>
 <tr class="row-even"><td>disabled</td>
-<td>XHTMLのdisabled属性。</td>
+<td>XHTMLのdisabled属性 (<a class="reference internal" href="../tag.html#boolean-attribute"><span>論理属性</span></a>) 。</td>
 </tr>
 <tr class="row-odd"><td>autocomplete</td>
 <td>HTML5のautocomplete属性。</td>
 </tr>
 <tr class="row-even"><td>autofocus</td>
-<td>HTML5のautofocus属性。</td>
+<td>HTML5のautofocus属性 (<a class="reference internal" href="../tag.html#boolean-attribute"><span>論理属性</span></a>) 。</td>
 </tr>
 <tr class="row-odd"><td>errorCss</td>
 <td>エラーレベルのメッセージに使用するCSSクラス名。
@@ -1243,13 +1249,13 @@ httpsにする場合は <code class="docutils literal"><span class="pre">true</s
 <td>XHTMLのvalue属性。</td>
 </tr>
 <tr class="row-even"><td>disabled</td>
-<td>XHTMLのdisabled属性。</td>
+<td>XHTMLのdisabled属性 (<a class="reference internal" href="../tag.html#boolean-attribute"><span>論理属性</span></a>) 。</td>
 </tr>
 <tr class="row-odd"><td>autocomplete</td>
 <td>HTML5のautocomplete属性。</td>
 </tr>
 <tr class="row-even"><td>autofocus</td>
-<td>HTML5のautofocus属性。</td>
+<td>HTML5のautofocus属性 (<a class="reference internal" href="../tag.html#boolean-attribute"><span>論理属性</span></a>) 。</td>
 </tr>
 <tr class="row-odd"><td>errorCss</td>
 <td>エラーレベルのメッセージに使用するCSSクラス名。
@@ -1293,13 +1299,13 @@ httpsにする場合は <code class="docutils literal"><span class="pre">true</s
 <td>XHTMLのvalue属性。</td>
 </tr>
 <tr class="row-even"><td>disabled</td>
-<td>XHTMLのdisabled属性。</td>
+<td>XHTMLのdisabled属性 (<a class="reference internal" href="../tag.html#boolean-attribute"><span>論理属性</span></a>) 。</td>
 </tr>
 <tr class="row-odd"><td>autocomplete</td>
 <td>HTML5のautocomplete属性。</td>
 </tr>
 <tr class="row-even"><td>autofocus</td>
-<td>HTML5のautofocus属性。</td>
+<td>HTML5のautofocus属性 (<a class="reference internal" href="../tag.html#boolean-attribute"><span>論理属性</span></a>) 。</td>
 </tr>
 <tr class="row-odd"><td>errorCss</td>
 <td>エラーレベルのメッセージに使用するCSSクラス名。
@@ -1346,10 +1352,10 @@ httpsにする場合は <code class="docutils literal"><span class="pre">true</s
 <td>XHTMLのcols属性。</td>
 </tr>
 <tr class="row-odd"><td>disabled</td>
-<td>XHTMLのdisabled属性。</td>
+<td>XHTMLのdisabled属性 (<a class="reference internal" href="../tag.html#boolean-attribute"><span>論理属性</span></a>) 。</td>
 </tr>
 <tr class="row-even"><td>readonly</td>
-<td>XHTMLのreadonly属性。</td>
+<td>XHTMLのreadonly属性 (<a class="reference internal" href="../tag.html#boolean-attribute"><span>論理属性</span></a>) 。</td>
 </tr>
 <tr class="row-odd"><td>onselect</td>
 <td>XHTMLのonselect属性。</td>
@@ -1358,7 +1364,7 @@ httpsにする場合は <code class="docutils literal"><span class="pre">true</s
 <td>XHTMLのonchange属性。</td>
 </tr>
 <tr class="row-odd"><td>autofocus</td>
-<td>HTML5のautofocus属性。</td>
+<td>HTML5のautofocus属性 (<a class="reference internal" href="../tag.html#boolean-attribute"><span>論理属性</span></a>) 。</td>
 </tr>
 <tr class="row-even"><td>placeholder</td>
 <td>HTML5のplaceholder属性。</td>
@@ -1401,10 +1407,10 @@ httpsにする場合は <code class="docutils literal"><span class="pre">true</s
 <td>XHTMLのname属性。</td>
 </tr>
 <tr class="row-odd"><td>disabled</td>
-<td>XHTMLのdisabled属性。</td>
+<td>XHTMLのdisabled属性 (<a class="reference internal" href="../tag.html#boolean-attribute"><span>論理属性</span></a>) 。</td>
 </tr>
 <tr class="row-even"><td>readonly</td>
-<td>XHTMLのreadonly属性。</td>
+<td>XHTMLのreadonly属性 (<a class="reference internal" href="../tag.html#boolean-attribute"><span>論理属性</span></a>) 。</td>
 </tr>
 <tr class="row-odd"><td>size</td>
 <td>XHTMLのsize属性。</td>
@@ -1422,7 +1428,7 @@ httpsにする場合は <code class="docutils literal"><span class="pre">true</s
 <td>HTML5のautocomplete属性。</td>
 </tr>
 <tr class="row-even"><td>autofocus</td>
-<td>HTML5のautofocus属性。</td>
+<td>HTML5のautofocus属性 (<a class="reference internal" href="../tag.html#boolean-attribute"><span>論理属性</span></a>) 。</td>
 </tr>
 <tr class="row-odd"><td>placeholder</td>
 <td>HTML5のplaceholder属性。</td>
@@ -1477,13 +1483,13 @@ httpsにする場合は <code class="docutils literal"><span class="pre">true</s
 <td>ラベル。</td>
 </tr>
 <tr class="row-odd"><td>disabled</td>
-<td>XHTMLのdisabled属性。</td>
+<td>XHTMLのdisabled属性 (<a class="reference internal" href="../tag.html#boolean-attribute"><span>論理属性</span></a>) 。</td>
 </tr>
 <tr class="row-even"><td>onchange</td>
 <td>XHTMLのonchange属性。</td>
 </tr>
 <tr class="row-odd"><td>autofocus</td>
-<td>HTML5のautofocus属性。</td>
+<td>HTML5のautofocus属性 (<a class="reference internal" href="../tag.html#boolean-attribute"><span>論理属性</span></a>) 。</td>
 </tr>
 <tr class="row-even"><td>errorCss</td>
 <td>エラーレベルのメッセージに使用するCSSクラス名。
@@ -1525,7 +1531,7 @@ httpsにする場合は <code class="docutils literal"><span class="pre">true</s
 デフォルトは <code class="docutils literal"><span class="pre">1</span></code> 。</td>
 </tr>
 <tr class="row-even"><td>autofocus</td>
-<td>HTML5のautofocus属性。</td>
+<td>HTML5のautofocus属性 (<a class="reference internal" href="../tag.html#boolean-attribute"><span>論理属性</span></a>) 。</td>
 </tr>
 <tr class="row-odd"><td>label</td>
 <td>チェックありの場合に使用するラベル。
@@ -1543,7 +1549,7 @@ httpsにする場合は <code class="docutils literal"><span class="pre">true</s
 デフォルトは <code class="docutils literal"><span class="pre">0</span></code> 。</td>
 </tr>
 <tr class="row-odd"><td>disabled</td>
-<td>XHTMLのdisabled属性。</td>
+<td>XHTMLのdisabled属性 (<a class="reference internal" href="../tag.html#boolean-attribute"><span>論理属性</span></a>) 。</td>
 </tr>
 <tr class="row-even"><td>onchange</td>
 <td>XHTMLのonchange属性。</td>
@@ -1598,14 +1604,14 @@ keyNames属性で指定したプロパティを持つ必要がある。</td>
 なお、name属性は、namePrefix属性とkeyNames属性で指定したキーの組み合わせと異なる名称にしなければならない特殊な制約がある。実装時はこの点に十分注意すること。</td>
 </tr>
 <tr class="row-even"><td>autofocus</td>
-<td>HTML5のautofocus属性。</td>
+<td>HTML5のautofocus属性 (<a class="reference internal" href="../tag.html#boolean-attribute"><span>論理属性</span></a>) 。</td>
 </tr>
 <tr class="row-odd"><td>label</td>
 <td>チェックありの場合に使用するラベル。
 入力画面では、このラベルが表示される。</td>
 </tr>
 <tr class="row-even"><td>disabled</td>
-<td>XHTMLのdisabled属性。</td>
+<td>XHTMLのdisabled属性 (<a class="reference internal" href="../tag.html#boolean-attribute"><span>論理属性</span></a>) 。</td>
 </tr>
 <tr class="row-odd"><td>onchange</td>
 <td>XHTMLのonchange属性。</td>
@@ -1660,14 +1666,14 @@ keyNames属性で指定したプロパティを持つ必要がある。</td>
 なお、name属性は、namePrefix属性とkeyNames属性で指定したキーの組み合わせと異なる名称にしなければならない特殊な制約がある。実装時はこの点に十分注意すること。</td>
 </tr>
 <tr class="row-even"><td>autofocus</td>
-<td>HTML5のautofocus属性。</td>
+<td>HTML5のautofocus属性 (<a class="reference internal" href="../tag.html#boolean-attribute"><span>論理属性</span></a>) 。</td>
 </tr>
 <tr class="row-odd"><td>label</td>
 <td>チェックありの場合に使用するラベル。
 入力画面では、このラベルが表示される。</td>
 </tr>
 <tr class="row-even"><td>disabled</td>
-<td>XHTMLのdisabled属性。</td>
+<td>XHTMLのdisabled属性 (<a class="reference internal" href="../tag.html#boolean-attribute"><span>論理属性</span></a>) 。</td>
 </tr>
 <tr class="row-odd"><td>onchange</td>
 <td>XHTMLのonchange属性。</td>
@@ -1707,10 +1713,10 @@ keyNames属性で指定したプロパティを持つ必要がある。</td>
 <td>XHTMLのname属性。</td>
 </tr>
 <tr class="row-odd"><td>disabled</td>
-<td>XHTMLのdisabled属性。</td>
+<td>XHTMLのdisabled属性 (<a class="reference internal" href="../tag.html#boolean-attribute"><span>論理属性</span></a>) 。</td>
 </tr>
 <tr class="row-even"><td>readonly</td>
-<td>XHTMLのreadonly属性。</td>
+<td>XHTMLのreadonly属性 (<a class="reference internal" href="../tag.html#boolean-attribute"><span>論理属性</span></a>) 。</td>
 </tr>
 <tr class="row-odd"><td>size</td>
 <td>XHTMLのsize属性。</td>
@@ -1728,10 +1734,10 @@ keyNames属性で指定したプロパティを持つ必要がある。</td>
 <td>XHTMLのaccept属性。</td>
 </tr>
 <tr class="row-even"><td>autofocus</td>
-<td>HTML5のautofocus属性。</td>
+<td>HTML5のautofocus属性 (<a class="reference internal" href="../tag.html#boolean-attribute"><span>論理属性</span></a>) 。</td>
 </tr>
 <tr class="row-odd"><td>multiple</td>
-<td>HTML5のmultiple属性。</td>
+<td>HTML5のmultiple属性 (<a class="reference internal" href="../tag.html#boolean-attribute"><span>論理属性</span></a>) 。</td>
 </tr>
 <tr class="row-even"><td>errorCss</td>
 <td>エラーレベルのメッセージに使用するCSSクラス名。
@@ -1774,7 +1780,7 @@ keyNames属性で指定したプロパティを持つ必要がある。</td>
 <td>XHTMLのname属性。</td>
 </tr>
 <tr class="row-odd"><td>disabled</td>
-<td>XHTMLのdisabled属性。</td>
+<td>XHTMLのdisabled属性 (<a class="reference internal" href="../tag.html#boolean-attribute"><span>論理属性</span></a>) 。</td>
 </tr>
 </tbody>
 </table>
@@ -1803,7 +1809,7 @@ keyNames属性で指定したプロパティを持つ必要がある。</td>
 <td>XHTMLのname属性。</td>
 </tr>
 <tr class="row-odd"><td>disabled</td>
-<td>XHTMLのdisabled属性。</td>
+<td>XHTMLのdisabled属性 (<a class="reference internal" href="../tag.html#boolean-attribute"><span>論理属性</span></a>) 。</td>
 </tr>
 </tbody>
 </table>
@@ -1832,7 +1838,7 @@ keyNames属性で指定したプロパティを持つ必要がある。</td>
 <td>XHTMLのname属性。</td>
 </tr>
 <tr class="row-odd"><td>disabled</td>
-<td>XHTMLのdisabled属性。</td>
+<td>XHTMLのdisabled属性 (<a class="reference internal" href="../tag.html#boolean-attribute"><span>論理属性</span></a>) 。</td>
 </tr>
 </tbody>
 </table>
@@ -1872,10 +1878,10 @@ keyNames属性で指定したプロパティを持つ必要がある。</td>
 <td>XHTMLのsize属性。</td>
 </tr>
 <tr class="row-even"><td>multiple</td>
-<td>XHTMLのmultiple属性。</td>
+<td>XHTMLのmultiple属性 (<a class="reference internal" href="../tag.html#boolean-attribute"><span>論理属性</span></a>) 。</td>
 </tr>
 <tr class="row-odd"><td>disabled</td>
-<td>XHTMLのdisabled属性。</td>
+<td>XHTMLのdisabled属性 (<a class="reference internal" href="../tag.html#boolean-attribute"><span>論理属性</span></a>) 。</td>
 </tr>
 <tr class="row-even"><td>tabindex</td>
 <td>XHTMLのtabindex属性。</td>
@@ -1890,7 +1896,7 @@ keyNames属性で指定したプロパティを持つ必要がある。</td>
 <td>XHTMLのonchange属性。</td>
 </tr>
 <tr class="row-even"><td>autofocus</td>
-<td>HTML5のautofocus属性。</td>
+<td>HTML5のautofocus属性 (<a class="reference internal" href="../tag.html#boolean-attribute"><span>論理属性</span></a>) 。</td>
 </tr>
 <tr class="row-odd"><td>elementLabelPattern</td>
 <td>ラベルを整形するためのパターン。
@@ -1966,13 +1972,13 @@ sp(スペース区切り)
 <td>リスト要素から値を取得するためのプロパティ名。</td>
 </tr>
 <tr class="row-even"><td>disabled</td>
-<td>XHTMLのdisabled属性。</td>
+<td>XHTMLのdisabled属性 (<a class="reference internal" href="../tag.html#boolean-attribute"><span>論理属性</span></a>) 。</td>
 </tr>
 <tr class="row-odd"><td>onchange</td>
 <td>XHTMLのonchange属性。</td>
 </tr>
 <tr class="row-even"><td>autofocus</td>
-<td>HTML5のautofocus属性。
+<td>HTML5のautofocus属性 (<a class="reference internal" href="../tag.html#boolean-attribute"><span>論理属性</span></a>) 。
 選択肢のうち、先頭要素のみautofocus属性を出力する。</td>
 </tr>
 <tr class="row-odd"><td>elementLabelPattern</td>
@@ -2039,13 +2045,13 @@ sp(スペース区切り)
 <td>リスト要素から値を取得するためのプロパティ名。</td>
 </tr>
 <tr class="row-even"><td>disabled</td>
-<td>XHTMLのdisabled属性。</td>
+<td>XHTMLのdisabled属性 (<a class="reference internal" href="../tag.html#boolean-attribute"><span>論理属性</span></a>) 。</td>
 </tr>
 <tr class="row-odd"><td>onchange</td>
 <td>XHTMLのonchange属性。</td>
 </tr>
 <tr class="row-even"><td>autofocus</td>
-<td>HTML5のautofocus属性。
+<td>HTML5のautofocus属性 (<a class="reference internal" href="../tag.html#boolean-attribute"><span>論理属性</span></a>) 。
 選択肢のうち、先頭要素のみautofocus属性を出力する。</td>
 </tr>
 <tr class="row-odd"><td>elementLabelPattern</td>
@@ -2108,7 +2114,7 @@ sp(スペース区切り)
 <a class="reference internal" href="../tag.html#tag-specify-uri"><span>URIの指定方法</span></a> を参照。</td>
 </tr>
 <tr class="row-odd"><td>disabled</td>
-<td>XHTMLのdisabled属性。</td>
+<td>XHTMLのdisabled属性 (<a class="reference internal" href="../tag.html#boolean-attribute"><span>論理属性</span></a>) 。</td>
 </tr>
 <tr class="row-even"><td>value</td>
 <td>XHTMLのvalue属性。</td>
@@ -2126,7 +2132,7 @@ sp(スペース区切り)
 <td>XHTMLのalign属性。</td>
 </tr>
 <tr class="row-odd"><td>autofocus</td>
-<td>HTML5のautofocus属性。</td>
+<td>HTML5のautofocus属性 (<a class="reference internal" href="../tag.html#boolean-attribute"><span>論理属性</span></a>) 。</td>
 </tr>
 <tr class="row-even"><td>allowDoubleSubmission</td>
 <td>二重サブミットを許可するか否か。
@@ -2181,10 +2187,10 @@ NORMAL (通常表示)</td>
 <td>XHTMLのtype属性。</td>
 </tr>
 <tr class="row-even"><td>disabled</td>
-<td>XHTMLのdisabled属性。</td>
+<td>XHTMLのdisabled属性 (<a class="reference internal" href="../tag.html#boolean-attribute"><span>論理属性</span></a>) 。</td>
 </tr>
 <tr class="row-odd"><td>autofocus</td>
-<td>HTML5のautofocus属性。</td>
+<td>HTML5のautofocus属性 (<a class="reference internal" href="../tag.html#boolean-attribute"><span>論理属性</span></a>) 。</td>
 </tr>
 <tr class="row-even"><td>allowDoubleSubmission</td>
 <td>二重サブミットを許可するか否か。
@@ -2288,7 +2294,7 @@ NORMAL (通常表示)</td>
 <a class="reference internal" href="../tag.html#tag-specify-uri"><span>URIの指定方法</span></a> を参照。</td>
 </tr>
 <tr class="row-odd"><td>disabled</td>
-<td>XHTMLのdisabled属性。</td>
+<td>XHTMLのdisabled属性 (<a class="reference internal" href="../tag.html#boolean-attribute"><span>論理属性</span></a>) 。</td>
 </tr>
 <tr class="row-even"><td>value</td>
 <td>XHTMLのvalue属性。</td>
@@ -2306,7 +2312,7 @@ NORMAL (通常表示)</td>
 <td>XHTMLのalign属性。</td>
 </tr>
 <tr class="row-odd"><td>autofocus</td>
-<td>HTML5のautofocus属性。</td>
+<td>HTML5のautofocus属性 (<a class="reference internal" href="../tag.html#boolean-attribute"><span>論理属性</span></a>) 。</td>
 </tr>
 <tr class="row-even"><td>secure</td>
 <td>URIをhttpsにするか否か。
@@ -2364,10 +2370,10 @@ NORMAL (通常表示)</td>
 <td>XHTMLのtype属性。</td>
 </tr>
 <tr class="row-even"><td>disabled</td>
-<td>XHTMLのdisabled属性。</td>
+<td>XHTMLのdisabled属性 (<a class="reference internal" href="../tag.html#boolean-attribute"><span>論理属性</span></a>) 。</td>
 </tr>
 <tr class="row-odd"><td>autofocus</td>
-<td>HTML5のautofocus属性。</td>
+<td>HTML5のautofocus属性 (<a class="reference internal" href="../tag.html#boolean-attribute"><span>論理属性</span></a>) 。</td>
 </tr>
 <tr class="row-even"><td>secure</td>
 <td>URIをhttpsにするか否か。
@@ -2477,7 +2483,7 @@ NORMAL (通常表示)</td>
 <a class="reference internal" href="../tag.html#tag-specify-uri"><span>URIの指定方法</span></a> を参照。</td>
 </tr>
 <tr class="row-odd"><td>disabled</td>
-<td>XHTMLのdisabled属性。</td>
+<td>XHTMLのdisabled属性 (<a class="reference internal" href="../tag.html#boolean-attribute"><span>論理属性</span></a>) 。</td>
 </tr>
 <tr class="row-even"><td>value</td>
 <td>XHTMLのvalue属性。</td>
@@ -2495,7 +2501,7 @@ NORMAL (通常表示)</td>
 <td>XHTMLのalign属性。</td>
 </tr>
 <tr class="row-odd"><td>autofocus</td>
-<td>HTML5のautofocus属性。</td>
+<td>HTML5のautofocus属性 (<a class="reference internal" href="../tag.html#boolean-attribute"><span>論理属性</span></a>) 。</td>
 </tr>
 <tr class="row-even"><td>allowDoubleSubmission</td>
 <td>二重サブミットを許可するか否か。
@@ -2550,10 +2556,10 @@ NORMAL (通常表示)</td>
 <td>XHTMLのtype属性。</td>
 </tr>
 <tr class="row-even"><td>disabled</td>
-<td>XHTMLのdisabled属性。</td>
+<td>XHTMLのdisabled属性 (<a class="reference internal" href="../tag.html#boolean-attribute"><span>論理属性</span></a>) 。</td>
 </tr>
 <tr class="row-odd"><td>autofocus</td>
-<td>HTML5のautofocus属性。</td>
+<td>HTML5のautofocus属性 (<a class="reference internal" href="../tag.html#boolean-attribute"><span>論理属性</span></a>) 。</td>
 </tr>
 <tr class="row-even"><td>allowDoubleSubmission</td>
 <td>二重サブミットを許可するか否か。
@@ -2994,10 +3000,10 @@ span(spanタグ)
 <td>XHTMLのsize属性。</td>
 </tr>
 <tr class="row-even"><td>multiple</td>
-<td>XHTMLのmultiple属性。</td>
+<td>XHTMLのmultiple属性 (<a class="reference internal" href="../tag.html#boolean-attribute"><span>論理属性</span></a>) 。</td>
 </tr>
 <tr class="row-odd"><td>disabled</td>
-<td>XHTMLのdisabled属性。</td>
+<td>XHTMLのdisabled属性 (<a class="reference internal" href="../tag.html#boolean-attribute"><span>論理属性</span></a>) 。</td>
 </tr>
 <tr class="row-even"><td>tabindex</td>
 <td>XHTMLのtabindex属性。</td>
@@ -3012,7 +3018,7 @@ span(spanタグ)
 <td>XHTMLのonchange属性。</td>
 </tr>
 <tr class="row-even"><td>autofocus</td>
-<td>HTML5のautofocus属性。</td>
+<td>HTML5のautofocus属性 (<a class="reference internal" href="../tag.html#boolean-attribute"><span>論理属性</span></a>) 。</td>
 </tr>
 <tr class="row-odd"><td>pattern</td>
 <td>使用するパターンのカラム名。
@@ -3090,13 +3096,13 @@ sp(スペース区切り)
 <td>コードID。</td>
 </tr>
 <tr class="row-even"><td>disabled</td>
-<td>XHTMLのdisabled属性。</td>
+<td>XHTMLのdisabled属性 (<a class="reference internal" href="../tag.html#boolean-attribute"><span>論理属性</span></a>) 。</td>
 </tr>
 <tr class="row-odd"><td>onchange</td>
 <td>XHTMLのonchange属性。</td>
 </tr>
 <tr class="row-even"><td>autofocus</td>
-<td>HTML5のautofocus属性。
+<td>HTML5のautofocus属性 (<a class="reference internal" href="../tag.html#boolean-attribute"><span>論理属性</span></a>) 。
 選択肢のうち、先頭要素のみautofocus属性を出力する。</td>
 </tr>
 <tr class="row-odd"><td>pattern</td>
@@ -3165,13 +3171,13 @@ sp(スペース区切り)
 <td>コードID。</td>
 </tr>
 <tr class="row-even"><td>disabled</td>
-<td>XHTMLのdisabled属性。</td>
+<td>XHTMLのdisabled属性 (<a class="reference internal" href="../tag.html#boolean-attribute"><span>論理属性</span></a>) 。</td>
 </tr>
 <tr class="row-odd"><td>onchange</td>
 <td>XHTMLのonchange属性。</td>
 </tr>
 <tr class="row-even"><td>autofocus</td>
-<td>HTML5のautofocus属性。
+<td>HTML5のautofocus属性 (<a class="reference internal" href="../tag.html#boolean-attribute"><span>論理属性</span></a>) 。
 選択肢のうち、先頭要素のみautofocus属性を出力する。</td>
 </tr>
 <tr class="row-odd"><td>pattern</td>
@@ -3242,7 +3248,7 @@ sp(スペース区切り)
 デフォルトは <code class="docutils literal"><span class="pre">1</span></code> 。</td>
 </tr>
 <tr class="row-even"><td>autofocus</td>
-<td>HTML5のautofocus属性。</td>
+<td>HTML5のautofocus属性 (<a class="reference internal" href="../tag.html#boolean-attribute"><span>論理属性</span></a>) 。</td>
 </tr>
 <tr class="row-odd"><td>codeId <code class="docutils literal"><span class="pre">必須</span></code></td>
 <td>コードID。</td>
@@ -3269,7 +3275,7 @@ codeId属性の値からチェックなしの場合に使用するコード値�
 検索で見つからない場合は、デフォルト値の <code class="docutils literal"><span class="pre">0</span></code> を使用する。</td>
 </tr>
 <tr class="row-odd"><td>disabled</td>
-<td>XHTMLのdisabled属性。</td>
+<td>XHTMLのdisabled属性 (<a class="reference internal" href="../tag.html#boolean-attribute"><span>論理属性</span></a>) 。</td>
 </tr>
 <tr class="row-even"><td>onchange</td>
 <td>XHTMLのonchange属性。</td>
@@ -3611,7 +3617,7 @@ request: リクエストスコープ
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../../',
-            VERSION:'5u22',
+            VERSION:'5u23',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

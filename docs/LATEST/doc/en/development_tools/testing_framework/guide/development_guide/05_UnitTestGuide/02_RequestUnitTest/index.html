@@ -9,7 +9,7 @@
   <meta http-equiv='content-language' content='ja'>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>3.1.2. How to Execute a Request Unit Test &mdash; ∇Nablarch  5u22 documentation</title>
+  <title>3.1.2. How to Execute a Request Unit Test &mdash; ∇Nablarch  5u23 documentation</title>
   
 
   
@@ -35,7 +35,7 @@
   
   <link rel="canonical" href="https://nablarch.github.io/docs/LATEST/doc/development_tools/testing_framework/guide/development_guide/05_UnitTestGuide/02_RequestUnitTest/index.html" />
   
-    <link rel="top" title="∇Nablarch  5u22 documentation" href="../../../../../../index.html"/>
+    <link rel="top" title="∇Nablarch  5u23 documentation" href="../../../../../../index.html"/>
         <link rel="up" title="3.1. How to Execute Unit Tests" href="../index.html"/>
         <link rel="next" title="3.1.3. How to Perform a Request Unit Test (File Upload)" href="fileupload.html"/>
         <link rel="prev" title="3.1.1.2. Class Unit Test of Action/Component" href="../01_ClassUnitTest/02_componentUnitTest.html"/>
@@ -63,7 +63,7 @@
   
 
   
-    <div id="sidebar-version">Version: 5u22</div>
+    <div id="sidebar-version">Version: 5u23</div>
   </a>
 
   <div role="search">
@@ -142,7 +142,7 @@
 </li>
 <li class="toctree-l1 current"><a class="reference internal" href="../../../../../index.html">Nablarch development tools</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../../../../../java_static_analysis/index.html">1. Efficient Java Static Checks</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../../../java_static_analysis/index.html#conduct-syntax-check">1.1. Conduct syntax check</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../java_static_analysis/index.html#run-inspection">1.1. Run inspection</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../../java_static_analysis/index.html#unify-the-format">1.2. Unify the format</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../../java_static_analysis/index.html#check-if-unauthorized-apis-are-being-used">1.3. Check if unauthorized APIs are being used</a></li>
 </ul>
@@ -228,6 +228,12 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../../../../examples/12/index.html#summary">Summary</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../../../examples/12/index.html#structure">Structure</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../../../examples/12/index.html#how-to-use">How to Use</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../examples/13/index.html">Sample Request/Response Log Output Using Logbook</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../../examples/13/index.html#delivery-package">Delivery package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../../examples/13/index.html#summary">Summary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../../examples/13/index.html#how-to-use">How to Use</a></li>
 </ul>
 </li>
 </ul>
@@ -417,11 +423,11 @@ The data written here is submitted when the test method is executed by the autom
 <tr class="row-odd"><td>description</td>
 <td>Write an explanation of the test case.
 Used for the filename of the HTML dump file output in the request unit test of
-the web application. <a class="footnote-reference" href="#id3" id="id1">[1]</a></td>
+the web application. <a class="footnote-reference" href="#id2" id="id1">[1]</a></td>
 <td>Required</td>
 </tr>
 <tr class="row-even"><td>context</td>
-<td>Describe which request ID to send a request to, by which user in the test case.
+<td>Describe the user information used to send the request in that test case.
 For more information, see <a class="reference internal" href="#request-test-user-info"><span>User information</span></a>.</td>
 <td>Required</td>
 </tr>
@@ -430,41 +436,46 @@ For more information, see <a class="reference internal" href="#request-test-user
 For more information, see <a class="reference internal" href="#request-test-cookie-info"><span>Cookie information</span></a>.</td>
 <td>&nbsp;</td>
 </tr>
-<tr class="row-even"><td>isValidToken</td>
+<tr class="row-even"><td>queryParams</td>
+<td>Describe the query parameter information required for that test case.
+For more information, see <a class="reference internal" href="#request-test-queryparams-info"><span>Query parameter information</span></a>.</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>isValidToken</td>
 <td>Set to true when configuring a token. For more information on tokens, refer to
 <a class="reference internal" href="../../../../../../application_framework/application_framework/libraries/tag.html#tag-double-submission-server-side"><span>server-side double submission prevention</span></a>.</td>
 <td>&nbsp;</td>
 </tr>
-<tr class="row-odd"><td>setUpTable</td>
+<tr class="row-even"><td>setUpTable</td>
 <td>Describe the <a class="reference internal" href="../../06_TestFWGuide/03_Tips.html#tips-groupid"><span>group ID</span></a> of data written within the same sheet, when
 registering the data in the database before executing each test case.
 Data submission is carried out by the automated test framework.</td>
 <td>&nbsp;</td>
 </tr>
-<tr class="row-even"><td>expectedStatusCode</td>
-<td>Describe the expected HTTP status code.  <a class="footnote-reference" href="#id4" id="id2">[2]</a></td>
+<tr class="row-odd"><td>expectedStatusCode</td>
+<td>Describe the expected HTTP status code.</td>
 <td>Required</td>
 </tr>
-<tr class="row-odd"><td>expectedMessageId</td>
+<tr class="row-even"><td>expectedMessageId</td>
 <td>When a message is expected to be output, describe the <strong>message ID</strong> of that message.
 If more than one message is output, the messages are enumerated by a comma. Leave blank
 when a message is not expected. After leaving this field blank, if in reality,
 a message is output, then the test fails.</td>
 <td>&nbsp;</td>
 </tr>
-<tr class="row-even"><td>expectedSearch</td>
+<tr class="row-odd"><td>expectedSearch</td>
 <td>When database search result is expected to be set in the request scope, describe
 the <strong>expected search result</strong>. Specify the search result with the LIST_MAP data type
 ID within the same sheet. The key for fetching the result from
 the request scope is <strong>searchResult</strong>.</td>
 <td>&nbsp;</td>
 </tr>
-<tr class="row-odd"><td>expectedTable</td>
+<tr class="row-even"><td>expectedTable</td>
 <td>Describe the <a class="reference internal" href="../../06_TestFWGuide/03_Tips.html#tips-groupid"><span>group ID</span></a> of the expected table
 when comparing the contents of the database.</td>
 <td>&nbsp;</td>
 </tr>
-<tr class="row-even"><td>forwardUri</td>
+<tr class="row-odd"><td>forwardUri</td>
 <td>Describe the expected forward destination URI. Describe the URI to the forward
 destination JSP specified in the Action class. When left blank, the field is asserted
 as a field for which no forwarding to JSP will be performed.In a test case where
@@ -474,37 +485,37 @@ transition to the system error screen, <cite>/jsp/systemError.jsp</cite> is the 
 destination URI (in the case of default value).</td>
 <td>&nbsp;</td>
 </tr>
-<tr class="row-odd"><td>expectedContentLength</td>
+<tr class="row-even"><td>expectedContentLength</td>
 <td>Describe the expected value of the content length header.
 Specify in this column when testing a file download.</td>
 <td>&nbsp;</td>
 </tr>
-<tr class="row-even"><td>expectedContentType</td>
+<tr class="row-odd"><td>expectedContentType</td>
 <td>Describe the expected value of the content type header.
 Specify in this column when testing a file download.</td>
 <td>&nbsp;</td>
 </tr>
-<tr class="row-odd"><td>expectedContentFileName</td>
+<tr class="row-even"><td>expectedContentFileName</td>
 <td>Describe the expected value of the filename specified in the content disposition header.
 Specify in this column when testing a file download.</td>
 <td>&nbsp;</td>
 </tr>
-<tr class="row-even"><td>expectedMessage</td>
+<tr class="row-odd"><td>expectedMessage</td>
 <td>Describe the <a class="reference internal" href="../../06_TestFWGuide/03_Tips.html#tips-groupid"><span>group ID</span></a> of the expected request messages when performing
 synchronous transmission of messages. Messages are created by an automated test framework.</td>
 <td>&nbsp;</td>
 </tr>
-<tr class="row-odd"><td>responseMessage</td>
+<tr class="row-even"><td>responseMessage</td>
 <td>If sending synchronous message, the <a class="reference internal" href="../../06_TestFWGuide/03_Tips.html#tips-groupid"><span>group ID</span></a> of the response message
 to be returned is described. Messages are created by an automated test framework.</td>
 <td>&nbsp;</td>
 </tr>
-<tr class="row-even"><td>expectedMessageByClient</td>
+<tr class="row-odd"><td>expectedMessageByClient</td>
 <td>Describe the <a class="reference internal" href="../../06_TestFWGuide/03_Tips.html#tips-groupid"><span>group ID</span></a> of the expected request messages when performing
 synchronous transmission of HTTP messages. Messages are created by an automated test framework.</td>
 <td>&nbsp;</td>
 </tr>
-<tr class="row-odd"><td>responseMessageByClient</td>
+<tr class="row-even"><td>responseMessageByClient</td>
 <td>If sending synchronous HTTP message, the  <a class="reference internal" href="../../06_TestFWGuide/03_Tips.html#tips-groupid"><span>group ID</span></a> of the response
 message to be returned is described. Messages are created by an automated test framework.</td>
 <td>&nbsp;</td>
@@ -512,7 +523,7 @@ message to be returned is described. Messages are created by an automated test f
 </tbody>
 </table>
 <p>Describe the HTTP <a class="reference internal" href="#request-parameter">Request parameter</a> to be sent in the test case in a separate table instead of this table（ <a class="reference internal" href="#request-test-req-params"><span>described later</span></a> ）.</p>
-<table class="docutils footnote" frame="void" id="id3" rules="none">
+<table class="docutils footnote" frame="void" id="id2" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
 <tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td>Since the content of the description is used for the file name, IOException is raised if characters other than those specified as usable for the file name in the OS are used,
@@ -520,25 +531,16 @@ or if the length limit for the file name is exceeded. Hence, the content allowed
 For example, if a line feed code is included in the description, an error will occur when the test is executed since line feed code is invalid as a file name.</td></tr>
 </tbody>
 </table>
-<table class="docutils footnote" frame="void" id="id4" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id2">[2]</a></td><td><p class="first">In the request unit test of a web application, when asserting the HTTP status code, the status codes 302 and 303, which have the same redirection behavior in a normal browser,
-are asserted identically. In other words, not only when the expected result and the executed result have exactly the same HTTP status code,
-but also when the expected result code is 303 and the executed result code is 302, and when the expected result code is 302 and the executed result code is 303, the assertion result shows successful completion.</p>
-<p class="last">&lt;Reason&gt; As per the RFC regulation, for browsers that understand HTTP 1.1, it is better to return 303 for redirect,
-however, currently the major web containers use the 302 response code taking into account the legacy browsers.</p>
-</td></tr>
-</tbody>
-</table>
 </div>
 <div class="section" id="user-information">
 <span id="request-test-user-info"></span><h3>3.1.2.3.3. User information<a class="headerlink" href="#user-information" title="Permalink to this headline">¶</a></h3>
-<p>In the test case, describe with the data type of LIST_MAP to which request ID and by which user to send the request.
-By using information of multiple users,
-it is possible to test functions that are processed differently depending on the user permissions.</p>
+<p>In that test case, describe the request ID, user, and HTTP method used to send the request, using the LIST_MAP data type.
+By using multiple user information, it is possible to test functions that are processed differently depending on the user permissions and the HTTP method used.
+The HTTP method information is an optional item. If omitted, POST is set.</p>
 <p>For example, when the accessible data differs depending on the permissions, user information is used differently as follows:</p>
 <img alt="../../../../../../_images/testcase-user.png" src="../../../../../../_images/testcase-user.png" />
+<p>For another example, when multiple HTTP methods are accepted with the same request ID, user information is used differently as follows:</p>
+<img alt="../../../../../../_images/testcase-user2.png" src="../../../../../../_images/testcase-user2.png" />
 </div>
 <div class="section" id="cookie-information">
 <span id="request-test-cookie-info"></span><h3>3.1.2.3.4. Cookie information<a class="headerlink" href="#cookie-information" title="Permalink to this headline">¶</a></h3>
@@ -549,8 +551,17 @@ This makes it possible to perform the test by sending different cookie informati
 For cases not requiring cookies, cookie information should be left blank without describing the value as in Case 8 of the example below.</p>
 <img alt="../../../../../../_images/requestCookie.png" src="../../../../../../_images/requestCookie.png" />
 </div>
+<div class="section" id="query-parameter-information">
+<span id="request-test-queryparams-info"></span><h3>3.1.2.3.5. Query parameter information<a class="headerlink" href="#query-parameter-information" title="Permalink to this headline">¶</a></h3>
+<p>Describe the query parameter information required for that test case with the data type of LIST_MAP.
+This makes it possible to perform the test by sending different query parameter information for each case.</p>
+<p>There is no need to describe query parameter information for cases not requiring query parameters for optional items.</p>
+<p>For example, when it is required to change the value of the query parameter depending on the case, configure the query parameter information as follows:
+For cases not requiring query parameter, query parameter information should be left blank without describing the value as in Case 3 of the example below.</p>
+<img alt="../../../../../../_images/queryParams.png" src="../../../../../../_images/queryParams.png" />
+</div>
 <div class="section" id="request-parameter">
-<span id="request-test-req-params"></span><h3>3.1.2.3.5. Request parameter<a class="headerlink" href="#request-parameter" title="Permalink to this headline">¶</a></h3>
+<span id="request-test-req-params"></span><h3>3.1.2.3.6. Request parameter<a class="headerlink" href="#request-parameter" title="Permalink to this headline">¶</a></h3>
 <p>The HTTP parameters sent in each test case are described with the data type of LIST_MAP.</p>
 <p>Create data for request parameters using <a class="reference internal" href="../../08_TestTools/01_HttpDumpTool/01_HttpDumpTool.html#http-dump-tool"><span>Request Unit Data Creation Tool</span></a>.
 Use this tool to create data for request parameters except for initial screen display request (e.g. transition from the menu screen).</p>
@@ -572,7 +583,7 @@ Define as many rows of data as the number of test cases. (Define 3 rows for 3 ca
 </ul>
 </div>
 <div class="section" id="when-configuring-multiple-values-for-a-single-key">
-<h4>3.1.2.3.5.1. When configuring multiple values for a single key<a class="headerlink" href="#when-configuring-multiple-values-for-a-single-key" title="Permalink to this headline">¶</a></h4>
+<h4>3.1.2.3.6.1. When configuring multiple values for a single key<a class="headerlink" href="#when-configuring-multiple-values-for-a-single-key" title="Permalink to this headline">¶</a></h4>
 <p>For HTTP request parameters, multiple values can be set for a single key.
 In the request unit test, <strong>multiple values can be expressed by delimiting the values with commas</strong>.</p>
 <p>In the following example, multiple values, namely, one and two, are set for the key foo.</p>
@@ -618,16 +629,16 @@ To include \ mark itself in the value, prefix it with another <cite>\\</cite>mar
 </div>
 </div>
 <div class="section" id="various-expected-values">
-<h3>3.1.2.3.6. Various expected values<a class="headerlink" href="#various-expected-values" title="Permalink to this headline">¶</a></h3>
+<h3>3.1.2.3.7. Various expected values<a class="headerlink" href="#various-expected-values" title="Permalink to this headline">¶</a></h3>
 <p>When comparing the search results and database with expected values,
 link each data with the list of test cases using ID.</p>
 <div class="section" id="expected-search-result">
-<h4>3.1.2.3.6.1. Expected search result<a class="headerlink" href="#expected-search-result" title="Permalink to this headline">¶</a></h4>
+<h4>3.1.2.3.7.1. Expected search result<a class="headerlink" href="#expected-search-result" title="Permalink to this headline">¶</a></h4>
 <p>Link the expected search result with the list of test cases.</p>
 <img alt="../../../../../../_images/expected_search_result.png" src="../../../../../../_images/expected_search_result.png" />
 </div>
 <div class="section" id="expected-database-status">
-<span id="request-test-expected-tables"></span><h4>3.1.2.3.6.2. Expected database status<a class="headerlink" href="#expected-database-status" title="Permalink to this headline">¶</a></h4>
+<span id="request-test-expected-tables"></span><h4>3.1.2.3.7.2. Expected database status<a class="headerlink" href="#expected-database-status" title="Permalink to this headline">¶</a></h4>
 <p>In the test cases for the update, in order to check the expected status of the database,
 the expected status is linked with the list of test cases.</p>
 <a class="reference internal image-reference" href="../../../../../../_images/expected_table.png"><img alt="../../../../../../_images/expected_table.png" src="../../../../../../_images/expected_table.png" /></a>
@@ -796,7 +807,7 @@ and we are verifying that each of the search results is as expected.</p>
 <span class="o">}</span>
 </pre></div>
 </div>
-<p>Write the expected value in the same format as the entity&#8217;s class unit test (<a class="reference internal" href="../01_ClassUnitTest/01_entityUnitTest.html#entityunittest-settergettercase"><span>Test cases for setters and getters</span></a>).
+<p>Write the expected value in the same format as the entity&#8217;s class unit test (<a class="reference internal" href="../01_ClassUnitTest/01_entityUnitTest/02_entityUnitTestWithNablarchValidation.html#entityunittest-settergettercase"><span>Test cases for setters and getters</span></a>).
 However, in this case the “setter” filed is not necessary.</p>
 <img alt="../../../../../../_images/assert_entity.png" src="../../../../../../_images/assert_entity.png" />
 <div class="admonition tip">
@@ -1032,7 +1043,7 @@ In the request unit test, since transaction control is done by the handler,
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../../../../',
-            VERSION:'5u22',
+            VERSION:'5u23',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

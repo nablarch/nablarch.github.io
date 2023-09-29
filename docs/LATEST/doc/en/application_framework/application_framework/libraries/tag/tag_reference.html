@@ -9,7 +9,7 @@
   <meta http-equiv='content-language' content='ja'>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>7.19.1. Tag Reference &mdash; ∇Nablarch  5u22 documentation</title>
+  <title>7.19.1. Tag Reference &mdash; ∇Nablarch  5u23 documentation</title>
   
 
   
@@ -35,7 +35,7 @@
   
   <link rel="canonical" href="https://nablarch.github.io/docs/LATEST/doc/application_framework/application_framework/libraries/tag/tag_reference.html" />
   
-    <link rel="top" title="∇Nablarch  5u22 documentation" href="../../../../index.html"/>
+    <link rel="top" title="∇Nablarch  5u23 documentation" href="../../../../index.html"/>
         <link rel="up" title="7.19. JSP Custom Tags" href="../tag.html"/>
         <link rel="next" title="7.20. Double submission prevention using the database" href="../db_double_submit.html"/>
         <link rel="prev" title="7.19. JSP Custom Tags" href="../tag.html"/>
@@ -63,7 +63,7 @@
   
 
   
-    <div id="sidebar-version">Version: 5u22</div>
+    <div id="sidebar-version">Version: 5u23</div>
   </a>
 
   <div role="search">
@@ -142,7 +142,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../development_tools/index.html">Nablarch development tools</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../../../development_tools/java_static_analysis/index.html">1. Efficient Java Static Checks</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../../development_tools/java_static_analysis/index.html#conduct-syntax-check">1.1. Conduct syntax check</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../development_tools/java_static_analysis/index.html#run-inspection">1.1. Run inspection</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../development_tools/java_static_analysis/index.html#unify-the-format">1.2. Unify the format</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../development_tools/java_static_analysis/index.html#check-if-unauthorized-apis-are-being-used">1.3. Check if unauthorized APIs are being used</a></li>
 </ul>
@@ -228,6 +228,12 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../../examples/12/index.html#summary">Summary</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../examples/12/index.html#structure">Structure</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../examples/12/index.html#how-to-use">How to Use</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../examples/13/index.html">Sample Request/Response Log Output Using Logbook</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../examples/13/index.html#delivery-package">Delivery package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../examples/13/index.html#summary">Summary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../examples/13/index.html#how-to-use">How to Use</a></li>
 </ul>
 </li>
 </ul>
@@ -637,10 +643,10 @@ Default is <code class="docutils literal"><span class="pre">false</span></code>.
 <td>XHTML value attribute.</td>
 </tr>
 <tr class="row-even"><td>disabled</td>
-<td>XHTML disabled attribute.</td>
+<td>XHTML disabled attribute (<a class="reference internal" href="../tag.html#boolean-attribute"><span>Boolean attribute</span></a>).</td>
 </tr>
 <tr class="row-odd"><td>readonly</td>
-<td>XHTML readonly attribute.</td>
+<td>XHTML readonly attribute (<a class="reference internal" href="../tag.html#boolean-attribute"><span>Boolean attribute</span></a>).</td>
 </tr>
 <tr class="row-even"><td>size</td>
 <td>XHTML size attribute.</td>
@@ -658,7 +664,7 @@ Default is <code class="docutils literal"><span class="pre">false</span></code>.
 <td>HTML5 autocomplete attribute.</td>
 </tr>
 <tr class="row-odd"><td>autofocus</td>
-<td>HTML5 autofocus attribute.</td>
+<td>HTML5 autofocus attribute (<a class="reference internal" href="../tag.html#boolean-attribute"><span>Boolean attribute</span></a>).</td>
 </tr>
 <tr class="row-even"><td>placeholder</td>
 <td>HTML5 placeholder attribut.</td>
@@ -705,13 +711,13 @@ See <a class="reference internal" href="../tag.html#tag-format-value"><span>Outp
 <td>XHTML value attribute.</td>
 </tr>
 <tr class="row-even"><td>disabled</td>
-<td>XHTML disabled attribute.</td>
+<td>XHTML disabled attribute (<a class="reference internal" href="../tag.html#boolean-attribute"><span>Boolean attribute</span></a>).</td>
 </tr>
 <tr class="row-odd"><td>autocomplete</td>
 <td>HTML5 autocomplete attribute.</td>
 </tr>
 <tr class="row-even"><td>autofocus</td>
-<td>HTML5 autofocus attribute.</td>
+<td>HTML5 autofocus attribute (<a class="reference internal" href="../tag.html#boolean-attribute"><span>Boolean attribute</span></a>).</td>
 </tr>
 <tr class="row-odd"><td>errorCss</td>
 <td>CSS class name used for error level messages.
@@ -755,13 +761,13 @@ See <a class="reference internal" href="../tag.html#tag-format-value"><span>Outp
 <td>XHTML value attribute.</td>
 </tr>
 <tr class="row-even"><td>disabled</td>
-<td>XHTML disabled attribute.</td>
+<td>XHTML disabled attribute (<a class="reference internal" href="../tag.html#boolean-attribute"><span>Boolean attribute</span></a>).</td>
 </tr>
 <tr class="row-odd"><td>autocomplete</td>
 <td>HTML5 autocomplete attribute.</td>
 </tr>
 <tr class="row-even"><td>autofocus</td>
-<td>HTML5 autofocus attribute.</td>
+<td>HTML5 autofocus attribute (<a class="reference internal" href="../tag.html#boolean-attribute"><span>Boolean attribute</span></a>).</td>
 </tr>
 <tr class="row-odd"><td>errorCss</td>
 <td>CSS class name used for error level messages.
@@ -805,13 +811,13 @@ See <a class="reference internal" href="../tag.html#tag-format-value"><span>Outp
 <td>XHTML value attribute.</td>
 </tr>
 <tr class="row-even"><td>disabled</td>
-<td>XHTML disabled attribute.</td>
+<td>XHTML disabled attribute (<a class="reference internal" href="../tag.html#boolean-attribute"><span>Boolean attribute</span></a>).</td>
 </tr>
 <tr class="row-odd"><td>autocomplete</td>
 <td>HTML5 autocomplete attribute.</td>
 </tr>
 <tr class="row-even"><td>autofocus</td>
-<td>HTML5 autofocus attribute.</td>
+<td>HTML5 autofocus attribute (<a class="reference internal" href="../tag.html#boolean-attribute"><span>Boolean attribute</span></a>).</td>
 </tr>
 <tr class="row-odd"><td>errorCss</td>
 <td>CSS class name used for error level messages.
@@ -855,13 +861,13 @@ See <a class="reference internal" href="../tag.html#tag-format-value"><span>Outp
 <td>XHTML value attribute.</td>
 </tr>
 <tr class="row-even"><td>disabled</td>
-<td>XHTML disabled attribute.</td>
+<td>XHTML disabled attribute (<a class="reference internal" href="../tag.html#boolean-attribute"><span>Boolean attribute</span></a>).</td>
 </tr>
 <tr class="row-odd"><td>autocomplete</td>
 <td>HTML5 autocomplete attribute.</td>
 </tr>
 <tr class="row-even"><td>autofocus</td>
-<td>HTML5 autofocus attribute.</td>
+<td>HTML5 autofocus attribute (<a class="reference internal" href="../tag.html#boolean-attribute"><span>Boolean attribute</span></a>).</td>
 </tr>
 <tr class="row-odd"><td>errorCss</td>
 <td>CSS class name used for error level messages.
@@ -905,13 +911,13 @@ See <a class="reference internal" href="../tag.html#tag-format-value"><span>Outp
 <td>XHTML value attribute.</td>
 </tr>
 <tr class="row-even"><td>disabled</td>
-<td>XHTML disabled attribute.</td>
+<td>XHTML disabled attribute (<a class="reference internal" href="../tag.html#boolean-attribute"><span>Boolean attribute</span></a>).</td>
 </tr>
 <tr class="row-odd"><td>autocomplete</td>
 <td>HTML5 autocomplete attribute.</td>
 </tr>
 <tr class="row-even"><td>autofocus</td>
-<td>HTML5 autofocus attribute.</td>
+<td>HTML5 autofocus attribute (<a class="reference internal" href="../tag.html#boolean-attribute"><span>Boolean attribute</span></a>).</td>
 </tr>
 <tr class="row-odd"><td>errorCss</td>
 <td>CSS class name used for error level messages.
@@ -955,13 +961,13 @@ See <a class="reference internal" href="../tag.html#tag-format-value"><span>Outp
 <td>XHTML value attribute.</td>
 </tr>
 <tr class="row-even"><td>disabled</td>
-<td>XHTML disabled attribute.</td>
+<td>XHTML disabled attribute (<a class="reference internal" href="../tag.html#boolean-attribute"><span>Boolean attribute</span></a>).</td>
 </tr>
 <tr class="row-odd"><td>autocomplete</td>
 <td>HTML5 autocomplete attribute.</td>
 </tr>
 <tr class="row-even"><td>autofocus</td>
-<td>HTML5 autofocus attribute.</td>
+<td>HTML5 autofocus attribute (<a class="reference internal" href="../tag.html#boolean-attribute"><span>Boolean attribute</span></a>).</td>
 </tr>
 <tr class="row-odd"><td>errorCss</td>
 <td>CSS class name used for error level messages.
@@ -1005,13 +1011,13 @@ See <a class="reference internal" href="../tag.html#tag-format-value"><span>Outp
 <td>XHTML value attribute.</td>
 </tr>
 <tr class="row-even"><td>disabled</td>
-<td>XHTML disabled attribute.</td>
+<td>XHTML disabled attribute (<a class="reference internal" href="../tag.html#boolean-attribute"><span>Boolean attribute</span></a>).</td>
 </tr>
 <tr class="row-odd"><td>autocomplete</td>
 <td>HTML5 autocomplete attribute.</td>
 </tr>
 <tr class="row-even"><td>autofocus</td>
-<td>HTML5 autofocus attribute.</td>
+<td>HTML5 autofocus attribute (<a class="reference internal" href="../tag.html#boolean-attribute"><span>Boolean attribute</span></a>).</td>
 </tr>
 <tr class="row-odd"><td>errorCss</td>
 <td>CSS class name used for error level messages.
@@ -1055,13 +1061,13 @@ See <a class="reference internal" href="../tag.html#tag-format-value"><span>Outp
 <td>XHTML value attribute.</td>
 </tr>
 <tr class="row-even"><td>disabled</td>
-<td>XHTML disabled attribute.</td>
+<td>XHTML disabled attribute (<a class="reference internal" href="../tag.html#boolean-attribute"><span>Boolean attribute</span></a>).</td>
 </tr>
 <tr class="row-odd"><td>autocomplete</td>
 <td>HTML5 autocomplete attribute.</td>
 </tr>
 <tr class="row-even"><td>autofocus</td>
-<td>HTML5 autofocus attribute.</td>
+<td>HTML5 autofocus attribute (<a class="reference internal" href="../tag.html#boolean-attribute"><span>Boolean attribute</span></a>).</td>
 </tr>
 <tr class="row-odd"><td>errorCss</td>
 <td>CSS class name used for error level messages.
@@ -1105,13 +1111,13 @@ See <a class="reference internal" href="../tag.html#tag-format-value"><span>Outp
 <td>XHTML value attribute.</td>
 </tr>
 <tr class="row-even"><td>disabled</td>
-<td>XHTML disabled attribute.</td>
+<td>XHTML disabled attribute (<a class="reference internal" href="../tag.html#boolean-attribute"><span>Boolean attribute</span></a>).</td>
 </tr>
 <tr class="row-odd"><td>autocomplete</td>
 <td>HTML5 autocomplete attribute.</td>
 </tr>
 <tr class="row-even"><td>autofocus</td>
-<td>HTML5 autofocus attribute.</td>
+<td>HTML5 autofocus attribute (<a class="reference internal" href="../tag.html#boolean-attribute"><span>Boolean attribute</span></a>).</td>
 </tr>
 <tr class="row-odd"><td>errorCss</td>
 <td>CSS class name used for error level messages.
@@ -1155,13 +1161,13 @@ See <a class="reference internal" href="../tag.html#tag-format-value"><span>Outp
 <td>XHTML value attribute.</td>
 </tr>
 <tr class="row-even"><td>disabled</td>
-<td>XHTML disabled attribute.</td>
+<td>XHTML disabled attribute (<a class="reference internal" href="../tag.html#boolean-attribute"><span>Boolean attribute</span></a>).</td>
 </tr>
 <tr class="row-odd"><td>autocomplete</td>
 <td>HTML5 autocomplete attribute.</td>
 </tr>
 <tr class="row-even"><td>autofocus</td>
-<td>HTML5 autofocus attribute.</td>
+<td>HTML5 autofocus attribute (<a class="reference internal" href="../tag.html#boolean-attribute"><span>Boolean attribute</span></a>).</td>
 </tr>
 <tr class="row-odd"><td>errorCss</td>
 <td>CSS class name used for error level messages.
@@ -1205,13 +1211,13 @@ See <a class="reference internal" href="../tag.html#tag-format-value"><span>Outp
 <td>XHTML value attribute.</td>
 </tr>
 <tr class="row-even"><td>disabled</td>
-<td>XHTML disabled attribute.</td>
+<td>XHTML disabled attribute (<a class="reference internal" href="../tag.html#boolean-attribute"><span>Boolean attribute</span></a>).</td>
 </tr>
 <tr class="row-odd"><td>autocomplete</td>
 <td>HTML5 autocomplete attribute.</td>
 </tr>
 <tr class="row-even"><td>autofocus</td>
-<td>HTML5 autofocus attribute.</td>
+<td>HTML5 autofocus attribute (<a class="reference internal" href="../tag.html#boolean-attribute"><span>Boolean attribute</span></a>).</td>
 </tr>
 <tr class="row-odd"><td>errorCss</td>
 <td>CSS class name used for error level messages.
@@ -1255,13 +1261,13 @@ See <a class="reference internal" href="../tag.html#tag-format-value"><span>Outp
 <td>XHTML value attribute.</td>
 </tr>
 <tr class="row-even"><td>disabled</td>
-<td>XHTML disabled attribute.</td>
+<td>XHTML disabled attribute (<a class="reference internal" href="../tag.html#boolean-attribute"><span>Boolean attribute</span></a>).</td>
 </tr>
 <tr class="row-odd"><td>autocomplete</td>
 <td>HTML5 autocomplete attribute.</td>
 </tr>
 <tr class="row-even"><td>autofocus</td>
-<td>HTML5 autofocus attribute.</td>
+<td>HTML5 autofocus attribute (<a class="reference internal" href="../tag.html#boolean-attribute"><span>Boolean attribute</span></a>).</td>
 </tr>
 <tr class="row-odd"><td>errorCss</td>
 <td>CSS class name used for error level messages.
@@ -1308,10 +1314,10 @@ See <a class="reference internal" href="../tag.html#tag-format-value"><span>Outp
 <td>XHTML cols attribute.</td>
 </tr>
 <tr class="row-odd"><td>disabled</td>
-<td>XHTML disabled attribute.</td>
+<td>XHTML disabled attribute (<a class="reference internal" href="../tag.html#boolean-attribute"><span>Boolean attribute</span></a>).</td>
 </tr>
 <tr class="row-even"><td>readonly</td>
-<td>XHTML readonly attribute.</td>
+<td>XHTML readonly attribute (<a class="reference internal" href="../tag.html#boolean-attribute"><span>Boolean attribute</span></a>).</td>
 </tr>
 <tr class="row-odd"><td>onselect</td>
 <td>XHTML onselect attribute.</td>
@@ -1320,7 +1326,7 @@ See <a class="reference internal" href="../tag.html#tag-format-value"><span>Outp
 <td>XHTML onchange attribute.</td>
 </tr>
 <tr class="row-odd"><td>autofocus</td>
-<td>HTML5 autofocus attribute.</td>
+<td>HTML5 autofocus attribute (<a class="reference internal" href="../tag.html#boolean-attribute"><span>Boolean attribute</span></a>).</td>
 </tr>
 <tr class="row-even"><td>placeholder</td>
 <td>HTML5 placeholder attribute.</td>
@@ -1363,10 +1369,10 @@ Use comma as a delimiter if more than one is specified.</td>
 <td>XHTML name attribute.</td>
 </tr>
 <tr class="row-odd"><td>disabled</td>
-<td>XHTML disabled attribute.</td>
+<td>XHTML disabled attribute (<a class="reference internal" href="../tag.html#boolean-attribute"><span>Boolean attribute</span></a>).</td>
 </tr>
 <tr class="row-even"><td>readonly</td>
-<td>XHTML readonly attribute.</td>
+<td>XHTML readonly attribute (<a class="reference internal" href="../tag.html#boolean-attribute"><span>Boolean attribute</span></a>).</td>
 </tr>
 <tr class="row-odd"><td>size</td>
 <td>XHTML size attribute.</td>
@@ -1384,7 +1390,7 @@ Use comma as a delimiter if more than one is specified.</td>
 <td>HTML5 autocomplete attribute.</td>
 </tr>
 <tr class="row-even"><td>autofocus</td>
-<td>HTML5 autofocus attribute.</td>
+<td>HTML5 autofocus attribute (<a class="reference internal" href="../tag.html#boolean-attribute"><span>Boolean attribute</span></a>).</td>
 </tr>
 <tr class="row-odd"><td>placeholder</td>
 <td>HTML5 placeholder attribute.</td>
@@ -1439,13 +1445,13 @@ Use comma as a delimiter if more than one is specified.</td>
 <td>Label.</td>
 </tr>
 <tr class="row-odd"><td>disabled</td>
-<td>XHTML disabled attribute.</td>
+<td>XHTML disabled attribute (<a class="reference internal" href="../tag.html#boolean-attribute"><span>Boolean attribute</span></a>).</td>
 </tr>
 <tr class="row-even"><td>onchange</td>
 <td>XHTML onchange attribute.</td>
 </tr>
 <tr class="row-odd"><td>autofocus</td>
-<td>HTML5 autofocus attribute.</td>
+<td>HTML5 autofocus attribute (<a class="reference internal" href="../tag.html#boolean-attribute"><span>Boolean attribute</span></a>).</td>
 </tr>
 <tr class="row-even"><td>errorCss</td>
 <td>CSS class name used for error level messages.
@@ -1487,7 +1493,7 @@ The value used when there is a checkmark.
 Default is <code class="docutils literal"><span class="pre">1</span></code>.</td>
 </tr>
 <tr class="row-even"><td>autofocus</td>
-<td>HTML5 autofocus attribute.</td>
+<td>HTML5 autofocus attribute (<a class="reference internal" href="../tag.html#boolean-attribute"><span>Boolean attribute</span></a>).</td>
 </tr>
 <tr class="row-odd"><td>label</td>
 <td>The label used when there is a checkmark.
@@ -1505,7 +1511,7 @@ Default is <code class="docutils literal"><span class="pre">true</span></code>.<
 Default is <code class="docutils literal"><span class="pre">0</span></code>.</td>
 </tr>
 <tr class="row-odd"><td>disabled</td>
-<td>XHTML disabled attribute.</td>
+<td>XHTML disabled attribute (<a class="reference internal" href="../tag.html#boolean-attribute"><span>Boolean attribute</span></a>).</td>
 </tr>
 <tr class="row-even"><td>onchange</td>
 <td>XHTML onchange attribute.</td>
@@ -1558,14 +1564,14 @@ Unlike the normal name attribute, values that match the key name specified with 
 The name attribute has a special restriction that it must have a name different from the key combination specified by the namePrefix and keyNames attributes. Pay attention to this point during implementation.</td>
 </tr>
 <tr class="row-even"><td>autofocus</td>
-<td>HTML5 autofocus attribute.</td>
+<td>HTML5 autofocus attribute (<a class="reference internal" href="../tag.html#boolean-attribute"><span>Boolean attribute</span></a>).</td>
 </tr>
 <tr class="row-odd"><td>label</td>
 <td>The label used when there is a checkmark.
 This label is displayed on the input screen.</td>
 </tr>
 <tr class="row-even"><td>disabled</td>
-<td>XHTML disabled attribute.</td>
+<td>XHTML disabled attribute (<a class="reference internal" href="../tag.html#boolean-attribute"><span>Boolean attribute</span></a>).</td>
 </tr>
 <tr class="row-odd"><td>onchange</td>
 <td>XHTML onchange attribute.</td>
@@ -1618,14 +1624,14 @@ Unlike the normal name attribute, values that match the key name specified with 
 The name attribute has a special restriction that it must have a name different from the key combination specified by the namePrefix and keyNames attributes. Pay attention to this point during implementation.</td>
 </tr>
 <tr class="row-even"><td>autofocus</td>
-<td>HTML5 autofocus attribute.</td>
+<td>HTML5 autofocus attribute (<a class="reference internal" href="../tag.html#boolean-attribute"><span>Boolean attribute</span></a>).</td>
 </tr>
 <tr class="row-odd"><td>label</td>
 <td>The label used when there is a checkmark.
 This label is displayed on the input screen.</td>
 </tr>
 <tr class="row-even"><td>disabled</td>
-<td>XHTML disabled attribute.</td>
+<td>XHTML disabled attribute (<a class="reference internal" href="../tag.html#boolean-attribute"><span>Boolean attribute</span></a>).</td>
 </tr>
 <tr class="row-odd"><td>onchange</td>
 <td>XHTML onchange attribute.</td>
@@ -1665,10 +1671,10 @@ Use comma as a delimiter if more than one is specified.</td>
 <td>XHTML name attribute.</td>
 </tr>
 <tr class="row-odd"><td>disabled</td>
-<td>XHTML disabled attribute.</td>
+<td>XHTML disabled attribute (<a class="reference internal" href="../tag.html#boolean-attribute"><span>Boolean attribute</span></a>).</td>
 </tr>
 <tr class="row-even"><td>readonly</td>
-<td>XHTML readonly attribute.</td>
+<td>XHTML readonly attribute (<a class="reference internal" href="../tag.html#boolean-attribute"><span>Boolean attribute</span></a>).</td>
 </tr>
 <tr class="row-odd"><td>size</td>
 <td>XHTML size attribute.</td>
@@ -1686,10 +1692,10 @@ Use comma as a delimiter if more than one is specified.</td>
 <td>XHTML accept attribute.</td>
 </tr>
 <tr class="row-even"><td>autofocus</td>
-<td>HTML5 autofocus attribute.</td>
+<td>HTML5 autofocus attribute (<a class="reference internal" href="../tag.html#boolean-attribute"><span>Boolean attribute</span></a>).</td>
 </tr>
 <tr class="row-odd"><td>multiple</td>
-<td>HTML5 multiple attribute.</td>
+<td>HTML5 multiple attribute (<a class="reference internal" href="../tag.html#boolean-attribute"><span>Boolean attribute</span></a>).</td>
 </tr>
 <tr class="row-even"><td>errorCss</td>
 <td>CSS class name used for error level messages.
@@ -1732,7 +1738,7 @@ For details, see <a class="reference internal" href="../tag.html#tag-window-scop
 <td>XHTML name attribute.</td>
 </tr>
 <tr class="row-odd"><td>disabled</td>
-<td>XHTML disabled attribute.</td>
+<td>XHTML disabled attribute (<a class="reference internal" href="../tag.html#boolean-attribute"><span>Boolean attribute</span></a>).</td>
 </tr>
 </tbody>
 </table>
@@ -1761,7 +1767,7 @@ For details, see <a class="reference internal" href="../tag.html#tag-window-scop
 <td>XHTML name attribute.</td>
 </tr>
 <tr class="row-odd"><td>disabled</td>
-<td>XHTML disabled attribute.</td>
+<td>XHTML disabled attribute (<a class="reference internal" href="../tag.html#boolean-attribute"><span>Boolean attribute</span></a>).</td>
 </tr>
 </tbody>
 </table>
@@ -1790,7 +1796,7 @@ For details, see <a class="reference internal" href="../tag.html#tag-window-scop
 <td>XHTML name attribute.</td>
 </tr>
 <tr class="row-odd"><td>disabled</td>
-<td>XHTML disabled attribute.</td>
+<td>XHTML disabled attribute (<a class="reference internal" href="../tag.html#boolean-attribute"><span>Boolean attribute</span></a>).</td>
 </tr>
 </tbody>
 </table>
@@ -1830,10 +1836,10 @@ If the option list acquired from the request scope is empty, nothing is displaye
 <td>XHTML size attribute.</td>
 </tr>
 <tr class="row-even"><td>multiple</td>
-<td>XHTML multiple attribute.</td>
+<td>XHTML multiple attribute (<a class="reference internal" href="../tag.html#boolean-attribute"><span>Boolean attribute</span></a>).</td>
 </tr>
 <tr class="row-odd"><td>disabled</td>
-<td>XHTML disabled attribute.</td>
+<td>XHTML disabled attribute (<a class="reference internal" href="../tag.html#boolean-attribute"><span>Boolean attribute</span></a>).</td>
 </tr>
 <tr class="row-even"><td>tabindex</td>
 <td>XHTML tabindex attribute.</td>
@@ -1848,7 +1854,7 @@ If the option list acquired from the request scope is empty, nothing is displaye
 <td>XHTML onchange attribute.</td>
 </tr>
 <tr class="row-even"><td>autofocus</td>
-<td>HTML5 autofocus attribute.</td>
+<td>HTML5 autofocus attribute (<a class="reference internal" href="../tag.html#boolean-attribute"><span>Boolean attribute</span></a>).</td>
 </tr>
 <tr class="row-odd"><td>elementLabelPattern</td>
 <td>Pattern to format the label.
@@ -1924,13 +1930,13 @@ If the option list acquired from the request scope is empty, nothing is displaye
 <td>Property name to acquire value from the list element.</td>
 </tr>
 <tr class="row-even"><td>disabled</td>
-<td>XHTML disabled attribute.</td>
+<td>XHTML disabled attribute (<a class="reference internal" href="../tag.html#boolean-attribute"><span>Boolean attribute</span></a>).</td>
 </tr>
 <tr class="row-odd"><td>onchange</td>
 <td>XHTML onchange attribute.</td>
 </tr>
 <tr class="row-even"><td>autofocus</td>
-<td>HTML5 autofocus attribute.
+<td>HTML5 autofocus attribute (<a class="reference internal" href="../tag.html#boolean-attribute"><span>Boolean attribute</span></a>).
 Output the autofocus attribute only for the first element among the options.</td>
 </tr>
 <tr class="row-odd"><td>elementLabelPattern</td>
@@ -1997,13 +2003,13 @@ If the option list acquired from the request scope is empty, nothing is displaye
 <td>Property name to acquire value from the list element.</td>
 </tr>
 <tr class="row-even"><td>disabled</td>
-<td>XHTML disabled attribute.</td>
+<td>XHTML disabled attribute (<a class="reference internal" href="../tag.html#boolean-attribute"><span>Boolean attribute</span></a>).</td>
 </tr>
 <tr class="row-odd"><td>onchange</td>
 <td>XHTML onchange attribute.</td>
 </tr>
 <tr class="row-even"><td>autofocus</td>
-<td>HTML5 autofocus attribute.
+<td>HTML5 autofocus attribute (<a class="reference internal" href="../tag.html#boolean-attribute"><span>Boolean attribute</span></a>).
 Output the autofocus attribute only for the first element among the options.</td>
 </tr>
 <tr class="row-odd"><td>elementLabelPattern</td>
@@ -2066,7 +2072,7 @@ Use comma as a delimiter if more than one is specified.</td>
 See <a class="reference internal" href="../tag.html#tag-specify-uri"><span>URI specification method</span></a>.</td>
 </tr>
 <tr class="row-odd"><td>disabled</td>
-<td>XHTML disabled attribute.</td>
+<td>XHTML disabled attribute (<a class="reference internal" href="../tag.html#boolean-attribute"><span>Boolean attribute</span></a>).</td>
 </tr>
 <tr class="row-even"><td>value</td>
 <td>XHTML value attribute.</td>
@@ -2084,7 +2090,7 @@ See <a class="reference internal" href="../tag.html#tag-specify-uri"><span>URI s
 <td>XHTML align attribute.</td>
 </tr>
 <tr class="row-odd"><td>autofocus</td>
-<td>HTML5 autofocus attribute.</td>
+<td>HTML5 autofocus attribute (<a class="reference internal" href="../tag.html#boolean-attribute"><span>Boolean attribute</span></a>).</td>
 </tr>
 <tr class="row-even"><td>allowDoubleSubmission</td>
 <td>Whether to allow double submission.
@@ -2139,10 +2145,10 @@ See <a class="reference internal" href="../tag.html#tag-specify-uri"><span>URI s
 <td>XHTML type attribute.</td>
 </tr>
 <tr class="row-even"><td>disabled</td>
-<td>XHTML disabled attribute.</td>
+<td>XHTML disabled attribute (<a class="reference internal" href="../tag.html#boolean-attribute"><span>Boolean attribute</span></a>).</td>
 </tr>
 <tr class="row-odd"><td>autofocus</td>
-<td>HTML5 autofocus attribute.</td>
+<td>HTML5 autofocus attribute (<a class="reference internal" href="../tag.html#boolean-attribute"><span>Boolean attribute</span></a>).</td>
 </tr>
 <tr class="row-even"><td>allowDoubleSubmission</td>
 <td>Whether to allow double submission.
@@ -2246,7 +2252,7 @@ NORMAL (normal display)</td>
 See <a class="reference internal" href="../tag.html#tag-specify-uri"><span>URI specification method</span></a>.</td>
 </tr>
 <tr class="row-odd"><td>disabled</td>
-<td>XHTML disabled attribute.</td>
+<td>XHTML disabled attribute (<a class="reference internal" href="../tag.html#boolean-attribute"><span>Boolean attribute</span></a>).</td>
 </tr>
 <tr class="row-even"><td>value</td>
 <td>XHTML value attribute.</td>
@@ -2264,7 +2270,7 @@ See <a class="reference internal" href="../tag.html#tag-specify-uri"><span>URI s
 <td>XHTML align attribute.</td>
 </tr>
 <tr class="row-odd"><td>autofocus</td>
-<td>HTML5 autofocus attribute.</td>
+<td>HTML5 autofocus attribute (<a class="reference internal" href="../tag.html#boolean-attribute"><span>Boolean attribute</span></a>).</td>
 </tr>
 <tr class="row-even"><td>secure</td>
 <td>Whether to use https for URI.
@@ -2322,10 +2328,10 @@ See <a class="reference internal" href="../tag.html#tag-specify-uri"><span>URI s
 <td>XHTML type attribute.</td>
 </tr>
 <tr class="row-even"><td>disabled</td>
-<td>XHTML disabled attribute.</td>
+<td>XHTML disabled attribute (<a class="reference internal" href="../tag.html#boolean-attribute"><span>Boolean attribute</span></a>).</td>
 </tr>
 <tr class="row-odd"><td>autofocus</td>
-<td>HTML5 autofocus attribute.</td>
+<td>HTML5 autofocus attribute (<a class="reference internal" href="../tag.html#boolean-attribute"><span>Boolean attribute</span></a>).</td>
 </tr>
 <tr class="row-even"><td>secure</td>
 <td>Whether to use https for URI.
@@ -2435,7 +2441,7 @@ NORMAL (normal display)</td>
 See <a class="reference internal" href="../tag.html#tag-specify-uri"><span>URI specification method</span></a>.</td>
 </tr>
 <tr class="row-odd"><td>disabled</td>
-<td>XHTML disabled attribute.</td>
+<td>XHTML disabled attribute (<a class="reference internal" href="../tag.html#boolean-attribute"><span>Boolean attribute</span></a>).</td>
 </tr>
 <tr class="row-even"><td>value</td>
 <td>XHTML value attribute.</td>
@@ -2453,7 +2459,7 @@ See <a class="reference internal" href="../tag.html#tag-specify-uri"><span>URI s
 <td>XHTML align attribute.</td>
 </tr>
 <tr class="row-odd"><td>autofocus</td>
-<td>HTML5 autofocus attribute.</td>
+<td>HTML5 autofocus attribute (<a class="reference internal" href="../tag.html#boolean-attribute"><span>Boolean attribute</span></a>).</td>
 </tr>
 <tr class="row-even"><td>allowDoubleSubmission</td>
 <td>Whether to allow double submission.
@@ -2508,10 +2514,10 @@ See <a class="reference internal" href="../tag.html#tag-specify-uri"><span>URI s
 <td>XHTML type attribute.</td>
 </tr>
 <tr class="row-even"><td>disabled</td>
-<td>XHTML disabled attribute.</td>
+<td>XHTML disabled attribute (<a class="reference internal" href="../tag.html#boolean-attribute"><span>Boolean attribute</span></a>).</td>
 </tr>
 <tr class="row-odd"><td>autofocus</td>
-<td>HTML5 autofocus attribute.</td>
+<td>HTML5 autofocus attribute (<a class="reference internal" href="../tag.html#boolean-attribute"><span>Boolean attribute</span></a>).</td>
 </tr>
 <tr class="row-even"><td>allowDoubleSubmission</td>
 <td>Whether to allow double submission.
@@ -2952,10 +2958,10 @@ Default is <code class="docutils literal"><span class="pre">div</span></code>.</
 <td>XHTML size attribute.</td>
 </tr>
 <tr class="row-even"><td>multiple</td>
-<td>XHTML multiple attribute.</td>
+<td>XHTML multiple attribute (<a class="reference internal" href="../tag.html#boolean-attribute"><span>Boolean attribute</span></a>).</td>
 </tr>
 <tr class="row-odd"><td>disabled</td>
-<td>XHTML disabled attribute.</td>
+<td>XHTML disabled attribute (<a class="reference internal" href="../tag.html#boolean-attribute"><span>Boolean attribute</span></a>).</td>
 </tr>
 <tr class="row-even"><td>tabindex</td>
 <td>XHTML tabindex attribute.</td>
@@ -2970,7 +2976,7 @@ Default is <code class="docutils literal"><span class="pre">div</span></code>.</
 <td>XHTML onchange attribute.</td>
 </tr>
 <tr class="row-even"><td>autofocus</td>
-<td>HTML5 autofocus attribute.</td>
+<td>HTML5 autofocus attribute (<a class="reference internal" href="../tag.html#boolean-attribute"><span>Boolean attribute</span></a>).</td>
 </tr>
 <tr class="row-odd"><td>pattern</td>
 <td>Column name of the pattern used.
@@ -3048,13 +3054,13 @@ Use comma as a delimiter if more than one is specified.</td>
 <td>Code ID.</td>
 </tr>
 <tr class="row-even"><td>disabled</td>
-<td>XHTML disabled attribute.</td>
+<td>XHTML disabled attribute (<a class="reference internal" href="../tag.html#boolean-attribute"><span>Boolean attribute</span></a>).</td>
 </tr>
 <tr class="row-odd"><td>onchange</td>
 <td>XHTML onchange attribute.</td>
 </tr>
 <tr class="row-even"><td>autofocus</td>
-<td>HTML5 autofocus attribute.
+<td>HTML5 autofocus attribute (<a class="reference internal" href="../tag.html#boolean-attribute"><span>Boolean attribute</span></a>).
 Output the autofocus attribute only for the first element among the options.</td>
 </tr>
 <tr class="row-odd"><td>pattern</td>
@@ -3123,13 +3129,13 @@ Use comma as a delimiter if more than one is specified.</td>
 <td>Code ID.</td>
 </tr>
 <tr class="row-even"><td>disabled</td>
-<td>XHTML disabled attribute.</td>
+<td>XHTML disabled attribute (<a class="reference internal" href="../tag.html#boolean-attribute"><span>Boolean attribute</span></a>).</td>
 </tr>
 <tr class="row-odd"><td>onchange</td>
 <td>XHTML onchange attribute.</td>
 </tr>
 <tr class="row-even"><td>autofocus</td>
-<td>HTML5 autofocus attribute.
+<td>HTML5 autofocus attribute (<a class="reference internal" href="../tag.html#boolean-attribute"><span>Boolean attribute</span></a>).
 Output the autofocus attribute only for the first element among the options.</td>
 </tr>
 <tr class="row-odd"><td>pattern</td>
@@ -3200,7 +3206,7 @@ The code value used when there is a checkmark.
 Default is <code class="docutils literal"><span class="pre">1</span></code>.</td>
 </tr>
 <tr class="row-even"><td>autofocus</td>
-<td>HTML5 autofocus attribute.</td>
+<td>HTML5 autofocus attribute (<a class="reference internal" href="../tag.html#boolean-attribute"><span>Boolean attribute</span></a>).</td>
 </tr>
 <tr class="row-odd"><td>codeId <code class="docutils literal"><span class="pre">required</span></code></td>
 <td>Code ID.</td>
@@ -3227,7 +3233,7 @@ use the remaining as a code value without check.
 If not found with the search, use the default value <code class="docutils literal"><span class="pre">0</span></code>.</td>
 </tr>
 <tr class="row-odd"><td>disabled</td>
-<td>XHTML disabled attribute.</td>
+<td>XHTML disabled attribute (<a class="reference internal" href="../tag.html#boolean-attribute"><span>Boolean attribute</span></a>).</td>
 </tr>
 <tr class="row-even"><td>onchange</td>
 <td>XHTML onchange attribute.</td>
@@ -3569,7 +3575,7 @@ Default is <code class="docutils literal"><span class="pre">true</span></code>.<
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../../',
-            VERSION:'5u22',
+            VERSION:'5u23',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

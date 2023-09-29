@@ -9,7 +9,7 @@
   <meta http-equiv='content-language' content='ja'>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>7.1. ログ出力 &mdash; ∇Nablarch  5u22 ドキュメント</title>
+  <title>7.1. ログ出力 &mdash; ∇Nablarch  5u23 ドキュメント</title>
   
 
   
@@ -35,7 +35,7 @@
   
   <link rel="canonical" href="https://nablarch.github.io/docs/LATEST/doc/application_framework/application_framework/libraries/log.html" />
   
-    <link rel="top" title="∇Nablarch  5u22 ドキュメント" href="../../../index.html"/>
+    <link rel="top" title="∇Nablarch  5u23 ドキュメント" href="../../../index.html"/>
         <link rel="up" title="7. Nablarchが提供するライブラリ" href="index.html"/>
         <link rel="next" title="7.1.1.2.1. 障害ログの出力" href="log/failure_log.html"/>
         <link rel="prev" title="7. Nablarchが提供するライブラリ" href="index.html"/>
@@ -63,7 +63,7 @@
   
 
   
-    <div id="sidebar-version">Version: 5u22</div>
+    <div id="sidebar-version">Version: 5u23</div>
   </a>
 
   <div role="search">
@@ -170,7 +170,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../../development_tools/index.html">Nablarch開発ツール</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../../development_tools/java_static_analysis/index.html">1. 効率的なJava静的チェック</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../development_tools/java_static_analysis/index.html#code-analysis">1.1. 構文チェックを行う</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../development_tools/java_static_analysis/index.html#inspection">1.1. Inspectionを行う</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../development_tools/java_static_analysis/index.html#code-format">1.2. フォーマットを統一する</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../development_tools/java_static_analysis/index.html#api">1.3. 許可していないAPIが使用されていないかチェックする</a></li>
 </ul>
@@ -261,6 +261,12 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../examples/12/index.html#id3">概要</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../examples/12/index.html#id5">構成</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../examples/12/index.html#id11">使用方法</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../examples/13/index.html">Logbookを用いたリクエスト/レスポンスログ出力サンプル</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/13/index.html#id1">提供パッケージ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/13/index.html#id3">概要</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/13/index.html#id6">使用方法</a></li>
 </ul>
 </li>
 </ul>
@@ -496,7 +502,13 @@ Nablarchの提供するアーキタイプから生成したブランクプロジ
 さらに、アプリケーションの不正使用を検知するために、
 全てのリクエスト及びレスポンス情報を出力する証跡ログとしても使用する。</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="log/messaging_log.html#messaging-log"><span>メッセージングログ</span></a></td>
+<tr class="row-odd"><td><a class="reference internal" href="log/jaxrs_access_log.html#jaxrs-access-log"><span>HTTPアクセスログ（RESTfulウェブサービス用）</span></a></td>
+<td>RESTfulウェブサービスアプリケーションで、アプリケーションの実行状況を把握するための情報を出力する。
+アプリケーションの性能測定に必要な情報、アプリケーションの負荷測定に必要な情報の出力も含む。
+さらに、アプリケーションの不正使用を検知するために、
+全てのリクエスト及びレスポンス情報を出力する証跡ログとしても使用する。</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="log/messaging_log.html#messaging-log"><span>メッセージングログ</span></a></td>
 <td>メッセージング処理において、メッセージ送受信の状況を把握するための情報を出力する。</td>
 </tr>
 </tbody>
@@ -528,6 +540,12 @@ Nablarchの提供するアーキタイプから生成したブランクプロジ
 <span class="nt">&lt;dependency&gt;</span>
   <span class="nt">&lt;groupId&gt;</span>com.nablarch.framework<span class="nt">&lt;/groupId&gt;</span>
   <span class="nt">&lt;artifactId&gt;</span>nablarch-fw-web<span class="nt">&lt;/artifactId&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+
+<span class="c">&lt;!-- HTTPアクセスログ（RESTfulウェブサービス用）を使用する場合のみ --&gt;</span>
+<span class="nt">&lt;dependency&gt;</span>
+  <span class="nt">&lt;groupId&gt;</span>com.nablarch.framework<span class="nt">&lt;/groupId&gt;</span>
+  <span class="nt">&lt;artifactId&gt;</span>nablarch-fw-jaxrs<span class="nt">&lt;/artifactId&gt;</span>
 <span class="nt">&lt;/dependency&gt;</span>
 
 <span class="c">&lt;!-- メッセージングログを使用する場合のみ --&gt;</span>
@@ -904,6 +922,7 @@ FATALレベルからINFOレベルまでは事前チェックしなくてよい�
 <li><a class="reference internal" href="log/sql_log.html#sql-log-setting"><span>SQLログの設定</span></a></li>
 <li><a class="reference internal" href="log/performance_log.html#performance-log-setting"><span>パフォーマンスログの設定</span></a></li>
 <li><a class="reference internal" href="log/http_access_log.html#http-access-log-setting"><span>HTTPアクセスログの設定</span></a></li>
+<li><a class="reference internal" href="log/jaxrs_access_log.html#jaxrs-access-log-setting"><span>HTTPアクセスログ（RESTfulウェブサービス用）の設定</span></a></li>
 <li><a class="reference internal" href="log/messaging_log.html#messaging-log-setting"><span>メッセージングログの設定</span></a></li>
 </ul>
 </dd>
@@ -1311,7 +1330,10 @@ NaN及び無限大はJSONの文字列として出力する。</td>
 <tr class="row-odd"><td><a class="reference internal" href="log/http_access_log.html#http-access-log-json-setting"><span>HTTPアクセスログ</span></a></td>
 <td><a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/fw/web/handler/HttpAccessJsonLogFormatter.html" title="nablarch.fw.web.handler.HttpAccessJsonLogFormatter">HttpAccessJsonLogFormatter</a></td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="log/messaging_log.html#messaging-log-json-setting"><span>メッセージングログ</span></a></td>
+<tr class="row-even"><td><a class="reference internal" href="log/jaxrs_access_log.html#jaxrs-access-log-json-setting"><span>HTTPアクセスログ（RESTfulウェブサービス用）</span></a></td>
+<td><a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/fw/jaxrs/JaxRsAccessJsonLogFormatter.html" title="nablarch.fw.jaxrs.JaxRsAccessJsonLogFormatter">JaxRsAccessJsonLogFormatter</a></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="log/messaging_log.html#messaging-log-json-setting"><span>メッセージングログ</span></a></td>
 <td><a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/fw/messaging/logging/MessagingJsonLogFormatter.html" title="nablarch.fw.messaging.logging.MessagingJsonLogFormatter">MessagingJsonLogFormatter</a></td>
 </tr>
 </tbody>
@@ -1957,7 +1979,7 @@ NaN及び無限大はJSONの文字列として出力する。</td>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../',
-            VERSION:'5u22',
+            VERSION:'5u23',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

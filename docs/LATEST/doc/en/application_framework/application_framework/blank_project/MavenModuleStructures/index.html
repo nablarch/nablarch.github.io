@@ -9,7 +9,7 @@
   <meta http-equiv='content-language' content='ja'>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>8.5. Maven Archetype Configuration &mdash; ∇Nablarch  5u22 documentation</title>
+  <title>8.5. Maven Archetype Configuration &mdash; ∇Nablarch  5u23 documentation</title>
   
 
   
@@ -35,7 +35,7 @@
   
   <link rel="canonical" href="https://nablarch.github.io/docs/LATEST/doc/application_framework/application_framework/blank_project/MavenModuleStructures/index.html" />
   
-    <link rel="top" title="∇Nablarch  5u22 documentation" href="../../../../index.html"/>
+    <link rel="top" title="∇Nablarch  5u23 documentation" href="../../../../index.html"/>
         <link rel="up" title="8. Blank Project" href="../index.html"/>
         <link rel="next" title="8.6. Configuration Changes Required After Initial Setup" href="../ModifySettings.html"/>
         <link rel="prev" title="8.4.4. Initial Setup of Nablarch batch Project for Container without DB connection" href="../setup_containerBlankProject/setup_ContainerBatch_Dbless.html"/>
@@ -63,7 +63,7 @@
   
 
   
-    <div id="sidebar-version">Version: 5u22</div>
+    <div id="sidebar-version">Version: 5u23</div>
   </a>
 
   <div role="search">
@@ -142,7 +142,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../development_tools/index.html">Nablarch development tools</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../../../development_tools/java_static_analysis/index.html">1. Efficient Java Static Checks</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../../development_tools/java_static_analysis/index.html#conduct-syntax-check">1.1. Conduct syntax check</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../development_tools/java_static_analysis/index.html#run-inspection">1.1. Run inspection</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../development_tools/java_static_analysis/index.html#unify-the-format">1.2. Unify the format</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../development_tools/java_static_analysis/index.html#check-if-unauthorized-apis-are-being-used">1.3. Check if unauthorized APIs are being used</a></li>
 </ul>
@@ -228,6 +228,12 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../../examples/12/index.html#summary">Summary</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../examples/12/index.html#structure">Structure</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../examples/12/index.html#how-to-use">How to Use</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../examples/13/index.html">Sample Request/Response Log Output Using Logbook</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../examples/13/index.html#delivery-package">Delivery package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../examples/13/index.html#summary">Summary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../examples/13/index.html#how-to-use">How to Use</a></li>
 </ul>
 </li>
 </ul>
@@ -494,11 +500,13 @@ To check the configuration described in nablarch-archetype-parent, check the cac
 |   |   |   \---net             … Contains the configuration file for the routing adapter.
 |   |   |
 |   |   \---webapp
-|   |       +---errorPages      … Sample of error screen is stored.
-|   |       |
-|   |       +---test            … File for communication confirmation screen is stored.
+|   |       +---images          … Image file for communication confirmation is stored.
 |   |       |
 |   |       \---WEB-INF         … web.xml is stored.
+|   |            |
+|   |            +---errorPages … Sample of error screen is stored.
+|   |            |
+|   |            \---test       … File for communication confirmation screen is stored.
 |   |
 |   \---test
 |       +---java                … Unit test for communication confirmation test is stored.
@@ -509,7 +517,11 @@ To check the configuration described in nablarch-archetype-parent, check the cac
 |           |
 |           \---nablarch        … Data for HTML check tool is stored.
 |
-\---tools                       … Configuration files of the tool used in conjunction with Maven is stored.
++---tmp                         … Directory used in web application request unit tests. It is automatically generated when the communication test is executed.
+|
++---tools                       … Configuration files of the tool used in conjunction with Maven is stored.
+|
+\---work                        … Working directory for storing input and output files during development. It is automatically generated at the time of communication confirmation.
 </pre></div>
 </div>
 </div>
@@ -568,34 +580,38 @@ The main directories and files are shown below.</p>
 |           SAMPLE.mv.db.org
 |
 +---src
-    +---env
-    |
-    +---main
-    |   +---java
-    |   |
-    |   \---resources
-    |       |   batch-boot.xml              … Configuration files to be used when the batch is started.
-    |       |
-    |       +---entity
-    |       |
-    |       \---META-INF
-    |           |   beans.xml               … File required to enable CDI.
-    |           |
-    |           +---batch-jobs
-    |           |       sample-batchlet.xml … Job file of the application for communication confirmation of the batchlet architecture.
-    |           |       sample-chunk.xml    … Job file of the application for communication confirmation of the chunk architecture.
-    |           |       sample-etl.xml      … ETL function job file.
-    |           |
-    |           \---etl-config
-    |                   sample-etl.json     … ETL function job configuration file.
-    |
-    |
-    \---test
-        +---java
-        |
-        \---resources
-            |
-            +---data
+|   +---env
+|   |
+|   +---main
+|   |   +---java
+|   |   |
+|   |   \---resources
+|   |       |   batch-boot.xml              … Configuration files to be used when the batch is started.
+|   |       |
+|   |       +---entity
+|   |       |
+|   |       \---META-INF
+|   |           |   beans.xml               … File required to enable CDI.
+|   |           |
+|   |           +---batch-jobs
+|   |           |       sample-batchlet.xml … Job file of the application for communication confirmation of the batchlet architecture.
+|   |           |       sample-chunk.xml    … Job file of the application for communication confirmation of the chunk architecture.
+|   |           |       sample-etl.xml      … ETL function job file.
+|   |           |
+|   |           \---etl-config
+|   |                   sample-etl.json     … ETL function job configuration file.
+|   |
+|   |
+|   \---test
+|       +---java
+|       |
+|       \---resources
+|           |
+|           +---data
+|
++---testdata                                … Working directory for storing input and output files for ETL functions during development.
+|
+\---work
 </pre></div>
 </div>
 </div>
@@ -637,26 +653,28 @@ generated under <code class="docutils literal"><span class="pre">target</span></
 |           SAMPLE.mv.db.org
 |
 +---src
-    +---env
-    |
-    +---main
-    |   +---java
-    |   |
-    |   +---resources
-    |   |   |   batch-boot.xml              … Configuration file to be specified in on-demand batch when it is launched.
-    |   |   |   mail-sender-boot.xml        … Configuration file to be specified while starting email send batch.
-    |   |   |   resident-batch-boot.xml     … Configuration file to be specified while starting messaging using tables as queues.
-    |   |   |
-    |   |   \---entity
-    |   |
-    |   \---scripts                         … Shell script file to be used for starting a batch, etc. (use is optional)
-    |
-    \---test
-        +---java
-        |
-        \---resources
-            |
-            \---data
+|   +---env
+|   |
+|   +---main
+|   |   +---java
+|   |   |
+|   |   +---resources
+|   |   |   |   batch-boot.xml              … Configuration file to be specified in on-demand batch when it is launched.
+|   |   |   |   mail-sender-boot.xml        … Configuration file to be specified while starting email send batch.
+|   |   |   |   resident-batch-boot.xml     … Configuration file to be specified while starting messaging using tables as queues.
+|   |   |   |
+|   |   |   \---entity
+|   |   |
+|   |   \---scripts                         … Shell script file to be used for starting a batch, etc. (use is optional)
+|   |
+|   \---test
+|       +---java
+|       |
+|       \---resources
+|           |
+|           \---data
+|
+\---work
 </pre></div>
 </div>
 </div>
@@ -737,11 +755,13 @@ generated under <code class="docutils literal"><span class="pre">target</span></
 |   |   +---jib                 … It contains files to be placed against the container image.
 |   |   |
 |   |   \---webapp
-|   |       +---errorPages      … Sample of error screen is stored.
-|   |       |
-|   |       +---test            … File for communication confirmation screen is stored.
+|   |       +---images          … Image file for communication confirmation is stored.
 |   |       |
 |   |       \---WEB-INF         … web.xml is stored.
+|   |            |
+|   |            +---errorPages … Sample of error screen is stored.
+|   |            |
+|   |            \---test       … File for communication confirmation screen is stored.
 |   |
 |   \---test
 |       +---java                … Unit test for communication confirmation test is stored.
@@ -752,7 +772,11 @@ generated under <code class="docutils literal"><span class="pre">target</span></
 |           |
 |           \---nablarch        … Data for HTML check tool is stored.
 |
-\---tools                       … Configuration files of the tool used in conjunction with Maven is stored.
++---tmp                         … Directory used in web application request unit tests. It is automatically generated when the communication test is executed.
+|
++---tools                       … Configuration files of the tool used in conjunction with Maven is stored.
+|
+\---work                        … Working directory for storing input and output files during development. It is automatically generated at the time of communication confirmation.
 </pre></div>
 </div>
 <dl class="docutils">
@@ -799,26 +823,28 @@ See <a class="reference external" href="https://github.com/GoogleContainerTools/
 |           SAMPLE.mv.db.org
 |
 +---src
-    +---main
-    |   +---java
-    |   |
-    |   +---jib
-    |   |
-    |   +---resources
-    |   |   |   batch-boot.xml              … Configuration file to be specified in on-demand batch when it is launched.
-    |   |   |   mail-sender-boot.xml        … Configuration file to be specified while starting email send batch.
-    |   |   |   resident-batch-boot.xml     … Configuration file to be specified while starting messaging using tables as queues.
-    |   |   |
-    |   |   \---entity
-    |   |
-    |   \---scripts                         … Shell script file to be used for starting a batch, etc. (use is optional)
-    |
-    \---test
-        +---java
-        |
-        \---resources
-            |
-            \---data
+|   +---main
+|   |   +---java
+|   |   |
+|   |   +---jib
+|   |   |
+|   |   +---resources
+|   |   |   |   batch-boot.xml              … Configuration file to be specified in on-demand batch when it is launched.
+|   |   |   |   mail-sender-boot.xml        … Configuration file to be specified while starting email send batch.
+|   |   |   |   resident-batch-boot.xml     … Configuration file to be specified while starting messaging using tables as queues.
+|   |   |   |
+|   |   |   \---entity
+|   |   |
+|   |   \---scripts                         … Shell script file to be used for starting a batch, etc. (use is optional)
+|   |
+|   \---test
+|       +---java
+|       |
+|       \---resources
+|           |
+|           \---data
+|
+\---work
 </pre></div>
 </div>
 </div>
@@ -1045,7 +1071,7 @@ you will end up with duplicate entity classes in multiple Maven projects.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../../',
-            VERSION:'5u22',
+            VERSION:'5u23',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,
