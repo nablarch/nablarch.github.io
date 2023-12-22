@@ -1,0 +1,1294 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv='content-language' content='ja'>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>2.1.1.1.1. Bean Validationに対応したForm/Entityのクラス単体テスト &mdash; ∇Nablarch  6 ドキュメント</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../../../../../_static/custom.css" type="text/css" />
+  
+
+  
+
+  
+  <link rel="canonical" href="https://nablarch.github.io/docs/LATEST/doc/development_tools/testing_framework/guide/development_guide/05_UnitTestGuide/01_ClassUnitTest/01_entityUnitTest/01_entityUnitTestWithBeanValidation.html" />
+  
+    <link rel="top" title="∇Nablarch  6 ドキュメント" href="../../../../../../../index.html"/>
+        <link rel="up" title="2.1.1.1. Form/Entityの単体テスト" href="index.html"/>
+        <link rel="next" title="2.1.1.1.2. Nablarch Validationに対応したForm/Entityのクラス単体テスト" href="02_entityUnitTestWithNablarchValidation.html"/>
+        <link rel="prev" title="2.1.1.1. Form/Entityの単体テスト" href="index.html"/>
+
+<script defer data-domain="nablarch.github.io,all.fintan" src=https://plausible.io/js/script.js></script>
+
+
+  
+  <script src="../../../../../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+  
+  <a href="../../../../../../../index.html" id="sidebar-title" class="icon"> ∇Nablarch 
+  
+
+  
+    <div id="sidebar-version">Version: 6</div>
+  </a>
+
+  <div role="search">
+    <form id="google-search-form" class="wy-form" method="get" action="https://www.google.co.jp/search">
+      <input type="text" name="text" placeholder="Search docs on google" id="text"/>
+      <input type="hidden" name="q" id="q"/>
+    </form>
+  </div>
+    
+    
+
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+  
+  
+    <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../about_nablarch/index.html">Nablarchについて</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../../about_nablarch/concept.html">Nablarchのコンセプト</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../../../about_nablarch/concept.html#robustness">Robustness</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../../../about_nablarch/concept.html#testability">Testability</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../../../about_nablarch/concept.html#ready-to-use">Ready-to-Use</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../../about_nablarch/mvn_module.html">Nablarch のモジュール一覧</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../../about_nablarch/license.html">Nablarchのライセンスについて</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../application_framework/index.html">Nablarchアプリケーションフレームワーク</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../../application_framework/application_framework/index.html">アプリケーションフレームワーク</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../../../application_framework/application_framework/nablarch/index.html">1. Nablarchアプリケーションフレームワークとは</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../../../application_framework/application_framework/web/index.html">2. ウェブアプリケーション編</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../../../application_framework/application_framework/web_service/index.html">3. ウェブサービス編</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../../../application_framework/application_framework/batch/index.html">4. バッチアプリケーション編</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../../../application_framework/application_framework/messaging/index.html">5. メッセージング編</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../../../application_framework/application_framework/handlers/index.html">6. Nablarchの提供する標準ハンドラ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../../../application_framework/application_framework/libraries/index.html">7. Nablarchが提供するライブラリ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../../../application_framework/application_framework/blank_project/index.html">8. ブランクプロジェクト</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../../../application_framework/application_framework/setting_guide/index.html">9. Nablarchアプリケーションフレームワーク設定ガイド</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../../../application_framework/application_framework/configuration/index.html">10. デフォルト設定一覧</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../../../application_framework/application_framework/cloud_native/index.html">11. Nablarchクラウドネイティブ対応</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../../application_framework/adaptors/index.html">アダプタ</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../../../application_framework/adaptors/log_adaptor.html">logアダプタ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../../../application_framework/adaptors/router_adaptor.html">ルーティングアダプタ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../../../application_framework/adaptors/webspheremq_adaptor.html">IBM WebSphere MQアダプタ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../../../application_framework/adaptors/jaxrs_adaptor.html">Jakarta RESTful Web Servicesアダプタ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../../../application_framework/adaptors/doma_adaptor.html">Domaアダプタ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../../../application_framework/adaptors/jsr310_adaptor.html">JSR310(Date and Time API)アダプタ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../../../application_framework/adaptors/mail_sender_freemarker_adaptor.html">E-mail FreeMarkerアダプタ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../../../application_framework/adaptors/mail_sender_thymeleaf_adaptor.html">E-mail Thymeleafアダプタ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../../../application_framework/adaptors/mail_sender_velocity_adaptor.html">E-mail Velocityアダプタ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../../../application_framework/adaptors/web_thymeleaf_adaptor.html">ウェブアプリケーション Thymeleafアダプタ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../../../application_framework/adaptors/lettuce_adaptor.html">Lettuceアダプタ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../../../application_framework/adaptors/slf4j_adaptor.html">SLF4Jアダプタ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../../../application_framework/adaptors/micrometer_adaptor.html">Micrometerアダプタ</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../../application_framework/example/index.html">Example</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../../../application_framework/example/index.html#id1">環境構築手順について</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../../../application_framework/example/index.html#id2">アプリケーションの実行手順について</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../../../../index.html">Nablarch開発ツール</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../java_static_analysis/index.html">1. 効率的なJava静的チェック</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../../java_static_analysis/index.html#inspection">1.1. Inspectionを行う</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../../java_static_analysis/index.html#code-format">1.2. フォーマットを統一する</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../../java_static_analysis/index.html#api">1.3. 許可していないAPIが使用されていないかチェックする</a></li>
+</ul>
+</li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../../../../index.html">2. テスティングフレームワーク</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../../index.html">2.1. 単体テスト実施方法</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../06_TestFWGuide/index.html">2.2. 自動テストフレームワークの使用方法</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../08_TestTools/index.html">2.3. プログラミング工程で使用するツール</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../toolbox/index.html">3. アプリケーション開発時に使える便利なツール</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../../toolbox/JspStaticAnalysis/index.html">3.1. Jakarta Server Pages静的解析ツール</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../../toolbox/SqlExecutor/SqlExecutor.html">3.2. Nablarch SQL Executor</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../nablarch_api/index.html">Nablarch API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../releases/index.html">リリース情報</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../about_nablarch/versionup_policy.html">Nablarch のバージョンアップ方針</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../../about_nablarch/versionup_policy.html#versionup-policy-release-type">リリース単位</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../../about_nablarch/versionup_policy.html#versionup-policy-versionup-type">バージョンアップの種類</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../../about_nablarch/versionup_policy.html#versionup-policy-product-version-number">バージョンの番号体系</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../../about_nablarch/versionup_policy.html#versionup-policy-backward-compatibility-policy">後方互換性ポリシー</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../../../about_nablarch/versionup_policy.html#id8">後方互換性を維持する範囲</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../../../about_nablarch/versionup_policy.html#versionup-policy-backward-compatibility-contents">後方互換性維持の内容</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../../../about_nablarch/versionup_policy.html#versionup-policy-backward-compatibility-is-not-maintained">後方互換性の例外</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../inquiry/index.html">機能追加要望・改善要望</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../../inquiry/index.html#id2">JIRAへの課題起票方法</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../migration/index.html">Nablarch 5から6への移行ガイド</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../../migration/index.html#id2">Nablarch 5と6で大きく異なる点</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../../../migration/index.html#jakarta-ee-10">Jakarta EE 10に対応</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../../../migration/index.html#java17">動作に必要なJavaの最低バージョンを17に変更</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../../migration/index.html#id3">前提条件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../../migration/index.html#id4">移行手順の概要</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../../migration/index.html#id5">移行手順の詳細</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../../../migration/index.html#nablarch">Nablarchのバージョンアップ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../../../migration/index.html#jakarta-ee">Jakarta EE対応</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../../migration/index.html#jsr352">JSR352に準拠したバッチアプリケーションの移行手順</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../../../migration/index.html#id11">実行時にエラーになる場合の対処方法</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../../migration/index.html#id12">付録</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../../../migration/index.html#java-ee-jakarta-ee-comparation">Java EEとJakarta EEの仕様の対応表</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../jakarta_ee/index.html">Jakarta EEの仕様名に関して</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../../jakarta_ee/index.html#id2">省略名の表記に関して</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../../jakarta_ee/index.html#nablarch56">Nablarch5と6で名称が変更になった機能について</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../terms_of_use/index.html">ご利用にあたって</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../../terms_of_use/index.html#id2">情報の外部送信について</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../../../terms_of_use/index.html#id3">情報の利用目的</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../../../terms_of_use/index.html#id4">情報の送信先</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../../../terms_of_use/index.html#id5">情報の種類・用途</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../../../../index.html">∇Nablarch </a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../../../../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../../../../../index.html">Nablarch開発ツール</a> &raquo;</li>
+      
+          <li><a href="../../../../../index.html">2. テスティングフレームワーク</a> &raquo;</li>
+      
+          <li><a href="../../index.html">2.1. 単体テスト実施方法</a> &raquo;</li>
+      
+          <li><a href="../index.html">2.1.1. クラス単体テストの実施方法</a> &raquo;</li>
+      
+          <li><a href="index.html">2.1.1.1. Form/Entityの単体テスト</a> &raquo;</li>
+      
+    <li>2.1.1.1.1. Bean Validationに対応したForm/Entityのクラス単体テスト</li>
+    <li class="wy-breadcrumbs-aside">
+      <a href="https://github.com/nablarch" class="fa fa-github">GitHub</a>
+    </li>
+    <li class="wy-breadcrumbs-aside">
+        <a href="https://nablarch.github.io/docs/LATEST/doc/en/index.html" class="en">English</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="bean-validationform-entity">
+<span id="entityunittestwithbeanvalidation"></span><h1>2.1.1.1.1. Bean Validationに対応したForm/Entityのクラス単体テスト<a class="headerlink" href="#bean-validationform-entity" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>本項では、入力値チェックを <a class="reference internal" href="../../../../../../../application_framework/application_framework/libraries/validation/bean_validation.html#bean-validation"><span>Bean Validation</span></a> で実施しているFormおよびEntityクラス単体テスト(以下Form単体テストまたはEntity単体テスト)について説明する。
+両者はほぼ同じように単体テストを行えるため、共通する内容についてはForm単体テストをベースに説明し、特有の処理については個別に説明する。</p>
+<div class="admonition tip">
+<p class="first admonition-title">補足</p>
+<p class="last">Form、Entityの責務については、各処理方式の責務配置を参照すること。
+例： <a class="reference internal" href="../../../../../../../application_framework/application_framework/web/application_design.html#application-design"><span>ウェブアプリケーションの責務配置</span></a> 、 <a class="reference internal" href="../../../../../../../application_framework/application_framework/batch/nablarch_batch/application_design.html#nablarch-batch-application-design"><span>Nablarchバッチアプリケーションの責務配置</span></a></p>
+</div>
+<div class="section" id="form-entity">
+<h2>2.1.1.1.1.1. Form/Entity単体テストの書き方<a class="headerlink" href="#form-entity" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>本項で例として使用したテストクラスとテストデータは以下のとおり(右クリック-&gt;保存でダウンロード)。</p>
+<ul class="simple">
+<li><a class="reference download internal" href="../../../../../../../_downloads/UserRegistrationFormTest.java" download=""><code class="xref download docutils literal"><span class="pre">テストクラス(UserRegistrationFormTest.java)</span></code></a></li>
+<li><a class="reference download internal" href="../../../../../../../_downloads/UserRegistrationFormTest.xlsx" download=""><code class="xref download docutils literal"><span class="pre">テストデータ(UserRegistrationFormTest.xlsx)</span></code></a></li>
+<li><a class="reference download internal" href="../../../../../../../_downloads/UserRegistrationForm.java" download=""><code class="xref download docutils literal"><span class="pre">テスト対象クラス(UserRegistrationForm.java)</span></code></a></li>
+</ul>
+<div class="section" id="id1">
+<h3>2.1.1.1.1.1.1. テストデータの作成<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>テストデータを記載したExcelファイルそのものの作成方法を説明する。テストデータを記載したExcelファイルは、テストソースコードと同じディレクトリに同じ名前で格納する(拡張子のみ異なる)。
+なお、後述する <a class="reference internal" href="#entityunittest-validationcase-beanvalidation"><span>精査のテストケース</span></a> 、<a class="reference internal" href="#entityunittest-settergettercase-beanvalidation"><span>setter、getterに対するテストケース</span></a>のそれぞれが、1シートずつ使用する前提である。</p>
+<p>テストデータの記述方法詳細については、 <a class="reference internal" href="../../../06_TestFWGuide/01_Abstract.html"><em>自動テストフレームワーク</em></a> 、 <a class="reference internal" href="../../../06_TestFWGuide/02_DbAccessTest.html"><em>データベースを使用するクラスのテスト</em></a> を参照。</p>
+<p>なお、メッセージデータやコードマスタなどの、データベースに格納する静的マスタデータは、プロジェクトで管理されたデータがあらかじめ投入されている
+(これらのデータを個別のテストデータとして作成しない)前提である。</p>
+</div>
+<div class="section" id="id2">
+<h3>2.1.1.1.1.1.2. テストクラスの作成<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>Form/Entity単体テストのテストクラスは、以下の条件を満たすように作成する。</p>
+<ul class="simple">
+<li>テストクラスのパッケージは、テスト対象のForm/Entityと同じとする。</li>
+<li>&lt;Form/Entityクラス名&gt;Testというクラス名でテストクラスを作成する。</li>
+<li>nablarch.test.core.db.EntityTestSupportを継承する。</li>
+</ul>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">com.nablarch.example.app.web.form</span><span class="o">;</span> <span class="c1">// 【説明】パッケージはUserRegistrationFormと同じ</span>
+
+<span class="kn">import</span> <span class="nn">nablarch.test.core.db.EntityTestSupport</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.junit.Test</span><span class="o">;</span>
+
+<span class="cm">/**</span>
+<span class="cm"> * {@link UserRegistrationForm}に対するテストを実行するクラス。</span>
+<span class="cm"> * テスト内容はExcelシート参照のこと。</span>
+<span class="cm"> *</span>
+<span class="cm"> * @author Takayuki Uchida</span>
+<span class="cm"> * @since 1.0</span>
+<span class="cm"> */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">UserRegistrationFormTest</span> <span class="kd">extends</span> <span class="n">EntityTestSupport</span> <span class="o">{</span>
+<span class="c1">// 【説明】クラス名はUserRegistrationFormTestで、EntityTestSupportを継承する</span>
+
+<span class="c1">// 【説明】〜後略〜</span>
+</pre></div>
+</div>
+<p>テストメソッドの記述方法は本項以降に記載されているコード例を参照。</p>
+</div>
+<div class="section" id="entityunittest-validationcase-beanvalidation">
+<span id="id3"></span><h3>2.1.1.1.1.1.3. 文字種と文字列長の単項目精査テストケース<a class="headerlink" href="#entityunittest-validationcase-beanvalidation" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>単項目精査に関するテストケースは、入力される文字種および文字列長に関するものがほとんどである。例えば、以下のようなプロパティがあるとする。</p>
+<ul class="simple">
+<li>プロパティ名「フリガナ」</li>
+<li>最大文字列長は50文字</li>
+<li>必須項目</li>
+<li>全角カタカナのみを許容する</li>
+</ul>
+<p>この場合、以下のようなテストケースを作成することになる。</p>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="63%" />
+<col width="37%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">ケース</th>
+<th class="head">観点</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>全角カタカナ50文字を入力し精査が成功する。</td>
+<td>最大文字列長、文字種の確認</td>
+</tr>
+<tr class="row-odd"><td>全角カタカナ51文字を入力し精査が失敗する。</td>
+<td>最大文字列長の確認</td>
+</tr>
+<tr class="row-even"><td>全角カタカナ1文字を入力し精査が成功する。</td>
+<td>最小文字列長、文字種の確認</td>
+</tr>
+<tr class="row-odd"><td>空文字を入力し、精査が失敗する。</td>
+<td>必須精査の確認</td>
+</tr>
+<tr class="row-even"><td>半角カタカナを入力し精査が失敗する。</td>
+<td>文字種の確認<a class="footnote-reference" href="#id5" id="id4">[1]</a></td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<p></p>
+<blockquote>
+<div><table class="docutils footnote" frame="void" id="id5" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id4">[1]</a></td><td>同様に、半角英字、全角ひらがな、漢字...等が入力され精査が失敗するケースが必要である。</td></tr>
+</tbody>
+</table>
+</div></blockquote>
+<p>このように、単項目精査のテストケースは、ケース数が多くなりデータ作成の労力がかかる。そこで、単項目精査テスト専用のテスト方法を提供する。これにより以下の効果が見込まれる。</p>
+<ul class="simple">
+<li>単項目精査のテストケース作成が容易になる。</li>
+<li>保守性の高いテストデータが作成でき、レビューやメンテナンスが容易になる。</li>
+</ul>
+<div class="admonition tip">
+<p class="first admonition-title">補足</p>
+<p>本テスト方法は、プロパティとして別のFormを保持するFormに対しては使用できない。その場合、独自に精査処理のテストを実装すること。
+プロパティとして別のFormを保持するFormとは、以下の形式でプロパティにアクセスする親Formのこと。</p>
+<div class="last highlight-none"><div class="highlight"><pre><span></span>&lt;親Form&gt;.&lt;子Form&gt;.&lt;子フォームのプロパティ名&gt;
+</pre></div>
+</div>
+</div>
+<div class="section" id="entityunittest-charsetandlengthinputdata-beanvalidation">
+<span id="id6"></span><h4>2.1.1.1.1.1.3.1. テストケース表の作成方法<a class="headerlink" href="#entityunittest-charsetandlengthinputdata-beanvalidation" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<p>以下のカラムを用意する。</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="38%" />
+<col width="62%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">カラム名</th>
+<th class="head">記載内容</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>propertyName</td>
+<td>テスト対象のプロパティ名</td>
+</tr>
+<tr class="row-odd"><td>allowEmpty</td>
+<td>そのプロパティが未入力を許容するか</td>
+</tr>
+<tr class="row-even"><td>group</td>
+<td>Bean Validationのグループ（省略可） <a class="footnote-reference" href="#id11" id="id7">[2]</a></td>
+</tr>
+<tr class="row-odd"><td>min</td>
+<td>そのプロパティが入力値として許容する最小文字列長（
+省略可）</td>
+</tr>
+<tr class="row-even"><td>max</td>
+<td>そのプロパティが入力値として許容する最大文字列長（
+省略可）</td>
+</tr>
+<tr class="row-odd"><td>messageIdWhenEmptyInput</td>
+<td>未入力時に期待するメッセージ（省略可）<a class="footnote-reference" href="#id12" id="id8">[3]</a></td>
+</tr>
+<tr class="row-even"><td>messageIdWhenInvalidLength</td>
+<td>文字列長不適合時に期待するメッセージ（省略可）<a class="footnote-reference" href="#id13" id="id9">[4]</a></td>
+</tr>
+<tr class="row-odd"><td>messageIdWhenNotApplicable</td>
+<td>文字種不適合時に期待するメッセージ</td>
+</tr>
+<tr class="row-even"><td>interpolateKey_<em>n</em></td>
+<td>埋め込み文字のキー名（<em>n</em>は1からの連番、省略可
+） <a class="footnote-reference" href="#id14" id="id10">[5]</a> </td>
+</tr>
+<tr class="row-odd"><td>interpolateValue_<em>n</em></td>
+<td>埋め込み文字の値（<em>n</em>は1からの連番、省略可）</td>
+</tr>
+<tr class="row-even"><td>半角英字</td>
+<td>半角英字を許容するか</td>
+</tr>
+<tr class="row-odd"><td>半角数字</td>
+<td>半角数字を許容するか</td>
+</tr>
+<tr class="row-even"><td>半角記号</td>
+<td>半角記号を許容するか</td>
+</tr>
+<tr class="row-odd"><td>半角カナ</td>
+<td>半角カナを許容するか</td>
+</tr>
+<tr class="row-even"><td>全角英字</td>
+<td>全角英字を許容するか</td>
+</tr>
+<tr class="row-odd"><td>全角数字</td>
+<td>全角数字を許容するか</td>
+</tr>
+<tr class="row-even"><td>全角ひらがな</td>
+<td>全角ひらがなを許容するか</td>
+</tr>
+<tr class="row-odd"><td>全角カタカナ</td>
+<td>全角カタカナを許容するか</td>
+</tr>
+<tr class="row-even"><td>全角漢字</td>
+<td>全角漢字を許容するか</td>
+</tr>
+<tr class="row-odd"><td>全角記号その他</td>
+<td>全角記号その他を許容するか</td>
+</tr>
+<tr class="row-even"><td>外字</td>
+<td>外字を許容するか</td>
+</tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id11" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id7">[2]</a></td><td>Bean Validationのグループには、グループに指定するクラスをFQCNで指定する。
+内部クラスを指定する場合は、クラスを <code class="docutils literal"><span class="pre">$</span></code> で区切ること。</td></tr>
+</tbody>
+</table>
+<p></p>
+<table class="docutils footnote" frame="void" id="id12" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id8">[3]</a></td><td>messageIdWhenEmptyInputを省略した場合は、 <a class="reference internal" href="#entityunittest-entitytestconfiguration-beanvalidation"><span>自動テストフレームワーク設定値</span></a> で設定したemptyInputMessageId
+の値が使用される。</td></tr>
+</tbody>
+</table>
+<p></p>
+<table class="docutils footnote" frame="void" id="id13" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id9">[4]</a></td><td>messageIdWhenInvalidLengthを省略した場合は、 <a class="reference internal" href="#entityunittest-entitytestconfiguration-beanvalidation"><span>自動テストフレームワーク設定値</span></a> で
+設定したデフォルト値が使用される。省略時にどのデフォルト値が使用されるかは、max欄及びmin欄の記載によって決まり、以下の通り。</td></tr>
+</tbody>
+</table>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="13%" />
+<col width="15%" />
+<col width="59%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">max欄の記載</th>
+<th class="head">min欄の記載</th>
+<th class="head">maxとminの比較</th>
+<th class="head">省略時に使用されるデフォルト値</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>あり</td>
+<td>なし</td>
+<td>(該当なし)</td>
+<td>maxMessageId</td>
+</tr>
+<tr class="row-odd"><td>あり</td>
+<td>あり</td>
+<td>max &gt; min</td>
+<td>maxAndMinMessageId（超過時）、underLimitMessageId（不足時）</td>
+</tr>
+<tr class="row-even"><td>あり</td>
+<td>あり</td>
+<td>max = min</td>
+<td>fixLengthMessageId</td>
+</tr>
+<tr class="row-odd"><td>なし</td>
+<td>あり</td>
+<td>(該当なし)</td>
+<td>minMessageId</td>
+</tr>
+</tbody>
+</table>
+<p></p>
+<table class="docutils footnote" frame="void" id="id14" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id10">[5]</a></td><td><a class="reference internal" href="../../../../../../../application_framework/application_framework/libraries/message.html#message-format-spec"><span>埋め込み文字</span></a> がある場合は、interpolateKey_1 及び interpolateValue_1 のカラムを追加し、
+interpolateKey_1 には埋め込み文字のキー名を、 interpolateValue_1 には埋め込み文字の値を、それぞれ記載する。
+埋め込み文字が複数存在する場合は、interpolateKey_2, interpolateValue_2のようにカラムを増やす。</td></tr>
+</tbody>
+</table>
+<p>許容するかどうかを記入するカラムには、以下の値を設定する。</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="24%" />
+<col width="17%" />
+<col width="59%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">設定内容</th>
+<th class="head">設定値</th>
+<th class="head">備考</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>許容する</td>
+<td>o</td>
+<td>半角英小文字のオー</td>
+</tr>
+<tr class="row-odd"><td>許容しない</td>
+<td>x</td>
+<td>半角英小文字のエックス</td>
+</tr>
+</tbody>
+</table>
+<p>メッセージを指定するカラムには、精査エラー時に期待するメッセージを記載する。
+メッセージ内の <code class="docutils literal"><span class="pre">{}</span></code> で囲まれた部分は、 <a class="reference internal" href="../../../../../../../application_framework/application_framework/libraries/message.html#message-format-spec"><span>埋め込み文字を使用する</span></a> の埋め込み文字であると見なされる。
+メッセージ全体を <code class="docutils literal"><span class="pre">{}</span></code> で囲んだ場合は、メッセージIDと見なされ、 <a class="reference internal" href="../../../../../../../application_framework/application_framework/libraries/message.html#message"><span>メッセージ管理</span></a> で解決される。</p>
+<p>以下、メッセージの指定方法の例を記載する。</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="49%" />
+<col width="51%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">記載例</th>
+<th class="head">説明</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>入力必須です。</td>
+<td>メッセージをそのまま記載した場合（埋め込み文字なし）</td>
+</tr>
+<tr class="row-odd"><td>{min}文字以上{max}文字以下で入力してください。</td>
+<td>メッセージをそのまま記載した場合（埋め込み文字あり）</td>
+</tr>
+<tr class="row-even"><td>{nablarch.core.validation.ee.SystemChar.message}</td>
+<td>メッセージIDとしてメッセージを記載した場合</td>
+</tr>
+</tbody>
+</table>
+<p>具体例を以下に示す。</p>
+<a class="reference internal image-reference" href="../../../../../../../_images/entityUnitTest_CharsetAndLengthExample_BeanValidation.png"><img alt="../../../../../../../_images/entityUnitTest_CharsetAndLengthExample_BeanValidation.png" src="../../../../../../../_images/entityUnitTest_CharsetAndLengthExample_BeanValidation.png" /></a>
+</div>
+<div class="section" id="id15">
+<h4>2.1.1.1.1.1.3.2. テストメソッドの作成方法<a class="headerlink" href="#id15" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<p>スーパクラスの以下のメソッドを起動する。</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="kt">void</span> <span class="nf">testValidateCharsetAndLength</span><span class="o">(</span><span class="n">Class</span> <span class="n">entityClass</span><span class="o">,</span> <span class="n">String</span> <span class="n">sheetName</span><span class="o">,</span> <span class="n">String</span> <span class="n">id</span><span class="o">)</span>
+</pre></div>
+</div>
+<p></p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="c1">// 【説明】〜前略〜</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">UserRegistrationFormTest</span> <span class="kd">extends</span> <span class="n">EntityTestSupport</span> <span class="o">{</span>
+
+    <span class="cm">/**</span>
+<span class="cm">     * テスト対象Formクラス。</span>
+<span class="cm">     */</span>
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">Class</span><span class="o">&lt;?&gt;</span> <span class="n">TARGET_CLASS</span> <span class="o">=</span> <span class="n">UserRegistrationForm</span><span class="o">.</span><span class="na">class</span><span class="o">;</span>
+
+    <span class="cm">/**</span>
+<span class="cm">     * 文字種および文字列長の単項目精査テストケース</span>
+<span class="cm">     */</span>
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">testCharsetAndLength</span><span class="o">()</span> <span class="o">{</span>
+
+        <span class="c1">// 【説明】テストデータを記載したシート名</span>
+        <span class="n">String</span> <span class="n">sheetName</span> <span class="o">=</span> <span class="s">&quot;testCharsetAndLength&quot;</span><span class="o">;</span>
+
+        <span class="c1">// 【説明】テストデータのID</span>
+        <span class="n">String</span> <span class="n">id</span> <span class="o">=</span> <span class="s">&quot;charsetAndLength&quot;</span><span class="o">;</span>
+
+        <span class="c1">// 【説明】テスト実行</span>
+        <span class="n">testValidateCharsetAndLength</span><span class="o">(</span><span class="n">TARGET_CLASS</span><span class="o">,</span> <span class="n">sheetName</span><span class="o">,</span> <span class="n">id</span><span class="o">);</span>
+    <span class="o">}</span>
+
+<span class="c1">// 【説明】〜後略〜</span>
+</pre></div>
+</div>
+<p>このメソッドを実行すると、テストデータの各行毎に以下の観点でテストが実行される。</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="16%" />
+<col width="31%" />
+<col width="54%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">観点</th>
+<th class="head">入力値</th>
+<th class="head">備考</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>文字種</td>
+<td>半角英字</td>
+<td rowspan="12"><div class="first last line-block">
+<div class="line">max(最大文字列長)欄に記載した長さの文字列で</div>
+<div class="line">構成される。</div>
+<div class="line">max欄が省略された場合は、min（最小文字列長）欄に</div>
+<div class="line">記載した長さの文字列で構成される。</div>
+<div class="line">max欄、min欄ともに省略された場合は、</div>
+<div class="line">長さ1の文字列で構成される。</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td>文字種</td>
+<td>半角数字</td>
+</tr>
+<tr class="row-even"><td>文字種</td>
+<td>半角数字</td>
+</tr>
+<tr class="row-odd"><td>文字種</td>
+<td>半角記号</td>
+</tr>
+<tr class="row-even"><td>文字種</td>
+<td>半角カナ</td>
+</tr>
+<tr class="row-odd"><td>文字種</td>
+<td>全角英字</td>
+</tr>
+<tr class="row-even"><td>文字種</td>
+<td>全角数字</td>
+</tr>
+<tr class="row-odd"><td>文字種</td>
+<td>全角ひらがな</td>
+</tr>
+<tr class="row-even"><td>文字種</td>
+<td>全角カタカナ</td>
+</tr>
+<tr class="row-odd"><td>文字種</td>
+<td>全角漢字</td>
+</tr>
+<tr class="row-even"><td>文字種</td>
+<td>全角記号その他</td>
+</tr>
+<tr class="row-odd"><td>文字種</td>
+<td>外字</td>
+</tr>
+<tr class="row-even"><td>未入力</td>
+<td>空文字</td>
+<td><div class="first last line-block">
+<div class="line">長さ0の文字列</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td>最小文字列</td>
+<td>最小文字列長の文字列</td>
+<td rowspan="4"><div class="first last line-block">
+<div class="line">入力値は、o印を付けた文字種で構成される。</div>
+<div class="line">max欄が省略された場合は、</div>
+<div class="line">最長文字列・文字列長超過のテストは実行されない。</div>
+<div class="line">min欄が省略された場合は、</div>
+<div class="line">文字列長不足のテストは実行されない。</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td>最長文字列</td>
+<td>最長文字列長の文字列</td>
+</tr>
+<tr class="row-odd"><td>文字列長不足</td>
+<td>最小文字列長－１の文字列</td>
+</tr>
+<tr class="row-even"><td>文字列長超過</td>
+<td>最大文字列長＋１の文字列</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="id16">
+<h3>2.1.1.1.1.1.4. その他の単項目精査のテストケース<a class="headerlink" href="#id16" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>前述の、文字種と文字列長の単項目精査テストケースを使用すれば大部分の単項目精査がテストできるが、一部の精査についてはカバーできないものもある。
+例えば、日付入力項目のフォーマット精査が挙げられる。</p>
+<p>このような単項目精査のテストについても、簡易にテストできる仕組みを用意している。
+各プロパティについて、１つの入力値と期待するメッセージIDのペアを記述することで、
+任意の値で単項目精査のテストができる。</p>
+<div class="admonition tip">
+<p class="first admonition-title">補足</p>
+<p>本テスト方法は、プロパティとして別のFormを保持するFormに対しては使用できない。その場合は、独自に精査処理のテストを実装すること。
+プロパティとして別のFormを保持するFormとは、以下の形式でプロパティにアクセスする親Formのこと。</p>
+<div class="last highlight-none"><div class="highlight"><pre><span></span>&lt;親Form&gt;.&lt;子Form&gt;.&lt;子フォームのプロパティ名&gt;
+</pre></div>
+</div>
+</div>
+<div class="section" id="id17">
+<h4>2.1.1.1.1.1.4.1. テストケース表の作成方法<a class="headerlink" href="#id17" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<p>以下のカラムを用意する。</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="37%" />
+<col width="63%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">カラム名</th>
+<th class="head">記載内容</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>propertyName</td>
+<td><div class="first last line-block">
+<div class="line">テスト対象のプロパティ名</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td>case</td>
+<td><div class="first last line-block">
+<div class="line">テストケースの簡単な説明</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td>group <a class="footnote-reference" href="#id22" id="id18">[6]</a></td>
+<td><div class="first last line-block">
+<div class="line">Bean Validationのグループ（省略可）</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td>input1<a class="footnote-reference" href="#id23" id="id19">[7]</a></td>
+<td><div class="first last line-block">
+<div class="line">入力値 <a class="footnote-reference" href="#id24" id="id20">[8]</a></div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td>messageId<a class="footnote-reference" href="#id25" id="id21">[9]</a></td>
+<td><div class="first last line-block">
+<div class="line">上記入力値で単項目精査した場合に、発生すると期待す
+るメッセージ</div>
+<div class="line">（精査エラーにならないことを期待する場合は空欄）</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td>interpolateKey_<em>n</em></td>
+<td><div class="first last line-block">
+<div class="line">埋め込み文字のキー名（<em>n</em>は1からの連番、省略可
+）</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td>interpolateValue_<em>n</em></td>
+<td><div class="first last line-block">
+<div class="line">埋め込み文字の値（<em>n</em>は1からの連番、省略可）</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id22" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id18">[6]</a></td><td>グループの指定方法は、 <a class="reference internal" href="#entityunittest-charsetandlengthinputdata-beanvalidation"><span>文字種と文字列長の単項目精査テストケースの作成方法</span></a> に記載の方法と同じである。</td></tr>
+</tbody>
+</table>
+<p></p>
+<table class="docutils footnote" frame="void" id="id23" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id19">[7]</a></td><td>ひとつのキーに対して複数のパラメータを指定する場合は、input2, input3 というようにカラムを増やす。</td></tr>
+</tbody>
+</table>
+<p></p>
+<table class="docutils footnote" frame="void" id="id24" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id20">[8]</a></td><td><a class="reference internal" href="../../../06_TestFWGuide/01_Abstract.html#special-notation-in-cell"><span>セルへの特殊な記述方法</span></a> の記法を使用することで、効率的に入力値を作成できる。</td></tr>
+</tbody>
+</table>
+<p></p>
+<table class="docutils footnote" frame="void" id="id25" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id21">[9]</a></td><td>メッセージの指定方法は、 <a class="reference internal" href="#entityunittest-charsetandlengthinputdata-beanvalidation"><span>文字種と文字列長の単項目精査テストケースの作成方法</span></a> に記載の方法と同じである。</td></tr>
+</tbody>
+</table>
+<p>具体例を以下に示す。</p>
+<a class="reference internal image-reference" href="../../../../../../../_images/entityUnitTest_singleValidationDataExample_BeanValidation.png"><img alt="../../../../../../../_images/entityUnitTest_singleValidationDataExample_BeanValidation.png" src="../../../../../../../_images/entityUnitTest_singleValidationDataExample_BeanValidation.png" /></a>
+</div>
+<div class="section" id="id26">
+<h4>2.1.1.1.1.1.4.2. テストメソッドの作成方法<a class="headerlink" href="#id26" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<p>スーパクラスの以下のメソッドを起動する。</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="kt">void</span> <span class="nf">testSingleValidation</span><span class="o">(</span><span class="n">Class</span> <span class="n">entityClass</span><span class="o">,</span> <span class="n">String</span> <span class="n">sheetName</span><span class="o">,</span> <span class="n">String</span> <span class="n">id</span><span class="o">)</span>
+</pre></div>
+</div>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="c1">// 【説明】〜前略〜</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">UserRegistrationFormTest</span> <span class="kd">extends</span> <span class="n">EntityTestSupport</span> <span class="o">{</span>
+
+    <span class="cm">/**</span>
+<span class="cm">     * テスト対象Formクラス。</span>
+<span class="cm">     */</span>
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">Class</span><span class="o">&lt;?&gt;</span> <span class="n">TARGET_CLASS</span> <span class="o">=</span> <span class="n">UserRegistrationForm</span><span class="o">.</span><span class="na">class</span><span class="o">;</span>
+
+    <span class="c1">// 【説明】〜中略〜</span>
+
+    <span class="cm">/**</span>
+<span class="cm">     * 単項目精査のテストケース（上記以外）</span>
+<span class="cm">     */</span>
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">testSingleValidation</span><span class="o">()</span> <span class="o">{</span>
+
+        <span class="c1">// 【説明】テストデータを記載したシート名</span>
+        <span class="n">String</span> <span class="n">sheetName</span> <span class="o">=</span> <span class="s">&quot;testSingleValidation&quot;</span><span class="o">;</span>
+
+        <span class="c1">// 【説明】テストデータのID</span>
+        <span class="n">String</span> <span class="n">id</span> <span class="o">=</span> <span class="s">&quot;singleValidation&quot;</span><span class="o">;</span>
+
+        <span class="c1">// 【説明】テスト実行</span>
+        <span class="n">testSingleValidation</span><span class="o">(</span><span class="n">TARGET_CLASS</span><span class="o">,</span> <span class="n">sheetName</span><span class="o">,</span> <span class="n">id</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="c1">// 【説明】〜後略〜</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id27">
+<h3>2.1.1.1.1.1.5. 項目間精査のテストケース<a class="headerlink" href="#id27" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>上記までの単項目精査でテストできないような、 <a class="reference external" href="https://jakarta.ee/specifications/platform/10/apidocs/jakarta/validation/constraints/AssertTrue.html" title="jakarta.validation.constraints.AssertTrue">&#64;AssertTrue</a> を指定した項目間精査などは、別途テストを作成する必要がある。</p>
+<div class="section" id="id28">
+<h4>2.1.1.1.1.1.5.1. テストケース表の作成<a class="headerlink" href="#id28" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<ul class="simple">
+<li>IDは&#8221;testShots&#8221;固定とする。</li>
+<li>以下のカラムを用意する。</li>
+</ul>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="41%" />
+<col width="59%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">カラム名</th>
+<th class="head">記載内容</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>title</td>
+<td><div class="first last line-block">
+<div class="line">テストケースのタイトル</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td>description</td>
+<td><div class="first last line-block">
+<div class="line">テストケースの簡単な説明</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td>group <a class="footnote-reference" href="#id32" id="id29">[10]</a></td>
+<td><div class="first last line-block">
+<div class="line">Bean Validationのグループ（省略可）</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td>expectedMessageId<em>n</em> <a class="footnote-reference" href="#id33" id="id30">[11]</a></td>
+<td><div class="first last line-block">
+<div class="line">期待するメッセージ（<em>n</em>は1からの連番 ）</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td>propertyName<em>n</em></td>
+<td><div class="first last line-block">
+<div class="line">期待するプロパティ（<em>n</em>は1からの連番 ）</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td>interpolateKey<em>n</em>_<em>k</em> <a class="footnote-reference" href="#id34" id="id31">[12]</a></td>
+<td><div class="first last line-block">
+<div class="line">埋め込み文字のキー名（<em>n</em>はexpectedMessageId</div>
+<div class="line">の <em>n</em> に対応、<em>k</em>は1からの連番。省略可）</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td>interpolateValue<em>n</em>_<em>k</em></td>
+<td><div class="first last line-block">
+<div class="line">埋め込み文字の値（<em>n</em>はexpectedMessageId</div>
+<div class="line">の <em>n</em> に対応、<em>k</em>は1からの連番。省略可）</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<table class="docutils footnote" frame="void" id="id32" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id29">[10]</a></td><td>グループの指定方法は、 <a class="reference internal" href="#entityunittest-charsetandlengthinputdata-beanvalidation"><span>文字種と文字列長の単項目精査テストケースの作成方法</span></a>
+に記載の方法と同じである。</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id33" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id30">[11]</a></td><td>メッセージの指定方法は、 <a class="reference internal" href="#entityunittest-charsetandlengthinputdata-beanvalidation"><span>文字種と文字列長の単項目精査テストケースの作成方法</span></a>
+に記載の方法と同じである。複数のメッセージを期待する場合、expectedMessageId2, propertyName2というように数値を増やして右側に追加していく。</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id34" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id31">[12]</a></td><td>複数のメッセージに対応する埋め込み文字が存在する場合は、同様にinterpolateKey2_1, interpolateValue2_1,
+interpolateKey2_2, interpolateValue2_2のように数値を増やして右側に追加していく。</td></tr>
+</tbody>
+</table>
+<p></p>
+<blockquote>
+<div>精査エラーが発生するプロパティ名と、そのプロパティの精査エラーメッセージを記載する。精査エラーが発生しないプロパティは記載しない。</div></blockquote>
+<ul class="simple">
+<li>入力パラメータ表の作成<ul>
+<li>IDは&#8221;params&#8221;固定とする。</li>
+<li>上記のテストケース表に対応する、入力パラメータ<a class="footnote-reference" href="#id36" id="id35">[13]</a> を1行ずつ記載する。</li>
+</ul>
+</li>
+</ul>
+<p></p>
+<blockquote>
+<div><table class="docutils footnote" frame="void" id="id36" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id35">[13]</a></td><td><a class="reference internal" href="../../../06_TestFWGuide/01_Abstract.html#special-notation-in-cell"><span>セルへの特殊な記述方法</span></a> の記法を使用することで、効率的に入力値を作成できる。</td></tr>
+</tbody>
+</table>
+</div></blockquote>
+<p></p>
+<blockquote>
+<div><p>入力パラメータ表には、項目間精査で検証したいプロパティの値を記載する。
+項目間精査で検証したいプロパティ以外に、入力必須のプロパティが存在する場合は、それも記載する必要がある。</p>
+<p>具体例を以下に示す。
+下図では、&#8221;newPasswordとconfirmPasswordが等しいか否か&#8221;を検証するプロパティ（validPassword）に対するケースを作成している。</p>
+<a class="reference internal image-reference" href="../../../../../../../_images/entityUnitTest_validationTestData_BeanValidation.png"><img alt="../../../../../../../_images/entityUnitTest_validationTestData_BeanValidation.png" src="../../../../../../../_images/entityUnitTest_validationTestData_BeanValidation.png" /></a>
+</div></blockquote>
+<div class="admonition tip">
+<p class="first admonition-title">補足</p>
+<p>Form単体テストのテストケースやテストデータを作成する際、<strong>プロパティに保持している別のFormのプロパティ</strong> を指定したいことがある。この場合、次のように指定できる。</p>
+<ul class="simple">
+<li>Formのコード例</li>
+</ul>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">SampleForm</span> <span class="o">{</span>
+
+    <span class="cm">/** システムユーザ */</span>
+    <span class="kd">private</span> <span class="n">SystemUserEntity</span> <span class="n">systemUser</span><span class="o">;</span>
+
+    <span class="cm">/** 電話番号配列 */</span>
+    <span class="kd">private</span> <span class="n">UserTelEntity</span><span class="o">[]</span> <span class="n">userTelArray</span><span class="o">;</span>
+
+    <span class="c1">// 【説明】プロパティ以外は省略</span>
+
+<span class="o">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>保持しているFormのプロパティを指定する方法(SystemUserEntity.userIdを指定する場合)</li>
+</ul>
+<div class="highlight-none"><div class="highlight"><pre><span></span>sampleForm.systemUser.userId
+</pre></div>
+</div>
+<ul class="simple">
+<li>Form配列の要素のプロパティを指定する方法(UserTelEntity配列の先頭要素のプロパティを指定する場合)</li>
+</ul>
+<div class="last highlight-none"><div class="highlight"><pre><span></span>sampleForm.userTelArray[0].telNoArea
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id37">
+<h4>2.1.1.1.1.1.5.2. テストメソッドの作成方法<a class="headerlink" href="#id37" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<p>スーパクラスの以下のメソッドを起動する。</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="kt">void</span> <span class="nf">testBeanValidation</span><span class="o">(</span><span class="n">Class</span> <span class="n">entityClass</span><span class="o">,</span> <span class="n">String</span> <span class="n">sheetName</span><span class="o">)</span>
+</pre></div>
+</div>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="c1">// 【説明】〜前略〜</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">UserRegistrationFormTest</span> <span class="kd">extends</span> <span class="n">EntityTestSupport</span> <span class="o">{</span>
+
+    <span class="cm">/**</span>
+<span class="cm">     * テスト対象Formクラス。</span>
+<span class="cm">     */</span>
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">Class</span><span class="o">&lt;?&gt;</span> <span class="n">TARGET_CLASS</span> <span class="o">=</span> <span class="n">UserRegistrationForm</span><span class="o">.</span><span class="na">class</span><span class="o">;</span>
+
+    <span class="c1">// 【説明】〜中略〜</span>
+
+    <span class="cm">/**</span>
+<span class="cm">     * 項目間精査のテストケース</span>
+<span class="cm">     */</span>
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">testWholeFormValidation</span><span class="o">()</span> <span class="o">{</span>
+        <span class="c1">// 【説明】テストデータを記載したシート名</span>
+        <span class="n">String</span> <span class="n">sheetName</span> <span class="o">=</span> <span class="s">&quot;testWholeFormValidation&quot;</span><span class="o">;</span>
+
+        <span class="c1">// 【説明】テスト実行</span>
+        <span class="n">testBeanValidation</span><span class="o">(</span><span class="n">TARGET_CLASS</span><span class="o">,</span> <span class="n">sheetName</span><span class="o">);</span>
+    <span class="o">}</span>
+
+  <span class="c1">// 【説明】〜後略〜</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="settergetter">
+<span id="entityunittest-settergettercase-beanvalidation"></span><h3>2.1.1.1.1.1.6. setter、getterに対するテストケース<a class="headerlink" href="#settergetter" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>setter、getterに対するテストでは、setterで設定した値とgetterで取得した値が、期待通りになっているか確認するケースを作成する。このとき対象となるプロパティは、Formに定義されている全てのプロパティである。</p>
+<p>各プロパティに対して、setterに渡すためのデータと期待値(getterで取得した値と比較するデータ)を用意する。
+テストメソッドでは、前述のsetterに渡すためのデータを引数にsetterを呼び出し、直後にgetterで取得した値と期待値が等しいことを確認している。</p>
+<p>実際のテストコードでは、setterへの値の設定及び値の確認(期待値との比較)は、
+自動テストフレームワークで提供されるメソッド内で行われる。 詳細は、<a class="reference internal" href="#test-settergetter-java-label"><span>テストコード</span></a>  を参照すること。</p>
+<div class="admonition tip">
+<p class="first admonition-title">補足</p>
+<p>Entityは自動生成されるため、アプリケーションで使用されないsetter/getterが生成される可能性がある。その場合リクエスト単体テストではテストできないため、Entity単体テストでsetter/getterに対するテストを必ず行うこと。</p>
+<p class="last">一方、一般的なFormの場合、アプリケーションで使用するsetter/getterのみを作成する。したがって、リクエスト単体テストでsetter/getterのテストを行うことができる。そのため、一般的なFormについては、クラス単体テストでsetter/getterのテストを行う必要はない。</p>
+</div>
+<div class="section" id="excel">
+<h4>2.1.1.1.1.1.6.1. Excelへの定義<a class="headerlink" href="#excel" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<a class="reference internal image-reference" href="../../../../../../../_images/entityUnitTest_SetterAndGetter.png"><img alt="../../../../../../../_images/entityUnitTest_SetterAndGetter.png" src="../../../../../../../_images/entityUnitTest_SetterAndGetter.png" /></a>
+<p id="test-settergetter-java-label">このデータを使用するテストメソッドを以下に示す。</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="c1">// 【説明】～前略～</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">UserRegistrationFormTest</span> <span class="kd">extends</span> <span class="n">EntityTestSupport</span> <span class="o">{</span>
+    <span class="cm">/**</span>
+<span class="cm">     * テスト対象Formクラス。</span>
+<span class="cm">     */</span>
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">Class</span><span class="o">&lt;?&gt;</span> <span class="n">TARGET_CLASS</span> <span class="o">=</span> <span class="n">UserRegistrationForm</span><span class="o">.</span><span class="na">class</span><span class="o">;</span>
+
+    <span class="c1">// 【説明】〜中略〜</span>
+
+    <span class="cm">/**</span>
+<span class="cm">     * setter、getterのテストケース</span>
+<span class="cm">     */</span>
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">testSetterAndGetter</span><span class="o">()</span> <span class="o">{</span>
+
+        <span class="n">String</span> <span class="n">sheetName</span> <span class="o">=</span> <span class="s">&quot;testSetterAndGetter&quot;</span><span class="o">;</span>
+
+        <span class="n">String</span> <span class="n">id</span> <span class="o">=</span> <span class="s">&quot;setterAndGetter&quot;</span><span class="o">;</span>
+
+        <span class="n">testSetterAndGetter</span><span class="o">(</span><span class="n">TARGET_CLASS</span><span class="o">,</span> <span class="n">sheetName</span><span class="o">,</span> <span class="n">id</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<div class="admonition tip" id="testsetterandgetter-note-label">
+<p class="first admonition-title">補足</p>
+<p>testSetterAndGetterでテスト可能なプロパティの型(クラス)には制限がある。
+下記型(クラス)に該当しない場合には、各テストクラスにてsetterとgetterを明示的に呼び出してテストする必要がある。</p>
+<ul class="simple">
+<li>String及び、String配列</li>
+<li>BigDecimal及び、BigDecimal配列</li>
+<li>java.util.Date及び、java.util.Date配列(Excelへはyyyy-MM-dd形式もしくはyyyy-MM-dd HH:mm:ss形式で記述すること)</li>
+<li>valueOf(String)メソッドを持つクラス及び、その配列クラス(例えばIntegerやLong、java.sql.Dateやjava.sql.Timestampなど)</li>
+</ul>
+<p>以下に、個別のテスト実施方法の例を示す。
+この例では、Formが <code class="docutils literal"><span class="pre">List&lt;String&gt;</span></code> 型のプロパティ <code class="docutils literal"><span class="pre">users</span></code> を持っているとしている。</p>
+<blockquote class="last">
+<div><ul>
+<li><p class="first">Excelへのデータ記述例</p>
+<a class="reference internal image-reference" href="../../../../../../../_images/entityUnitTest_SetterAndGetterOther.png"><img alt="../../../../../../../_images/entityUnitTest_SetterAndGetterOther.png" src="../../../../../../../_images/entityUnitTest_SetterAndGetterOther.png" /></a>
+</li>
+<li><p class="first">テストコード例</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="cm">/** setter/getterのテスト */</span>
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">testSetterAndGetter</span><span class="o">()</span> <span class="o">{</span>
+    <span class="c1">// 【説明】</span>
+    <span class="c1">// 共通にテストが実施出来る項目は、testSetterAndGetterを使用してテストを実施する。</span>
+    <span class="n">Class</span><span class="o">&lt;?&gt;</span> <span class="n">entityClass</span> <span class="o">=</span> <span class="n">UserRegistrationForm</span><span class="o">.</span><span class="na">class</span><span class="o">;</span>
+    <span class="n">String</span> <span class="n">sheetName</span> <span class="o">=</span> <span class="s">&quot;testSetterAndGetter&quot;</span><span class="o">;</span>
+    <span class="n">String</span> <span class="n">id</span> <span class="o">=</span> <span class="s">&quot;setterAndGetter&quot;</span><span class="o">;</span>
+    <span class="n">testSetterAndGetter</span><span class="o">(</span><span class="n">entityClass</span><span class="o">,</span> <span class="n">sheetName</span><span class="o">,</span> <span class="n">id</span><span class="o">);</span>
+
+    <span class="c1">// 【説明】</span>
+    <span class="c1">// 共通にテストが実施出来ない項目は、個別にテストを実施する。</span>
+
+    <span class="c1">// 【説明】</span>
+    <span class="c1">// getParamMapを呼び出し、個別にテストを行うプロパティのテストデータを取得する。</span>
+    <span class="c1">// (テスト対象のプロパティが複数ある場合は、getListParamMapを使用する。)</span>
+    <span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">String</span><span class="o">[]&gt;</span> <span class="n">data</span> <span class="o">=</span> <span class="n">getParamMap</span><span class="o">(</span><span class="n">sheetName</span><span class="o">,</span> <span class="s">&quot;setterAndGetterOther&quot;</span><span class="o">);</span>
+
+    <span class="c1">// 【説明】String[]から、Formのsetterの引数であるList&lt;String&gt;へ変換する</span>
+    <span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">users</span> <span class="o">=</span> <span class="n">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="n">data</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">&quot;set&quot;</span><span class="o">));</span>
+
+    <span class="c1">// 【説明】デフォルトコンストラクタを生成し、setterで値を設定する。</span>
+    <span class="n">UserRegistrationForm</span> <span class="n">form</span> <span class="o">=</span> <span class="k">new</span> <span class="n">UserRegistrationForm</span><span class="o">();</span>
+    <span class="n">form</span><span class="o">.</span><span class="na">setUsers</span><span class="o">(</span><span class="n">users</span><span class="o">);</span>
+
+    <span class="c1">// 【説明】getterを呼び出し、期待値通りの値が返却されることを確認する。</span>
+    <span class="n">assertEquals</span><span class="o">(</span><span class="n">form</span><span class="o">.</span><span class="na">getUsers</span><span class="o">(),</span> <span class="n">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="n">data</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">&quot;get&quot;</span><span class="o">)));</span>
+
+<span class="o">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="admonition tip">
+<p class="first admonition-title">補足</p>
+<p>setterやgetterにロジックを記述した場合(例えば、setterは郵便番号上3桁と下4桁に別れているが、getterはまとめて7桁取得する場合など)は、
+そのロジックを確認するテストケースを作成すること。</p>
+<p>上記のテストをExcelに定義する場合には、下記画像のように定義する。:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>郵便番号に下記を設定した場合に、正しく7桁の郵便番号(0010001)が取得することを確認する例
+  郵便番号上3桁:001
+  郵便番号下4桁:0001
+</pre></div>
+</div>
+<a class="last reference internal image-reference" href="../../../../../../../_images/entityUnitTest_SetterAndGetter_PostNo.png"><img alt="../../../../../../../_images/entityUnitTest_SetterAndGetter_PostNo.png" src="../../../../../../../_images/entityUnitTest_SetterAndGetter_PostNo.png" /></a>
+</div>
+</div>
+</div>
+<div class="section" id="entityunittest-entitytestconfiguration-beanvalidation">
+<span id="id38"></span><h3>2.1.1.1.1.1.7. 自動テストフレームワーク設定値<a class="headerlink" href="#entityunittest-entitytestconfiguration-beanvalidation" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p><a class="reference internal" href="#entityunittest-validationcase-beanvalidation"><span>精査のテストケース</span></a>を実施する際に必要な初期値設定について説明する。</p>
+<div class="section" id="id39">
+<h4>2.1.1.1.1.1.7.1. 設定項目一覧<a class="headerlink" href="#id39" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<p><code class="docutils literal"><span class="pre">nablarch.test.core.entity.EntityTestConfiguration</span></code>クラスを使用し、以下の値をコンポーネント設定ファイルで設定する。</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="27%" />
+<col width="73%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">設定項目名</th>
+<th class="head">説明</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>maxMessageId</td>
+<td>最大文字列長超過時のメッセージのデフォルト値</td>
+</tr>
+<tr class="row-odd"><td>maxAndMinMessageId</td>
+<td>最長最小文字列長範囲外のメッセージのデフォルト値(可変長、超過時)</td>
+</tr>
+<tr class="row-even"><td>underLimitMessageId</td>
+<td>最長最小文字列長範囲外のメッセージのデフォルト値(可変長、不足時)</td>
+</tr>
+<tr class="row-odd"><td>fixLengthMessageId</td>
+<td>最長最小文字列長範囲外のメッセージのデフォルト値(固定長)</td>
+</tr>
+<tr class="row-even"><td>minMessageId</td>
+<td>文字列長不足時のメッセージのデフォルト値 <a class="footnote-reference" href="#id43" id="id40">[14]</a></td>
+</tr>
+<tr class="row-odd"><td>emptyInputMessageId</td>
+<td>未入力時のメッセージのデフォルト値</td>
+</tr>
+<tr class="row-even"><td>characterGenerator</td>
+<td>文字列生成クラス <a class="footnote-reference" href="#id44" id="id41">[15]</a></td>
+</tr>
+<tr class="row-odd"><td>validationTestStrategy</td>
+<td>テスト用バリデーションストラテジ <a class="footnote-reference" href="#id45" id="id42">[16]</a></td>
+</tr>
+</tbody>
+</table>
+<p></p>
+<table class="docutils footnote" frame="void" id="id43" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id40">[14]</a></td><td><a class="reference internal" href="#entityunittest-validationcase-beanvalidation"><span>文字種と文字列長の単項目精査テストケース</span></a> で、maxを省略したテストケースを作成する場合は指定必須。</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id44" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id41">[15]</a></td><td><code class="docutils literal"><span class="pre">nablarch.test.core.util.generator.CharacterGenerator</span></code>の実装クラスを指定する。
+このクラスがテスト用の入力値を生成する。
+通常は、<code class="docutils literal"><span class="pre">nablarch.test.core.util.generator.BasicJapaneseCharacterGenerator</span></code>を使用すれば良い。</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id45" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id42">[16]</a></td><td>Bean Validationを使用する場合は、 <code class="docutils literal"><span class="pre">nablarch.test.core.entity.BeanValidationTestStrategy</span></code>を固定で指定する。</td></tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id46">
+<h4>2.1.1.1.1.1.7.2. コンポーネント設定ファイルの記述例<a class="headerlink" href="#id46" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<p>テスト用コンポーネント設定ファイル記述例を示す。</p>
+<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="c">&lt;!-- エンティティテスト設定 --&gt;</span>
+<span class="nt">&lt;component</span> <span class="na">name=</span><span class="s">&quot;entityTestConfiguration&quot;</span> <span class="na">class=</span><span class="s">&quot;nablarch.test.core.entity.EntityTestConfiguration&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;maxMessageId&quot;</span>        <span class="na">value=</span><span class="s">&quot;{nablarch.core.validation.ee.Length.max.message}&quot;</span><span class="nt">/&gt;</span>
+  <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;maxAndMinMessageId&quot;</span>  <span class="na">value=</span><span class="s">&quot;{nablarch.core.validation.ee.Length.min.max.message}&quot;</span><span class="nt">/&gt;</span>
+  <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;fixLengthMessageId&quot;</span>  <span class="na">value=</span><span class="s">&quot;{nablarch.core.validation.ee.Length.fixed.message}&quot;</span><span class="nt">/&gt;</span>
+  <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;underLimitMessageId&quot;</span> <span class="na">value=</span><span class="s">&quot;{nablarch.core.validation.ee.Length.min.max.message}&quot;</span><span class="nt">/&gt;</span>
+  <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;maxMessageId&quot;</span>        <span class="na">value=</span><span class="s">&quot;{nablarch.core.validation.ee.Length.min.message}&quot;</span><span class="nt">/&gt;</span>
+  <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;emptyInputMessageId&quot;</span> <span class="na">value=</span><span class="s">&quot;{nablarch.core.validation.ee.Required.message}&quot;</span><span class="nt">/&gt;</span>
+  <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;characterGenerator&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;component</span> <span class="na">name=</span><span class="s">&quot;characterGenerator&quot;</span>
+               <span class="na">class=</span><span class="s">&quot;nablarch.test.core.util.generator.BasicJapaneseCharacterGenerator&quot;</span><span class="nt">/&gt;</span>
+  <span class="nt">&lt;/property&gt;</span>
+  <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;validationTestStrategy&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;component</span> <span class="na">class=</span><span class="s">&quot;nablarch.test.core.entity.BeanValidationTestStrategy&quot;</span><span class="nt">/&gt;</span>
+  <span class="nt">&lt;/property&gt;</span>
+<span class="nt">&lt;/component&gt;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+
+    <hr/>
+
+    <div role="contentinfo">
+        <p>
+            &copy; Copyright 2010-2023, TIS Inc.
+        </p>
+    </div>
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../../../../',
+            VERSION:'6',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: ''
+        };
+    </script>
+      <script type="text/javascript" src="../../../../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../../../../../_static/custom.js"></script>
+      <script type="text/javascript" src="../../../../../../../_static/translations.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../../../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

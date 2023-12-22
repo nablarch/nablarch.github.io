@@ -1,0 +1,1239 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv='content-language' content='ja'>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Nablarch 5 to 6 Migration Guide &mdash; ∇Nablarch  6 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+
+  
+
+  
+  <link rel="canonical" href="https://nablarch.github.io/docs/LATEST/doc/migration/index.html" />
+  
+    <link rel="top" title="∇Nablarch  6 documentation" href="../index.html"/>
+        <link rel="next" title="Regarding the specification name of Jakarta EE" href="../jakarta_ee/index.html"/>
+        <link rel="prev" title="Nablarch upgrade policy" href="../about_nablarch/versionup_policy.html"/>
+
+<script defer data-domain="nablarch.github.io,all.fintan" src=https://plausible.io/js/script.js></script>
+
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+  
+  <a href="../index.html" id="sidebar-title" class="icon"> ∇Nablarch 
+  
+
+  
+    <div id="sidebar-version">Version: 6</div>
+  </a>
+
+  <div role="search">
+    <form id="google-search-form" class="wy-form" method="get" action="https://www.google.co.jp/search">
+      <input type="text" name="text" placeholder="Search docs on google" id="text"/>
+      <input type="hidden" name="q" id="q"/>
+    </form>
+  </div>
+    
+    
+
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+  
+  
+    <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../about_nablarch/index.html">What is the Nablarch?</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../about_nablarch/concept.html">Nablarch Concept</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../about_nablarch/concept.html#robustness">Robustness</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../about_nablarch/concept.html#testability">Testability</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../about_nablarch/concept.html#ready-to-use">Ready-to-Use</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../about_nablarch/mvn_module.html">Module List of Nablarch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../about_nablarch/license.html">Information on Nablarch License</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../application_framework/index.html">Nablarch Application Framework</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../application_framework/application_framework/index.html">Application Framework</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../application_framework/application_framework/nablarch/index.html">1. What is Nablarch Application Framework?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../application_framework/application_framework/web/index.html">2. Web Application</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../application_framework/application_framework/web_service/index.html">3. Web Service</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../application_framework/application_framework/batch/index.html">4. Batch Application</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../application_framework/application_framework/messaging/index.html">5. Messaging</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../application_framework/application_framework/handlers/index.html">6. Standard Handler Provided by Nablarch</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../application_framework/application_framework/libraries/index.html">7. Libraries Provided by Nablarch</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../application_framework/application_framework/blank_project/index.html">8. Blank Project</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../application_framework/application_framework/setting_guide/index.html">9. Nablarch Application Framework Configuration Guide</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../application_framework/application_framework/configuration/index.html">10. Default Configuration List</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../application_framework/application_framework/cloud_native/index.html">11. Nablarch Cloud Native Support</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../application_framework/adaptors/index.html">Adaptor</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../application_framework/adaptors/log_adaptor.html">log Adapter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../application_framework/adaptors/router_adaptor.html">Routing Adapter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../application_framework/adaptors/webspheremq_adaptor.html">IBM WebSphere MQ Adapter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../application_framework/adaptors/jaxrs_adaptor.html">Jakarta RESTful Web Services Adapter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../application_framework/adaptors/doma_adaptor.html">Doma Adapter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../application_framework/adaptors/jsr310_adaptor.html">JSR310(Date and Time API)Adapter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../application_framework/adaptors/mail_sender_freemarker_adaptor.html">E-mail FreeMarker Adapter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../application_framework/adaptors/mail_sender_thymeleaf_adaptor.html">E-mail Thymeleaf Adapter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../application_framework/adaptors/mail_sender_velocity_adaptor.html">E-mail Velocity Adapter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../application_framework/adaptors/web_thymeleaf_adaptor.html">Web Application Thymeleaf Adapter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../application_framework/adaptors/lettuce_adaptor.html">Lettuce Adapter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../application_framework/adaptors/slf4j_adaptor.html">SLF4J Adapter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../application_framework/adaptors/micrometer_adaptor.html">Micrometer Adapter</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../application_framework/example/index.html">Example</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../application_framework/example/index.html#procedure-to-build-the-environment">Procedure to build the environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../application_framework/example/index.html#application-execution-procedure">Application execution procedure</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../development_tools/index.html">Nablarch development tools</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../development_tools/java_static_analysis/index.html">1. Efficient Java Static Checks</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../development_tools/java_static_analysis/index.html#run-inspection">1.1. Run inspection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../development_tools/java_static_analysis/index.html#unify-the-format">1.2. Unify the format</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../development_tools/java_static_analysis/index.html#check-if-unauthorized-apis-are-being-used">1.3. Check if unauthorized APIs are being used</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../development_tools/testing_framework/index.html">2. Testing framework</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../development_tools/testing_framework/guide/development_guide/05_UnitTestGuide/index.html">2.1. How to Execute Unit Tests</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../development_tools/testing_framework/guide/development_guide/06_TestFWGuide/index.html">2.2. How to Use the Automated Test Framework</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../development_tools/testing_framework/guide/development_guide/08_TestTools/index.html">2.3. Tools Used in the Programming Phase</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../development_tools/toolbox/index.html">3. Useful Tools When Developing Applications</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../development_tools/toolbox/JspStaticAnalysis/index.html">3.1. Jakarta Server Pages Static Analysis Tool</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../development_tools/toolbox/SqlExecutor/SqlExecutor.html">3.2. Nablarch SQL Executor</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../nablarch_api/index.html">Nablarch API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../about_nablarch/versionup_policy.html">Nablarch upgrade policy</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../about_nablarch/versionup_policy.html#release-unit">Release unit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../about_nablarch/versionup_policy.html#types-of-upgrades">Types of upgrades</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../about_nablarch/versionup_policy.html#version-numbering-system">Version numbering system</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../about_nablarch/versionup_policy.html#backward-compatibility-policy">Backward compatibility policy</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../about_nablarch/versionup_policy.html#extent-to-which-backward-compatibility-is-maintained">Extent to which backward compatibility is maintained</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../about_nablarch/versionup_policy.html#contents-of-backward-compatibility-maintenance">Contents of backward compatibility maintenance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../about_nablarch/versionup_policy.html#backward-compatibility-exception">Backward compatibility exception</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Nablarch 5 to 6 Migration Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#major-differences-between-nablarch-5-and-6">Major differences between Nablarch 5 and 6</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#supports-jakarta-ee-10">Supports Jakarta EE 10</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#changed-required-java-version-to-17">Changed  required Java version to 17</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#overview-of-migration-steps">Overview of migration steps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#details-of-migration-steps">Details of migration steps</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#nablarch-version-upgrade">Nablarch version upgrade</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#compatible-with-jakarta-ee">Compatible with Jakarta EE</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#migration-procedure-of-jsr352-compliant-batch-application">Migration procedure of JSR352-compliant Batch Application</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#what-to-do-if-an-error-occurs-during-execution">What to do if an error occurs during execution</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#appendix">Appendix</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#correspondence-table-between-java-ee-and-jakarta-ee-specifications">Correspondence table between Java EE and Jakarta EE specifications</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../jakarta_ee/index.html">Regarding the specification name of Jakarta EE</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../jakarta_ee/index.html#regarding-the-notation-of-acronyms">Regarding the notation of acronyms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../jakarta_ee/index.html#regarding-features-that-have-been-renamed-in-nablarch-5-and-6">Regarding features that have been renamed in Nablarch 5 and 6</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../terms_of_use/index.html">Terms of Use</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../terms_of_use/index.html#external-transmssion-of-information">External Transmssion of Information</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../terms_of_use/index.html#purpose-of-information-use">Purpose of Information Use</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../terms_of_use/index.html#destination-of-information">Destination of information</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../terms_of_use/index.html#type-and-use-of-information">Type and use of information</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">∇Nablarch </a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+    <li>Nablarch 5 to 6 Migration Guide</li>
+    <li class="wy-breadcrumbs-aside">
+      <a href="https://github.com/nablarch" class="fa fa-github">GitHub</a>
+    </li>
+    <li class="wy-breadcrumbs-aside">
+        <a href="https://nablarch.github.io/docs/LATEST/doc/index.html" class="ja">日本語</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="nablarch-5-to-6-migration-guide">
+<h1>Nablarch 5 to 6 Migration Guide<a class="headerlink" href="#nablarch-5-to-6-migration-guide" title="Permalink to this headline">¶</a></h1>
+<div class="contents local topic" id="table-of-contents">
+<p class="topic-title first">Table of contents</p>
+<ul class="simple">
+<li><a class="reference internal" href="#major-differences-between-nablarch-5-and-6" id="id4">Major differences between Nablarch 5 and 6</a><ul>
+<li><a class="reference internal" href="#supports-jakarta-ee-10" id="id5">Supports Jakarta EE 10</a></li>
+<li><a class="reference internal" href="#changed-required-java-version-to-17" id="id6">Changed  required Java version to 17</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#prerequisites" id="id7">Prerequisites</a></li>
+<li><a class="reference internal" href="#overview-of-migration-steps" id="id8">Overview of migration steps</a></li>
+<li><a class="reference internal" href="#details-of-migration-steps" id="id9">Details of migration steps</a><ul>
+<li><a class="reference internal" href="#nablarch-version-upgrade" id="id10">Nablarch version upgrade</a></li>
+<li><a class="reference internal" href="#compatible-with-jakarta-ee" id="id11">Compatible with Jakarta EE</a><ul>
+<li><a class="reference internal" href="#change-java-ee-dependency-to-jakarta-ee" id="id12">Change Java EE dependency to Jakarta EE</a><ul>
+<li><a class="reference internal" href="#java-servlet-jakarta-servlet" id="id13">Java Servlet → Jakarta Servlet</a></li>
+<li><a class="reference internal" href="#jsp-jakarta-server-pages" id="id14">JSP → Jakarta Server Pages</a></li>
+<li><a class="reference internal" href="#jstl-jakarta-standard-tag-library" id="id15">JSTL → Jakarta Standard Tag Library</a></li>
+<li><a class="reference internal" href="#jpa-jakarta-persistence" id="id16">JPA → Jakarta Persistence</a></li>
+<li><a class="reference internal" href="#jax-rs-jakarta-restful-web-services" id="id17">JAX-RS → Jakarta RESTful Web Services</a></li>
+<li><a class="reference internal" href="#common-annotations-for-the-java-platform-jakarta-annotations" id="id18">Common Annotations for the Java Platform → Jakarta Annotations</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#update-java-ee-specification-implementation-library" id="id19">Update Java EE specification implementation library</a><ul>
+<li><a class="reference internal" href="#bean-validation-jakarta-bean-validation" id="id20">Bean Validation → Jakarta Bean Validation</a></li>
+<li><a class="reference internal" href="#id1" id="id21">JSTL → Jakarta Standard Tag Library</a></li>
+<li><a class="reference internal" href="#id2" id="id22">JAX-RS → Jakarta RESTful Web Services</a></li>
+<li><a class="reference internal" href="#jms-jakarta-messaging" id="id23">JMS → Jakarta Messaging</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#update-gsp-dba-maven-plugin" id="id24">Update gsp-dba-maven-plugin</a></li>
+<li><a class="reference internal" href="#change-waitt-maven-plugin-to-jetty-ee10-maven-plugin" id="id25">Change waitt-maven-plugin to jetty-ee10-maven-plugin</a></li>
+<li><a class="reference internal" href="#change-nablarch-testing-jetty6-to-nablarch-testing-jetty12" id="id26">Change nablarch-testing-jetty6 to nablarch-testing-jetty12</a></li>
+<li><a class="reference internal" href="#change-javax-namespace-to-jakarta-namespace" id="id27">Change javax namespace to jakarta namespace</a></li>
+<li><a class="reference internal" href="#change-xml-schema-specification-to-jakarta-ee-10-schema" id="id28">Change XML schema specification to Jakarta EE 10 schema</a></li>
+<li><a class="reference internal" href="#change-tag-library-namespace-to-jakarta-ee-10-namespace" id="id29">Change tag library namespace to Jakarta EE 10 namespace</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#migration-procedure-of-jsr352-compliant-batch-application" id="id30">Migration procedure of JSR352-compliant Batch Application</a><ul>
+<li><a class="reference internal" href="#what-to-do-if-an-error-occurs-during-execution" id="id31">What to do if an error occurs during execution</a><ul>
+<li><a class="reference internal" href="#when-noclassdeffounderror-occurs" id="id32">When NoClassDefFoundError occurs</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#appendix" id="id33">Appendix</a><ul>
+<li><a class="reference internal" href="#correspondence-table-between-java-ee-and-jakarta-ee-specifications" id="id34">Correspondence table between Java EE and Jakarta EE specifications</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<p>This document will explain how to migration a project created with Nablarch 5 to Nablarch 6.</p>
+<div class="admonition important">
+<p class="first admonition-title">Important</p>
+<p class="last">When upgrade to a version with an update number (such as 6u1), additional steps may be required in addition to those described here, so be sure to check the upgrade instructions in release notes.</p>
+</div>
+<div class="section" id="major-differences-between-nablarch-5-and-6">
+<h2><a class="toc-backref" href="#id4">Major differences between Nablarch 5 and 6</a><a class="headerlink" href="#major-differences-between-nablarch-5-and-6" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="supports-jakarta-ee-10">
+<h3><a class="toc-backref" href="#id5">Supports Jakarta EE 10</a><a class="headerlink" href="#supports-jakarta-ee-10" title="Permalink to this headline">¶</a></h3>
+<p>Nablarch 6 supports Jakarta EE 10.</p>
+<p>Jakarta EE is the name after Java EE was transferred to the Eclipse Foundation and is the successor to Java EE.
+Basically, the Java EE specifications have been transferred as they are, but with Jakarta EE 9, there has been a major change in that the namespace has changed from <code class="docutils literal"><span class="pre">javax.*</span></code> to <code class="docutils literal"><span class="pre">jakarta.*</span></code>.</p>
+<p>Therefore, in order to migrate a project created with Nablarch 5 to Nablarch 6, it is necessary not only to upgrade Nablarch but also to make project compatible with Jakarta EE 10.</p>
+<p>Also, backward compatibility cannot be maintained due to namespace changes, etc., so an application server compatible with Jakarta EE 10 is required to run on application server.</p>
+</div>
+<div class="section" id="changed-required-java-version-to-17">
+<h3><a class="toc-backref" href="#id6">Changed  required Java version to 17</a><a class="headerlink" href="#changed-required-java-version-to-17" title="Permalink to this headline">¶</a></h3>
+<p>Nablarch 6 modules are compiled with Java 17, so you will need Java 17 or higher to work.</p>
+</div>
+</div>
+<div class="section" id="prerequisites">
+<h2><a class="toc-backref" href="#id7">Prerequisites</a><a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h2>
+<p>The instructions here assume that you have already upgraded to the latest version of Nablarch 5.</p>
+<p>For projects created with an older version, first upgrade to the latest version of Nablarch 5, then migrate to Nablarch 6.
+See <a class="reference external" href="https://nablarch.github.io/docs/LATEST/doc/releases/index.html">the release notes</a> for details on the modifications required to upgrade to the latest version of Nablarch 5.</p>
+<p>Additionally, in order to operate, an application server that supports Java 17 or higher and Jakarta EE 10 is required, so it must be operated in an environment that supports these.</p>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p class="last">In addition to upgrade to the latest version of Nablarch 5, it will also need to be supported for use with Java 17 or higher.
+See Nablarch 5 manual for instructions on how to respond.</p>
+</div>
+</div>
+<div class="section" id="overview-of-migration-steps">
+<h2><a class="toc-backref" href="#id8">Overview of migration steps</a><a class="headerlink" href="#overview-of-migration-steps" title="Permalink to this headline">¶</a></h2>
+<p>To get a Nablarch 5 project migrate to Nablarch 6, roughly two modifications are required:</p>
+<ul class="simple">
+<li>Nablarch version upgrade</li>
+<li>Compatible with Jakarta EE</li>
+</ul>
+<p>The first &#8220;Nablarch version upgrade&#8221; refers to changing the version of Nablarch used in the project from 5 to 6.</p>
+<p>The second, &#8220;Compatible with Jakarta EE&#8221;, refers to making the project compatible with Jakarta EE 10.
+This includes changes to namespaces introduced in Jakarta EE 9, and changes libraries that depend on Java EE to Jakarta EE-compatible versions.</p>
+<p>Each specific procedure will be described below.</p>
+</div>
+<div class="section" id="details-of-migration-steps">
+<h2><a class="toc-backref" href="#id9">Details of migration steps</a><a class="headerlink" href="#details-of-migration-steps" title="Permalink to this headline">¶</a></h2>
+<p>In this section will explain in detail each of the migration steps required when migration a Nablarch 5 project to Nablarch 6.</p>
+<p>Depending on the project, unnecessary steps may be included, but in that case, select and read as appropriate (for example, <a class="reference internal" href="#waitt-to-jetty"><span>Change waitt-maven-plugin to jetty-ee10-maven-plugin</span></a> and <a class="reference internal" href="#update-ntf-jetty"><span>Change nablarch-testing-jetty6 to nablarch-testing-jetty12</span></a> are steps specific to web projects, so there is no problem in skipping them in batch projects).</p>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p class="last">You can get the Nablarch 6 code by switching to <code class="docutils literal"><span class="pre">v6-master</span></code> branch.
+(Currently, the 5 series code is published in <code class="docutils literal"><span class="pre">master</span></code> branch, and the 6 series code is released in <code class="docutils literal"><span class="pre">v6-master</span></code> branch.)</p>
+</div>
+<div class="section" id="nablarch-version-upgrade">
+<h3><a class="toc-backref" href="#id10">Nablarch version upgrade</a><a class="headerlink" href="#nablarch-version-upgrade" title="Permalink to this headline">¶</a></h3>
+<p>The version of each module that makes up Nablarch is managed by BOM, so you can upgrade Nablarch by changing the version of BOM.
+Change <code class="docutils literal"><span class="pre">&lt;version&gt;</span></code> in <code class="docutils literal"><span class="pre">pom.xml</span></code> where Nablarch&#8217;s BOM is loaded, as shown below.</p>
+<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;dependencyManagement&gt;</span>
+  <span class="nt">&lt;dependencies&gt;</span>
+    <span class="nt">&lt;dependency&gt;</span>
+      <span class="nt">&lt;groupId&gt;</span>com.nablarch.profile<span class="nt">&lt;/groupId&gt;</span>
+      <span class="nt">&lt;artifactId&gt;</span>nablarch-bom<span class="nt">&lt;/artifactId&gt;</span>
+      <span class="nt">&lt;version&gt;</span>6<span class="nt">&lt;/version&gt;</span>
+      <span class="nt">&lt;type&gt;</span>pom<span class="nt">&lt;/type&gt;</span>
+      <span class="nt">&lt;scope&gt;</span>import<span class="nt">&lt;/scope&gt;</span>
+    <span class="nt">&lt;/dependency&gt;</span>
+    ...
+  <span class="nt">&lt;/dependencies&gt;</span>
+<span class="nt">&lt;/dependencyManagement&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="compatible-with-jakarta-ee">
+<h3><a class="toc-backref" href="#id11">Compatible with Jakarta EE</a><a class="headerlink" href="#compatible-with-jakarta-ee" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="change-java-ee-dependency-to-jakarta-ee">
+<h4><a class="toc-backref" href="#id12">Change Java EE dependency to Jakarta EE</a><a class="headerlink" href="#change-java-ee-dependency-to-jakarta-ee" title="Permalink to this headline">¶</a></h4>
+<p>Java EE API dependencies (<code class="docutils literal"><span class="pre">dependency</span></code>) must be changed to those of Jakarta EE.
+For example, a typical example is Java Servlet.</p>
+<p>The <code class="docutils literal"><span class="pre">dependency</span></code> of Java EE API is different and not unified depending on the jar provider and version.
+Therefore, it cannot be determined mechanically from <code class="docutils literal"><span class="pre">groupId</span></code>.
+Which <code class="docutils literal"><span class="pre">dependency</span></code> is a Java EE API must be determined from <code class="docutils literal"><span class="pre">groupId</span></code>, <code class="docutils literal"><span class="pre">artifactId</span></code>, classes included in the jar, and so on.</p>
+<p>For your reference, archetypes and examples provided by Nablarch changes listed below.</p>
+<p>In addition, in example applications, by reading the BOM provided by Jakarta EE, it is possible to avoid specifying the version individually.
+It is recommended to read BOM because it reduces the trouble of checking the version and mistakes in specification, and makes management easier.</p>
+<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;dependencyManagement&gt;</span>
+  <span class="nt">&lt;dependencies&gt;</span>
+    ...
+    <span class="nt">&lt;dependency&gt;</span>
+      <span class="nt">&lt;groupId&gt;</span>jakarta.platform<span class="nt">&lt;/groupId&gt;</span>
+      <span class="nt">&lt;artifactId&gt;</span>jakarta.jakartaee-bom<span class="nt">&lt;/artifactId&gt;</span>
+      <span class="nt">&lt;version&gt;</span>10.0.0<span class="nt">&lt;/version&gt;</span>
+      <span class="nt">&lt;type&gt;</span>pom<span class="nt">&lt;/type&gt;</span>
+      <span class="nt">&lt;scope&gt;</span>import<span class="nt">&lt;/scope&gt;</span>
+    <span class="nt">&lt;/dependency&gt;</span>
+  <span class="nt">&lt;/dependencies&gt;</span>
+<span class="nt">&lt;/dependencyManagement&gt;</span>
+</pre></div>
+</div>
+<p>Additionally, <a class="reference internal" href="#java-ee-jakarta-ee-comparation"><span>Correspondence table between Java EE and Jakarta EE specifications</span></a> is listed as an appendix at the end of this page as a reference for changing dependencies that are not listed in the modification examples.
+What is <code class="docutils literal"><span class="pre">dependency</span></code> in Jakarta EE is described on each specification page, so please check it (for example, <a class="reference external" href="https://jakarta.ee/specifications/servlet/6.0/#details">Jakarta Servlet 6.0 specification page (external site)</a> shows <code class="docutils literal"><span class="pre">jakarta.servlet:jakarta.servlet-api:jar:6.0.0</span></code> in &#8220;Maven coordinates&#8221;).</p>
+<div class="section" id="java-servlet-jakarta-servlet">
+<h5><a class="toc-backref" href="#id13">Java Servlet → Jakarta Servlet</a><a class="headerlink" href="#java-servlet-jakarta-servlet" title="Permalink to this headline">¶</a></h5>
+<p><strong>Before modification</strong></p>
+<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;dependency&gt;</span>
+  <span class="nt">&lt;groupId&gt;</span>javax.servlet<span class="nt">&lt;/groupId&gt;</span>
+  <span class="nt">&lt;artifactId&gt;</span>javax.servlet-api<span class="nt">&lt;/artifactId&gt;</span>
+  <span class="nt">&lt;version&gt;</span>...<span class="nt">&lt;/version&gt;</span>
+  <span class="nt">&lt;scope&gt;</span>provided<span class="nt">&lt;/scope&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+</pre></div>
+</div>
+<p><strong>After modification</strong></p>
+<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;dependency&gt;</span>
+  <span class="nt">&lt;groupId&gt;</span>jakarta.servlet<span class="nt">&lt;/groupId&gt;</span>
+  <span class="nt">&lt;artifactId&gt;</span>jakarta.servlet-api<span class="nt">&lt;/artifactId&gt;</span>
+  <span class="nt">&lt;scope&gt;</span>provided<span class="nt">&lt;/scope&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="jsp-jakarta-server-pages">
+<h5><a class="toc-backref" href="#id14">JSP → Jakarta Server Pages</a><a class="headerlink" href="#jsp-jakarta-server-pages" title="Permalink to this headline">¶</a></h5>
+<p><strong>Before modification</strong></p>
+<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;dependency&gt;</span>
+  <span class="nt">&lt;groupId&gt;</span>javax.servlet.jsp<span class="nt">&lt;/groupId&gt;</span>
+  <span class="nt">&lt;artifactId&gt;</span>javax.servlet.jsp-api<span class="nt">&lt;/artifactId&gt;</span>
+  <span class="nt">&lt;version&gt;</span>...<span class="nt">&lt;/version&gt;</span>
+  <span class="nt">&lt;scope&gt;</span>provided<span class="nt">&lt;/scope&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+</pre></div>
+</div>
+<p><strong>After modification</strong></p>
+<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;dependency&gt;</span>
+  <span class="nt">&lt;groupId&gt;</span>jakarta.servlet.jsp<span class="nt">&lt;/groupId&gt;</span>
+  <span class="nt">&lt;artifactId&gt;</span>jakarta.servlet.jsp-api<span class="nt">&lt;/artifactId&gt;</span>
+  <span class="nt">&lt;scope&gt;</span>provided<span class="nt">&lt;/scope&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="jstl-jakarta-standard-tag-library">
+<h5><a class="toc-backref" href="#id15">JSTL → Jakarta Standard Tag Library</a><a class="headerlink" href="#jstl-jakarta-standard-tag-library" title="Permalink to this headline">¶</a></h5>
+<p><strong>Before modification</strong></p>
+<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;dependency&gt;</span>
+  <span class="nt">&lt;groupId&gt;</span>javax.servlet.jsp.jstl<span class="nt">&lt;/groupId&gt;</span>
+  <span class="nt">&lt;artifactId&gt;</span>javax.servlet.jsp.jstl-api<span class="nt">&lt;/artifactId&gt;</span>
+  <span class="nt">&lt;version&gt;</span>...<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+</pre></div>
+</div>
+<p><strong>After modification</strong></p>
+<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;dependency&gt;</span>
+  <span class="nt">&lt;groupId&gt;</span>jakarta.servlet.jsp.jstl<span class="nt">&lt;/groupId&gt;</span>
+  <span class="nt">&lt;artifactId&gt;</span>jakarta.servlet.jsp.jstl-api<span class="nt">&lt;/artifactId&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="jpa-jakarta-persistence">
+<h5><a class="toc-backref" href="#id16">JPA → Jakarta Persistence</a><a class="headerlink" href="#jpa-jakarta-persistence" title="Permalink to this headline">¶</a></h5>
+<p><strong>Before modification</strong></p>
+<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;dependency&gt;</span>
+  <span class="nt">&lt;groupId&gt;</span>org.apache.geronimo.specs<span class="nt">&lt;/groupId&gt;</span>
+  <span class="nt">&lt;artifactId&gt;</span>geronimo-jpa_2.0_spec<span class="nt">&lt;/artifactId&gt;</span>
+  <span class="nt">&lt;version&gt;</span>...<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+</pre></div>
+</div>
+<p><strong>After modification</strong></p>
+<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;dependency&gt;</span>
+  <span class="nt">&lt;groupId&gt;</span>jakarta.persistence<span class="nt">&lt;/groupId&gt;</span>
+  <span class="nt">&lt;artifactId&gt;</span>jakarta.persistence-api<span class="nt">&lt;/artifactId&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="jax-rs-jakarta-restful-web-services">
+<h5><a class="toc-backref" href="#id17">JAX-RS → Jakarta RESTful Web Services</a><a class="headerlink" href="#jax-rs-jakarta-restful-web-services" title="Permalink to this headline">¶</a></h5>
+<p><strong>Before modification</strong></p>
+<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;dependency&gt;</span>
+  <span class="nt">&lt;groupId&gt;</span>javax.ws.rs<span class="nt">&lt;/groupId&gt;</span>
+  <span class="nt">&lt;artifactId&gt;</span>javax.ws.rs-api<span class="nt">&lt;/artifactId&gt;</span>
+  <span class="nt">&lt;version&gt;</span>...<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+</pre></div>
+</div>
+<p><strong>After modification</strong></p>
+<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;dependency&gt;</span>
+  <span class="nt">&lt;groupId&gt;</span>jakarta.ws.rs<span class="nt">&lt;/groupId&gt;</span>
+  <span class="nt">&lt;artifactId&gt;</span>jakarta.ws.rs-api<span class="nt">&lt;/artifactId&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="common-annotations-for-the-java-platform-jakarta-annotations">
+<h5><a class="toc-backref" href="#id18">Common Annotations for the Java Platform → Jakarta Annotations</a><a class="headerlink" href="#common-annotations-for-the-java-platform-jakarta-annotations" title="Permalink to this headline">¶</a></h5>
+<p><strong>Before modification</strong></p>
+<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;dependency&gt;</span>
+  <span class="nt">&lt;groupId&gt;</span>javax.annotation<span class="nt">&lt;/groupId&gt;</span>
+  <span class="nt">&lt;artifactId&gt;</span>javax.annotation-api<span class="nt">&lt;/artifactId&gt;</span>
+  <span class="nt">&lt;version&gt;</span>...<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+</pre></div>
+</div>
+<p><strong>After modification</strong></p>
+<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;dependency&gt;</span>
+  <span class="nt">&lt;groupId&gt;</span>jakarta.annotation<span class="nt">&lt;/groupId&gt;</span>
+  <span class="nt">&lt;artifactId&gt;</span>jakarta.annotation-api<span class="nt">&lt;/artifactId&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="update-java-ee-specification-implementation-library">
+<h4><a class="toc-backref" href="#id19">Update Java EE specification implementation library</a><a class="headerlink" href="#update-java-ee-specification-implementation-library" title="Permalink to this headline">¶</a></h4>
+<p>If you have embedded Java EE specification implementation library in your application, replace them with those from Jakarta EE.</p>
+<p>To find out which <code class="docutils literal"><span class="pre">dependency</span></code> is Java EE specification implementation library, you need to investigate each <code class="docutils literal"><span class="pre">dependency</span></code> individually.
+Also, if it is found to be a Java EE specification implementation library, what the <code class="docutils literal"><span class="pre">dependency</span></code> of the Jakarta EE compliant version of that implementation library will be depends on the implementation library.
+Therefore, it is necessary to check the official site etc. for each implementation library used in the project.</p>
+<p>For your reference, archetypes and examples provided by Nablarch changes listed below.</p>
+<p>Compatible implementations are also introduced on each Jakarta EE specification page, so please refer to those as well.
+(For example, the <a class="reference external" href="https://jakarta.ee/specifications/restful-ws/3.1/#compatible-implementations">Jakarta RESTful Web Services 3.1 specification page (external site)</a> lists Eclipse Jersey as a compatible implementation. 3.1.0 is introduced)</p>
+<div class="section" id="bean-validation-jakarta-bean-validation">
+<h5><a class="toc-backref" href="#id20">Bean Validation → Jakarta Bean Validation</a><a class="headerlink" href="#bean-validation-jakarta-bean-validation" title="Permalink to this headline">¶</a></h5>
+<p><strong>Before modification</strong></p>
+<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;dependency&gt;</span>
+  <span class="nt">&lt;groupId&gt;</span>org.hibernate<span class="nt">&lt;/groupId&gt;</span>
+  <span class="nt">&lt;artifactId&gt;</span>hibernate-validator<span class="nt">&lt;/artifactId&gt;</span>
+  <span class="nt">&lt;version&gt;</span>5.3.6.Final<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+</pre></div>
+</div>
+<p><strong>After modification</strong></p>
+<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;dependency&gt;</span>
+  <span class="nt">&lt;groupId&gt;</span>org.hibernate.validator<span class="nt">&lt;/groupId&gt;</span>
+  <span class="nt">&lt;artifactId&gt;</span>hibernate-validator<span class="nt">&lt;/artifactId&gt;</span>
+  <span class="nt">&lt;version&gt;</span>8.0.0.Final<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id1">
+<h5><a class="toc-backref" href="#id21">JSTL → Jakarta Standard Tag Library</a><a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h5>
+<p><strong>Before modification</strong></p>
+<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;dependency&gt;</span>
+  <span class="nt">&lt;groupId&gt;</span>taglibs<span class="nt">&lt;/groupId&gt;</span>
+  <span class="nt">&lt;artifactId&gt;</span>standard<span class="nt">&lt;/artifactId&gt;</span>
+  <span class="nt">&lt;version&gt;</span>...<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+</pre></div>
+</div>
+<p><strong>After modification</strong></p>
+<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;dependency&gt;</span>
+  <span class="nt">&lt;groupId&gt;</span>org.glassfish.web<span class="nt">&lt;/groupId&gt;</span>
+  <span class="nt">&lt;artifactId&gt;</span>jakarta.servlet.jsp.jstl<span class="nt">&lt;/artifactId&gt;</span>
+  <span class="nt">&lt;version&gt;</span>3.0.0<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id2">
+<h5><a class="toc-backref" href="#id22">JAX-RS → Jakarta RESTful Web Services</a><a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h5>
+<p><strong>Before modification</strong></p>
+<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;dependencyManagement&gt;</span>
+  <span class="nt">&lt;dependencies&gt;</span>
+    ...
+    <span class="nt">&lt;dependency&gt;</span>
+      <span class="nt">&lt;groupId&gt;</span>org.glassfish.jersey<span class="nt">&lt;/groupId&gt;</span>
+      <span class="nt">&lt;artifactId&gt;</span>jersey-bom<span class="nt">&lt;/artifactId&gt;</span>
+      <span class="nt">&lt;version&gt;</span>...<span class="nt">&lt;/version&gt;</span>
+      <span class="nt">&lt;type&gt;</span>pom<span class="nt">&lt;/type&gt;</span>
+      <span class="nt">&lt;scope&gt;</span>import<span class="nt">&lt;/scope&gt;</span>
+    <span class="nt">&lt;/dependency&gt;</span>
+  <span class="nt">&lt;/dependencies&gt;</span>
+<span class="nt">&lt;/dependencyManagement&gt;</span>
+
+<span class="nt">&lt;dependency&gt;</span>
+  <span class="nt">&lt;groupId&gt;</span>org.glassfish.jersey.media<span class="nt">&lt;/groupId&gt;</span>
+  <span class="nt">&lt;artifactId&gt;</span>jersey-media-json-jackson<span class="nt">&lt;/artifactId&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+
+<span class="nt">&lt;dependency&gt;</span>
+  <span class="nt">&lt;groupId&gt;</span>org.glassfish.jersey.core<span class="nt">&lt;/groupId&gt;</span>
+  <span class="nt">&lt;artifactId&gt;</span>jersey-client<span class="nt">&lt;/artifactId&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+
+<span class="nt">&lt;dependency&gt;</span>
+  <span class="nt">&lt;groupId&gt;</span>org.glassfish.jersey.inject<span class="nt">&lt;/groupId&gt;</span>
+  <span class="nt">&lt;artifactId&gt;</span>jersey-hk2<span class="nt">&lt;/artifactId&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+</pre></div>
+</div>
+<p><strong>After modification</strong></p>
+<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;dependencyManagement&gt;</span>
+  <span class="nt">&lt;dependencies&gt;</span>
+    ...
+    <span class="nt">&lt;dependency&gt;</span>
+      <span class="nt">&lt;groupId&gt;</span>org.glassfish.jersey<span class="nt">&lt;/groupId&gt;</span>
+      <span class="nt">&lt;artifactId&gt;</span>jersey-bom<span class="nt">&lt;/artifactId&gt;</span>
+      <span class="nt">&lt;version&gt;</span>3.1.1<span class="nt">&lt;/version&gt;</span>
+      <span class="nt">&lt;type&gt;</span>pom<span class="nt">&lt;/type&gt;</span>
+      <span class="nt">&lt;scope&gt;</span>import<span class="nt">&lt;/scope&gt;</span>
+    <span class="nt">&lt;/dependency&gt;</span>
+  <span class="nt">&lt;/dependencies&gt;</span>
+<span class="nt">&lt;/dependencyManagement&gt;</span>
+
+<span class="nt">&lt;dependency&gt;</span>
+  <span class="nt">&lt;groupId&gt;</span>org.glassfish.jersey.media<span class="nt">&lt;/groupId&gt;</span>
+  <span class="nt">&lt;artifactId&gt;</span>jersey-media-json-jackson<span class="nt">&lt;/artifactId&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+
+<span class="nt">&lt;dependency&gt;</span>
+  <span class="nt">&lt;groupId&gt;</span>org.glassfish.jersey.core<span class="nt">&lt;/groupId&gt;</span>
+  <span class="nt">&lt;artifactId&gt;</span>jersey-client<span class="nt">&lt;/artifactId&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+
+<span class="nt">&lt;dependency&gt;</span>
+  <span class="nt">&lt;groupId&gt;</span>org.glassfish.jersey.inject<span class="nt">&lt;/groupId&gt;</span>
+  <span class="nt">&lt;artifactId&gt;</span>jersey-hk2<span class="nt">&lt;/artifactId&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="jms-jakarta-messaging">
+<h5><a class="toc-backref" href="#id23">JMS → Jakarta Messaging</a><a class="headerlink" href="#jms-jakarta-messaging" title="Permalink to this headline">¶</a></h5>
+<p><strong>Before modification</strong></p>
+<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;dependency&gt;</span>
+  <span class="nt">&lt;groupId&gt;</span>org.apache.activemq<span class="nt">&lt;/groupId&gt;</span>
+  <span class="nt">&lt;artifactId&gt;</span>activemq-all<span class="nt">&lt;/artifactId&gt;</span>
+  <span class="nt">&lt;version&gt;</span>...<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+</pre></div>
+</div>
+<p><strong>After modification</strong></p>
+<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;dependency&gt;</span>
+  <span class="nt">&lt;groupId&gt;</span>org.apache.activemq<span class="nt">&lt;/groupId&gt;</span>
+  <span class="nt">&lt;artifactId&gt;</span>artemis-server<span class="nt">&lt;/artifactId&gt;</span>
+  <span class="nt">&lt;version&gt;</span>2.28.0<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+<span class="nt">&lt;dependency&gt;</span>
+  <span class="nt">&lt;groupId&gt;</span>org.apache.activemq<span class="nt">&lt;/groupId&gt;</span>
+  <span class="nt">&lt;artifactId&gt;</span>artemis-jakarta-server<span class="nt">&lt;/artifactId&gt;</span>
+  <span class="nt">&lt;version&gt;</span>2.28.0<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+<span class="nt">&lt;dependency&gt;</span>
+  <span class="nt">&lt;groupId&gt;</span>org.apache.activemq<span class="nt">&lt;/groupId&gt;</span>
+  <span class="nt">&lt;artifactId&gt;</span>artemis-jakarta-client<span class="nt">&lt;/artifactId&gt;</span>
+  <span class="nt">&lt;version&gt;</span>2.28.0<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="update-gsp-dba-maven-plugin">
+<h4><a class="toc-backref" href="#id24">Update gsp-dba-maven-plugin</a><a class="headerlink" href="#update-gsp-dba-maven-plugin" title="Permalink to this headline">¶</a></h4>
+<p><a class="reference external" href="https://github.com/coastland/gsp-dba-maven-plugin/tree/v5-master">gsp-dba-maven-plugin (external site)</a> is preinstalled in nablarch-example-web and other projects built from archetypes.
+This plugin provides a function (<code class="docutils literal"><span class="pre">generate-entity</span></code>) to generate Java entity classes from database table metadata.
+Since Java EE annotations such as JPA are set in this entity class, it cannot be used as is in the Jakarta EE environment.</p>
+<p>Since gsp-dba-maven-plugin is compatible with Jakarta EE in 5.0.0, change <code class="docutils literal"><span class="pre">&lt;version&gt;</span></code> of gsp-dba-maven-plugin in <code class="docutils literal"><span class="pre">pom.xml</span></code>.</p>
+<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;plugin&gt;</span>
+  <span class="nt">&lt;groupId&gt;</span>jp.co.tis.gsp<span class="nt">&lt;/groupId&gt;</span>
+  <span class="nt">&lt;artifactId&gt;</span>gsp-dba-maven-plugin<span class="nt">&lt;/artifactId&gt;</span>
+  <span class="nt">&lt;version&gt;</span>5.0.0<span class="nt">&lt;/version&gt;</span>
+  <span class="nt">&lt;configuration&gt;</span>
+  ...
+</pre></div>
+</div>
+<p>Furthermore, in order to use the <code class="docutils literal"><span class="pre">generate-entity</span></code> of the gsp-dba-maven-plugin that supports Jakarta EE, it is necessary to add <code class="docutils literal"><span class="pre">dependency</span></code> and JVM arguments.
+See the <a class="reference external" href="https://github.com/coastland/gsp-dba-maven-plugin/tree/v5-master#generate-entity">gsp-dba-maven-plugin guide (external site)</a> for details.</p>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p class="last">gsp-dba-maven-plugin guide specifies <code class="docutils literal"><span class="pre">&lt;version&gt;</span></code> when adding Jakarta EE dependencies to <code class="docutils literal"><span class="pre">dependency</span></code>, but as mentioned above, Jakarta EE provides Since the BOM is being read, there is no need to specify <code class="docutils literal"><span class="pre">&lt;version&gt;</span></code>.</p>
+</div>
+<p>As described above, an entity for which Jakarta EE annotations are set will be generated.</p>
+</div>
+<div class="section" id="change-waitt-maven-plugin-to-jetty-ee10-maven-plugin">
+<span id="waitt-to-jetty"></span><h4><a class="toc-backref" href="#id25">Change waitt-maven-plugin to jetty-ee10-maven-plugin</a><a class="headerlink" href="#change-waitt-maven-plugin-to-jetty-ee10-maven-plugin" title="Permalink to this headline">¶</a></h4>
+<p>The <a class="reference external" href="https://github.com/kawasima/waitt">waitt-maven-plugin (external site)</a> is preinstalled in nablarch-example-web and other web application projects built from archetypes.
+This plugin provides the ability to easily deploy and run your project&#8217;s code on an embedded server (such as Tomcat).
+However, this plugin is not compatible with Jakarta EE, so change it to jetty-ee10-maven-plugin which provides similar functionality and also supports Jakarta EE.</p>
+<p>Before modification, waitt-maven-plugin is set in <code class="docutils literal"><span class="pre">pom.xml</span></code> in nablarch-example-web as follows.</p>
+<p><strong>Before modification</strong></p>
+<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;plugin&gt;</span>
+  <span class="nt">&lt;groupId&gt;</span>net.unit8.waitt<span class="nt">&lt;/groupId&gt;</span>
+  <span class="nt">&lt;artifactId&gt;</span>waitt-maven-plugin<span class="nt">&lt;/artifactId&gt;</span>
+  <span class="nt">&lt;version&gt;</span>1.2.3<span class="nt">&lt;/version&gt;</span>
+  <span class="nt">&lt;configuration&gt;</span>
+    <span class="nt">&lt;servers&gt;</span>
+      <span class="nt">&lt;server&gt;</span>
+        <span class="nt">&lt;groupId&gt;</span>net.unit8.waitt.server<span class="nt">&lt;/groupId&gt;</span>
+        <span class="nt">&lt;artifactId&gt;</span>waitt-tomcat8<span class="nt">&lt;/artifactId&gt;</span>
+        <span class="nt">&lt;version&gt;</span>1.2.3<span class="nt">&lt;/version&gt;</span>
+      <span class="nt">&lt;/server&gt;</span>
+    <span class="nt">&lt;/servers&gt;</span>
+  <span class="nt">&lt;/configuration&gt;</span>
+<span class="nt">&lt;/plugin&gt;</span>
+</pre></div>
+</div>
+<p>Change this to jetty-ee10-maven-plugin as follows.</p>
+<p><strong>After modification</strong></p>
+<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;plugin&gt;</span>
+  <span class="nt">&lt;groupId&gt;</span>org.eclipse.jetty.ee10<span class="nt">&lt;/groupId&gt;</span>
+  <span class="nt">&lt;artifactId&gt;</span>jetty-ee10-maven-plugin<span class="nt">&lt;/artifactId&gt;</span>
+  <span class="nt">&lt;version&gt;</span>12.0.3<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/plugin&gt;</span>
+</pre></div>
+</div>
+<p>Now you can deploy and run your application code on Jetty.</p>
+<p>If you want to actually run it, you can start Jetty with the following command.</p>
+<div class="highlight-batch"><div class="highlight"><pre><span></span>mvn jetty:run
+</pre></div>
+</div>
+</div>
+<div class="section" id="change-nablarch-testing-jetty6-to-nablarch-testing-jetty12">
+<span id="update-ntf-jetty"></span><h4><a class="toc-backref" href="#id26">Change nablarch-testing-jetty6 to nablarch-testing-jetty12</a><a class="headerlink" href="#change-nablarch-testing-jetty6-to-nablarch-testing-jetty12" title="Permalink to this headline">¶</a></h4>
+<p>If your web application project uses NTF (Nablarch Testing Framework), use the module <code class="docutils literal"><span class="pre">nablarch-testing-jetty6</span></code> to run the embedded server in your JUnit tests.
+Jetty 6 launched with this module does not support Jakarta EE.
+Jetty supports Jakarta EE 10 with Jetty 12, so you need to change it to use <code class="docutils literal"><span class="pre">nablarch-testing-jetty12</span></code> which can start Jetty 12.</p>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p class="last">Java 11 or higher projects use <code class="docutils literal"><span class="pre">nablarch-testing-jetty9</span></code> to launch Jetty 9, but this is also not compatible with Jakarta EE, so it is necessary to change to <code class="docutils literal"><span class="pre">nablarch-testing-jetty12</span></code>.</p>
+</div>
+<p>First, modify <code class="docutils literal"><span class="pre">pom.xml</span></code> as follows.</p>
+<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;dependency&gt;</span>
+  <span class="nt">&lt;groupId&gt;</span>com.nablarch.framework<span class="nt">&lt;/groupId&gt;</span>
+  <span class="nt">&lt;artifactId&gt;</span>nablarch-testing-jetty12<span class="nt">&lt;/artifactId&gt;</span> <span class="c">&lt;!-- Change the artifactId to nablarch-testing-jetty12 --&gt;</span>
+  <span class="nt">&lt;scope&gt;</span>test<span class="nt">&lt;/scope&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+</pre></div>
+</div>
+<p>Next, modify the part that defines the components of <code class="docutils literal"><span class="pre">HttpServerFactory</span></code> as follows.</p>
+<p><strong>Before modification</strong></p>
+<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;component</span> <span class="na">name=</span><span class="s">&quot;httpServerFactory&quot;</span> <span class="na">class=</span><span class="s">&quot;nablarch.fw.web.httpserver.HttpServerFactoryJetty6&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+<p><strong>After modification</strong></p>
+<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;component</span> <span class="na">name=</span><span class="s">&quot;httpServerFactory&quot;</span> <span class="na">class=</span><span class="s">&quot;nablarch.fw.web.httpserver.HttpServerFactoryJetty12&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+<p>In case of nablarch-example-web, the above settings exist in <code class="docutils literal"><span class="pre">src/test/resources/unit-test.xml</span></code>.</p>
+<p>With the above, the embedded server that is started when NTF is executed is switched to the version that supports Jakarta EE.</p>
+</div>
+<div class="section" id="change-javax-namespace-to-jakarta-namespace">
+<h4><a class="toc-backref" href="#id27">Change javax namespace to jakarta namespace</a><a class="headerlink" href="#change-javax-namespace-to-jakarta-namespace" title="Permalink to this headline">¶</a></h4>
+<p>The namespace changes that came with Jakarta EE 9 will also be applied to the application code.
+The general flow of handling namespace changes is described below.</p>
+<p>1. Code that is <code class="docutils literal"><span class="pre">import</span></code> in <code class="docutils literal"><span class="pre">javax</span></code> namespace causes a compilation error, so change to <code class="docutils literal"><span class="pre">jakarta</span></code> namespace.
+1. Grep the whole project with <code class="docutils literal"><span class="pre">javax</span></code> and find out where there are no compilation errors.
+2. Judge whether the location found in the search is a Java EE namespace
+3. If it is a Java EE namespace, replace <code class="docutils literal"><span class="pre">javax</span></code> with <code class="docutils literal"><span class="pre">jakarta</span></code></p>
+<p>Details are described below.</p>
+<p><code class="docutils literal"><span class="pre">javax</span></code> descriptions often appear in <code class="docutils literal"><span class="pre">import</span></code> statements in Java source code.
+With the modifications made so far, Java EE dependencies have been removed and replaced with Jakarta EE dependencies, so <code class="docutils literal"><span class="pre">import</span></code> in the <code class="docutils literal"><span class="pre">javax</span></code> namespace causes compilation errors.
+Therefore, first check where the compilation error occurs and change to <code class="docutils literal"><span class="pre">jakarta</span></code> namespace.</p>
+<p>However, <code class="docutils literal"><span class="pre">javax</span></code> appears not only in <code class="docutils literal"><span class="pre">import</span></code> statements, but also in places where compilation errors do not occur.
+For example, the key <code class="docutils literal"><span class="pre">javax.servlet.forward.request_uri</span></code> for obtaining the request URI before forwarding in Java Servlet is specified as a character string, so a compilation error does not occur (This key should be changed to <code class="docutils literal"><span class="pre">jakarta.servlet.forward.request_uri</span></code> for Jakarta Servlet).
+In addition, even if it is described in JSP or configuration file, it will not be a compilation error, but it will be subject to correction.</p>
+<p>Therefore, to check for the presence of the <code class="docutils literal"><span class="pre">javax</span></code> namespace, you must do a Grep search of the entire project.</p>
+<p>Next, for the location hit by <code class="docutils literal"><span class="pre">javax</span></code>, determine whether it is really a Java EE namespace.
+For example, if you search nablarch-example-web with <code class="docutils literal"><span class="pre">javax</span></code>, the following description will be hit.</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">javax.validation.ConstraintValidator</span><span class="o">;</span>
+</pre></div>
+</div>
+<p>This is where the Bean Validation class is <code class="docutils literal"><span class="pre">import</span></code>, so it can be judged as a Java EE namespace.</p>
+<p>On the other hand, the following description also hits.</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">javax.crypto.SecretKeyFactory</span><span class="o">;</span>
+</pre></div>
+</div>
+<p>This is not a Java EE namespace because it imports the classes related to cryptographic processing included in the standard library.</p>
+<p>In this way, even if <code class="docutils literal"><span class="pre">javax</span></code> is hit, you cannot simply judge that they are all Java EE namespaces.
+Namespaces for each specification are listed in the appendix <a class="reference internal" href="#java-ee-jakarta-ee-comparation"><span>Correspondence table between Java EE and Jakarta EE specifications</span></a> on this page, so refer to this to determine if the hit <code class="docutils literal"><span class="pre">javax</span></code> is Java EE.</p>
+<p>If it can be determined that it is a Java EE namespace, replace <code class="docutils literal"><span class="pre">javax</span></code> with <code class="docutils literal"><span class="pre">jakarta</span></code>.
+Below is an example of replacing <code class="docutils literal"><span class="pre">import</span></code> with <code class="docutils literal"><span class="pre">jakarta</span></code>.</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">jakarta.validation.ConstraintValidator</span><span class="o">;</span>
+</pre></div>
+</div>
+<p>With the above modifications, nablarch-example-web can now run on an application server that supports Jakarta EE 10.</p>
+</div>
+<div class="section" id="change-xml-schema-specification-to-jakarta-ee-10-schema">
+<h4><a class="toc-backref" href="#id28">Change XML schema specification to Jakarta EE 10 schema</a><a class="headerlink" href="#change-xml-schema-specification-to-jakarta-ee-10-schema" title="Permalink to this headline">¶</a></h4>
+<p>XML files such as <code class="docutils literal"><span class="pre">web.xml</span></code> specify an XML schema, but change this to a schema compatible with Jakarta EE 10.
+Schemas provided in Jakarta EE 10 can be found at <a class="reference external" href="https://jakarta.ee/xml/ns/jakartaee/#10">Jakarta EE XML Schemas (external site)</a> .</p>
+<p><strong>Before modification</strong></p>
+<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;web-app</span> <span class="na">xmlns=</span><span class="s">&quot;http://xmlns.jcp.org/xml/ns/javaee&quot;</span>
+         <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+         <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://xmlns.jcp.org/xml/ns/javaee</span>
+<span class="s">         http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd&quot;</span>
+         <span class="na">version=</span><span class="s">&quot;3.1&quot;</span><span class="nt">&gt;</span>
+</pre></div>
+</div>
+<p><strong>After modification</strong></p>
+<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;web-app</span> <span class="na">xmlns=</span><span class="s">&quot;https://jakarta.ee/xml/ns/jakartaee&quot;</span>
+         <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+         <span class="na">xsi:schemaLocation=</span><span class="s">&quot;https://jakarta.ee/xml/ns/jakartaee</span>
+<span class="s">                             web-app_6_0.xsd&quot;</span>
+         <span class="na">version=</span><span class="s">&quot;6.0&quot;</span><span class="nt">&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="change-tag-library-namespace-to-jakarta-ee-10-namespace">
+<h4><a class="toc-backref" href="#id29">Change tag library namespace to Jakarta EE 10 namespace</a><a class="headerlink" href="#change-tag-library-namespace-to-jakarta-ee-10-namespace" title="Permalink to this headline">¶</a></h4>
+<p>In the JSP file, the tag library namespace is specified using the taglib directive, but change this to a namespace compatible with Jakarta EE 10.
+You can check the namespaces provided in Jakarta EE 10 at <a class="reference external" href="https://jakarta.ee/specifications/tags/3.0/">Jakarta Standard Tag Library 3.0 (external site)</a> .</p>
+<p><strong>Before modification</strong></p>
+<div class="highlight-jsp"><div class="highlight"><pre><span></span><span class="k">&lt;%@</span> <span class="n">taglib</span> <span class="n">prefix</span><span class="o">=</span><span class="s">&quot;c&quot;</span> <span class="n">uri</span><span class="o">=</span><span class="s">&quot;http://java.sun.com/jsp/jstl/core&quot;</span> <span class="k">%&gt;</span>
+</pre></div>
+</div>
+<p><strong>After modification</strong></p>
+<div class="highlight-jsp"><div class="highlight"><pre><span></span><span class="k">&lt;%@</span> <span class="n">taglib</span> <span class="n">prefix</span><span class="o">=</span><span class="s">&quot;c&quot;</span> <span class="n">uri</span><span class="o">=</span><span class="s">&quot;jakarta.tags.core&quot;</span> <span class="k">%&gt;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="migration-procedure-of-jsr352-compliant-batch-application">
+<h2><a class="toc-backref" href="#id30">Migration procedure of JSR352-compliant Batch Application</a><a class="headerlink" href="#migration-procedure-of-jsr352-compliant-batch-application" title="Permalink to this headline">¶</a></h2>
+<p>All execution control platforms provided by Nablarch can be migrate using the procedure described in the previous section.</p>
+<p>However, for <a class="reference internal" href="../application_framework/application_framework/batch/jsr352/index.html"><em>Jakarta Batch-compliant Batch Application</em></a> only, JBeret, which is used as implementation compliant with JSR352, and related libraries are complicated to update, so an additional explanation is given here.</p>
+<p>When a JSR352-compliant Batch Application is generated from an archetype, <code class="docutils literal"><span class="pre">dependency</span></code> is set in <code class="docutils literal"><span class="pre">pom.xml</span></code> as shown below up to Nablarch 5.</p>
+<p><strong>Before modification</strong></p>
+<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;dependency&gt;</span>
+  <span class="nt">&lt;groupId&gt;</span>org.glassfish<span class="nt">&lt;/groupId&gt;</span>
+  <span class="nt">&lt;artifactId&gt;</span>javax.el<span class="nt">&lt;/artifactId&gt;</span>
+  <span class="nt">&lt;version&gt;</span>...<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+
+...
+
+<span class="c">&lt;!-- Minimum required dependencies for JBeret --&gt;</span>
+<span class="nt">&lt;dependency&gt;</span>
+  <span class="nt">&lt;groupId&gt;</span>org.jboss.spec.javax.batch<span class="nt">&lt;/groupId&gt;</span>
+  <span class="nt">&lt;artifactId&gt;</span>jboss-batch-api_1.0_spec<span class="nt">&lt;/artifactId&gt;</span>
+  <span class="nt">&lt;version&gt;</span>...<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+<span class="nt">&lt;dependency&gt;</span>
+  <span class="nt">&lt;groupId&gt;</span>javax.inject<span class="nt">&lt;/groupId&gt;</span>
+  <span class="nt">&lt;artifactId&gt;</span>javax.inject<span class="nt">&lt;/artifactId&gt;</span>
+  <span class="nt">&lt;version&gt;</span>...<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+<span class="nt">&lt;dependency&gt;</span>
+  <span class="nt">&lt;groupId&gt;</span>javax.enterprise<span class="nt">&lt;/groupId&gt;</span>
+  <span class="nt">&lt;artifactId&gt;</span>cdi-api<span class="nt">&lt;/artifactId&gt;</span>
+  <span class="nt">&lt;version&gt;</span>...<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+<span class="nt">&lt;dependency&gt;</span>
+  <span class="nt">&lt;groupId&gt;</span>org.jboss.spec.javax.transaction<span class="nt">&lt;/groupId&gt;</span>
+  <span class="nt">&lt;artifactId&gt;</span>jboss-transaction-api_1.2_spec<span class="nt">&lt;/artifactId&gt;</span>
+  <span class="nt">&lt;version&gt;</span>...<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+<span class="nt">&lt;dependency&gt;</span>
+  <span class="nt">&lt;groupId&gt;</span>org.jberet<span class="nt">&lt;/groupId&gt;</span>
+  <span class="nt">&lt;artifactId&gt;</span>jberet-core<span class="nt">&lt;/artifactId&gt;</span>
+  <span class="nt">&lt;version&gt;</span>...<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+<span class="nt">&lt;dependency&gt;</span>
+  <span class="nt">&lt;groupId&gt;</span>org.jboss.marshalling<span class="nt">&lt;/groupId&gt;</span>
+  <span class="nt">&lt;artifactId&gt;</span>jboss-marshalling<span class="nt">&lt;/artifactId&gt;</span>
+  <span class="nt">&lt;version&gt;</span>...<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+<span class="nt">&lt;dependency&gt;</span>
+  <span class="nt">&lt;groupId&gt;</span>org.jboss.logging<span class="nt">&lt;/groupId&gt;</span>
+  <span class="nt">&lt;artifactId&gt;</span>jboss-logging<span class="nt">&lt;/artifactId&gt;</span>
+  <span class="nt">&lt;version&gt;</span>...<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+<span class="nt">&lt;dependency&gt;</span>
+  <span class="nt">&lt;groupId&gt;</span>org.jboss.weld<span class="nt">&lt;/groupId&gt;</span>
+  <span class="nt">&lt;artifactId&gt;</span>weld-core<span class="nt">&lt;/artifactId&gt;</span>
+  <span class="nt">&lt;version&gt;</span>...<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+<span class="nt">&lt;dependency&gt;</span>
+  <span class="nt">&lt;groupId&gt;</span>org.wildfly.security<span class="nt">&lt;/groupId&gt;</span>
+  <span class="nt">&lt;artifactId&gt;</span>wildfly-security-manager<span class="nt">&lt;/artifactId&gt;</span>
+  <span class="nt">&lt;version&gt;</span>...<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+<span class="nt">&lt;dependency&gt;</span>
+  <span class="nt">&lt;groupId&gt;</span>com.google.guava<span class="nt">&lt;/groupId&gt;</span>
+  <span class="nt">&lt;artifactId&gt;</span>guava<span class="nt">&lt;/artifactId&gt;</span>
+  <span class="nt">&lt;version&gt;</span>...<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+
+<span class="c">&lt;!-- Dependencies for JBeret to work with Java SE --&gt;</span>
+<span class="nt">&lt;dependency&gt;</span>
+  <span class="nt">&lt;groupId&gt;</span>org.jberet<span class="nt">&lt;/groupId&gt;</span>
+  <span class="nt">&lt;artifactId&gt;</span>jberet-se<span class="nt">&lt;/artifactId&gt;</span>
+  <span class="nt">&lt;version&gt;</span>...<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+<span class="nt">&lt;dependency&gt;</span>
+  <span class="nt">&lt;groupId&gt;</span>org.jboss.weld.se<span class="nt">&lt;/groupId&gt;</span>
+  <span class="nt">&lt;artifactId&gt;</span>weld-se<span class="nt">&lt;/artifactId&gt;</span>
+  <span class="nt">&lt;version&gt;</span>...<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+</pre></div>
+</div>
+<p>When migrate to Nablarch 6, modify this as follows.</p>
+<p><strong>After modification</strong></p>
+<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;dependency&gt;</span>
+  <span class="nt">&lt;groupId&gt;</span>org.glassfish.expressly<span class="nt">&lt;/groupId&gt;</span>
+  <span class="nt">&lt;artifactId&gt;</span>expressly<span class="nt">&lt;/artifactId&gt;</span>
+  <span class="nt">&lt;version&gt;</span>5.0.0<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+
+...
+
+<span class="c">&lt;!-- Minimum required dependencies for JBeret --&gt;</span>
+<span class="nt">&lt;dependency&gt;</span>
+  <span class="nt">&lt;groupId&gt;</span>jakarta.batch<span class="nt">&lt;/groupId&gt;</span>
+  <span class="nt">&lt;artifactId&gt;</span>jakarta.batch-api<span class="nt">&lt;/artifactId&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+<span class="nt">&lt;dependency&gt;</span>
+  <span class="nt">&lt;groupId&gt;</span>jakarta.inject<span class="nt">&lt;/groupId&gt;</span>
+  <span class="nt">&lt;artifactId&gt;</span>jakarta.inject-api<span class="nt">&lt;/artifactId&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+<span class="nt">&lt;dependency&gt;</span>
+  <span class="nt">&lt;groupId&gt;</span>jakarta.enterprise<span class="nt">&lt;/groupId&gt;</span>
+  <span class="nt">&lt;artifactId&gt;</span>jakarta.enterprise.cdi-api<span class="nt">&lt;/artifactId&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+<span class="nt">&lt;dependency&gt;</span>
+  <span class="nt">&lt;groupId&gt;</span>jakarta.transaction<span class="nt">&lt;/groupId&gt;</span>
+  <span class="nt">&lt;artifactId&gt;</span>jakarta.transaction-api<span class="nt">&lt;/artifactId&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+<span class="nt">&lt;dependency&gt;</span>
+  <span class="nt">&lt;groupId&gt;</span>org.jberet<span class="nt">&lt;/groupId&gt;</span>
+  <span class="nt">&lt;artifactId&gt;</span>jberet-core<span class="nt">&lt;/artifactId&gt;</span>
+  <span class="nt">&lt;version&gt;</span>2.1.1.Final<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+<span class="nt">&lt;dependency&gt;</span>
+  <span class="nt">&lt;groupId&gt;</span>org.jboss.marshalling<span class="nt">&lt;/groupId&gt;</span>
+  <span class="nt">&lt;artifactId&gt;</span>jboss-marshalling<span class="nt">&lt;/artifactId&gt;</span>
+  <span class="nt">&lt;version&gt;</span>2.0.12.Final<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+<span class="nt">&lt;dependency&gt;</span>
+  <span class="nt">&lt;groupId&gt;</span>org.jboss.logging<span class="nt">&lt;/groupId&gt;</span>
+  <span class="nt">&lt;artifactId&gt;</span>jboss-logging<span class="nt">&lt;/artifactId&gt;</span>
+  <span class="nt">&lt;version&gt;</span>3.4.3.Final<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+<span class="nt">&lt;dependency&gt;</span>
+  <span class="nt">&lt;groupId&gt;</span>org.jboss.weld<span class="nt">&lt;/groupId&gt;</span>
+  <span class="nt">&lt;artifactId&gt;</span>weld-core-impl<span class="nt">&lt;/artifactId&gt;</span>
+  <span class="nt">&lt;version&gt;</span>5.0.0.SP1<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+<span class="nt">&lt;dependency&gt;</span>
+  <span class="nt">&lt;groupId&gt;</span>org.wildfly.security<span class="nt">&lt;/groupId&gt;</span>
+  <span class="nt">&lt;artifactId&gt;</span>wildfly-elytron-security-manager<span class="nt">&lt;/artifactId&gt;</span>
+  <span class="nt">&lt;version&gt;</span>1.19.0.Final<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+<span class="nt">&lt;dependency&gt;</span>
+  <span class="nt">&lt;groupId&gt;</span>com.google.guava<span class="nt">&lt;/groupId&gt;</span>
+  <span class="nt">&lt;artifactId&gt;</span>guava<span class="nt">&lt;/artifactId&gt;</span>
+  <span class="nt">&lt;version&gt;</span>31.1-jre<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+
+<span class="c">&lt;!-- Dependencies for JBeret to work with Java SE --&gt;</span>
+<span class="nt">&lt;dependency&gt;</span>
+  <span class="nt">&lt;groupId&gt;</span>org.jberet<span class="nt">&lt;/groupId&gt;</span>
+  <span class="nt">&lt;artifactId&gt;</span>jberet-se<span class="nt">&lt;/artifactId&gt;</span>
+  <span class="nt">&lt;version&gt;</span>2.1.1.Final<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+<span class="nt">&lt;dependency&gt;</span>
+  <span class="nt">&lt;groupId&gt;</span>org.jboss.weld.se<span class="nt">&lt;/groupId&gt;</span>
+  <span class="nt">&lt;artifactId&gt;</span>weld-se-core<span class="nt">&lt;/artifactId&gt;</span>
+  <span class="nt">&lt;version&gt;</span>5.0.0.SP1<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+</pre></div>
+</div>
+<div class="section" id="what-to-do-if-an-error-occurs-during-execution">
+<h3><a class="toc-backref" href="#id31">What to do if an error occurs during execution</a><a class="headerlink" href="#what-to-do-if-an-error-occurs-during-execution" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="when-noclassdeffounderror-occurs">
+<h4><a class="toc-backref" href="#id32">When NoClassDefFoundError occurs</a><a class="headerlink" href="#when-noclassdeffounderror-occurs" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-text"><div class="highlight"><pre><span></span>org.jboss.weld.exceptions.WeldException
+    at org.jboss.weld.executor.AbstractExecutorServices.checkForExceptions (AbstractExecutorServices.java:82)
+    ...
+Caused by: java.lang.NoClassDefFoundError
+    at jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0 (Native Method)
+    ...
+Caused by: java.lang.NoClassDefFoundError: Could not initialize class org.jboss.weld.logging.BeanLogger
+    at org.jboss.weld.util.Beans.getBeanConstructor (Beans.java:279)
+</pre></div>
+</div>
+<p>If a stack trace like the one above is output during execution and an error occurs, you can resolve the error by placing <code class="docutils literal"><span class="pre">slf4j-nablarch-adaptor</span></code> after Logback in the classpath order.
+When running with Maven, you can change the classpath order by placing <code class="docutils literal"><span class="pre">slf4j-nablarch-adaptor</span></code> in <code class="docutils literal"><span class="pre">pom.xml</span></code> below Logback.</p>
+<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;dependency&gt;</span>
+  <span class="nt">&lt;groupId&gt;</span>ch.qos.logback<span class="nt">&lt;/groupId&gt;</span>
+  <span class="nt">&lt;artifactId&gt;</span>logback-classic<span class="nt">&lt;/artifactId&gt;</span>
+  <span class="nt">&lt;version&gt;</span>1.2.4<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+
+<span class="c">&lt;!-- Place slf4j-nablarch-adaptor below Logback --&gt;</span>
+<span class="nt">&lt;dependency&gt;</span>
+  <span class="nt">&lt;groupId&gt;</span>com.nablarch.integration<span class="nt">&lt;/groupId&gt;</span>
+  <span class="nt">&lt;artifactId&gt;</span>slf4j-nablarch-adaptor<span class="nt">&lt;/artifactId&gt;</span>
+  <span class="nt">&lt;scope&gt;</span>runtime<span class="nt">&lt;/scope&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="appendix">
+<h2><a class="toc-backref" href="#id33">Appendix</a><a class="headerlink" href="#appendix" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="correspondence-table-between-java-ee-and-jakarta-ee-specifications">
+<span id="java-ee-jakarta-ee-comparation"></span><h3><a class="toc-backref" href="#id34">Correspondence table between Java EE and Jakarta EE specifications</a><a class="headerlink" href="#correspondence-table-between-java-ee-and-jakarta-ee-specifications" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="colwidths-given docutils" id="id3">
+<caption><span class="caption-text">Correspondence table between Java EE and Jakarta EE specifications</span><a class="headerlink" href="#id3" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="38%" />
+<col width="13%" />
+<col width="13%" />
+<col width="38%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Java EE</th>
+<th class="head">Short name</th>
+<th class="head">Namespace prefix</th>
+<th class="head">Jakarta EE</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Java Servlet</td>
+<td>&nbsp;</td>
+<td><code class="docutils literal"><span class="pre">javax.servlet</span></code></td>
+<td><a class="reference external" href="https://jakarta.ee/specifications/servlet/">Jakarta Servlet (external site)</a></td>
+</tr>
+<tr class="row-odd"><td>JavaServer Faces</td>
+<td>JSF</td>
+<td><code class="docutils literal"><span class="pre">javax.faces</span></code></td>
+<td><a class="reference external" href="https://jakarta.ee/specifications/faces/">Jakarta Faces (external site)</a></td>
+</tr>
+<tr class="row-even"><td>Java API for WebSocket</td>
+<td>&nbsp;</td>
+<td><code class="docutils literal"><span class="pre">javax.websocket</span></code></td>
+<td><a class="reference external" href="https://jakarta.ee/specifications/websocket/">Jakarta WebSocket (external site)</a></td>
+</tr>
+<tr class="row-odd"><td>Concurrency Utilities for Java EE</td>
+<td>&nbsp;</td>
+<td><code class="docutils literal"><span class="pre">javax.enterprise.concurrent</span></code></td>
+<td><a class="reference external" href="https://jakarta.ee/specifications/concurrency/">Jakarta Concurrency (external site)</a></td>
+</tr>
+<tr class="row-even"><td>Interceptors</td>
+<td>&nbsp;</td>
+<td><code class="docutils literal"><span class="pre">javax.interceptor</span></code></td>
+<td><a class="reference external" href="https://jakarta.ee/specifications/interceptors/">Jakarta Interceptors (external site)</a></td>
+</tr>
+<tr class="row-odd"><td>Java Authentication SPI for Containers</td>
+<td>JASPIC</td>
+<td><code class="docutils literal"><span class="pre">javax.security.auth.message</span></code></td>
+<td><a class="reference external" href="https://jakarta.ee/specifications/authentication/">Jakarta Authentication (external site)</a></td>
+</tr>
+<tr class="row-even"><td>Java Authorization Contract for Containers</td>
+<td>JACC</td>
+<td><code class="docutils literal"><span class="pre">javax.security.jacc</span></code></td>
+<td><a class="reference external" href="https://jakarta.ee/specifications/authorization/">Jakarta Authorization (external site)</a></td>
+</tr>
+<tr class="row-odd"><td>Java EE Security API</td>
+<td>&nbsp;</td>
+<td><code class="docutils literal"><span class="pre">javax.security.enterprise</span></code></td>
+<td><a class="reference external" href="https://jakarta.ee/specifications/security/">Jakarta Security (external site)</a></td>
+</tr>
+<tr class="row-even"><td>Java Message Service</td>
+<td>JMS</td>
+<td><code class="docutils literal"><span class="pre">javax.jms</span></code></td>
+<td><a class="reference external" href="https://jakarta.ee/specifications/messaging/">Jakarta Messaging (external site)</a></td>
+</tr>
+<tr class="row-odd"><td>Java Persistence API</td>
+<td>JPA</td>
+<td><code class="docutils literal"><span class="pre">javax.persistence</span></code></td>
+<td><a class="reference external" href="https://jakarta.ee/specifications/persistence/">Jakarta Persistence (external site)</a></td>
+</tr>
+<tr class="row-even"><td>Java Transaction API</td>
+<td>JTA</td>
+<td><code class="docutils literal"><span class="pre">javax.transaction</span></code></td>
+<td><a class="reference external" href="https://jakarta.ee/specifications/transactions/">Jakarta Transactions (external site)</a></td>
+</tr>
+<tr class="row-odd"><td>Batch Application for the Java Platform</td>
+<td>JBatch</td>
+<td><code class="docutils literal"><span class="pre">javax.batch</span></code></td>
+<td><a class="reference external" href="https://jakarta.ee/specifications/batch/">Jakarta Batch (external site)</a></td>
+</tr>
+<tr class="row-even"><td>JavaMail</td>
+<td>&nbsp;</td>
+<td><code class="docutils literal"><span class="pre">javax.mail</span></code></td>
+<td><a class="reference external" href="https://jakarta.ee/specifications/mail/">Jakarta Mail (external site)</a></td>
+</tr>
+<tr class="row-odd"><td>Java EE Connector Architecture</td>
+<td>JCA</td>
+<td><code class="docutils literal"><span class="pre">javax.resource</span></code></td>
+<td><a class="reference external" href="https://jakarta.ee/specifications/connectors/">Jakarta Connectors (external site)</a></td>
+</tr>
+<tr class="row-even"><td>Common Annotations for the Java Platform</td>
+<td>&nbsp;</td>
+<td><code class="docutils literal"><span class="pre">javax.annotation</span></code></td>
+<td><a class="reference external" href="https://jakarta.ee/specifications/annotations/">Jakarta Annotations (external site)</a></td>
+</tr>
+<tr class="row-odd"><td>JavaBeans Activation Framework</td>
+<td>JAF</td>
+<td><code class="docutils literal"><span class="pre">javax.activation</span></code></td>
+<td><a class="reference external" href="https://jakarta.ee/specifications/activation/">Jakarta Activation (external site)</a></td>
+</tr>
+<tr class="row-even"><td>Bean Validation</td>
+<td>&nbsp;</td>
+<td><code class="docutils literal"><span class="pre">javax.validation</span></code></td>
+<td><a class="reference external" href="https://jakarta.ee/specifications/bean-validation/">Jakarta Bean Validation (external site)</a></td>
+</tr>
+<tr class="row-odd"><td>Expression Language</td>
+<td>EL</td>
+<td><code class="docutils literal"><span class="pre">javax.el</span></code></td>
+<td><a class="reference external" href="https://jakarta.ee/specifications/expression-language/">Jakarta Expression Language (external site)</a></td>
+</tr>
+<tr class="row-even"><td>Enterprise JavaBeans</td>
+<td>EJB</td>
+<td><code class="docutils literal"><span class="pre">javax.ejb</span></code></td>
+<td><a class="reference external" href="https://jakarta.ee/specifications/enterprise-beans/">Jakarta Enterprise Beans (external site)</a></td>
+</tr>
+<tr class="row-odd"><td>Java Architecture for XML Binding</td>
+<td>JAXB</td>
+<td><code class="docutils literal"><span class="pre">javax.xml.bind</span></code></td>
+<td><a class="reference external" href="https://jakarta.ee/specifications/xml-binding/">Jakarta XML Binding (external site)</a></td>
+</tr>
+<tr class="row-even"><td>Java API for JSON Binding</td>
+<td>JSON-B</td>
+<td><code class="docutils literal"><span class="pre">javax.json.bind</span></code></td>
+<td><a class="reference external" href="https://jakarta.ee/specifications/jsonb/">Jakarta JSON Binding (external site)</a></td>
+</tr>
+<tr class="row-odd"><td>Java API for JSON Processing</td>
+<td>JSON-P</td>
+<td><ul class="first last simple">
+<li><code class="docutils literal"><span class="pre">javax.json</span></code></li>
+<li><code class="docutils literal"><span class="pre">javax.json.spi</span></code></li>
+<li><code class="docutils literal"><span class="pre">javax.json.stream</span></code></li>
+</ul>
+</td>
+<td><a class="reference external" href="https://jakarta.ee/specifications/jsonp/">Jakarta JSON Processing (external site)</a></td>
+</tr>
+<tr class="row-even"><td>JavaServer Pages</td>
+<td>JSP</td>
+<td><code class="docutils literal"><span class="pre">javax.servlet.jsp</span></code></td>
+<td><a class="reference external" href="https://jakarta.ee/specifications/pages/">Jakarta Server Pages (external site)</a></td>
+</tr>
+<tr class="row-odd"><td>Java API for XML-Based Web Services</td>
+<td>JAX-WS</td>
+<td><code class="docutils literal"><span class="pre">javax.xml.ws</span></code></td>
+<td><a class="reference external" href="https://jakarta.ee/specifications/xml-web-services/">Jakarta XML Web Services (external site)</a></td>
+</tr>
+<tr class="row-even"><td>Java API for RESTful Web Services</td>
+<td>JAX-RS</td>
+<td><code class="docutils literal"><span class="pre">javax.ws.rs</span></code></td>
+<td><a class="reference external" href="https://jakarta.ee/specifications/restful-ws/">Jakarta RESTful Web Services (external site)</a></td>
+</tr>
+<tr class="row-odd"><td>JavaServer Pages Standard Tag Library</td>
+<td>JSTL</td>
+<td><code class="docutils literal"><span class="pre">javax.servlet.jsp.jstl</span></code></td>
+<td><a class="reference external" href="https://jakarta.ee/specifications/tags/">Jakarta Standard Tag Library (external site)</a></td>
+</tr>
+<tr class="row-even"><td>Contexts and Dependency Injection for Java</td>
+<td>CDI</td>
+<td><ul class="first last simple">
+<li><code class="docutils literal"><span class="pre">javax.decorator</span></code></li>
+<li><code class="docutils literal"><span class="pre">javax.enterprise.context</span></code></li>
+<li><code class="docutils literal"><span class="pre">javax.enterprise.event</span></code></li>
+<li><code class="docutils literal"><span class="pre">javax.enterprise.inject</span></code></li>
+<li><code class="docutils literal"><span class="pre">javax.enterprise.util</span></code></li>
+</ul>
+</td>
+<td><a class="reference external" href="https://jakarta.ee/specifications/cdi/">Jakarta Contexts and Dependency Injection (external site)</a></td>
+</tr>
+<tr class="row-odd"><td>Dependency Injection for Java</td>
+<td>&nbsp;</td>
+<td><code class="docutils literal"><span class="pre">javax.inject</span></code></td>
+<td><a class="reference external" href="https://jakarta.ee/specifications/dependency-injection/">Jakarta Dependency Injection (external site)</a></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+
+    <hr/>
+
+    <div role="contentinfo">
+        <p>
+            &copy; Copyright 2010-2023, TIS Inc.
+        </p>
+    </div>
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'6',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: ''
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/custom.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
