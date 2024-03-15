@@ -9,7 +9,7 @@
   <meta http-equiv='content-language' content='ja'>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>6.4.4. CORS Preflight Request Handler &mdash; ∇Nablarch  5u23 documentation</title>
+  <title>6.4.4. CORS Preflight Request Handler &mdash; ∇Nablarch  5u24 documentation</title>
   
 
   
@@ -35,7 +35,7 @@
   
   <link rel="canonical" href="https://nablarch.github.io/docs/LATEST/doc/application_framework/application_framework/handlers/rest/cors_preflight_request_handler.html" />
   
-    <link rel="top" title="∇Nablarch  5u23 documentation" href="../../../../index.html"/>
+    <link rel="top" title="∇Nablarch  5u24 documentation" href="../../../../index.html"/>
         <link rel="up" title="6.4. RESTful Web Service Dedicated Handler" href="index.html"/>
         <link rel="next" title="6.4.5. HTTP Access Log (for RESTful Web Service) Handler" href="jaxrs_access_log_handler.html"/>
         <link rel="prev" title="6.4.3. JAX-RS Response Handler" href="jaxrs_response_handler.html"/>
@@ -63,7 +63,7 @@
   
 
   
-    <div id="sidebar-version">Version: 5u23</div>
+    <div id="sidebar-version">Version: 5u24</div>
   </a>
 
   <div role="search">
@@ -111,7 +111,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../adaptors/index.html">Adaptor</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../adaptors/log_adaptor.html">log Adapter</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../adaptors/router_adaptor.html">Routing Adapter</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../adaptors/webspheremq_adaptor.html">IBM WebSphere MQ Adapter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../adaptors/webspheremq_adaptor.html">IBM MQ Adapter</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../adaptors/jaxrs_adaptor.html">JAX-RS Adapter</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../adaptors/doma_adaptor.html">Doma Adapter</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../adaptors/jsr310_adaptor.html">JSR310(Date and Time API)Adapter</a></li>
@@ -326,7 +326,7 @@
 </div>
 <p>This handler is used to implement Cross-Origin Resource Sharing (CORS) with <a class="reference internal" href="../../web_service/rest/index.html#restful-web-service"><span>RESTful web service</span></a>.</p>
 <p>Implementing CORS requires handling of the preflight request which is sent before the actual request and the actual request.
-Preflight requests are handled by this handler, and handling for the actual request is handled by <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/fw/jaxrs/cors/CorsResponseFinisher.html" title="nablarch.fw.jaxrs.cors.CorsResponseFinisher">CorsResponseFinisher</a>,
+Preflight requests are handled by this handler, and handling for the actual request is handled by <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/fw/jaxrs/cors/CorsResponseFinisher.html" title="nablarch.fw.jaxrs.cors.CorsResponseFinisher">CorsResponseFinisher</a>,
 which implements ResponseFinisher as described in <a class="reference internal" href="jaxrs_response_handler.html#jaxrs-response-handler-response-finisher"><span>Add common processing to the response returned to the client</span></a>.</p>
 <p>This handler performs the following process.</p>
 <ul class="simple">
@@ -337,7 +337,7 @@ which implements ResponseFinisher as described in <a class="reference internal" 
 <div class="section" id="handler-class-name">
 <h2><a class="toc-backref" href="#id2">6.4.4.1. Handler class name</a><a class="headerlink" href="#handler-class-name" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/fw/jaxrs/CorsPreflightRequestHandler.html" title="nablarch.fw.jaxrs.CorsPreflightRequestHandler">nablarch.fw.jaxrs.CorsPreflightRequestHandler</a></li>
+<li><a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/fw/jaxrs/CorsPreflightRequestHandler.html" title="nablarch.fw.jaxrs.CorsPreflightRequestHandler">nablarch.fw.jaxrs.CorsPreflightRequestHandler</a></li>
 </ul>
 </div>
 <div class="section" id="module-list">
@@ -353,15 +353,15 @@ which implements ResponseFinisher as described in <a class="reference internal" 
 <h2><a class="toc-backref" href="#id4">6.4.4.3. Constraints</a><a class="headerlink" href="#constraints" title="Permalink to this headline">¶</a></h2>
 <dl class="docutils">
 <dt>Configure this handler after the <a class="reference internal" href="jaxrs_response_handler.html#jaxrs-response-handler"><span>JAX-RS Response Handler</span></a></dt>
-<dd>The <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/fw/web/HttpResponse.html" title="nablarch.fw.web.HttpResponse">HttpResponse</a> created by this handler is handled by <a class="reference internal" href="jaxrs_response_handler.html#jaxrs-response-handler"><span>JAX-RS Response Handler</span></a>,
+<dd>The <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/fw/web/HttpResponse.html" title="nablarch.fw.web.HttpResponse">HttpResponse</a> created by this handler is handled by <a class="reference internal" href="jaxrs_response_handler.html#jaxrs-response-handler"><span>JAX-RS Response Handler</span></a>,
 so the this handler should be placed after <a class="reference internal" href="jaxrs_response_handler.html#jaxrs-response-handler"><span>JAX-RS Response Handler</span></a>.</dd>
 </dl>
 </div>
 <div class="section" id="implementing-cors">
 <span id="cors-preflight-request-handler-setting"></span><h2><a class="toc-backref" href="#id5">6.4.4.4. Implementing CORS</a><a class="headerlink" href="#implementing-cors" title="Permalink to this headline">¶</a></h2>
-<p>To implement CORS, configure this handler and <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/fw/jaxrs/cors/CorsResponseFinisher.html" title="nablarch.fw.jaxrs.cors.CorsResponseFinisher">CorsResponseFinisher</a>.</p>
-<p>CORS is handled by the <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/fw/jaxrs/cors/Cors.html" title="nablarch.fw.jaxrs.cors.Cors">Cors</a> interface.
-The framework provides the <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/fw/jaxrs/cors/BasicCors.html" title="nablarch.fw.jaxrs.cors.BasicCors">BasicCors</a> class as a basic implementation of CORS.
+<p>To implement CORS, configure this handler and <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/fw/jaxrs/cors/CorsResponseFinisher.html" title="nablarch.fw.jaxrs.cors.CorsResponseFinisher">CorsResponseFinisher</a>.</p>
+<p>CORS is handled by the <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/fw/jaxrs/cors/Cors.html" title="nablarch.fw.jaxrs.cors.Cors">Cors</a> interface.
+The framework provides the <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/fw/jaxrs/cors/BasicCors.html" title="nablarch.fw.jaxrs.cors.BasicCors">BasicCors</a> class as a basic implementation of CORS.
 Just specify BasicCors for this handler and CorsResponseFinisher.</p>
 <p>The settings are shown below.</p>
 <div class="highlight-xml"><div class="highlight"><pre><span></span><span class="c">&lt;!-- BasicCors --&gt;</span>
@@ -404,7 +404,7 @@ Just specify BasicCors for this handler and CorsResponseFinisher.</p>
 <span class="nt">&lt;/component&gt;</span>
 </pre></div>
 </div>
-<p><a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/fw/jaxrs/cors/BasicCors.html" title="nablarch.fw.jaxrs.cors.BasicCors">BasicCors</a> performs the following processing by default.</p>
+<p><a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/fw/jaxrs/cors/BasicCors.html" title="nablarch.fw.jaxrs.cors.BasicCors">BasicCors</a> performs the following processing by default.</p>
 <dl class="docutils">
 <dt>Preflight Request (the process called by CorsPreflightRequestHandler)</dt>
 <dd><ul class="first last">
@@ -458,7 +458,7 @@ Just specify BasicCors for this handler and CorsResponseFinisher.</p>
 </dd>
 </dl>
 <p>Among the default processes, the contents of the response header can be changed in the settings.
-See Javadoc in <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/fw/jaxrs/cors/BasicCors.html" title="nablarch.fw.jaxrs.cors.BasicCors">BasicCors</a> for what can be changed in the configuration.</p>
+See Javadoc in <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/fw/jaxrs/cors/BasicCors.html" title="nablarch.fw.jaxrs.cors.BasicCors">BasicCors</a> for what can be changed in the configuration.</p>
 </div>
 </div>
 
@@ -474,7 +474,7 @@ See Javadoc in <a class="reference external" href="https://nablarch.github.io/do
 
     <div role="contentinfo">
         <p>
-            &copy; Copyright 2010-2023, TIS Inc.
+            &copy; Copyright 2010-2024, TIS Inc.
         </p>
     </div>
     Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
@@ -495,7 +495,7 @@ See Javadoc in <a class="reference external" href="https://nablarch.github.io/do
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../../',
-            VERSION:'5u23',
+            VERSION:'5u24',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

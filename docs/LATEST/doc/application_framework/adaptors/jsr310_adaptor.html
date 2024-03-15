@@ -9,7 +9,7 @@
   <meta http-equiv='content-language' content='ja'>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>JSR310(Date and Time API)アダプタ &mdash; ∇Nablarch  5u23 ドキュメント</title>
+  <title>JSR310(Date and Time API)アダプタ &mdash; ∇Nablarch  5u24 ドキュメント</title>
   
 
   
@@ -35,7 +35,7 @@
   
   <link rel="canonical" href="https://nablarch.github.io/docs/LATEST/doc/application_framework/adaptors/jsr310_adaptor.html" />
   
-    <link rel="top" title="∇Nablarch  5u23 ドキュメント" href="../../index.html"/>
+    <link rel="top" title="∇Nablarch  5u24 ドキュメント" href="../../index.html"/>
         <link rel="up" title="アダプタ" href="index.html"/>
         <link rel="next" title="E-mail FreeMarkerアダプタ" href="mail_sender_freemarker_adaptor.html"/>
         <link rel="prev" title="Domaアダプタ" href="doma_adaptor.html"/>
@@ -63,7 +63,7 @@
   
 
   
-    <div id="sidebar-version">Version: 5u23</div>
+    <div id="sidebar-version">Version: 5u24</div>
   </a>
 
   <div role="search">
@@ -111,7 +111,7 @@
 <li class="toctree-l2 current"><a class="reference internal" href="index.html">アダプタ</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="log_adaptor.html">logアダプタ</a></li>
 <li class="toctree-l3"><a class="reference internal" href="router_adaptor.html">ルーティングアダプタ</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webspheremq_adaptor.html">IBM WebSphere MQアダプタ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webspheremq_adaptor.html">IBM MQアダプタ</a></li>
 <li class="toctree-l3"><a class="reference internal" href="jaxrs_adaptor.html">JAX-RSアダプタ</a></li>
 <li class="toctree-l3"><a class="reference internal" href="doma_adaptor.html">Domaアダプタ</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="">JSR310(Date and Time API)アダプタ</a></li>
@@ -357,7 +357,7 @@
 </ul>
 </div>
 <p>JSR310(Date and Time API)で追加された日時関連を使用可能にするためのアダプタを提供する。
-このアダプタを使用することで、 <a class="reference internal" href="../application_framework/libraries/bean_util.html#bean-util"><span>Bean Util</span></a> でJSR310(Date and Time API)を使用できる。</p>
+このアダプタを使用することで、 <a class="reference internal" href="../application_framework/libraries/bean_util.html#bean-util"><span>BeanUtil</span></a> でJSR310(Date and Time API)を使用できる。</p>
 <div class="admonition important">
 <p class="first admonition-title">重要</p>
 <p>本アダプタで対応している型は以下の通り。
@@ -379,7 +379,7 @@
 </div>
 <div class="section" id="id3">
 <h2><a class="toc-backref" href="#id5">使用方法</a><a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>変換可能な型や変換ルールなどの詳細は、 <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/integration/jsr310/beans/converter/package-summary.html" title="nablarch.integration.jsr310.beans.converter.package-summary">converter一覧</a> を参照。</p>
+<p>変換可能な型や変換ルールなどの詳細は、 <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/integration/jsr310/beans/converter/package-summary.html" title="nablarch.integration.jsr310.beans.converter.package-summary">converter一覧</a> を参照。</p>
 <dl class="docutils">
 <dt>設定</dt>
 <dd><p class="first"><a class="reference internal" href="../application_framework/libraries/repository.html#repository"><span>システムリポジトリ</span></a> のコンポーネント設定ファイルに以下を追加することで、本機能が有効になる。</p>
@@ -393,9 +393,9 @@
 <p>文字列から変換する際のフォーマットを変更したい場合は、以下の作業が必要となる。</p>
 <dl class="last docutils">
 <dt>フォーマットなどの定義を持つクラスを作成する</dt>
-<dd><a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/integration/jsr310/util/DateTimeConfiguration.html" title="nablarch.integration.jsr310.util.DateTimeConfiguration">DateTimeConfiguration</a> の実装クラスを追加し、
+<dd><a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/integration/jsr310/util/DateTimeConfiguration.html" title="nablarch.integration.jsr310.util.DateTimeConfiguration">DateTimeConfiguration</a> の実装クラスを追加し、
 日付や日時のフォーマットを定義する。
-基本実装の <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/integration/jsr310/util/BasicDateTimeConfiguration.html" title="nablarch.integration.jsr310.util.BasicDateTimeConfiguration">BasicDateTimeConfiguration</a> を参考にすると良い</dd>
+基本実装の <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/integration/jsr310/util/BasicDateTimeConfiguration.html" title="nablarch.integration.jsr310.util.BasicDateTimeConfiguration">BasicDateTimeConfiguration</a> を参考にすると良い</dd>
 <dt>追加したクラスをコンポーネント設定ファイルに定義する</dt>
 <dd><p class="first">コンポーネント名を <code class="docutils literal"><span class="pre">dateTimeConfiguration</span></code> として、コンポーネントを定義する。</p>
 <p>例を以下に示す。</p>
@@ -420,7 +420,7 @@
 
     <div role="contentinfo">
         <p>
-            &copy; Copyright 2010-2023, TIS Inc.
+            &copy; Copyright 2010-2024, TIS Inc.
         </p>
     </div>
     Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
@@ -441,7 +441,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../',
-            VERSION:'5u23',
+            VERSION:'5u24',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

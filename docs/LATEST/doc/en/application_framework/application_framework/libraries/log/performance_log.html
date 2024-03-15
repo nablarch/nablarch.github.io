@@ -9,7 +9,7 @@
   <meta http-equiv='content-language' content='ja'>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>7.1.1.2.3. Output of Performance Log &mdash; ∇Nablarch  5u23 documentation</title>
+  <title>7.1.1.2.3. Output of Performance Log &mdash; ∇Nablarch  5u24 documentation</title>
   
 
   
@@ -35,7 +35,7 @@
   
   <link rel="canonical" href="https://nablarch.github.io/docs/LATEST/doc/application_framework/application_framework/libraries/log/performance_log.html" />
   
-    <link rel="top" title="∇Nablarch  5u23 documentation" href="../../../../index.html"/>
+    <link rel="top" title="∇Nablarch  5u24 documentation" href="../../../../index.html"/>
         <link rel="up" title="7.1. Log Output" href="../log.html"/>
         <link rel="next" title="7.1.1.2.4. Output of HTTP Access Log" href="http_access_log.html"/>
         <link rel="prev" title="7.1.1.2.2. Output of SQL Log" href="sql_log.html"/>
@@ -63,7 +63,7 @@
   
 
   
-    <div id="sidebar-version">Version: 5u23</div>
+    <div id="sidebar-version">Version: 5u24</div>
   </a>
 
   <div role="search">
@@ -111,7 +111,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../adaptors/index.html">Adaptor</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../adaptors/log_adaptor.html">log Adapter</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../adaptors/router_adaptor.html">Routing Adapter</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../adaptors/webspheremq_adaptor.html">IBM WebSphere MQ Adapter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../adaptors/webspheremq_adaptor.html">IBM MQ Adapter</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../adaptors/jaxrs_adaptor.html">JAX-RS Adapter</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../adaptors/doma_adaptor.html">Doma Adapter</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../adaptors/jsr310_adaptor.html">JSR310(Date and Time API)Adapter</a></li>
@@ -397,10 +397,10 @@ It is assumed that the performance log will be used during development and outpu
 <h2><a class="toc-backref" href="#id3">7.1.1.2.3.2. How to use</a><a class="headerlink" href="#how-to-use" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="output-performance-log">
 <span id="performance-log-logging"></span><h3><a class="toc-backref" href="#id4">7.1.1.2.3.2.1. Output performance log</a><a class="headerlink" href="#output-performance-log" title="Permalink to this headline">¶</a></h3>
-<p>Performance log is output using  <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/core/log/app/PerformanceLogUtil.html" title="nablarch.core.log.app.PerformanceLogUtil">PerformanceLogUtil</a> .
-<a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/core/log/app/PerformanceLogUtil.html" title="nablarch.core.log.app.PerformanceLogUtil">PerformanceLogUtil</a>  provides <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/core/log/app/PerformanceLogUtil.html#start-java.lang.String-" title="nablarch.core.log.app.PerformanceLogUtil.start(java.lang.String)">PerformanceLogUtil#start</a> which is called at the start of the process and  <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/core/log/app/PerformanceLogUtil.html#end-java.lang.String-java.lang.String-java.lang.Object...-" title="nablarch.core.log.app.PerformanceLogUtil.end(java.lang.String-java.lang.String-java.lang.Object...)">PerformanceLogUtil#end</a> which is called at the end of the process.
-<a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/core/log/app/PerformanceLogUtil.html" title="nablarch.core.log.app.PerformanceLogUtil">PerformanceLogUtil</a>  will output the log together with the date and time and memory usage acquired by  <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/core/log/app/PerformanceLogUtil.html#start-java.lang.String-" title="nablarch.core.log.app.PerformanceLogUtil.start(java.lang.String)">PerformanceLogUtil#start</a> when <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/core/log/app/PerformanceLogUtil.html#end-java.lang.String-java.lang.String-java.lang.Object...-" title="nablarch.core.log.app.PerformanceLogUtil.end(java.lang.String-java.lang.String-java.lang.Object...)">PerformanceLogUtil#end</a> is called.</p>
-<p>Usage example of <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/core/log/app/PerformanceLogUtil.html" title="nablarch.core.log.app.PerformanceLogUtil">PerformanceLogUtil</a>  is shown below.</p>
+<p>Performance log is output using  <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/core/log/app/PerformanceLogUtil.html" title="nablarch.core.log.app.PerformanceLogUtil">PerformanceLogUtil</a> .
+<a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/core/log/app/PerformanceLogUtil.html" title="nablarch.core.log.app.PerformanceLogUtil">PerformanceLogUtil</a>  provides <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/core/log/app/PerformanceLogUtil.html#start-java.lang.String-" title="nablarch.core.log.app.PerformanceLogUtil.start(java.lang.String)">PerformanceLogUtil#start</a> which is called at the start of the process and  <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/core/log/app/PerformanceLogUtil.html#end-java.lang.String-java.lang.String-java.lang.Object...-" title="nablarch.core.log.app.PerformanceLogUtil.end(java.lang.String-java.lang.String-java.lang.Object...)">PerformanceLogUtil#end</a> which is called at the end of the process.
+<a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/core/log/app/PerformanceLogUtil.html" title="nablarch.core.log.app.PerformanceLogUtil">PerformanceLogUtil</a>  will output the log together with the date and time and memory usage acquired by  <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/core/log/app/PerformanceLogUtil.html#start-java.lang.String-" title="nablarch.core.log.app.PerformanceLogUtil.start(java.lang.String)">PerformanceLogUtil#start</a> when <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/core/log/app/PerformanceLogUtil.html#end-java.lang.String-java.lang.String-java.lang.Object...-" title="nablarch.core.log.app.PerformanceLogUtil.end(java.lang.String-java.lang.String-java.lang.Object...)">PerformanceLogUtil#end</a> is called.</p>
+<p>Usage example of <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/core/log/app/PerformanceLogUtil.html" title="nablarch.core.log.app.PerformanceLogUtil">PerformanceLogUtil</a>  is shown below.</p>
 <div class="highlight-java"><div class="highlight"><pre><span></span><span class="c1">// Specify the point that identifies the measurement target in the start method.</span>
 <span class="c1">// log is not output if this point name is not defined in the configuration file</span>
 <span class="c1">// to prevent unwanted output because of incorrect configuration.</span>
@@ -418,8 +418,8 @@ It is assumed that the performance log will be used during development and outpu
 </div>
 <div class="admonition important">
 <p class="first admonition-title">Important</p>
-<p class="last"><a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/core/log/app/PerformanceLogUtil.html" title="nablarch.core.log.app.PerformanceLogUtil">PerformanceLogUtil</a> uniquely identifies the measurement target with the <a class="reference internal" href="../log.html#log-execution-id"><span>execution ID</span></a>  + point name.
-Therefore, note that if  <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/core/log/app/PerformanceLogUtil.html" title="nablarch.core.log.app.PerformanceLogUtil">PerformanceLogUtil</a> is used during a recursive call, measurement cannot be performed.</p>
+<p class="last"><a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/core/log/app/PerformanceLogUtil.html" title="nablarch.core.log.app.PerformanceLogUtil">PerformanceLogUtil</a> uniquely identifies the measurement target with the <a class="reference internal" href="../log.html#log-execution-id"><span>execution ID</span></a>  + point name.
+Therefore, note that if  <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/core/log/app/PerformanceLogUtil.html" title="nablarch.core.log.app.PerformanceLogUtil">PerformanceLogUtil</a> is used during a recursive call, measurement cannot be performed.</p>
 </div>
 </div>
 <div class="section" id="configure-performance-log">
@@ -430,7 +430,7 @@ Therefore, note that if  <a class="reference external" href="https://nablarch.gi
 <dd><p class="first"></p>
 <dl class="last docutils">
 <dt>performanceLogFormatter.className</dt>
-<dd>Class that implements performanceLogFormatter.className <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/core/log/app/PerformanceLogFormatter.html" title="nablarch.core.log.app.PerformanceLogFormatter">PerformanceLogFormatter</a> .
+<dd>Class that implements performanceLogFormatter.className <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/core/log/app/PerformanceLogFormatter.html" title="nablarch.core.log.app.PerformanceLogFormatter">PerformanceLogFormatter</a> .
 Specify to replace.</dd>
 <dt>performanceLogFormatter.format</dt>
 <dd><p class="first">Format of individual items in the performance log.</p>
@@ -507,15 +507,15 @@ The performance log is output based on this configuration to prevent unwanted ou
 </div>
 <div class="section" id="output-as-a-structured-log-in-json-format">
 <span id="performance-log-json-setting"></span><h3><a class="toc-backref" href="#id6">7.1.1.2.3.2.3. Output as a structured log in JSON format</a><a class="headerlink" href="#output-as-a-structured-log-in-json-format" title="Permalink to this headline">¶</a></h3>
-<p>Logs can be output in JSON format by using <a class="reference internal" href="../log.html#log-json-log-setting"><span>Output as a structured log in JSON format</span></a> setting, but <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/core/log/app/PerformanceLogFormatter.html" title="nablarch.core.log.app.PerformanceLogFormatter">PerformanceLogFormatter</a> outputs each item of the performance log as a string in the message value.</p>
-<p>To output each item in the performance log as a JSON value as well, use the <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/core/log/app/PerformanceJsonLogFormatter.html" title="nablarch.core.log.app.PerformanceJsonLogFormatter">PerformanceJsonLogFormatter</a>.
+<p>Logs can be output in JSON format by using <a class="reference internal" href="../log.html#log-json-log-setting"><span>Output as a structured log in JSON format</span></a> setting, but <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/core/log/app/PerformanceLogFormatter.html" title="nablarch.core.log.app.PerformanceLogFormatter">PerformanceLogFormatter</a> outputs each item of the performance log as a string in the message value.</p>
+<p>To output each item in the performance log as a JSON value as well, use the <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/core/log/app/PerformanceJsonLogFormatter.html" title="nablarch.core.log.app.PerformanceJsonLogFormatter">PerformanceJsonLogFormatter</a>.
 You can configure in the property file described in <a class="reference internal" href="../log.html#log-app-log-setting"><span>Configure various logs</span></a>.</p>
 <dl class="docutils">
 <dt>Description rules</dt>
-<dd><p class="first">The properties to be specified when using <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/core/log/app/PerformanceJsonLogFormatter.html" title="nablarch.core.log.app.PerformanceJsonLogFormatter">PerformanceJsonLogFormatter</a> are as follows.</p>
+<dd><p class="first">The properties to be specified when using <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/core/log/app/PerformanceJsonLogFormatter.html" title="nablarch.core.log.app.PerformanceJsonLogFormatter">PerformanceJsonLogFormatter</a> are as follows.</p>
 <dl class="last docutils">
 <dt>performanceLogFormatter.className <code class="docutils literal"><span class="pre">required</span></code></dt>
-<dd>To output logs in JSON format, specify <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/core/log/app/PerformanceJsonLogFormatter.html" title="nablarch.core.log.app.PerformanceJsonLogFormatter">PerformanceJsonLogFormatter</a>.</dd>
+<dd>To output logs in JSON format, specify <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/core/log/app/PerformanceJsonLogFormatter.html" title="nablarch.core.log.app.PerformanceJsonLogFormatter">PerformanceJsonLogFormatter</a>.</dd>
 <dt>performanceLogFormatter.targets</dt>
 <dd><p class="first">Output items of the performance log. Separated by comma.</p>
 <dl class="docutils">
@@ -570,9 +570,9 @@ If more than one is specified, separate them with commas.
 The performance log is output based on this configuration to prevent unwanted output because of incorrect configuration.</dd>
 <dt>performanceLogFormatter.structuredMessagePrefix</dt>
 <dd>A marker string given at the beginning of a message to identify that the message string after formatting has been formatted into JSON format.
-If the marker string at the beginning of the message matches the marker string set in <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/core/log/basic/JsonLogFormatter.html" title="nablarch.core.log.basic.JsonLogFormatter">JsonLogFormatter</a>, <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/core/log/basic/JsonLogFormatter.html" title="nablarch.core.log.basic.JsonLogFormatter">JsonLogFormatter</a> processes the message as JSON data.
+If the marker string at the beginning of the message matches the marker string set in <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/core/log/basic/JsonLogFormatter.html" title="nablarch.core.log.basic.JsonLogFormatter">JsonLogFormatter</a>, <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/core/log/basic/JsonLogFormatter.html" title="nablarch.core.log.basic.JsonLogFormatter">JsonLogFormatter</a> processes the message as JSON data.
 The default is <code class="docutils literal"><span class="pre">&quot;$JSON$&quot;</span></code>.
-If you change it, set the same value in <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/core/log/basic/JsonLogFormatter.html" title="nablarch.core.log.basic.JsonLogFormatter">JsonLogFormatter</a> using LogWriter&#8217;s <code class="docutils literal"><span class="pre">structuredMessagePrefix</span></code> property (see <a class="reference internal" href="../log.html#log-basic-setting"><span>Configure log output</span></a> for LogWriter properties).</dd>
+If you change it, set the same value in <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/core/log/basic/JsonLogFormatter.html" title="nablarch.core.log.basic.JsonLogFormatter">JsonLogFormatter</a> using LogWriter&#8217;s <code class="docutils literal"><span class="pre">structuredMessagePrefix</span></code> property (see <a class="reference internal" href="../log.html#log-basic-setting"><span>Configure log output</span></a> for LogWriter properties).</dd>
 </dl>
 </dd>
 <dt>Example of the description</dt>
@@ -601,7 +601,7 @@ If you change it, set the same value in <a class="reference external" href="http
 
     <div role="contentinfo">
         <p>
-            &copy; Copyright 2010-2023, TIS Inc.
+            &copy; Copyright 2010-2024, TIS Inc.
         </p>
     </div>
     Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
@@ -622,7 +622,7 @@ If you change it, set the same value in <a class="reference external" href="http
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../../',
-            VERSION:'5u23',
+            VERSION:'5u24',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

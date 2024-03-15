@@ -9,7 +9,7 @@
   <meta http-equiv='content-language' content='ja'>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>8.3.7. Java17で使用する場合のセットアップ方法 &mdash; ∇Nablarch  5u23 ドキュメント</title>
+  <title>8.3.7. Java17で使用する場合のセットアップ方法 &mdash; ∇Nablarch  5u24 ドキュメント</title>
   
 
   
@@ -35,9 +35,9 @@
   
   <link rel="canonical" href="https://nablarch.github.io/docs/LATEST/doc/application_framework/application_framework/blank_project/setup_blankProject/setup_Java17.html" />
   
-    <link rel="top" title="∇Nablarch  5u23 ドキュメント" href="../../../../index.html"/>
+    <link rel="top" title="∇Nablarch  5u24 ドキュメント" href="../../../../index.html"/>
         <link rel="up" title="8.3. 初期セットアップ手順" href="../FirstStep.html"/>
-        <link rel="next" title="8.3.8. テーブルをキューとして使ったメッセージングを再び起動したい場合にすること" href="../firstStep_appendix/ResiBatchReboot.html"/>
+        <link rel="next" title="8.3.8. Java21で使用する場合のセットアップ方法" href="setup_Java21.html"/>
         <link rel="prev" title="8.3.6. Java11で使用する場合のセットアップ方法" href="setup_Java11.html"/>
 
 <script defer data-domain="nablarch.github.io,all.fintan" src=https://plausible.io/js/script.js></script>
@@ -63,7 +63,7 @@
   
 
   
-    <div id="sidebar-version">Version: 5u23</div>
+    <div id="sidebar-version">Version: 5u24</div>
   </a>
 
   <div role="search">
@@ -111,7 +111,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../adaptors/index.html">アダプタ</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../adaptors/log_adaptor.html">logアダプタ</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../adaptors/router_adaptor.html">ルーティングアダプタ</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../adaptors/webspheremq_adaptor.html">IBM WebSphere MQアダプタ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../adaptors/webspheremq_adaptor.html">IBM MQアダプタ</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../adaptors/jaxrs_adaptor.html">JAX-RSアダプタ</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../adaptors/doma_adaptor.html">Domaアダプタ</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../adaptors/jsr310_adaptor.html">JSR310(Date and Time API)アダプタ</a></li>
@@ -361,8 +361,8 @@
 <li>&#8211;add-opensオプションの追加（JSR352に準拠したバッチプロジェクトの場合のみ）</li>
 <li>Javaバージョンの変更</li>
 </ul>
-<div class="section" id="id1">
-<h2>8.3.7.1. 依存モジュールの追加<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="setup-blank-project-for-java17-add-dependencies">
+<span id="id1"></span><h2>8.3.7.1. 依存モジュールの追加<a class="headerlink" href="#setup-blank-project-for-java17-add-dependencies" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>Java 11で、JAXBなど一部のモジュールが標準ライブラリから削除された。
 削除されたモジュールは明示的に依存関係に追加する必要がある。
 このため、作成したブランクプロジェクトのPOMに以下のモジュールを追加する。</p>
@@ -405,7 +405,7 @@
 </div>
 </div>
 <div class="section" id="gsp-dba-maven-pluginjava17">
-<h2>8.3.7.2. gsp-dba-maven-pluginがJava17で動くように設定する<a class="headerlink" href="#gsp-dba-maven-pluginjava17" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<span id="setup-blank-project-for-java17-gsp-dba-maven-plugin"></span><h2>8.3.7.2. gsp-dba-maven-pluginがJava17で動くように設定する<a class="headerlink" href="#gsp-dba-maven-pluginjava17" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>以下を参照して設定する。</p>
 <p><a class="reference external" href="https://github.com/coastland/gsp-dba-maven-plugin#java17%E3%81%A7%E3%81%AE%E8%A8%AD%E5%AE%9A">Java 17 での設定</a> (外部サイト)</p>
 </div>
@@ -433,7 +433,7 @@
 </div>
 </div>
 <div class="section" id="add-opens-jsr352">
-<h2>8.3.7.4. &#8211;add-opensオプションの追加（JSR352に準拠したバッチプロジェクトの場合のみ）<a class="headerlink" href="#add-opens-jsr352" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<span id="setup-blank-project-for-java17-add-jvmoption"></span><h2>8.3.7.4. &#8211;add-opensオプションの追加（JSR352に準拠したバッチプロジェクトの場合のみ）<a class="headerlink" href="#add-opens-jsr352" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>Java 17でカプセル化が強化され、デフォルトでは標準APIなど内部APIをリフレクションで使用できなくなった。
 この変更に対する正規の対応は、代替APIへの移行となる。しかし、JSR352に準拠したバッチプロジェクトで使用しているJSR352の実装であるjBeretにはこの対応が入っていない。</p>
 <p>このため、Java 17でもJSR352に準拠したバッチプロジェクトを動かすためには、以下のJVMオプションを設定して内部APIをリフレクションで使用できるようにする必要がある。</p>
@@ -486,7 +486,7 @@
 
     <div role="contentinfo">
         <p>
-            &copy; Copyright 2010-2023, TIS Inc.
+            &copy; Copyright 2010-2024, TIS Inc.
         </p>
     </div>
     Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
@@ -507,7 +507,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../../',
-            VERSION:'5u23',
+            VERSION:'5u24',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

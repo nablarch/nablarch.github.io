@@ -9,7 +9,7 @@
   <meta http-equiv='content-language' content='ja'>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>7.4.2. General Data Format &mdash; ∇Nablarch  5u23 documentation</title>
+  <title>7.4.2. General Data Format &mdash; ∇Nablarch  5u24 documentation</title>
   
 
   
@@ -35,7 +35,7 @@
   
   <link rel="canonical" href="https://nablarch.github.io/docs/LATEST/doc/application_framework/application_framework/libraries/data_io/data_format.html" />
   
-    <link rel="top" title="∇Nablarch  5u23 documentation" href="../../../../index.html"/>
+    <link rel="top" title="∇Nablarch  5u24 documentation" href="../../../../index.html"/>
         <link rel="up" title="7.4. Access to Data in Various Formats" href="../data_converter.html"/>
         <link rel="next" title="7.4.2.3.1.1. Description Rules for Format Definition File" href="data_format/format_definition.html"/>
         <link rel="prev" title="7.4.1. Data Bind" href="data_bind.html"/>
@@ -63,7 +63,7 @@
   
 
   
-    <div id="sidebar-version">Version: 5u23</div>
+    <div id="sidebar-version">Version: 5u24</div>
   </a>
 
   <div role="search">
@@ -111,7 +111,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../adaptors/index.html">Adaptor</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../adaptors/log_adaptor.html">log Adapter</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../adaptors/router_adaptor.html">Routing Adapter</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../adaptors/webspheremq_adaptor.html">IBM WebSphere MQ Adapter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../adaptors/webspheremq_adaptor.html">IBM MQ Adapter</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../adaptors/jaxrs_adaptor.html">JAX-RS Adapter</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../adaptors/doma_adaptor.html">Doma Adapter</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../adaptors/jsr310_adaptor.html">JSR310(Date and Time API)Adapter</a></li>
@@ -374,7 +374,7 @@
 <li>It is necessary to downcast the value fetched from Map on the application side. (If a mistake is made, an exception is thrown during runtime.)</li>
 </ul>
 </li>
-<li><p class="first">Since <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/core/beans/BeanUtil.html" title="nablarch.core.beans.BeanUtil">BeanUtil</a> is not used for mapping the data and Java object, the mapping method is different from other functions.</p>
+<li><p class="first">Since <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/core/beans/BeanUtil.html" title="nablarch.core.beans.BeanUtil">BeanUtil</a> is not used for mapping the data and Java object, the mapping method is different from other functions.</p>
 </li>
 <li><p class="first">Method of handling the output target of <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/util/Map.html" title="java.util.Map">Map</a> depends on the format. For this reason, if the function is used to make the same data correspond to multiple formats, normal operation may not be performed such as an exception thrown depending on the format.</p>
 <p>For example, some problem cases are given below.</p>
@@ -388,10 +388,10 @@
 </dl>
 </li>
 <li><p class="first">Depending on the output target data, JSON specifications may not be satisfied.</p>
-<p>For example, if <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/core/dataformat/convertor/datatype/JsonNumber.html" title="nablarch.core.dataformat.convertor.datatype.JsonNumber">numeric type</a> and <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/core/dataformat/convertor/datatype/JsonBoolean.html" title="nablarch.core.dataformat.convertor.datatype.JsonBoolean">boolean type</a> is used and the output target data type does not correspond to these types, then an invalid JSON is output.</p>
+<p>For example, if <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/core/dataformat/convertor/datatype/JsonNumber.html" title="nablarch.core.dataformat.convertor.datatype.JsonNumber">numeric type</a> and <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/core/dataformat/convertor/datatype/JsonBoolean.html" title="nablarch.core.dataformat.convertor.datatype.JsonBoolean">boolean type</a> is used and the output target data type does not correspond to these types, then an invalid JSON is output.</p>
 <p>Example: When a numeric format is specified and the output target &#8220;data&#8221; is a string, invalid JSON such as {&#8220;number&#8221;: data} is output.</p>
 </li>
-<li><p class="first">It is difficult to extend because the implementation class of <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/core/dataformat/convertor/datatype/DataType.html" title="nablarch.core.dataformat.convertor.datatype.DataType">data type</a> that can be used depends on the data format. Also, errors in this configuration cannot be detected until run time.</p>
+<li><p class="first">It is difficult to extend because the implementation class of <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/core/dataformat/convertor/datatype/DataType.html" title="nablarch.core.dataformat.convertor.datatype.DataType">data type</a> that can be used depends on the data format. Also, errors in this configuration cannot be detected until run time.</p>
 </li>
 </ul>
 <p>Therefore, as a principle, this function is deprecated except when it is inevitable. Since <a class="reference internal" href="../../messaging/index.html#messaging"><span>Messaging</span></a> uses this function internally, the use of alternative functions is not possible.</p>
@@ -491,15 +491,15 @@ field-separator:  <span class="s2">&quot;,&quot;</span>        <span class="c1">
 <div class="section" id="output-data-to-file">
 <h3><a class="toc-backref" href="#id8">7.4.2.3.2. Output data to file</a><a class="headerlink" href="#output-data-to-file" title="Permalink to this headline">¶</a></h3>
 <p>This section describes how to output the data record contents to a file.</p>
-<p>Data output to a file can be realized by using <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/common/io/FileRecordWriterHolder.html" title="nablarch.common.io.FileRecordWriterHolder">FileRecordWriterHolder</a> .</p>
+<p>Data output to a file can be realized by using <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/common/io/FileRecordWriterHolder.html" title="nablarch.common.io.FileRecordWriterHolder">FileRecordWriterHolder</a> .</p>
 <p>An implementation example is shown below.</p>
 <dl class="docutils">
 <dt>Point</dt>
 <dd><ul class="first last simple">
 <li>Prepare data to be written to the file as <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/util/Map.html" title="java.util.Map">Map</a> .</li>
 <li>The key value of <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/util/Map.html" title="java.util.Map">Map</a> is configured as the field name defined in <a class="reference internal" href="#data-format-format-definition-file"><span>Define the format of input/output data</span></a> . (It is not case-sensitive)</li>
-<li>Call the <cite>open</cite> method of <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/common/io/FileRecordWriterHolder.html" title="nablarch.common.io.FileRecordWriterHolder">FileRecordWriterHolder</a> and make the file source writable.</li>
-<li>Call the write method of <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/common/io/FileRecordWriterHolder.html" title="nablarch.common.io.FileRecordWriterHolder">FileRecordWriterHolder</a> and <cite>write</cite> the data to the file.</li>
+<li>Call the <cite>open</cite> method of <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/common/io/FileRecordWriterHolder.html" title="nablarch.common.io.FileRecordWriterHolder">FileRecordWriterHolder</a> and make the file source writable.</li>
+<li>Call the write method of <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/common/io/FileRecordWriterHolder.html" title="nablarch.common.io.FileRecordWriterHolder">FileRecordWriterHolder</a> and <cite>write</cite> the data to the file.</li>
 </ul>
 </dd>
 </dl>
@@ -517,12 +517,12 @@ field-separator:  <span class="s2">&quot;,&quot;</span>        <span class="c1">
 </div>
 <div class="admonition tip">
 <p class="first admonition-title">Tip</p>
-<p>To use <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/common/io/FileRecordWriterHolder.html" title="nablarch.common.io.FileRecordWriterHolder">FileRecordWriterHolder</a> , it is necessary to configure the deployment directory of the format definition file <a class="reference internal" href="#data-format-format-definition-file"><span>Format definition file</span></a> , output destination directory, etc. to <a class="reference internal" href="../file_path_management.html#file-path-management"><span>File path management</span></a> .</p>
-<p class="last">For the necessary directory configuration, see <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/common/io/FileRecordWriterHolder.html" title="nablarch.common.io.FileRecordWriterHolder">FileRecordWriterHolder</a> .</p>
+<p>To use <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/common/io/FileRecordWriterHolder.html" title="nablarch.common.io.FileRecordWriterHolder">FileRecordWriterHolder</a> , it is necessary to configure the deployment directory of the format definition file <a class="reference internal" href="#data-format-format-definition-file"><span>Format definition file</span></a> , output destination directory, etc. to <a class="reference internal" href="../file_path_management.html#file-path-management"><span>File path management</span></a> .</p>
+<p class="last">For the necessary directory configuration, see <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/common/io/FileRecordWriterHolder.html" title="nablarch.common.io.FileRecordWriterHolder">FileRecordWriterHolder</a> .</p>
 </div>
 <div class="admonition important">
 <p class="first admonition-title">Important</p>
-<p class="last">The file resource opened by <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/common/io/FileRecordWriterHolder.html" title="nablarch.common.io.FileRecordWriterHolder">FileRecordWriterHolder</a> is automatically released by <a class="reference internal" href="../../handlers/common/file_record_writer_dispose_handler.html#file-record-writer-dispose-handler"><span>Output File Release Handler</span></a> . Therefore, when using <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/common/io/FileRecordWriterHolder.html" title="nablarch.common.io.FileRecordWriterHolder">FileRecordWriterHolder</a> , it is necessary to configure <a class="reference internal" href="../../handlers/common/file_record_writer_dispose_handler.html#file-record-writer-dispose-handler"><span>Output File Release Handler</span></a> to the handler queue.</p>
+<p class="last">The file resource opened by <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/common/io/FileRecordWriterHolder.html" title="nablarch.common.io.FileRecordWriterHolder">FileRecordWriterHolder</a> is automatically released by <a class="reference internal" href="../../handlers/common/file_record_writer_dispose_handler.html#file-record-writer-dispose-handler"><span>Output File Release Handler</span></a> . Therefore, when using <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/common/io/FileRecordWriterHolder.html" title="nablarch.common.io.FileRecordWriterHolder">FileRecordWriterHolder</a> , it is necessary to configure <a class="reference internal" href="../../handlers/common/file_record_writer_dispose_handler.html#file-record-writer-dispose-handler"><span>Output File Release Handler</span></a> to the handler queue.</p>
 </div>
 <div class="admonition important">
 <p class="first admonition-title">Important</p>
@@ -540,21 +540,21 @@ In such a case, the default behavior should be changed to write in the specified
 <span class="nt">&lt;/component&gt;</span>
 </pre></div>
 </div>
-<p class="last">The buffer size used for output can be specified with the <cite>open</cite> method of <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/common/io/FileRecordWriterHolder.html" title="nablarch.common.io.FileRecordWriterHolder">FileRecordWriterHolder</a>.</p>
+<p class="last">The buffer size used for output can be specified with the <cite>open</cite> method of <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/common/io/FileRecordWriterHolder.html" title="nablarch.common.io.FileRecordWriterHolder">FileRecordWriterHolder</a>.</p>
 </div>
 </div>
 <div class="section" id="used-for-file-download">
 <span id="data-format-file-download"></span><h3><a class="toc-backref" href="#id9">7.4.2.3.3. Used for file download</a><a class="headerlink" href="#used-for-file-download" title="Permalink to this headline">¶</a></h3>
 <p>This section describes how to respond to the client with the data record contents in file download format.</p>
-<p>Response of file download format can be realized by using <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/common/web/download/DataRecordResponse.html" title="nablarch.common.web.download.DataRecordResponse">DataRecordResponse</a> .</p>
+<p>Response of file download format can be realized by using <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/common/web/download/DataRecordResponse.html" title="nablarch.common.web.download.DataRecordResponse">DataRecordResponse</a> .</p>
 <p>An implementation example is shown below.</p>
 <dl class="docutils">
 <dt>Point</dt>
 <dd><ul class="first last simple">
-<li>When generating <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/common/web/download/DataRecordResponse.html" title="nablarch.common.web.download.DataRecordResponse">DataRecordResponse</a> , specify the logical path name where the format definition file is stored and the format definition file name.</li>
-<li>Use <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/common/web/download/DataRecordResponse.html#write-java.util.Map-" title="nablarch.common.web.download.DataRecordResponse.write(java.util.Map)">DataRecordResponse#write</a> to output the data. (When downloading multiple records, output is repeated)</li>
+<li>When generating <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/common/web/download/DataRecordResponse.html" title="nablarch.common.web.download.DataRecordResponse">DataRecordResponse</a> , specify the logical path name where the format definition file is stored and the format definition file name.</li>
+<li>Use <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/common/web/download/DataRecordResponse.html#write-java.util.Map-" title="nablarch.common.web.download.DataRecordResponse.write(java.util.Map)">DataRecordResponse#write</a> to output the data. (When downloading multiple records, output is repeated)</li>
 <li>Configure <cite>Content-Type</cite> and <cite>Content-Disposition</cite> .</li>
-<li>Returns <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/common/web/download/DataRecordResponse.html" title="nablarch.common.web.download.DataRecordResponse">DataRecordResponse</a> from the business action.</li>
+<li>Returns <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/common/web/download/DataRecordResponse.html" title="nablarch.common.web.download.DataRecordResponse">DataRecordResponse</a> from the business action.</li>
 </ul>
 </dd>
 </dl>
@@ -602,12 +602,12 @@ In such a case, the default behavior should be changed to write in the specified
 <dl class="docutils">
 <dt>Point</dt>
 <dd><ul class="first last simple">
-<li>The upload file is acquired by calling <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/fw/web/HttpRequest.html#getPart-java.lang.String-" title="nablarch.fw.web.HttpRequest.getPart(java.lang.String)">HttpRequest#getPart</a> .</li>
-<li>The parameter name is specified in the argument of <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/fw/web/HttpRequest.html#getPart-java.lang.String-" title="nablarch.fw.web.HttpRequest.getPart(java.lang.String)">HttpRequest#getPart</a> .</li>
-<li>The object <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/io/File.html" title="java.io.File">File</a> of the format definition file is obtained from <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/core/util/FilePathSetting.html" title="nablarch.core.util.FilePathSetting">FilePathSetting</a> .</li>
-<li>Create <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/core/dataformat/DataRecordFormatter.html" title="nablarch.core.dataformat.DataRecordFormatter">DataRecordFormatter</a> from <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/core/dataformat/FormatterFactory.html" title="nablarch.core.dataformat.FormatterFactory">FormatterFactory</a> by specifying the format definition file.</li>
-<li>Configure <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/io/InputStream.html" title="java.io.InputStream">InputStream</a> in <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/core/dataformat/DataRecordFormatter.html" title="nablarch.core.dataformat.DataRecordFormatter">DataRecordFormatter</a> to read the upload file. Implementation class of <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/io/InputStream.html" title="java.io.InputStream">InputStream</a> that is configured must be supported by <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/io/InputStream.html#mark-int-" title="java.io.InputStream.mark(int)">mark</a>/<a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/io/InputStream.html#reset--" title="java.io.InputStream.reset()">reset</a>.</li>
-<li>Call the API of <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/core/dataformat/DataRecordFormatter.html" title="nablarch.core.dataformat.DataRecordFormatter">DataRecordFormatter</a> and read the record of the upload file.</li>
+<li>The upload file is acquired by calling <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/fw/web/HttpRequest.html#getPart-java.lang.String-" title="nablarch.fw.web.HttpRequest.getPart(java.lang.String)">HttpRequest#getPart</a> .</li>
+<li>The parameter name is specified in the argument of <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/fw/web/HttpRequest.html#getPart-java.lang.String-" title="nablarch.fw.web.HttpRequest.getPart(java.lang.String)">HttpRequest#getPart</a> .</li>
+<li>The object <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/io/File.html" title="java.io.File">File</a> of the format definition file is obtained from <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/core/util/FilePathSetting.html" title="nablarch.core.util.FilePathSetting">FilePathSetting</a> .</li>
+<li>Create <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/core/dataformat/DataRecordFormatter.html" title="nablarch.core.dataformat.DataRecordFormatter">DataRecordFormatter</a> from <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/core/dataformat/FormatterFactory.html" title="nablarch.core.dataformat.FormatterFactory">FormatterFactory</a> by specifying the format definition file.</li>
+<li>Configure <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/io/InputStream.html" title="java.io.InputStream">InputStream</a> in <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/core/dataformat/DataRecordFormatter.html" title="nablarch.core.dataformat.DataRecordFormatter">DataRecordFormatter</a> to read the upload file. Implementation class of <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/io/InputStream.html" title="java.io.InputStream">InputStream</a> that is configured must be supported by <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/io/InputStream.html#mark-int-" title="java.io.InputStream.mark(int)">mark</a>/<a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/io/InputStream.html#reset--" title="java.io.InputStream.reset()">reset</a>.</li>
+<li>Call the API of <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/core/dataformat/DataRecordFormatter.html" title="nablarch.core.dataformat.DataRecordFormatter">DataRecordFormatter</a> and read the record of the upload file.</li>
 </ul>
 </dd>
 </dl>
@@ -649,7 +649,7 @@ In such a case, the default behavior should be changed to write in the specified
 </dl>
 <dl class="docutils" id="data-format-upload-helper">
 <dt>Loading an upload file using the upload helper</dt>
-<dd><p class="first">If an upload helper ( <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/fw/web/upload/util/UploadHelper.html" title="nablarch.fw.web.upload.util.UploadHelper">UploadHelper</a> ) is used, reading of files, validation and saving files to a database can be executed easily.</p>
+<dd><p class="first">If an upload helper ( <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/fw/web/upload/util/UploadHelper.html" title="nablarch.fw.web.upload.util.UploadHelper">UploadHelper</a> ) is used, reading of files, validation and saving files to a database can be executed easily.</p>
 <p>However, since this function has the following restrictions (disadvantages), use of <a class="reference internal" href="#data-format-native-upload-file-load"><span>Reading of upload file using only the general data format (this function)</span></a> is recommended.</p>
 <ul class="simple">
 <li>The check of input values is limited to <a class="reference internal" href="../validation/nablarch_validation.html#nablarch-validation"><span>Nablarch Validation</span></a> . ( <a class="reference internal" href="../validation/bean_validation.html#bean-validation"><span>Bean Validation</span></a> , which is recommended cannot be used.)</li>
@@ -659,13 +659,13 @@ In such a case, the default behavior should be changed to write in the specified
 <dl class="docutils">
 <dt>Point</dt>
 <dd><ul class="first last simple">
-<li>The upload file is acquired by calling <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/fw/web/HttpRequest.html#getPart-java.lang.String-" title="nablarch.fw.web.HttpRequest.getPart(java.lang.String)">HttpRequest#getPart</a> .</li>
-<li>The parameter name is specified in the argument of <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/fw/web/HttpRequest.html#getPart-java.lang.String-" title="nablarch.fw.web.HttpRequest.getPart(java.lang.String)">HttpRequest#getPart</a> .</li>
-<li>Generate <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/fw/web/upload/util/UploadHelper.html" title="nablarch.fw.web.upload.util.UploadHelper">UploadHelper</a> based on the upload file acquired.</li>
-<li>Configure the format definition file using <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/fw/web/upload/util/UploadHelper.html#applyFormat-java.lang.String-" title="nablarch.fw.web.upload.util.UploadHelper.applyFormat(java.lang.String)">UploadHelper#applyFormat</a> .</li>
-<li>Configure the message ID for validation error using <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/fw/web/upload/util/BulkValidator.html#setUpMessageIdOnError-java.lang.String-java.lang.String-java.lang.String-" title="nablarch.fw.web.upload.util.BulkValidator.setUpMessageIdOnError(java.lang.String-java.lang.String-java.lang.String)">setUpMessageIdOnError</a> .</li>
-<li>Configure the Java Beans class that executes validation and the validation method using <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/fw/web/upload/util/BulkValidator.ErrorHandlingBulkValidator.html#validateWith-java.lang.Class-java.lang.String-" title="nablarch.fw.web.upload.util.BulkValidator.ErrorHandlingBulkValidator.validateWith(java.lang.Class-java.lang.String)">validateWith</a> .</li>
-<li>Register the validated Javabeans object in DB using <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/fw/web/upload/util/BulkValidationResult.html#importWith-nablarch.core.db.support.DbAccessSupport-java.lang.String-" title="nablarch.fw.web.upload.util.BulkValidationResult.importWith(nablarch.core.db.support.DbAccessSupport-java.lang.String)">importWith</a> .</li>
+<li>The upload file is acquired by calling <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/fw/web/HttpRequest.html#getPart-java.lang.String-" title="nablarch.fw.web.HttpRequest.getPart(java.lang.String)">HttpRequest#getPart</a> .</li>
+<li>The parameter name is specified in the argument of <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/fw/web/HttpRequest.html#getPart-java.lang.String-" title="nablarch.fw.web.HttpRequest.getPart(java.lang.String)">HttpRequest#getPart</a> .</li>
+<li>Generate <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/fw/web/upload/util/UploadHelper.html" title="nablarch.fw.web.upload.util.UploadHelper">UploadHelper</a> based on the upload file acquired.</li>
+<li>Configure the format definition file using <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/fw/web/upload/util/UploadHelper.html#applyFormat-java.lang.String-" title="nablarch.fw.web.upload.util.UploadHelper.applyFormat(java.lang.String)">UploadHelper#applyFormat</a> .</li>
+<li>Configure the message ID for validation error using <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/fw/web/upload/util/BulkValidator.html#setUpMessageIdOnError-java.lang.String-java.lang.String-java.lang.String-" title="nablarch.fw.web.upload.util.BulkValidator.setUpMessageIdOnError(java.lang.String-java.lang.String-java.lang.String)">setUpMessageIdOnError</a> .</li>
+<li>Configure the Java Beans class that executes validation and the validation method using <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/fw/web/upload/util/BulkValidator.ErrorHandlingBulkValidator.html#validateWith-java.lang.Class-java.lang.String-" title="nablarch.fw.web.upload.util.BulkValidator.ErrorHandlingBulkValidator.validateWith(java.lang.Class-java.lang.String)">validateWith</a> .</li>
+<li>Register the validated Javabeans object in DB using <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/fw/web/upload/util/BulkValidationResult.html#importWith-nablarch.core.db.support.DbAccessSupport-java.lang.String-" title="nablarch.fw.web.upload.util.BulkValidationResult.importWith(nablarch.core.db.support.DbAccessSupport-java.lang.String)">importWith</a> .</li>
 </ul>
 </dd>
 </dl>
@@ -689,7 +689,7 @@ In such a case, the default behavior should be changed to write in the specified
 </div>
 <div class="last admonition tip">
 <p class="first admonition-title">Tip</p>
-<p class="last">Also see the documentation of the classes in the <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/fw/web/upload/util/package-summary.html" title="nablarch.fw.web.upload.util.package-summary">nablarch.fw.web.upload.util</a> package.</p>
+<p class="last">Also see the documentation of the classes in the <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/fw/web/upload/util/package-summary.html" title="nablarch.fw.web.upload.util.package-summary">nablarch.fw.web.upload.util</a> package.</p>
 </div>
 </dd>
 </dl>
@@ -790,9 +790,9 @@ text-encoding:    <span class="s2">&quot;UTF-8&quot;</span>
 <h4><a class="toc-backref" href="#id12">7.4.2.3.5.1. Use DTD with XML</a><a class="headerlink" href="#use-dtd-with-xml" title="Permalink to this headline">¶</a></h4>
 <div class="admonition important">
 <p class="first admonition-title">Important</p>
-<p class="last">When XML is input with this function, DTD cannot be used by default. Exceptions occur when trying to read XML that has used DTD. This is a measure to prevent <a class="reference external" href="https://www.owasp.org/index.php/XML_External_Entity_(XXE)_Processing">XML external entity reference (XXE)</a> .</p>
+<p class="last">When XML is input with this function, DTD cannot be used by default. Exceptions occur when trying to read XML that has used DTD. This is a measure to prevent <a class="reference external" href="https://owasp.org/www-community/vulnerabilities/XML_External_Entity_(XXE)_Processing">XML external entity reference (XXE)</a> .</p>
 </div>
-<p>If the target XML to be read is reliable, use of DTD can be allowed using the <code class="docutils literal"><span class="pre">allowDTD</span></code> property of <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/core/dataformat/XmlDataParser.html" title="nablarch.core.dataformat.XmlDataParser">XmlDataParser</a> . How to use is given below.</p>
+<p>If the target XML to be read is reliable, use of DTD can be allowed using the <code class="docutils literal"><span class="pre">allowDTD</span></code> property of <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/core/dataformat/XmlDataParser.html" title="nablarch.core.dataformat.XmlDataParser">XmlDataParser</a> . How to use is given below.</p>
 <p>Configure by explicitly mentioning the name <code class="docutils literal"><span class="pre">XmlDataParser</span></code> in the configuration of the component configuration file and permit the use of DTD.</p>
 <div class="highlight-xml"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
   <span class="nt">&lt;component-configuration</span>
@@ -927,9 +927,9 @@ text-encoding:    <span class="s2">&quot;UTF-8&quot;</span>
 <dd><dl class="first docutils">
 <dt>Point</dt>
 <dd><ul class="first last simple">
-<li>Configure <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/core/dataformat/CharacterReplacementManager.html" title="nablarch.core.dataformat.CharacterReplacementManager">CharacterReplacementManager</a> with component name <code class="docutils literal"><span class="pre">characterReplacementManager</span></code> .</li>
-<li>Configure <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/core/dataformat/CharacterReplacementConfig.html" title="nablarch.core.dataformat.CharacterReplacementConfig">CharacterReplacementConfig</a> in list format to the <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/core/dataformat/CharacterReplacementManager.html#setConfigList-java.util.List-" title="nablarch.core.dataformat.CharacterReplacementManager.setConfigList(java.util.List)">configList</a> property.</li>
-<li>To define multiple properties files, configure different names for the <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/core/dataformat/CharacterReplacementConfig.html#setTypeName-java.lang.String-" title="nablarch.core.dataformat.CharacterReplacementConfig.setTypeName(java.lang.String)">typeName</a> property.</li>
+<li>Configure <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/core/dataformat/CharacterReplacementManager.html" title="nablarch.core.dataformat.CharacterReplacementManager">CharacterReplacementManager</a> with component name <code class="docutils literal"><span class="pre">characterReplacementManager</span></code> .</li>
+<li>Configure <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/core/dataformat/CharacterReplacementConfig.html" title="nablarch.core.dataformat.CharacterReplacementConfig">CharacterReplacementConfig</a> in list format to the <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/core/dataformat/CharacterReplacementManager.html#setConfigList-java.util.List-" title="nablarch.core.dataformat.CharacterReplacementManager.setConfigList(java.util.List)">configList</a> property.</li>
+<li>To define multiple properties files, configure different names for the <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/core/dataformat/CharacterReplacementConfig.html#setTypeName-java.lang.String-" title="nablarch.core.dataformat.CharacterReplacementConfig.setTypeName(java.lang.String)">typeName</a> property.</li>
 </ul>
 </dd>
 </dl>
@@ -982,17 +982,17 @@ text-encoding:    <span class="s2">&quot;UTF-8&quot;</span>
 <p>In such cases, the requirements are supported by defining project-specific field types.</p>
 <p>The procedure is shown below.</p>
 <ol class="arabic simple">
-<li>Create the <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/core/dataformat/convertor/datatype/DataType.html" title="nablarch.core.dataformat.convertor.datatype.DataType">DataType</a> implementation class to handle field types.</li>
+<li>Create the <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/core/dataformat/convertor/datatype/DataType.html" title="nablarch.core.dataformat.convertor.datatype.DataType">DataType</a> implementation class to handle field types.</li>
 <li>Create a factory inheritance class according to the format to enable the field type that is added.</li>
 <li>Configure the created factory class in the property of the configuration class according to the format.</li>
 </ol>
 <p>The detailed procedure is as follows.</p>
 <dl class="docutils">
 <dt>Add data type implementation corresponding to the field type</dt>
-<dd><p class="first">Create a class that implements <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/core/dataformat/convertor/datatype/DataType.html" title="nablarch.core.dataformat.convertor.datatype.DataType">DataType</a> .</p>
+<dd><p class="first">Create a class that implements <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/core/dataformat/convertor/datatype/DataType.html" title="nablarch.core.dataformat.convertor.datatype.DataType">DataType</a> .</p>
 <div class="last admonition tip">
 <p class="first admonition-title">Tip</p>
-<p class="last">The standard field type implementation is placed under the <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/core/dataformat/convertor/datatype/package-summary.html" title="nablarch.core.dataformat.convertor.datatype.package-summary">nablarch.core.dataformat.convertor.datatype</a> package. Referring to these classes when adding implementation is recommended.</p>
+<p class="last">The standard field type implementation is placed under the <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/core/dataformat/convertor/datatype/package-summary.html" title="nablarch.core.dataformat.convertor.datatype.package-summary">nablarch.core.dataformat.convertor.datatype</a> package. Referring to these classes when adding implementation is recommended.</p>
 </div>
 </dd>
 <dt>Create factory inheritance class according to the format</dt>
@@ -1010,16 +1010,16 @@ text-encoding:    <span class="s2">&quot;UTF-8&quot;</span>
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td>Fixed (fixed-length)</td>
-<td><a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/core/dataformat/convertor/FixedLengthConvertorFactory.html" title="nablarch.core.dataformat.convertor.FixedLengthConvertorFactory">FixedLengthConvertorFactory</a></td>
+<td><a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/core/dataformat/convertor/FixedLengthConvertorFactory.html" title="nablarch.core.dataformat.convertor.FixedLengthConvertorFactory">FixedLengthConvertorFactory</a></td>
 </tr>
 <tr class="row-odd"><td>Variable (variable length)</td>
-<td><a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/core/dataformat/convertor/VariableLengthConvertorFactory.html" title="nablarch.core.dataformat.convertor.VariableLengthConvertorFactory">VariableLengthConvertorFactory</a></td>
+<td><a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/core/dataformat/convertor/VariableLengthConvertorFactory.html" title="nablarch.core.dataformat.convertor.VariableLengthConvertorFactory">VariableLengthConvertorFactory</a></td>
 </tr>
 <tr class="row-even"><td>JSON</td>
-<td><a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/core/dataformat/convertor/JsonDataConvertorFactory.html" title="nablarch.core.dataformat.convertor.JsonDataConvertorFactory">JsonDataConvertorFactory</a></td>
+<td><a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/core/dataformat/convertor/JsonDataConvertorFactory.html" title="nablarch.core.dataformat.convertor.JsonDataConvertorFactory">JsonDataConvertorFactory</a></td>
 </tr>
 <tr class="row-odd"><td>XML</td>
-<td><a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/core/dataformat/convertor/XmlDataConvertorFactory.html" title="nablarch.core.dataformat.convertor.XmlDataConvertorFactory">XmlDataConvertorFactory</a></td>
+<td><a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/core/dataformat/convertor/XmlDataConvertorFactory.html" title="nablarch.core.dataformat.convertor.XmlDataConvertorFactory">XmlDataConvertorFactory</a></td>
 </tr>
 </tbody>
 </table>
@@ -1053,24 +1053,24 @@ text-encoding:    <span class="s2">&quot;UTF-8&quot;</span>
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td>Fixed (fixed-length)</td>
-<td><a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/core/dataformat/convertor/FixedLengthConvertorSetting.html" title="nablarch.core.dataformat.convertor.FixedLengthConvertorSetting">FixedLengthConvertorSetting</a>
+<td><a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/core/dataformat/convertor/FixedLengthConvertorSetting.html" title="nablarch.core.dataformat.convertor.FixedLengthConvertorSetting">FixedLengthConvertorSetting</a>
 (fixedLengthConvertorSetting)</td>
-<td><a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/core/dataformat/convertor/FixedLengthConvertorSetting.html#setFixedLengthConvertorFactory-nablarch.core.dataformat.convertor.FixedLengthConvertorFactory-" title="nablarch.core.dataformat.convertor.FixedLengthConvertorSetting.setFixedLengthConvertorFactory(nablarch.core.dataformat.convertor.FixedLengthConvertorFactory)">fixedLengthConvertorFactory</a></td>
+<td><a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/core/dataformat/convertor/FixedLengthConvertorSetting.html#setFixedLengthConvertorFactory-nablarch.core.dataformat.convertor.FixedLengthConvertorFactory-" title="nablarch.core.dataformat.convertor.FixedLengthConvertorSetting.setFixedLengthConvertorFactory(nablarch.core.dataformat.convertor.FixedLengthConvertorFactory)">fixedLengthConvertorFactory</a></td>
 </tr>
 <tr class="row-odd"><td>Variable (variable length)</td>
-<td><a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/core/dataformat/convertor/VariableLengthConvertorSetting.html" title="nablarch.core.dataformat.convertor.VariableLengthConvertorSetting">VariableLengthConvertorSetting</a>
+<td><a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/core/dataformat/convertor/VariableLengthConvertorSetting.html" title="nablarch.core.dataformat.convertor.VariableLengthConvertorSetting">VariableLengthConvertorSetting</a>
 (variableLengthConvertorSetting)</td>
-<td><a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/core/dataformat/convertor/VariableLengthConvertorSetting.html#setVariableLengthConvertorFactory-nablarch.core.dataformat.convertor.VariableLengthConvertorFactory-" title="nablarch.core.dataformat.convertor.VariableLengthConvertorSetting.setVariableLengthConvertorFactory(nablarch.core.dataformat.convertor.VariableLengthConvertorFactory)">variableLengthConvertorFactory</a></td>
+<td><a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/core/dataformat/convertor/VariableLengthConvertorSetting.html#setVariableLengthConvertorFactory-nablarch.core.dataformat.convertor.VariableLengthConvertorFactory-" title="nablarch.core.dataformat.convertor.VariableLengthConvertorSetting.setVariableLengthConvertorFactory(nablarch.core.dataformat.convertor.VariableLengthConvertorFactory)">variableLengthConvertorFactory</a></td>
 </tr>
 <tr class="row-even"><td>JSON</td>
-<td><a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/core/dataformat/convertor/JsonDataConvertorSetting.html" title="nablarch.core.dataformat.convertor.JsonDataConvertorSetting">JsonDataConvertorSetting</a>
+<td><a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/core/dataformat/convertor/JsonDataConvertorSetting.html" title="nablarch.core.dataformat.convertor.JsonDataConvertorSetting">JsonDataConvertorSetting</a>
 (jsonDataConvertorSetting)</td>
-<td><a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/core/dataformat/convertor/JsonDataConvertorSetting.html#setJsonDataConvertorFactory-nablarch.core.dataformat.convertor.JsonDataConvertorFactory-" title="nablarch.core.dataformat.convertor.JsonDataConvertorSetting.setJsonDataConvertorFactory(nablarch.core.dataformat.convertor.JsonDataConvertorFactory)">jsonDataConvertorFactory</a></td>
+<td><a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/core/dataformat/convertor/JsonDataConvertorSetting.html#setJsonDataConvertorFactory-nablarch.core.dataformat.convertor.JsonDataConvertorFactory-" title="nablarch.core.dataformat.convertor.JsonDataConvertorSetting.setJsonDataConvertorFactory(nablarch.core.dataformat.convertor.JsonDataConvertorFactory)">jsonDataConvertorFactory</a></td>
 </tr>
 <tr class="row-odd"><td>XML</td>
-<td><a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/core/dataformat/convertor/XmlDataConvertorSetting.html" title="nablarch.core.dataformat.convertor.XmlDataConvertorSetting">XmlDataConvertorSetting</a>
+<td><a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/core/dataformat/convertor/XmlDataConvertorSetting.html" title="nablarch.core.dataformat.convertor.XmlDataConvertorSetting">XmlDataConvertorSetting</a>
 (xmlDataConvertorSetting)</td>
-<td><a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/core/dataformat/convertor/XmlDataConvertorSetting.html#setXmlDataConvertorFactory-nablarch.core.dataformat.convertor.XmlDataConvertorFactory-" title="nablarch.core.dataformat.convertor.XmlDataConvertorSetting.setXmlDataConvertorFactory(nablarch.core.dataformat.convertor.XmlDataConvertorFactory)">xmlDataConvertorFactory</a></td>
+<td><a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/core/dataformat/convertor/XmlDataConvertorSetting.html#setXmlDataConvertorFactory-nablarch.core.dataformat.convertor.XmlDataConvertorFactory-" title="nablarch.core.dataformat.convertor.XmlDataConvertorSetting.setXmlDataConvertorFactory(nablarch.core.dataformat.convertor.XmlDataConvertorFactory)">xmlDataConvertorFactory</a></td>
 </tr>
 </tbody>
 </table>
@@ -1098,15 +1098,15 @@ text-encoding:    <span class="s2">&quot;UTF-8&quot;</span>
 <span id="data-format-xml-content-name-change"></span><h3><a class="toc-backref" href="#id19">7.4.2.4.2. Change the content name of an element with XML attributes</a><a class="headerlink" href="#change-the-content-name-of-an-element-with-xml-attributes" title="Permalink to this headline">¶</a></h3>
 <p>To change the content name of an element with attributes, configure the following class in the component configuration file, and configure the changed content name in the <code class="docutils literal"><span class="pre">contentName</span></code> property.</p>
 <ul class="simple">
-<li><a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/core/dataformat/XmlDataParser.html" title="nablarch.core.dataformat.XmlDataParser">XmlDataParser</a></li>
-<li><a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/core/dataformat/XmlDataBuilder.html" title="nablarch.core.dataformat.XmlDataBuilder">XmlDataBuilder</a></li>
+<li><a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/core/dataformat/XmlDataParser.html" title="nablarch.core.dataformat.XmlDataParser">XmlDataParser</a></li>
+<li><a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/core/dataformat/XmlDataBuilder.html" title="nablarch.core.dataformat.XmlDataBuilder">XmlDataBuilder</a></li>
 </ul>
 <p>The configuration example of the component configuration file is shown below.</p>
 <dl class="docutils">
 <dt>Point</dt>
 <dd><ul class="first last simple">
-<li>Configure the component name of <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/core/dataformat/XmlDataParser.html" title="nablarch.core.dataformat.XmlDataParser">XmlDataParser</a> to <code class="docutils literal"><span class="pre">XmlDataParser</span></code> .</li>
-<li>Configure the component name of <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/core/dataformat/XmlDataBuilder.html" title="nablarch.core.dataformat.XmlDataBuilder">XmlDataBuilder</a> to <code class="docutils literal"><span class="pre">XmlDataBuilder</span></code> .</li>
+<li>Configure the component name of <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/core/dataformat/XmlDataParser.html" title="nablarch.core.dataformat.XmlDataParser">XmlDataParser</a> to <code class="docutils literal"><span class="pre">XmlDataParser</span></code> .</li>
+<li>Configure the component name of <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/core/dataformat/XmlDataBuilder.html" title="nablarch.core.dataformat.XmlDataBuilder">XmlDataBuilder</a> to <code class="docutils literal"><span class="pre">XmlDataBuilder</span></code> .</li>
 </ul>
 </dd>
 </dl>
@@ -1135,7 +1135,7 @@ text-encoding:    <span class="s2">&quot;UTF-8&quot;</span>
 
     <div role="contentinfo">
         <p>
-            &copy; Copyright 2010-2023, TIS Inc.
+            &copy; Copyright 2010-2024, TIS Inc.
         </p>
     </div>
     Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
@@ -1156,7 +1156,7 @@ text-encoding:    <span class="s2">&quot;UTF-8&quot;</span>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../../',
-            VERSION:'5u23',
+            VERSION:'5u24',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

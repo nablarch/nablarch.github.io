@@ -9,7 +9,7 @@
   <meta http-equiv='content-language' content='ja'>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>メッセージング基盤テストシミュレータサンプル &mdash; ∇Nablarch  5u23 ドキュメント</title>
+  <title>メッセージング基盤テストシミュレータサンプル &mdash; ∇Nablarch  5u24 ドキュメント</title>
   
 
   
@@ -35,7 +35,7 @@
   
   <link rel="canonical" href="https://nablarch.github.io/docs/LATEST/doc/examples/11/index.html" />
   
-    <link rel="top" title="∇Nablarch  5u23 ドキュメント" href="../../index.html"/>
+    <link rel="top" title="∇Nablarch  5u24 ドキュメント" href="../../index.html"/>
         <link rel="up" title="Nablarch実装例集" href="../index.html"/>
         <link rel="next" title="OIDCのIDトークンを用いた認証サンプル" href="../12/index.html"/>
         <link rel="prev" title="オンラインアクセスログ集計機能" href="../10/contents/OnlineAccessLogStatistics.html"/>
@@ -63,7 +63,7 @@
   
 
   
-    <div id="sidebar-version">Version: 5u23</div>
+    <div id="sidebar-version">Version: 5u24</div>
   </a>
 
   <div role="search">
@@ -111,7 +111,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../application_framework/adaptors/index.html">アダプタ</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../application_framework/adaptors/log_adaptor.html">logアダプタ</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../application_framework/adaptors/router_adaptor.html">ルーティングアダプタ</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../application_framework/adaptors/webspheremq_adaptor.html">IBM WebSphere MQアダプタ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../application_framework/adaptors/webspheremq_adaptor.html">IBM MQアダプタ</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../application_framework/adaptors/jaxrs_adaptor.html">JAX-RSアダプタ</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../application_framework/adaptors/doma_adaptor.html">Domaアダプタ</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../application_framework/adaptors/jsr310_adaptor.html">JSR310(Date and Time API)アダプタ</a></li>
@@ -394,6 +394,11 @@
 <dd><a class="first last reference internal image-reference" href="../../_images/behavior_illustration02.png"><img alt="../../_images/behavior_illustration02.png" src="../../_images/behavior_illustration02.png" /></a>
 </dd>
 </dl>
+<div class="admonition important">
+<p class="first admonition-title">重要</p>
+<p class="last">本サンプルではMOMとしてIBM MQ 9.3 を使用している。
+IBM MQ 9.3 はJavaのバージョン 8 以上がサポート対象であるため、本サンプルでは Java 8を使用する。</p>
+</div>
 <div class="section" id="id4">
 <h2><a class="toc-backref" href="#id22">用途</a><a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <div class="section" id="id5">
@@ -466,19 +471,13 @@
 <dl class="docutils">
 <dt>シミュレータの取得</dt>
 <dd><p class="first">以下のコマンドを実行してシミュレータのソースコードを取得する。</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>git clone https://github.com/nablarch/nablarch-messaging-simulator.git
+<div class="last highlight-bash"><div class="highlight"><pre><span></span>git clone https://github.com/nablarch/nablarch-messaging-simulator.git
 </pre></div>
 </div>
-<p>なお、シミュレータを実行するには、以下のライブラリがローカルリポジトリにインストールされている必要がある。</p>
-<blockquote class="last">
-<div><ul class="simple">
-<li>WebSphere MQ付属のjarファイル</li>
-</ul>
-</div></blockquote>
 </dd>
 <dt>実行モジュールの作成</dt>
-<dd><p class="first">以下のコマンドを実行し、 <code class="docutils literal"><span class="pre">src/main/build</span></code> 配下に実行モジュールを作成する。</p>
-<div class="highlight-bat"><div class="highlight"><pre><span></span>gradlew setupBuild
+<dd><p class="first">以下のコマンドを実行し、 <code class="docutils literal"><span class="pre">target/build</span></code> 配下に実行モジュールを作成する。</p>
+<div class="highlight-bat"><div class="highlight"><pre><span></span>mvn clean dependency:copy-dependencies -DoutputDirectory=target/build/lib package
 </pre></div>
 </div>
 <p class="last">作成した実行モジュールは、シミュレータを実行する環境に配置する。</p>
@@ -572,7 +571,7 @@
 
     <div role="contentinfo">
         <p>
-            &copy; Copyright 2010-2023, TIS Inc.
+            &copy; Copyright 2010-2024, TIS Inc.
         </p>
     </div>
     Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
@@ -593,7 +592,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../',
-            VERSION:'5u23',
+            VERSION:'5u24',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

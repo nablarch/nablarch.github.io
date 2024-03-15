@@ -9,7 +9,7 @@
   <meta http-equiv='content-language' content='ja'>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>4.1.3.1. 対象テーブルのデータを削除するバッチの作成(Batchletステップ) &mdash; ∇Nablarch  5u23 ドキュメント</title>
+  <title>4.1.3.1. 対象テーブルのデータを削除するバッチの作成(Batchletステップ) &mdash; ∇Nablarch  5u24 ドキュメント</title>
   
 
   
@@ -35,7 +35,7 @@
   
   <link rel="canonical" href="https://nablarch.github.io/docs/LATEST/doc/application_framework/application_framework/batch/jsr352/getting_started/batchlet/index.html" />
   
-    <link rel="top" title="∇Nablarch  5u23 ドキュメント" href="../../../../../../index.html"/>
+    <link rel="top" title="∇Nablarch  5u24 ドキュメント" href="../../../../../../index.html"/>
         <link rel="up" title="4.1.3. Getting Started" href="../getting_started.html"/>
         <link rel="next" title="4.1.3.2. データを導出するバッチの作成(Chunkステップ)" href="../chunk/index.html"/>
         <link rel="prev" title="4.1.3. Getting Started" href="../getting_started.html"/>
@@ -63,7 +63,7 @@
   
 
   
-    <div id="sidebar-version">Version: 5u23</div>
+    <div id="sidebar-version">Version: 5u24</div>
   </a>
 
   <div role="search">
@@ -111,7 +111,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../../../adaptors/index.html">アダプタ</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../../../adaptors/log_adaptor.html">logアダプタ</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../../adaptors/router_adaptor.html">ルーティングアダプタ</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../../adaptors/webspheremq_adaptor.html">IBM WebSphere MQアダプタ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../adaptors/webspheremq_adaptor.html">IBM MQアダプタ</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../../adaptors/jaxrs_adaptor.html">JAX-RSアダプタ</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../../adaptors/doma_adaptor.html">Domaアダプタ</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../../adaptors/jsr310_adaptor.html">JSR310(Date and Time API)アダプタ</a></li>
@@ -434,9 +434,9 @@
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td><a class="reference external" href="http://docs.oracle.com/javaee/7/api/javax/batch/api/Batchlet.html" title="javax.batch.api.Batchlet">Batchlet</a></td>
+<tr class="row-even"><td><a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/batch/api/Batchlet.html" title="javax.batch.api.Batchlet">Batchlet</a></td>
 <td><p class="first">バッチ処理を実装する。</p>
-<p>デフォルト実装を提供する <a class="reference external" href="http://docs.oracle.com/javaee/7/api/javax/batch/api/AbstractBatchlet.html" title="javax.batch.api.AbstractBatchlet">AbstractBatchlet</a> を継承する。</p>
+<p>デフォルト実装を提供する <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/batch/api/AbstractBatchlet.html" title="javax.batch.api.AbstractBatchlet">AbstractBatchlet</a> を継承する。</p>
 <blockquote class="last">
 <div><ul class="simple">
 <li><cite>Batchlet#process</cite></li>
@@ -480,10 +480,10 @@
 <dl class="last docutils">
 <dt>この実装のポイント</dt>
 <dd><ul class="first simple">
-<li><a class="reference external" href="http://docs.oracle.com/javaee/7/api/javax/batch/api/AbstractBatchlet.html" title="javax.batch.api.AbstractBatchlet">AbstractBatchlet</a> を継承し、 <cite>process</cite> メソッドで業務処理を行う。</li>
+<li><a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/batch/api/AbstractBatchlet.html" title="javax.batch.api.AbstractBatchlet">AbstractBatchlet</a> を継承し、 <cite>process</cite> メソッドで業務処理を行う。</li>
 </ul>
 <ul class="last simple" id="getting-started-batchlet-cdi">
-<li><a class="reference external" href="http://docs.oracle.com/javaee/7/api/javax/inject/Named.html" title="javax.inject.Named">Named</a> と <a class="reference external" href="http://docs.oracle.com/javaee/7/api/javax/enterprise/context/Dependent.html" title="javax.enterprise.context.Dependent">Dependent</a> をクラスに付与する。 <br />
+<li><a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/inject/Named.html" title="javax.inject.Named">Named</a> と <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/enterprise/context/Dependent.html" title="javax.enterprise.context.Dependent">Dependent</a> をクラスに付与する。 <br />
 Named及びDependentアノテーションを設定することで、Batchlet実装クラスをCDIの管理Beanにできる。
 これにより、ジョブ定義に指定するBatchletクラス名をCDIの管理名で記述出来るようになる。 <br />
 (CDI管理Beanとしなかった場合は、完全修飾名(FQCN)で記述する)</li>
@@ -557,7 +557,7 @@ Named及びDependentアノテーションを設定することで、Batchlet実�
 
     <div role="contentinfo">
         <p>
-            &copy; Copyright 2010-2023, TIS Inc.
+            &copy; Copyright 2010-2024, TIS Inc.
         </p>
     </div>
     Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
@@ -578,7 +578,7 @@ Named及びDependentアノテーションを設定することで、Batchlet実�
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../../../../',
-            VERSION:'5u23',
+            VERSION:'5u24',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

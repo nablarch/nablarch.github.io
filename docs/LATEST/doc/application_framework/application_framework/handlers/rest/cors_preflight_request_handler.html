@@ -9,7 +9,7 @@
   <meta http-equiv='content-language' content='ja'>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>6.4.4. CORSプリフライトリクエストハンドラ &mdash; ∇Nablarch  5u23 ドキュメント</title>
+  <title>6.4.4. CORSプリフライトリクエストハンドラ &mdash; ∇Nablarch  5u24 ドキュメント</title>
   
 
   
@@ -35,7 +35,7 @@
   
   <link rel="canonical" href="https://nablarch.github.io/docs/LATEST/doc/application_framework/application_framework/handlers/rest/cors_preflight_request_handler.html" />
   
-    <link rel="top" title="∇Nablarch  5u23 ドキュメント" href="../../../../index.html"/>
+    <link rel="top" title="∇Nablarch  5u24 ドキュメント" href="../../../../index.html"/>
         <link rel="up" title="6.4. RESTfulウェブサービス専用ハンドラ" href="index.html"/>
         <link rel="next" title="6.4.5. HTTPアクセスログ（RESTfulウェブサービス用）ハンドラ" href="jaxrs_access_log_handler.html"/>
         <link rel="prev" title="6.4.3. JAX-RSレスポンスハンドラ" href="jaxrs_response_handler.html"/>
@@ -63,7 +63,7 @@
   
 
   
-    <div id="sidebar-version">Version: 5u23</div>
+    <div id="sidebar-version">Version: 5u24</div>
   </a>
 
   <div role="search">
@@ -111,7 +111,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../adaptors/index.html">アダプタ</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../adaptors/log_adaptor.html">logアダプタ</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../adaptors/router_adaptor.html">ルーティングアダプタ</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../adaptors/webspheremq_adaptor.html">IBM WebSphere MQアダプタ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../adaptors/webspheremq_adaptor.html">IBM MQアダプタ</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../adaptors/jaxrs_adaptor.html">JAX-RSアダプタ</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../adaptors/doma_adaptor.html">Domaアダプタ</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../adaptors/jsr310_adaptor.html">JSR310(Date and Time API)アダプタ</a></li>
@@ -365,7 +365,7 @@
 <p>本ハンドラは、 <a class="reference internal" href="../../web_service/rest/index.html#restful-web-service"><span>RESTfulウェブサービス</span></a> でCORS(Cross-Origin Resource Sharing)を実現するために使用する。</p>
 <p>CORSを実現するには、実際のリクエストの前に送信されるプリフライトリクエストと実際のリクエストに対する処理が必要となる。
 プリフライトリクエストは本ハンドラで処理し、実際のリクエストに対する処理は <a class="reference internal" href="jaxrs_response_handler.html#jaxrs-response-handler-response-finisher"><span>クライアントに返すレスポンスに共通処理を追加する</span></a> で説明している
-ResponseFinisherを実装した <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/fw/jaxrs/cors/CorsResponseFinisher.html" title="nablarch.fw.jaxrs.cors.CorsResponseFinisher">CorsResponseFinisher</a> で処理する。</p>
+ResponseFinisherを実装した <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/fw/jaxrs/cors/CorsResponseFinisher.html" title="nablarch.fw.jaxrs.cors.CorsResponseFinisher">CorsResponseFinisher</a> で処理する。</p>
 <p>本ハンドラでは、以下の処理を行う。</p>
 <ul class="simple">
 <li>リクエストがプリフライトリクエストの場合はプリフライトリクエストに対するレスポンスを返す。</li>
@@ -375,7 +375,7 @@ ResponseFinisherを実装した <a class="reference external" href="https://nabl
 <div class="section" id="id2">
 <h2><a class="toc-backref" href="#id6">6.4.4.1. ハンドラクラス名</a><a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
-<li><a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/fw/jaxrs/CorsPreflightRequestHandler.html" title="nablarch.fw.jaxrs.CorsPreflightRequestHandler">nablarch.fw.jaxrs.CorsPreflightRequestHandler</a></li>
+<li><a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/fw/jaxrs/CorsPreflightRequestHandler.html" title="nablarch.fw.jaxrs.CorsPreflightRequestHandler">nablarch.fw.jaxrs.CorsPreflightRequestHandler</a></li>
 </ul>
 </div>
 <div class="section" id="id3">
@@ -391,15 +391,15 @@ ResponseFinisherを実装した <a class="reference external" href="https://nabl
 <h2><a class="toc-backref" href="#id8">6.4.4.3. 制約</a><a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <dl class="docutils">
 <dt><a class="reference internal" href="jaxrs_response_handler.html#jaxrs-response-handler"><span>JAX-RSレスポンスハンドラ</span></a> より後ろに配置すること</dt>
-<dd>本ハンドラで生成した <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/fw/web/HttpResponse.html" title="nablarch.fw.web.HttpResponse">HttpResponse</a> を <a class="reference internal" href="jaxrs_response_handler.html#jaxrs-response-handler"><span>JAX-RSレスポンスハンドラ</span></a> が処理するため、
+<dd>本ハンドラで生成した <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/fw/web/HttpResponse.html" title="nablarch.fw.web.HttpResponse">HttpResponse</a> を <a class="reference internal" href="jaxrs_response_handler.html#jaxrs-response-handler"><span>JAX-RSレスポンスハンドラ</span></a> が処理するため、
 本ハンドラは <a class="reference internal" href="jaxrs_response_handler.html#jaxrs-response-handler"><span>JAX-RSレスポンスハンドラ</span></a> より後ろに配置する必要がある。</dd>
 </dl>
 </div>
 <div class="section" id="cors-preflight-request-handler-setting">
 <span id="id5"></span><h2><a class="toc-backref" href="#id9">6.4.4.4. CORSを実現する</a><a class="headerlink" href="#cors-preflight-request-handler-setting" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>CORSを実現するには本ハンドラと <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/fw/jaxrs/cors/CorsResponseFinisher.html" title="nablarch.fw.jaxrs.cors.CorsResponseFinisher">CorsResponseFinisher</a> を設定する。</p>
-<p>CORSの処理は <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/fw/jaxrs/cors/Cors.html" title="nablarch.fw.jaxrs.cors.Cors">Cors</a> インタフェースが行う。
-フレームワークはCORSの基本実装として <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/fw/jaxrs/cors/BasicCors.html" title="nablarch.fw.jaxrs.cors.BasicCors">BasicCors</a> クラスを提供している。
+<p>CORSを実現するには本ハンドラと <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/fw/jaxrs/cors/CorsResponseFinisher.html" title="nablarch.fw.jaxrs.cors.CorsResponseFinisher">CorsResponseFinisher</a> を設定する。</p>
+<p>CORSの処理は <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/fw/jaxrs/cors/Cors.html" title="nablarch.fw.jaxrs.cors.Cors">Cors</a> インタフェースが行う。
+フレームワークはCORSの基本実装として <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/fw/jaxrs/cors/BasicCors.html" title="nablarch.fw.jaxrs.cors.BasicCors">BasicCors</a> クラスを提供している。
 本ハンドラとCorsResponseFinisherにBasicCorsを指定すればよい。</p>
 <p>設定を以下に示す。</p>
 <div class="highlight-xml"><div class="highlight"><pre><span></span><span class="c">&lt;!-- BasicCors --&gt;</span>
@@ -442,7 +442,7 @@ ResponseFinisherを実装した <a class="reference external" href="https://nabl
 <span class="nt">&lt;/component&gt;</span>
 </pre></div>
 </div>
-<p><a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/fw/jaxrs/cors/BasicCors.html" title="nablarch.fw.jaxrs.cors.BasicCors">BasicCors</a> はデフォルトで以下の処理を行う。</p>
+<p><a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/fw/jaxrs/cors/BasicCors.html" title="nablarch.fw.jaxrs.cors.BasicCors">BasicCors</a> はデフォルトで以下の処理を行う。</p>
 <dl class="docutils">
 <dt>プリフライトリクエスト(CorsPreflightRequestHandlerが呼び出す処理)</dt>
 <dd><ul class="first last">
@@ -489,7 +489,7 @@ ResponseFinisherを実装した <a class="reference external" href="https://nabl
 </dd>
 </dl>
 <p>デフォルトの処理のうち、レスポンスヘッダの内容を設定で変更できる。
-設定で変更できる内容は <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/fw/jaxrs/cors/BasicCors.html" title="nablarch.fw.jaxrs.cors.BasicCors">BasicCors</a> のJavadocを参照。</p>
+設定で変更できる内容は <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/fw/jaxrs/cors/BasicCors.html" title="nablarch.fw.jaxrs.cors.BasicCors">BasicCors</a> のJavadocを参照。</p>
 </div>
 </div>
 
@@ -505,7 +505,7 @@ ResponseFinisherを実装した <a class="reference external" href="https://nabl
 
     <div role="contentinfo">
         <p>
-            &copy; Copyright 2010-2023, TIS Inc.
+            &copy; Copyright 2010-2024, TIS Inc.
         </p>
     </div>
     Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
@@ -526,7 +526,7 @@ ResponseFinisherを実装した <a class="reference external" href="https://nabl
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../../',
-            VERSION:'5u23',
+            VERSION:'5u24',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

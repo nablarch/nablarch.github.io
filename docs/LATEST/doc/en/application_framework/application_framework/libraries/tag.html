@@ -9,7 +9,7 @@
   <meta http-equiv='content-language' content='ja'>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>7.19. JSP Custom Tags &mdash; ∇Nablarch  5u23 documentation</title>
+  <title>7.19. JSP Custom Tags &mdash; ∇Nablarch  5u24 documentation</title>
   
 
   
@@ -35,7 +35,7 @@
   
   <link rel="canonical" href="https://nablarch.github.io/docs/LATEST/doc/application_framework/application_framework/libraries/tag.html" />
   
-    <link rel="top" title="∇Nablarch  5u23 documentation" href="../../../index.html"/>
+    <link rel="top" title="∇Nablarch  5u24 documentation" href="../../../index.html"/>
         <link rel="up" title="7. Libraries Provided by Nablarch" href="index.html"/>
         <link rel="next" title="7.19.1. Tag Reference" href="tag/tag_reference.html"/>
         <link rel="prev" title="7.18. Making Web Applications Stateless" href="stateless_web_app.html"/>
@@ -63,7 +63,7 @@
   
 
   
-    <div id="sidebar-version">Version: 5u23</div>
+    <div id="sidebar-version">Version: 5u24</div>
   </a>
 
   <div role="search">
@@ -111,7 +111,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../adaptors/index.html">Adaptor</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../adaptors/log_adaptor.html">log Adapter</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../adaptors/router_adaptor.html">Routing Adapter</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../adaptors/webspheremq_adaptor.html">IBM WebSphere MQ Adapter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../adaptors/webspheremq_adaptor.html">IBM MQ Adapter</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../adaptors/jaxrs_adaptor.html">JAX-RS Adapter</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../adaptors/doma_adaptor.html">Doma Adapter</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../adaptors/jsr310_adaptor.html">JSR310(Date and Time API)Adapter</a></li>
@@ -509,7 +509,7 @@ refer to <a class="reference internal" href="tag/tag_reference.html#tag-referenc
 <span id="tag-setting"></span><h3><a class="toc-backref" href="#id6">7.19.4.1. Configure custom tags</a><a class="headerlink" href="#configure-custom-tags" title="Permalink to this headline">¶</a></h3>
 <p>Custom tags are configured
 using <a class="reference internal" href="../handlers/web/nablarch_tag_handler.html#nablarch-tag-handler"><span>Nablarch Custom Tag Control Handler</span></a>
-and <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/common/web/tag/CustomTagConfig.html" title="nablarch.common.web.tag.CustomTagConfig">CustomTagConfig</a>.</p>
+and <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/common/web/tag/CustomTagConfig.html" title="nablarch.common.web.tag.CustomTagConfig">CustomTagConfig</a>.</p>
 <dl class="docutils">
 <dt><a class="reference internal" href="../handlers/web/nablarch_tag_handler.html#nablarch-tag-handler"><span>Nablarch Custom Tag Control Handler</span></a></dt>
 <dd><p class="first">Handler for pre-process that is required for the following functions when processing of requests that use custom tags.
@@ -522,13 +522,13 @@ Configuring this handler is required when using custom tags.</p>
 </ul>
 <p class="last">Refer to <a class="reference internal" href="../handlers/web/nablarch_tag_handler.html#nablarch-tag-handler"><span>Nablarch Custom Tag Control Handler</span></a> for values to be configured in this handler.</p>
 </dd>
-<dt><a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/common/web/tag/CustomTagConfig.html" title="nablarch.common.web.tag.CustomTagConfig">CustomTagConfig</a></dt>
+<dt><a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/common/web/tag/CustomTagConfig.html" title="nablarch.common.web.tag.CustomTagConfig">CustomTagConfig</a></dt>
 <dd><p class="first">Class in which default values of custom tags are configured.
 Sometimes, for custom tag attributes such as label pattern etc. of a selection item,
 default values that are standardized throughout the application rather than configuring the values each time on individual screens may be required.
 Therefore, the default values of custom tags are configured in this class.</p>
 <p class="last">For configuration of default values, add this class to component definition with the name <code class="docutils literal"><span class="pre">customTagConfig</span></code>.
-For configuration items, refer to <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/common/web/tag/CustomTagConfig.html" title="nablarch.common.web.tag.CustomTagConfig">CustomTagConfig</a>.</p>
+For configuration items, refer to <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/common/web/tag/CustomTagConfig.html" title="nablarch.common.web.tag.CustomTagConfig">CustomTagConfig</a>.</p>
 </dd>
 </dl>
 </div>
@@ -952,10 +952,10 @@ Encryption is performed through <a class="reference internal" href="tag/tag_refe
 <p class="last"></p>
 </dd>
 <dt>Encryption process</dt>
-<dd><p class="first">Encryption is performed by the class that implements <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/common/encryption/Encryptor.html" title="nablarch.common.encryption.Encryptor">Encryptor</a> interface.
+<dd><p class="first">Encryption is performed by the class that implements <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/common/encryption/Encryptor.html" title="nablarch.common.encryption.Encryptor">Encryptor</a> interface.
 In the framework, <code class="docutils literal"><span class="pre">AES</span> <span class="pre">(128bit)</span></code> is used as a default encryption algorithm.
 To change the encryption algorithm, add the class that implements
-<a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/common/encryption/Encryptor.html" title="nablarch.common.encryption.Encryptor">Encryptor</a>
+<a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/common/encryption/Encryptor.html" title="nablarch.common.encryption.Encryptor">Encryptor</a>
 to the component definition with the name <code class="docutils literal"><span class="pre">hiddenEncryptor</span></code>.</p>
 <p>In encryption, for each <a class="reference internal" href="tag/tag_reference.html#tag-form-tag"><span>form tag</span></a>, the following data contained in <a class="reference internal" href="tag/tag_reference.html#tag-form-tag"><span>form tag</span></a> is collectively encrypted
 and output in 1 hidden tag.</p>
@@ -1036,16 +1036,16 @@ however, implementation is not easy in the case of a composite key.</p>
 <div class="admonition important">
 <p class="first admonition-title">Important</p>
 <p class="last">To use this function, it is necessary to add
-<a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/common/web/compositekey/CompositeKeyConvertor.html" title="nablarch.common.web.compositekey.CompositeKeyConvertor">CompositeKeyConvertor</a> and
-<a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/common/web/compositekey/CompositeKeyArrayConvertor.html" title="nablarch.common.web.compositekey.CompositeKeyArrayConvertor">CompositeKeyArrayConvertor</a>
+<a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/common/web/compositekey/CompositeKeyConvertor.html" title="nablarch.common.web.compositekey.CompositeKeyConvertor">CompositeKeyConvertor</a> and
+<a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/common/web/compositekey/CompositeKeyArrayConvertor.html" title="nablarch.common.web.compositekey.CompositeKeyArrayConvertor">CompositeKeyArrayConvertor</a>
 to the component definition.
 For the configuration method, refer to <a class="reference internal" href="validation/nablarch_validation.html#nablarch-validation-definition-validator-convertor"><span>Configuring Validators and Convertors for Use</span></a>.</p>
 </div>
 <div class="admonition important">
 <p class="first admonition-title">Important</p>
 <p class="last">This function works only with <a class="reference internal" href="validation/nablarch_validation.html#nablarch-validation"><span>Nablarch Validation</span></a> as
-<a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/common/web/compositekey/CompositeKeyConvertor.html" title="nablarch.common.web.compositekey.CompositeKeyConvertor">CompositeKeyConvertor</a> and
-<a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/common/web/compositekey/CompositeKeyArrayConvertor.html" title="nablarch.common.web.compositekey.CompositeKeyArrayConvertor">CompositeKeyArrayConvertor</a>
+<a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/common/web/compositekey/CompositeKeyConvertor.html" title="nablarch.common.web.compositekey.CompositeKeyConvertor">CompositeKeyConvertor</a> and
+<a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/common/web/compositekey/CompositeKeyArrayConvertor.html" title="nablarch.common.web.compositekey.CompositeKeyArrayConvertor">CompositeKeyArrayConvertor</a>
 are used.
 Does not support <a class="reference internal" href="validation/bean_validation.html#bean-validation"><span>Bean Validation</span></a>.</p>
 </div>
@@ -1056,7 +1056,7 @@ Does not support <a class="reference internal" href="validation/bean_validation.
 <dt>Form</dt>
 <dd><p class="first">In the form,
 property that holds the composite key is defined as
-<a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/common/web/compositekey/CompositeKey.html" title="nablarch.common.web.compositekey.CompositeKey">CompositeKey</a>.</p>
+<a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/common/web/compositekey/CompositeKey.html" title="nablarch.common.web.compositekey.CompositeKey">CompositeKey</a>.</p>
 <div class="last highlight-java"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">OrderItemsForm</span> <span class="o">{</span>
 
     <span class="c1">// This time, since a composite key for multiple data is received in the list display,</span>
@@ -1318,7 +1318,7 @@ and the display is switched when there is <code class="docutils literal"><span c
 For buttons, disabled attribute is enabled.
 For links, either only the label is displayed or JSP for displaying an inactive link is included.
 To include JSP, specify
-<a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/common/web/tag/CustomTagConfig.html#setSubmitLinkDisabledJsp-java.lang.String-" title="nablarch.common.web.tag.CustomTagConfig.setSubmitLinkDisabledJsp(java.lang.String)">submitLinkDisabledJsp property</a>
+<a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/common/web/tag/CustomTagConfig.html#setSubmitLinkDisabledJsp-java.lang.String-" title="nablarch.common.web.tag.CustomTagConfig.setSubmitLinkDisabledJsp(java.lang.String)">submitLinkDisabledJsp property</a>
 in <a class="reference internal" href="#tag-setting"><span>Configure custom tags</span></a>.</dd>
 <dt>Normal display</dt>
 <dd>Tags are output as usual.
@@ -1326,7 +1326,7 @@ Display method is not switched.</dd>
 </dl>
 <p>The default is <code class="docutils literal"><span class="pre">Normal</span> <span class="pre">display</span></code>.
 Default can be changed by specifying
-<a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/common/web/tag/CustomTagConfig.html#setDisplayMethod-java.lang.String-" title="nablarch.common.web.tag.CustomTagConfig.setDisplayMethod(java.lang.String)">displayMethod property</a>
+<a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/common/web/tag/CustomTagConfig.html#setDisplayMethod-java.lang.String-" title="nablarch.common.web.tag.CustomTagConfig.setDisplayMethod(java.lang.String)">displayMethod property</a>
 in <a class="reference internal" href="#tag-setting"><span>Configure custom tags</span></a>.</p>
 <p>To change the display method individually, specify in the displayMethod attribute.</p>
 <dl class="docutils">
@@ -1395,7 +1395,7 @@ Display process of a pop-up window on a page can be handled by using an open sou
 </dd>
 </dl>
 <p>If the popupWindowName attribute is not specified, then the default value specified in
-<a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/common/web/tag/CustomTagConfig.html#setPopupWindowName-java.lang.String-" title="nablarch.common.web.tag.CustomTagConfig.setPopupWindowName(java.lang.String)">popupWindowName property</a>
+<a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/common/web/tag/CustomTagConfig.html#setPopupWindowName-java.lang.String-" title="nablarch.common.web.tag.CustomTagConfig.setPopupWindowName(java.lang.String)">popupWindowName property</a>
 by the <a class="reference internal" href="#tag-setting"><span>Configure custom tags</span></a> is used.
 If no default value is configured, the custom tag uses the current time (milliseconds) acquired from the JavaScript date function for the name of the new window.
 The default action of a pop-up is determined as follows depending on whether the default value is specified.</p>
@@ -1475,7 +1475,7 @@ The variable name in which the opened windows are retained is shown below:</p>
 <span id="tag-submit-download"></span><h3><a class="toc-backref" href="#id20">7.19.4.15. Creating a button/link to download a file</a><a class="headerlink" href="#creating-a-button-link-to-download-a-file" title="Permalink to this headline">¶</a></h3>
 <p>To create a button/link for file download,
 the custom tags that submit exclusively for download (hereinafter referred to as download tags)
-and the <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/fw/web/HttpResponse.html" title="nablarch.fw.web.HttpResponse">HttpResponse</a> subclass
+and the <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/fw/web/HttpResponse.html" title="nablarch.fw.web.HttpResponse">HttpResponse</a> subclass
 that facilitates the implementation of the action (hereinafter referred to as download utility) are provided.</p>
 <dl class="docutils">
 <dt>Download tags</dt>
@@ -1487,15 +1487,15 @@ that facilitates the implementation of the action (hereinafter referred to as do
 </dd>
 <dt>Download utility</dt>
 <dd><dl class="first last docutils">
-<dt><a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/common/web/download/StreamResponse.html" title="nablarch.common.web.download.StreamResponse">StreamResponse</a></dt>
+<dt><a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/common/web/download/StreamResponse.html" title="nablarch.common.web.download.StreamResponse">StreamResponse</a></dt>
 <dd>This class generates HTTP response message from stream.
 Used to download binary data stored in a file in the file system or in a BLOB column of a database.
 Supports download of <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/io/File.html" title="java.io.File">File</a> or <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/sql/Blob.html" title="java.sql.Blob">Blob</a>.</dd>
-<dt><a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/common/web/download/DataRecordResponse.html" title="nablarch.common.web.download.DataRecordResponse">DataRecordResponse</a></dt>
+<dt><a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/common/web/download/DataRecordResponse.html" title="nablarch.common.web.download.DataRecordResponse">DataRecordResponse</a></dt>
 <dd>This class generates HTTP response message from a data record.
 Used to download data used in the application, such as search result etc.
 The downloaded data is formatted using <a class="reference internal" href="data_io/data_format.html#data-format"><span>General Data Format</span></a>.
-Supports download of Map&lt;String, ?&gt; type data (<a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/core/db/statement/SqlRow.html" title="nablarch.core.db.statement.SqlRow">SqlRow</a>, etc.)</dd>
+Supports download of Map&lt;String, ?&gt; type data (<a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/core/db/statement/SqlRow.html" title="nablarch.core.db.statement.SqlRow">SqlRow</a>, etc.)</dd>
 </dl>
 </dd>
 </dl>
@@ -1881,9 +1881,9 @@ and for the screen that transitions to the confirmation screen first, double sub
 </div>
 <div class="last admonition tip">
 <p class="first admonition-title">Tip</p>
-<p class="last">Token is issued by <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/common/web/token/UUIDV4TokenGenerator.html" title="nablarch.common.web.token.UUIDV4TokenGenerator">UUIDV4TokenGenerator</a>.
+<p class="last">Token is issued by <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/common/web/token/UUIDV4TokenGenerator.html" title="nablarch.common.web.token.UUIDV4TokenGenerator">UUIDV4TokenGenerator</a>.
 Random character strings of 36 characters are generated by
-<a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/common/web/token/UUIDV4TokenGenerator.html" title="nablarch.common.web.token.UUIDV4TokenGenerator">UUIDV4TokenGenerator</a>.
+<a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/common/web/token/UUIDV4TokenGenerator.html" title="nablarch.common.web.token.UUIDV4TokenGenerator">UUIDV4TokenGenerator</a>.
 To change the token issuing process, refer to <a class="reference internal" href="#tag-double-submission-server-side-change"><span>Change the token issuing process using double submission prevention in the server</span></a>.</p>
 </div>
 </dd>
@@ -2341,8 +2341,8 @@ and only for specific screens and display areas.</p>
 <dt><a class="reference internal" href="tag/tag_reference.html#tag-pretty-print-tag"><span>prettyPrint tag</span></a></dt>
 <dd><p class="first">Custom tags that output HTML text formatting tags such as <code class="docutils literal"><span class="pre">&lt;b&gt;</span></code> and <code class="docutils literal"><span class="pre">&lt;del&gt;</span></code> without performing escape.
 For usable HTML tags and attributes, arbitrary tags can be configured in
-<a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/common/web/tag/CustomTagConfig.html#setSafeTags-java.lang.String:A-" title="nablarch.common.web.tag.CustomTagConfig.setSafeTags(java.lang.String:A)">safeTags property</a> /
-<a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/common/web/tag/CustomTagConfig.html#setSafeAttributes-java.lang.String:A-" title="nablarch.common.web.tag.CustomTagConfig.setSafeAttributes(java.lang.String:A)">safeAttributes property</a>
+<a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/common/web/tag/CustomTagConfig.html#setSafeTags-java.lang.String:A-" title="nablarch.common.web.tag.CustomTagConfig.setSafeTags(java.lang.String:A)">safeTags property</a> /
+<a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/common/web/tag/CustomTagConfig.html#setSafeAttributes-java.lang.String:A-" title="nablarch.common.web.tag.CustomTagConfig.setSafeAttributes(java.lang.String:A)">safeAttributes property</a>
 in <a class="reference internal" href="#tag-setting"><span>Configure custom tags</span></a>.
 Refer to the link for tags and attributes that can be used by default.</p>
 <blockquote>
@@ -2351,10 +2351,10 @@ Refer to the link for tags and attributes that can be used by default.</p>
 <p class="first admonition-title">Important</p>
 <p>This tag is not recommended due to the following problems:</p>
 <ul class="simple">
-<li>Not only the usable tags but also the attributes used with those tags must be configured in <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/common/web/tag/CustomTagConfig.html" title="nablarch.common.web.tag.CustomTagConfig">CustomTagConfig</a>.
-For example, to make <code class="docutils literal"><span class="pre">a</span></code> tag usable, it is not sufficient to add <code class="docutils literal"><span class="pre">a</span></code> tag to <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/common/web/tag/CustomTagConfig.html#setSafeTags-java.lang.String:A-" title="nablarch.common.web.tag.CustomTagConfig.setSafeTags(java.lang.String:A)">CustomTagConfig#safeTags</a>&gt;,
-but all the attributes such as <code class="docutils literal"><span class="pre">href</span></code> that are used with <code class="docutils literal"><span class="pre">a</span></code> tag in <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/common/web/tag/CustomTagConfig.html#setSafeAttributes-java.lang.String:A-" title="nablarch.common.web.tag.CustomTagConfig.setSafeAttributes(java.lang.String:A)">CustomTagConfig#safeAttributes</a> must be defined.</li>
-<li>Whether a character string that is input uses only the tags and attributes that are configured in <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/common/web/tag/CustomTagConfig.html" title="nablarch.common.web.tag.CustomTagConfig">CustomTagConfig</a> is checked,
+<li>Not only the usable tags but also the attributes used with those tags must be configured in <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/common/web/tag/CustomTagConfig.html" title="nablarch.common.web.tag.CustomTagConfig">CustomTagConfig</a>.
+For example, to make <code class="docutils literal"><span class="pre">a</span></code> tag usable, it is not sufficient to add <code class="docutils literal"><span class="pre">a</span></code> tag to <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/common/web/tag/CustomTagConfig.html#setSafeTags-java.lang.String:A-" title="nablarch.common.web.tag.CustomTagConfig.setSafeTags(java.lang.String:A)">CustomTagConfig#safeTags</a>&gt;,
+but all the attributes such as <code class="docutils literal"><span class="pre">href</span></code> that are used with <code class="docutils literal"><span class="pre">a</span></code> tag in <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/common/web/tag/CustomTagConfig.html#setSafeAttributes-java.lang.String:A-" title="nablarch.common.web.tag.CustomTagConfig.setSafeAttributes(java.lang.String:A)">CustomTagConfig#safeAttributes</a> must be defined.</li>
+<li>Whether a character string that is input uses only the tags and attributes that are configured in <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/common/web/tag/CustomTagConfig.html" title="nablarch.common.web.tag.CustomTagConfig">CustomTagConfig</a> is checked,
 however whether the correct HTML has been output is not checked.</li>
 </ul>
 <p>Therefore, to implement a function that outputs a character string that the user has formatted according to their choice on the screen,
@@ -2461,8 +2461,8 @@ For pattern characters, only y (year), M (month) and d (date of a month) can be 
 When the pattern character string is omitted, default pattern configured in the <a class="reference internal" href="#tag-setting"><span>Configure custom tags</span></a> (yyyymmddPattern property) is used.</p>
 <p>Also, locale of the format can be specified using the delimiting character <code class="docutils literal"><span class="pre">|</span></code> after the pattern.
 When locale is not specified explicitly, the language in
-<a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/core/ThreadContext.html" title="nablarch.core.ThreadContext">ThreadContext</a> is used.
-When <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/core/ThreadContext.html" title="nablarch.core.ThreadContext">ThreadContext</a> is not configured,
+<a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/core/ThreadContext.html" title="nablarch.core.ThreadContext">ThreadContext</a> is used.
+When <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/core/ThreadContext.html" title="nablarch.core.ThreadContext">ThreadContext</a> is not configured,
 default locale value of the system is used.</p>
 <dl class="docutils">
 <dt>Implementation examples</dt>
@@ -2486,10 +2486,10 @@ default locale value of the system is used.</p>
 <p>When valueFormat attribute of <a class="reference internal" href="tag/tag_reference.html#tag-text-tag"><span>text tag</span></a> is specified,
 the formatted value is output also on the input screen.
 When the input date is acquired by action, <a class="reference internal" href="#tag-window-scope"><span>window scope</span></a> and
-<a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/common/date/YYYYMMDDConvertor.html" title="nablarch.common.date.YYYYMMDDConvertor">date converter provided by the Nablarch original validation</a>
+<a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/common/date/YYYYMMDDConvertor.html" title="nablarch.common.date.YYYYMMDDConvertor">date converter provided by the Nablarch original validation</a>
 are used.
 <a class="reference internal" href="tag/tag_reference.html#tag-text-tag"><span>text tag</span></a>, <a class="reference internal" href="#tag-window-scope"><span>window scope</span></a>
-and <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/common/date/YYYYMMDDConvertor.html" title="nablarch.common.date.YYYYMMDDConvertor">date converter</a>
+and <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/common/date/YYYYMMDDConvertor.html" title="nablarch.common.date.YYYYMMDDConvertor">date converter</a>
 work together to perform value conversion and validation using the pattern specified for the valueFormat attribute.</p>
 <p class="last">Further, <a class="reference internal" href="validation/bean_validation.html#bean-validation"><span>Bean Validation</span></a> is not supported for the valueFormat attribute of <a class="reference internal" href="tag/tag_reference.html#tag-text-tag"><span>text tag</span></a>.</p>
 </div>
@@ -2498,7 +2498,7 @@ work together to perform value conversion and validation using the pattern speci
 <p class="last">When <a class="reference internal" href="#tag-window-scope"><span>window scope</span></a> is not used, validation error occurs as the value of the valueFormat attribute
 is not sent to the server even if valueFormat attribute of <a class="reference internal" href="tag/tag_reference.html#tag-text-tag"><span>text tag</span></a> is specified.
 In that case, input value can be checked by specifying the allowFormat attribute of
-<a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/common/date/YYYYMMDD.html" title="nablarch.common.date.YYYYMMDD">YYYYMMDD</a> annotation.</p>
+<a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/common/date/YYYYMMDD.html" title="nablarch.common.date.YYYYMMDD">YYYYMMDD</a> annotation.</p>
 </div>
 </dd>
 </dl>
@@ -2516,7 +2516,7 @@ Method of use is the same as <a class="reference internal" href="#tag-format-yyy
 For the pattern,
 specify the syntax specified by
 <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html" title="java.text.SimpleDateFormat">SimpleDateFormat</a>.
-The date and time according to the language and time zone configured in <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/core/ThreadContext.html" title="nablarch.core.ThreadContext">ThreadContext</a>
+The date and time according to the language and time zone configured in <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/core/ThreadContext.html" title="nablarch.core.ThreadContext">ThreadContext</a>
 are output by default.
 The locale and time zone can be specified explicitly by using the delimiting character <code class="docutils literal"><span class="pre">|</span></code> after the pattern character string.</p>
 <p>By using <a class="reference internal" href="#tag-setting"><span>Configure custom tags</span></a> (dateTimePattern property, patternSeparator property),
@@ -2550,7 +2550,7 @@ it is possible to configure the pattern default value and change the delimiting 
 Character strings are formatted after removing the thousands separator (commas in 1,000,000).
 For the pattern, specify the syntax specified by <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/text/DecimalFormat.html" title="java.text.DecimalFormat">DecimalFormat</a>.</p>
 <p>By default, the value is output in the language-specific format
-using the language configured in <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/core/ThreadContext.html" title="nablarch.core.ThreadContext">ThreadContext</a>.
+using the language configured in <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/core/ThreadContext.html" title="nablarch.core.ThreadContext">ThreadContext</a>.
 By directly specifying the language, the value can be output in the format corresponding to the specified language.
 The language is specified by adding a language after the delimiting character <code class="docutils literal"><span class="pre">|</span></code> at the end of the pattern.</p>
 <p>The delimiting character <code class="docutils literal"><span class="pre">|</span></code> can be changed using the <a class="reference internal" href="#tag-setting"><span>Configure custom tags</span></a> (patternSeparator property).</p>
@@ -2574,9 +2574,9 @@ The language is specified by adding a language after the delimiting character <c
 <p class="first admonition-title">Important</p>
 <p>When the valueFormat attribute of <a class="reference internal" href="tag/tag_reference.html#tag-text-tag"><span>text tag</span></a> is specified, the formatted value is output also on the input screen.
 To acquire the input numeric value by action, use the numeric converter (
-<a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/core/validation/convertor/BigDecimalConvertor.html" title="nablarch.core.validation.convertor.BigDecimalConvertor">BigDecimalConvertor</a>,
-<a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/core/validation/convertor/IntegerConvertor.html" title="nablarch.core.validation.convertor.IntegerConvertor">IntegerConvertor</a> and
-<a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/core/validation/convertor/LongConvertor.html" title="nablarch.core.validation.convertor.LongConvertor">LongConvertor</a>
+<a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/core/validation/convertor/BigDecimalConvertor.html" title="nablarch.core.validation.convertor.BigDecimalConvertor">BigDecimalConvertor</a>,
+<a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/core/validation/convertor/IntegerConvertor.html" title="nablarch.core.validation.convertor.IntegerConvertor">IntegerConvertor</a> and
+<a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/core/validation/convertor/LongConvertor.html" title="nablarch.core.validation.convertor.LongConvertor">LongConvertor</a>
 ).
 <a class="reference internal" href="tag/tag_reference.html#tag-text-tag"><span>text tag</span></a> and numeric converter work together to perform value conversion and validation corresponding to the language specified for the valueFormat attribute.</p>
 <p class="last">Further, <a class="reference internal" href="validation/bean_validation.html#bean-validation"><span>Bean Validation</span></a> is not supported for the valueFormat attribute of <a class="reference internal" href="tag/tag_reference.html#tag-text-tag"><span>text tag</span></a>.</p>
@@ -2609,9 +2609,9 @@ To acquire the input numeric value by action, use the numeric converter (
 <div class="admonition tip">
 <p class="first admonition-title">Tip</p>
 <p class="last">In the custom tags used for error display,
-error messages are output by acquiring <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/core/message/ApplicationException.html" title="nablarch.core.message.ApplicationException">ApplicationException</a>
+error messages are output by acquiring <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/core/message/ApplicationException.html" title="nablarch.core.message.ApplicationException">ApplicationException</a>
 from the request scope.
-<a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/core/message/ApplicationException.html" title="nablarch.core.message.ApplicationException">ApplicationException</a> is configured in the request scope
+<a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/core/message/ApplicationException.html" title="nablarch.core.message.ApplicationException">ApplicationException</a> is configured in the request scope
 using <a class="reference internal" href="../handlers/web_interceptor/on_error.html#on-error-interceptor"><span>OnError Interceptor</span></a>.</p>
 </div>
 <dl class="docutils" id="tag-write-error-errors-tag">
@@ -2931,9 +2931,9 @@ that output selection items and display items for code values acquired from <a c
 <div class="admonition important">
 <p class="first admonition-title">Important</p>
 <p class="last">In custom tags, it is not possible to acquire code values according to the specified language.
-In custom tags, an API is used in which the locale of <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/common/code/CodeUtil.html" title="nablarch.common.code.CodeUtil">CodeUtil</a> is not specified.
+In custom tags, an API is used in which the locale of <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/common/code/CodeUtil.html" title="nablarch.common.code.CodeUtil">CodeUtil</a> is not specified.
 To acquire a code value using the language specification,
-use <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/common/code/CodeUtil.html" title="nablarch.common.code.CodeUtil">CodeUtil</a>
+use <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/common/code/CodeUtil.html" title="nablarch.common.code.CodeUtil">CodeUtil</a>
 in the action.</p>
 </div>
 </div>
@@ -2993,7 +2993,7 @@ The following custom tags support resource path switching for each language.</p>
 </ul>
 <p>In these custom tags, switching is performed by acquiring the resource path
 for each language using the subclass of
-<a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/fw/web/i18n/ResourcePathRule.html" title="nablarch.fw.web.i18n.ResourcePathRule">ResourcePathRule</a>.
+<a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/fw/web/i18n/ResourcePathRule.html" title="nablarch.fw.web.i18n.ResourcePathRule">ResourcePathRule</a>.
 Refer to <a class="reference internal" href="../handlers/web/http_response_handler.html#http-response-handler-change-content-path"><span>Switching the content path for each language</span></a> for the subclass provided by default.</p>
 <div class="admonition tip">
 <p class="first admonition-title">Tip</p>
@@ -3171,7 +3171,7 @@ By default, the following attributes are regarded as Boolean attributes.</p>
 <li>selected</li>
 </ul>
 <p>Dynamic attributes regarded as Boolean attributes can be modified.
-To do so, configure the list of Boolean attributes to <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/common/web/tag/CustomTagConfig.html#setDynamicBooleanAttributes-java.util.List-" title="nablarch.common.web.tag.CustomTagConfig.setDynamicBooleanAttributes(java.util.List)">dynamicBooleanAttributes property</a> of <code class="docutils literal"><span class="pre">CustomTagConfig</span></code> .</p>
+To do so, configure the list of Boolean attributes to <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/common/web/tag/CustomTagConfig.html#setDynamicBooleanAttributes-java.util.List-" title="nablarch.common.web.tag.CustomTagConfig.setDynamicBooleanAttributes(java.util.List)">dynamicBooleanAttributes property</a> of <code class="docutils literal"><span class="pre">CustomTagConfig</span></code> .</p>
 </div>
 </div>
 </div>
@@ -3183,11 +3183,11 @@ To do so, configure the list of Boolean attributes to <a class="reference extern
 refer to the section on adding a formatter of <a class="reference internal" href="format.html#format"><span>Formatter</span></a>.</p>
 <p>When using the valueFormat attribute,
 formatting is performed by the class that implements the
-<a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/common/web/tag/ValueFormatter.html" title="nablarch.common.web.tag.ValueFormatter">ValueFormatter</a>
+<a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/common/web/tag/ValueFormatter.html" title="nablarch.common.web.tag.ValueFormatter">ValueFormatter</a>
 interface.
 The format can be changed by adding the implementation class to the component definition.</p>
 <p>To add to the component definition, specify the class that implements
-<a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/common/web/tag/ValueFormatter.html" title="nablarch.common.web.tag.ValueFormatter">ValueFormatter</a>
+<a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/common/web/tag/ValueFormatter.html" title="nablarch.common.web.tag.ValueFormatter">ValueFormatter</a>
 as the value, and the data type name as the key in the Map type.</p>
 <p>A configuration example for the default format supported by the framework is shown below.</p>
 <p>The formatter map is added to the component definition with the name <code class="docutils literal"><span class="pre">valueFormatters</span></code>.</p>
@@ -3211,10 +3211,10 @@ as the value, and the data type name as the key in the Map type.</p>
 <div class="section" id="change-the-judgment-process-used-for-button-link-display-control">
 <span id="tag-submit-display-control-change"></span><h3><a class="toc-backref" href="#id40">7.19.5.2. Change the judgment process used for button/link display control</a><a class="headerlink" href="#change-the-judgment-process-used-for-button-link-display-control" title="Permalink to this headline">¶</a></h3>
 <p>The judgment process used in the <a class="reference internal" href="#tag-submit-display-control"><span>Switching between display/no display of the button/link depending on permission check/service availability</span></a> can be changed by implementing the
-<a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/common/web/tag/DisplayControlChecker.html" title="nablarch.common.web.tag.DisplayControlChecker">DisplayControlChecker</a>
+<a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/common/web/tag/DisplayControlChecker.html" title="nablarch.common.web.tag.DisplayControlChecker">DisplayControlChecker</a>
 interface.
 Specify the implementation class to
-<a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/common/web/tag/CustomTagConfig.html#setDisplayControlCheckers-java.util.List-" title="nablarch.common.web.tag.CustomTagConfig.setDisplayControlCheckers(java.util.List)">displayControlCheckers property</a>
+<a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/common/web/tag/CustomTagConfig.html#setDisplayControlCheckers-java.util.List-" title="nablarch.common.web.tag.CustomTagConfig.setDisplayControlCheckers(java.util.List)">displayControlCheckers property</a>
 in the <a class="reference internal" href="#tag-setting"><span>Configure custom tags</span></a>.</p>
 <dl class="docutils">
 <dt>Configuration example</dt>
@@ -3256,7 +3256,7 @@ The signature of the callback function is shown below:</p>
 <p>To change the token issuing process using
 <a class="reference internal" href="#tag-double-submission-server-side"><span>double submission prevention in the server</span></a>,
 implement the
-<a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/common/web/token/TokenGenerator.html" title="nablarch.common.web.token.TokenGenerator">TokenGenerator</a> interface.
+<a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/common/web/token/TokenGenerator.html" title="nablarch.common.web.token.TokenGenerator">TokenGenerator</a> interface.
 Add the implementation class to the component definition with the name <code class="docutils literal"><span class="pre">tokenGenerator</span></code>.</p>
 </div>
 </div>
@@ -3397,9 +3397,9 @@ for a URI by specifying the secure attribute of the custom tag.</p>
 a URI is assembled using the configured values of the custom tags
 (port number for http, port number for https and host) and the context path.
 Therefore, in applications that use the secure attribute, specify
-<a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/common/web/tag/CustomTagConfig.html#setPort-int-" title="nablarch.common.web.tag.CustomTagConfig.setPort(int)">port property</a> /
-<a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/common/web/tag/CustomTagConfig.html#setSecurePort-int-" title="nablarch.common.web.tag.CustomTagConfig.setSecurePort(int)">securePort property</a> /
-<a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/common/web/tag/CustomTagConfig.html#setHost-java.lang.String-" title="nablarch.common.web.tag.CustomTagConfig.setHost(java.lang.String)">host property</a>
+<a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/common/web/tag/CustomTagConfig.html#setPort-int-" title="nablarch.common.web.tag.CustomTagConfig.setPort(int)">port property</a> /
+<a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/common/web/tag/CustomTagConfig.html#setSecurePort-int-" title="nablarch.common.web.tag.CustomTagConfig.setSecurePort(int)">securePort property</a> /
+<a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/common/web/tag/CustomTagConfig.html#setHost-java.lang.String-" title="nablarch.common.web.tag.CustomTagConfig.setHost(java.lang.String)">host property</a>
 with <a class="reference internal" href="#tag-setting"><span>Configure custom tags</span></a>.</p>
 <div class="admonition tip">
 <p class="first admonition-title">Tip</p>
@@ -3516,7 +3516,7 @@ The content that is converted is shown below:</p>
 
     <div role="contentinfo">
         <p>
-            &copy; Copyright 2010-2023, TIS Inc.
+            &copy; Copyright 2010-2024, TIS Inc.
         </p>
     </div>
     Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
@@ -3537,7 +3537,7 @@ The content that is converted is shown below:</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../',
-            VERSION:'5u23',
+            VERSION:'5u24',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

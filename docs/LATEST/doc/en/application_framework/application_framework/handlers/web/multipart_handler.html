@@ -9,7 +9,7 @@
   <meta http-equiv='content-language' content='ja'>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>6.2.9. Multipart Request Handler &mdash; ∇Nablarch  5u23 documentation</title>
+  <title>6.2.9. Multipart Request Handler &mdash; ∇Nablarch  5u24 documentation</title>
   
 
   
@@ -35,7 +35,7 @@
   
   <link rel="canonical" href="https://nablarch.github.io/docs/LATEST/doc/application_framework/application_framework/handlers/web/multipart_handler.html" />
   
-    <link rel="top" title="∇Nablarch  5u23 documentation" href="../../../../index.html"/>
+    <link rel="top" title="∇Nablarch  5u24 documentation" href="../../../../index.html"/>
         <link rel="up" title="6.2. Web Application Dedicated Handler" href="index.html"/>
         <link rel="next" title="6.2.10. Session Variable Store Handler" href="SessionStoreHandler.html"/>
         <link rel="prev" title="6.2.8. HTTP Access Log Handler" href="http_access_log_handler.html"/>
@@ -63,7 +63,7 @@
   
 
   
-    <div id="sidebar-version">Version: 5u23</div>
+    <div id="sidebar-version">Version: 5u24</div>
   </a>
 
   <div role="search">
@@ -111,7 +111,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../adaptors/index.html">Adaptor</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../adaptors/log_adaptor.html">log Adapter</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../adaptors/router_adaptor.html">Routing Adapter</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../adaptors/webspheremq_adaptor.html">IBM WebSphere MQ Adapter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../adaptors/webspheremq_adaptor.html">IBM MQ Adapter</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../adaptors/jaxrs_adaptor.html">JAX-RS Adapter</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../adaptors/doma_adaptor.html">Doma Adapter</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../adaptors/jsr310_adaptor.html">JSR310(Date and Time API)Adapter</a></li>
@@ -342,7 +342,7 @@
 <div class="section" id="handler-class-name">
 <h2><a class="toc-backref" href="#id2">6.2.9.1. Handler class name</a><a class="headerlink" href="#handler-class-name" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/fw/web/upload/MultipartHandler.html" title="nablarch.fw.web.upload.MultipartHandler">nablarch.fw.web.upload.MultipartHandler</a></li>
+<li><a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/fw/web/upload/MultipartHandler.html" title="nablarch.fw.web.upload.MultipartHandler">nablarch.fw.web.upload.MultipartHandler</a></li>
 </ul>
 </div>
 <div class="section" id="module-list">
@@ -453,7 +453,7 @@ Defaults to -1 if not set.</p>
 </ul>
 <p>The automatic deletion configuration is enabled by default.
 Note that if this setting is disabled in the production environment, a large number of temporary files will remain on the disk, and may cause the disk to become full in the worst case.</p>
-<p>To invalidate the configuration value, configure <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/fw/web/upload/UploadSettings.html#setAutoCleaning-boolean-" title="nablarch.fw.web.upload.UploadSettings.setAutoCleaning(boolean)">UploadSettings#autoCleaning</a> to <cite>false</cite>.</p>
+<p>To invalidate the configuration value, configure <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/fw/web/upload/UploadSettings.html#setAutoCleaning-boolean-" title="nablarch.fw.web.upload.UploadSettings.setAutoCleaning(boolean)">UploadSettings#autoCleaning</a> to <cite>false</cite>.</p>
 </div>
 <div class="section" id="configure-the-transition-destination-screen-for-multipart-parsing-error-and-file-size-upper-limit-are-exceeded">
 <h2><a class="toc-backref" href="#id10">6.2.9.9. Configure the transition destination screen for multipart parsing error and file size upper limit are exceeded</a><a class="headerlink" href="#configure-the-transition-destination-screen-for-multipart-parsing-error-and-file-size-upper-limit-are-exceeded" title="Permalink to this headline">¶</a></h2>
@@ -480,13 +480,13 @@ Therefore, <a class="reference internal" href="HttpErrorHandler.html#httperrorha
 </div>
 <div class="section" id="read-the-upload-file">
 <span id="multipart-handler-read-upload-file"></span><h2><a class="toc-backref" href="#id11">6.2.9.10. Read the upload file</a><a class="headerlink" href="#read-the-upload-file" title="Permalink to this headline">¶</a></h2>
-<p>The uploaded file (temporarily saved file) is acquired from <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/fw/web/HttpRequest.html" title="nablarch.fw.web.HttpRequest">HttpRequest</a>.</p>
+<p>The uploaded file (temporarily saved file) is acquired from <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/fw/web/HttpRequest.html" title="nablarch.fw.web.HttpRequest">HttpRequest</a>.</p>
 <p>An implementation example is shown below.</p>
 <dl class="docutils">
 <dt>Point</dt>
 <dd><ul class="first last simple">
-<li>The upload file is acquired by calling <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/fw/web/HttpRequest.html#getPart-java.lang.String-" title="nablarch.fw.web.HttpRequest.getPart(java.lang.String)">HttpRequest#getPart</a>.</li>
-<li>The parameter name is specified in the argument of <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/fw/web/HttpRequest.html#getPart-java.lang.String-" title="nablarch.fw.web.HttpRequest.getPart(java.lang.String)">HttpRequest#getPart</a>.</li>
+<li>The upload file is acquired by calling <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/fw/web/HttpRequest.html#getPart-java.lang.String-" title="nablarch.fw.web.HttpRequest.getPart(java.lang.String)">HttpRequest#getPart</a>.</li>
+<li>The parameter name is specified in the argument of <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/fw/web/HttpRequest.html#getPart-java.lang.String-" title="nablarch.fw.web.HttpRequest.getPart(java.lang.String)">HttpRequest#getPart</a>.</li>
 </ul>
 </dd>
 </dl>
@@ -540,7 +540,7 @@ As described in <a class="reference internal" href="../../libraries/data_convert
 
     <div role="contentinfo">
         <p>
-            &copy; Copyright 2010-2023, TIS Inc.
+            &copy; Copyright 2010-2024, TIS Inc.
         </p>
     </div>
     Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
@@ -561,7 +561,7 @@ As described in <a class="reference internal" href="../../libraries/data_convert
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../../',
-            VERSION:'5u23',
+            VERSION:'5u24',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

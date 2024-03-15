@@ -9,7 +9,7 @@
   <meta http-equiv='content-language' content='ja'>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>4.1.3.2. データを導出するバッチの作成(Chunkステップ) &mdash; ∇Nablarch  5u23 ドキュメント</title>
+  <title>4.1.3.2. データを導出するバッチの作成(Chunkステップ) &mdash; ∇Nablarch  5u24 ドキュメント</title>
   
 
   
@@ -35,7 +35,7 @@
   
   <link rel="canonical" href="https://nablarch.github.io/docs/LATEST/doc/application_framework/application_framework/batch/jsr352/getting_started/chunk/index.html" />
   
-    <link rel="top" title="∇Nablarch  5u23 ドキュメント" href="../../../../../../index.html"/>
+    <link rel="top" title="∇Nablarch  5u24 ドキュメント" href="../../../../../../index.html"/>
         <link rel="up" title="4.1.3. Getting Started" href="../getting_started.html"/>
         <link rel="next" title="4.1.4. 機能詳細" href="../../feature_details.html"/>
         <link rel="prev" title="4.1.3.1. 対象テーブルのデータを削除するバッチの作成(Batchletステップ)" href="../batchlet/index.html"/>
@@ -63,7 +63,7 @@
   
 
   
-    <div id="sidebar-version">Version: 5u23</div>
+    <div id="sidebar-version">Version: 5u24</div>
   </a>
 
   <div role="search">
@@ -111,7 +111,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../../../adaptors/index.html">アダプタ</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../../../adaptors/log_adaptor.html">logアダプタ</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../../adaptors/router_adaptor.html">ルーティングアダプタ</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../../adaptors/webspheremq_adaptor.html">IBM WebSphere MQアダプタ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../adaptors/webspheremq_adaptor.html">IBM MQアダプタ</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../../adaptors/jaxrs_adaptor.html">JAX-RSアダプタ</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../../adaptors/doma_adaptor.html">Domaアダプタ</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../../adaptors/jsr310_adaptor.html">JSR310(Date and Time API)アダプタ</a></li>
@@ -412,8 +412,8 @@
 </ol>
 <dl class="docutils" id="getting-started-chunk-form">
 <dt>フォームの作成</dt>
-<dd><p class="first">Chunkステップでは、 <a class="reference external" href="http://docs.oracle.com/javaee/7/api/javax/batch/api/chunk/ItemReader.html" title="javax.batch.api.chunk.ItemReader">ItemReader</a> と
-<a class="reference external" href="http://docs.oracle.com/javaee/7/api/javax/batch/api/chunk/ItemProcessor.html" title="javax.batch.api.chunk.ItemProcessor">ItemProcessor</a> とのデータ連携にフォームを使用する。</p>
+<dd><p class="first">Chunkステップでは、 <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/batch/api/chunk/ItemReader.html" title="javax.batch.api.chunk.ItemReader">ItemReader</a> と
+<a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/batch/api/chunk/ItemProcessor.html" title="javax.batch.api.chunk.ItemProcessor">ItemProcessor</a> とのデータ連携にフォームを使用する。</p>
 <dl class="last docutils">
 <dt>EmployeeForm.java</dt>
 <dd><div class="first last highlight-java"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">EmployeeForm</span> <span class="o">{</span>
@@ -449,7 +449,7 @@
 </dl>
 <dl class="docutils" id="getting-started-chunk-reader">
 <dt>ItemReaderの作成</dt>
-<dd><p class="first"><a class="reference external" href="http://docs.oracle.com/javaee/7/api/javax/batch/api/chunk/AbstractItemReader.html" title="javax.batch.api.chunk.AbstractItemReader">AbstractItemReader</a> を継承し、データの読み込みを行う。</p>
+<dd><p class="first"><a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/batch/api/chunk/AbstractItemReader.html" title="javax.batch.api.chunk.AbstractItemReader">AbstractItemReader</a> を継承し、データの読み込みを行う。</p>
 <blockquote>
 <div><table border="1" class="docutils">
 <colgroup>
@@ -462,9 +462,9 @@
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td><a class="reference external" href="http://docs.oracle.com/javaee/7/api/javax/batch/api/chunk/ItemReader.html" title="javax.batch.api.chunk.ItemReader">ItemReader</a></td>
+<tr class="row-even"><td><a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/batch/api/chunk/ItemReader.html" title="javax.batch.api.chunk.ItemReader">ItemReader</a></td>
 <td><p class="first">データの読み込みを行う。</p>
-<p>空実装を提供する <a class="reference external" href="http://docs.oracle.com/javaee/7/api/javax/batch/api/chunk/AbstractItemReader.html" title="javax.batch.api.chunk.AbstractItemReader">AbstractItemReader</a> を継承する。</p>
+<p>空実装を提供する <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/batch/api/chunk/AbstractItemReader.html" title="javax.batch.api.chunk.AbstractItemReader">AbstractItemReader</a> を継承する。</p>
 <blockquote class="last">
 <div><ul class="simple">
 <li><cite>ItemReader#open</cite></li>
@@ -529,14 +529,14 @@
 </dd>
 <dt>この実装のポイント</dt>
 <dd><ul class="first last simple">
-<li><a class="reference external" href="http://docs.oracle.com/javaee/7/api/javax/inject/Named.html" title="javax.inject.Named">Named</a> と <a class="reference external" href="http://docs.oracle.com/javaee/7/api/javax/enterprise/context/Dependent.html" title="javax.enterprise.context.Dependent">Dependent</a> をクラスに付与する。
+<li><a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/inject/Named.html" title="javax.inject.Named">Named</a> と <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/enterprise/context/Dependent.html" title="javax.enterprise.context.Dependent">Dependent</a> をクラスに付与する。
 詳細は、 <a class="reference internal" href="../batchlet/index.html#getting-started-batchlet-cdi"><span>BatchletのNamedとDependentの説明</span></a> を参照。</li>
 <li><cite>open</cite> メソッドで処理対象のデータを読み込む。</li>
 <li>SQLファイルの配置場所や作成方法などは、 <a class="reference internal" href="../../../../libraries/database/universal_dao.html#universal-dao-sql-file"><span>任意のSQL(SQLファイル)で検索する</span></a> を参照。</li>
-<li>大量のデータを読み込む場合は、メモリの逼迫を防ぐために <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/common/dao/UniversalDao.html#defer--" title="nablarch.common.dao.UniversalDao.defer()">UniversalDao#defer</a> を使用して
+<li>大量のデータを読み込む場合は、メモリの逼迫を防ぐために <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/common/dao/UniversalDao.html#defer--" title="nablarch.common.dao.UniversalDao.defer()">UniversalDao#defer</a> を使用して
 検索結果を <a class="reference internal" href="../../../../libraries/database/universal_dao.html#universal-dao-lazy-load"><span>遅延ロード</span></a> する。</li>
 <li><cite>readItem</cite> メソッドで読み込んだデータから一行分のデータを返却する。
-このメソッドで返却したオブジェクトが、後続する <a class="reference external" href="http://docs.oracle.com/javaee/7/api/javax/batch/api/chunk/ItemProcessor.html" title="javax.batch.api.chunk.ItemProcessor">ItemProcessor</a> の <cite>processItem</cite> メソッドの引数として与えられる。</li>
+このメソッドで返却したオブジェクトが、後続する <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/batch/api/chunk/ItemProcessor.html" title="javax.batch.api.chunk.ItemProcessor">ItemProcessor</a> の <cite>processItem</cite> メソッドの引数として与えられる。</li>
 </ul>
 </dd>
 </dl>
@@ -548,8 +548,8 @@
 <p>賞与の計算等の業務ロジックを実装する。</p>
 <dl class="docutils">
 <dt>ItemProcessorの作成</dt>
-<dd><p class="first"><a class="reference external" href="http://docs.oracle.com/javaee/7/api/javax/batch/api/chunk/ItemProcessor.html" title="javax.batch.api.chunk.ItemProcessor">ItemProcessor</a> を実装し、
-業務ロジックを行う(永続化処理は <a class="reference external" href="http://docs.oracle.com/javaee/7/api/javax/batch/api/chunk/ItemWriter.html" title="javax.batch.api.chunk.ItemWriter">ItemWriter</a> の責務であるため実施しない)。</p>
+<dd><p class="first"><a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/batch/api/chunk/ItemProcessor.html" title="javax.batch.api.chunk.ItemProcessor">ItemProcessor</a> を実装し、
+業務ロジックを行う(永続化処理は <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/batch/api/chunk/ItemWriter.html" title="javax.batch.api.chunk.ItemWriter">ItemWriter</a> の責務であるため実施しない)。</p>
 <blockquote>
 <div><table border="1" class="docutils">
 <colgroup>
@@ -562,7 +562,7 @@
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td><a class="reference external" href="http://docs.oracle.com/javaee/7/api/javax/batch/api/chunk/ItemProcessor.html" title="javax.batch.api.chunk.ItemProcessor">ItemProcessor</a></td>
+<tr class="row-even"><td><a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/batch/api/chunk/ItemProcessor.html" title="javax.batch.api.chunk.ItemProcessor">ItemProcessor</a></td>
 <td><p class="first">一行分のデータに対する業務処理を行う。</p>
 <blockquote class="last">
 <div><ul class="simple">
@@ -611,7 +611,7 @@
 <dt>この実装のポイント</dt>
 <dd><ul class="first last simple">
 <li><cite>processItem</cite> メソッドで一定数( <a class="reference internal" href="#getting-started-chunk-job"><span>JOB設定ファイルを作成する</span></a> にて設定方法を解説)のエンティティを返却した時点で、
-後続する <a class="reference external" href="http://docs.oracle.com/javaee/7/api/javax/batch/api/chunk/ItemWriter.html" title="javax.batch.api.chunk.ItemWriter">ItemWriter</a> の <cite>writeItems</cite> メソッドが実行される。</li>
+後続する <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/batch/api/chunk/ItemWriter.html" title="javax.batch.api.chunk.ItemWriter">ItemWriter</a> の <cite>writeItems</cite> メソッドが実行される。</li>
 </ul>
 </dd>
 </dl>
@@ -623,7 +623,7 @@
 <p>DB更新等の、永続化処理を実装する。</p>
 <dl class="docutils">
 <dt>ItemWriterの作成</dt>
-<dd><p class="first"><a class="reference external" href="http://docs.oracle.com/javaee/7/api/javax/batch/api/chunk/ItemWriter.html" title="javax.batch.api.chunk.ItemWriter">ItemWriter</a> を実装し、データの永続化を行う。</p>
+<dd><p class="first"><a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/batch/api/chunk/ItemWriter.html" title="javax.batch.api.chunk.ItemWriter">ItemWriter</a> を実装し、データの永続化を行う。</p>
 <blockquote>
 <div><table border="1" class="docutils">
 <colgroup>
@@ -636,7 +636,7 @@
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td><a class="reference external" href="http://docs.oracle.com/javaee/7/api/javax/batch/api/chunk/ItemWriter.html" title="javax.batch.api.chunk.ItemWriter">ItemWriter</a></td>
+<tr class="row-even"><td><a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/batch/api/chunk/ItemWriter.html" title="javax.batch.api.chunk.ItemWriter">ItemWriter</a></td>
 <td><p class="first">データを永続化する。</p>
 <blockquote class="last">
 <div><ul class="simple">
@@ -664,7 +664,7 @@
 </dd>
 <dt>この実装のポイント</dt>
 <dd><ul class="first last simple">
-<li><a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/common/dao/UniversalDao.html#batchInsert-java.util.List-" title="nablarch.common.dao.UniversalDao.batchInsert(java.util.List)">UniversalDao#batchInsert</a> を使用してエンティティのリストを一括登録する。</li>
+<li><a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/common/dao/UniversalDao.html#batchInsert-java.util.List-" title="nablarch.common.dao.UniversalDao.batchInsert(java.util.List)">UniversalDao#batchInsert</a> を使用してエンティティのリストを一括登録する。</li>
 <li><cite>writeItems</cite> メソッド実行後にトランザクションがコミットされ、新たなトランザクションが開始される。</li>
 <li><cite>writeItems</cite> メソッド実行後、バッチ処理が <cite>readItem</cite> メソッド実行から繰り返される。</li>
 </ul>
@@ -726,7 +726,7 @@
 
     <div role="contentinfo">
         <p>
-            &copy; Copyright 2010-2023, TIS Inc.
+            &copy; Copyright 2010-2024, TIS Inc.
         </p>
     </div>
     Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
@@ -747,7 +747,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../../../../',
-            VERSION:'5u23',
+            VERSION:'5u24',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

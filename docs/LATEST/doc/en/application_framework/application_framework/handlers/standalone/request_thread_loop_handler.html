@@ -9,7 +9,7 @@
   <meta http-equiv='content-language' content='ja'>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>6.6.8. Loop Control Handler in Request Thread &mdash; ∇Nablarch  5u23 documentation</title>
+  <title>6.6.8. Loop Control Handler in Request Thread &mdash; ∇Nablarch  5u24 documentation</title>
   
 
   
@@ -35,7 +35,7 @@
   
   <link rel="canonical" href="https://nablarch.github.io/docs/LATEST/doc/application_framework/application_framework/handlers/standalone/request_thread_loop_handler.html" />
   
-    <link rel="top" title="∇Nablarch  5u23 documentation" href="../../../../index.html"/>
+    <link rel="top" title="∇Nablarch  5u24 documentation" href="../../../../index.html"/>
         <link rel="up" title="6.6. Standalone Application Common Handler" href="index.html"/>
         <link rel="next" title="6.7. Batch Application Dedicated Handler" href="../batch/index.html"/>
         <link rel="prev" title="6.6.7. Multi-thread Execution Control Handler" href="multi_thread_execution_handler.html"/>
@@ -63,7 +63,7 @@
   
 
   
-    <div id="sidebar-version">Version: 5u23</div>
+    <div id="sidebar-version">Version: 5u24</div>
   </a>
 
   <div role="search">
@@ -111,7 +111,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../adaptors/index.html">Adaptor</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../adaptors/log_adaptor.html">log Adapter</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../adaptors/router_adaptor.html">Routing Adapter</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../adaptors/webspheremq_adaptor.html">IBM WebSphere MQ Adapter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../adaptors/webspheremq_adaptor.html">IBM MQ Adapter</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../adaptors/jaxrs_adaptor.html">JAX-RS Adapter</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../adaptors/doma_adaptor.html">Doma Adapter</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../adaptors/jsr310_adaptor.html">JSR310(Date and Time API)Adapter</a></li>
@@ -348,7 +348,7 @@ For details, see <a class="reference internal" href="#request-thread-loop-handle
 <div class="section" id="handler-class-name">
 <h2><a class="toc-backref" href="#id1">6.6.8.1. Handler class name</a><a class="headerlink" href="#handler-class-name" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/fw/handler/RequestThreadLoopHandler.html" title="nablarch.fw.handler.RequestThreadLoopHandler">nablarch.fw.handler.RequestThreadLoopHandler</a></li>
+<li><a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/fw/handler/RequestThreadLoopHandler.html" title="nablarch.fw.handler.RequestThreadLoopHandler">nablarch.fw.handler.RequestThreadLoopHandler</a></li>
 </ul>
 </div>
 <div class="section" id="module-list">
@@ -364,13 +364,13 @@ For details, see <a class="reference internal" href="#request-thread-loop-handle
 <h2><a class="toc-backref" href="#id3">6.6.8.3. Constraints</a><a class="headerlink" href="#constraints" title="Permalink to this headline">¶</a></h2>
 <dl class="docutils">
 <dt>Place this handler after the <a class="reference internal" href="retry_handler.html#retry-handler"><span>Retry Handler</span></a></dt>
-<dd>This handler throws <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/fw/handler/retry/Retryable.html" title="nablarch.fw.handler.retry.Retryable">Retryable exception</a> for exceptions where processing can be continued.
+<dd>This handler throws <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/fw/handler/retry/Retryable.html" title="nablarch.fw.handler.retry.Retryable">Retryable exception</a> for exceptions where processing can be continued.
 Therefore, this handler must be configured after the <a class="reference internal" href="retry_handler.html#retry-handler"><span>Retry Handler</span></a>, which processes the retriable exceptions.</dd>
 </dl>
 </div>
 <div class="section" id="configure-the-wait-time-for-service-shutdown">
 <span id="request-thread-loop-handler-interval"></span><h2><a class="toc-backref" href="#id4">6.6.8.4. Configure the wait time for service shutdown</a><a class="headerlink" href="#configure-the-wait-time-for-service-shutdown" title="Permalink to this headline">¶</a></h2>
-<p>Wait time can be configured when the exception (<a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/fw/results/ServiceUnavailable.html" title="nablarch.fw.results.ServiceUnavailable">ServiceUnavailable</a>) indicating service shutdown is thrown by a subsequent handler.
+<p>Wait time can be configured when the exception (<a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/fw/results/ServiceUnavailable.html" title="nablarch.fw.results.ServiceUnavailable">ServiceUnavailable</a>) indicating service shutdown is thrown by a subsequent handler.
 The check timing of whether the service is open can be adjusted by configuring this time.</p>
 <p>If a long wait time is configured, the problem of the process not starting immediately even if there is a change in service while it is open may occur.
 Hence configure a value as per the requirement. If this configuration is omitted, the subsequent handler will be re-executed after waiting for 1 second.</p>
@@ -398,32 +398,32 @@ the <a class="reference internal" href="process_stop_handler.html#process-stop-h
 <span id="request-thread-loop-handler-error-handling"></span><h2><a class="toc-backref" href="#id6">6.6.8.6. Process content according to the exception (error) that occurs in the subsequent handler</a><a class="headerlink" href="#process-content-according-to-the-exception-error-that-occurs-in-the-subsequent-handler" title="Permalink to this headline">¶</a></h2>
 <p>The process contents performed by this handler according to the exceptions (errors) that occur in the subsequent handler is described.</p>
 <dl class="docutils">
-<dt>Exception during service shutdown (<a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/fw/results/ServiceUnavailable.html" title="nablarch.fw.results.ServiceUnavailable">ServiceUnavailable</a>)</dt>
+<dt>Exception during service shutdown (<a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/fw/results/ServiceUnavailable.html" title="nablarch.fw.results.ServiceUnavailable">ServiceUnavailable</a>)</dt>
 <dd>After waiting for a certain period, the process is again delegated to the subsequent handler.
 For the method to configure the wait time, see <a class="reference internal" href="#request-thread-loop-handler-interval"><span>Configure the wait time for service shutdown</span></a>.</dd>
-<dt>Exception indicating process stop request (<a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/fw/handler/ProcessStopHandler.ProcessStop.html" title="nablarch.fw.handler.ProcessStopHandler.ProcessStop">ProcessStop</a>)</dt>
+<dt>Exception indicating process stop request (<a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/fw/handler/ProcessStopHandler.ProcessStop.html" title="nablarch.fw.handler.ProcessStopHandler.ProcessStop">ProcessStop</a>)</dt>
 <dd>Since the exception indicates the process stop request, processing of this handler is terminated.</dd>
-<dt>Exception indicating abnormal termination of the process (<a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/fw/launcher/ProcessAbnormalEnd.html" title="nablarch.fw.launcher.ProcessAbnormalEnd">ProcessAbnormalEnd</a>)</dt>
+<dt>Exception indicating abnormal termination of the process (<a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/fw/launcher/ProcessAbnormalEnd.html" title="nablarch.fw.launcher.ProcessAbnormalEnd">ProcessAbnormalEnd</a>)</dt>
 <dd>Rethrows the exception caught as the exception indicates abnormal termination of the process.</dd>
-<dt>Service error indicating that the process could not be continued (<a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/fw/results/ServiceError.html" title="nablarch.fw.results.ServiceError">ServiceError</a>)</dt>
-<dd>Delegates the log output process to the exception class that is caught and throws <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/fw/handler/retry/Retryable.html" title="nablarch.fw.handler.retry.Retryable">Retryable exception</a>.</dd>
-<dt>Exception indicating abnormal termination of the handler process (<a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/fw/Result.Error.html" title="nablarch.fw.Result.Error">Result.Error</a>)</dt>
-<dd>Outputs <code class="docutils literal"><span class="pre">FATAL</span></code> level log, and throws <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/fw/handler/retry/Retryable.html" title="nablarch.fw.handler.retry.Retryable">Retryable exception</a>.</dd>
+<dt>Service error indicating that the process could not be continued (<a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/fw/results/ServiceError.html" title="nablarch.fw.results.ServiceError">ServiceError</a>)</dt>
+<dd>Delegates the log output process to the exception class that is caught and throws <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/fw/handler/retry/Retryable.html" title="nablarch.fw.handler.retry.Retryable">Retryable exception</a>.</dd>
+<dt>Exception indicating abnormal termination of the handler process (<a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/fw/Result.Error.html" title="nablarch.fw.Result.Error">Result.Error</a>)</dt>
+<dd>Outputs <code class="docutils literal"><span class="pre">FATAL</span></code> level log, and throws <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/fw/handler/retry/Retryable.html" title="nablarch.fw.handler.retry.Retryable">Retryable exception</a>.</dd>
 <dt>Runtime exception (<a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/RuntimeException.html" title="java.lang.RuntimeException">RuntimeException</a>)</dt>
-<dd>Outputs <code class="docutils literal"><span class="pre">FATAL</span></code> level log, and throws <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/fw/handler/retry/Retryable.html" title="nablarch.fw.handler.retry.Retryable">Retryable exception</a>.</dd>
+<dd>Outputs <code class="docutils literal"><span class="pre">FATAL</span></code> level log, and throws <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/fw/handler/retry/Retryable.html" title="nablarch.fw.handler.retry.Retryable">Retryable exception</a>.</dd>
 <dt>Exception indicating thread stop (<a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/ThreadDeath.html" title="java.lang.ThreadDeath">ThreadDeath</a>)</dt>
 <dd>Outputs <code class="docutils literal"><span class="pre">INFO</span></code> level log and rethrows the exception that is caught (ThreadDeath).</dd>
 <dt>Stack overflow error (<a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/StackOverflowError.html" title="java.lang.StackOverflowError">StackOverflowError</a>)</dt>
-<dd>Outputs <code class="docutils literal"><span class="pre">FATAL</span></code> level log, and throws <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/fw/handler/retry/Retryable.html" title="nablarch.fw.handler.retry.Retryable">Retryable exception</a>.</dd>
+<dd>Outputs <code class="docutils literal"><span class="pre">FATAL</span></code> level log, and throws <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/fw/handler/retry/Retryable.html" title="nablarch.fw.handler.retry.Retryable">Retryable exception</a>.</dd>
 <dt>Insufficient heap error (<a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/OutOfMemoryError.html" title="java.lang.OutOfMemoryError">OutOfMemoryError</a>)</dt>
 <dd><p class="first">Outputs a message indicating that insufficient heap has occurred to the standard error output and then outputs a <code class="docutils literal"><span class="pre">FATAL</span></code> level log.
 (Since there is possibility of insufficient heap occurring again during log output, the log is output after the output of the standard error message.)</p>
-<p class="last">Since there is possibility that the process can be continued by removing the reference to the object that caused insufficient heap, <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/fw/handler/retry/Retryable.html" title="nablarch.fw.handler.retry.Retryable">Retryable exception</a> is thrown.</p>
+<p class="last">Since there is possibility that the process can be continued by removing the reference to the object that caused insufficient heap, <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/fw/handler/retry/Retryable.html" title="nablarch.fw.handler.retry.Retryable">Retryable exception</a> is thrown.</p>
 </dd>
 <dt>Error indicating JVM error (<a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/VirtualMachineError.html" title="java.lang.VirtualMachineError">VirtualMachineError</a>)</dt>
 <dd>Rethrows the exception that is raised</dd>
 <dt>Error other than the above</dt>
-<dd>Outputs <code class="docutils literal"><span class="pre">FATAL</span></code> level log, and throws <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/fw/handler/retry/Retryable.html" title="nablarch.fw.handler.retry.Retryable">Retryable exception</a>.</dd>
+<dd>Outputs <code class="docutils literal"><span class="pre">FATAL</span></code> level log, and throws <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/fw/handler/retry/Retryable.html" title="nablarch.fw.handler.retry.Retryable">Retryable exception</a>.</dd>
 </dl>
 </div>
 </div>
@@ -440,7 +440,7 @@ For the method to configure the wait time, see <a class="reference internal" hre
 
     <div role="contentinfo">
         <p>
-            &copy; Copyright 2010-2023, TIS Inc.
+            &copy; Copyright 2010-2024, TIS Inc.
         </p>
     </div>
     Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
@@ -461,7 +461,7 @@ For the method to configure the wait time, see <a class="reference internal" hre
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../../',
-            VERSION:'5u23',
+            VERSION:'5u24',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

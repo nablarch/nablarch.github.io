@@ -9,7 +9,7 @@
   <meta http-equiv='content-language' content='ja'>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>7.3.2.3.8.1. Surrogate Key Numbering &mdash; ∇Nablarch  5u23 documentation</title>
+  <title>7.3.2.3.8.1. Surrogate Key Numbering &mdash; ∇Nablarch  5u24 documentation</title>
   
 
   
@@ -35,7 +35,7 @@
   
   <link rel="canonical" href="https://nablarch.github.io/docs/LATEST/doc/application_framework/application_framework/libraries/database/generator.html" />
   
-    <link rel="top" title="∇Nablarch  5u23 documentation" href="../../../../index.html"/>
+    <link rel="top" title="∇Nablarch  5u24 documentation" href="../../../../index.html"/>
         <link rel="up" title="7.3.2. Universal DAO" href="universal_dao.html"/>
         <link rel="next" title="7.3.3. Functional Comparison Between Universal DAO and JSR317 (JPA2.0)" href="functional_comparison.html"/>
         <link rel="prev" title="7.3.2. Universal DAO" href="universal_dao.html"/>
@@ -63,7 +63,7 @@
   
 
   
-    <div id="sidebar-version">Version: 5u23</div>
+    <div id="sidebar-version">Version: 5u24</div>
   </a>
 
   <div role="search">
@@ -111,7 +111,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../adaptors/index.html">Adaptor</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../adaptors/log_adaptor.html">log Adapter</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../adaptors/router_adaptor.html">Routing Adapter</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../adaptors/webspheremq_adaptor.html">IBM WebSphere MQ Adapter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../adaptors/webspheremq_adaptor.html">IBM MQ Adapter</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../adaptors/jaxrs_adaptor.html">JAX-RS Adapter</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../adaptors/doma_adaptor.html">Doma Adapter</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../adaptors/jsr310_adaptor.html">JSR310(Date and Time API)Adapter</a></li>
@@ -411,7 +411,7 @@ For this reason, the use of numbering column or sequence in the database instead
 <h2><a class="toc-backref" href="#id5">7.3.2.3.8.1.3. How to use</a><a class="headerlink" href="#how-to-use" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="configure-numbering-for-universal-dao">
 <span id="generator-dao-setting"></span><h3><a class="toc-backref" href="#id6">7.3.2.3.8.1.3.1. Configure numbering for Universal DAO</a><a class="headerlink" href="#configure-numbering-for-universal-dao" title="Permalink to this headline">¶</a></h3>
-<p>To use this function in <a class="reference internal" href="universal_dao.html#universal-dao"><span>Universal DAO</span></a> , <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/common/dao/BasicDaoContextFactory.html" title="nablarch.common.dao.BasicDaoContextFactory">BasicDaoContextFactory</a>  must be configured.</p>
+<p>To use this function in <a class="reference internal" href="universal_dao.html#universal-dao"><span>Universal DAO</span></a> , <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/common/dao/BasicDaoContextFactory.html" title="nablarch.common.dao.BasicDaoContextFactory">BasicDaoContextFactory</a>  must be configured.</p>
 <p>In this example, although both sequence numbering and table numbering have been configured, and numbering that will not be used need not be configured.
 Since table numbering is not recommended,  <cite>sequenceIdGenerator</cite>  should be configured when using sequence numbering for numbering surrogate keys.</p>
 <p>If the numbering function (automatic numbering column) of the database is used without using sequence numbering, configuration of numbering is not required.</p>
@@ -441,7 +441,7 @@ Since table numbering is not recommended,  <cite>sequenceIdGenerator</cite>  sho
 <div class="section" id="replace-table-or-sequence-numbering">
 <h3><a class="toc-backref" href="#id8">7.3.2.3.8.1.4.1. Replace table or sequence numbering</a><a class="headerlink" href="#replace-table-or-sequence-numbering" title="Permalink to this headline">¶</a></h3>
 <p>When replacing the numbering implementation by a table or sequence,
-it can be supported by creating a class that implements <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/common/idgenerator/IdGenerator.html" title="nablarch.common.idgenerator.IdGenerator">IdGenerator</a> .</p>
+it can be supported by creating a class that implements <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/common/idgenerator/IdGenerator.html" title="nablarch.common.idgenerator.IdGenerator">IdGenerator</a> .</p>
 <p>The created class can be used by defining it in the component configuration file according to the  <a class="reference internal" href="#configure-numbering-for-universal-dao">Configure numbering for Universal DAO</a> .</p>
 </div>
 </div>
@@ -459,7 +459,7 @@ it can be supported by creating a class that implements <a class="reference exte
 
     <div role="contentinfo">
         <p>
-            &copy; Copyright 2010-2023, TIS Inc.
+            &copy; Copyright 2010-2024, TIS Inc.
         </p>
     </div>
     Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
@@ -480,7 +480,7 @@ it can be supported by creating a class that implements <a class="reference exte
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../../',
-            VERSION:'5u23',
+            VERSION:'5u24',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

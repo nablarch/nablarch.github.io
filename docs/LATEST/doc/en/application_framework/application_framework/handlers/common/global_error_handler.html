@@ -9,7 +9,7 @@
   <meta http-equiv='content-language' content='ja'>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>6.1.1. Global Error Handler &mdash; ∇Nablarch  5u23 documentation</title>
+  <title>6.1.1. Global Error Handler &mdash; ∇Nablarch  5u24 documentation</title>
   
 
   
@@ -35,7 +35,7 @@
   
   <link rel="canonical" href="https://nablarch.github.io/docs/LATEST/doc/application_framework/application_framework/handlers/common/global_error_handler.html" />
   
-    <link rel="top" title="∇Nablarch  5u23 documentation" href="../../../../index.html"/>
+    <link rel="top" title="∇Nablarch  5u24 documentation" href="../../../../index.html"/>
         <link rel="up" title="6.1. Common Handler" href="index.html"/>
         <link rel="next" title="6.1.2. Output File Release Handler" href="file_record_writer_dispose_handler.html"/>
         <link rel="prev" title="6.1. Common Handler" href="index.html"/>
@@ -63,7 +63,7 @@
   
 
   
-    <div id="sidebar-version">Version: 5u23</div>
+    <div id="sidebar-version">Version: 5u24</div>
   </a>
 
   <div role="search">
@@ -111,7 +111,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../adaptors/index.html">Adaptor</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../adaptors/log_adaptor.html">log Adapter</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../adaptors/router_adaptor.html">Routing Adapter</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../adaptors/webspheremq_adaptor.html">IBM WebSphere MQ Adapter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../adaptors/webspheremq_adaptor.html">IBM MQ Adapter</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../adaptors/jaxrs_adaptor.html">JAX-RS Adapter</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../adaptors/doma_adaptor.html">Doma Adapter</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../adaptors/jsr310_adaptor.html">JSR310(Date and Time API)Adapter</a></li>
@@ -331,7 +331,7 @@
 <div class="section" id="handler-class-name">
 <h2><a class="toc-backref" href="#id2">6.1.1.1. Handler class name</a><a class="headerlink" href="#handler-class-name" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/fw/handler/GlobalErrorHandler.html" title="nablarch.fw.handler.GlobalErrorHandler">nablarch.fw.handler.GlobalErrorHandler</a></li>
+<li><a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/fw/handler/GlobalErrorHandler.html" title="nablarch.fw.handler.GlobalErrorHandler">nablarch.fw.handler.GlobalErrorHandler</a></li>
 </ul>
 </div>
 <div class="section" id="module-list">
@@ -369,24 +369,24 @@
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td><p class="first"><a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/fw/results/ServiceError.html" title="nablarch.fw.results.ServiceError">ServiceError</a></p>
+<tr class="row-even"><td><p class="first"><a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/fw/results/ServiceError.html" title="nablarch.fw.results.ServiceError">ServiceError</a></p>
 <p class="last">(Including subclass)</p>
 </td>
-<td><p class="first">Calls <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/fw/results/ServiceError.html#writeLog-nablarch.fw.ExecutionContext-" title="nablarch.fw.results.ServiceError.writeLog(nablarch.fw.ExecutionContext)">ServiceError#writeLog</a> and outputs log.</p>
-<p>The log level differs depending on the implementation class of <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/fw/results/ServiceError.html" title="nablarch.fw.results.ServiceError">ServiceError</a>.</p>
-<p class="last">After log output, returns <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/fw/results/ServiceError.html" title="nablarch.fw.results.ServiceError">ServiceError</a> as the processing result of the handler.</p>
+<td><p class="first">Calls <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/fw/results/ServiceError.html#writeLog-nablarch.fw.ExecutionContext-" title="nablarch.fw.results.ServiceError.writeLog(nablarch.fw.ExecutionContext)">ServiceError#writeLog</a> and outputs log.</p>
+<p>The log level differs depending on the implementation class of <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/fw/results/ServiceError.html" title="nablarch.fw.results.ServiceError">ServiceError</a>.</p>
+<p class="last">After log output, returns <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/fw/results/ServiceError.html" title="nablarch.fw.results.ServiceError">ServiceError</a> as the processing result of the handler.</p>
 </td>
 </tr>
-<tr class="row-odd"><td><p class="first"><a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/fw/Result.Error.html" title="nablarch.fw.Result.Error">Result.Error</a></p>
+<tr class="row-odd"><td><p class="first"><a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/fw/Result.Error.html" title="nablarch.fw.Result.Error">Result.Error</a></p>
 <p class="last">(Including subclass)</p>
 </td>
 <td><p class="first">Performs FATAL level log output.</p>
-<p class="last">After log output, returns <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/fw/Result.Error.html" title="nablarch.fw.Result.Error">Result.Error</a> as the processing result of the handler.</p>
+<p class="last">After log output, returns <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/fw/Result.Error.html" title="nablarch.fw.Result.Error">Result.Error</a> as the processing result of the handler.</p>
 </td>
 </tr>
 <tr class="row-even"><td>Exception classes other than the above</td>
 <td><p class="first">Performs FATAL level log output.</p>
-<p class="last">After log output, generates <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/fw/results/InternalError.html" title="nablarch.fw.results.InternalError">InternalError</a> with the exception that is caught as the cause and returns it as the processing result of the handler.</p>
+<p class="last">After log output, generates <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/fw/results/InternalError.html" title="nablarch.fw.results.InternalError">InternalError</a> with the exception that is caught as the cause and returns it as the processing result of the handler.</p>
 </td>
 </tr>
 </tbody>
@@ -415,7 +415,7 @@
 <p class="last">(Including subclass)</p>
 </td>
 <td><p class="first">Performs FATAL level log output.</p>
-<p class="last">After log output, generates <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/fw/results/InternalError.html" title="nablarch.fw.results.InternalError">InternalError</a> with the error that has been caught as the cause and returns it as the processing result of the handler.</p>
+<p class="last">After log output, generates <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/fw/results/InternalError.html" title="nablarch.fw.results.InternalError">InternalError</a> with the error that has been caught as the cause and returns it as the processing result of the handler.</p>
 </td>
 </tr>
 <tr class="row-even"><td><p class="first"><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/OutOfMemoryError.html" title="java.lang.OutOfMemoryError">OutOfMemoryError</a></p>
@@ -423,7 +423,7 @@
 </td>
 <td><p class="first">Performs FATAL level log output.</p>
 <p>Since there is a possibility that FATAL level log output may fail (<cite>OutOfMemoryError</cite> may reoccur), the occurrence of <cite>OutOfMemoryError</cite> is output to the standard error output before the log output.</p>
-<p class="last">After log output, generates <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/fw/results/InternalError.html" title="nablarch.fw.results.InternalError">InternalError</a> with the error that has been caught as the cause and returns it as the processing result of the handler.</p>
+<p class="last">After log output, generates <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/fw/results/InternalError.html" title="nablarch.fw.results.InternalError">InternalError</a> with the error that has been caught as the cause and returns it as the processing result of the handler.</p>
 </td>
 </tr>
 <tr class="row-odd"><td><p class="first"><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/VirtualMachineError.html" title="java.lang.VirtualMachineError">VirtualMachineError</a></p>
@@ -439,7 +439,7 @@
 </tr>
 <tr class="row-even"><td>Error classes other than the above</td>
 <td><p class="first">Performs FATAL level log output.</p>
-<p class="last">After log output, generates <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/fw/results/InternalError.html" title="nablarch.fw.results.InternalError">InternalError</a> with the error that has been caught as the cause and returns it as the processing result of the handler.</p>
+<p class="last">After log output, generates <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/fw/results/InternalError.html" title="nablarch.fw.results.InternalError">InternalError</a> with the error that has been caught as the cause and returns it as the processing result of the handler.</p>
 </td>
 </tr>
 </tbody>
@@ -468,7 +468,7 @@ if the requirements cannot be satisfied with this implementation.</p>
 
     <div role="contentinfo">
         <p>
-            &copy; Copyright 2010-2023, TIS Inc.
+            &copy; Copyright 2010-2024, TIS Inc.
         </p>
     </div>
     Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
@@ -489,7 +489,7 @@ if the requirements cannot be satisfied with this implementation.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../../',
-            VERSION:'5u23',
+            VERSION:'5u24',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

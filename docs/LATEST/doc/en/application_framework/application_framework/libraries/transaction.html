@@ -9,7 +9,7 @@
   <meta http-equiv='content-language' content='ja'>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>7.8. Transaction Management &mdash; ∇Nablarch  5u23 documentation</title>
+  <title>7.8. Transaction Management &mdash; ∇Nablarch  5u24 documentation</title>
   
 
   
@@ -35,7 +35,7 @@
   
   <link rel="canonical" href="https://nablarch.github.io/docs/LATEST/doc/application_framework/application_framework/libraries/transaction.html" />
   
-    <link rel="top" title="∇Nablarch  5u23 documentation" href="../../../index.html"/>
+    <link rel="top" title="∇Nablarch  5u24 documentation" href="../../../index.html"/>
         <link rel="up" title="7. Libraries Provided by Nablarch" href="index.html"/>
         <link rel="next" title="7.9. Static Data Cache" href="static_data_cache.html"/>
         <link rel="prev" title="7.7. Sending Emails" href="mail.html"/>
@@ -63,7 +63,7 @@
   
 
   
-    <div id="sidebar-version">Version: 5u23</div>
+    <div id="sidebar-version">Version: 5u24</div>
   </a>
 
   <div role="search">
@@ -111,7 +111,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../adaptors/index.html">Adaptor</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../adaptors/log_adaptor.html">log Adapter</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../adaptors/router_adaptor.html">Routing Adapter</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../adaptors/webspheremq_adaptor.html">IBM WebSphere MQ Adapter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../adaptors/webspheremq_adaptor.html">IBM MQ Adapter</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../adaptors/jaxrs_adaptor.html">JAX-RS Adapter</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../adaptors/doma_adaptor.html">Doma Adapter</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../adaptors/jsr310_adaptor.html">JSR310(Date and Time API)Adapter</a></li>
@@ -371,7 +371,7 @@ It is assumed that the connection has been configured to the database.</p>
 <p>To use a small transaction such as 1 SQL unit, configure and implement referring to <a class="reference internal" href="database/database.html#database-new-transaction"><span>Execute SQL in a transaction different from the current transaction</span></a>.</p>
 <dl class="docutils">
 <dt>Example of component definition</dt>
-<dd><p class="first">Define the factory class ( <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/core/db/transaction/JdbcTransactionFactory.html" title="nablarch.core.db.transaction.JdbcTransactionFactory">JdbcTransactionFactory</a> ), which generates transaction class for JDBC, in the component configuration file.</p>
+<dd><p class="first">Define the factory class ( <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/core/db/transaction/JdbcTransactionFactory.html" title="nablarch.core.db.transaction.JdbcTransactionFactory">JdbcTransactionFactory</a> ), which generates transaction class for JDBC, in the component configuration file.</p>
 <div class="last highlight-xml"><div class="highlight"><pre><span></span><span class="c">&lt;!-- Configure JdbcTransactionFactory as a component --&gt;</span>
 <span class="nt">&lt;component</span> <span class="na">class=</span><span class="s">&quot;nablarch.core.db.transaction.JdbcTransactionFactory&quot;</span><span class="nt">&gt;</span>
 
@@ -394,7 +394,7 @@ If transaction control is required, use <a class="reference internal" href="../h
 </div>
 <div class="section" id="apply-transaction-timeout-for-the-database">
 <span id="transaction-timeout"></span><h3><a class="toc-backref" href="#id6">7.8.3.2. Apply transaction timeout for the database</a><a class="headerlink" href="#apply-transaction-timeout-for-the-database" title="Permalink to this headline">¶</a></h3>
-<p>The transaction timeout function is enabled by configuring the transaction timeout seconds for <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/core/db/transaction/JdbcTransactionFactory.html" title="nablarch.core.db.transaction.JdbcTransactionFactory">JdbcTransactionFactory</a>.
+<p>The transaction timeout function is enabled by configuring the transaction timeout seconds for <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/core/db/transaction/JdbcTransactionFactory.html" title="nablarch.core.db.transaction.JdbcTransactionFactory">JdbcTransactionFactory</a>.
 If the transaction timeout seconds is 0 or less, the transaction timeout function is disabled.</p>
 <div class="admonition tip">
 <p class="first admonition-title">Tip</p>
@@ -405,7 +405,7 @@ For example, even if a particular transaction takes 1 minute due to a lack of re
 </div>
 <dl class="docutils">
 <dt>Start check timing of transaction timeout</dt>
-<dd><p class="first">( <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/core/transaction/Transaction.html#begin--" title="nablarch.core.transaction.Transaction.begin()">Transaction#begin()</a> ) starts checking at the start of the transaction.</p>
+<dd><p class="first">( <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/core/transaction/Transaction.html#begin--" title="nablarch.core.transaction.Transaction.begin()">Transaction#begin()</a> ) starts checking at the start of the transaction.</p>
 <p class="last">Checks for timeouts for each transaction if multiple transactions are used
 (for example, if another transaction is executed in a transaction).</p>
 </dd>
@@ -413,17 +413,17 @@ For example, even if a particular transaction takes 1 minute due to a lack of re
 <dd><p class="first">Checks if the transaction timeout seconds are exceeded at the following timing.</p>
 <dl class="docutils">
 <dt>Before executing the SQL</dt>
-<dd><p class="first">Throws <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/core/transaction/TransactionTimeoutException.html" title="nablarch.core.transaction.TransactionTimeoutException">TransactionTimeoutException</a> if transaction timeout seconds are exceeded before executing the SQL.</p>
+<dd><p class="first">Throws <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/core/transaction/TransactionTimeoutException.html" title="nablarch.core.transaction.TransactionTimeoutException">TransactionTimeoutException</a> if transaction timeout seconds are exceeded before executing the SQL.</p>
 <p class="last">Checks before SQL execution because access to the database will result in unnecessary consumption of resources
 if the transaction timeout seconds have already passed.</p>
 </dd>
 <dt>After executing the SQL</dt>
-<dd><p class="first">Throws <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/core/transaction/TransactionTimeoutException.html" title="nablarch.core.transaction.TransactionTimeoutException">TransactionTimeoutException</a> if transaction timeout seconds are exceeded after executing SQL.</p>
+<dd><p class="first">Throws <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/core/transaction/TransactionTimeoutException.html" title="nablarch.core.transaction.TransactionTimeoutException">TransactionTimeoutException</a> if transaction timeout seconds are exceeded after executing SQL.</p>
 <p class="last">Since the transaction timeout seconds may be exceeded during SQL execution or result set conversion,
 a check is performed even if SQL execution is completed normally.</p>
 </dd>
 <dt>When a query timeout exception occurs</dt>
-<dd><p class="first">Throws <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/core/transaction/TransactionTimeoutException.html" title="nablarch.core.transaction.TransactionTimeoutException">TransactionTimeoutException</a> if an exception that indicates a query timeout occurs and transaction timeout number of seconds has been exceeded.
+<dd><p class="first">Throws <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/core/transaction/TransactionTimeoutException.html" title="nablarch.core.transaction.TransactionTimeoutException">TransactionTimeoutException</a> if an exception that indicates a query timeout occurs and transaction timeout number of seconds has been exceeded.
 Whether it is a query timeout exception is determined using the <a class="reference internal" href="database/database.html#database-dialect"><span>dialect</span></a> of the database function.</p>
 <p>Control might not come back from the database if a SQL statement with a long processing time (simple slow SQL or SQL waiting for lock release) is executed.
 Therefore, the number of seconds remaining in the transaction timeout is configured to <cite>java.sql.Statement#setQueryTimeout</cite>
@@ -446,7 +446,7 @@ when the remaining transaction timeout seconds is smaller than the configured qu
 <div class="line">Configured query timeout time: 10 seconds</div>
 <div class="line">Transaction timeout remaining seconds: 5 seconds</div>
 <div class="line">Query timeout time configured when executing the SQL: 5 seconds</div>
-<div class="line">Transaction timeout occurs when query timeout occurs and <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/core/transaction/TransactionTimeoutException.html" title="nablarch.core.transaction.TransactionTimeoutException">TransactionTimeoutException</a> is thrown.</div>
+<div class="line">Transaction timeout occurs when query timeout occurs and <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/core/transaction/TransactionTimeoutException.html" title="nablarch.core.transaction.TransactionTimeoutException">TransactionTimeoutException</a> is thrown.</div>
 </div>
 </dd>
 </dl>
@@ -461,8 +461,8 @@ In such a case, delayed application threads are handled using the application se
 </div>
 </dd>
 <dt>Reset timing of transaction timeout time</dt>
-<dd>The transaction timeout period is reset when a transaction is explicitly started ( when <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/core/transaction/Transaction.html#begin--" title="nablarch.core.transaction.Transaction.begin()">Transaction#begin</a> is called).
-Note that at the end of the transaction ( <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/core/transaction/Transaction.html#commit--" title="nablarch.core.transaction.Transaction.commit()">Transaction#commit</a> and  <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/core/transaction/Transaction.html#rollback--" title="nablarch.core.transaction.Transaction.rollback()">Transaction#rollback</a> ),
+<dd>The transaction timeout period is reset when a transaction is explicitly started ( when <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/core/transaction/Transaction.html#begin--" title="nablarch.core.transaction.Transaction.begin()">Transaction#begin</a> is called).
+Note that at the end of the transaction ( <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/core/transaction/Transaction.html#commit--" title="nablarch.core.transaction.Transaction.commit()">Transaction#commit</a> and  <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/core/transaction/Transaction.html#rollback--" title="nablarch.core.transaction.Transaction.rollback()">Transaction#rollback</a> ),
 the remaining time of transaction timeout is not reset.</dd>
 </dl>
 </div>
@@ -472,7 +472,7 @@ the remaining time of transaction timeout is not reset.</dd>
 <div class="section" id="add-transaction-target-resource">
 <span id="transaction-addresource"></span><h3><a class="toc-backref" href="#id8">7.8.4.1. Add transaction target resource</a><a class="headerlink" href="#add-transaction-target-resource" title="Permalink to this headline">¶</a></h3>
 <p>The following steps are required to add transaction target resource.</p>
-<p>For example, this applies when performing transaction control using IBM WebSphere MQ as a transaction manager for distributed transactions.</p>
+<p>For example, this applies when performing transaction control using IBM MQ as a transaction manager for distributed transactions.</p>
 <ol class="arabic simple">
 <li>Add transaction implementation</li>
 <li>Add a factory implementation to generate a transaction</li>
@@ -481,7 +481,7 @@ the remaining time of transaction timeout is not reset.</dd>
 <p>The detailed procedure is shown below.</p>
 <dl class="docutils">
 <dt>Add transaction implementation</dt>
-<dd><p class="first">Transaction implements the <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/core/transaction/Transaction.html" title="nablarch.core.transaction.Transaction">Transaction</a> interface and implements
+<dd><p class="first">Transaction implements the <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/core/transaction/Transaction.html" title="nablarch.core.transaction.Transaction">Transaction</a> interface and implements
 transaction begin/end process for the transaction target resource.</p>
 <div class="last highlight-java"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">SampleTransaction</span> <span class="kd">implements</span> <span class="n">Transaction</span> <span class="o">{</span>
 
@@ -515,7 +515,7 @@ transaction begin/end process for the transaction target resource.</p>
 </dd>
 <dt>Add a factory implementation to generate a transaction</dt>
 <dd><p class="first">Create a factory class to generate a transaction.
-Implement <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/core/transaction/TransactionFactory.html" title="nablarch.core.transaction.TransactionFactory">TransactionFactory</a> for the factory class.</p>
+Implement <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/core/transaction/TransactionFactory.html" title="nablarch.core.transaction.TransactionFactory">TransactionFactory</a> for the factory class.</p>
 <p>This example is a factory class that generates the <cite>SampleTransaction</cite> created above.</p>
 <div class="last highlight-java"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">SampleTransactionFactory</span> <span class="kd">implements</span> <span class="n">TransactionFactory</span> <span class="o">{</span>
 
@@ -562,7 +562,7 @@ Implement <a class="reference external" href="https://nablarch.github.io/docs/LA
 
     <div role="contentinfo">
         <p>
-            &copy; Copyright 2010-2023, TIS Inc.
+            &copy; Copyright 2010-2024, TIS Inc.
         </p>
     </div>
     Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
@@ -583,7 +583,7 @@ Implement <a class="reference external" href="https://nablarch.github.io/docs/LA
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../',
-            VERSION:'5u23',
+            VERSION:'5u24',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

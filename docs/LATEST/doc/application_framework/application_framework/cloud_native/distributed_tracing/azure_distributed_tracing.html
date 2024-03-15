@@ -9,7 +9,7 @@
   <meta http-equiv='content-language' content='ja'>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>11.2.2. Azureにおける分散トレーシング &mdash; ∇Nablarch  5u23 ドキュメント</title>
+  <title>11.2.2. Azureにおける分散トレーシング &mdash; ∇Nablarch  5u24 ドキュメント</title>
   
 
   
@@ -35,7 +35,7 @@
   
   <link rel="canonical" href="https://nablarch.github.io/docs/LATEST/doc/application_framework/application_framework/cloud_native/distributed_tracing/azure_distributed_tracing.html" />
   
-    <link rel="top" title="∇Nablarch  5u23 ドキュメント" href="../../../../index.html"/>
+    <link rel="top" title="∇Nablarch  5u24 ドキュメント" href="../../../../index.html"/>
         <link rel="up" title="11.2. 分散トレーシング" href="index.html"/>
         <link rel="next" title="アダプタ" href="../../../adaptors/index.html"/>
         <link rel="prev" title="11.2.1. AWSにおける分散トレーシング" href="aws_distributed_tracing.html"/>
@@ -63,7 +63,7 @@
   
 
   
-    <div id="sidebar-version">Version: 5u23</div>
+    <div id="sidebar-version">Version: 5u24</div>
   </a>
 
   <div role="search">
@@ -111,7 +111,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../adaptors/index.html">アダプタ</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../adaptors/log_adaptor.html">logアダプタ</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../adaptors/router_adaptor.html">ルーティングアダプタ</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../adaptors/webspheremq_adaptor.html">IBM WebSphere MQアダプタ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../adaptors/webspheremq_adaptor.html">IBM MQアダプタ</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../adaptors/jaxrs_adaptor.html">JAX-RSアダプタ</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../adaptors/doma_adaptor.html">Domaアダプタ</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../adaptors/jsr310_adaptor.html">JSR310(Date and Time API)アダプタ</a></li>
@@ -359,11 +359,11 @@
 <blockquote>
 <div><p>Azureでは、 <code class="docutils literal"><span class="pre">Azure</span> <span class="pre">Application</span> <span class="pre">Insights</span></code> を使用して分散トレーシングを行う。</p>
 <ul class="simple">
-<li><a class="reference external" href="https://docs.microsoft.com/ja-jp/azure/azure-monitor/app/distributed-tracing">Azure Application Insights における分散トレース(外部サイト)</a></li>
+<li><a class="reference external" href="https://learn.microsoft.com/ja-jp/azure/azure-monitor/app/app-insights-overview?tabs=java">Azure Application Insights における分散トレース(外部サイト)</a></li>
 </ul>
 <p>Javaアプリケーションから分散トレーシングを有効化するための仕組みとして、Javaエージェントを用いた方法(<strong>Java 3.0 エージェント</strong>)が提供されている。</p>
 <ul class="simple">
-<li><a class="reference external" href="https://docs.microsoft.com/ja-jp/azure/azure-monitor/app/java-in-process-agent">Azure Monitor Application Insights を監視する Java のコード不要のアプリケーション(外部サイト)</a></li>
+<li><a class="reference external" href="https://learn.microsoft.com/ja-jp/azure/azure-monitor/app/opentelemetry-enable?tabs=java">Azure Monitor Application Insights を監視する Java のコード不要のアプリケーション(外部サイト)</a></li>
 </ul>
 <div class="admonition important">
 <p class="first admonition-title">重要</p>
@@ -374,11 +374,11 @@
 したがって、性能試験では本番同様に Java 3.0 エージェントを導入し、想定内の性能になることを確認すること。</p>
 </div>
 <p>以下に、コンテナ用のアーキタイプを使用した場合の例を示す。</p>
-<p>まず、 <a class="reference external" href="https://docs.microsoft.com/ja-jp/azure/azure-monitor/app/java-in-process-agent#quickstart">Azureの公式サイト</a>  よりエージェントをダウンロードする。
+<p>まず、 <a class="reference external" href="https://learn.microsoft.com/ja-jp/azure/azure-monitor/app/opentelemetry-enable?tabs=java#install-the-client-library">Azureの公式サイト</a>  よりエージェントをダウンロードする。
 その後、<code class="docutils literal"><span class="pre">src/main/jib</span></code> 以下に任意のディレクトリを作成し、エージェントを格納する。</p>
 <p>次に、先程エージェントを格納したディレクトリに <code class="docutils literal"><span class="pre">applicationinsights.json</span></code> を配置する。
 <code class="docutils literal"><span class="pre">connectionString</span></code> にはAzure Application Insightsのリソースを作成したあとに発行されるインストルメンテーションキーを含む接続文字列を指定する。
-そのほかの構成オプションについては <a class="reference external" href="https://docs.microsoft.com/ja-jp/azure/azure-monitor/app/java-standalone-config">ガイド</a> を参照のこと。</p>
+そのほかの構成オプションについては <a class="reference external" href="https://learn.microsoft.com/ja-jp/azure/azure-monitor/app/java-standalone-config">ガイド</a> を参照のこと。</p>
 <ul class="simple">
 <li>applicationinsights.json</li>
 </ul>
@@ -413,7 +413,7 @@
 </div>
 </div></blockquote>
 <p>これでJibを使用してビルドすることにより、 <code class="docutils literal"><span class="pre">Azure</span> <span class="pre">Application</span> <span class="pre">Insights</span></code> を使用して分散トレーシングを行うことができる。</p>
-<p>詳細な設定方法については、 <a class="reference external" href="https://docs.microsoft.com/ja-jp/azure/azure-monitor/app/java-in-process-agent#quickstart">Azureのドキュメント</a> を参照のこと。</p>
+<p>詳細な設定方法については、 <a class="reference external" href="https://learn.microsoft.com/ja-jp/azure/azure-monitor/app/opentelemetry-enable?tabs=java">Azureのドキュメント</a> を参照のこと。</p>
 </div>
 </div>
 
@@ -429,7 +429,7 @@
 
     <div role="contentinfo">
         <p>
-            &copy; Copyright 2010-2023, TIS Inc.
+            &copy; Copyright 2010-2024, TIS Inc.
         </p>
     </div>
     Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
@@ -450,7 +450,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../../',
-            VERSION:'5u23',
+            VERSION:'5u24',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

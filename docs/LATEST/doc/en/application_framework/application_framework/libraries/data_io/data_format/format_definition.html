@@ -9,7 +9,7 @@
   <meta http-equiv='content-language' content='ja'>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>7.4.2.3.1.1. Description Rules for Format Definition File &mdash; ∇Nablarch  5u23 documentation</title>
+  <title>7.4.2.3.1.1. Description Rules for Format Definition File &mdash; ∇Nablarch  5u24 documentation</title>
   
 
   
@@ -35,7 +35,7 @@
   
   <link rel="canonical" href="https://nablarch.github.io/docs/LATEST/doc/application_framework/application_framework/libraries/data_io/data_format/format_definition.html" />
   
-    <link rel="top" title="∇Nablarch  5u23 documentation" href="../../../../../index.html"/>
+    <link rel="top" title="∇Nablarch  5u24 documentation" href="../../../../../index.html"/>
         <link rel="up" title="7.4.2. General Data Format" href="../data_format.html"/>
         <link rel="next" title="7.4.2.3.1.1.4.2.1. Sample Collection of Fixed (Fixed-Length) Multi Format Definition" href="multi_format_example.html"/>
         <link rel="prev" title="7.4.2. General Data Format" href="../data_format.html"/>
@@ -63,7 +63,7 @@
   
 
   
-    <div id="sidebar-version">Version: 5u23</div>
+    <div id="sidebar-version">Version: 5u24</div>
   </a>
 
   <div role="search">
@@ -111,7 +111,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../../adaptors/index.html">Adaptor</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../../adaptors/log_adaptor.html">log Adapter</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../adaptors/router_adaptor.html">Routing Adapter</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../adaptors/webspheremq_adaptor.html">IBM WebSphere MQ Adapter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../adaptors/webspheremq_adaptor.html">IBM MQ Adapter</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../adaptors/jaxrs_adaptor.html">JAX-RS Adapter</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../adaptors/doma_adaptor.html">Doma Adapter</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../adaptors/jsr310_adaptor.html">JSR310(Date and Time API)Adapter</a></li>
@@ -953,7 +953,7 @@ format definition for multiformat is not supported.</p>
 </table>
 <p>If the output target value is <code class="docutils literal"><span class="pre">null</span></code>, the value is converted to an empty character before processing.</p>
 <p class="last">If the read value is an empty string, it is converted to <code class="docutils literal"><span class="pre">null</span></code>.
-Configure <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/core/dataformat/convertor/FixedLengthConvertorSetting.html#setConvertEmptyToNull-boolean-" title="nablarch.core.dataformat.convertor.FixedLengthConvertorSetting.setConvertEmptyToNull(boolean)">convertEmptyToNull</a> to <code class="docutils literal"><span class="pre">false</span></code>
+Configure <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/core/dataformat/convertor/FixedLengthConvertorSetting.html#setConvertEmptyToNull-boolean-" title="nablarch.core.dataformat.convertor.FixedLengthConvertorSetting.setConvertEmptyToNull(boolean)">convertEmptyToNull</a> to <code class="docutils literal"><span class="pre">false</span></code>
 if conversion of empty string to <code class="docutils literal"><span class="pre">null</span></code> is not required.</p>
 </td>
 </tr>
@@ -1011,7 +1011,7 @@ the handling is the same as <a class="reference internal" href="#data-format-fie
 </table>
 <p>If the output target value is <code class="docutils literal"><span class="pre">null</span></code>, the value is converted to <code class="docutils literal"><span class="pre">0</span></code> before processing.</p>
 <p class="last">If the number of bytes in the read value is <code class="docutils literal"><span class="pre">0</span></code>, it is converted to <code class="docutils literal"><span class="pre">null</span></code>.
-Configure <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/core/dataformat/convertor/FixedLengthConvertorSetting.html#setConvertEmptyToNull-boolean-" title="nablarch.core.dataformat.convertor.FixedLengthConvertorSetting.setConvertEmptyToNull(boolean)">convertEmptyToNull</a> to <code class="docutils literal"><span class="pre">false</span></code>,
+Configure <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/core/dataformat/convertor/FixedLengthConvertorSetting.html#setConvertEmptyToNull-boolean-" title="nablarch.core.dataformat.convertor.FixedLengthConvertorSetting.setConvertEmptyToNull(boolean)">convertEmptyToNull</a> to <code class="docutils literal"><span class="pre">false</span></code>,
 when the number of bytes is <code class="docutils literal"><span class="pre">0</span></code> and conversion to <code class="docutils literal"><span class="pre">null</span></code> is not required.</p>
 </td>
 </tr>
@@ -1095,7 +1095,7 @@ then the handling is the same as <a class="reference internal" href="#data-forma
 </table>
 <p>The conversion specifications for each application are different when the output value is <code class="docutils literal"><span class="pre">null</span></code>.
 Therefore, the value is not converted for this field type even in such a case and
-<a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/core/dataformat/InvalidDataFormatException.html" title="nablarch.core.dataformat.InvalidDataFormatException">InvalidDataFormatException</a>
+<a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/core/dataformat/InvalidDataFormatException.html" title="nablarch.core.dataformat.InvalidDataFormatException">InvalidDataFormatException</a>
 is thrown.</p>
 <p class="last">When using this field type, configure the value explicitly in the application according to the requirements.</p>
 </td>
@@ -1143,7 +1143,7 @@ then the handling is the same as <a class="reference internal" href="#data-forma
 the handling is the same as <a class="reference internal" href="#data-format-field-type-single-byte-character-string"><span>single byte string field type</span></a>.</p>
 <p>To change the sign character (<code class="docutils literal"><span class="pre">+</span></code> 、<code class="docutils literal"><span class="pre">-</span></code>), a project-specific field type can be created to support the implementation of the following classes.</p>
 <ul class="simple">
-<li><a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/core/dataformat/convertor/datatype/SignedNumberStringDecimal.html" title="nablarch.core.dataformat.convertor.datatype.SignedNumberStringDecimal">SignedNumberStringDecimal</a></li>
+<li><a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/core/dataformat/convertor/datatype/SignedNumberStringDecimal.html" title="nablarch.core.dataformat.convertor.datatype.SignedNumberStringDecimal">SignedNumberStringDecimal</a></li>
 </ul>
 <p class="last">For additional field types, see <a class="reference internal" href="../data_format.html#data-format-field-type-add"><span>Add a field type</span></a>.</p>
 </td>
@@ -1179,7 +1179,7 @@ use <a class="reference internal" href="#data-format-number-convertor"><span>num
 or <a class="reference internal" href="#data-format-signed-number-convertor"><span>signed_number converter</span></a>.</p>
 <p>If the output target value is <code class="docutils literal"><span class="pre">null</span></code>, the value is converted to a empty character before processing.</p>
 <p class="last">If the read value is an empty string, it is converted to <code class="docutils literal"><span class="pre">null</span></code>.
-Configure <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/core/dataformat/convertor/VariableLengthConvertorSetting.html#setConvertEmptyToNull-boolean-" title="nablarch.core.dataformat.convertor.VariableLengthConvertorSetting.setConvertEmptyToNull(boolean)">convertEmptyToNull</a> to <code class="docutils literal"><span class="pre">false</span></code> if conversion of empty string to null is not required.</p>
+Configure <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/core/dataformat/convertor/VariableLengthConvertorSetting.html#setConvertEmptyToNull-boolean-" title="nablarch.core.dataformat.convertor.VariableLengthConvertorSetting.setConvertEmptyToNull(boolean)">convertEmptyToNull</a> to <code class="docutils literal"><span class="pre">false</span></code> if conversion of empty string to null is not required.</p>
 </td>
 </tr>
 </tbody>
@@ -1438,7 +1438,7 @@ Therefore, item definition is not required for items that are present in the dat
 
     <div role="contentinfo">
         <p>
-            &copy; Copyright 2010-2023, TIS Inc.
+            &copy; Copyright 2010-2024, TIS Inc.
         </p>
     </div>
     Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
@@ -1459,7 +1459,7 @@ Therefore, item definition is not required for items that are present in the dat
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../../../',
-            VERSION:'5u23',
+            VERSION:'5u24',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

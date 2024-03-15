@@ -9,7 +9,7 @@
   <meta http-equiv='content-language' content='ja'>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Nablarch upgrade policy &mdash; ∇Nablarch  5u23 documentation</title>
+  <title>Nablarch upgrade policy &mdash; ∇Nablarch  5u24 documentation</title>
   
 
   
@@ -35,7 +35,7 @@
   
   <link rel="canonical" href="https://nablarch.github.io/docs/LATEST/doc/about_nablarch/versionup_policy.html" />
   
-    <link rel="top" title="∇Nablarch  5u23 documentation" href="../index.html"/>
+    <link rel="top" title="∇Nablarch  5u24 documentation" href="../index.html"/>
         <link rel="next" title="Terms of Use" href="../terms_of_use/index.html"/>
         <link rel="prev" title="Nablarch API" href="../nablarch_api/index.html"/>
 
@@ -62,7 +62,7 @@
   
 
   
-    <div id="sidebar-version">Version: 5u23</div>
+    <div id="sidebar-version">Version: 5u24</div>
   </a>
 
   <div role="search">
@@ -110,7 +110,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../application_framework/adaptors/index.html">Adaptor</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../application_framework/adaptors/log_adaptor.html">log Adapter</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../application_framework/adaptors/router_adaptor.html">Routing Adapter</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../application_framework/adaptors/webspheremq_adaptor.html">IBM WebSphere MQ Adapter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../application_framework/adaptors/webspheremq_adaptor.html">IBM MQ Adapter</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../application_framework/adaptors/jaxrs_adaptor.html">JAX-RS Adapter</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../application_framework/adaptors/doma_adaptor.html">Doma Adapter</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../application_framework/adaptors/jsr310_adaptor.html">JSR310(Date and Time API)Adapter</a></li>
@@ -448,10 +448,10 @@ except in cases where <a class="reference internal" href="#versionup-policy-back
 <div class="admonition important">
 <p class="first admonition-title">Important</p>
 <p>This backward compatibility policy covers the public APIs defined by Nablarch among the framework&#8217;s APIs.
-The public APIs defined by Nablarch are those with the <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/core/util/annotation/Published.html" title="nablarch.core.util.annotation.Published">Published</a> annotation.
-When all APIs of a class are published, the <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/core/util/annotation/Published.html" title="nablarch.core.util.annotation.Published">Published</a>
+The public APIs defined by Nablarch are those with the <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/core/util/annotation/Published.html" title="nablarch.core.util.annotation.Published">Published</a> annotation.
+When all APIs of a class are published, the <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/core/util/annotation/Published.html" title="nablarch.core.util.annotation.Published">Published</a>
 annotation is added to the class declaration, and when individual methods are published,
-the <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/core/util/annotation/Published.html" title="nablarch.core.util.annotation.Published">Published</a> annotation is added to the method declaration.
+the <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/core/util/annotation/Published.html" title="nablarch.core.util.annotation.Published">Published</a> annotation is added to the method declaration.
 An API without the Published annotation is a unauthorized  API.</p>
 <p><strong>Do not use the unauthorized  API in your project as the unauthorized API may be upgraded without maintaining backward compatibility.</strong>
 <strong>If you use unauthorized  APIs in your project, backward compatibility will not be maintained when upgrading, and unexpected problems may occur.</strong></p>
@@ -517,7 +517,7 @@ In this case, even if the API is backward compatible, it needs to be dealt with 
 
     <div role="contentinfo">
         <p>
-            &copy; Copyright 2010-2023, TIS Inc.
+            &copy; Copyright 2010-2024, TIS Inc.
         </p>
     </div>
     Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
@@ -538,7 +538,7 @@ In this case, even if the API is backward compatible, it needs to be dealt with 
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'5u23',
+            VERSION:'5u24',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

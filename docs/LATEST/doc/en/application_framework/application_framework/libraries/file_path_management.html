@@ -9,7 +9,7 @@
   <meta http-equiv='content-language' content='ja'>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>7.5. File path management &mdash; ∇Nablarch  5u23 documentation</title>
+  <title>7.5. File path management &mdash; ∇Nablarch  5u24 documentation</title>
   
 
   
@@ -35,7 +35,7 @@
   
   <link rel="canonical" href="https://nablarch.github.io/docs/LATEST/doc/application_framework/application_framework/libraries/file_path_management.html" />
   
-    <link rel="top" title="∇Nablarch  5u23 documentation" href="../../../index.html"/>
+    <link rel="top" title="∇Nablarch  5u24 documentation" href="../../../index.html"/>
         <link rel="up" title="7. Libraries Provided by Nablarch" href="index.html"/>
         <link rel="next" title="7.6. Intersystem Messaging" href="system_messaging.html"/>
         <link rel="prev" title="7.4.3. Comparison Table of Data Bind and General Data Format" href="data_io/functional_comparison.html"/>
@@ -63,7 +63,7 @@
   
 
   
-    <div id="sidebar-version">Version: 5u23</div>
+    <div id="sidebar-version">Version: 5u24</div>
   </a>
 
   <div role="search">
@@ -111,7 +111,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../adaptors/index.html">Adaptor</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../adaptors/log_adaptor.html">log Adapter</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../adaptors/router_adaptor.html">Routing Adapter</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../adaptors/webspheremq_adaptor.html">IBM WebSphere MQ Adapter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../adaptors/webspheremq_adaptor.html">IBM MQ Adapter</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../adaptors/jaxrs_adaptor.html">JAX-RS Adapter</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../adaptors/doma_adaptor.html">Doma Adapter</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../adaptors/jsr310_adaptor.html">JSR310(Date and Time API)Adapter</a></li>
@@ -351,14 +351,14 @@
 <h2><a class="toc-backref" href="#id5">7.5.3. How to use</a><a class="headerlink" href="#how-to-use" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="configure-the-directory-and-extension">
 <span id="file-path-management-definition"></span><h3><a class="toc-backref" href="#id6">7.5.3.1. Configure the directory and extension</a><a class="headerlink" href="#configure-the-directory-and-extension" title="Permalink to this headline">¶</a></h3>
-<p>Configure the directory and extension in <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/core/util/FilePathSetting.html" title="nablarch.core.util.FilePathSetting">FilePathSetting</a>  and define in the component configuration file.</p>
+<p>Configure the directory and extension in <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/core/util/FilePathSetting.html" title="nablarch.core.util.FilePathSetting">FilePathSetting</a>  and define in the component configuration file.</p>
 <p>An example is shown below.</p>
 <dl class="docutils">
 <dt>Point</dt>
 <dd><ul class="first simple">
-<li>Set the component name of <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/core/util/FilePathSetting.html" title="nablarch.core.util.FilePathSetting">FilePathSetting</a>  to  <code class="docutils literal"><span class="pre">filePathSetting</span></code> .</li>
-<li>Configure the directory in <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/core/util/FilePathSetting.html#setBasePathSettings-java.util.Map-" title="nablarch.core.util.FilePathSetting.setBasePathSettings(java.util.Map)">basePathSettings</a></li>
-<li>Configure the extension in <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/core/util/FilePathSetting.html#setFileExtensions-java.util.Map-" title="nablarch.core.util.FilePathSetting.setFileExtensions(java.util.Map)">fileExtensions</a> .</li>
+<li>Set the component name of <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/core/util/FilePathSetting.html" title="nablarch.core.util.FilePathSetting">FilePathSetting</a>  to  <code class="docutils literal"><span class="pre">filePathSetting</span></code> .</li>
+<li>Configure the directory in <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/core/util/FilePathSetting.html#setBasePathSettings-java.util.Map-" title="nablarch.core.util.FilePathSetting.setBasePathSettings(java.util.Map)">basePathSettings</a></li>
+<li>Configure the extension in <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/core/util/FilePathSetting.html#setFileExtensions-java.util.Map-" title="nablarch.core.util.FilePathSetting.setFileExtensions(java.util.Map)">fileExtensions</a> .</li>
 <li>When configuring multiple extensions for one directory, set multiple logical names.</li>
 <li>If the file has no extension, omit the extension configuration for that logical name.</li>
 <li>The scheme can be  <code class="docutils literal"><span class="pre">file</span></code>  and <code class="docutils literal"><span class="pre">classpath</span></code> . If omitted,  <code class="docutils literal"><span class="pre">classpath</span></code>  is used.</li>
@@ -405,7 +405,7 @@ This is because the web application server uses its own file system to manage th
 </div>
 <div class="section" id="acquire-the-file-path-indicated-by-the-logical-name">
 <h2><a class="toc-backref" href="#id7">7.5.4. Acquire the file path indicated by the logical name</a><a class="headerlink" href="#acquire-the-file-path-indicated-by-the-logical-name" title="Permalink to this headline">¶</a></h2>
-<p>Use <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/core/util/FilePathSetting.html" title="nablarch.core.util.FilePathSetting">FilePathSetting</a>  to acquire the file path corresponding to the logical name.</p>
+<p>Use <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/core/util/FilePathSetting.html" title="nablarch.core.util.FilePathSetting">FilePathSetting</a>  to acquire the file path corresponding to the logical name.</p>
 <p>Several usage examples are shown below.</p>
 <div class="highlight-java"><div class="highlight"><pre><span></span><span class="c1">// /var/nablarch/input/users.csv</span>
 <span class="n">File</span> <span class="n">users</span> <span class="o">=</span> <span class="n">filePathSetting</span><span class="o">.</span><span class="na">getFileWithoutCreate</span><span class="o">(</span><span class="s">&quot;csv-input&quot;</span><span class="o">,</span> <span class="s">&quot;users&quot;</span><span class="o">)</span>
@@ -432,7 +432,7 @@ This is because the web application server uses its own file system to manage th
 
     <div role="contentinfo">
         <p>
-            &copy; Copyright 2010-2023, TIS Inc.
+            &copy; Copyright 2010-2024, TIS Inc.
         </p>
     </div>
     Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
@@ -453,7 +453,7 @@ This is because the web application server uses its own file system to manage th
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../',
-            VERSION:'5u23',
+            VERSION:'5u24',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

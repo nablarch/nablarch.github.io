@@ -9,7 +9,7 @@
   <meta http-equiv='content-language' content='ja'>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>11.2.2. Distributed Tracing in Azure &mdash; ∇Nablarch  5u23 documentation</title>
+  <title>11.2.2. Distributed Tracing in Azure &mdash; ∇Nablarch  5u24 documentation</title>
   
 
   
@@ -35,7 +35,7 @@
   
   <link rel="canonical" href="https://nablarch.github.io/docs/LATEST/doc/application_framework/application_framework/cloud_native/distributed_tracing/azure_distributed_tracing.html" />
   
-    <link rel="top" title="∇Nablarch  5u23 documentation" href="../../../../index.html"/>
+    <link rel="top" title="∇Nablarch  5u24 documentation" href="../../../../index.html"/>
         <link rel="up" title="11.2. Distributed Tracing" href="index.html"/>
         <link rel="next" title="Adaptor" href="../../../adaptors/index.html"/>
         <link rel="prev" title="11.2.1. Distributed Tracing in AWS" href="aws_distributed_tracing.html"/>
@@ -63,7 +63,7 @@
   
 
   
-    <div id="sidebar-version">Version: 5u23</div>
+    <div id="sidebar-version">Version: 5u24</div>
   </a>
 
   <div role="search">
@@ -111,7 +111,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../adaptors/index.html">Adaptor</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../adaptors/log_adaptor.html">log Adapter</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../adaptors/router_adaptor.html">Routing Adapter</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../adaptors/webspheremq_adaptor.html">IBM WebSphere MQ Adapter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../adaptors/webspheremq_adaptor.html">IBM MQ Adapter</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../adaptors/jaxrs_adaptor.html">JAX-RS Adapter</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../adaptors/doma_adaptor.html">Doma Adapter</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../adaptors/jsr310_adaptor.html">JSR310(Date and Time API)Adapter</a></li>
@@ -321,11 +321,11 @@
 <blockquote>
 <div><p>In Azure, distributed tracing is done using <code class="docutils literal"><span class="pre">Azure</span> <span class="pre">Application</span> <span class="pre">Insights</span></code>.</p>
 <ul class="simple">
-<li><a class="reference external" href="https://docs.microsoft.com/en-us/azure/azure-monitor/app/distributed-tracing">Distributed tracing in Azure Application Insights (external site)</a></li>
+<li><a class="reference external" href="https://learn.microsoft.com/en-us/azure/azure-monitor/app/app-insights-overview?tabs=java">Distributed tracing in Azure Application Insights (external site)</a></li>
 </ul>
 <p>A mechanism for enabling distributed tracing from Java applications is provided by using a Java agent (<strong>Java 3.0 agent</strong>).</p>
 <ul class="simple">
-<li><a class="reference external" href="https://docs.microsoft.com/en-us/azure/azure-monitor/app/java-in-process-agent">Azure Monitor Application Insights monitoring Java code-free applications (external site)</a></li>
+<li><a class="reference external" href="https://learn.microsoft.com/en-us/azure/azure-monitor/app/opentelemetry-enable?tabs=java">Azure Monitor Application Insights monitoring Java code-free applications (external site)</a></li>
 </ul>
 <div class="admonition important">
 <p class="first admonition-title">Important</p>
@@ -336,11 +336,11 @@ This may cause frequent GC during the initialization process of the Java 3.0 age
 Therefore, you should confirm the performance in the performance test with the Java 3.0 agent as in production.</p>
 </div>
 <p>The following is an example of using the archetype for containers.</p>
-<p>First, download the agent from the official website of <a class="reference external" href="https://docs.microsoft.com/en-us/azure/azure-monitor/app/java-in-process-agent#quickstart">Azure</a>.
+<p>First, download the agent from the official website of <a class="reference external" href="https://learn.microsoft.com/en-us/azure/azure-monitor/app/opentelemetry-enable?tabs=java#install-the-client-library">Azure</a>.
 Then, create an arbitrary directory under <code class="docutils literal"><span class="pre">src/main/jib</span></code> and store the agent.</p>
 <p>Next, place <code class="docutils literal"><span class="pre">applicationinsights.json</span></code> in the directory where you have just stored the agent.
 The <code class="docutils literal"><span class="pre">connectionString</span></code> is a connection string containing the instrumentation key that will be issued after the Azure Application Insights resource is created.
-For other configuration options, see the <a class="reference external" href="https://docs.microsoft.com/en-us/azure/azure-monitor/app/java-standalone-config">Guide</a>.</p>
+For other configuration options, see the <a class="reference external" href="https://learn.microsoft.com/en-us/azure/azure-monitor/app/java-standalone-config">Guide</a>.</p>
 <ul class="simple">
 <li>applicationinsights.json</li>
 </ul>
@@ -374,7 +374,7 @@ For other configuration options, see the <a class="reference external" href="htt
 </div>
 </div></blockquote>
 <p>Now you can use <code class="docutils literal"><span class="pre">Azure</span> <span class="pre">Application</span> <span class="pre">Insights</span></code> for distributed tracing by building with Jib.</p>
-<p>For detailed configuration instructions, see the <a class="reference external" href="https://docs.microsoft.com/en-us/azure/azure-monitor/app/java-in-process-agent#quickstart">Azure documentation</a>.</p>
+<p>For detailed configuration instructions, see the <a class="reference external" href="https://learn.microsoft.com/en-us/azure/azure-monitor/app/opentelemetry-enable?tabs=java">Azure documentation</a>.</p>
 </div>
 </div>
 
@@ -390,7 +390,7 @@ For other configuration options, see the <a class="reference external" href="htt
 
     <div role="contentinfo">
         <p>
-            &copy; Copyright 2010-2023, TIS Inc.
+            &copy; Copyright 2010-2024, TIS Inc.
         </p>
     </div>
     Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
@@ -411,7 +411,7 @@ For other configuration options, see the <a class="reference external" href="htt
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../../',
-            VERSION:'5u23',
+            VERSION:'5u24',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

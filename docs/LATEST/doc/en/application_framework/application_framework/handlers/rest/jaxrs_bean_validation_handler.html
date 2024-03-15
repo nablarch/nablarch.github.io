@@ -9,7 +9,7 @@
   <meta http-equiv='content-language' content='ja'>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>6.4.2. JAX-RS BeanValidation Handler &mdash; ∇Nablarch  5u23 documentation</title>
+  <title>6.4.2. JAX-RS BeanValidation Handler &mdash; ∇Nablarch  5u24 documentation</title>
   
 
   
@@ -35,7 +35,7 @@
   
   <link rel="canonical" href="https://nablarch.github.io/docs/LATEST/doc/application_framework/application_framework/handlers/rest/jaxrs_bean_validation_handler.html" />
   
-    <link rel="top" title="∇Nablarch  5u23 documentation" href="../../../../index.html"/>
+    <link rel="top" title="∇Nablarch  5u24 documentation" href="../../../../index.html"/>
         <link rel="up" title="6.4. RESTful Web Service Dedicated Handler" href="index.html"/>
         <link rel="next" title="6.4.3. JAX-RS Response Handler" href="jaxrs_response_handler.html"/>
         <link rel="prev" title="6.4.1. Request Body Conversion Handler" href="body_convert_handler.html"/>
@@ -63,7 +63,7 @@
   
 
   
-    <div id="sidebar-version">Version: 5u23</div>
+    <div id="sidebar-version">Version: 5u24</div>
   </a>
 
   <div role="search">
@@ -111,7 +111,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../adaptors/index.html">Adaptor</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../adaptors/log_adaptor.html">log Adapter</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../adaptors/router_adaptor.html">Routing Adapter</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../adaptors/webspheremq_adaptor.html">IBM WebSphere MQ Adapter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../adaptors/webspheremq_adaptor.html">IBM MQ Adapter</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../adaptors/jaxrs_adaptor.html">JAX-RS Adapter</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../adaptors/doma_adaptor.html">Doma Adapter</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../adaptors/jsr310_adaptor.html">JSR310(Date and Time API)Adapter</a></li>
@@ -327,7 +327,7 @@
 </div>
 <p>This handler executes <a class="reference internal" href="../../libraries/validation/bean_validation.html#bean-validation"><span>Bean Validation</span></a> for Form (Bean) received by the resource (action) class.
 If a validation error occurs during validation, the process is not delegated to the subsequent handler,
-and the process is ended after sending <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/core/message/ApplicationException.html" title="nablarch.core.message.ApplicationException">ApplicationException</a>.</p>
+and the process is ended after sending <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/core/message/ApplicationException.html" title="nablarch.core.message.ApplicationException">ApplicationException</a>.</p>
 <p>This handler performs the following process.</p>
 <ul class="simple">
 <li>Performs <a class="reference internal" href="../../libraries/validation/bean_validation.html#bean-validation"><span>Bean Validation</span></a> for the form received by the resource (action) class method.</li>
@@ -337,7 +337,7 @@ and the process is ended after sending <a class="reference external" href="https
 <div class="section" id="handler-class-name">
 <h2><a class="toc-backref" href="#id1">6.4.2.1. Handler class name</a><a class="headerlink" href="#handler-class-name" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/fw/jaxrs/JaxRsBeanValidationHandler.html" title="nablarch.fw.jaxrs.JaxRsBeanValidationHandler">nablarch.fw.jaxrs.JaxRsBeanValidationHandler</a></li>
+<li><a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/fw/jaxrs/JaxRsBeanValidationHandler.html" title="nablarch.fw.jaxrs.JaxRsBeanValidationHandler">nablarch.fw.jaxrs.JaxRsBeanValidationHandler</a></li>
 </ul>
 </div>
 <div class="section" id="module-list">
@@ -365,7 +365,7 @@ and the process is ended after sending <a class="reference external" href="https
 <div class="section" id="execute-validation-for-form-bean-received-by-resource-action">
 <span id="jaxrs-bean-validation-handler-perform-validation"></span><h2><a class="toc-backref" href="#id4">6.4.2.4. Execute validation for Form (Bean) received by resource (action)</a><a class="headerlink" href="#execute-validation-for-form-bean-received-by-resource-action" title="Permalink to this headline">¶</a></h2>
 <p>To validate the Form (Bean) received by the resource (action) method,
-configure <a class="reference external" href="http://docs.oracle.com/javaee/7/api/javax/validation/Valid.html" title="javax.validation.Valid">Valid</a> annotation for that method.</p>
+configure <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/validation/Valid.html" title="javax.validation.Valid">Valid</a> annotation for that method.</p>
 <p>An example is shown below.</p>
 <div class="highlight-java"><div class="highlight"><pre><span></span><span class="c1">// Since validation has to be performed on the Person object,</span>
 <span class="c1">// configure a Valid annotation.</span>
@@ -381,13 +381,13 @@ configure <a class="reference external" href="http://docs.oracle.com/javaee/7/ap
 </div>
 <div class="section" id="specify-group-of-bean-validation">
 <h2><a class="toc-backref" href="#id5">6.4.2.5. Specify Group of Bean Validation</a><a class="headerlink" href="#specify-group-of-bean-validation" title="Permalink to this headline">¶</a></h2>
-<p>A Bean Validation group can be specified by setting the <a class="reference external" href="http://docs.oracle.com/javaee/7/api/javax/validation/groups/ConvertGroup.html" title="javax.validation.groups.ConvertGroup">ConvertGroup</a> annotation for the method with the <a class="reference external" href="http://docs.oracle.com/javaee/7/api/javax/validation/Valid.html" title="javax.validation.Valid">Valid</a> annotation set.</p>
-<p>The <code class="docutils literal"><span class="pre">from</span></code> and <code class="docutils literal"><span class="pre">to</span></code> attributes must be specified for the <a class="reference external" href="http://docs.oracle.com/javaee/7/api/javax/validation/groups/ConvertGroup.html" title="javax.validation.groups.ConvertGroup">ConvertGroup</a> annotation.
+<p>A Bean Validation group can be specified by setting the <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/validation/groups/ConvertGroup.html" title="javax.validation.groups.ConvertGroup">ConvertGroup</a> annotation for the method with the <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/validation/Valid.html" title="javax.validation.Valid">Valid</a> annotation set.</p>
+<p>The <code class="docutils literal"><span class="pre">from</span></code> and <code class="docutils literal"><span class="pre">to</span></code> attributes must be specified for the <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/validation/groups/ConvertGroup.html" title="javax.validation.groups.ConvertGroup">ConvertGroup</a> annotation.
 Each must be specified as follows.</p>
 <ul class="simple">
-<li><code class="docutils literal"><span class="pre">from</span></code> : Specify <a class="reference external" href="http://docs.oracle.com/javaee/7/api/javax/validation/groups/Default.html" title="javax.validation.groups.Default">Default.class</a> as a fixed value.<ul>
-<li>If you set the <a class="reference external" href="http://docs.oracle.com/javaee/7/api/javax/validation/Valid.html" title="javax.validation.Valid">Valid</a> annotation to a method,
-the validation is considered to have set the <a class="reference external" href="http://docs.oracle.com/javaee/7/api/javax/validation/groups/Default.html" title="javax.validation.groups.Default">Default</a> group and will be executed.</li>
+<li><code class="docutils literal"><span class="pre">from</span></code> : Specify <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/validation/groups/Default.html" title="javax.validation.groups.Default">Default.class</a> as a fixed value.<ul>
+<li>If you set the <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/validation/Valid.html" title="javax.validation.Valid">Valid</a> annotation to a method,
+the validation is considered to have set the <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/validation/groups/Default.html" title="javax.validation.groups.Default">Default</a> group and will be executed.</li>
 </ul>
 </li>
 <li><code class="docutils literal"><span class="pre">to</span></code> : Specify the group of Bean Validation.</li>
@@ -420,7 +420,7 @@ the validation is considered to have set the <a class="reference external" href=
 
     <div role="contentinfo">
         <p>
-            &copy; Copyright 2010-2023, TIS Inc.
+            &copy; Copyright 2010-2024, TIS Inc.
         </p>
     </div>
     Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
@@ -441,7 +441,7 @@ the validation is considered to have set the <a class="reference external" href=
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../../',
-            VERSION:'5u23',
+            VERSION:'5u24',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

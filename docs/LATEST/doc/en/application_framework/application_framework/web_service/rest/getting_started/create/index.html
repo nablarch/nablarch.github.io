@@ -9,7 +9,7 @@
   <meta http-equiv='content-language' content='ja'>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>3.1.3.1. Creation of a Registration Function &mdash; ∇Nablarch  5u23 documentation</title>
+  <title>3.1.3.1. Creation of a Registration Function &mdash; ∇Nablarch  5u24 documentation</title>
   
 
   
@@ -35,7 +35,7 @@
   
   <link rel="canonical" href="https://nablarch.github.io/docs/LATEST/doc/application_framework/application_framework/web_service/rest/getting_started/create/index.html" />
   
-    <link rel="top" title="∇Nablarch  5u23 documentation" href="../../../../../../index.html"/>
+    <link rel="top" title="∇Nablarch  5u24 documentation" href="../../../../../../index.html"/>
         <link rel="up" title="3.1.3. Getting Started" href="../index.html"/>
         <link rel="next" title="3.1.3.2. Create a Search Function" href="../search/index.html"/>
         <link rel="prev" title="3.1.3. Getting Started" href="../index.html"/>
@@ -63,7 +63,7 @@
   
 
   
-    <div id="sidebar-version">Version: 5u23</div>
+    <div id="sidebar-version">Version: 5u24</div>
   </a>
 
   <div role="search">
@@ -111,7 +111,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../../../adaptors/index.html">Adaptor</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../../../adaptors/log_adaptor.html">log Adapter</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../../adaptors/router_adaptor.html">Routing Adapter</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../../adaptors/webspheremq_adaptor.html">IBM WebSphere MQ Adapter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../adaptors/webspheremq_adaptor.html">IBM MQ Adapter</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../../adaptors/jaxrs_adaptor.html">JAX-RS Adapter</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../../adaptors/doma_adaptor.html">Doma Adapter</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../../adaptors/jsr310_adaptor.html">JSR310(Date and Time API)Adapter</a></li>
@@ -420,11 +420,11 @@
 <dl class="last docutils">
 <dt>Key points of this implementation</dt>
 <dd><ul class="first last simple">
-<li>To accept the request in JSON format, specify <a class="reference external" href="http://docs.oracle.com/javaee/7/api/javax/ws/rs/Consumes.html" title="javax.ws.rs.Consumes">Consumes</a> in the <code class="docutils literal"><span class="pre">MediaType.APPLICATION_JSON</span></code> annotation.</li>
-<li>Validates the request using the <a class="reference external" href="http://docs.oracle.com/javaee/7/api/javax/validation/Valid.html" title="javax.validation.Valid">Valid</a> .
+<li>To accept the request in JSON format, specify <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/ws/rs/Consumes.html" title="javax.ws.rs.Consumes">Consumes</a> in the <code class="docutils literal"><span class="pre">MediaType.APPLICATION_JSON</span></code> annotation.</li>
+<li>Validates the request using the <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/validation/Valid.html" title="javax.validation.Valid">Valid</a> .
 For details, see <a class="reference internal" href="../../../../handlers/rest/jaxrs_bean_validation_handler.html#jaxrs-bean-validation-handler"><span>JAX-RS BeanValidation Handler</span></a> .</li>
-<li>Convert the form to an entity with <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/core/beans/BeanUtil.html" title="nablarch.core.beans.BeanUtil">BeanUtil</a> and register the project information in the database using <a class="reference internal" href="../../../../libraries/database/universal_dao.html#universal-dao"><span>Universal DAO</span></a>.</li>
-<li><a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/fw/web/HttpResponse.html" title="nablarch.fw.web.HttpResponse">HttpResponse</a> is returned as the return value, indicating that the creation of the resource is complete (status code: <code class="docutils literal"><span class="pre">201</span></code>).</li>
+<li>Convert the form to an entity with <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/core/beans/BeanUtil.html" title="nablarch.core.beans.BeanUtil">BeanUtil</a> and register the project information in the database using <a class="reference internal" href="../../../../libraries/database/universal_dao.html#universal-dao"><span>Universal DAO</span></a>.</li>
+<li><a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/fw/web/HttpResponse.html" title="nablarch.fw.web.HttpResponse">HttpResponse</a> is returned as the return value, indicating that the creation of the resource is complete (status code: <code class="docutils literal"><span class="pre">201</span></code>).</li>
 </ul>
 </dd>
 </dl>
@@ -471,7 +471,7 @@ Use <a class="reference internal" href="../../../../../adaptors/router_adaptor.h
 
     <div role="contentinfo">
         <p>
-            &copy; Copyright 2010-2023, TIS Inc.
+            &copy; Copyright 2010-2024, TIS Inc.
         </p>
     </div>
     Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
@@ -492,7 +492,7 @@ Use <a class="reference internal" href="../../../../../adaptors/router_adaptor.h
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../../../../',
-            VERSION:'5u23',
+            VERSION:'5u24',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

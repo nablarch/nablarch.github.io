@@ -9,7 +9,7 @@
   <meta http-equiv='content-language' content='ja'>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>7.2. System Repository &mdash; ∇Nablarch  5u23 documentation</title>
+  <title>7.2. System Repository &mdash; ∇Nablarch  5u24 documentation</title>
   
 
   
@@ -35,7 +35,7 @@
   
   <link rel="canonical" href="https://nablarch.github.io/docs/LATEST/doc/application_framework/application_framework/libraries/repository.html" />
   
-    <link rel="top" title="∇Nablarch  5u23 documentation" href="../../../index.html"/>
+    <link rel="top" title="∇Nablarch  5u24 documentation" href="../../../index.html"/>
         <link rel="up" title="7. Libraries Provided by Nablarch" href="index.html"/>
         <link rel="next" title="7.3. Database Access" href="database_management.html"/>
         <link rel="prev" title="7.1.1.2.6. Output Messaging Log" href="log/messaging_log.html"/>
@@ -63,7 +63,7 @@
   
 
   
-    <div id="sidebar-version">Version: 5u23</div>
+    <div id="sidebar-version">Version: 5u24</div>
   </a>
 
   <div role="search">
@@ -111,7 +111,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../adaptors/index.html">Adaptor</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../adaptors/log_adaptor.html">log Adapter</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../adaptors/router_adaptor.html">Routing Adapter</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../adaptors/webspheremq_adaptor.html">IBM WebSphere MQ Adapter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../adaptors/webspheremq_adaptor.html">IBM MQ Adapter</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../adaptors/jaxrs_adaptor.html">JAX-RS Adapter</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../adaptors/doma_adaptor.html">Doma Adapter</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../adaptors/jsr310_adaptor.html">JSR310(Date and Time API)Adapter</a></li>
@@ -842,18 +842,18 @@ In this example, the value of <cite>message</cite> is &#8220;message which will 
 <p>With the settings described below, you can override environment dependent values with OS environment variables.</p>
 <dl class="docutils">
 <dt>How to enable overwriting by OS environment variables</dt>
-<dd><p class="first">The mechanism for overriding environment dependent values is implemented by a class that implements the Externalsized <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/core/repository/di/config/externalize/ExternalizedComponentDefinitionLoader.html" title="nablarch.core.repository.di.config.externalize.ExternalizedComponentDefinitionLoader">ExternalizedComponentDefinitionLoader</a> interface.</p>
+<dd><p class="first">The mechanism for overriding environment dependent values is implemented by a class that implements the Externalsized <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/core/repository/di/config/externalize/ExternalizedComponentDefinitionLoader.html" title="nablarch.core.repository.di.config.externalize.ExternalizedComponentDefinitionLoader">ExternalizedComponentDefinitionLoader</a> interface.</p>
 <p>This implementation class is loaded using <code class="docutils literal"><span class="pre">java.util.ServiceLoader</span></code>.
-If no service provider has been set, <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/core/repository/di/config/externalize/SystemPropertyExternalizedLoader.html" title="nablarch.core.repository.di.config.externalize.SystemPropertyExternalizedLoader">SystemPropertyExternalizedLoader</a> is used by default.
+If no service provider has been set, <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/core/repository/di/config/externalize/SystemPropertyExternalizedLoader.html" title="nablarch.core.repository.di.config.externalize.SystemPropertyExternalizedLoader">SystemPropertyExternalizedLoader</a> is used by default.
 This class is a class for overwriting by system properties, and the overwriting by system properties described in the previous section is implemented by this class.</p>
-<p>To override environment-dependent values with OS environment variables, use the <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/core/repository/di/config/externalize/OsEnvironmentVariableExternalizedLoader.html" title="nablarch.core.repository.di.config.externalize.OsEnvironmentVariableExternalizedLoader">OsEnvironmentVariableExternalizedLoader</a> as an implementation class.</p>
+<p>To override environment-dependent values with OS environment variables, use the <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/core/repository/di/config/externalize/OsEnvironmentVariableExternalizedLoader.html" title="nablarch.core.repository.di.config.externalize.OsEnvironmentVariableExternalizedLoader">OsEnvironmentVariableExternalizedLoader</a> as an implementation class.</p>
 <p>The concrete configuration is as follows:</p>
 <ol class="arabic simple">
 <li>Create a directory named <code class="docutils literal"><span class="pre">META-INF/services</span></code> directly under the classpath</li>
 <li>In the directory created above, create a text file named <code class="docutils literal"><span class="pre">nablarch.core.repository.di.config.externalize.ExternalizedComponentDefinitionLoader</span></code></li>
 <li>In the file, list the fully qualified name of the implementation class to be used, separated by a new line</li>
 </ol>
-<p>For example, to use an <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/core/repository/di/config/externalize/OsEnvironmentVariableExternalizedLoader.html" title="nablarch.core.repository.di.config.externalize.OsEnvironmentVariableExternalizedLoader">OsEnvironmentVariableExternalizedLoader</a>,
+<p>For example, to use an <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/core/repository/di/config/externalize/OsEnvironmentVariableExternalizedLoader.html" title="nablarch.core.repository.di.config.externalize.OsEnvironmentVariableExternalizedLoader">OsEnvironmentVariableExternalizedLoader</a>,
 the content of the <code class="docutils literal"><span class="pre">nablarch.core.repository.di.config.externalize.ExternalizedComponentDefinitionLoader</span></code> is described as follows:</p>
 <div class="highlight-text"><div class="highlight"><pre><span></span>nablarch.core.repository.di.config.externalize.OsEnvironmentVariableExternalizedLoader
 </pre></div>
@@ -891,7 +891,7 @@ However, there are cases where objects, which are not implemented as Java Beans 
 <p>The procedure is shown below.</p>
 <dl class="docutils">
 <dt>Create a factory class</dt>
-<dd><p class="first">The factory class is created by implementing <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/core/repository/di/ComponentFactory.html" title="nablarch.core.repository.di.ComponentFactory">ComponentFactory</a>.</p>
+<dd><p class="first">The factory class is created by implementing <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/core/repository/di/ComponentFactory.html" title="nablarch.core.repository.di.ComponentFactory">ComponentFactory</a>.</p>
 <dl class="last docutils">
 <dt>Implementation examples</dt>
 <dd><div class="first last highlight-java"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">SampleComponentFactory</span> <span class="kd">implements</span> <span class="n">ComponentFactory</span><span class="o">&lt;</span><span class="n">SampleComponent</span><span class="o">&gt;</span> <span class="o">{</span>
@@ -950,7 +950,7 @@ and Corresponding to the injection as a component.</p>
 </div>
 <div class="section" id="constructing-objects-of-annotated-classes">
 <span id="repository-inject-annotation-component"></span><h3><a class="toc-backref" href="#id19">7.2.3.13. Constructing objects of annotated classes</a><a class="headerlink" href="#constructing-objects-of-annotated-classes" title="Permalink to this headline">¶</a></h3>
-<p>Adding <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/core/repository/di/config/externalize/annotation/SystemRepositoryComponent.html" title="nablarch.core.repository.di.config.externalize.annotation.SystemRepositoryComponent">SystemRepositoryComponent</a>
+<p>Adding <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/core/repository/di/config/externalize/annotation/SystemRepositoryComponent.html" title="nablarch.core.repository.di.config.externalize.annotation.SystemRepositoryComponent">SystemRepositoryComponent</a>
 to the class allows it to be managed in DI container without having to write <a class="reference internal" href="#repository-definition-bean"><span>the settings in XML</span></a>.</p>
 <div class="admonition important">
 <p class="first admonition-title">Important</p>
@@ -963,10 +963,10 @@ because the resources under the classpath are managed by a virtual file system c
 <h4><a class="toc-backref" href="#id20">7.2.3.13.1. How to use</a><a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h4>
 <dl class="docutils">
 <dt>Create a class to identify the packages to be collected.</dt>
-<dd><p class="first">The collection of the class to which <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/core/repository/di/config/externalize/annotation/SystemRepositoryComponent.html" title="nablarch.core.repository.di.config.externalize.annotation.SystemRepositoryComponent">SystemRepositoryComponent</a>
-is assigned is handled by a class that implements the <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/core/repository/di/config/externalize/ExternalizedComponentDefinitionLoader.html" title="nablarch.core.repository.di.config.externalize.ExternalizedComponentDefinitionLoader">ExternalizedComponentDefinitionLoader</a>
-interface. This class is an abstract class named <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/core/repository/di/config/externalize/AnnotationComponentDefinitionLoader.html" title="nablarch.core.repository.di.config.externalize.AnnotationComponentDefinitionLoader">AnnotationComponentDefinitionLoader</a>
-and has an abstract method named <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/core/repository/di/config/externalize/AnnotationComponentDefinitionLoader.html#getBasePackage--" title="nablarch.core.repository.di.config.externalize.AnnotationComponentDefinitionLoader.getBasePackage()">getBasePackage</a>
+<dd><p class="first">The collection of the class to which <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/core/repository/di/config/externalize/annotation/SystemRepositoryComponent.html" title="nablarch.core.repository.di.config.externalize.annotation.SystemRepositoryComponent">SystemRepositoryComponent</a>
+is assigned is handled by a class that implements the <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/core/repository/di/config/externalize/ExternalizedComponentDefinitionLoader.html" title="nablarch.core.repository.di.config.externalize.ExternalizedComponentDefinitionLoader">ExternalizedComponentDefinitionLoader</a>
+interface. This class is an abstract class named <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/core/repository/di/config/externalize/AnnotationComponentDefinitionLoader.html" title="nablarch.core.repository.di.config.externalize.AnnotationComponentDefinitionLoader">AnnotationComponentDefinitionLoader</a>
+and has an abstract method named <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/core/repository/di/config/externalize/AnnotationComponentDefinitionLoader.html#getBasePackage--" title="nablarch.core.repository.di.config.externalize.AnnotationComponentDefinitionLoader.getBasePackage()">getBasePackage</a>
 that returns the base package for the collection target.</p>
 <p>Override the above abstract methods so that collection is carried out in accordance with each project&#8217;s package name.</p>
 <div class="last highlight-java"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">ExampleComponentDefinitionLoader</span> <span class="kd">extends</span> <span class="n">AnnotationComponentDefinitionLoader</span> <span class="o">{</span>
@@ -983,7 +983,7 @@ that returns the base package for the collection target.</p>
 as well as <a class="reference internal" href="#repository-overwrite-environment-configuration-by-os-env-var"><span>How to enable overwriting by OS environment variables</span></a>
 to be loaded with <code class="docutils literal"><span class="pre">java.util.ServiceLoader</span></code> and write the fully qualified names of the above classes.</dd>
 <dt>Annotate the classes to be managed in the DI container.</dt>
-<dd><p class="first">By assigning <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/core/repository/di/config/externalize/annotation/SystemRepositoryComponent.html" title="nablarch.core.repository.di.config.externalize.annotation.SystemRepositoryComponent">SystemRepositoryComponent</a> to be managed in a DI container.</p>
+<dd><p class="first">By assigning <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/core/repository/di/config/externalize/annotation/SystemRepositoryComponent.html" title="nablarch.core.repository.di.config.externalize.annotation.SystemRepositoryComponent">SystemRepositoryComponent</a> to be managed in a DI container.</p>
 <div class="last highlight-java"><div class="highlight"><pre><span></span><span class="nd">@SystemRepositoryComponent</span>
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">ExampleAction</span> <span class="o">{</span>
 </pre></div>
@@ -993,7 +993,7 @@ to be loaded with <code class="docutils literal"><span class="pre">java.util.Ser
 </div>
 <div class="section" id="using-the-constructor-injection">
 <h4><a class="toc-backref" href="#id21">7.2.3.13.2. Using the constructor injection</a><a class="headerlink" href="#using-the-constructor-injection" title="Permalink to this headline">¶</a></h4>
-<p><a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/core/repository/di/config/externalize/annotation/SystemRepositoryComponent.html" title="nablarch.core.repository.di.config.externalize.annotation.SystemRepositoryComponent">SystemRepositoryComponent</a>
+<p><a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/core/repository/di/config/externalize/annotation/SystemRepositoryComponent.html" title="nablarch.core.repository.di.config.externalize.annotation.SystemRepositoryComponent">SystemRepositoryComponent</a>
 assigned classes are performed with constructor injection if they fulfill the following conditions at the time of construction.</p>
 <ul class="simple">
 <li>Only one constructor is defined</li>
@@ -1001,8 +1001,8 @@ assigned classes are performed with constructor injection if they fulfill the fo
 </ul>
 <p>If the conditions are fulfilled, it is injected with the following specifications.</p>
 <ul class="simple">
-<li>Arguments assigned with <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/core/repository/di/config/externalize/annotation/ConfigValue.html" title="nablarch.core.repository.di.config.externalize.annotation.ConfigValue">ConfigValue</a> are injected with a set value</li>
-<li>The argument given by <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/core/repository/di/config/externalize/annotation/ComponentRef.html" title="nablarch.core.repository.di.config.externalize.annotation.ComponentRef">ComponentRef</a> is the component registered in the DI container is injected</li>
+<li>Arguments assigned with <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/core/repository/di/config/externalize/annotation/ConfigValue.html" title="nablarch.core.repository.di.config.externalize.annotation.ConfigValue">ConfigValue</a> are injected with a set value</li>
+<li>The argument given by <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/core/repository/di/config/externalize/annotation/ComponentRef.html" title="nablarch.core.repository.di.config.externalize.annotation.ComponentRef">ComponentRef</a> is the component registered in the DI container is injected</li>
 <li>If none of the above annotations are assigned<ul>
 <li>If there is only one component on the DI container that matches the argument type, automatically inject that component</li>
 <li>If no or multiple components matching the argument type exist on the DI container, do not inject anything</li>
@@ -1011,7 +1011,7 @@ assigned classes are performed with constructor injection if they fulfill the fo
 </ul>
 <dl class="docutils">
 <dt>Injection of configuration values</dt>
-<dd><p class="first">The value of the annotation <code class="docutils literal"><span class="pre">value</span></code> is injected into the constructor by assigning <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/core/repository/di/config/externalize/annotation/ConfigValue.html" title="nablarch.core.repository.di.config.externalize.annotation.ConfigValue">ConfigValue</a>
+<dd><p class="first">The value of the annotation <code class="docutils literal"><span class="pre">value</span></code> is injected into the constructor by assigning <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/core/repository/di/config/externalize/annotation/ConfigValue.html" title="nablarch.core.repository.di.config.externalize.annotation.ConfigValue">ConfigValue</a>
 to the constructor argument. The available types of values are the same as <a class="reference internal" href="#repository-property-type"><span>Use a string, numeric, or boolean value as the configuration value</span></a>.</p>
 <p>As in case <a class="reference internal" href="#repository-user-environment-configuration"><span>Reference environment dependent value from the component configuration file</span></a>,
 key values of environment-dependent values can be described by enclosing them in <code class="docutils literal"><span class="pre">${`</span></code> and <code class="docutils literal"><span class="pre">}</span></code>.</p>
@@ -1028,7 +1028,7 @@ key values of environment-dependent values can be described by enclosing them in
 </dd>
 <dt>Injecting components</dt>
 <dd><p class="first">The component with the name of the annotation <code class="docutils literal"><span class="pre">value</span></code> is injected by assigning
-<a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/core/repository/di/config/externalize/annotation/ComponentRef.html" title="nablarch.core.repository.di.config.externalize.annotation.ComponentRef">ComponentRef</a> to the constructor argument.</p>
+<a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/core/repository/di/config/externalize/annotation/ComponentRef.html" title="nablarch.core.repository.di.config.externalize.annotation.ComponentRef">ComponentRef</a> to the constructor argument.</p>
 <p>The following example injects a component named <code class="docutils literal"><span class="pre">lettuceRedisClientProvider</span></code>.</p>
 <div class="last highlight-java"><div class="highlight"><pre><span></span><span class="nd">@SystemRepositoryComponent</span>
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">ExampleService</span> <span class="o">{</span>
@@ -1044,9 +1044,9 @@ key values of environment-dependent values can be described by enclosing them in
 </dl>
 <div class="admonition tip">
 <p class="first admonition-title">Tip</p>
-<p>The constructor injection is handled by class <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/core/repository/di/config/ConstructorInjectionComponentCreator.html" title="nablarch.core.repository.di.config.ConstructorInjectionComponentCreator">ConstructorInjectionComponentCreator</a>.
-By overriding <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/core/repository/di/config/externalize/AnnotationComponentDefinitionLoader.html#newComponentCreator--" title="nablarch.core.repository.di.config.externalize.AnnotationComponentDefinitionLoader.newComponentCreator()">newComponentCreator</a> in <code class="docutils literal"><span class="pre">AnnotationComponentDefinitionLoader</span></code>,
-it can be replaced with a <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/core/repository/di/ComponentCreator.html" title="nablarch.core.repository.di.ComponentCreator">ComponentCreator</a>
+<p>The constructor injection is handled by class <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/core/repository/di/config/ConstructorInjectionComponentCreator.html" title="nablarch.core.repository.di.config.ConstructorInjectionComponentCreator">ConstructorInjectionComponentCreator</a>.
+By overriding <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/core/repository/di/config/externalize/AnnotationComponentDefinitionLoader.html#newComponentCreator--" title="nablarch.core.repository.di.config.externalize.AnnotationComponentDefinitionLoader.newComponentCreator()">newComponentCreator</a> in <code class="docutils literal"><span class="pre">AnnotationComponentDefinitionLoader</span></code>,
+it can be replaced with a <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/core/repository/di/ComponentCreator.html" title="nablarch.core.repository.di.ComponentCreator">ComponentCreator</a>
 implementation that handles any processing at object construction time in the annotated class.</p>
 <div class="last highlight-java"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">ExampleComponentDefinitionLoader</span> <span class="kd">extends</span> <span class="n">AnnotationComponentDefinitionLoader</span> <span class="o">{</span>
   <span class="nd">@Override</span>
@@ -1069,9 +1069,9 @@ implementation that handles any processing at object construction time in the an
 <p>Annotations can be assigned to the Action class to be managed in a DI container.
 In the dispatch handlers (<a class="reference internal" href="../../adaptors/router_adaptor.html#router-adaptor"><span>Routing Adapter</span></a>, <a class="reference internal" href="../handlers/common/request_path_java_package_mapping.html#request-path-java-package-mapping"><span>Request Dispatch Handler</span></a>, <a class="reference internal" href="../handlers/web/http_request_java_package_mapping.html#http-request-java-package-mapping"><span>HTTP Request Dispatch Handler</span></a>)
 provided by Nablarch, the class to be dispatched is instantiated in the dispatcher.
-Therefore, when registering an Action class to the DI container, it is necessary to replace <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/fw/handler/DelegateFactory.html" title="nablarch.fw.handler.DelegateFactory">DelegateFactory</a>
+Therefore, when registering an Action class to the DI container, it is necessary to replace <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/fw/handler/DelegateFactory.html" title="nablarch.fw.handler.DelegateFactory">DelegateFactory</a>
 to obtain the dispatch target class from the system repository.
-The replacement is set up using <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/fw/handler/DispatchHandler.html#setDelegateFactory-nablarch.fw.handler.DelegateFactory-" title="nablarch.fw.handler.DispatchHandler.setDelegateFactory(nablarch.fw.handler.DelegateFactory)">DispatchHandler#setDelegateFactory</a> as follows:</p>
+The replacement is set up using <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/fw/handler/DispatchHandler.html#setDelegateFactory-nablarch.fw.handler.DelegateFactory-" title="nablarch.fw.handler.DispatchHandler.setDelegateFactory(nablarch.fw.handler.DelegateFactory)">DispatchHandler#setDelegateFactory</a> as follows:</p>
 <blockquote>
 <div><div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;component</span> <span class="na">name=</span><span class="s">&quot;packageMapping&quot;</span> <span class="na">class=</span><span class="s">&quot;nablarch.integration.router.RoutesMapping&quot;</span><span class="nt">&gt;</span>
   <span class="c">&lt;!-- DelegateFactory to get the dispatch destination from the system repository --&gt;</span>
@@ -1089,13 +1089,13 @@ The replacement is set up using <a class="reference external" href="https://nabl
 <span id="repository-initialize-object"></span><h3><a class="toc-backref" href="#id23">7.2.3.14. Initialize the object</a><a class="headerlink" href="#initialize-the-object" title="Permalink to this headline">¶</a></h3>
 <p>The following steps are required for the initialization process of the object.</p>
 <ol class="arabic simple">
-<li>Implement the <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/core/repository/initialization/Initializable.html" title="nablarch.core.repository.initialization.Initializable">Initializable</a> interface.</li>
+<li>Implement the <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/core/repository/initialization/Initializable.html" title="nablarch.core.repository.initialization.Initializable">Initializable</a> interface.</li>
 <li>Configure a list targets for initialization in the component configuration file.</li>
 </ol>
 <p>The detailed procedure is shown below.</p>
 <dl class="docutils">
 <dt>Implement Initializable interface</dt>
-<dd><p class="first">Initialize with <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/core/repository/initialization/Initializable.html#initialize--" title="nablarch.core.repository.initialization.Initializable.initialize()">initialize</a>.</p>
+<dd><p class="first">Initialize with <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/core/repository/initialization/Initializable.html#initialize--" title="nablarch.core.repository.initialization.Initializable.initialize()">initialize</a>.</p>
 <div class="last highlight-java"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">SampleComponent</span> <span class="kd">implements</span> <span class="n">Initializable</span> <span class="o">{</span>
   <span class="kd">public</span> <span class="kt">void</span> <span class="nf">initialize</span><span class="o">()</span> <span class="o">{</span>
     <span class="c1">// Initialize based on the value injected into the property</span>
@@ -1105,7 +1105,7 @@ The replacement is set up using <a class="reference external" href="https://nabl
 </div>
 </dd>
 <dt>Configure a list targets for initialization in the component configuration file</dt>
-<dd><p class="first">Configure the object to be initialized to <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/core/repository/initialization/BasicApplicationInitializer.html" title="nablarch.core.repository.initialization.BasicApplicationInitializer">BasicApplicationInitializer</a>.</p>
+<dd><p class="first">Configure the object to be initialized to <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/core/repository/initialization/BasicApplicationInitializer.html" title="nablarch.core.repository.initialization.BasicApplicationInitializer">BasicApplicationInitializer</a>.</p>
 <p>If information of the initialization order of the object to be initialized is required, configure the object that is to be initialized first to a higher order.
 For the configuration example given below, initialization is performed in the following order.</p>
 <ol class="arabic simple">
@@ -1115,7 +1115,7 @@ For the configuration example given below, initialization is performed in the fo
 </ol>
 <div class="admonition important">
 <p class="first admonition-title">Important</p>
-<p class="last">Set the component name of <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/core/repository/initialization/BasicApplicationInitializer.html" title="nablarch.core.repository.initialization.BasicApplicationInitializer">BasicApplicationInitializer</a> to <strong>initializer</strong>.</p>
+<p class="last">Set the component name of <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/core/repository/initialization/BasicApplicationInitializer.html" title="nablarch.core.repository.initialization.BasicApplicationInitializer">BasicApplicationInitializer</a> to <strong>initializer</strong>.</p>
 </div>
 <div class="last highlight-xml"><div class="highlight"><pre><span></span><span class="c">&lt;!-- Configure the object to be initialized --&gt;</span>
 <span class="nt">&lt;component</span> <span class="na">name=</span><span class="s">&quot;sampleObject1&quot;</span> <span class="na">class=</span><span class="s">&quot;sample.SampleComponent&quot;</span> <span class="nt">/&gt;</span>
@@ -1144,13 +1144,13 @@ For the configuration example given below, initialization is performed in the fo
 <span id="repository-dispose-object"></span><h3><a class="toc-backref" href="#id24">7.2.3.15. Handling the disposal of objects</a><a class="headerlink" href="#handling-the-disposal-of-objects" title="Permalink to this headline">¶</a></h3>
 <p>In order to perform the disposal process of an object, the following steps are required.</p>
 <ol class="arabic simple">
-<li>Implement the <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/core/repository/disposal/Disposable.html" title="nablarch.core.repository.disposal.Disposable">Disposable</a> interface.</li>
+<li>Implement the <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/core/repository/disposal/Disposable.html" title="nablarch.core.repository.disposal.Disposable">Disposable</a> interface.</li>
 <li>Set the list of discarded targets in the component configuration file.</li>
 </ol>
 <p>Detailed steps are shown below.</p>
 <dl class="docutils">
 <dt>Implementing the Disposable Interface</dt>
-<dd><p class="first">Disposal process in <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/core/repository/disposal/Disposable.html#dispose--" title="nablarch.core.repository.disposal.Disposable.dispose()">dispose</a>.</p>
+<dd><p class="first">Disposal process in <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/core/repository/disposal/Disposable.html#dispose--" title="nablarch.core.repository.disposal.Disposable.dispose()">dispose</a>.</p>
 <div class="last highlight-java"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">SampleComponent</span> <span class="kd">implements</span> <span class="n">Disposable</span> <span class="o">{</span>
   <span class="kd">public</span> <span class="kt">void</span> <span class="nf">dispose</span><span class="o">()</span> <span class="kd">throws</span> <span class="n">Exception</span><span class="o">{</span>
     <span class="c1">// Release of resources, etc., for the disposal process</span>
@@ -1160,7 +1160,7 @@ For the configuration example given below, initialization is performed in the fo
 </div>
 </dd>
 <dt>Set the list of discarded targets in the component configuration file</dt>
-<dd><p class="first">Set the object to be discarded to <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/core/repository/disposal/BasicApplicationDisposer.html" title="nablarch.core.repository.disposal.BasicApplicationDisposer">BasicApplicationDisposer</a>.</p>
+<dd><p class="first">Set the object to be discarded to <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/core/repository/disposal/BasicApplicationDisposer.html" title="nablarch.core.repository.disposal.BasicApplicationDisposer">BasicApplicationDisposer</a>.</p>
 <p>If the discard order of the objects to be discarded needs to be considered, set the objects which want to be discarded first to <strong>down</strong>.
 In the case of the example configuration below, the disposal process is done in the following order.</p>
 <ol class="arabic simple">
@@ -1170,7 +1170,7 @@ In the case of the example configuration below, the disposal process is done in 
 </ol>
 <div class="admonition important">
 <p class="first admonition-title">Important</p>
-<p class="last">The component name of <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/core/repository/disposal/BasicApplicationDisposer.html" title="nablarch.core.repository.disposal.BasicApplicationDisposer">BasicApplicationDisposer</a> must be <strong>disposer</strong>.</p>
+<p class="last">The component name of <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/core/repository/disposal/BasicApplicationDisposer.html" title="nablarch.core.repository.disposal.BasicApplicationDisposer">BasicApplicationDisposer</a> must be <strong>disposer</strong>.</p>
 </div>
 <div class="highlight-xml"><div class="highlight"><pre><span></span><span class="c">&lt;!-- Setting up the objects to be discarded --&gt;</span>
 <span class="nt">&lt;component</span> <span class="na">name=</span><span class="s">&quot;sampleObject1&quot;</span> <span class="na">class=</span><span class="s">&quot;sample.SampleComponent1&quot;</span> <span class="nt">/&gt;</span>
@@ -1192,17 +1192,17 @@ In the case of the example configuration below, the disposal process is done in 
 <span class="nt">&lt;/component&gt;</span>
 </pre></div>
 </div>
-<p>The <code class="docutils literal"><span class="pre">BasicApplicationDisposer</span></code> has a method, <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/core/repository/disposal/BasicApplicationDisposer.html#addDisposable-nablarch.core.repository.disposal.Disposable-" title="nablarch.core.repository.disposal.BasicApplicationDisposer.addDisposable(nablarch.core.repository.disposal.Disposable)">addDisposable</a>,
-to which any <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/core/repository/disposal/Disposable.html" title="nablarch.core.repository.disposal.Disposable">Disposable</a> can be added after the component is created.</p>
+<p>The <code class="docutils literal"><span class="pre">BasicApplicationDisposer</span></code> has a method, <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/core/repository/disposal/BasicApplicationDisposer.html#addDisposable-nablarch.core.repository.disposal.Disposable-" title="nablarch.core.repository.disposal.BasicApplicationDisposer.addDisposable(nablarch.core.repository.disposal.Disposable)">addDisposable</a>,
+to which any <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/core/repository/disposal/Disposable.html" title="nablarch.core.repository.disposal.Disposable">Disposable</a> can be added after the component is created.</p>
 <div class="line-block">
-<div class="line">The <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/core/repository/disposal/Disposable.html" title="nablarch.core.repository.disposal.Disposable">Disposable</a> added in this <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/core/repository/disposal/BasicApplicationDisposer.html#addDisposable-nablarch.core.repository.disposal.Disposable-" title="nablarch.core.repository.disposal.BasicApplicationDisposer.addDisposable(nablarch.core.repository.disposal.Disposable)">addDisposable</a> is expected to be added in the order in which its instance was created.</div>
+<div class="line">The <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/core/repository/disposal/Disposable.html" title="nablarch.core.repository.disposal.Disposable">Disposable</a> added in this <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/core/repository/disposal/BasicApplicationDisposer.html#addDisposable-nablarch.core.repository.disposal.Disposable-" title="nablarch.core.repository.disposal.BasicApplicationDisposer.addDisposable(nablarch.core.repository.disposal.Disposable)">addDisposable</a> is expected to be added in the order in which its instance was created.</div>
 <div class="line">In that case, the discard process should be done in the opposite order of instance creation (e.g., JDBC <code class="docutils literal"><span class="pre">Connection</span></code>, <code class="docutils literal"><span class="pre">Statement</span></code>, and <code class="docutils literal"><span class="pre">ResultSet</span></code>).</div>
 </div>
-<p class="last">For this reason, <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/core/repository/disposal/BasicApplicationDisposer.html" title="nablarch.core.repository.disposal.BasicApplicationDisposer">BasicApplicationDisposer</a> calls the disposal process in the opposite order to that set in the <code class="docutils literal"><span class="pre">disposableList</span></code>.</p>
+<p class="last">For this reason, <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/core/repository/disposal/BasicApplicationDisposer.html" title="nablarch.core.repository.disposal.BasicApplicationDisposer">BasicApplicationDisposer</a> calls the disposal process in the opposite order to that set in the <code class="docutils literal"><span class="pre">disposableList</span></code>.</p>
 </dd>
 <dt>Set the Closeable object in the list of objects to be discarded</dt>
 <dd><p class="first">If a component implements <code class="docutils literal"><span class="pre">java.io.Closeable</span></code>, it can easily be set up in the list of discarded items by using
-<a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/core/repository/disposal/DisposableAdaptor.html" title="nablarch.core.repository.disposal.DisposableAdaptor">DisposableAdaptor</a></p>
+<a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/core/repository/disposal/DisposableAdaptor.html" title="nablarch.core.repository.disposal.DisposableAdaptor">DisposableAdaptor</a></p>
 <div class="last highlight-xml"><div class="highlight"><pre><span></span><span class="c">&lt;!-- Components that implement java.io.Closeable --&gt;</span>
 <span class="nt">&lt;component</span> <span class="na">name=</span><span class="s">&quot;closeableComponent&quot;</span> <span class="na">class=</span><span class="s">&quot;sample.CloseableComponent&quot;</span> <span class="nt">/&gt;</span>
 
@@ -1246,7 +1246,7 @@ Therefore, there is basically no individual implementation.</p>
 </div>
 <div class="section" id="get-object-from-system-repository">
 <span id="repository-get-object"></span><h3><a class="toc-backref" href="#id26">7.2.3.17. Get object from system repository</a><a class="headerlink" href="#get-object-from-system-repository" title="Permalink to this headline">¶</a></h3>
-<p>To acquire the object from the system repository, use the class <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/core/repository/SystemRepository.html" title="nablarch.core.repository.SystemRepository">SystemRepository</a>.</p>
+<p>To acquire the object from the system repository, use the class <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/core/repository/SystemRepository.html" title="nablarch.core.repository.SystemRepository">SystemRepository</a>.</p>
 <p>The DI container information must be configured in the system repository in advance.
 For details, see <a class="reference internal" href="#repository-use-system-repository"><span>Configure the DI container information to the system repository</span></a>.</p>
 <p>Object can be acquired by specifying the value of name attribute configured in the component element (including list and map elements) as shown below.</p>
@@ -1378,7 +1378,7 @@ config.value<span class="o">=</span>
 
     <div role="contentinfo">
         <p>
-            &copy; Copyright 2010-2023, TIS Inc.
+            &copy; Copyright 2010-2024, TIS Inc.
         </p>
     </div>
     Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
@@ -1399,7 +1399,7 @@ config.value<span class="o">=</span>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../',
-            VERSION:'5u23',
+            VERSION:'5u24',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

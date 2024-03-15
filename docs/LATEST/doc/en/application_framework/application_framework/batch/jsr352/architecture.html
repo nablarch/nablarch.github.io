@@ -9,7 +9,7 @@
   <meta http-equiv='content-language' content='ja'>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>4.1.1. Architecture Overview &mdash; ∇Nablarch  5u23 documentation</title>
+  <title>4.1.1. Architecture Overview &mdash; ∇Nablarch  5u24 documentation</title>
   
 
   
@@ -35,7 +35,7 @@
   
   <link rel="canonical" href="https://nablarch.github.io/docs/LATEST/doc/application_framework/application_framework/batch/jsr352/architecture.html" />
   
-    <link rel="top" title="∇Nablarch  5u23 documentation" href="../../../../index.html"/>
+    <link rel="top" title="∇Nablarch  5u24 documentation" href="../../../../index.html"/>
         <link rel="up" title="4.1. JSR352-compliant Batch Application" href="index.html"/>
         <link rel="next" title="4.1.2. Responsibility Assignment of Application" href="application_design.html"/>
         <link rel="prev" title="4.1. JSR352-compliant Batch Application" href="index.html"/>
@@ -63,7 +63,7 @@
   
 
   
-    <div id="sidebar-version">Version: 5u23</div>
+    <div id="sidebar-version">Version: 5u24</div>
   </a>
 
   <div role="search">
@@ -111,7 +111,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../adaptors/index.html">Adaptor</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../adaptors/log_adaptor.html">log Adapter</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../adaptors/router_adaptor.html">Routing Adapter</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../adaptors/webspheremq_adaptor.html">IBM WebSphere MQ Adapter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../adaptors/webspheremq_adaptor.html">IBM MQ Adapter</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../adaptors/jaxrs_adaptor.html">JAX-RS Adapter</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../adaptors/doma_adaptor.html">Doma Adapter</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../adaptors/jsr310_adaptor.html">JSR310(Date and Time API)Adapter</a></li>
@@ -349,7 +349,7 @@ The implementation will mainly be selected from the following two, the use of <a
 <p class="first admonition-title">Important</p>
 <p>Since using the temporary area of JobContext and StepContext (<code class="docutils literal"><span class="pre">TransientUserData</span></code>) is the same as storing the value in the global area,
 the temporary area must not be used on the application side.</p>
-<p class="last">Since the temporary area of StepContext is used to share values in the steps with <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/fw/batch/ee/cdi/StepScoped.html" title="nablarch.fw.batch.ee.cdi.StepScoped">StepScoped</a>,
+<p class="last">Since the temporary area of StepContext is used to share values in the steps with <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/fw/batch/ee/cdi/StepScoped.html" title="nablarch.fw.batch.ee.cdi.StepScoped">StepScoped</a>,
 the temporary area of StepContext cannot be used on the application side.</p>
 </div>
 <div class="admonition tip">
@@ -384,11 +384,11 @@ The type of implementation that is appropriate to use should be determined for e
 <p>The process flow of Batchlet type batch application is shown below.</p>
 <a class="reference internal image-reference" href="../../../../_images/batchlet-flow.png"><img alt="../../../../_images/batchlet-flow.png" src="../../../../_images/batchlet-flow.png" /></a>
 <ol class="arabic simple">
-<li>Batch Runtime of JSR352 calls <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/fw/batch/ee/listener/step/NablarchStepListenerExecutor.html" title="nablarch.fw.batch.ee.listener.step.NablarchStepListenerExecutor">NablarchStepListenerExecutor</a> as the callback process before execution of batchlet step.</li>
+<li>Batch Runtime of JSR352 calls <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/fw/batch/ee/listener/step/NablarchStepListenerExecutor.html" title="nablarch.fw.batch.ee.listener.step.NablarchStepListenerExecutor">NablarchStepListenerExecutor</a> as the callback process before execution of batchlet step.</li>
 <li>Sequentially executes the listener before executing the batchlet step.</li>
 <li><cite>Batchlet</cite> is executed from the Batch Runtime of JSR352.</li>
 <li><cite>Batchlet</cite> executes business logic is executed. (For the responsibility assignment of Batchlet, refer to the <a class="reference internal" href="application_design.html#jsr352-batchlet-design"><span>Batchlet responsibility assignment</span></a>).</li>
-<li>Batch Runtime of JSR352 calls <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/fw/batch/ee/listener/step/NablarchStepListenerExecutor.html" title="nablarch.fw.batch.ee.listener.step.NablarchStepListenerExecutor">NablarchStepListenerExecutor</a> as the callback process after execution of batchlet step.</li>
+<li>Batch Runtime of JSR352 calls <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/fw/batch/ee/listener/step/NablarchStepListenerExecutor.html" title="nablarch.fw.batch.ee.listener.step.NablarchStepListenerExecutor">NablarchStepListenerExecutor</a> as the callback process after execution of batchlet step.</li>
 <li>Sequentially executes the listener after executing the batchlet step. (Executes in the reverse order of No 2)</li>
 </ol>
 </div>
@@ -397,20 +397,20 @@ The type of implementation that is appropriate to use should be determined for e
 <p>The process flow of Chunk type batch application is shown below.</p>
 <a class="reference internal image-reference" href="../../../../_images/chunk-flow.png"><img alt="../../../../_images/chunk-flow.png" src="../../../../_images/chunk-flow.png" /></a>
 <ol class="arabic simple">
-<li>Batch Runtime in JSR352 calls <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/fw/batch/ee/listener/step/NablarchStepListenerExecutor.html" title="nablarch.fw.batch.ee.listener.step.NablarchStepListenerExecutor">NablarchStepListenerExecutor</a> as the callback process before execution of chunk step.</li>
+<li>Batch Runtime in JSR352 calls <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/fw/batch/ee/listener/step/NablarchStepListenerExecutor.html" title="nablarch.fw.batch.ee.listener.step.NablarchStepListenerExecutor">NablarchStepListenerExecutor</a> as the callback process before execution of chunk step.</li>
 <li>Sequentially executes the listener before executing the chunk step.</li>
 <li><cite>ItemReader</cite> of chunk step is executed from the Batch Runtime of JSR352.|br|
 <cite>ItemReader</cite> reads data from the input data source.</li>
 <li><cite>ItemProcessor</cite> of chunk step is executed from the Batch Runtime of JSR352.|br|</li>
 <li><cite>ItemProcessor</cite> executes the business logic using <cite>Form</cite> and <cite>Entity</cite>.|br|
 * Writing and updating of data to the database are not performed in this step.</li>
-<li>Batch Runtime of JSR352 calls <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/fw/batch/ee/listener/chunk/NablarchItemWriteListenerExecutor.html" title="nablarch.fw.batch.ee.listener.chunk.NablarchItemWriteListenerExecutor">NablarchItemWriteListenerExecutor</a> as the callback process before execution of the <cite>ItemWriter</cite>.</li>
+<li>Batch Runtime of JSR352 calls <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/fw/batch/ee/listener/chunk/NablarchItemWriteListenerExecutor.html" title="nablarch.fw.batch.ee.listener.chunk.NablarchItemWriteListenerExecutor">NablarchItemWriteListenerExecutor</a> as the callback process before execution of the <cite>ItemWriter</cite>.</li>
 <li>Sequentially executes the listener before executing the <cite>ItemWriter</cite>.</li>
 <li><cite>ItemWriter</cite> of chunk step is executed from the Batch Runtime of JSR352.|br|
 <cite>ItemWriter</cite> performs results reflection processing, such as registering (updating, deleting) to a table and file output processing.</li>
-<li>Batch Runtime of JSR352 calls <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/fw/batch/ee/listener/chunk/NablarchItemWriteListenerExecutor.html" title="nablarch.fw.batch.ee.listener.chunk.NablarchItemWriteListenerExecutor">NablarchItemWriteListenerExecutor</a> as the callback process after execution of <cite>ItemWriter</cite>.</li>
+<li>Batch Runtime of JSR352 calls <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/fw/batch/ee/listener/chunk/NablarchItemWriteListenerExecutor.html" title="nablarch.fw.batch.ee.listener.chunk.NablarchItemWriteListenerExecutor">NablarchItemWriteListenerExecutor</a> as the callback process after execution of <cite>ItemWriter</cite>.</li>
 <li>Sequentially executes the listener after executing the <cite>ItemWriter</cite>. (Execute in the reverse order of No 7).</li>
-<li>Batch Runtime of JSR352 calls <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/fw/batch/ee/listener/step/NablarchStepListenerExecutor.html" title="nablarch.fw.batch.ee.listener.step.NablarchStepListenerExecutor">NablarchStepListenerExecutor</a> as the callback process after execution of chunk step.</li>
+<li>Batch Runtime of JSR352 calls <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/fw/batch/ee/listener/step/NablarchStepListenerExecutor.html" title="nablarch.fw.batch.ee.listener.step.NablarchStepListenerExecutor">NablarchStepListenerExecutor</a> as the callback process after execution of chunk step.</li>
 <li>Sequentially executes the listener after executing the Chunk step. (Executes in the reverse order of No 2)</li>
 </ol>
 <ul class="simple">
@@ -452,24 +452,24 @@ by unifying JSR352 implementation and logging framework using <a class="referenc
 <dt>Job level listener</dt>
 <dd><p class="first">Listener that is called back immediately before starting and ending the job</p>
 <ul class="last simple">
-<li><a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/fw/batch/ee/listener/job/JobProgressLogListener.html" title="nablarch.fw.batch.ee.listener.job.JobProgressLogListener">Listener that outputs the launch and end logs of the job</a></li>
-<li><a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/fw/batch/ee/listener/job/DuplicateJobRunningCheckListener.html" title="nablarch.fw.batch.ee.listener.job.DuplicateJobRunningCheckListener">Listener to prevent multiple start of the same job</a></li>
+<li><a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/fw/batch/ee/listener/job/JobProgressLogListener.html" title="nablarch.fw.batch.ee.listener.job.JobProgressLogListener">Listener that outputs the launch and end logs of the job</a></li>
+<li><a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/fw/batch/ee/listener/job/DuplicateJobRunningCheckListener.html" title="nablarch.fw.batch.ee.listener.job.DuplicateJobRunningCheckListener">Listener to prevent multiple start of the same job</a></li>
 </ul>
 </dd>
 <dt>Step level listener</dt>
 <dd><p class="first">Listener that is called back before and after executing the step</p>
 <ul class="last simple">
-<li><a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/fw/batch/ee/listener/step/StepProgressLogListener.html" title="nablarch.fw.batch.ee.listener.step.StepProgressLogListener">Listener that outputs the start and end logs of the step</a></li>
-<li><a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/fw/batch/ee/listener/step/DbConnectionManagementListener.html" title="nablarch.fw.batch.ee.listener.step.DbConnectionManagementListener">Listener that connects to the database</a></li>
-<li><a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/fw/batch/ee/listener/step/StepTransactionManagementListener.html" title="nablarch.fw.batch.ee.listener.step.StepTransactionManagementListener">Listener that performs transaction control</a></li>
+<li><a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/fw/batch/ee/listener/step/StepProgressLogListener.html" title="nablarch.fw.batch.ee.listener.step.StepProgressLogListener">Listener that outputs the start and end logs of the step</a></li>
+<li><a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/fw/batch/ee/listener/step/DbConnectionManagementListener.html" title="nablarch.fw.batch.ee.listener.step.DbConnectionManagementListener">Listener that connects to the database</a></li>
+<li><a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/fw/batch/ee/listener/step/StepTransactionManagementListener.html" title="nablarch.fw.batch.ee.listener.step.StepTransactionManagementListener">Listener that performs transaction control</a></li>
 </ul>
 </dd>
 <dt>Listener of ItemWriter level</dt>
 <dd><p class="first">Listener that is called back before and after executing the`ItemWriter`</p>
 <ul class="last simple">
-<li><a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/fw/batch/ee/listener/chunk/ChunkProgressLogListener.html" title="nablarch.fw.batch.ee.listener.chunk.ChunkProgressLogListener">Listener to output the progress log of chunk (deprecated)</a>
+<li><a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/fw/batch/ee/listener/chunk/ChunkProgressLogListener.html" title="nablarch.fw.batch.ee.listener.chunk.ChunkProgressLogListener">Listener to output the progress log of chunk (deprecated)</a>
 (output progress log using <a class="reference internal" href="feature_details/progress_log.html#jsr352-progress-log"><span>Contents output in the progress log</span></a>)</li>
-<li><a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/fw/batch/ee/listener/chunk/ItemWriteTransactionManagementListener.html" title="nablarch.fw.batch.ee.listener.chunk.ItemWriteTransactionManagementListener">Listener that performs transaction control</a></li>
+<li><a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/fw/batch/ee/listener/chunk/ItemWriteTransactionManagementListener.html" title="nablarch.fw.batch.ee.listener.chunk.ItemWriteTransactionManagementListener">Listener that performs transaction control</a></li>
 </ul>
 </dd>
 </dl>
@@ -504,7 +504,7 @@ For this reason, Nablarch supports the execution of listeners in the specified o
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td>1</td>
-<td><a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/fw/batch/ee/listener/job/JobProgressLogListener.html" title="nablarch.fw.batch.ee.listener.job.JobProgressLogListener">Listener that outputs the launch and end logs of the job</a></td>
+<td><a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/fw/batch/ee/listener/job/JobProgressLogListener.html" title="nablarch.fw.batch.ee.listener.job.JobProgressLogListener">Listener that outputs the launch and end logs of the job</a></td>
 <td>Outputs the job name that is to be started to the log.</td>
 <td>Outputs the job name and batch status to the log.</td>
 </tr>
@@ -527,17 +527,17 @@ For this reason, Nablarch supports the execution of listeners in the specified o
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td>1</td>
-<td><a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/fw/batch/ee/listener/step/StepProgressLogListener.html" title="nablarch.fw.batch.ee.listener.step.StepProgressLogListener">Listener that outputs the start and end logs of the job</a></td>
+<td><a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/fw/batch/ee/listener/step/StepProgressLogListener.html" title="nablarch.fw.batch.ee.listener.step.StepProgressLogListener">Listener that outputs the start and end logs of the job</a></td>
 <td>Outputs the name of the executed step to the log.</td>
 <td>Outputs the step name and step status to the log.</td>
 </tr>
 <tr class="row-odd"><td>2</td>
-<td><a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/fw/batch/ee/listener/step/DbConnectionManagementListener.html" title="nablarch.fw.batch.ee.listener.step.DbConnectionManagementListener">Listener that connects to the database</a></td>
+<td><a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/fw/batch/ee/listener/step/DbConnectionManagementListener.html" title="nablarch.fw.batch.ee.listener.step.DbConnectionManagementListener">Listener that connects to the database</a></td>
 <td>Gets the DB connection.</td>
 <td>Releases the DB connection.</td>
 </tr>
 <tr class="row-even"><td>3</td>
-<td><a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/fw/batch/ee/listener/step/StepTransactionManagementListener.html" title="nablarch.fw.batch.ee.listener.step.StepTransactionManagementListener">Listener that performs transaction control</a></td>
+<td><a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/fw/batch/ee/listener/step/StepTransactionManagementListener.html" title="nablarch.fw.batch.ee.listener.step.StepTransactionManagementListener">Listener that performs transaction control</a></td>
 <td>Begins the transaction.</td>
 <td>Ends (commits or rollbacks) the transaction.</td>
 </tr>
@@ -560,7 +560,7 @@ For this reason, Nablarch supports the execution of listeners in the specified o
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td>1</td>
-<td><a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/fw/batch/ee/listener/chunk/ItemWriteTransactionManagementListener.html" title="nablarch.fw.batch.ee.listener.chunk.ItemWriteTransactionManagementListener">Listener that performs transaction control</a> <a class="footnote-reference" href="#chunk-tran" id="id2">[1]</a></td>
+<td><a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/fw/batch/ee/listener/chunk/ItemWriteTransactionManagementListener.html" title="nablarch.fw.batch.ee.listener.chunk.ItemWriteTransactionManagementListener">Listener that performs transaction control</a> <a class="footnote-reference" href="#chunk-tran" id="id2">[1]</a></td>
 <td>&nbsp;</td>
 <td>Ends (commits or rollbacks) the transaction.</td>
 </tr>
@@ -680,7 +680,7 @@ For example, to overwrite the default listener list definition of the step-level
 
     <div role="contentinfo">
         <p>
-            &copy; Copyright 2010-2023, TIS Inc.
+            &copy; Copyright 2010-2024, TIS Inc.
         </p>
     </div>
     Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
@@ -701,7 +701,7 @@ For example, to overwrite the default listener list definition of the step-level
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../../',
-            VERSION:'5u23',
+            VERSION:'5u24',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

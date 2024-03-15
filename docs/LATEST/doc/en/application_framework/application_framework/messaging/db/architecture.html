@@ -9,7 +9,7 @@
   <meta http-equiv='content-language' content='ja'>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>5.2.1. Architecture Overview &mdash; ∇Nablarch  5u23 documentation</title>
+  <title>5.2.1. Architecture Overview &mdash; ∇Nablarch  5u24 documentation</title>
   
 
   
@@ -35,7 +35,7 @@
   
   <link rel="canonical" href="https://nablarch.github.io/docs/LATEST/doc/application_framework/application_framework/messaging/db/architecture.html" />
   
-    <link rel="top" title="∇Nablarch  5u23 documentation" href="../../../../index.html"/>
+    <link rel="top" title="∇Nablarch  5u24 documentation" href="../../../../index.html"/>
         <link rel="up" title="5.2. Messaging Using Tables as Queues" href="index.html"/>
         <link rel="next" title="5.2.2. Responsibility Assignment of the Application" href="application_design.html"/>
         <link rel="prev" title="5.2. Messaging Using Tables as Queues" href="index.html"/>
@@ -63,7 +63,7 @@
   
 
   
-    <div id="sidebar-version">Version: 5u23</div>
+    <div id="sidebar-version">Version: 5u24</div>
   </a>
 
   <div role="search">
@@ -111,7 +111,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../adaptors/index.html">Adaptor</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../adaptors/log_adaptor.html">log Adapter</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../adaptors/router_adaptor.html">Routing Adapter</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../adaptors/webspheremq_adaptor.html">IBM WebSphere MQ Adapter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../adaptors/webspheremq_adaptor.html">IBM MQ Adapter</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../adaptors/jaxrs_adaptor.html">JAX-RS Adapter</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../adaptors/doma_adaptor.html">Doma Adapter</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../adaptors/jsr310_adaptor.html">JSR310(Date and Time API)Adapter</a></li>
@@ -498,7 +498,7 @@ With this as the base, add standard handlers of Nablarch or custom handlers crea
 <tr class="row-odd"><td>12</td>
 <td><a class="reference internal" href="../../handlers/standalone/process_stop_handler.html#process-stop-handler"><span>Process Stop Control Handler</span></a></td>
 <td>Sub</td>
-<td>If the process stop flag of the request table is on, a process stop exception (<a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/fw/handler/ProcessStopHandler.ProcessStop.html" title="nablarch.fw.handler.ProcessStopHandler.ProcessStop">ProcessStop</a>) is thrown without performing the subsequent handler process.</td>
+<td>If the process stop flag of the request table is on, a process stop exception (<a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/fw/handler/ProcessStopHandler.ProcessStop.html" title="nablarch.fw.handler.ProcessStopHandler.ProcessStop">ProcessStop</a>) is thrown without performing the subsequent handler process.</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 </tr>
@@ -524,9 +524,9 @@ Also, the <a class="reference internal" href="../../libraries/log.html#log-execu
 <div class="section" id="data-reader-used">
 <span id="db-messaging-architecture-reader"></span><h2><a class="toc-backref" href="#id7">5.2.1.6. Data reader used</a><a class="headerlink" href="#data-reader-used" title="Permalink to this headline">¶</a></h2>
 <p>Use the following data reader to handle a database as a queue.
-Note that the the table cannot be monitored repeatedly if <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/fw/reader/DatabaseRecordReader.html" title="nablarch.fw.reader.DatabaseRecordReader">batch DatabaseRecordReader</a> is used.</p>
+Note that the the table cannot be monitored repeatedly if <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/fw/reader/DatabaseRecordReader.html" title="nablarch.fw.reader.DatabaseRecordReader">batch DatabaseRecordReader</a> is used.</p>
 <ul class="simple">
-<li><a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/fw/reader/DatabaseTableQueueReader.html" title="nablarch.fw.reader.DatabaseTableQueueReader">DatabaseTableQueueReader</a></li>
+<li><a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/fw/reader/DatabaseTableQueueReader.html" title="nablarch.fw.reader.DatabaseTableQueueReader">DatabaseTableQueueReader</a></li>
 </ul>
 <div class="admonition important">
 <p class="first admonition-title">Important</p>
@@ -536,7 +536,7 @@ Note that the the table cannot be monitored repeatedly if <a class="reference ex
 <li>When used in a multithreaded environment, prevent the same data from being processed by multiple threads.</li>
 </ul>
 <blockquote>
-<div><a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/fw/reader/DatabaseTableQueueReader.html" title="nablarch.fw.reader.DatabaseTableQueueReader">DatabaseTableQueueReader</a>  is implemented as given below to satisfy the above criteria</div></blockquote>
+<div><a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/fw/reader/DatabaseTableQueueReader.html" title="nablarch.fw.reader.DatabaseTableQueueReader">DatabaseTableQueueReader</a>  is implemented as given below to satisfy the above criteria</div></blockquote>
 <ul class="last simple">
 <li>When there is no unprocessed data in the table, executes the search SQL again to extract the unprocessed data.</li>
 <li>To ensure that multiple threads are not processing the same data, holds the identifier (primary key value) of the data currently being processed and reads data that has not been processed.</li>
@@ -547,7 +547,7 @@ Note that the the table cannot be monitored repeatedly if <a class="reference ex
 <h2><a class="toc-backref" href="#id8">5.2.1.7. Template class of the action to use</a><a class="headerlink" href="#template-class-of-the-action-to-use" title="Permalink to this headline">¶</a></h2>
 <p>Use the following template class to handle a database as a queue.</p>
 <ul class="simple">
-<li><a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/fw/action/BatchAction.html" title="nablarch.fw.action.BatchAction">BatchAction (generic batch action)</a></li>
+<li><a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/fw/action/BatchAction.html" title="nablarch.fw.action.BatchAction">BatchAction (generic batch action)</a></li>
 </ul>
 </div>
 </div>
@@ -564,7 +564,7 @@ Note that the the table cannot be monitored repeatedly if <a class="reference ex
 
     <div role="contentinfo">
         <p>
-            &copy; Copyright 2010-2023, TIS Inc.
+            &copy; Copyright 2010-2024, TIS Inc.
         </p>
     </div>
     Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
@@ -585,7 +585,7 @@ Note that the the table cannot be monitored repeatedly if <a class="reference ex
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../../',
-            VERSION:'5u23',
+            VERSION:'5u24',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

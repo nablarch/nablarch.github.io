@@ -9,7 +9,7 @@
   <meta http-equiv='content-language' content='ja'>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>7.1.1.2.5. Output of HTTP Access Log (for RESTful Web Service) &mdash; ∇Nablarch  5u23 documentation</title>
+  <title>7.1.1.2.5. Output of HTTP Access Log (for RESTful Web Service) &mdash; ∇Nablarch  5u24 documentation</title>
   
 
   
@@ -35,7 +35,7 @@
   
   <link rel="canonical" href="https://nablarch.github.io/docs/LATEST/doc/application_framework/application_framework/libraries/log/jaxrs_access_log.html" />
   
-    <link rel="top" title="∇Nablarch  5u23 documentation" href="../../../../index.html"/>
+    <link rel="top" title="∇Nablarch  5u24 documentation" href="../../../../index.html"/>
         <link rel="up" title="7.1. Log Output" href="../log.html"/>
         <link rel="next" title="7.1.1.2.6. Output Messaging Log" href="messaging_log.html"/>
         <link rel="prev" title="7.1.1.2.4. Output of HTTP Access Log" href="http_access_log.html"/>
@@ -63,7 +63,7 @@
   
 
   
-    <div id="sidebar-version">Version: 5u23</div>
+    <div id="sidebar-version">Version: 5u24</div>
   </a>
 
   <div role="search">
@@ -111,7 +111,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../adaptors/index.html">Adaptor</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../adaptors/log_adaptor.html">log Adapter</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../adaptors/router_adaptor.html">Routing Adapter</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../adaptors/webspheremq_adaptor.html">IBM WebSphere MQ Adapter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../adaptors/webspheremq_adaptor.html">IBM MQ Adapter</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../adaptors/jaxrs_adaptor.html">JAX-RS Adapter</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../adaptors/doma_adaptor.html">Doma Adapter</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../adaptors/jsr310_adaptor.html">JSR310(Date and Time API)Adapter</a></li>
@@ -423,7 +423,7 @@ then the HTTP access and trace logs can be used together.</p>
 <dd><p class="first"></p>
 <dl class="docutils">
 <dt>jaxRsAccessLogFormatter.className</dt>
-<dd>Class that implements <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/fw/jaxrs/JaxRsAccessLogFormatter.html" title="nablarch.fw.jaxrs.JaxRsAccessLogFormatter">JaxRsAccessLogFormatter</a>.
+<dd>Class that implements <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/fw/jaxrs/JaxRsAccessLogFormatter.html" title="nablarch.fw.jaxrs.JaxRsAccessLogFormatter">JaxRsAccessLogFormatter</a>.
 Specify to replace.</dd>
 </dl>
 <dl class="docutils" id="jaxrs-access-log-prop-begin-format">
@@ -491,11 +491,11 @@ Use <code class="docutils literal"><span class="pre">$requestBody$</span></code>
 </div>
 <div class="last admonition important">
 <p class="first admonition-title">Important</p>
-<p>Although request ID and user ID might overlap with the output items of  <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/core/log/basic/BasicLogFormatter.html" title="nablarch.core.log.basic.BasicLogFormatter">BasicLogFormatter</a>,
+<p>Although request ID and user ID might overlap with the output items of  <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/core/log/basic/BasicLogFormatter.html" title="nablarch.core.log.basic.BasicLogFormatter">BasicLogFormatter</a>,
 they have been provided to increase the flexibility of the HTTP access log format.</p>
 <p class="last">When the request ID and user ID are output,
 <a class="reference internal" href="../../handlers/common/thread_context_handler.html#thread-context-handler"><span>Thread Context Variable Management Handler</span></a> must be included in the handler configuration as they are acquired
-from <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/core/ThreadContext.html" title="nablarch.core.ThreadContext">ThreadContext</a>.
+from <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/core/ThreadContext.html" title="nablarch.core.ThreadContext">ThreadContext</a>.
 In particular, for user IDs, you need to set a value for the session in your application
 by referring to the <a class="reference internal" href="../../handlers/common/thread_context_handler.html#thread-context-handler-user-id-attribute-setting"><span>Setting a User ID</span></a>.</p>
 </div>
@@ -559,15 +559,15 @@ For example, if specified as <code class="docutils literal"><span class="pre">pa
 <dd>Character used for masking. Default is <code class="docutils literal"><span class="pre">*</span></code>.</dd>
 <dt>jaxRsAccessLogFormatter.bodyLogTargetMatcher</dt>
 <dd>Class for determining whether to output the request body and the response body.
-Specify the class name that implements <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/fw/jaxrs/MessageBodyLogTargetMatcher.html" title="nablarch.fw.jaxrs.MessageBodyLogTargetMatcher">MessageBodyLogTargetMatcher</a>.
-Default is <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/fw/jaxrs/JaxRsBodyLogTargetMatcher.html" title="nablarch.fw.jaxrs.JaxRsBodyLogTargetMatcher">JaxRsBodyLogTargetMatcher</a>.</dd>
+Specify the class name that implements <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/fw/jaxrs/MessageBodyLogTargetMatcher.html" title="nablarch.fw.jaxrs.MessageBodyLogTargetMatcher">MessageBodyLogTargetMatcher</a>.
+Default is <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/fw/jaxrs/JaxRsBodyLogTargetMatcher.html" title="nablarch.fw.jaxrs.JaxRsBodyLogTargetMatcher">JaxRsBodyLogTargetMatcher</a>.</dd>
 <dt>jaxRsAccessLogFormatter.bodyMaskingFilter</dt>
 <dd><p class="first">Class for mask processing of the request body and the response body.
-Specify the class name that implements <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/fw/jaxrs/LogContentMaskingFilter.html" title="nablarch.fw.jaxrs.LogContentMaskingFilter">LogContentMaskingFilter</a>.
-Default is <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/fw/jaxrs/JaxRsBodyMaskingFilter.html" title="nablarch.fw.jaxrs.JaxRsBodyMaskingFilter">JaxRsBodyMaskingFilter</a>.</p>
+Specify the class name that implements <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/fw/jaxrs/LogContentMaskingFilter.html" title="nablarch.fw.jaxrs.LogContentMaskingFilter">LogContentMaskingFilter</a>.
+Default is <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/fw/jaxrs/JaxRsBodyMaskingFilter.html" title="nablarch.fw.jaxrs.JaxRsBodyMaskingFilter">JaxRsBodyMaskingFilter</a>.</p>
 <div class="last admonition important">
 <p class="first admonition-title">Important</p>
-<p class="last">There are several body formats that can be sent and received by RESTful web services, but the default <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/fw/jaxrs/JaxRsBodyMaskingFilter.html" title="nablarch.fw.jaxrs.JaxRsBodyMaskingFilter">JaxRsBodyMaskingFilter</a> supports only the JSON format.</p>
+<p class="last">There are several body formats that can be sent and received by RESTful web services, but the default <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/fw/jaxrs/JaxRsBodyMaskingFilter.html" title="nablarch.fw.jaxrs.JaxRsBodyMaskingFilter">JaxRsBodyMaskingFilter</a> supports only the JSON format.</p>
 </div>
 </dd>
 <dt>jaxRsAccessLogFormatter.bodyMaskingItemNames</dt>
@@ -610,15 +610,15 @@ If specified as false, it is not output at the end of the request process.</dd>
 </div>
 <div class="section" id="output-as-a-structured-log-in-json-format">
 <span id="jaxrs-access-log-json-setting"></span><h3><a class="toc-backref" href="#id5">7.1.1.2.5.2.2. Output as a structured log in JSON format</a><a class="headerlink" href="#output-as-a-structured-log-in-json-format" title="Permalink to this headline">¶</a></h3>
-<p>Logs can be output in JSON format by using <a class="reference internal" href="../log.html#log-json-log-setting"><span>Output as a structured log in JSON format</span></a> setting, but <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/fw/jaxrs/JaxRsAccessLogFormatter.html" title="nablarch.fw.jaxrs.JaxRsAccessLogFormatter">JaxRsAccessLogFormatter</a> outputs each item of the http access log as a string in the message value.</p>
-<p>To output each item in the http access log as a JSON value as well, use the <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/fw/jaxrs/JaxRsAccessJsonLogFormatter.html" title="nablarch.fw.jaxrs.JaxRsAccessJsonLogFormatter">JaxRsAccessJsonLogFormatter</a>.</p>
+<p>Logs can be output in JSON format by using <a class="reference internal" href="../log.html#log-json-log-setting"><span>Output as a structured log in JSON format</span></a> setting, but <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/fw/jaxrs/JaxRsAccessLogFormatter.html" title="nablarch.fw.jaxrs.JaxRsAccessLogFormatter">JaxRsAccessLogFormatter</a> outputs each item of the http access log as a string in the message value.</p>
+<p>To output each item in the http access log as a JSON value as well, use the <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/fw/jaxrs/JaxRsAccessJsonLogFormatter.html" title="nablarch.fw.jaxrs.JaxRsAccessJsonLogFormatter">JaxRsAccessJsonLogFormatter</a>.</p>
 <p>You can configure in the property file described in <a class="reference internal" href="../log.html#log-app-log-setting"><span>Configure various logs</span></a>.</p>
 <dl class="docutils">
 <dt>Description rules</dt>
-<dd><p class="first">The properties to be specified when using <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/fw/jaxrs/JaxRsAccessJsonLogFormatter.html" title="nablarch.fw.jaxrs.JaxRsAccessJsonLogFormatter">JaxRsAccessJsonLogFormatter</a> are as follows.</p>
+<dd><p class="first">The properties to be specified when using <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/fw/jaxrs/JaxRsAccessJsonLogFormatter.html" title="nablarch.fw.jaxrs.JaxRsAccessJsonLogFormatter">JaxRsAccessJsonLogFormatter</a> are as follows.</p>
 <dl class="docutils">
 <dt>httpAccessLogFormatter.className <code class="docutils literal"><span class="pre">required</span></code></dt>
-<dd>To output logs in JSON format, specify <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/fw/jaxrs/JaxRsAccessJsonLogFormatter.html" title="nablarch.fw.jaxrs.JaxRsAccessJsonLogFormatter">JaxRsAccessJsonLogFormatter</a>.</dd>
+<dd>To output logs in JSON format, specify <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/fw/jaxrs/JaxRsAccessJsonLogFormatter.html" title="nablarch.fw.jaxrs.JaxRsAccessJsonLogFormatter">JaxRsAccessJsonLogFormatter</a>.</dd>
 </dl>
 <dl class="last docutils" id="jaxrs-access-log-prop-begin-targets">
 <dt>jaxRsAccessLogFormatter.beginTargets</dt>
@@ -746,9 +746,9 @@ Default is <code class="docutils literal"><span class="pre">&quot;HTTP</span> <s
 Default is <code class="docutils literal"><span class="pre">&quot;HTTP</span> <span class="pre">ACCESS</span> <span class="pre">END&quot;</span></code>。</dd>
 <dt>jaxRsAccessLogFormatter.structuredMessagePrefix</dt>
 <dd>A marker string given at the beginning of a message to identify that the message string after formatting has been formatted into JSON format.
-If the marker string at the beginning of the message matches the marker string set in <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/core/log/basic/JsonLogFormatter.html" title="nablarch.core.log.basic.JsonLogFormatter">JsonLogFormatter</a>, <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/core/log/basic/JsonLogFormatter.html" title="nablarch.core.log.basic.JsonLogFormatter">JsonLogFormatter</a> processes the message as JSON data.
+If the marker string at the beginning of the message matches the marker string set in <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/core/log/basic/JsonLogFormatter.html" title="nablarch.core.log.basic.JsonLogFormatter">JsonLogFormatter</a>, <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/core/log/basic/JsonLogFormatter.html" title="nablarch.core.log.basic.JsonLogFormatter">JsonLogFormatter</a> processes the message as JSON data.
 The default is <code class="docutils literal"><span class="pre">&quot;$JSON$&quot;</span></code>.
-If you change it, set the same value in <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/core/log/basic/JsonLogFormatter.html" title="nablarch.core.log.basic.JsonLogFormatter">JsonLogFormatter</a> using LogWriter&#8217;s <code class="docutils literal"><span class="pre">structuredMessagePrefix</span></code> property (see <a class="reference internal" href="../log.html#log-basic-setting"><span>Configure log output</span></a> for LogWriter properties).</dd>
+If you change it, set the same value in <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/core/log/basic/JsonLogFormatter.html" title="nablarch.core.log.basic.JsonLogFormatter">JsonLogFormatter</a> using LogWriter&#8217;s <code class="docutils literal"><span class="pre">structuredMessagePrefix</span></code> property (see <a class="reference internal" href="../log.html#log-basic-setting"><span>Configure log output</span></a> for LogWriter properties).</dd>
 </dl>
 </dd>
 <dt>Example of the description</dt>
@@ -771,7 +771,7 @@ Therefore, if the session store ID is to be logged, the <a class="reference inte
 <p>Since the session store ID is fixed in the state at the start of request processing, the specification is as follows.</p>
 <ul class="simple">
 <li>For requests that do not have a session store ID, all session store IDs output within the same request are empty, even if an ID is issued in the middle.</li>
-<li>If the <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/common/web/session/SessionUtil.html#invalidate-nablarch.fw.ExecutionContext-" title="nablarch.common.web.session.SessionUtil.invalidate(nablarch.fw.ExecutionContext)">session is destroyed</a> or the <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/common/web/session/SessionUtil.html#changeId-nablarch.fw.ExecutionContext-" title="nablarch.common.web.session.SessionUtil.changeId(nablarch.fw.ExecutionContext)">ID is changed</a>, the value in the log does not change from the value at the start of the request processing.</li>
+<li>If the <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/common/web/session/SessionUtil.html#invalidate-nablarch.fw.ExecutionContext-" title="nablarch.common.web.session.SessionUtil.invalidate(nablarch.fw.ExecutionContext)">session is destroyed</a> or the <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/common/web/session/SessionUtil.html#changeId-nablarch.fw.ExecutionContext-" title="nablarch.common.web.session.SessionUtil.changeId(nablarch.fw.ExecutionContext)">ID is changed</a>, the value in the log does not change from the value at the start of the request processing.</li>
 </ul>
 </div>
 </div>
@@ -789,7 +789,7 @@ Therefore, if the session store ID is to be logged, the <a class="reference inte
 
     <div role="contentinfo">
         <p>
-            &copy; Copyright 2010-2023, TIS Inc.
+            &copy; Copyright 2010-2024, TIS Inc.
         </p>
     </div>
     Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
@@ -810,7 +810,7 @@ Therefore, if the session store ID is to be logged, the <a class="reference inte
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../../',
-            VERSION:'5u23',
+            VERSION:'5u24',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

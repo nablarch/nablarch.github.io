@@ -9,7 +9,7 @@
   <meta http-equiv='content-language' content='ja'>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>4.2.2. Responsibility Assignment of Application &mdash; ∇Nablarch  5u23 documentation</title>
+  <title>4.2.2. Responsibility Assignment of Application &mdash; ∇Nablarch  5u24 documentation</title>
   
 
   
@@ -35,7 +35,7 @@
   
   <link rel="canonical" href="https://nablarch.github.io/docs/LATEST/doc/application_framework/application_framework/batch/nablarch_batch/application_design.html" />
   
-    <link rel="top" title="∇Nablarch  5u23 documentation" href="../../../../index.html"/>
+    <link rel="top" title="∇Nablarch  5u24 documentation" href="../../../../index.html"/>
         <link rel="up" title="4.2. Nablarch Batch Application" href="index.html"/>
         <link rel="next" title="4.2.3. Getting Started" href="getting_started/getting_started.html"/>
         <link rel="prev" title="4.2.1. Architecture Overview" href="architecture.html"/>
@@ -63,7 +63,7 @@
   
 
   
-    <div id="sidebar-version">Version: 5u23</div>
+    <div id="sidebar-version">Version: 5u24</div>
   </a>
 
   <div role="search">
@@ -111,7 +111,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../adaptors/index.html">Adaptor</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../adaptors/log_adaptor.html">log Adapter</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../adaptors/router_adaptor.html">Routing Adapter</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../adaptors/webspheremq_adaptor.html">IBM WebSphere MQ Adapter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../adaptors/webspheremq_adaptor.html">IBM MQ Adapter</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../adaptors/jaxrs_adaptor.html">JAX-RS Adapter</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../adaptors/doma_adaptor.html">Doma Adapter</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../adaptors/jsr310_adaptor.html">JSR310(Date and Time API)Adapter</a></li>
@@ -322,19 +322,19 @@
 <dt>Action class</dt>
 <dd><p class="first">Action classes perform two things.</p>
 <ul class="simple">
-<li>Generates <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/fw/DataReader.html" title="nablarch.fw.DataReader">DataReader</a> used to read input data.</li>
-<li>Executes the business logic based on the data records read by <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/fw/DataReader.html" title="nablarch.fw.DataReader">DataReader</a>
-and returns <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/fw/Result.html" title="nablarch.fw.Result">Result</a>.</li>
+<li>Generates <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/fw/DataReader.html" title="nablarch.fw.DataReader">DataReader</a> used to read input data.</li>
+<li>Executes the business logic based on the data records read by <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/fw/DataReader.html" title="nablarch.fw.DataReader">DataReader</a>
+and returns <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/fw/Result.html" title="nablarch.fw.Result">Result</a>.</li>
 </ul>
 <p>For example, the following process is performed as business logic in the case of a batch for importing from a file.</p>
 <ul class="last simple">
 <li>Creates a form class from data record and performs validation.</li>
 <li>Creates entity class from the form class and add data to database.</li>
-<li>Returns <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/fw/Result.Success.html" title="nablarch.fw.Result.Success">Success</a> as the processing result.</li>
+<li>Returns <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/fw/Result.Success.html" title="nablarch.fw.Result.Success">Success</a> as the processing result.</li>
 </ul>
 </dd>
 <dt>Form class</dt>
-<dd><p class="first">Class that maps data records read by <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/fw/DataReader.html" title="nablarch.fw.DataReader">DataReader</a>.</p>
+<dd><p class="first">Class that maps data records read by <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/fw/DataReader.html" title="nablarch.fw.DataReader">DataReader</a>.</p>
 <p>Contains configuration of annotation for validation of data record and logic for correlation validation.
 Depending on external input data, it may have a hierarchical structure (form having a form).</p>
 <dl class="docutils">
@@ -368,7 +368,7 @@ The entity class has property corresponding to columns.</dd>
 
     <div role="contentinfo">
         <p>
-            &copy; Copyright 2010-2023, TIS Inc.
+            &copy; Copyright 2010-2024, TIS Inc.
         </p>
     </div>
     Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
@@ -389,7 +389,7 @@ The entity class has property corresponding to columns.</dd>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../../',
-            VERSION:'5u23',
+            VERSION:'5u24',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

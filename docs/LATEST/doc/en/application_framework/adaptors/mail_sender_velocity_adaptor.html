@@ -9,7 +9,7 @@
   <meta http-equiv='content-language' content='ja'>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>E-mail Velocity Adapter &mdash; ∇Nablarch  5u23 documentation</title>
+  <title>E-mail Velocity Adapter &mdash; ∇Nablarch  5u24 documentation</title>
   
 
   
@@ -35,7 +35,7 @@
   
   <link rel="canonical" href="https://nablarch.github.io/docs/LATEST/doc/application_framework/adaptors/mail_sender_velocity_adaptor.html" />
   
-    <link rel="top" title="∇Nablarch  5u23 documentation" href="../../index.html"/>
+    <link rel="top" title="∇Nablarch  5u24 documentation" href="../../index.html"/>
         <link rel="up" title="Adaptor" href="index.html"/>
         <link rel="next" title="Web Application Thymeleaf Adapter" href="web_thymeleaf_adaptor.html"/>
         <link rel="prev" title="E-mail Thymeleaf Adapter" href="mail_sender_thymeleaf_adaptor.html"/>
@@ -63,7 +63,7 @@
   
 
   
-    <div id="sidebar-version">Version: 5u23</div>
+    <div id="sidebar-version">Version: 5u24</div>
   </a>
 
   <div role="search">
@@ -111,7 +111,7 @@
 <li class="toctree-l2 current"><a class="reference internal" href="index.html">Adaptor</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="log_adaptor.html">log Adapter</a></li>
 <li class="toctree-l3"><a class="reference internal" href="router_adaptor.html">Routing Adapter</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webspheremq_adaptor.html">IBM WebSphere MQ Adapter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webspheremq_adaptor.html">IBM MQ Adapter</a></li>
 <li class="toctree-l3"><a class="reference internal" href="jaxrs_adaptor.html">JAX-RS Adapter</a></li>
 <li class="toctree-l3"><a class="reference internal" href="doma_adaptor.html">Doma Adapter</a></li>
 <li class="toctree-l3"><a class="reference internal" href="jsr310_adaptor.html">JSR310(Date and Time API)Adapter</a></li>
@@ -338,9 +338,9 @@ When changing the version, test in the project to confirm that there are no prob
 </div>
 <div class="section" id="configuration-for-using-the-e-mail-velocity-adapter">
 <h2><a class="toc-backref" href="#id2">Configuration for using the E-mail Velocity adapter</a><a class="headerlink" href="#configuration-for-using-the-e-mail-velocity-adapter" title="Permalink to this headline">¶</a></h2>
-<p>To use this adapter, configure <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/integration/mail/velocity/VelocityMailProcessor.html" title="nablarch.integration.mail.velocity.VelocityMailProcessor">VelocityMailProcessor</a> to <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/common/mail/MailRequester.html" title="nablarch.common.mail.MailRequester">MailRequester</a> in the component configuration file.</p>
+<p>To use this adapter, configure <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/integration/mail/velocity/VelocityMailProcessor.html" title="nablarch.integration.mail.velocity.VelocityMailProcessor">VelocityMailProcessor</a> to <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/common/mail/MailRequester.html" title="nablarch.common.mail.MailRequester">MailRequester</a> in the component configuration file.</p>
 <p><code class="docutils literal"><span class="pre">VelocityEngine</span></code>  provided by Velocity has to be configured in <code class="docutils literal"><span class="pre">VelocityMailProcessor</span></code> .
-For <code class="docutils literal"><span class="pre">VelocityEngine</span></code> , it is recommended that the component configuration be performed by creating an implementation class of  <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/core/repository/di/ComponentFactory.html" title="nablarch.core.repository.di.ComponentFactory">ComponentFactory</a> for the following reasons.</p>
+For <code class="docutils literal"><span class="pre">VelocityEngine</span></code> , it is recommended that the component configuration be performed by creating an implementation class of  <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/core/repository/di/ComponentFactory.html" title="nablarch.core.repository.di.ComponentFactory">ComponentFactory</a> for the following reasons.</p>
 <ul class="simple">
 <li>Configuring <code class="docutils literal"><span class="pre">VelocityEngine</span></code> with Java code is easier than component configuration file.</li>
 <li>init method is required to be called after configuring <code class="docutils literal"><span class="pre">VelocityEngine</span></code>.</li>
@@ -400,7 +400,7 @@ $title has been submitted with application number $requestId.
 $Approver should approve $title promptly. $option
 </pre></div>
 </div>
-<p>For more details on subject and body split rules, see <a class="reference external" href="https://nablarch.github.io/docs/LATEST/javadoc/nablarch/common/mail/TemplateEngineProcessedResult.html#valueOf-java.lang.String-" title="nablarch.common.mail.TemplateEngineProcessedResult.valueOf(java.lang.String)">TemplateEngineProcessedResult#valueOf</a> .</p>
+<p>For more details on subject and body split rules, see <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/common/mail/TemplateEngineProcessedResult.html#valueOf-java.lang.String-" title="nablarch.common.mail.TemplateEngineProcessedResult.valueOf(java.lang.String)">TemplateEngineProcessedResult#valueOf</a> .</p>
 <p>Where to place the template file depends on the <code class="docutils literal"><span class="pre">VelocityEngine</span></code> configuration.
 For example, since the template file is loaded from the class path in the configuration example shown in the previous section, place the template file in a directory of the class path.</p>
 </div>
@@ -423,7 +423,7 @@ See <a class="reference internal" href="../application_framework/libraries/mail.
 
     <div role="contentinfo">
         <p>
-            &copy; Copyright 2010-2023, TIS Inc.
+            &copy; Copyright 2010-2024, TIS Inc.
         </p>
     </div>
     Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
@@ -444,7 +444,7 @@ See <a class="reference internal" href="../application_framework/libraries/mail.
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../',
-            VERSION:'5u23',
+            VERSION:'5u24',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,
