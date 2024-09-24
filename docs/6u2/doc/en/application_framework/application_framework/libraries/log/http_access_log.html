@@ -1,0 +1,980 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv='content-language' content='ja'>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Output of HTTP Access Log &mdash; ∇Nablarch  6u2 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../../_static/custom.css" type="text/css" />
+  
+
+  
+
+  
+  <link rel="canonical" href="https://nablarch.github.io/docs/LATEST/doc/application_framework/application_framework/libraries/log/http_access_log.html" />
+  
+    <link rel="top" title="∇Nablarch  6u2 documentation" href="../../../../index.html"/>
+        <link rel="up" title="Log Output" href="../log.html"/>
+        <link rel="next" title="Output of HTTP Access Log (for RESTful Web Service)" href="jaxrs_access_log.html"/>
+        <link rel="prev" title="Output of Performance Log" href="performance_log.html"/>
+
+<script defer data-domain="nablarch.github.io,all.fintan" src=https://plausible.io/js/script.js></script>
+
+
+  
+  <script src="../../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+  
+  <a href="../../../../index.html" id="sidebar-title" class="icon"> ∇Nablarch 
+  
+
+  
+    <div id="sidebar-version">Version: 6u2</div>
+  </a>
+
+  <div role="search">
+    <form id="google-search-form" class="wy-form" method="get" action="https://www.google.co.jp/search">
+      <input type="text" name="text" placeholder="Search docs on google" id="text"/>
+      <input type="hidden" name="q" id="q"/>
+    </form>
+  </div>
+    
+    
+
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+  
+  
+    <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../about_nablarch/index.html">What is the Nablarch?</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../about_nablarch/concept.html">Nablarch Concept</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../about_nablarch/concept.html#robustness">Robustness</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../about_nablarch/concept.html#testability">Testability</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../about_nablarch/concept.html#ready-to-use">Ready-to-Use</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../about_nablarch/mvn_module.html">Module List of Nablarch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../about_nablarch/license.html">Information on Nablarch License</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../index.html">Nablarch Application Framework</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../../index.html">Application Framework</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../nablarch/index.html">What is Nablarch Application Framework?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../web/index.html">Web Application</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../web_service/index.html">Web Service</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../batch/index.html">Batch Application</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../messaging/index.html">Messaging</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../handlers/index.html">Standard Handler Provided by Nablarch</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../index.html">Libraries Provided by Nablarch</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../blank_project/index.html">Blank Project</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../setting_guide/index.html">Nablarch Application Framework Configuration Guide</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../configuration/index.html">Default Configuration List</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cloud_native/index.html">Nablarch Cloud Native Support</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../adaptors/index.html">Adaptor</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../adaptors/log_adaptor.html">log Adapter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../adaptors/router_adaptor.html">Routing Adapter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../adaptors/webspheremq_adaptor.html">IBM MQ Adapter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../adaptors/jaxrs_adaptor.html">Jakarta RESTful Web Services Adapter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../adaptors/doma_adaptor.html">Doma Adapter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../adaptors/jsr310_adaptor.html">JSR310(Date and Time API)Adapter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../adaptors/mail_sender_freemarker_adaptor.html">E-mail FreeMarker Adapter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../adaptors/mail_sender_thymeleaf_adaptor.html">E-mail Thymeleaf Adapter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../adaptors/mail_sender_velocity_adaptor.html">E-mail Velocity Adapter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../adaptors/web_thymeleaf_adaptor.html">Web Application Thymeleaf Adapter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../adaptors/lettuce_adaptor.html">Lettuce Adapter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../adaptors/slf4j_adaptor.html">SLF4J Adapter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../adaptors/micrometer_adaptor.html">Micrometer Adapter</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../development_tools/index.html">Nablarch development tools</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../development_tools/java_static_analysis/index.html">Efficient Java Static Checks</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../development_tools/java_static_analysis/index.html#run-inspection">Run inspection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../development_tools/java_static_analysis/index.html#unify-the-format">Unify the format</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../development_tools/java_static_analysis/index.html#check-if-unauthorized-apis-are-being-used">Check if unauthorized APIs are being used</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../development_tools/testing_framework/index.html">Testing framework</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../development_tools/testing_framework/guide/development_guide/05_UnitTestGuide/index.html">How to Execute Unit Tests</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../development_tools/testing_framework/guide/development_guide/06_TestFWGuide/index.html">How to Use the Automated Test Framework</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../development_tools/testing_framework/guide/development_guide/08_TestTools/index.html">Tools Used in the Programming Phase</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../development_tools/toolbox/index.html">Useful Tools When Developing Applications</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../development_tools/toolbox/JspStaticAnalysis/index.html">Jakarta Server Pages Static Analysis Tool</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../development_tools/toolbox/SqlExecutor/SqlExecutor.html">Nablarch SQL Executor</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../examples/index.html">Example</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../examples/index.html#how-to-run-example">How to Run Example</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../examples/index.html#procedure-to-build-the-environment">Procedure to build the environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../examples/index.html#procedure-to-execute">Procedure to execute</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../examples/index.html#running-on-java-21">Running on Java 21</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../examples/index.html#list-of-example">List of Example</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../examples/index.html#web-application">Web application</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../examples/index.html#web-service">Web Service</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../examples/index.html#batch-application">Batch Application</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../examples/index.html#messaging">Messaging</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../biz_samples/index.html">Implementation Examples Per Use Cases</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../biz_samples/01/index.html">Sample Password Encryption Function Using Database</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../biz_samples/01/0101_PBKDF2PasswordEncryptor.html">Sample Password Encryption Function Using PBKDF2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../biz_samples/01/index.html#delivery-package">Delivery package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../biz_samples/01/index.html#summary">Summary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../biz_samples/01/index.html#structure">Structure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../biz_samples/01/index.html#how-to-use">How to Use</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../biz_samples/03/index.html">Display a List of Search Results</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../biz_samples/03/index.html#delivery-package">Delivery package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../biz_samples/03/index.html#summary">Summary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../biz_samples/03/index.html#structure">Structure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../biz_samples/03/index.html#universaldao-class">UniversalDao class</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../biz_samples/03/index.html#listsearchinfo-class">ListSearchInfo class</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../biz_samples/03/index.html#pagination-class">Pagination class</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../biz_samples/03/index.html#entitylist-class">EntityList class</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../biz_samples/03/index.html#listsearchresult-tag">listSearchResult tag</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../biz_samples/03/index.html#how-to-import-a-sample-implementation-tag-file-into-the-business-application">How to import a sample implementation (tag file) into the business application</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../biz_samples/03/index.html#tag-reference">Tag Reference</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../biz_samples/04/index.html">Extended Formatter Functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../biz_samples/04/0401_ExtendedDataFormatter.html">Data Formatter Expansion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../biz_samples/04/0402_ExtendedFieldType.html">Field Type Expansion in the Data Formatter Function</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../biz_samples/05/index.html">Sample File Management Function Using Database</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../biz_samples/05/index.html#summary">Summary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../biz_samples/05/index.html#functions">Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../biz_samples/05/index.html#structure">Structure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../biz_samples/05/index.html#how-to-use">How to Use</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../biz_samples/08/index.html">Sample of HTML Email Send Function</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../biz_samples/08/index.html#summary">Summary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../biz_samples/08/index.html#request">Request</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../biz_samples/08/index.html#structure">Structure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../biz_samples/08/index.html#implementation-examples">Implementation examples</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../biz_samples/09/index.html">How to Use a Sample to Send a Digitally Signed Email Using Bouncycastle</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../biz_samples/09/index.html#environment-preparation">Environment preparation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../biz_samples/09/index.html#structure-of-digitally-signed-email-send-function">Structure of digitally signed email send function</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../biz_samples/09/index.html#preparation-of-configuration-file">Preparation of configuration file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../biz_samples/09/index.html#execution">Execution</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../biz_samples/10/index.html">How to Use the Log Aggregation Sample</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../biz_samples/10/index.html#list-of-samples-provided">List of samples provided</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../biz_samples/11/index.html">Messaging Platform Test Simulator Sample</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../biz_samples/11/index.html#uses">Uses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../biz_samples/11/index.html#features">Features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../biz_samples/11/index.html#request">Request</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../biz_samples/11/index.html#how-to-use">How to use</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../biz_samples/11/index.html#expansion-example">Expansion example</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../biz_samples/12/index.html">Authentication sample using OIDC ID token</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../biz_samples/12/index.html#delivery-package">Delivery package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../biz_samples/12/index.html#summary">Summary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../biz_samples/12/index.html#structure">Structure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../biz_samples/12/index.html#how-to-use">How to Use</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../biz_samples/13/index.html">Sample Request/Response Log Output Using Logbook</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../biz_samples/13/index.html#summary">Summary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../biz_samples/13/index.html#how-to-use">How to Use</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../external_contents/index.html">Useful content for development in Nablarch</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../external_contents/index.html#nablarch-system-development-guide">Nablarch System Development Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../external_contents/index.html#development-standards">Development Standards</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../nablarch_api/index.html">Nablarch API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../about_nablarch/versionup_policy.html">Nablarch upgrade policy</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../about_nablarch/versionup_policy.html#release-unit">Release unit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../about_nablarch/versionup_policy.html#types-of-upgrades">Types of upgrades</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../about_nablarch/versionup_policy.html#version-numbering-system">Version numbering system</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../about_nablarch/versionup_policy.html#backward-compatibility-policy">Backward compatibility policy</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../about_nablarch/versionup_policy.html#extent-to-which-backward-compatibility-is-maintained">Extent to which backward compatibility is maintained</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../about_nablarch/versionup_policy.html#contents-of-backward-compatibility-maintenance">Contents of backward compatibility maintenance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../about_nablarch/versionup_policy.html#backward-compatibility-exception">Backward compatibility exception</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../migration/index.html">Nablarch 5 to 6 Migration Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../migration/index.html#major-differences-between-nablarch-5-and-6">Major differences between Nablarch 5 and 6</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../migration/index.html#supports-jakarta-ee-10">Supports Jakarta EE 10</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../migration/index.html#changed-required-java-version-to-17">Changed  required Java version to 17</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../migration/index.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../migration/index.html#overview-of-migration-steps">Overview of migration steps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../migration/index.html#details-of-migration-steps">Details of migration steps</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../migration/index.html#nablarch-version-upgrade">Nablarch version upgrade</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../migration/index.html#compatible-with-jakarta-ee">Compatible with Jakarta EE</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../migration/index.html#migration-procedure-of-jsr352-compliant-batch-application">Migration procedure of JSR352-compliant Batch Application</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../migration/index.html#what-to-do-if-an-error-occurs-during-execution">What to do if an error occurs during execution</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../migration/index.html#appendix">Appendix</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../migration/index.html#correspondence-table-between-java-ee-and-jakarta-ee-specifications">Correspondence table between Java EE and Jakarta EE specifications</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../jakarta_ee/index.html">Regarding the specification name of Jakarta EE</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../jakarta_ee/index.html#regarding-the-notation-of-acronyms">Regarding the notation of acronyms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../jakarta_ee/index.html#regarding-features-that-have-been-renamed-in-nablarch-5-and-6">Regarding features that have been renamed in Nablarch 5 and 6</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../terms_of_use/index.html">Terms of Use</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../terms_of_use/index.html#external-transmssion-of-information">External Transmssion of Information</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../terms_of_use/index.html#purpose-of-information-use">Purpose of Information Use</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../terms_of_use/index.html#destination-of-information">Destination of information</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../terms_of_use/index.html#type-and-use-of-information">Type and use of information</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">∇Nablarch </a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../../index.html">Nablarch Application Framework</a> &raquo;</li>
+      
+          <li><a href="../../index.html">Application Framework</a> &raquo;</li>
+      
+          <li><a href="../index.html">Libraries Provided by Nablarch</a> &raquo;</li>
+      
+          <li><a href="../log.html">Log Output</a> &raquo;</li>
+      
+    <li>Output of HTTP Access Log</li>
+    <li class="wy-breadcrumbs-aside">
+      <a href="https://github.com/nablarch" class="fa fa-github">GitHub</a>
+    </li>
+    <li class="wy-breadcrumbs-aside">
+        <a href="https://nablarch.github.io/docs/LATEST/doc/index.html" class="ja">日本語</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="output-of-http-access-log">
+<span id="http-access-log"></span><h1>Output of HTTP Access Log<a class="headerlink" href="#output-of-http-access-log" title="Permalink to this headline">¶</a></h1>
+<div class="contents local topic" id="table-of-contents">
+<p class="topic-title first">Table of contents</p>
+<ul class="simple">
+<li><a class="reference internal" href="#output-policy-of-http-access-log" id="id2">Output policy of HTTP access log</a></li>
+<li><a class="reference internal" href="#how-to-use" id="id3">How to use</a><ul>
+<li><a class="reference internal" href="#configure-the-http-access-log" id="id4">Configure the HTTP access log</a></li>
+<li><a class="reference internal" href="#output-as-a-structured-log-in-json-format" id="id5">Output as a structured log in JSON format</a></li>
+<li><a class="reference internal" href="#about-session-store-id" id="id6">About Session Store ID</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<p>The HTTP access log is output using the handler provided by the framework.
+The HTTP access log is output in the application by configuring the handler.</p>
+<p>The handlers required to output the HTTP access log are as follows.</p>
+<blockquote>
+<div><dl class="docutils">
+<dt><a class="reference internal" href="../../handlers/web/http_access_log_handler.html#http-access-log-handler"><span>HTTP Access Log Handler</span></a></dt>
+<dd>Outputs the log at the start and end of the request process.</dd>
+<dt><a class="reference internal" href="../../handlers/web/nablarch_tag_handler.html#nablarch-tag-handler"><span>Nablarch Custom Tag Control Handler</span></a></dt>
+<dd>Outputs the log after decrypting the hidden parameters.
+For hidden parameters, see <a class="reference internal" href="../tag.html#tag-hidden-encryption"><span>hidden encryption</span></a>.</dd>
+<dt><a class="reference internal" href="../../handlers/web/http_request_java_package_mapping.html#http-request-java-package-mapping"><span>HTTP Request Dispatch Handler</span></a></dt>
+<dd>Outputs the log after the dispatch class is determined.</dd>
+</dl>
+</div></blockquote>
+<p>If the requirements of the trace log of the individual application can be met by output of the request information including the request parameters,
+then the HTTP access and trace logs can be used together.</p>
+<div class="section" id="output-policy-of-http-access-log">
+<h2><a class="toc-backref" href="#id2">Output policy of HTTP access log</a><a class="headerlink" href="#output-policy-of-http-access-log" title="Permalink to this headline">¶</a></h2>
+<p>The HTTP access log is output to an application log that outputs the log of the entire application.</p>
+<table border="1" class="colwidths-given white-space-normal docutils" id="id1">
+<caption><span class="caption-text">Output policy of HTTP access log</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Log level</th>
+<th class="head">Logger name</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>INFO</td>
+<td>HTTP_ACCESS</td>
+</tr>
+</tbody>
+</table>
+<p>A configuration example of the log output for the above mentioned output policy is shown below.</p>
+<dl class="docutils">
+<dt>Configuration example of log.properties</dt>
+<dd><div class="first last highlight-properties"><div class="highlight"><pre><span></span><span class="na">writerNames</span><span class="o">=</span><span class="s">appLog</span>
+
+<span class="c"># Output destination of the application log</span>
+<span class="na">writer.appLog.className</span><span class="o">=</span><span class="s">nablarch.core.log.basic.FileLogWriter</span>
+<span class="na">writer.appLog.filePath</span><span class="o">=</span><span class="s">/var/log/app/app.log</span>
+<span class="na">writer.appLog.encoding</span><span class="o">=</span><span class="s">UTF-8</span>
+<span class="na">writer.appLog.maxFileSize</span><span class="o">=</span><span class="s">10000</span>
+<span class="na">writer.appLog.formatter.className</span><span class="o">=</span><span class="s">nablarch.core.log.basic.BasicLogFormatter</span>
+<span class="na">writer.appLog.formatter.format</span><span class="o">=</span><span class="s">$date$ -$logLevel$- $runtimeLoggerName$ [$executionId$] boot_proc = [$bootProcess$] proc_sys = [$processingSystem$] req_id = [$requestId$] usr_id = [$userId$] $message$$information$$stackTrace$</span>
+
+<span class="na">availableLoggersNamesOrder</span><span class="o">=</span><span class="s">ACC,ROO</span>
+
+<span class="c"># Configuration of the application log</span>
+<span class="na">loggers.ROO.nameRegex</span><span class="o">=</span><span class="s">.*</span>
+<span class="na">loggers.ROO.level</span><span class="o">=</span><span class="s">INFO</span>
+<span class="na">loggers.ROO.writerNames</span><span class="o">=</span><span class="s">appLog</span>
+
+<span class="c"># Configuration of HTTP access log</span>
+<span class="na">loggers.ACC.nameRegex</span><span class="o">=</span><span class="s">HTTP_ACCESS</span>
+<span class="na">loggers.ACC.level</span><span class="o">=</span><span class="s">INFO</span>
+<span class="na">loggers.ACC.writerNames</span><span class="o">=</span><span class="s">appLog</span>
+</pre></div>
+</div>
+</dd>
+<dt>Configuration example of app-log.properties</dt>
+<dd><div class="first last highlight-properties"><div class="highlight"><pre><span></span><span class="c"># HttpAccessLogFormatter</span>
+<span class="c">#httpAccessLogFormatter.className=</span>
+<span class="c">#httpAccessLogFormatter.datePattern=</span>
+<span class="c">#httpAccessLogFormatter.maskingChar=</span>
+<span class="c">#httpAccessLogFormatter.maskingPatterns=</span>
+<span class="c">#httpAccessLogFormatter.parametersSeparator=</span>
+<span class="c">#httpAccessLogFormatter.sessionScopeSeparator=</span>
+<span class="c">#httpAccessLogFormatter.beginOutputEnabled=</span>
+<span class="c">#httpAccessLogFormatter.parametersOutputEnabled=</span>
+<span class="c">#httpAccessLogFormatter.dispatchingClassOutputEnabled=</span>
+<span class="c">#httpAccessLogFormatter.endOutputEnabled=</span>
+<span class="na">httpAccessLogFormatter.beginFormat</span><span class="o">=</span><span class="s">@@@@ BEGIN @@@@ rid = [$requestId$] uid = [$userId$] sid = [$sessionId$]\</span>
+<span class="s">                                      \n\turl          = [$url$$query$]\</span>
+<span class="s">                                      \n\tmethod      = [$method$]\</span>
+<span class="s">                                      \n\tport        = [$port$]\</span>
+<span class="s">                                      \n\tclient_ip   = [$clientIpAddress$]\</span>
+<span class="s">                                      \n\tclient_host = [$clientHost$]</span>
+<span class="na">httpAccessLogFormatter.parametersFormat</span><span class="o">=</span><span class="s">@@@@ PARAMETERS @@@@\n\tparameters  = [$parameters$]</span>
+<span class="na">httpAccessLogFormatter.dispatchingClassFormat</span><span class="o">=</span><span class="s">@@@@ DISPATCHING CLASS @@@@ class = [$dispatchingClass$]</span>
+<span class="na">httpAccessLogFormatter.endFormat</span><span class="o">=</span><span class="s">@@@@ END @@@@ rid = [$requestId$] uid = [$userId$] sid = [$sessionId$] url = [$url$$query$] method = [$method$] status_code = [$statusCode$] content_path = [$contentPath$]\</span>
+<span class="s">                                    \n\tstart_time     = [$startTime$]\</span>
+<span class="s">                                    \n\tend_time       = [$endTime$]\</span>
+<span class="s">                                    \n\texecution_time = [$executionTime$]\</span>
+<span class="s">                                    \n\tmax_memory     = [$maxMemory$]\</span>
+<span class="s">                                    \n\tfree_memory    = [$freeMemory$]</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</div>
+<div class="section" id="how-to-use">
+<h2><a class="toc-backref" href="#id3">How to use</a><a class="headerlink" href="#how-to-use" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="configure-the-http-access-log">
+<span id="http-access-log-setting"></span><h3><a class="toc-backref" href="#id4">Configure the HTTP access log</a><a class="headerlink" href="#configure-the-http-access-log" title="Permalink to this headline">¶</a></h3>
+<p>The http access log is configured in the property file described in <a class="reference internal" href="../log.html#log-app-log-setting"><span>Configure various logs</span></a>.</p>
+<dl class="docutils">
+<dt>Description rules</dt>
+<dd><p class="first"></p>
+<dl class="docutils">
+<dt>httpAccessLogFormatter.className</dt>
+<dd>Class that implements <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/fw/web/handler/HttpAccessLogFormatter.html" title="nablarch.fw.web.handler.HttpAccessLogFormatter">HttpAccessLogFormatter</a>.
+Specify to replace.</dd>
+</dl>
+<dl class="docutils" id="http-access-log-prop-begin-format">
+<dt>httpAccessLogFormatter.beginFormat</dt>
+<dd><p class="first">Format used for the log output at the start of the request process.</p>
+<dl class="docutils">
+<dt>Placeholders that can be specified for the format</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Request ID:</th><td class="field-body">$requestId$</td>
+</tr>
+<tr class="field-even field"><th class="field-name">User ID:</th><td class="field-body">$userId$</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">URL:</th><td class="field-body">$url$</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Query string:</th><td class="field-body">$query$</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Port number:</th><td class="field-body">$port$</td>
+</tr>
+<tr class="field-even field"><th class="field-name">HTTP method:</th><td class="field-body">$method$</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">HTTP Session ID:</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body">$sessionId$</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Session Store ID:</th></tr>
+<tr class="field-even field"><td>&nbsp;</td><td class="field-body">$sessionStoreId$</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">Request parameters:</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body">$parameters$</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Session scope information:</th></tr>
+<tr class="field-even field"><td>&nbsp;</td><td class="field-body">$sessionScope$</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">Client terminal IP address:</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body">$clientIpAddress$</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Client terminal host:</th></tr>
+<tr class="field-even field"><td>&nbsp;</td><td class="field-body">$clientHost$</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">User-Agent of HTTP header:</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body">$clientUserAgent$</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Default format</dt>
+<dd><div class="first last highlight-bash"><div class="highlight"><pre><span></span>@@@@ BEGIN @@@@ <span class="nv">rid</span> <span class="o">=</span> <span class="o">[</span><span class="nv">$requestId</span>$<span class="o">]</span> <span class="nv">uid</span> <span class="o">=</span> <span class="o">[</span><span class="nv">$userId</span>$<span class="o">]</span> <span class="nv">sid</span> <span class="o">=</span> <span class="o">[</span><span class="nv">$sessionId</span>$<span class="o">]</span>
+    <span class="se">\n\t</span>url         <span class="o">=</span> <span class="o">[</span><span class="nv">$url</span>$<span class="o">]</span>
+    <span class="se">\n\t</span>method      <span class="o">=</span> <span class="o">[</span><span class="nv">$method</span>$<span class="o">]</span>
+    <span class="se">\n\t</span>port        <span class="o">=</span> <span class="o">[</span><span class="nv">$port</span>$<span class="o">]</span>
+    <span class="se">\n\t</span>client_ip   <span class="o">=</span> <span class="o">[</span><span class="nv">$clientIpAddress</span>$<span class="o">]</span>
+    <span class="se">\n\t</span>client_host <span class="o">=</span> <span class="o">[</span><span class="nv">$clientHost</span>$<span class="o">]</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p class="last">Request parameters are in the state before decryption of <a class="reference internal" href="../tag.html#tag-hidden-encryption"><span>hidden encryption</span></a>.</p>
+</div>
+<div class="last admonition important">
+<p class="first admonition-title">Important</p>
+<p>Although request ID and user ID might overlap with the output items of  <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/core/log/basic/BasicLogFormatter.html" title="nablarch.core.log.basic.BasicLogFormatter">BasicLogFormatter</a>,
+they have been provided to increase the flexibility of the HTTP access log format.</p>
+<p class="last">When the request ID and user ID are output,
+<a class="reference internal" href="../../handlers/common/thread_context_handler.html#thread-context-handler"><span>Thread Context Variable Management Handler</span></a> must be included in the handler configuration as they are acquired
+from <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/core/ThreadContext.html" title="nablarch.core.ThreadContext">ThreadContext</a>.
+In particular, for user IDs, you need to set a value for the session in your application
+by referring to the <a class="reference internal" href="../../handlers/common/thread_context_handler.html#thread-context-handler-user-id-attribute-setting"><span>Setting a User ID</span></a>.</p>
+</div>
+</dd>
+<dt>httpAccessLogFormatter.parametersFormat</dt>
+<dd><p class="first">Format used for the log output after decryption of hidden parameters.</p>
+<dl class="last docutils">
+<dt>Placeholders that can be specified for the format</dt>
+<dd>Omitted as it is the same as &#8220;format used for the log output at the start of the request process&#8221;.</dd>
+<dt>Default format</dt>
+<dd><div class="first last highlight-bash"><div class="highlight"><pre><span></span>@@@@ PARAMETERS @@@@
+    <span class="se">\n\t</span>parameters  <span class="o">=</span> <span class="o">[</span><span class="nv">$parameters</span>$<span class="o">]</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd>
+<dt>httpAccessLogFormatter.dispatchingClassFormat</dt>
+<dd><p class="first">Format used for the output log after the dispatch class has been determined.</p>
+<dl class="last docutils">
+<dt>Placeholders that can be specified for the format</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">Dispatch destination class:</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body">$dispatchingClass$</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Session Store ID:</th></tr>
+<tr class="field-even field"><td>&nbsp;</td><td class="field-body">$sessionStoreId$</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Default format</dt>
+<dd><div class="first last highlight-bash"><div class="highlight"><pre><span></span>@@@@ DISPATCHING CLASS @@@@ <span class="nv">class</span> <span class="o">=</span> <span class="o">[</span><span class="nv">$dispatchingClass</span>$<span class="o">]</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl class="last docutils" id="http-access-log-prop-end-format">
+<dt>httpAccessLogFormatter.endFormat</dt>
+<dd><p class="first">Format used for the log output at the end of the request process.</p>
+<dl class="docutils">
+<dt>Placeholders that can be specified for the format</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">Dispatch destination class:</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body">$dispatchingClass$</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Status code (internal):</th></tr>
+<tr class="field-even field"><td>&nbsp;</td><td class="field-body">$statusCode$</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">Status code (client):</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body">$responseStatusCode$</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Content path:</th><td class="field-body">$contentPath$</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">Start date and time:</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body">$startTime$</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">End date and time:</th></tr>
+<tr class="field-even field"><td>&nbsp;</td><td class="field-body">$endTime$</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Execution time:</th><td class="field-body">$executionTime$</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Maximum memory:</th><td class="field-body">$maxMemory$</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">Free memory (at start):</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body">$freeMemory$</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Session Store ID:</th></tr>
+<tr class="field-even field"><td>&nbsp;</td><td class="field-body">$sessionStoreId$</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Default format</dt>
+<dd><div class="first last highlight-bash"><div class="highlight"><pre><span></span>@@@@ END @@@@ <span class="nv">rid</span> <span class="o">=</span> <span class="o">[</span><span class="nv">$requestId</span>$<span class="o">]</span> <span class="nv">uid</span> <span class="o">=</span> <span class="o">[</span><span class="nv">$userId</span>$<span class="o">]</span> <span class="nv">sid</span> <span class="o">=</span> <span class="o">[</span><span class="nv">$sessionId</span>$<span class="o">]</span> <span class="nv">url</span> <span class="o">=</span> <span class="o">[</span><span class="nv">$url</span>$<span class="o">]</span> <span class="nv">status_code</span> <span class="o">=</span> <span class="o">[</span><span class="nv">$statusCode</span>$<span class="o">]</span> <span class="nv">content_path</span> <span class="o">=</span> <span class="o">[</span><span class="nv">$contentPath</span>$<span class="o">]</span>
+    <span class="se">\n\t</span>start_time     <span class="o">=</span> <span class="o">[</span><span class="nv">$startTime</span>$<span class="o">]</span>
+    <span class="se">\n\t</span>end_time       <span class="o">=</span> <span class="o">[</span><span class="nv">$endTime</span>$<span class="o">]</span>
+    <span class="se">\n\t</span>execution_time <span class="o">=</span> <span class="o">[</span><span class="nv">$executionTime</span>$<span class="o">]</span>
+    <span class="se">\n\t</span>max_memory     <span class="o">=</span> <span class="o">[</span><span class="nv">$maxMemory</span>$<span class="o">]</span>
+    <span class="se">\n\t</span>free_memory    <span class="o">=</span> <span class="o">[</span><span class="nv">$freeMemory</span>$<span class="o">]</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p>The status code (internal) indicates the status code when <a class="reference internal" href="../../handlers/web/http_access_log_handler.html#http-access-log-handler"><span>HTTP Access Log Handler</span></a> is returned.
+Status code (client) is <a class="reference internal" href="../../handlers/web/http_response_handler.html#http-response-handler"><span>HTTP Response Handler</span></a> and indicates the status code returned to the client.</p>
+<p>Although the status code (client) is not finalized when this log is output,
+the log is output by deriving the status code (client) using the same function as <a class="reference internal" href="../../handlers/web/http_response_handler.html#http-response-handler"><span>HTTP Response Handler</span></a>.</p>
+<p class="last">For status code conversion rules, see <a class="reference internal" href="../../handlers/web/http_response_handler.html#http-response-handler-convert-status-code"><span>Custom response writer</span></a>.</p>
+</div>
+<div class="last admonition important">
+<p class="first admonition-title">Important</p>
+<p class="last">Value of the <code class="docutils literal"><span class="pre">status</span> <span class="pre">code</span> <span class="pre">(client)</span></code> may be different form the internal code when system errors such as JSP error occur after the HTTP access log handler is processed.
+Since a separate failure monitoring log is output as system error in such cases,
+consider the possibility that this value may be incorrect whenever a failure monitoring log is generated and verify the log.</p>
+</div>
+</dd>
+<dt>httpAccessLogFormatter.datePattern</dt>
+<dd>Date and time pattern to use for date and time of the start and end.
+For the pattern, specify the syntax specified by <a class="reference external" href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/text/SimpleDateFormat.html" title="java.text.SimpleDateFormat">SimpleDateFormat</a>.
+Default is <code class="docutils literal"><span class="pre">yyyy-MM-dd</span> <span class="pre">HH:mm:ss.SSS</span></code>.</dd>
+<dt>httpAccessLogFormatter.maskingPatterns</dt>
+<dd>Specify the parameter name and variable name to be masked with a regular expression.
+If more than one is specified, separate them with commas.
+Used for masking both the request parameters and session scope information.
+The specified regular expression is not case-sensitive.
+For example, if specified as <code class="docutils literal"><span class="pre">password</span></code>, matches with <code class="docutils literal"><span class="pre">password</span></code>, <code class="docutils literal"><span class="pre">newPassword</span></code> and <code class="docutils literal"><span class="pre">password2</span></code>, etc.</dd>
+<dt>httpAccessLogFormatter.maskingChar</dt>
+<dd>Character used for masking. Default is <code class="docutils literal"><span class="pre">*</span></code>.</dd>
+<dt>httpAccessLogFormatter.parametersSeparator</dt>
+<dd>Request parameter separator.
+Default is <code class="docutils literal"><span class="pre">\n\t\t</span></code> .</dd>
+<dt>httpAccessLogFormatter.sessionScopeSeparator</dt>
+<dd>Separator for session scope information.
+Default is <code class="docutils literal"><span class="pre">\n\t\t</span></code> .</dd>
+<dt>httpAccessLogFormatter.beginOutputEnabled</dt>
+<dd>Whether output at the start of the request process is enabled.
+Default is true.
+If specified as false, it is not output at the start of the request process.</dd>
+<dt>httpAccessLogFormatter.parametersOutputEnabled</dt>
+<dd>Whether output after hidden parameter decryption is enabled.
+Default is true.
+If specified as false, it is not output after decryption of the hidden parameter.</dd>
+<dt>httpAccessLogFormatter.dispatchingClassOutputEnabled</dt>
+<dd>Whether output after determining the dispatch class is enabled.
+Default is true.
+If specified as false, it is not output after determining the dispatch class.</dd>
+<dt>httpAccessLogFormatter.endOutputEnabled</dt>
+<dd>Whether output at the end of the request process is enabled.
+Default is true.
+If specified as false, it is not output at the end of the request process.</dd>
+</dl>
+</dd>
+<dt>Example of the description</dt>
+<dd><div class="first last highlight-properties"><div class="highlight"><pre><span></span><span class="na">httpAccessLogFormatter.className</span><span class="o">=</span><span class="s">nablarch.fw.web.handler.HttpAccessLogFormatter</span>
+<span class="na">httpAccessLogFormatter.beginFormat</span><span class="o">=</span><span class="s">&gt; sid = [$sessionId$] @@@@ BEGIN @@@@\n\turl = [$url$]\n\tmethod = [$method$]</span>
+<span class="na">httpAccessLogFormatter.parametersFormat</span><span class="o">=</span><span class="s">&gt; sid = [$sessionId$] @@@@ PARAMETERS @@@@\n\tparameters  = [$parameters$]</span>
+<span class="na">httpAccessLogFormatter.dispatchingClassFormat</span><span class="o">=</span><span class="s">&gt; sid = [$sessionId$] @@@@ DISPATCHING CLASS @@@@ class = [$dispatchingClass$]</span>
+<span class="na">httpAccessLogFormatter.endFormat</span><span class="o">=</span><span class="s">&lt; sid = [$sessionId$] @@@@ END @@@@ url = [$url$] status_code = [$statusCode$] content_path = [$contentPath$]</span>
+<span class="na">httpAccessLogFormatter.datePattern</span><span class="o">=</span><span class="s">&quot;yyyy-MM-dd HH:mm:ss.SSS&quot;</span>
+<span class="na">httpAccessLogFormatter.maskingChar</span><span class="o">=</span><span class="s">#</span>
+<span class="na">httpAccessLogFormatter.maskingPatterns</span><span class="o">=</span><span class="s">password,mobilePhoneNumber</span>
+<span class="na">httpAccessLogFormatter.parametersSeparator</span><span class="o">=</span><span class="s">,</span>
+<span class="na">httpAccessLogFormatter.sessionScopeSeparator</span><span class="o">=</span><span class="s">,</span>
+<span class="na">httpAccessLogFormatter.beginOutputEnabled</span><span class="o">=</span><span class="s">true</span>
+<span class="na">httpAccessLogFormatter.parametersOutputEnabled</span><span class="o">=</span><span class="s">true</span>
+<span class="na">httpAccessLogFormatter.dispatchingClassOutputEnabled</span><span class="o">=</span><span class="s">true</span>
+<span class="na">httpAccessLogFormatter.endOutputEnabled</span><span class="o">=</span><span class="s">true</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</div>
+<div class="section" id="output-as-a-structured-log-in-json-format">
+<span id="http-access-log-json-setting"></span><h3><a class="toc-backref" href="#id5">Output as a structured log in JSON format</a><a class="headerlink" href="#output-as-a-structured-log-in-json-format" title="Permalink to this headline">¶</a></h3>
+<p>Logs can be output in JSON format by using <a class="reference internal" href="../log.html#log-json-log-setting"><span>Output as a structured log in JSON format</span></a> setting, but <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/fw/web/handler/HttpAccessLogFormatter.html" title="nablarch.fw.web.handler.HttpAccessLogFormatter">HttpAccessLogFormatter</a> outputs each item of the http access log as a string in the message value.</p>
+<p>To output each item in the http access log as a JSON value as well, use the <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/fw/web/handler/HttpAccessJsonLogFormatter.html" title="nablarch.fw.web.handler.HttpAccessJsonLogFormatter">HttpAccessJsonLogFormatter</a>.</p>
+<p>You can configure in the property file described in <a class="reference internal" href="../log.html#log-app-log-setting"><span>Configure various logs</span></a>.</p>
+<dl class="docutils">
+<dt>Description rules</dt>
+<dd><p class="first">The properties to be specified when using <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/fw/web/handler/HttpAccessJsonLogFormatter.html" title="nablarch.fw.web.handler.HttpAccessJsonLogFormatter">HttpAccessJsonLogFormatter</a> are as follows.</p>
+<dl class="docutils">
+<dt>httpAccessLogFormatter.className <code class="docutils literal"><span class="pre">required</span></code></dt>
+<dd>To output logs in JSON format, specify <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/fw/web/handler/HttpAccessJsonLogFormatter.html" title="nablarch.fw.web.handler.HttpAccessJsonLogFormatter">HttpAccessJsonLogFormatter</a>.</dd>
+</dl>
+<dl class="last docutils" id="http-access-log-prop-begin-targets">
+<dt>httpAccessLogFormatter.beginTargets</dt>
+<dd><p class="first">Items for the log output at the start of the request process. Separated by comma.</p>
+<dl class="docutils">
+<dt>Output items that can be specified and default output items</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Label:</th><td class="field-body">label <code class="docutils literal"><span class="pre">default</span></code></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Request ID:</th><td class="field-body">requestId <code class="docutils literal"><span class="pre">default</span></code></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Usre ID:</th><td class="field-body">userId <code class="docutils literal"><span class="pre">default</span></code></td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">HTTP Session ID:</th></tr>
+<tr class="field-even field"><td>&nbsp;</td><td class="field-body">sessionId <code class="docutils literal"><span class="pre">default</span></code></td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">Session Store ID:</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body">sessionStoreId</td>
+</tr>
+<tr class="field-even field"><th class="field-name">URL:</th><td class="field-body">url <code class="docutils literal"><span class="pre">default</span></code></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Port number:</th><td class="field-body">port <code class="docutils literal"><span class="pre">default</span></code></td>
+</tr>
+<tr class="field-even field"><th class="field-name">HTTP method:</th><td class="field-body">method <code class="docutils literal"><span class="pre">default</span></code></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Query string:</th><td class="field-body">queryString</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Request parameters:</th></tr>
+<tr class="field-even field"><td>&nbsp;</td><td class="field-body">parameters</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">Session scope information:</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body">sessionScope</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Client terminal IP address:</th></tr>
+<tr class="field-even field"><td>&nbsp;</td><td class="field-body">clientIpAddress <code class="docutils literal"><span class="pre">default</span></code></td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">Client terminal host:</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body">clientHost <code class="docutils literal"><span class="pre">default</span></code></td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">User-Agent of HTTP header:</th></tr>
+<tr class="field-even field"><td>&nbsp;</td><td class="field-body">clientUserAgent</td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+<p class="last">The details of the output items are omitted because they are the same as the placeholders for <a class="reference internal" href="#http-access-log-prop-begin-format"><span>the format used to output the log at the start of the request process</span></a>.</p>
+</dd>
+<dt>httpAccessLogFormatter.parametersTargets</dt>
+<dd>Items used for the log output after decryption of hidden parameters. Separated by comma.
+Omitted as it is the same as <a class="reference internal" href="#http-access-log-prop-begin-targets"><span>format used for the log output at the start of the request process</span></a>.
+The default output item is <code class="docutils literal"><span class="pre">label,parameters</span></code>.</dd>
+<dt>httpAccessLogFormatter.dispatchingClassTargets</dt>
+<dd><p class="first">Items used for the output log after the dispatch class has been determined. Separated by comma.</p>
+<dl class="last docutils">
+<dt>Output items that can be specified and default output items</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Label:</th><td class="field-body">label <code class="docutils literal"><span class="pre">default</span></code></td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">HTTP Session ID:</th></tr>
+<tr class="field-even field"><td>&nbsp;</td><td class="field-body">sessionId</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">Session Store ID:</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body">sessionStoreId</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Dispatch destination class:</th></tr>
+<tr class="field-even field"><td>&nbsp;</td><td class="field-body">dispatchingClass <code class="docutils literal"><span class="pre">default</span></code></td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</dd>
+<dt>httpAccessLogFormatter.endTargets</dt>
+<dd><p class="first">Items used for the log output at the end of the request process. Separated by comma.</p>
+<dl class="docutils">
+<dt>Output items that can be specified and default output items</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Label:</th><td class="field-body">label <code class="docutils literal"><span class="pre">default</span></code></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Request ID:</th><td class="field-body">requestId <code class="docutils literal"><span class="pre">default</span></code></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">User ID:</th><td class="field-body">userId <code class="docutils literal"><span class="pre">default</span></code></td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">HTTP Session ID:</th></tr>
+<tr class="field-even field"><td>&nbsp;</td><td class="field-body">sessionId <code class="docutils literal"><span class="pre">default</span></code></td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">Session Store ID:</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body">sessionStoreId</td>
+</tr>
+<tr class="field-even field"><th class="field-name">URL:</th><td class="field-body">url <code class="docutils literal"><span class="pre">default</span></code></td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">Dispatch destination class:</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body">dispatchingClass</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Status code (internal):</th></tr>
+<tr class="field-even field"><td>&nbsp;</td><td class="field-body">statusCode <code class="docutils literal"><span class="pre">default</span></code></td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">Status code (client):</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body">responseStatusCode</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Content path:</th><td class="field-body">contentPath <code class="docutils literal"><span class="pre">default</span></code></td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">Start date and time:</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body">startTime <code class="docutils literal"><span class="pre">default</span></code></td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">End date and time:</th></tr>
+<tr class="field-even field"><td>&nbsp;</td><td class="field-body">endTime <code class="docutils literal"><span class="pre">default</span></code></td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">Executuion time:</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body">executionTime <code class="docutils literal"><span class="pre">default</span></code></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Maximum memory:</th><td class="field-body">maxMemory <code class="docutils literal"><span class="pre">default</span></code></td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">Free memory(at start):</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body">freeMemory <code class="docutils literal"><span class="pre">default</span></code></td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+<p class="last">Omitted as it is the same as <a class="reference internal" href="#http-access-log-prop-end-format"><span>format used for the log output at the end of the request process</span></a>.</p>
+</dd>
+<dt>httpAccessLogFormatter.datePattern</dt>
+<dd>Date and time pattern to use for date and time of the start and end.
+For the pattern, specify the syntax specified by <a class="reference external" href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/text/SimpleDateFormat.html" title="java.text.SimpleDateFormat">SimpleDateFormat</a>.
+Default is <code class="docutils literal"><span class="pre">yyyy-MM-dd</span> <span class="pre">HH:mm:ss.SSS</span></code>.</dd>
+<dt>httpAccessLogFormatter.maskingPatterns</dt>
+<dd>Specify the parameter name and variable name to be masked with a regular expression (partial match).
+If more than one is specified, separate them with commas.
+Used for masking both the request parameters and session scope information.
+The specified regular expression is not case-sensitive.
+For example, if specified as <code class="docutils literal"><span class="pre">password</span></code>, matches with <code class="docutils literal"><span class="pre">password</span></code>, <code class="docutils literal"><span class="pre">newPassword</span></code> and <code class="docutils literal"><span class="pre">password2</span></code>, etc.</dd>
+<dt>httpAccessLogFormatter.maskingChar</dt>
+<dd>Character used for masking. Default is <code class="docutils literal"><span class="pre">*</span></code>.</dd>
+<dt>httpAccessLogFormatter.beginOutputEnabled</dt>
+<dd>Whether output at the start of the request process is enabled.
+Default is true.
+If specified as false, it is not output at the start of the request process.</dd>
+<dt>httpAccessLogFormatter.parametersOutputEnabled</dt>
+<dd>Whether output after hidden parameter decryption is enabled.
+Default is true.
+If specified as false, it is not output after decryption of the hidden parameter.</dd>
+<dt>httpAccessLogFormatter.dispatchingClassOutputEnabled</dt>
+<dd>Whether output after determining the dispatch class is enabled.
+Default is true.
+If specified as false, it is not output after determining the dispatch class.</dd>
+<dt>httpAccessLogFormatter.endOutputEnabled</dt>
+<dd>Whether output at the end of the request process is enabled.
+Default is true.
+If specified as false, it is not output at the end of the request process.</dd>
+<dt>httpAccessLogFormatter.beginLabel</dt>
+<dd>Value to be output to the label in the log at the start of the request process.
+Default is <code class="docutils literal"><span class="pre">&quot;HTTP</span> <span class="pre">ACCESS</span> <span class="pre">BEGIN&quot;</span></code>。</dd>
+<dt>httpAccessLogFormatter.parametersLabel</dt>
+<dd>Value to be output to the label in the log after hidden parameter decryption.
+Default is <code class="docutils literal"><span class="pre">&quot;PARAMETERS&quot;</span></code>。</dd>
+<dt>httpAccessLogFormatter.dispatchingClassLabel</dt>
+<dd>Value to be output to the label in the log after determining the dispatch class.
+Default is <code class="docutils literal"><span class="pre">&quot;DISPATCHING</span> <span class="pre">CLASS&quot;</span></code>。</dd>
+<dt>httpAccessLogFormatter.endLabel</dt>
+<dd>Value to be output to the label in the log at the end of the request process.
+Default is <code class="docutils literal"><span class="pre">&quot;HTTP</span> <span class="pre">ACCESS</span> <span class="pre">END&quot;</span></code>。</dd>
+<dt>httpAccessLogFormatter.structuredMessagePrefix</dt>
+<dd>A marker string given at the beginning of a message to identify that the message string after formatting has been formatted into JSON format.
+If the marker string at the beginning of the message matches the marker string set in <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/core/log/basic/JsonLogFormatter.html" title="nablarch.core.log.basic.JsonLogFormatter">JsonLogFormatter</a>, <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/core/log/basic/JsonLogFormatter.html" title="nablarch.core.log.basic.JsonLogFormatter">JsonLogFormatter</a> processes the message as JSON data.
+The default is <code class="docutils literal"><span class="pre">&quot;$JSON$&quot;</span></code>.
+If you change it, set the same value in <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/core/log/basic/JsonLogFormatter.html" title="nablarch.core.log.basic.JsonLogFormatter">JsonLogFormatter</a> using LogWriter&#8217;s <code class="docutils literal"><span class="pre">structuredMessagePrefix</span></code> property (see <a class="reference internal" href="../log.html#log-basic-setting"><span>Configure log output</span></a> for LogWriter properties).</dd>
+</dl>
+</dd>
+<dt>Example of the description</dt>
+<dd><div class="first last highlight-properties"><div class="highlight"><pre><span></span><span class="na">httpAccessLogFormatter.className</span><span class="o">=</span><span class="s">nablarch.fw.web.handler.HttpAccessJsonLogFormatter</span>
+<span class="na">httpAccessLogFormatter.structuredMessagePrefix</span><span class="o">=</span><span class="s">$JSON$</span>
+<span class="na">httpAccessLogFormatter.beginTargets</span><span class="o">=</span><span class="s">sessionId,url,method</span>
+<span class="na">httpAccessLogFormatter.parametersTargets</span><span class="o">=</span><span class="s">sessionId,parameters</span>
+<span class="na">httpAccessLogFormatter.dispatchingClassTargets</span><span class="o">=</span><span class="s">sessionId,dispatchingClass</span>
+<span class="na">httpAccessLogFormatter.endTargets</span><span class="o">=</span><span class="s">sessionId,url,statusCode,contentPath</span>
+<span class="na">httpAccessLogFormatter.beginLabel</span><span class="o">=</span><span class="s">HTTP ACCESS BEGIN</span>
+<span class="na">httpAccessLogFormatter.parametersLabel</span><span class="o">=</span><span class="s">PARAMETERS</span>
+<span class="na">httpAccessLogFormatter.dispatchingClassLabel</span><span class="o">=</span><span class="s">DISPATCHING CLASS</span>
+<span class="na">httpAccessLogFormatter.endLabel</span><span class="o">=</span><span class="s">HTTP ACCESS END</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</div>
+<div class="section" id="about-session-store-id">
+<span id="http-access-log-session-store-id"></span><h3><a class="toc-backref" href="#id6">About Session Store ID</a><a class="headerlink" href="#about-session-store-id" title="Permalink to this headline">¶</a></h3>
+<p>If the session store ID is included in the output, the ID identifying the session issued by <a class="reference internal" href="../session_store.html#session-store"><span>Session Store</span></a> is output.</p>
+<p>The value saved in the request process of the <a class="reference internal" href="../../handlers/web/SessionStoreHandler.html#session-store-handler"><span>Session Variable Store Handler</span></a> is used for this value.
+Therefore, if the session store ID is to be logged, the <a class="reference internal" href="../../handlers/web/http_access_log_handler.html#http-access-log-handler"><span>HTTP Access Log Handler</span></a> must be placed after the <a class="reference internal" href="../../handlers/web/SessionStoreHandler.html#session-store-handler"><span>Session Variable Store Handler</span></a>.</p>
+<p>Since the session store ID is fixed in the state at the start of request processing, the specification is as follows.</p>
+<ul class="simple">
+<li>For requests that do not have a session store ID, all session store IDs output within the same request are empty, even if an ID is issued in the middle.</li>
+<li>If the <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/common/web/session/SessionUtil.html#invalidate(nablarch.fw.ExecutionContext)" title="nablarch.common.web.session.SessionUtil.invalidate(nablarch.fw.ExecutionContext)">session is destroyed</a> or the <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/common/web/session/SessionUtil.html#changeId(nablarch.fw.ExecutionContext)" title="nablarch.common.web.session.SessionUtil.changeId(nablarch.fw.ExecutionContext)">ID is changed</a>, the value in the log does not change from the value at the start of the request processing.</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+
+    <hr/>
+
+    <div role="contentinfo">
+        <p>
+            &copy; Copyright 2010-2024, TIS Inc.
+        </p>
+    </div>
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../',
+            VERSION:'6u2',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: ''
+        };
+    </script>
+      <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../../_static/custom.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

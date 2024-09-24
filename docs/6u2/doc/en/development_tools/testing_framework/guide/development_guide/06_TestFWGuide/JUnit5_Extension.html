@@ -1,0 +1,840 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv='content-language' content='ja'>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Extensions for JUnit 5 &mdash; ∇Nablarch  6u2 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../../../_static/custom.css" type="text/css" />
+  
+
+  
+
+  
+  <link rel="canonical" href="https://nablarch.github.io/docs/LATEST/doc/development_tools/testing_framework/guide/development_guide/06_TestFWGuide/JUnit5_Extension.html" />
+  
+    <link rel="top" title="∇Nablarch  6u2 documentation" href="../../../../../index.html"/>
+        <link rel="up" title="How to Use the Automated Test Framework" href="index.html"/>
+        <link rel="next" title="Tools Used in the Programming Phase" href="../08_TestTools/index.html"/>
+        <link rel="prev" title="Master Data Recovery Function" href="04_MasterDataRestore.html"/>
+
+<script defer data-domain="nablarch.github.io,all.fintan" src=https://plausible.io/js/script.js></script>
+
+
+  
+  <script src="../../../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+  
+  <a href="../../../../../index.html" id="sidebar-title" class="icon"> ∇Nablarch 
+  
+
+  
+    <div id="sidebar-version">Version: 6u2</div>
+  </a>
+
+  <div role="search">
+    <form id="google-search-form" class="wy-form" method="get" action="https://www.google.co.jp/search">
+      <input type="text" name="text" placeholder="Search docs on google" id="text"/>
+      <input type="hidden" name="q" id="q"/>
+    </form>
+  </div>
+    
+    
+
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+  
+  
+    <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../../about_nablarch/index.html">What is the Nablarch?</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../about_nablarch/concept.html">Nablarch Concept</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../about_nablarch/concept.html#robustness">Robustness</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../about_nablarch/concept.html#testability">Testability</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../about_nablarch/concept.html#ready-to-use">Ready-to-Use</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../about_nablarch/mvn_module.html">Module List of Nablarch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../about_nablarch/license.html">Information on Nablarch License</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../application_framework/index.html">Nablarch Application Framework</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../application_framework/application_framework/index.html">Application Framework</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../application_framework/application_framework/nablarch/index.html">What is Nablarch Application Framework?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../application_framework/application_framework/web/index.html">Web Application</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../application_framework/application_framework/web_service/index.html">Web Service</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../application_framework/application_framework/batch/index.html">Batch Application</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../application_framework/application_framework/messaging/index.html">Messaging</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../application_framework/application_framework/handlers/index.html">Standard Handler Provided by Nablarch</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../application_framework/application_framework/libraries/index.html">Libraries Provided by Nablarch</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../application_framework/application_framework/blank_project/index.html">Blank Project</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../application_framework/application_framework/setting_guide/index.html">Nablarch Application Framework Configuration Guide</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../application_framework/application_framework/configuration/index.html">Default Configuration List</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../application_framework/application_framework/cloud_native/index.html">Nablarch Cloud Native Support</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../application_framework/adaptors/index.html">Adaptor</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../application_framework/adaptors/log_adaptor.html">log Adapter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../application_framework/adaptors/router_adaptor.html">Routing Adapter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../application_framework/adaptors/webspheremq_adaptor.html">IBM MQ Adapter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../application_framework/adaptors/jaxrs_adaptor.html">Jakarta RESTful Web Services Adapter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../application_framework/adaptors/doma_adaptor.html">Doma Adapter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../application_framework/adaptors/jsr310_adaptor.html">JSR310(Date and Time API)Adapter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../application_framework/adaptors/mail_sender_freemarker_adaptor.html">E-mail FreeMarker Adapter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../application_framework/adaptors/mail_sender_thymeleaf_adaptor.html">E-mail Thymeleaf Adapter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../application_framework/adaptors/mail_sender_velocity_adaptor.html">E-mail Velocity Adapter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../application_framework/adaptors/web_thymeleaf_adaptor.html">Web Application Thymeleaf Adapter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../application_framework/adaptors/lettuce_adaptor.html">Lettuce Adapter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../application_framework/adaptors/slf4j_adaptor.html">SLF4J Adapter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../application_framework/adaptors/micrometer_adaptor.html">Micrometer Adapter</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../../index.html">Nablarch development tools</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../../../java_static_analysis/index.html">Efficient Java Static Checks</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../java_static_analysis/index.html#run-inspection">Run inspection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../java_static_analysis/index.html#unify-the-format">Unify the format</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../java_static_analysis/index.html#check-if-unauthorized-apis-are-being-used">Check if unauthorized APIs are being used</a></li>
+</ul>
+</li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../../index.html">Testing framework</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../05_UnitTestGuide/index.html">How to Execute Unit Tests</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">How to Use the Automated Test Framework</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../08_TestTools/index.html">Tools Used in the Programming Phase</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../toolbox/index.html">Useful Tools When Developing Applications</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../toolbox/JspStaticAnalysis/index.html">Jakarta Server Pages Static Analysis Tool</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../toolbox/SqlExecutor/SqlExecutor.html">Nablarch SQL Executor</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../examples/index.html">Example</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../examples/index.html#how-to-run-example">How to Run Example</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../examples/index.html#procedure-to-build-the-environment">Procedure to build the environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../examples/index.html#procedure-to-execute">Procedure to execute</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../examples/index.html#running-on-java-21">Running on Java 21</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../examples/index.html#list-of-example">List of Example</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../examples/index.html#web-application">Web application</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../examples/index.html#web-service">Web Service</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../examples/index.html#batch-application">Batch Application</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../examples/index.html#messaging">Messaging</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../biz_samples/index.html">Implementation Examples Per Use Cases</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../biz_samples/01/index.html">Sample Password Encryption Function Using Database</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../biz_samples/01/0101_PBKDF2PasswordEncryptor.html">Sample Password Encryption Function Using PBKDF2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../biz_samples/01/index.html#delivery-package">Delivery package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../biz_samples/01/index.html#summary">Summary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../biz_samples/01/index.html#structure">Structure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../biz_samples/01/index.html#how-to-use">How to Use</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../biz_samples/03/index.html">Display a List of Search Results</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../biz_samples/03/index.html#delivery-package">Delivery package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../biz_samples/03/index.html#summary">Summary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../biz_samples/03/index.html#structure">Structure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../biz_samples/03/index.html#universaldao-class">UniversalDao class</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../biz_samples/03/index.html#listsearchinfo-class">ListSearchInfo class</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../biz_samples/03/index.html#pagination-class">Pagination class</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../biz_samples/03/index.html#entitylist-class">EntityList class</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../biz_samples/03/index.html#listsearchresult-tag">listSearchResult tag</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../biz_samples/03/index.html#how-to-import-a-sample-implementation-tag-file-into-the-business-application">How to import a sample implementation (tag file) into the business application</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../biz_samples/03/index.html#tag-reference">Tag Reference</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../biz_samples/04/index.html">Extended Formatter Functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../biz_samples/04/0401_ExtendedDataFormatter.html">Data Formatter Expansion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../biz_samples/04/0402_ExtendedFieldType.html">Field Type Expansion in the Data Formatter Function</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../biz_samples/05/index.html">Sample File Management Function Using Database</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../biz_samples/05/index.html#summary">Summary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../biz_samples/05/index.html#functions">Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../biz_samples/05/index.html#structure">Structure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../biz_samples/05/index.html#how-to-use">How to Use</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../biz_samples/08/index.html">Sample of HTML Email Send Function</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../biz_samples/08/index.html#summary">Summary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../biz_samples/08/index.html#request">Request</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../biz_samples/08/index.html#structure">Structure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../biz_samples/08/index.html#implementation-examples">Implementation examples</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../biz_samples/09/index.html">How to Use a Sample to Send a Digitally Signed Email Using Bouncycastle</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../biz_samples/09/index.html#environment-preparation">Environment preparation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../biz_samples/09/index.html#structure-of-digitally-signed-email-send-function">Structure of digitally signed email send function</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../biz_samples/09/index.html#preparation-of-configuration-file">Preparation of configuration file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../biz_samples/09/index.html#execution">Execution</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../biz_samples/10/index.html">How to Use the Log Aggregation Sample</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../biz_samples/10/index.html#list-of-samples-provided">List of samples provided</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../biz_samples/11/index.html">Messaging Platform Test Simulator Sample</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../biz_samples/11/index.html#uses">Uses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../biz_samples/11/index.html#features">Features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../biz_samples/11/index.html#request">Request</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../biz_samples/11/index.html#how-to-use">How to use</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../biz_samples/11/index.html#expansion-example">Expansion example</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../biz_samples/12/index.html">Authentication sample using OIDC ID token</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../biz_samples/12/index.html#delivery-package">Delivery package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../biz_samples/12/index.html#summary">Summary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../biz_samples/12/index.html#structure">Structure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../biz_samples/12/index.html#how-to-use">How to Use</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../biz_samples/13/index.html">Sample Request/Response Log Output Using Logbook</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../biz_samples/13/index.html#summary">Summary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../biz_samples/13/index.html#how-to-use">How to Use</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../external_contents/index.html">Useful content for development in Nablarch</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../external_contents/index.html#nablarch-system-development-guide">Nablarch System Development Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../external_contents/index.html#development-standards">Development Standards</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../nablarch_api/index.html">Nablarch API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../about_nablarch/versionup_policy.html">Nablarch upgrade policy</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../about_nablarch/versionup_policy.html#release-unit">Release unit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../about_nablarch/versionup_policy.html#types-of-upgrades">Types of upgrades</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../about_nablarch/versionup_policy.html#version-numbering-system">Version numbering system</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../about_nablarch/versionup_policy.html#backward-compatibility-policy">Backward compatibility policy</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../about_nablarch/versionup_policy.html#extent-to-which-backward-compatibility-is-maintained">Extent to which backward compatibility is maintained</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../about_nablarch/versionup_policy.html#contents-of-backward-compatibility-maintenance">Contents of backward compatibility maintenance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../about_nablarch/versionup_policy.html#backward-compatibility-exception">Backward compatibility exception</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../migration/index.html">Nablarch 5 to 6 Migration Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../migration/index.html#major-differences-between-nablarch-5-and-6">Major differences between Nablarch 5 and 6</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../migration/index.html#supports-jakarta-ee-10">Supports Jakarta EE 10</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../migration/index.html#changed-required-java-version-to-17">Changed  required Java version to 17</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../migration/index.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../migration/index.html#overview-of-migration-steps">Overview of migration steps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../migration/index.html#details-of-migration-steps">Details of migration steps</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../migration/index.html#nablarch-version-upgrade">Nablarch version upgrade</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../migration/index.html#compatible-with-jakarta-ee">Compatible with Jakarta EE</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../migration/index.html#migration-procedure-of-jsr352-compliant-batch-application">Migration procedure of JSR352-compliant Batch Application</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../migration/index.html#what-to-do-if-an-error-occurs-during-execution">What to do if an error occurs during execution</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../migration/index.html#appendix">Appendix</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../migration/index.html#correspondence-table-between-java-ee-and-jakarta-ee-specifications">Correspondence table between Java EE and Jakarta EE specifications</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../jakarta_ee/index.html">Regarding the specification name of Jakarta EE</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../jakarta_ee/index.html#regarding-the-notation-of-acronyms">Regarding the notation of acronyms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../jakarta_ee/index.html#regarding-features-that-have-been-renamed-in-nablarch-5-and-6">Regarding features that have been renamed in Nablarch 5 and 6</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../terms_of_use/index.html">Terms of Use</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../terms_of_use/index.html#external-transmssion-of-information">External Transmssion of Information</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../terms_of_use/index.html#purpose-of-information-use">Purpose of Information Use</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../terms_of_use/index.html#destination-of-information">Destination of information</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../terms_of_use/index.html#type-and-use-of-information">Type and use of information</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../../index.html">∇Nablarch </a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../../../index.html">Nablarch development tools</a> &raquo;</li>
+      
+          <li><a href="../../../index.html">Testing framework</a> &raquo;</li>
+      
+          <li><a href="index.html">How to Use the Automated Test Framework</a> &raquo;</li>
+      
+    <li>Extensions for JUnit 5</li>
+    <li class="wy-breadcrumbs-aside">
+      <a href="https://github.com/nablarch" class="fa fa-github">GitHub</a>
+    </li>
+    <li class="wy-breadcrumbs-aside">
+        <a href="https://nablarch.github.io/docs/LATEST/doc/index.html" class="ja">日本語</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="extensions-for-junit-5">
+<span id="ntf-junit5-extension"></span><h1>Extensions for JUnit 5<a class="headerlink" href="#extensions-for-junit-5" title="Permalink to this headline">¶</a></h1>
+<div class="contents local topic" id="table-of-contents">
+<p class="topic-title first">Table of Contents</p>
+<ul class="simple">
+<li><a class="reference internal" href="#overview" id="id2">Overview</a></li>
+<li><a class="reference internal" href="#prerequisite" id="id3">Prerequisite</a></li>
+<li><a class="reference internal" href="#module-list" id="id4">Module list</a></li>
+<li><a class="reference internal" href="#basic-usage" id="id5">Basic usage</a></li>
+<li><a class="reference internal" href="#list-of-extension-classes-and-composed-annotations" id="id6">List of Extension classes and composed annotations</a><ul>
+<li><a class="reference internal" href="#supplemental-information-on-using-basichttprequesttest" id="id7">Supplemental information on using BasicHttpRequestTest</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#add-your-own-extensions" id="id8">Add your own extensions</a><ul>
+<li><a class="reference internal" href="#create-your-own-extension-class" id="id9">Create your own extension class</a></li>
+<li><a class="reference internal" href="#create-the-extension-for-your-own-extension" id="id10">Create the Extension for your own extension</a></li>
+<li><a class="reference internal" href="#applying-to-the-test-class-with-extendwith" id="id11">Applying to the test class with ExtendWith</a></li>
+<li><a class="reference internal" href="#when-extending-basichttprequesttesttemplate-also-create-annotations" id="id12">When extending BasicHttpRequestTestTemplate, also create annotations</a></li>
+<li><a class="reference internal" href="#implementing-pre-processing-and-post-processing" id="id13">Implementing pre-processing and post-processing</a></li>
+<li><a class="reference internal" href="#reproducing-the-testrule-of-junit-4" id="id14">Reproducing the TestRule of JUnit 4</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#using-with-registerextension" id="id15">Using with RegisterExtension</a></li>
+</ul>
+</div>
+<div class="section" id="overview">
+<h2><a class="toc-backref" href="#id2">Overview</a><a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>This section describes the extensions for using the automated testing framework in tests written in JUnit 5.
+By using this extension, you can combine the useful features provided by JUnit 5 such as parameterized tests with the automated testing framework.</p>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p class="last">There is no need to modify the tests of the existing the automated testing framework written in JUnit 4 when this extension is introduced.
+Tests written in JUnit 4 can continue to run on JUnit 5 by using JUnit Vintage (see <a class="reference internal" href="01_Abstract.html#run-ntf-on-junit5-with-vintage-engine"><span>Running The Automated Testing Framework with JUnit 5</span></a> for information on how to use JUnit Vintage to run an automated testing framework).
+Therefore, you can leave tests written in JUnit 4, and write new tests in JUnit 5,</p>
+</div>
+</div>
+<div class="section" id="prerequisite">
+<h2><a class="toc-backref" href="#id3">Prerequisite</a><a class="headerlink" href="#prerequisite" title="Permalink to this headline">¶</a></h2>
+<p>In order to use JUnit 5, the following conditions must be met.</p>
+<ul class="simple">
+<li>maven-surefire-plugin must be 2.22.0 or higher</li>
+</ul>
+<p>This page assumes that you have basic knowledge of how to introduce JUnit 5 and how to create test cases, so it does not describe these procedures.
+For more information about JUnit 5 itself, see <a class="reference external" href="https://junit.org/junit5/docs/5.11.0/user-guide/">the official user guide (external site)</a>.</p>
+</div>
+<div class="section" id="module-list">
+<h2><a class="toc-backref" href="#id4">Module list</a><a class="headerlink" href="#module-list" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;dependency&gt;</span>
+  <span class="nt">&lt;groupId&gt;</span>com.nablarch.framework<span class="nt">&lt;/groupId&gt;</span>
+  <span class="nt">&lt;artifactId&gt;</span>nablarch-testing-junit5<span class="nt">&lt;/artifactId&gt;</span>
+  <span class="nt">&lt;scope&gt;</span>test<span class="nt">&lt;/scope&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="basic-usage">
+<span id="ntf-junit5-extension-standard-usages"></span><h2><a class="toc-backref" href="#id5">Basic usage</a><a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h2>
+<p>The automated testing framework provides classes that implement the functionality required for testing, such as <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/test/TestSupport.html" title="nablarch.test.TestSupport">TestSupport</a>.
+In JUnit 4, in order to use the functionality of the classes provided by the automated testing framework in your test classes, your test classes had to inherit from these classes.</p>
+<p>This extension provides a mechanism to generate instances of the classes provided by the automated testing framework on the extension side and inject them into the test classes.
+This mechanism makes use of the JUnit 5 <a class="reference external" href="https://junit.org/junit5/docs/5.11.0/user-guide/#extensions">Extension (external site)</a>.</p>
+<p>In this extension, <strong>Extension classes</strong> and <strong>Composed annotations</strong> are provided for each class provided by the automated testing framework.
+For example, <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/test/junit5/extension/TestSupportExtension.html" title="nablarch.test.junit5.extension.TestSupportExtension">TestSupportExtension</a> and <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/test/junit5/extension/NablarchTest.html" title="nablarch.test.junit5.extension.NablarchTest">NablarchTest</a> are provided for <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/test/TestSupport.html" title="nablarch.test.TestSupport">TestSupport</a>.</p>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p class="last">Composed annotation is a feature provided by JUnit 5 that allows you to combine the settings of multiple annotations into one annotation.
+For more information, see <a class="reference external" href="https://junit.org/junit5/docs/5.11.0/user-guide/#writing-tests-meta-annotations">&#8220;2.1.1. Meta-Annotations and Composed Annotations&#8221; in the official guide (external site)</a>.</p>
+</div>
+<p>By using these classes and implementing them as follows, <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/test/TestSupport.html" title="nablarch.test.TestSupport">TestSupport</a> can be used in tests.</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="c1">// 1. Set the corresponding composed annotation to the test class</span>
+<span class="nd">@NablarchTest</span>
+<span class="kd">class</span> <span class="nc">YourTest</span> <span class="o">{</span>
+    <span class="c1">// 2. Declare the field of class to be used in the test class.</span>
+    <span class="n">TestSupport</span> <span class="n">support</span><span class="o">;</span>
+
+    <span class="nd">@Test</span>
+    <span class="kt">void</span> <span class="nf">test</span><span class="o">()</span> <span class="o">{</span>
+        <span class="o">...</span>
+        <span class="c1">// 3. Use in tests</span>
+        <span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">String</span><span class="o">&gt;</span> <span class="n">map</span> <span class="o">=</span> <span class="n">support</span><span class="o">.</span><span class="na">getMap</span><span class="o">(</span><span class="n">sheetName</span><span class="o">,</span> <span class="n">id</span><span class="o">);</span>
+        <span class="o">...</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>When using <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/test/TestSupport.html" title="nablarch.test.TestSupport">TestSupport</a> in a test class, first set the corresponding composed annotation (<a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/test/junit5/extension/NablarchTest.html" title="nablarch.test.junit5.extension.NablarchTest">NablarchTest</a>) in the test class.
+This will cause <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/test/junit5/extension/TestSupportExtension.html" title="nablarch.test.junit5.extension.TestSupportExtension">TestSupportExtension</a> to be applied to the test class.</p>
+<p>Next, declare an instance field of type <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/test/TestSupport.html" title="nablarch.test.TestSupport">TestSupport</a> in the test class.
+The visibility of the instance field can be anything.</p>
+<p>The extension creates an instance of the corresponding class (in this case <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/test/TestSupport.html" title="nablarch.test.TestSupport">TestSupport</a>) before executing the test.
+Then, when it finds a field that can be assigned to the test class, it automatically injects an instance.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">Don&#8217;t set any value to the field, because the extension will terminate in error if the field it be injected is not null.</p>
+</div>
+</div>
+<div class="section" id="list-of-extension-classes-and-composed-annotations">
+<h2><a class="toc-backref" href="#id6">List of Extension classes and composed annotations</a><a class="headerlink" href="#list-of-extension-classes-and-composed-annotations" title="Permalink to this headline">¶</a></h2>
+<p>This extension provides the following Extension classes and composed annotations.</p>
+<table border="1" class="docutils" id="id1">
+<caption><span class="caption-text">List of Extension classes and composed annotations</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Classes provided by the automated testing framework</th>
+<th class="head">Extension classes</th>
+<th class="head">Composed annotations</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/test/TestSupport.html" title="nablarch.test.TestSupport">TestSupport</a></td>
+<td><a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/test/junit5/extension/TestSupportExtension.html" title="nablarch.test.junit5.extension.TestSupportExtension">TestSupportExtension</a></td>
+<td><a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/test/junit5/extension/NablarchTest.html" title="nablarch.test.junit5.extension.NablarchTest">NablarchTest</a></td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/test/core/batch/BatchRequestTestSupport.html" title="nablarch.test.core.batch.BatchRequestTestSupport">BatchRequestTestSupport</a></td>
+<td><a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/test/junit5/extension/batch/BatchRequestTestExtension.html" title="nablarch.test.junit5.extension.batch.BatchRequestTestExtension">BatchRequestTestExtension</a></td>
+<td><a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/test/junit5/extension/batch/BatchRequestTest.html" title="nablarch.test.junit5.extension.batch.BatchRequestTest">BatchRequestTest</a></td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/test/core/db/DbAccessTestSupport.html" title="nablarch.test.core.db.DbAccessTestSupport">DbAccessTestSupport</a></td>
+<td><a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/test/junit5/extension/db/DbAccessTestExtension.html" title="nablarch.test.junit5.extension.db.DbAccessTestExtension">DbAccessTestExtension</a></td>
+<td><a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/test/junit5/extension/db/DbAccessTest.html" title="nablarch.test.junit5.extension.db.DbAccessTest">DbAccessTest</a></td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/test/core/db/EntityTestSupport.html" title="nablarch.test.core.db.EntityTestSupport">EntityTestSupport</a></td>
+<td><a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/test/junit5/extension/db/EntityTestExtension.html" title="nablarch.test.junit5.extension.db.EntityTestExtension">EntityTestExtension</a></td>
+<td><a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/test/junit5/extension/db/EntityTest.html" title="nablarch.test.junit5.extension.db.EntityTest">EntityTest</a></td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/test/core/http/BasicHttpRequestTestTemplate.html" title="nablarch.test.core.http.BasicHttpRequestTestTemplate">BasicHttpRequestTestTemplate</a></td>
+<td><a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/test/junit5/extension/http/BasicHttpRequestTestExtension.html" title="nablarch.test.junit5.extension.http.BasicHttpRequestTestExtension">BasicHttpRequestTestExtension</a></td>
+<td><a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/test/junit5/extension/http/BasicHttpRequestTest.html" title="nablarch.test.junit5.extension.http.BasicHttpRequestTest">BasicHttpRequestTest</a></td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/test/core/http/HttpRequestTestSupport.html" title="nablarch.test.core.http.HttpRequestTestSupport">HttpRequestTestSupport</a></td>
+<td><a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/test/junit5/extension/http/HttpRequestTestExtension.html" title="nablarch.test.junit5.extension.http.HttpRequestTestExtension">HttpRequestTestExtension</a></td>
+<td><a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/test/junit5/extension/http/HttpRequestTest.html" title="nablarch.test.junit5.extension.http.HttpRequestTest">HttpRequestTest</a></td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/test/core/http/RestTestSupport.html" title="nablarch.test.core.http.RestTestSupport">RestTestSupport</a></td>
+<td><a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/test/junit5/extension/http/RestTestExtension.html" title="nablarch.test.junit5.extension.http.RestTestExtension">RestTestExtension</a></td>
+<td><a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/test/junit5/extension/http/RestTest.html" title="nablarch.test.junit5.extension.http.RestTest">RestTest</a></td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/test/core/http/SimpleRestTestSupport.html" title="nablarch.test.core.http.SimpleRestTestSupport">SimpleRestTestSupport</a></td>
+<td><a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/test/junit5/extension/http/SimpleRestTestExtension.html" title="nablarch.test.junit5.extension.http.SimpleRestTestExtension">SimpleRestTestExtension</a></td>
+<td><a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/test/junit5/extension/http/SimpleRestTest.html" title="nablarch.test.junit5.extension.http.SimpleRestTest">SimpleRestTest</a></td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/test/core/integration/IntegrationTestSupport.html" title="nablarch.test.core.integration.IntegrationTestSupport">IntegrationTestSupport</a></td>
+<td><a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/test/junit5/extension/integration/IntegrationTestExtension.html" title="nablarch.test.junit5.extension.integration.IntegrationTestExtension">IntegrationTestExtension</a></td>
+<td><a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/test/junit5/extension/integration/IntegrationTest.html" title="nablarch.test.junit5.extension.integration.IntegrationTest">IntegrationTest</a></td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/test/core/messaging/MessagingReceiveTestSupport.html" title="nablarch.test.core.messaging.MessagingReceiveTestSupport">MessagingReceiveTestSupport</a></td>
+<td><a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/test/junit5/extension/messaging/MessagingReceiveTestExtension.html" title="nablarch.test.junit5.extension.messaging.MessagingReceiveTestExtension">MessagingReceiveTestExtension</a></td>
+<td><a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/test/junit5/extension/messaging/MessagingReceiveTest.html" title="nablarch.test.junit5.extension.messaging.MessagingReceiveTest">MessagingReceiveTest</a></td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/test/core/messaging/MessagingRequestTestSupport.html" title="nablarch.test.core.messaging.MessagingRequestTestSupport">MessagingRequestTestSupport</a></td>
+<td><a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/test/junit5/extension/messaging/MessagingRequestTestExtension.html" title="nablarch.test.junit5.extension.messaging.MessagingRequestTestExtension">MessagingRequestTestExtension</a></td>
+<td><a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/test/junit5/extension/messaging/MessagingRequestTest.html" title="nablarch.test.junit5.extension.messaging.MessagingRequestTest">MessagingRequestTest</a></td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="supplemental-information-on-using-basichttprequesttest">
+<h3><a class="toc-backref" href="#id7">Supplemental information on using BasicHttpRequestTest</a><a class="headerlink" href="#supplemental-information-on-using-basichttprequesttest" title="Permalink to this headline">¶</a></h3>
+<p>Except for <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/test/core/http/BasicHttpRequestTestTemplate.html" title="nablarch.test.core.http.BasicHttpRequestTestTemplate">BasicHttpRequestTestTemplate</a>, you can use it in the way described in <a class="reference internal" href="#ntf-junit5-extension-standard-usages"><span>Basic usage</span></a>. It can be used in the way described in <a class="reference internal" href="#ntf-junit5-extension-standard-usages"><span>Basic usage</span></a>.</p>
+<p>Only <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/test/core/http/BasicHttpRequestTestTemplate.html" title="nablarch.test.core.http.BasicHttpRequestTestTemplate">BasicHttpRequestTestTemplate</a> needs to specify parameters when using <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/test/junit5/extension/http/BasicHttpRequestTest.html" title="nablarch.test.junit5.extension.http.BasicHttpRequestTest">BasicHttpRequestTest</a>, which is a composed annotation, so we will supplement it.</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="c1">// 1. Specify the baseUri of BasicHttpRequestTest</span>
+<span class="nd">@BasicHttpRequestTest</span><span class="o">(</span><span class="n">baseUri</span> <span class="o">=</span> <span class="s">&quot;/test/&quot;</span><span class="o">)</span>
+<span class="kd">class</span> <span class="nc">YourTestClass</span> <span class="o">{</span>
+    <span class="c1">// 2. The method of injecting BasicHttpRequestTestTemplate is the same as the others.</span>
+    <span class="n">BasicHttpRequestTestTemplate</span> <span class="n">support</span><span class="o">;</span>
+
+    <span class="nd">@Test</span>
+    <span class="kt">void</span> <span class="nf">test</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">support</span><span class="o">.</span><span class="na">execute</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>The <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/test/junit5/extension/http/BasicHttpRequestTest.html" title="nablarch.test.junit5.extension.http.BasicHttpRequestTest">BasicHttpRequestTest</a> annotation needs to set the <code class="docutils literal"><span class="pre">baseUri</span></code>.
+This value corresponds to the value returned by the <code class="docutils literal"><span class="pre">getBaseUri()</span></code> method of <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/test/core/http/AbstractHttpRequestTestTemplate.html" title="nablarch.test.core.http.AbstractHttpRequestTestTemplate">AbstractHttpRequestTestTemplate</a>.</p>
+</div>
+</div>
+<div class="section" id="add-your-own-extensions">
+<h2><a class="toc-backref" href="#id8">Add your own extensions</a><a class="headerlink" href="#add-your-own-extensions" title="Permalink to this headline">¶</a></h2>
+<p>Describe how to extend the classes provided by the automated testing framework.</p>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p class="last">The procedure described here can also be applied to existing your own extension classes written in JUnit 4.</p>
+</div>
+<p>When creating your own extension classes, the following are the major steps to take.</p>
+<ol class="arabic simple">
+<li>Inherit the classes provided by the automated testing framework and create your own extended classes</li>
+<li>Create the Extension for your own extension that inherits from the Extension corresponding to the class from which it inherits, and implement it to create an instance of your own extension class.</li>
+<li>Apply the Extension for your own extension to the test class using the <code class="docutils literal"><span class="pre">ExtendWith</span></code> annotation.</li>
+</ol>
+<div class="section" id="create-your-own-extension-class">
+<h3><a class="toc-backref" href="#id9">Create your own extension class</a><a class="headerlink" href="#create-your-own-extension-class" title="Permalink to this headline">¶</a></h3>
+<p>In this section, we will use the case of creating a class that extends <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/test/TestSupport.html" title="nablarch.test.TestSupport">TestSupport</a> as an example.</p>
+<p>First, create your own extension class that inherits from <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/test/TestSupport.html" title="nablarch.test.TestSupport">TestSupport</a>.</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">CustomTestSupport</span> <span class="kd">extends</span> <span class="n">TestSupport</span> <span class="o">{</span>
+    <span class="c1">// Implement the constructor to pass the Class instance of the test class to TestSupport.</span>
+    <span class="kd">public</span> <span class="nf">CustomTestSupport</span><span class="o">(</span><span class="n">Class</span><span class="o">&lt;?&gt;</span> <span class="n">testClass</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kd">super</span><span class="o">(</span><span class="n">testClass</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="c1">// Implement your own extension methods</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>Basically, the classes provided by the automated testing framework need to be passed the <code class="docutils literal"><span class="pre">Class</span></code> object of the test class when instantiating.
+Therefore, you need to define a constructor of your own extension class that can accept <code class="docutils literal"><span class="pre">Class</span></code> objects of the test class.</p>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p class="last"><a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/test/core/http/SimpleRestTestSupport.html" title="nablarch.test.core.http.SimpleRestTestSupport">SimpleRestTestSupport</a> can be used without passing a <code class="docutils literal"><span class="pre">Class</span></code> object of the test class to the constructor.</p>
+</div>
+</div>
+<div class="section" id="create-the-extension-for-your-own-extension">
+<h3><a class="toc-backref" href="#id10">Create the Extension for your own extension</a><a class="headerlink" href="#create-the-extension-for-your-own-extension" title="Permalink to this headline">¶</a></h3>
+<p>Next, create the Extension for your own extension by inheriting from the Extension class corresponding to the extension source class.</p>
+<p>In the example, since it inherits from <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/test/TestSupport.html" title="nablarch.test.TestSupport">TestSupport</a>, the corresponding Extension class will be <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/test/junit5/extension/TestSupportExtension.html" title="nablarch.test.junit5.extension.TestSupportExtension">TestSupportExtension</a>.</p>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p class="last">If you use your own extension class that directly inherits from <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/test/core/http/AbstractHttpRequestTestTemplate.html" title="nablarch.test.core.http.AbstractHttpRequestTestTemplate">AbstractHttpRequestTestTemplate</a>, you can use <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/test/junit5/extension/http/BasicHttpRequestTestExtension.html" title="nablarch.test.junit5.extension.http.BasicHttpRequestTestExtension">BasicHttpRequestTestExtension</a> as the corresponding Extension.</p>
+</div>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">CustomTestSupportExtension</span> <span class="kd">extends</span> <span class="n">TestSupportExtension</span> <span class="o">{</span>
+
+    <span class="c1">// Override createSupport() and implement it to return an instance of your own extension class</span>
+    <span class="nd">@Override</span>
+    <span class="kd">protected</span> <span class="n">TestEventDispatcher</span> <span class="nf">createSupport</span><span class="o">(</span><span class="n">Object</span> <span class="n">testInstance</span><span class="o">,</span> <span class="n">ExtensionContext</span> <span class="n">context</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="n">CustomTestSupport</span><span class="o">(</span><span class="n">testInstance</span><span class="o">.</span><span class="na">getClass</span><span class="o">());</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>Override <code class="docutils literal"><span class="pre">createSupport()</span></code> method in the Extension for your own extension.
+Then, implement it so that it returns an instance of the your own extension class you just created.</p>
+<p>Note that instances of your own extension class created by the <code class="docutils literal"><span class="pre">createSupport()</span></code> method are stored in the <code class="docutils literal"><span class="pre">support</span></code> instance field of <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/test/event/TestEventDispatcher.html" title="nablarch.test.event.TestEventDispatcher">TestEventDispatcher</a> type defined in the parent class <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/test/junit5/extension/event/TestEventDispatcherExtension.html" title="nablarch.test.junit5.extension.event.TestEventDispatcherExtension">TestEventDispatcherExtension</a>.
+This field is <code class="docutils literal"><span class="pre">protected</span></code>, so it can be referenced by subclasses.</p>
+</div>
+<div class="section" id="applying-to-the-test-class-with-extendwith">
+<h3><a class="toc-backref" href="#id11">Applying to the test class with ExtendWith</a><a class="headerlink" href="#applying-to-the-test-class-with-extendwith" title="Permalink to this headline">¶</a></h3>
+<p>The Extension for your own extension can be applied to the test class using the <code class="docutils literal"><span class="pre">ExtendWith</span></code> annotation.
+An example implementation is shown below.</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="o">..</span>
+<span class="kn">import</span> <span class="nn">org.junit.jupiter.api.extension.ExtendWith</span><span class="o">;</span>
+
+<span class="c1">// 1. ExtendWith to apply the Extension for your own extension to the test class</span>
+<span class="nd">@ExtendWith</span><span class="o">(</span><span class="n">CustomTestSupportExtension</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>
+<span class="kd">class</span> <span class="nc">YourTest</span> <span class="o">{</span>
+    <span class="c1">// 2. Declare an instance field of your own extension class.</span>
+    <span class="n">CustomTestSupport</span> <span class="n">support</span><span class="o">;</span>
+
+    <span class="nd">@Test</span>
+    <span class="kt">void</span> <span class="nf">test</span><span class="o">()</span> <span class="o">{</span>
+        <span class="c1">// 3. Use your own extension classes in your tests</span>
+        <span class="n">support</span><span class="o">.</span><span class="na">customMethod</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="when-extending-basichttprequesttesttemplate-also-create-annotations">
+<h3><a class="toc-backref" href="#id12">When extending BasicHttpRequestTestTemplate, also create annotations</a><a class="headerlink" href="#when-extending-basichttprequesttesttemplate-also-create-annotations" title="Permalink to this headline">¶</a></h3>
+<p>When extending <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/test/core/http/BasicHttpRequestTestTemplate.html" title="nablarch.test.core.http.BasicHttpRequestTestTemplate">BasicHttpRequestTestTemplate</a> or <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/test/core/http/AbstractHttpRequestTestTemplate.html" title="nablarch.test.core.http.AbstractHttpRequestTestTemplate">AbstractHttpRequestTestTemplate</a>, it is necessary to pass <code class="docutils literal"><span class="pre">baseUri</span></code> to an instance of your own extension class.
+Since <code class="docutils literal"><span class="pre">ExtendWith</span></code> has no parameters other than the Extension class, you need to create your own annotations as well.</p>
+<p>The following is an example of implementation in <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/test/core/http/BasicHttpRequestTestTemplate.html" title="nablarch.test.core.http.BasicHttpRequestTestTemplate">BasicHttpRequestTestTemplate</a>.</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">CustomHttpRequestTestSupport</span> <span class="kd">extends</span> <span class="n">BasicHttpRequestTestTemplate</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">baseUri</span><span class="o">;</span>
+
+    <span class="c1">// Implement baseUri so that it can be passed from outside.</span>
+    <span class="kd">public</span> <span class="nf">CustomHttpRequestTestSupport</span><span class="o">(</span><span class="n">Class</span><span class="o">&lt;?&gt;</span> <span class="n">testClass</span><span class="o">,</span> <span class="n">String</span> <span class="n">baseUri</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kd">super</span><span class="o">(</span><span class="n">testClass</span><span class="o">);</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">baseUri</span> <span class="o">=</span> <span class="n">baseUri</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">protected</span> <span class="n">String</span> <span class="nf">getBaseUri</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">baseUri</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>First, create your own extension class by inheriting from <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/test/core/http/BasicHttpRequestTestTemplate.html" title="nablarch.test.core.http.BasicHttpRequestTestTemplate">BasicHttpRequestTestTemplate</a>.
+The constructor needs to have the parameters the Class instance of the test class and <code class="docutils literal"><span class="pre">baseUri</span></code>.</p>
+<p>Next, create a composed annotation for your own extension class.</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.junit.jupiter.api.extension.ExtendWith</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.lang.annotation.ElementType</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.lang.annotation.Retention</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.lang.annotation.RetentionPolicy</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.lang.annotation.Target</span><span class="o">;</span>
+
+<span class="nd">@Retention</span><span class="o">(</span><span class="n">RetentionPolicy</span><span class="o">.</span><span class="na">RUNTIME</span><span class="o">)</span>
+<span class="nd">@Target</span><span class="o">(</span><span class="n">ElementType</span><span class="o">.</span><span class="na">TYPE</span><span class="o">)</span>
+<span class="c1">// Specify the Extension for your own extension to be created later.</span>
+<span class="nd">@ExtendWith</span><span class="o">(</span><span class="n">CustomHttpRequestTestExtension</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>
+<span class="kd">public</span> <span class="nd">@interface</span> <span class="n">CustomHttpRequestTest</span> <span class="o">{</span>
+    <span class="c1">// Declare the baseUri</span>
+    <span class="n">String</span> <span class="nf">baseUri</span><span class="o">();</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>In the composed annotation, declare <code class="docutils literal"><span class="pre">baseUri</span></code> so that it can be passed.
+The Extension for your own extension specified by <code class="docutils literal"><span class="pre">ExtendWith</span></code> are implemented as follows.</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">CustomHttpRequestTestExtension</span> <span class="kd">extends</span> <span class="n">BasicHttpRequestTestExtension</span> <span class="o">{</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">protected</span> <span class="n">TestEventDispatcher</span> <span class="nf">createSupport</span><span class="o">(</span><span class="n">Object</span> <span class="n">testInstance</span><span class="o">,</span> <span class="n">ExtensionContext</span> <span class="n">context</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Obtaining annotation information from the test class</span>
+        <span class="n">CustomHttpRequestTest</span> <span class="n">annotation</span> <span class="o">=</span> <span class="n">findAnnotation</span><span class="o">(</span><span class="n">testInstance</span><span class="o">,</span> <span class="n">CustomHttpRequestTest</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+        <span class="c1">// Pass the baseUri information to the constructor of your own extension class</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="n">CustomHttpRequestTestSupport</span><span class="o">(</span><span class="n">testInstance</span><span class="o">.</span><span class="na">getClass</span><span class="o">(),</span> <span class="n">annotation</span><span class="o">.</span><span class="na">baseUri</span><span class="o">());</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal"><span class="pre">findAnnotation(Object,</span> <span class="pre">Class)</span></code> can be used to obtain information about annotations set in the test class.
+This allows you to pass the value of <code class="docutils literal"><span class="pre">baseUri</span></code> to your own extension class.</p>
+<p>Finally, you can use your own extension class that inherits from <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/test/core/http/BasicHttpRequestTestTemplate.html" title="nablarch.test.core.http.BasicHttpRequestTestTemplate">BasicHttpRequestTestTemplate</a> by implementing it as follows using your own composed annotation.</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="c1">// Set your own composed annotation to the test class (also set baseUri)</span>
+<span class="nd">@CustomHttpRequestTest</span><span class="o">(</span><span class="n">baseUri</span> <span class="o">=</span> <span class="s">&quot;/custom/&quot;</span><span class="o">)</span>
+<span class="kd">class</span> <span class="nc">YourTest</span> <span class="o">{</span>
+    <span class="c1">// Declare the fields of your own extension class</span>
+    <span class="n">CustomHttpRequestTestSupport</span> <span class="n">support</span><span class="o">;</span>
+
+    <span class="nd">@Test</span>
+    <span class="kt">void</span> <span class="nf">test</span><span class="o">()</span> <span class="o">{</span>
+        <span class="c1">// Use your own extension class in Tests</span>
+        <span class="n">support</span><span class="o">.</span><span class="na">customMethod</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="implementing-pre-processing-and-post-processing">
+<h3><a class="toc-backref" href="#id13">Implementing pre-processing and post-processing</a><a class="headerlink" href="#implementing-pre-processing-and-post-processing" title="Permalink to this headline">¶</a></h3>
+<p>In the Extension for your own extension, you can implement pre-processing and post-processing of tests by overriding the following methods.</p>
+<ul class="simple">
+<li>beforeAll</li>
+<li>beforeEach</li>
+<li>afterAll</li>
+<li>afterEach</li>
+</ul>
+<p>In <code class="docutils literal"><span class="pre">beforeAll</span></code> and <code class="docutils literal"><span class="pre">afterAll</span></code>, you can implement pre-processing and post-processing for the entire test class.
+And with <code class="docutils literal"><span class="pre">beforeEach</span></code> and <code class="docutils literal"><span class="pre">afterEach</span></code>, you can implement pre-processing and post-processing for each test method.</p>
+<p>When overriding each method, it is always necessary to execute the same method of the parent class as follows.
+If not, the pre-processing and post-processing defined in the parent class will not be called.</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="nd">@Override</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">beforeAll</span><span class="o">(</span><span class="n">ExtensionContext</span> <span class="n">context</span><span class="o">)</span> <span class="o">{</span>
+    <span class="c1">// Always execute the parent&#39;s method first.</span>
+    <span class="kd">super</span><span class="o">.</span><span class="na">beforeAll</span><span class="o">(</span><span class="n">context</span><span class="o">);</span>
+
+    <span class="c1">// Implement your own pre-processing</span>
+    <span class="o">...</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="reproducing-the-testrule-of-junit-4">
+<h3><a class="toc-backref" href="#id14">Reproducing the TestRule of JUnit 4</a><a class="headerlink" href="#reproducing-the-testrule-of-junit-4" title="Permalink to this headline">¶</a></h3>
+<p>If you have your own extension class created in an existing project, and it uses the <code class="docutils literal"><span class="pre">TestRule</span></code> of JUnit 4, this section explains how to port it to this extension.</p>
+<p>For example, suppose that the following your own extension class exists.</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.junit.Rule</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.junit.rules.Timeout</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.concurrent.TimeUnit</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">CustomTestSupport</span> <span class="kd">extends</span> <span class="n">TestSupport</span> <span class="o">{</span>
+    <span class="c1">// Using the TestRule of JUnit 4</span>
+    <span class="nd">@Rule</span>
+    <span class="kd">public</span> <span class="n">Timeout</span> <span class="n">timeout</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Timeout</span><span class="o">(</span><span class="mi">1000</span><span class="o">,</span> <span class="n">TimeUnit</span><span class="o">.</span><span class="na">MILLISECONDS</span><span class="o">);</span>
+
+    <span class="kd">public</span> <span class="nf">CustomTestSupport</span><span class="o">(</span><span class="n">Class</span><span class="o">&lt;?&gt;</span> <span class="n">testClass</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kd">super</span><span class="o">(</span><span class="n">testClass</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>When porting this to this extension, the Extension for your own extension is implemented as follows.</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">CustomTestSupportExtension</span> <span class="kd">extends</span> <span class="n">TestSupportExtension</span> <span class="o">{</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">protected</span> <span class="n">TestEventDispatcher</span> <span class="nf">createSupport</span><span class="o">(</span><span class="n">Object</span> <span class="n">testInstance</span><span class="o">,</span> <span class="n">ExtensionContext</span> <span class="n">context</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="n">CustomTestSupport</span><span class="o">(</span><span class="n">testInstance</span><span class="o">.</span><span class="na">getClass</span><span class="o">());</span>
+    <span class="o">}</span>
+
+    <span class="c1">// 1. Override the resolveTestRules method</span>
+    <span class="nd">@Override</span>
+    <span class="kd">protected</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">TestRule</span><span class="o">&gt;</span> <span class="nf">resolveTestRules</span><span class="o">()</span> <span class="o">{</span>
+        <span class="c1">// 2. Generate a list based on the result of resolveTestRules() of the parent class</span>
+        <span class="n">List</span><span class="o">&lt;</span><span class="n">TestRule</span><span class="o">&gt;</span> <span class="n">rules</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;(</span><span class="kd">super</span><span class="o">.</span><span class="na">resolveTestRules</span><span class="o">());</span>
+        <span class="c1">// 3. Add the TestRule defined in your own extension class to the list</span>
+        <span class="n">rules</span><span class="o">.</span><span class="na">add</span><span class="o">(((</span><span class="n">CustomTestSupport</span><span class="o">)</span> <span class="n">support</span><span class="o">).</span><span class="na">timeout</span><span class="o">);</span>
+        <span class="c1">// 4. Return the generated list</span>
+        <span class="k">return</span> <span class="n">rules</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>In the Extension for your own extension, you can override the method <code class="docutils literal"><span class="pre">resolveTestRules()</span></code>.
+Implement this method to return a list of the <code class="docutils literal"><span class="pre">TestRules</span></code> of JUnit 4 that you want to reproduce.
+This allows you to reproduce  <code class="docutils literal"><span class="pre">TestRule</span></code> of JUnit 4 on JUnit 5 tests.</p>
+<p>Note that overriding <code class="docutils literal"><span class="pre">resolveTestRules()</span></code> should always be based on the list returned by the parent class <code class="docutils literal"><span class="pre">resolveTestRules()</span></code>.
+If not, the <code class="docutils literal"><span class="pre">TestRule</span></code> registered in the parent class will not be reproduced.</p>
+</div>
+</div>
+<div class="section" id="using-with-registerextension">
+<h2><a class="toc-backref" href="#id15">Using with RegisterExtension</a><a class="headerlink" href="#using-with-registerextension" title="Permalink to this headline">¶</a></h2>
+<p>JUnit 5 provides a mechanism called RegisterExtension to programmatically create an instance of Extension and apply it to a test class.</p>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p class="last">For an explanation of RegisterExtension, see <a class="reference external" href="https://junit.org/junit5/docs/5.11.0/user-guide/#extensions-registration-programmatic">&#8220;5.2.2. Programmatic Extension Registration&#8221; in the Official Guide (external site)</a>.</p>
+</div>
+<p>The Extensions provided by this extension can also be used with RegisterExtension.
+However, in such a case, it must be used in a static field.
+If used in an instance field, <code class="docutils literal"><span class="pre">beforeAll</span></code> and <code class="docutils literal"><span class="pre">afterAll</span></code> will not be executed, and the Extension will not work properly.</p>
+<p>An example of implementation is shown below.</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="kd">class</span> <span class="nc">YourTest</span> <span class="o">{</span>
+    <span class="c1">// 1. Use RegisterExtension in static fields</span>
+    <span class="nd">@RegisterExtension</span>
+    <span class="kd">static</span> <span class="n">TestSupportExtension</span> <span class="n">extension</span> <span class="o">=</span> <span class="k">new</span> <span class="n">TestSupportExtension</span><span class="o">();</span>
+
+    <span class="c1">// 2. Declare the instance field of the class provided by the automated testing framework</span>
+    <span class="n">TestSupport</span> <span class="n">support</span><span class="o">;</span>
+
+    <span class="nd">@Test</span>
+    <span class="kt">void</span> <span class="nf">test</span><span class="o">()</span> <span class="o">{</span>
+        <span class="c1">// 3. Using support in tests</span>
+        <span class="o">...</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+
+    <hr/>
+
+    <div role="contentinfo">
+        <p>
+            &copy; Copyright 2010-2024, TIS Inc.
+        </p>
+    </div>
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../../',
+            VERSION:'6u2',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: ''
+        };
+    </script>
+      <script type="text/javascript" src="../../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../../../_static/custom.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
