@@ -176,12 +176,6 @@ nablarch.integration.micrometer.otlp
 nablarch.integration.micrometer.simple
 nablarch.integration.micrometer.statsd
 nablarch.integration.redisstore.lettuce
-nablarch.integration.report
-nablarch.integration.report.creator
-nablarch.integration.report.datasource
-nablarch.integration.report.exporter
-nablarch.integration.report.outputresolver
-nablarch.integration.report.templateresolver
 nablarch.integration.router
 nablarch.integration.router.jaxrs
 nablarch.test
