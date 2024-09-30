@@ -1,11 +1,11 @@
-=========================================================
-JSR352に準拠したバッチプロジェクトの初期セットアップ
-=========================================================
+===========================================================
+Jakarta Batchに準拠したバッチプロジェクトの初期セットアップ
+===========================================================
 
-JSR352に準拠したバッチプロジェクトの初期セットアップでは以下を行う。
+Jakarta Batchに準拠したバッチプロジェクトの初期セットアップでは以下を行う。
 
-* JSR352に準拠したバッチプロジェクトの生成
-* JSR352に準拠したバッチプロジェクトの動作確認
+* Jakarta Batchに準拠したバッチプロジェクトの生成
+* Jakarta Batchに準拠したバッチプロジェクトの動作確認
 
 
 生成するプロジェクトの概要
@@ -29,14 +29,10 @@ JSR352に準拠したバッチプロジェクトの初期セットアップで�
   * - 生成するプロジェクトに含まれるもの
     - 生成されたプロジェクトには以下が含まれる。
        
-      * JSR352に準拠したバッチアプリケーション用の基本的な設定
+      * Jakarta Batchに準拠したバッチアプリケーション用の基本的な設定
       * batchlet方式による疎通確認用バッチアプリケーション
       * chunk方式による疎通確認用バッチアプリケーション
-      * ETL機能を使用した疎通確認用アプリケーション \ [#etl]_\
       * Mavenと連動して動作するツールの初期設定( :ref:`about_maven_parent_module` を参照することによって取り込んでいる)。
-
-
-.. [#etl] ETLを実行するクラスはNablarch内に存在するため、プロジェクトには設定ファイル、及びETLが使用するDTOクラス、entityクラスのみ存在する。
 
 
 他のプロジェクトとの関係、及びディレクトリ構成は、 :doc:`../MavenModuleStructures/index` を参照。
@@ -53,16 +49,32 @@ Nablarchが提供するアーキタイプを使用してブランクプロジェ
 mvnコマンドの実行
 -------------------------------------------------------
 
-カレントディレクトリを、ブランクプロジェクトを作成したいディレクトリ(任意のディレクトリで可)に変更し、以下のファイルを配置する。
+`Maven Archetype Plugin(外部サイト、英語) <https://maven.apache.org/archetype/maven-archetype-plugin/usage.html>`_ を使用して、ブランクプロジェクトを生成する。
 
-:download:`バッチファイル <bat/generateJbatchProject.bat>`
+カレントディレクトリを、ブランクプロジェクトを作成したいディレクトリ(任意のディレクトリで可)に変更する。
 
-配置後、引数に必要なパラメータを指定しbatファイルを実行する。
+その後、以下のコマンドを実行する。
 
-generateJbatchProject.bat |nablarch_version| <<groupId>> <<artifactId>> <<version>> <<package(任意)>>
+.. code-block:: bat
 
-上記コマンドに設定するパラメータは以下の通り。
-なお、nablarchのバージョンを変更したい場合には |nablarch_version| を変更すること。
+  mvn archetype:generate -DarchetypeGroupId=com.nablarch.archetype -DarchetypeArtifactId=nablarch-batch-ee-archetype -DarchetypeVersion={nablarch_version}
+
+上記コマンドで使用されているNablarchのバージョンは |nablarch_version| となっている。バージョンを変更したい場合は、以下のパラメータを変更すること。
+
+.. list-table::
+  :header-rows: 1
+  :class: white-space-normal
+  :widths: 6,20
+
+  * - 設定値
+    - 説明
+  * - archetypeVersion
+    - 使用したいアーキタイプのバージョンを指定する。（Nablarch 6u2以降を指定すること）
+
+プロジェクト情報の入力
+~~~~~~~~~~~~~~~~~~~~~~~
+
+上記コマンドを実行すると、以下の項目について入力を求められるので、 生成されるブランクプロジェクトに関する情報を入力する。
 
 =========== ========================================= =======================
 入力項目    説明                                      設定例
@@ -76,6 +88,11 @@ package      パッケージ(通常はグループIDと同じ)       ``com.examp
 .. important::
    項目groupIdおよびpackageは、Javaのパッケージ名にマッピングされる。
    よって、これらの入力値には、英小文字、数字、ドットを使用し、ハイフンは使用しないこと。
+
+プロジェクト情報の入力が終わると、Y: :と表示される。
+
+ * 入力した内容をもとに、ひな形を生成する場合には「Y」を入力してください。
+ * プロジェクト情報の入力をやり直したい場合には「N」を入力してください。
 
 コマンドが正常終了した場合、ブランクプロジェクトがカレントディレクトリ配下に作成される。
 
@@ -139,13 +156,12 @@ package      パッケージ(通常はグループIDと同じ)       ``com.examp
 =================== ================================================================================
 ジョブID            内容
 =================== ================================================================================
-sample-batchlet     batchlet方式で実装されたサンプルアプリケーション。
 sample-chunk        chunk方式で実装されたサンプルアプリケーション。
-sample-etl          Nablarchが提供するETL機能のサンプルアプリケーション。
+sample-batchlet     batchlet方式で実装されたサンプルアプリケーション。
 =================== ================================================================================
 
 
-上記3つのバッチアプリケーションの動作確認を行うことで、ブランクプロジェクトの生成に成功していることを確認する。
+上記2つのバッチアプリケーションの動作確認を行うことで、ブランクプロジェクトの生成に成功していることを確認する。
 
 
 .. _firstStepBatchEEBuild:
@@ -165,57 +181,6 @@ sample-etl          Nablarchが提供するETL機能のサンプルアプリケ�
 .. code-block:: text
 
   mvn package
-
-batchlet方式のバッチアプリケーションの起動
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-batchlet方式のバッチアプリケーションでは、SAMPLE_USERテーブルのデータを削除する処理が実装されている。
-
-以下のコマンドを実行する。
-
-.. code-block:: bash
-
-  mvn exec:java -Dexec.mainClass=nablarch.fw.batch.ee.Main -Dexec.args="'sample-batchlet'"
-
-実行に成功すると、以下のようなログが ``./progress.log`` に出力される。
-
-.. code-block:: text
-
-  2020-04-28 10:35:27.002 -INFO- progress [null] boot_proc = [] proc_sys = [batch-ee] req_id = [null] usr_id = [null] start job. job name: [sample-batchlet]
-  2020-04-28 10:35:27.011 -INFO- progress [null] boot_proc = [] proc_sys = [batch-ee] req_id = [null] usr_id = [null] start step. job name: [sample-batchlet] step name: [step1]
-  2020-04-28 10:35:27.247 -INFO- progress [null] boot_proc = [] proc_sys = [batch-ee] req_id = [null] usr_id = [null] finish step. job name: [sample-batchlet] step name: [step1] step status: [SUCCESS]
-  2020-04-28 10:35:27.255 -INFO- progress [null] boot_proc = [] proc_sys = [batch-ee] req_id = [null] usr_id = [null] finish job. job name: [sample-batchlet]
-
-
-.. tip::
-
-  このbatchletはSAMPLE_USERテーブルのデータを全件削除している。削除したデータを復元したい場合は、 :ref:`firstStepBatchEERunETL` のコマンドを実行すること。
-
-
-
-.. _firstStepBatchEERunETL:
-
-ETL機能を使用するアプリケーションの起動
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-ETL機能を使用したアプリケーションでは、SAMPLE_USERテーブルにデータを投入するように設定されている。
-
-
-以下のコマンドを実行する。
-
-.. code-block:: bash
-
-  mvn exec:java -Dexec.mainClass=nablarch.fw.batch.ee.Main -Dexec.args="'sample-etl'"
-
-起動に成功すると、以下のようなログが ``./progress.log`` に出力される。
-
-.. code-block:: text
-
-  2020-04-28 10:37:21.921 -INFO- progress [null] boot_proc = [] proc_sys = [batch-ee] req_id = [null] usr_id = [null] start step. job name: [sample-etl] step name: [load]
-  2020-04-28 10:37:21.932 -INFO- progress [null] boot_proc = [] proc_sys = [batch-ee] req_id = [null] usr_id = [null] job name: [sample-etl] step name: [load] input count: [10]
-  2020-04-28 10:37:21.944 -INFO- progress [null] boot_proc = [] proc_sys = [batch-ee] req_id = [null] usr_id = [null] job name: [sample-etl] step name: [load] write table name: [SAMPLE_USER]
-  2020-04-28 10:37:21.954 -INFO- progress [null] boot_proc = [] proc_sys = [batch-ee] req_id = [null] usr_id = [null] job name: [sample-etl] step name: [load] total tps: [500.00] current tps: [500.00] estimated end time: [2020/04/28 10:37:21.954] remaining count: [0]
-  2020-04-28 10:37:21.963 -INFO- progress [null] boot_proc = [] proc_sys = [batch-ee] req_id = [null] usr_id = [null] finish step. job name: [sample-etl] step name: [load] step status: [COMPLETED]
-  2020-04-28 10:37:21.973 -INFO- progress [null] boot_proc = [] proc_sys = [batch-ee] req_id = [null] usr_id = [null] finish job. job name: [sample-etl]
-
 
 chunk方式のバッチアプリケーションの起動
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -244,7 +209,7 @@ chunk方式のバッチアプリケーションでは、SAMPLE_USERテーブル�
 また、testdata/output/outputdata.csvに以下のデータが出力される。
 
 .. code-block:: text
-  
+
   ユーザID,氏名
   1,名部楽 一郎
   2,名部楽 二郎
@@ -262,6 +227,32 @@ chunk方式のバッチアプリケーションでは、SAMPLE_USERテーブル�
 
   testdata/output/outputdata.csvはUTF-8で出力される。
   testdata/output/outputdata.csvの内容を確認する際、Excelで開くと化けて表示されるため、テキストエディタで開くこと。
+
+
+batchlet方式のバッチアプリケーションの起動
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+batchlet方式のバッチアプリケーションでは、SAMPLE_USERテーブルのデータを削除する処理が実装されている。
+
+以下のコマンドを実行する。
+
+.. code-block:: bash
+
+  mvn exec:java -Dexec.mainClass=nablarch.fw.batch.ee.Main -Dexec.args="'sample-batchlet'"
+
+実行に成功すると、以下のようなログが ``./progress.log`` に出力される。
+
+.. code-block:: text
+
+  2020-04-28 10:35:27.002 -INFO- progress [null] boot_proc = [] proc_sys = [batch-ee] req_id = [null] usr_id = [null] start job. job name: [sample-batchlet]
+  2020-04-28 10:35:27.011 -INFO- progress [null] boot_proc = [] proc_sys = [batch-ee] req_id = [null] usr_id = [null] start step. job name: [sample-batchlet] step name: [step1]
+  2020-04-28 10:35:27.247 -INFO- progress [null] boot_proc = [] proc_sys = [batch-ee] req_id = [null] usr_id = [null] finish step. job name: [sample-batchlet] step name: [step1] step status: [SUCCESS]
+  2020-04-28 10:35:27.255 -INFO- progress [null] boot_proc = [] proc_sys = [batch-ee] req_id = [null] usr_id = [null] finish job. job name: [sample-batchlet]
+
+
+.. tip::
+
+  このbatchletはSAMPLE_USERテーブルのデータの全件削除を行っている。削除したデータを復元したい場合は、 :ref:`firstStepBatchEEProjectStructure` を参考に「SAMPLE.mv.db.org」を「SAMPLE.mv.db」にコピーすること。
+
 
 
 疎通確認になぜか失敗する場合

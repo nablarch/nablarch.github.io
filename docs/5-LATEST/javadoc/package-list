@@ -192,6 +192,7 @@ nablarch.integration.micrometer.instrument.dao
 nablarch.integration.micrometer.instrument.handler
 nablarch.integration.micrometer.instrument.http
 nablarch.integration.micrometer.logging
+nablarch.integration.micrometer.otlp
 nablarch.integration.micrometer.simple
 nablarch.integration.micrometer.statsd
 nablarch.integration.redisstore.lettuce

@@ -92,7 +92,7 @@
 デフォルトの設定では、プロパティファイルのパスは ``classpath:messages.properties`` となる。
 
 メッセージは、 :java:extdoc:`java.util.Properties` を使用してロードする。
-なお、NablarchはJava6以上を想定しているため、 **UTF-8** で作成すればよくユニコード変換(native2ascii)は必要ない。
+なお、Nablarch6はJava17以上を想定しているため、 **UTF-8** で作成すればよくユニコード変換(native2ascii)は必要ない。
 
 プロパティファイルの例
   .. code-block:: properties
@@ -354,7 +354,7 @@ errorsタグを使用したメッセージレベルに応じたスタイル切�
       }
 
   action class
-    `errors` タグで出力するメッセージは、 :java:extdoc:`WebUtil.notifyMessages <nablarch.common.web.WebUtil.notifyMessages(nablarch.fw.ExecutionContext-nablarch.core.message.Message...)>` を使ってリクエストスコープに格納する。
+    `errors` タグで出力するメッセージは、 :java:extdoc:`WebUtil.notifyMessages <nablarch.common.web.WebUtil.notifyMessages(nablarch.fw.ExecutionContext,nablarch.core.message.Message...)>` を使ってリクエストスコープに格納する。
 
     .. code-block:: java
 

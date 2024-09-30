@@ -63,7 +63,7 @@ Module list
     <!--  Implementation of an built-in server used by the testing framework  -->
     <dependency>
       <groupId>com.nablarch.framework</groupId>
-      <artifactId>nablarch-testing-jetty6</artifactId>
+      <artifactId>nablarch-testing-jetty12</artifactId>
       <scope>test</scope>
     </dependency>
 
@@ -71,9 +71,6 @@ Module list
 .. important::
    ``nablarch-testing-rest`` depends on ``nablarch-testing`` (:ref:`Testing framework <unitTestGuide>`) . 
    Adding the above module to the dependencies allows you to use :ref:`Testing framework <unitTestGuide>`'s API as well.
-
-.. tip::
-  If you are using Java11 replace the built-in server as described in :ref:`Change of Jetty module used in automatic test (only for web projects or RESTful web service projects) <setup_java11_jetty9>` .
 
 Configuration
 =============
@@ -227,13 +224,13 @@ if the response status code does not match the expected status code.
 Response body
 ----------------
 
-The framework does not provide a mechanism for response body validation. Use libraries such as `JSONAssert(external site) <http://jsonassert.skyscreamer.org/>`_,
+The framework does not provide a mechanism for response body validation. Use libraries such as `JSONAssert(external site) <https://jsonassert.skyscreamer.org/>`_,
 `json-path-assert(external site) <https://github.com/json-path/JsonPath/tree/master/json-path-assert>`_,
 or `XMLUnit(external site) <https://github.com/xmlunit/user-guide/wiki>`_ according to the requirements of each project.
 
 .. tip::
   If you have created a \ :doc:`RESTful web service blank project <../../../../../application_framework/application_framework/blank_project/setup_blankProject/setup_WebService>`\,
-  the above `JSONAssert (external site) <http://jsonassert.skyscreamer.org/>`_,
+  the above `JSONAssert (external site) <https://jsonassert.skyscreamer.org/>`_,
   `json-path-assert(external site) <https://github.com/json-path/JsonPath/tree/master/json-path-assert>`_
   and `XMLUnit(external site) <https://github.com/xmlunit/user-guide/wiki>`_ are listed in pom.xml.
   Delete or replace libraries as necessary.

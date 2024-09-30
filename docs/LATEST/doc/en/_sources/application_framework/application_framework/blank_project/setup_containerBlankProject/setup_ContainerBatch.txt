@@ -58,17 +58,30 @@ Execute the mvn command
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Use `Maven Archetype Plugin(external site) <https://maven.apache.org/archetype/maven-archetype-plugin/usage.html>`_ to generate a blank project.
 
-Change the current directory to the directory where the blank project (can be any directory) is to be created, and place the following file.
-
-:download:`Batch file <bat/generateContainerNablarchBatchProject.bat>`
-
-After placing the file, specify the necessary parameters in the arguments and execute the bat file.
-
-generateContainerNablarchBatchProject.bat |nablarch_version| <<groupId>> <<artifactId>> <<version>> <<package(optional)>>
-
-The parameters configured in the above command are as follows.
-If you want to change the version of Nablarch, change |nablarch_version|.
 Change the current directory to the directory where the blank project (can be any directory) is to be created.
+
+Execute the following command.
+
+.. code-block:: bat
+
+  mvn archetype:generate -DarchetypeGroupId=com.nablarch.archetype -DarchetypeArtifactId=nablarch-container-batch-archetype -DarchetypeVersion={nablarch_version}
+
+The version of Nablarch used in the above command is |nablarch_version|. If you want to change the version, change the following parameters.
+
+.. list-table::
+  :header-rows: 1
+  :class: white-space-normal
+  :widths: 6,20
+
+  * - Set value
+    - Description
+  * - archetypeVersion
+    - Specify the version of the archetype you wish to use. (Nablarch 6u2 or later must be specified)
+
+Enter project information
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+When the above command is executed, you will be asked to enter the following information about the blank project to be generated.
 
 =========== ================================================= =======================
 Input item  Description                                       Configuration example
@@ -82,6 +95,11 @@ package      Package (normally the same as group ID)          ``com.example``
 .. important::
    Item groupId and package are mapped to the Java package name.
    Use lowercase letters, numbers, and dots for these input values, and do not use hyphens.
+
+When you have finished entering project information, Y: : will appear.
+
+ * Enter 「Y」 if you want to generate a template based on the information you have entered.
+ * Enter 「N」 if you wish to redo the project information entry.
 
 If the command ends normally, a blank project is created under the current directory.
 
@@ -144,10 +162,10 @@ As you can see, the blank project is configured to create the following two imag
 * ``${project.artifactId}:latest``
 * ``${project.artifactId}:${project.version}``
 
-`OpenJDK image <https://hub.docker.com/_/adoptopenjdk>`_ (External sites) is used as base image by default.
+`OpenJDK image <https://hub.docker.com/_/eclipse-temurin>`_ (External sites) is used as base image by default.
 
 The base image can be changed with the ``jib.from.image`` property.
-For example, if you want to use ``adoptopenjdk:11.0.11_9-jre-hotspot`` for your base image, you would write it in ``pom.xml`` .
+For example, if you want to use ``eclipse-temurin:17.0.6_10-jre-jammy`` for your base image, you would write it in ``pom.xml`` .
 
 .. code-block:: xml
 
@@ -155,7 +173,7 @@ For example, if you want to use ``adoptopenjdk:11.0.11_9-jre-hotspot`` for your 
     <! -- Omitted ...-->
     <properties>
       <! -- Omitted ...-->
-      <jib.from.image>adoptopenjdk:11.0.11_9-jre-hotspot</jib.from.image>
+      <jib.from.image>eclipse-temurin:17.0.6_10-jre-jammy</jib.from.image>
     </properties>
     <! -- Omitted ...-->
   </project>
@@ -170,7 +188,7 @@ For example, if you want to use ``adoptopenjdk:11.0.11_9-jre-hotspot`` for your 
 
   .. code-block:: xml
 
-    <jib.from.image>adoptopenjdk@sha256:df316691a2c655de2f835a626f8611c74af67dad2cf92711f6608b54e5aa6c61</jib.from.image>
+    <jib.from.image>eclipse-temurin@sha256:7dacdab7c335d90cf4e110f5744ca27d5a3ed87901a7c08022c8c12055438bd2</jib.from.image>
 
 .. _firstStepRunContainerBatchDockerImage:
 

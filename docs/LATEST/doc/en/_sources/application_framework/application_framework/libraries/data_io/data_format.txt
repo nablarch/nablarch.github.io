@@ -62,7 +62,7 @@ The fixed-length and variable-length data formats are compatible even with multi
   Alternative to this function
     :fixed-length: Use :ref:`data_bind` .
     :Variable length: Use  :ref:`data_bind` .
-    :XML: :java:extdoc:`JAXB <javax.xml.bind>` is recommended.
+    :XML: `Jakarta XML Binding <https://jakarta.ee/specifications/xml-binding/>`_ is recommended.
     :JSON: Use of OSS is recommended. For example, `Jackson (external site) <https://github.com/FasterXML/jackson>`_ is widely used.
 
 
@@ -335,9 +335,9 @@ Loading an upload file using the upload helper
     * Generate :java:extdoc:`UploadHelper <nablarch.fw.web.upload.util.UploadHelper>` based on the upload file acquired.
     * Configure the format definition file using :java:extdoc:`UploadHelper#applyFormat <nablarch.fw.web.upload.util.UploadHelper.applyFormat(java.lang.String)>` .
 
-    * Configure the message ID for validation error using :java:extdoc:`setUpMessageIdOnError <nablarch.fw.web.upload.util.BulkValidator.setUpMessageIdOnError(java.lang.String-java.lang.String-java.lang.String)>` .
-    * Configure the Java Beans class that executes validation and the validation method using :java:extdoc:`validateWith <nablarch.fw.web.upload.util.BulkValidator.ErrorHandlingBulkValidator.validateWith(java.lang.Class-java.lang.String)>` .
-    * Register the validated Javabeans object in DB using :java:extdoc:`importWith <nablarch.fw.web.upload.util.BulkValidationResult.importWith(nablarch.core.db.support.DbAccessSupport-java.lang.String)>` .
+    * Configure the message ID for validation error using :java:extdoc:`setUpMessageIdOnError <nablarch.fw.web.upload.util.BulkValidator.setUpMessageIdOnError(java.lang.String,java.lang.String,java.lang.String)>` .
+    * Configure the Java Beans class that executes validation and the validation method using :java:extdoc:`validateWith <nablarch.fw.web.upload.util.BulkValidator.ErrorHandlingBulkValidator.validateWith(java.lang.Class,java.lang.String)>` .
+    * Register the validated Javabeans object in DB using :java:extdoc:`importWith <nablarch.fw.web.upload.util.BulkValidationResult.importWith(nablarch.core.db.support.DbAccessSupport,java.lang.String)>` .
 
   .. code-block:: java
 
@@ -482,15 +482,6 @@ Configure by explicitly mentioning the name ``XmlDataParser`` in the configurati
       </component>
     </component-configuration>
 
-.. tip::
-
-  The API of the below versions of JDK has a bug, and a ``NullPointerException`` occurs when this function is used. To avoid this bug, update the version of JDK.
-  
-  - JDK6 6u65 or below
-  - JDK7 7u6 b15 or below
-
-  For details of the failure, see `JDK-7157610 : NullPointerException occurs when parsing XML doc <https://bugs.java.com/bugdatabase/view_bug.do?bug_id=7157610>`_ .
-
 Using namespaces in XML
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Namespaces may have to be used for the connection requirements with the connection destination system. Such cases are managed by defining the namespace in the format definition file.
@@ -625,6 +616,22 @@ Add the replacement rule configuration to the component configuration file
         </list>
       </property>
     </component>
+
+Configuration of initialization component
+  Configure :java:extdoc:`CharacterReplacementManager <nablarch.core.dataformat.CharacterReplacementManager>` that have been configured above to the initialization list.
+
+    .. code-block:: xml
+
+      <component name="initializer"
+          class="nablarch.core.repository.initialization.BasicApplicationInitializer">
+
+        <property name="initializeList">
+          <list>
+            <!-- Omitted -->
+            <component-ref name="characterReplacementManager" />
+          </list>
+        </property>
+      </component>
 
 Define which replacement rule to use in the format definition file
   To replace characters during input/output, use :ref:`replacement <data_format-replacement_convertor>` .

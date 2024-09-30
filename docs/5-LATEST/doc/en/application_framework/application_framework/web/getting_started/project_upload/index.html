@@ -9,7 +9,7 @@
   <meta http-equiv='content-language' content='ja'>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>2.3.5. Create a Batch registration Function Using Upload &mdash; ∇Nablarch  5u24 documentation</title>
+  <title>Create a Batch registration Function Using Upload &mdash; ∇Nablarch  5u25 documentation</title>
   
 
   
@@ -35,10 +35,10 @@
   
   <link rel="canonical" href="https://nablarch.github.io/docs/LATEST/doc/application_framework/application_framework/web/getting_started/project_upload/index.html" />
   
-    <link rel="top" title="∇Nablarch  5u24 documentation" href="../../../../../index.html"/>
-        <link rel="up" title="2.3. Getting Started" href="../index.html"/>
-        <link rel="next" title="2.3.6. Create a File Download Function" href="../project_download/index.html"/>
-        <link rel="prev" title="2.3.4. Create a Delete Function" href="../project_delete/index.html"/>
+    <link rel="top" title="∇Nablarch  5u25 documentation" href="../../../../../index.html"/>
+        <link rel="up" title="Getting Started" href="../index.html"/>
+        <link rel="next" title="Create a File Download Function" href="../project_download/index.html"/>
+        <link rel="prev" title="Create a Delete Function" href="../project_delete/index.html"/>
 
 <script defer data-domain="nablarch.github.io,all.fintan" src=https://plausible.io/js/script.js></script>
 
@@ -63,7 +63,7 @@
   
 
   
-    <div id="sidebar-version">Version: 5u24</div>
+    <div id="sidebar-version">Version: 5u25</div>
   </a>
 
   <div role="search">
@@ -95,17 +95,17 @@
 </li>
 <li class="toctree-l1 current"><a class="reference internal" href="../../../../index.html">Nablarch Application Framework</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="../../../index.html">Application Framework</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="../../../nablarch/index.html">1. What is Nablarch Application Framework?</a></li>
-<li class="toctree-l3 current"><a class="reference internal" href="../../index.html">2. Web Application</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../web_service/index.html">3. Web Service</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../batch/index.html">4. Batch Application</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../messaging/index.html">5. Messaging</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../handlers/index.html">6. Standard Handler Provided by Nablarch</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../libraries/index.html">7. Libraries Provided by Nablarch</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../blank_project/index.html">8. Blank Project</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../setting_guide/index.html">9. Nablarch Application Framework Configuration Guide</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../configuration/index.html">10. Default Configuration List</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../cloud_native/index.html">11. Nablarch Cloud Native Support</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../nablarch/index.html">What is Nablarch Application Framework?</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../../index.html">Web Application</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../web_service/index.html">Web Service</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../batch/index.html">Batch Application</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../messaging/index.html">Messaging</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../handlers/index.html">Standard Handler Provided by Nablarch</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../libraries/index.html">Libraries Provided by Nablarch</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../blank_project/index.html">Blank Project</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../setting_guide/index.html">Nablarch Application Framework Configuration Guide</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../configuration/index.html">Default Configuration List</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../cloud_native/index.html">Nablarch Cloud Native Support</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../adaptors/index.html">Adaptor</a><ul>
@@ -124,118 +124,133 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../../adaptors/micrometer_adaptor.html">Micrometer Adapter</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../example/index.html">Example</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../../example/index.html#procedure-to-build-the-environment">Procedure to build the environment</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../example/index.html#application-execution-procedure">Application execution procedure</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../example/index.html#running-on-java-11-or-higher">Running on Java 11 or higher</a></li>
-</ul>
-</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../extension_components/index.html">Nablarch extension component</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../../../../extension_components/report/index.html">1. Form library</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../../extension_components/workflow/doc/index.html">2. Workflow library</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../../extension_components/workflow/tool/index.html">3. Workflow definition data generation tool</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../../extension_components/etl/index.html">4. ETL</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../../extension_components/etl/etl_maven_plugin.html">5. ETL Maven plugin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../extension_components/report/index.html">Form library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../extension_components/workflow/doc/index.html">Workflow library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../extension_components/workflow/tool/index.html">Workflow definition data generation tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../extension_components/etl/index.html">ETL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../extension_components/etl/etl_maven_plugin.html">ETL Maven plugin</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../development_tools/index.html">Nablarch development tools</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../../../../development_tools/java_static_analysis/index.html">1. Efficient Java Static Checks</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../../../development_tools/java_static_analysis/index.html#run-inspection">1.1. Run inspection</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../../development_tools/java_static_analysis/index.html#unify-the-format">1.2. Unify the format</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../../development_tools/java_static_analysis/index.html#check-if-unauthorized-apis-are-being-used">1.3. Check if unauthorized APIs are being used</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../development_tools/java_static_analysis/index.html">Efficient Java Static Checks</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../development_tools/java_static_analysis/index.html#run-inspection">Run inspection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../development_tools/java_static_analysis/index.html#unify-the-format">Unify the format</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../development_tools/java_static_analysis/index.html#check-if-unauthorized-apis-are-being-used">Check if unauthorized APIs are being used</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../../development_tools/ui_dev/index.html">2. Front-end UI development platform for advanced users</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../../development_tools/testing_framework/index.html">3. Testing framework</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../../../development_tools/testing_framework/guide/development_guide/05_UnitTestGuide/index.html">3.1. How to Execute Unit Tests</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../../development_tools/testing_framework/guide/development_guide/06_TestFWGuide/index.html">3.2. How to Use the Automated Test Framework</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../../development_tools/testing_framework/guide/development_guide/08_TestTools/index.html">3.3. Tools Used in the Programming Phase</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../development_tools/ui_dev/index.html">Front-end UI development platform for advanced users</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../development_tools/testing_framework/index.html">Testing framework</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../development_tools/testing_framework/guide/development_guide/05_UnitTestGuide/index.html">How to Execute Unit Tests</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../development_tools/testing_framework/guide/development_guide/06_TestFWGuide/index.html">How to Use the Automated Test Framework</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../development_tools/testing_framework/guide/development_guide/08_TestTools/index.html">Tools Used in the Programming Phase</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../../development_tools/toolbox/index.html">4. Useful Tools When Developing Applications</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../../../development_tools/toolbox/JspStaticAnalysis/index.html">4.1. JSP Static Analysis Tool</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../../development_tools/toolbox/SqlExecutor/SqlExecutor.html">4.2. Nablarch SQL Executor</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../../development_tools/toolbox/JspVerifier/JspVerifier.html">4.3. Job Screen JSP Validation Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../development_tools/toolbox/index.html">Useful Tools When Developing Applications</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../development_tools/toolbox/JspStaticAnalysis/index.html">JSP Static Analysis Tool</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../development_tools/toolbox/SqlExecutor/SqlExecutor.html">Nablarch SQL Executor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../development_tools/toolbox/JspVerifier/JspVerifier.html">Job Screen JSP Validation Tool</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../../examples/index.html">Nablarch Implementation Examples</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../../../../examples/01/index.html">Sample Password Encryption Function Using Database</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../../../examples/01/0101_PBKDF2PasswordEncryptor.html">Sample Password Encryption Function Using PBKDF2</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../../examples/01/index.html#delivery-package">Delivery package</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../../examples/01/index.html#summary">Summary</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../../examples/01/index.html#structure">Structure</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../../examples/01/index.html#how-to-use">How to Use</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../examples/index.html">Example</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../examples/index.html#how-to-run-example">How to Run Example</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../examples/index.html#procedure-to-build-the-environment">Procedure to build the environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../examples/index.html#procedure-to-execute">Procedure to execute</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../examples/index.html#running-on-java-11-or-higher">Running on Java 11 or higher</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../../examples/03/index.html">Display a List of Search Results</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../../../examples/03/index.html#delivery-package">Delivery package</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../../examples/03/index.html#summary">Summary</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../../examples/03/index.html#structure">Structure</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../../examples/03/index.html#universaldao-class">UniversalDao class</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../../examples/03/index.html#listsearchinfo-class">ListSearchInfo class</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../../examples/03/index.html#pagination-class">Pagination class</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../../examples/03/index.html#entitylist-class">EntityList class</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../../examples/03/index.html#listsearchresult-tag">listSearchResult tag</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../../examples/03/index.html#how-to-import-a-sample-implementation-tag-file-into-the-business-application">How to import a sample implementation (tag file) into the business application</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../../examples/03/index.html#tag-reference">Tag Reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../examples/index.html#list-of-example">List of Example</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../examples/index.html#web-application">Web application</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../examples/index.html#web-service">Web Service</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../examples/index.html#batch-application">Batch Application</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../examples/index.html#messaging">Messaging</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../../examples/04/index.html">Extended Formatter Functions</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../../../examples/04/0401_ExtendedDataFormatter.html">Data Formatter Expansion</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../../examples/04/0402_ExtendedFieldType.html">Field Type Expansion in the Data Formatter Function</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../../examples/05/index.html">Sample File Management Function Using Database</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../../../examples/05/index.html#summary">Summary</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../../examples/05/index.html#delivery-package">Delivery package</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../../examples/05/index.html#functions">Functions</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../../examples/05/index.html#structure">Structure</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../../examples/05/index.html#how-to-use">How to Use</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../biz_samples/index.html">Implementation Examples Per Use Cases</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../biz_samples/01/index.html">Sample Password Encryption Function Using Database</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../biz_samples/01/0101_PBKDF2PasswordEncryptor.html">Sample Password Encryption Function Using PBKDF2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../biz_samples/01/index.html#delivery-package">Delivery package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../biz_samples/01/index.html#summary">Summary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../biz_samples/01/index.html#structure">Structure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../biz_samples/01/index.html#how-to-use">How to Use</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../../examples/08/index.html">Sample of HTML Email Send Function</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../../../examples/08/index.html#summary">Summary</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../../examples/08/index.html#request">Request</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../../examples/08/index.html#structure">Structure</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../../examples/08/index.html#implementation-examples">Implementation examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../biz_samples/03/index.html">Display a List of Search Results</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../biz_samples/03/index.html#delivery-package">Delivery package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../biz_samples/03/index.html#summary">Summary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../biz_samples/03/index.html#structure">Structure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../biz_samples/03/index.html#universaldao-class">UniversalDao class</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../biz_samples/03/index.html#listsearchinfo-class">ListSearchInfo class</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../biz_samples/03/index.html#pagination-class">Pagination class</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../biz_samples/03/index.html#entitylist-class">EntityList class</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../biz_samples/03/index.html#listsearchresult-tag">listSearchResult tag</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../biz_samples/03/index.html#how-to-import-a-sample-implementation-tag-file-into-the-business-application">How to import a sample implementation (tag file) into the business application</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../biz_samples/03/index.html#tag-reference">Tag Reference</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../../examples/09/index.html">How to Use a Sample to Send a Digitally Signed Email Using Bouncycastle</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../../../examples/09/index.html#environment-preparation">Environment preparation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../../examples/09/index.html#structure-of-digitally-signed-email-send-function">Structure of digitally signed email send function</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../../examples/09/index.html#preparation-of-configuration-file">Preparation of configuration file</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../../examples/09/index.html#execution">Execution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../biz_samples/04/index.html">Extended Formatter Functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../biz_samples/04/0401_ExtendedDataFormatter.html">Data Formatter Expansion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../biz_samples/04/0402_ExtendedFieldType.html">Field Type Expansion in the Data Formatter Function</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../../examples/10/index.html">How to Use the Log Aggregation Sample</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../../../examples/10/index.html#list-of-samples-provided">List of samples provided</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../biz_samples/05/index.html">Sample File Management Function Using Database</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../biz_samples/05/index.html#summary">Summary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../biz_samples/05/index.html#delivery-package">Delivery package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../biz_samples/05/index.html#functions">Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../biz_samples/05/index.html#structure">Structure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../biz_samples/05/index.html#how-to-use">How to Use</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../../examples/11/index.html">Messaging Platform Test Simulator Sample</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../../../examples/11/index.html#uses">Uses</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../../examples/11/index.html#features">Features</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../../examples/11/index.html#request">Request</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../../examples/11/index.html#how-to-use">How to use</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../../examples/11/index.html#expansion-example">Expansion example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../biz_samples/08/index.html">Sample of HTML Email Send Function</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../biz_samples/08/index.html#summary">Summary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../biz_samples/08/index.html#request">Request</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../biz_samples/08/index.html#structure">Structure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../biz_samples/08/index.html#implementation-examples">Implementation examples</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../../examples/12/index.html">Authentication sample using OIDC ID token</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../../../examples/12/index.html#delivery-package">Delivery package</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../../examples/12/index.html#summary">Summary</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../../examples/12/index.html#structure">Structure</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../../examples/12/index.html#how-to-use">How to Use</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../biz_samples/09/index.html">How to Use a Sample to Send a Digitally Signed Email Using Bouncycastle</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../biz_samples/09/index.html#environment-preparation">Environment preparation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../biz_samples/09/index.html#structure-of-digitally-signed-email-send-function">Structure of digitally signed email send function</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../biz_samples/09/index.html#preparation-of-configuration-file">Preparation of configuration file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../biz_samples/09/index.html#execution">Execution</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../../examples/13/index.html">Sample Request/Response Log Output Using Logbook</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../../../examples/13/index.html#delivery-package">Delivery package</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../../examples/13/index.html#summary">Summary</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../../examples/13/index.html#how-to-use">How to Use</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../biz_samples/10/index.html">How to Use the Log Aggregation Sample</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../biz_samples/10/index.html#list-of-samples-provided">List of samples provided</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../biz_samples/11/index.html">Messaging Platform Test Simulator Sample</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../biz_samples/11/index.html#uses">Uses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../biz_samples/11/index.html#features">Features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../biz_samples/11/index.html#request">Request</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../biz_samples/11/index.html#how-to-use">How to use</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../biz_samples/11/index.html#expansion-example">Expansion example</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../biz_samples/12/index.html">Authentication sample using OIDC ID token</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../biz_samples/12/index.html#delivery-package">Delivery package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../biz_samples/12/index.html#summary">Summary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../biz_samples/12/index.html#structure">Structure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../biz_samples/12/index.html#how-to-use">How to Use</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../biz_samples/13/index.html">Sample Request/Response Log Output Using Logbook</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../biz_samples/13/index.html#delivery-package">Delivery package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../biz_samples/13/index.html#summary">Summary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../biz_samples/13/index.html#how-to-use">How to Use</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../external_contents/index.html">Useful content for development in Nablarch</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../external_contents/index.html#nablarch-system-development-guide">Nablarch System Development Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../external_contents/index.html#development-standards">Development Standards</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../nablarch_api/index.html">Nablarch API</a></li>
@@ -296,11 +311,11 @@
       
           <li><a href="../../../index.html">Application Framework</a> &raquo;</li>
       
-          <li><a href="../../index.html">2. Web Application</a> &raquo;</li>
+          <li><a href="../../index.html">Web Application</a> &raquo;</li>
       
-          <li><a href="../index.html">2.3. Getting Started</a> &raquo;</li>
+          <li><a href="../index.html">Getting Started</a> &raquo;</li>
       
-    <li>2.3.5. Create a Batch registration Function Using Upload</li>
+    <li>Create a Batch registration Function Using Upload</li>
     <li class="wy-breadcrumbs-aside">
       <a href="https://github.com/nablarch" class="fa fa-github">GitHub</a>
     </li>
@@ -314,7 +329,7 @@
            <div itemprop="articleBody">
             
   <div class="section" id="create-a-batch-registration-function-using-upload">
-<span id="project-upload"></span><h1>2.3.5. Create a Batch registration Function Using Upload<a class="headerlink" href="#create-a-batch-registration-function-using-upload" title="Permalink to this headline">¶</a></h1>
+<span id="project-upload"></span><h1>Create a Batch registration Function Using Upload<a class="headerlink" href="#create-a-batch-registration-function-using-upload" title="Permalink to this headline">¶</a></h1>
 <p>This section describes the function to upload a CSV file for batch registration based on an example application.</p>
 <dl class="docutils">
 <dt>Description of the function to be created</dt>
@@ -360,7 +375,7 @@
 </dd>
 </dl>
 <div class="section" id="overview-of-the-business-action-method-to-be-created">
-<h2>2.3.5.1. Overview of the business action method to be created<a class="headerlink" href="#overview-of-the-business-action-method-to-be-created" title="Permalink to this headline">¶</a></h2>
+<h2>Overview of the business action method to be created<a class="headerlink" href="#overview-of-the-business-action-method-to-be-created" title="Permalink to this headline">¶</a></h2>
 <blockquote>
 <div><blockquote>
 <div><dl class="docutils">
@@ -411,7 +426,7 @@
 </div></blockquote>
 </div>
 <div class="section" id="implementation-of-the-file-upload-function">
-<span id="project-upload-file-upload-impl"></span><h2>2.3.5.2. Implementation of the file upload function<a class="headerlink" href="#implementation-of-the-file-upload-function" title="Permalink to this headline">¶</a></h2>
+<span id="project-upload-file-upload-impl"></span><h2>Implementation of the file upload function<a class="headerlink" href="#implementation-of-the-file-upload-function" title="Permalink to this headline">¶</a></h2>
 <p>First, how to create the upload part of the batch registration function using upload is explained</p>
 <blockquote>
 <div><ol class="arabic simple">
@@ -470,7 +485,7 @@
 <li>Specify <cite>multipart/form-data</cite> as <cite>enctype</cite> attribute of <a class="reference internal" href="../../../libraries/tag/tag_reference.html#tag-form-tag"><span>form tag</span></a> to send multipart file.</li>
 <li>Create a file upload field using <a class="reference internal" href="../../../libraries/tag/tag_reference.html#tag-file-tag"><span>file tag</span></a>. Specify the registration name of the request object in the <cite>name</cite> attribute.
 To acquire the file in a business action, specify this registration name as an argument of
-<a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/fw/web/HttpRequest.html#getPart-java.lang.String-" title="nablarch.fw.web.HttpRequest.getPart(java.lang.String)">HttpRequest#getPart</a></li>
+<a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/web/HttpRequest.html#getPart-java.lang.String-" title="nablarch.fw.web.HttpRequest.getPart(java.lang.String)">HttpRequest#getPart</a></li>
 <li>Display upload completed message with <a class="reference internal" href="../../../libraries/tag/tag_reference.html#tag-message-tag"><span>message tag</span></a>, once the upload is completed.
 In order to include the number of uploads in the completion message, specify the number of uploads configured in the request scope in <cite>option0</cite> attribute.</li>
 <li>Use <a class="reference internal" href="../../../libraries/tag/tag_reference.html#tag-errors-tag"><span>errors tag</span></a> to create an area to display the list of validation error messages for the target file.
@@ -518,16 +533,16 @@ For the output format of the error message list, refer to <a class="reference in
 </dd>
 <dt>Key points of this implementation</dt>
 <dd><ul class="first last">
-<li><p class="first">Acquire the file <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/fw/web/HttpRequest.html#getPart-java.lang.String-" title="nablarch.fw.web.HttpRequest.getPart(java.lang.String)">HttpRequest#getPart</a>.</p>
+<li><p class="first">Acquire the file <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/web/HttpRequest.html#getPart-java.lang.String-" title="nablarch.fw.web.HttpRequest.getPart(java.lang.String)">HttpRequest#getPart</a>.</p>
 </li>
-<li><p class="first">When the file does not exist (not uploaded), then the size of <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/fw/web/upload/PartInfo.html" title="nablarch.fw.web.upload.PartInfo">PartInfo</a> list that is acquired will be zero.
+<li><p class="first">When the file does not exist (not uploaded), then the size of <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/web/upload/PartInfo.html" title="nablarch.fw.web.upload.PartInfo">PartInfo</a> list that is acquired will be zero.
 This value is used to perform control such as throwing a business exception.</p>
 </li>
 <li><p class="first">The uploaded file is stored in a temporary area by the <a class="reference internal" href="../../../handlers/web/multipart_handler.html#multipart-handler"><span>multipart request handler</span></a>.
 Since the temporary area is automatically deleted, if you need to permanently (save) an uploaded file, move the file to an arbitrary directory.
 However, file transfers are possible only when the <a class="reference internal" href="../../../libraries/file_path_management.html#file-path-management"><span>file path management</span></a> is used to manage the input and output of files and directories.</p>
 </li>
-<li><p class="first">Use <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/fw/web/upload/util/UploadHelper.html#moveFileTo-java.lang.String-java.lang.String-" title="nablarch.fw.web.upload.util.UploadHelper.moveFileTo(java.lang.String-java.lang.String)">UploadHelper#moveFileTo</a> method to transfer files.
+<li><p class="first">Use <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/web/upload/util/UploadHelper.html#moveFileTo-java.lang.String-java.lang.String-" title="nablarch.fw.web.upload.util.UploadHelper.moveFileTo(java.lang.String-java.lang.String)">UploadHelper#moveFileTo</a> method to transfer files.
 The first argument is the key name of the file storage directory registered in the configuration file.
 In the Example Application, the configuration is described in the following file.</p>
 <dl class="docutils">
@@ -557,7 +572,7 @@ In the Example Application, the configuration is described in the following file
 </div></blockquote>
 </div>
 <div class="section" id="implementation-of-the-batch-registration-function">
-<span id="project-upload-bulk-insert-impl"></span><h2>2.3.5.3. Implementation of the batch registration function<a class="headerlink" href="#implementation-of-the-batch-registration-function" title="Permalink to this headline">¶</a></h2>
+<span id="project-upload-bulk-insert-impl"></span><h2>Implementation of the batch registration function<a class="headerlink" href="#implementation-of-the-batch-registration-function" title="Permalink to this headline">¶</a></h2>
 <p>This section describes how to create the batch registration part of the batch registration function using uploads.</p>
 <blockquote>
 <div><ol class="arabic simple">
@@ -608,15 +623,15 @@ In the Example Application, the configuration is described in the following file
 </dd>
 <dt>Key points of this implementation</dt>
 <dd><ul class="first simple">
-<li>Use <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/common/databind/csv/Csv.html" title="nablarch.common.databind.csv.Csv">&#64;Csv</a> for configuration to link the contents of the uploaded CSV file with the bean property.
-Use  <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/common/databind/csv/CsvFormat.html" title="nablarch.common.databind.csv.CsvFormat">&#64;CsvFormat</a> to specify the acceptable CSV format.
-（ <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/common/databind/csv/CsvFormat.html" title="nablarch.common.databind.csv.CsvFormat">&#64;CsvFormat</a> is not required when using the <a class="reference internal" href="../../../libraries/data_io/data_bind.html#data-bind-csv-format-set"><span>default format specification</span></a>）
+<li>Use <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/common/databind/csv/Csv.html" title="nablarch.common.databind.csv.Csv">&#64;Csv</a> for configuration to link the contents of the uploaded CSV file with the bean property.
+Use  <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/common/databind/csv/CsvFormat.html" title="nablarch.common.databind.csv.CsvFormat">&#64;CsvFormat</a> to specify the acceptable CSV format.
+（ <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/common/databind/csv/CsvFormat.html" title="nablarch.common.databind.csv.CsvFormat">&#64;CsvFormat</a> is not required when using the <a class="reference internal" href="../../../libraries/data_io/data_bind.html#data-bind-csv-format-set"><span>default format specification</span></a>）
 For information on how to configure the annotation, refer to <a class="reference internal" href="../../../libraries/data_io/data_bind.html#data-bind-csv-format-beans"><span>format specification method when binding the CSV file to the Java Beans class</span></a>.</li>
-<li>Perform <a class="reference internal" href="../../../libraries/validation/bean_validation.html#bean-validation"><span>Bean Validation</span></a> by assigning annotations for validation of <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/core/validation/ee/Required.html" title="nablarch.core.validation.ee.Required">&#64;Required</a>
-and <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/core/validation/ee/Domain.html" title="nablarch.core.validation.ee.Domain">&#64;Domain</a> to the property.</li>
+<li>Perform <a class="reference internal" href="../../../libraries/validation/bean_validation.html#bean-validation"><span>Bean Validation</span></a> by assigning annotations for validation of <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/core/validation/ee/Required.html" title="nablarch.core.validation.ee.Required">&#64;Required</a>
+and <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/core/validation/ee/Domain.html" title="nablarch.core.validation.ee.Domain">&#64;Domain</a> to the property.</li>
 <li>To accept the values from a file, <a class="reference internal" href="../../../libraries/validation/bean_validation.html#bean-validation-form-property"><span>property is defined as string type</span></a>,
 and conversion to an appropriate type is performed as per the safe value that has passed the validation.</li>
-<li>By defining the line count property and granting <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/common/databind/LineNumber.html" title="nablarch.common.databind.LineNumber">LineNumber</a> to the getter,
+<li>By defining the line count property and granting <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/common/databind/LineNumber.html" title="nablarch.common.databind.LineNumber">LineNumber</a> to the getter,
 the line of the target data can be configured automatically.</li>
 </ul>
 <div class="last admonition tip">
@@ -701,15 +716,15 @@ For information on how to specify a validation message, refer to <a class="refer
 </dd>
 <dt>Key points of this implementation</dt>
 <dd><ul class="first last simple">
-<li>Use <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/common/databind/ObjectMapper.html" title="nablarch.common.databind.ObjectMapper">ObjectMapper</a> provided by
+<li>Use <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/common/databind/ObjectMapper.html" title="nablarch.common.databind.ObjectMapper">ObjectMapper</a> provided by
 <a class="reference internal" href="../../../libraries/data_io/data_bind.html#data-bind"><span>DataBind</span></a> to bind and get the file to the bean.</li>
-<li>By executing <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/common/databind/ObjectMapper.html#read--" title="nablarch.common.databind.ObjectMapper.read()">ObjectMapper#read</a> for the acquired
-<a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/common/databind/ObjectMapper.html" title="nablarch.common.databind.ObjectMapper">ObjectMapper</a> object, the list of bound bean can be obtained.</li>
+<li>By executing <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/common/databind/ObjectMapper.html#read--" title="nablarch.common.databind.ObjectMapper.read()">ObjectMapper#read</a> for the acquired
+<a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/common/databind/ObjectMapper.html" title="nablarch.common.databind.ObjectMapper">ObjectMapper</a> object, the list of bound bean can be obtained.</li>
 <li><a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/validation/Validator.html" title="javax.validation.Validator">Validator</a> object can be created by using
-<a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/core/validation/ee/ValidatorUtil.html#getValidator--" title="nablarch.core.validation.ee.ValidatorUtil.getValidator()">ValidatorUtil#getValidator</a>, and <a class="reference internal" href="../../../libraries/validation/bean_validation.html#bean-validation"><span>Bean Validation</span></a> can be executed for any Bean.</li>
+<a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/core/validation/ee/ValidatorUtil.html#getValidator--" title="nablarch.core.validation.ee.ValidatorUtil.getValidator()">ValidatorUtil#getValidator</a>, and <a class="reference internal" href="../../../libraries/validation/bean_validation.html#bean-validation"><span>Bean Validation</span></a> can be executed for any Bean.</li>
 <li>When verification is continued up to the last row and not aborted even when an error occurs,
-error messages for all rows are stored after the verification is completed in <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/core/message/Message.html" title="nablarch.core.message.Message">Message</a> list, by generating and
-throwing <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/core/message/ApplicationException.html" title="nablarch.core.message.ApplicationException">ApplicationException</a> with this list as an argument,
+error messages for all rows are stored after the verification is completed in <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/core/message/Message.html" title="nablarch.core.message.Message">Message</a> list, by generating and
+throwing <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/core/message/ApplicationException.html" title="nablarch.core.message.ApplicationException">ApplicationException</a> with this list as an argument,
 it can be output to the screen with <a class="reference internal" href="../../../libraries/tag/tag_reference.html#tag-errors-tag"><span>errors tag</span></a>.</li>
 <li>For how to assign a property name to the validation message,
 implement by referring to <a class="reference internal" href="../../../libraries/validation/bean_validation.html#bean-validation-property-name"><span>how to include item names in the message when a validation error occurs</span></a>.</li>
@@ -759,7 +774,7 @@ implement by referring to <a class="reference internal" href="../../../libraries
 </dd>
 <dt>Key points of this implementation</dt>
 <dd><ul class="first last simple">
-<li>Batch registration is executed using <a class="reference external" href="https://nablarch.github.io/docs/5u24/javadoc/nablarch/common/dao/UniversalDao.html#batchInsert-java.util.List-" title="nablarch.common.dao.UniversalDao.batchInsert(java.util.List)">UniversalDao#batchInsert</a>.</li>
+<li>Batch registration is executed using <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/common/dao/UniversalDao.html#batchInsert-java.util.List-" title="nablarch.common.dao.UniversalDao.batchInsert(java.util.List)">UniversalDao#batchInsert</a>.</li>
 <li>Set an upper limit on the number of registrations per batch registration, because a large number of registrations at a time may result in a deterioration in performance.</li>
 </ul>
 </dd>
@@ -806,7 +821,7 @@ implement by referring to <a class="reference internal" href="../../../libraries
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../../../',
-            VERSION:'5u24',
+            VERSION:'5u25',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

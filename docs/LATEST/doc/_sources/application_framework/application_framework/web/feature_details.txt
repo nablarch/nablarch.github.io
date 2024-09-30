@@ -93,7 +93,6 @@ URIとアクションクラスのマッピング
   :hidden:
 
   feature_details/jsp_session
-  feature_details/view/freemarker
   feature_details/view/other
 
 * JSPを使用する場合
@@ -104,7 +103,6 @@ URIとアクションクラスのマッピング
 * JSP以外のテンプレートエンジンを使用する場合
 
   * :ref:`Thymeleafを使用した画面開発 <web_thymeleaf_adaptor>`
-  * :ref:`view_freemarker`
   * :ref:`view_other`
 
 国際化対応
@@ -125,7 +123,7 @@ URIとアクションクラスのマッピング
 認証
 ----------------------------------------
 認証については、プロジェクト要件により仕様が異なるため、フレークワークとしては提供していない。
-:ref:`authentication` を参考に、プロジェクト要件に合わせてPJで実装する。
+プロジェクト要件に合わせてPJで実装する。
 
 認証情報の保持については、以下を参照。
 
@@ -140,7 +138,7 @@ URIとアクションクラスのマッピング
 
 ステータスコード
 --------------------------------------------------
-* `ステータスコードの使い分け(外部サイト) <http://qiita.com/kawasima/items/e48180041ace99842779>`_
+* `ステータスコードの使い分け(外部サイト) <https://qiita.com/kawasima/items/e48180041ace99842779>`_
 
 
 エラー時の画面遷移とステータスコード
@@ -157,7 +155,7 @@ URIとアクションクラスのマッピング
 
   * 例外クラスに対応した遷移先を定義する (:ref:`on_error_interceptor` 、 :ref:`on_errors_interceptor`)
   * :ref:`1つの例外に対して複数の遷移先を定義する <forward_error_page-try_catch>`
-* `ステータスコードの使い分け(外部サイト) <http://qiita.com/kawasima/items/e48180041ace99842779>`_
+* `ステータスコードの使い分け(外部サイト) <https://qiita.com/kawasima/items/e48180041ace99842779>`_
 
 MOMメッセージ送信
 ----------------------------------------
@@ -176,3 +174,7 @@ CSRF対策
 ウェブアプリケーションとRESTfulウェブサービスの併用
 -----------------------------------------------------
 * :ref:`委譲するWebフロントコントローラの名前を変更する <change_web_front_controller_name>`
+
+Content Security Policy(CSP)対応
+----------------------------------------
+* :ref:`Content Security Policy(CSP)対応<content_security_policy>`
