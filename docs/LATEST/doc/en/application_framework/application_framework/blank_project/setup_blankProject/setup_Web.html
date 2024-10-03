@@ -566,6 +566,11 @@ Read the contents of the displayed page and confirm that the launch was successf
 <p>If the reason is not known, try again from <a class="reference internal" href="#firststepgeneratewebblankproject"><span>Create blank project</span></a>.</p>
 </div>
 </div>
+<div class="section" id="configure-the-database">
+<h2>Configure the database<a class="headerlink" href="#configure-the-database" title="Permalink to this headline">¶</a></h2>
+<p>The blank project is initially configured to use the H2 Database Engine. To change the RDBMS to be used, refer to <a class="reference internal" href="../CustomizeDB.html#customize-db"><span>Procedure for Changing the RDBMS used</span></a> for the configuration.</p>
+<p>In addition, to generate and execute DDL from ER diagrams and automatically generate entity classes, you need to initialize and run gsp-dba-maven-plugin. For details, see <a class="reference internal" href="../addin_gsp.html#gsp-maven-plugin"><span>Initial Configuration Method of gsp-dba-maven-plugin (DBA Work Support Tool)</span></a>.</p>
+</div>
 <div class="section" id="supplementary-information-web-xml">
 <h2>Supplementary information (web.xml)<a class="headerlink" href="#supplementary-information-web-xml" title="Permalink to this headline">¶</a></h2>
 <p>Although &lt;resource-ref&gt; element has to be defined in web.xml to obtain a connection through JNDI,
