@@ -371,32 +371,32 @@
 <div class="contents local topic" id="id1">
 <p class="topic-title first">目次</p>
 <ul class="simple">
-<li><a class="reference internal" href="#id2" id="id7">概要</a></li>
-<li><a class="reference internal" href="#id3" id="id8">前提</a></li>
-<li><a class="reference internal" href="#id4" id="id9">ファイル修正</a><ul>
-<li><a class="reference internal" href="#pom-xml" id="id10">pom.xmlファイルの修正</a></li>
-<li><a class="reference internal" href="#data-model-edm-src-main-resources-entity" id="id11">data-model.edm  (src/main/resources/entity)の準備</a></li>
+<li><a class="reference internal" href="#id2" id="id8">概要</a></li>
+<li><a class="reference internal" href="#id3" id="id9">前提</a></li>
+<li><a class="reference internal" href="#id4" id="id10">ファイル修正</a><ul>
+<li><a class="reference internal" href="#pom-xml" id="id11">pom.xmlファイルの修正</a></li>
+<li><a class="reference internal" href="#data-model-edm-src-main-resources-entity" id="id12">data-model.edm  (src/main/resources/entity)の準備</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#confirm-gsp" id="id12">動作確認</a></li>
-<li><a class="reference internal" href="#id6" id="id13">データモデリングツールについての補足</a></li>
+<li><a class="reference internal" href="#confirm-gsp" id="id13">動作確認</a></li>
+<li><a class="reference internal" href="#id7" id="id14">データモデリングツールについての補足</a></li>
 </ul>
 </div>
 <div class="section" id="id2">
-<h2><a class="toc-backref" href="#id7">概要</a><a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p><a class="reference external" href="https://github.com/coastland/gsp-dba-maven-plugin">gsp-dba-maven-plugin(外部サイト)</a> は、Apache License Version 2.0 ライセンスで提供されるオープンソースのツールである。</p>
+<h2><a class="toc-backref" href="#id8">概要</a><a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><a class="reference external" href="https://github.com/coastland/gsp-dba-maven-plugin/tree/4.x.x-main">gsp-dba-maven-plugin(外部サイト)</a> は、Apache License Version 2.0 ライセンスで提供されるオープンソースのツールである。</p>
 <p>gsp-dba-maven-pluginは、使用開始前にRDBMSにあわせて設定する必要がある。</p>
 <p>本手順では、アーキタイプから生成したプロジェクトで、gsp-dba-maven-pluginを使用するための設定方法を示す。</p>
 <div class="admonition important">
 <p class="first admonition-title">重要</p>
-<p><a class="reference external" href="https://github.com/coastland/gsp-dba-maven-plugin">ツールのREADME(外部サイト)</a> にもある通り、gsp-dba-maven-pluginは開発フェーズで用いることを想定している。
+<p><a class="reference external" href="https://github.com/coastland/gsp-dba-maven-plugin/tree/4.x.x-main">ツールのREADME(外部サイト)</a> にもある通り、gsp-dba-maven-pluginは開発フェーズで用いることを想定している。
 開発者のローカルDBを主ターゲットとしたツールであり、本番環境での使用は推奨しない。</p>
 <p class="last">ER図からツールによって生成されたDDLをそのまま本番環境に配置して実行するというような使い方も想定していない。
 ツールによって生成されたDDLを流用して本番環境向けのDDLを作成する場合はDBAの責任でDDLに問題ないかを確認すること。</p>
 </div>
 </div>
 <div class="section" id="id3">
-<h2><a class="toc-backref" href="#id8">前提</a><a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2><a class="toc-backref" href="#id9">前提</a><a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>以下のプロジェクトを対象とする。</p>
 <ul class="simple">
 <li>アーキタイプから生成後、<a class="reference internal" href="CustomizeDB.html"><em>使用するRDBMSの変更手順</em></a> の手順を実施した各種プロジェクト。</li>
@@ -408,9 +408,9 @@
 </div>
 </div>
 <div class="section" id="id4">
-<h2><a class="toc-backref" href="#id9">ファイル修正</a><a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2><a class="toc-backref" href="#id10">ファイル修正</a><a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <div class="section" id="pom-xml">
-<h3><a class="toc-backref" href="#id10">pom.xmlファイルの修正</a><a class="headerlink" href="#pom-xml" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3><a class="toc-backref" href="#id11">pom.xmlファイルの修正</a><a class="headerlink" href="#pom-xml" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <div class="section" id="properties">
 <h4>properties要素内<a class="headerlink" href="#properties" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <p>pom.xmlのpropertiesタグ内の以下の箇所を修正する。</p>
@@ -520,12 +520,12 @@
 </div>
 </div>
 <div class="section" id="data-model-edm-src-main-resources-entity">
-<h3><a class="toc-backref" href="#id11">data-model.edm  (src/main/resources/entity)の準備</a><a class="headerlink" href="#data-model-edm-src-main-resources-entity" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3><a class="toc-backref" href="#id12">data-model.edm  (src/main/resources/entity)の準備</a><a class="headerlink" href="#data-model-edm-src-main-resources-entity" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>src/main/resources/entity以下にRDBMS毎にedmファイルが存在するので、使用するRDBMSに対応するファイルを「data-model.edm」にリネームする。</p>
 </div>
 </div>
 <div class="section" id="confirm-gsp">
-<span id="id5"></span><h2><a class="toc-backref" href="#id12">動作確認</a><a class="headerlink" href="#confirm-gsp" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<span id="id5"></span><h2><a class="toc-backref" href="#id13">動作確認</a><a class="headerlink" href="#confirm-gsp" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <div class="admonition important">
 <p class="first admonition-title">重要</p>
 <p class="last">DBのデータが削除されるため、必要であれば現在DBに格納されているデータを退避しておくこと。</p>
@@ -563,7 +563,7 @@
 <div class="admonition tip">
 <p class="first admonition-title">補足</p>
 <p>実行に失敗する場合は、RDBMS固有の制限事項に抵触していないか確認する。</p>
-<p class="last">RDBMS固有の制限事項については、<a class="reference external" href="https://github.com/coastland/gsp-dba-maven-plugin">https://github.com/coastland/gsp-dba-maven-plugin</a> (外部サイト)の「ゴール共通のパラメータ」を参照。</p>
+<p class="last">RDBMS固有の制限事項については、<a class="reference external" href="https://github.com/coastland/gsp-dba-maven-plugin/tree/4.x.x-main">gsp-dba-maven-plugin(外部サイト)</a> の「ゴール共通のパラメータ」を参照。</p>
 </div>
 <p><strong>2.以下のコマンドを実行して、ダンプファイルをローカルリポジトリへインストールする。</strong></p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>mvn -P gsp install:install-file
@@ -602,8 +602,8 @@
 </pre></div>
 </div>
 </div>
-<div class="section" id="id6">
-<h2><a class="toc-backref" href="#id13">データモデリングツールについての補足</a><a class="headerlink" href="#id6" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="id7">
+<h2><a class="toc-backref" href="#id14">データモデリングツールについての補足</a><a class="headerlink" href="#id7" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>ブランクプロジェクトは <a class="reference external" href="https://products.sint.co.jp/ober">SI Object Browser ER(外部サイト)</a> というモデリングツールを使用してデータモデル(data-model.edm)を作成することを前提としている。
 しかし、data-model.edm が使われるのはDDLの生成時だけである。
 そのため、任意の方法でDDLを生成・実行しデータベースを構築すれば、
