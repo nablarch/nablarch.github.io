@@ -1,0 +1,1846 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv='content-language' content='ja'>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Nablarch OpenAPI Generator &mdash; ∇Nablarch  6u3 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+  
+
+  
+
+  
+  <link rel="canonical" href="https://nablarch.github.io/docs/LATEST/doc/development_tools/toolbox/NablarchOpenApiGenerator/NablarchOpenApiGenerator.html" />
+  
+    <link rel="top" title="∇Nablarch  6u3 documentation" href="../../../index.html"/>
+        <link rel="up" title="Useful Tools When Developing Applications" href="../index.html"/>
+        <link rel="next" title="Example" href="../../../examples/index.html"/>
+        <link rel="prev" title="Nablarch SQL Executor" href="../SqlExecutor/SqlExecutor.html"/>
+
+<script defer data-domain="nablarch.github.io,all.fintan" src=https://plausible.io/js/script.js></script>
+
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+  
+  <a href="../../../index.html" id="sidebar-title" class="icon"> ∇Nablarch 
+  
+
+  
+    <div id="sidebar-version">Version: 6u3</div>
+  </a>
+
+  <div role="search">
+    <form id="google-search-form" class="wy-form" method="get" action="https://www.google.co.jp/search">
+      <input type="text" name="text" placeholder="Search docs on google" id="text"/>
+      <input type="hidden" name="q" id="q"/>
+    </form>
+  </div>
+    
+    
+
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+  
+  
+    <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../about_nablarch/index.html">What is the Nablarch?</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../about_nablarch/concept.html">Nablarch Concept</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../about_nablarch/concept.html#robustness">Robustness</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../about_nablarch/concept.html#testability">Testability</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../about_nablarch/concept.html#ready-to-use">Ready-to-Use</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../about_nablarch/mvn_module.html">Module List of Nablarch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../about_nablarch/license.html">Information on Nablarch License</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../application_framework/index.html">Nablarch Application Framework</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../application_framework/application_framework/index.html">Application Framework</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../application_framework/application_framework/nablarch/index.html">What is Nablarch Application Framework?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../application_framework/application_framework/web/index.html">Web Application</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../application_framework/application_framework/web_service/index.html">Web Service</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../application_framework/application_framework/batch/index.html">Batch Application</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../application_framework/application_framework/messaging/index.html">Messaging</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../application_framework/application_framework/handlers/index.html">Standard Handler Provided by Nablarch</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../application_framework/application_framework/libraries/index.html">Libraries Provided by Nablarch</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../application_framework/application_framework/blank_project/index.html">Blank Project</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../application_framework/application_framework/setting_guide/index.html">Nablarch Application Framework Configuration Guide</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../application_framework/application_framework/configuration/index.html">Default Configuration List</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../application_framework/application_framework/cloud_native/index.html">Nablarch Cloud Native Support</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../application_framework/adaptors/index.html">Adaptor</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../application_framework/adaptors/log_adaptor.html">log Adapter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../application_framework/adaptors/router_adaptor.html">Routing Adapter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../application_framework/adaptors/webspheremq_adaptor.html">IBM MQ Adapter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../application_framework/adaptors/jaxrs_adaptor.html">Jakarta RESTful Web Services Adapter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../application_framework/adaptors/doma_adaptor.html">Doma Adapter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../application_framework/adaptors/jsr310_adaptor.html">JSR310(Date and Time API)Adapter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../application_framework/adaptors/mail_sender_freemarker_adaptor.html">E-mail FreeMarker Adapter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../application_framework/adaptors/mail_sender_thymeleaf_adaptor.html">E-mail Thymeleaf Adapter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../application_framework/adaptors/mail_sender_velocity_adaptor.html">E-mail Velocity Adapter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../application_framework/adaptors/web_thymeleaf_adaptor.html">Web Application Thymeleaf Adapter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../application_framework/adaptors/lettuce_adaptor.html">Lettuce Adapter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../application_framework/adaptors/slf4j_adaptor.html">SLF4J Adapter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../application_framework/adaptors/micrometer_adaptor.html">Micrometer Adapter</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Nablarch development tools</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../java_static_analysis/index.html">Efficient Java Static Checks</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../java_static_analysis/index.html#run-inspection">Run inspection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../java_static_analysis/index.html#unify-the-format">Unify the format</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../java_static_analysis/index.html#check-if-unauthorized-apis-are-being-used">Check if unauthorized APIs are being used</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../testing_framework/index.html">Testing framework</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../testing_framework/guide/development_guide/05_UnitTestGuide/index.html">How to Execute Unit Tests</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../testing_framework/guide/development_guide/06_TestFWGuide/index.html">How to Use the Automated Test Framework</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../testing_framework/guide/development_guide/08_TestTools/index.html">Tools Used in the Programming Phase</a></li>
+</ul>
+</li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Useful Tools When Developing Applications</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../JspStaticAnalysis/index.html">Jakarta Server Pages Static Analysis Tool</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../SqlExecutor/SqlExecutor.html">Nablarch SQL Executor</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="">Nablarch OpenAPI Generator</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples/index.html">Example</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../examples/index.html#how-to-run-example">How to Run Example</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/index.html#procedure-to-build-the-environment">Procedure to build the environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/index.html#procedure-to-execute">Procedure to execute</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/index.html#running-on-java-21">Running on Java 21</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../examples/index.html#list-of-example">List of Example</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/index.html#web-application">Web application</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/index.html#web-service">Web Service</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/index.html#batch-application">Batch Application</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/index.html#messaging">Messaging</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../biz_samples/index.html">Implementation Examples Per Use Cases</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../biz_samples/01/index.html">Sample Password Encryption Function Using Database</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../biz_samples/01/0101_PBKDF2PasswordEncryptor.html">Sample Password Encryption Function Using PBKDF2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../biz_samples/01/index.html#delivery-package">Delivery package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../biz_samples/01/index.html#summary">Summary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../biz_samples/01/index.html#structure">Structure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../biz_samples/01/index.html#how-to-use">How to Use</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../biz_samples/03/index.html">Display a List of Search Results</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../biz_samples/03/index.html#delivery-package">Delivery package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../biz_samples/03/index.html#summary">Summary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../biz_samples/03/index.html#structure">Structure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../biz_samples/03/index.html#universaldao-class">UniversalDao class</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../biz_samples/03/index.html#listsearchinfo-class">ListSearchInfo class</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../biz_samples/03/index.html#pagination-class">Pagination class</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../biz_samples/03/index.html#entitylist-class">EntityList class</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../biz_samples/03/index.html#listsearchresult-tag">listSearchResult tag</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../biz_samples/03/index.html#how-to-import-a-sample-implementation-tag-file-into-the-business-application">How to import a sample implementation (tag file) into the business application</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../biz_samples/03/index.html#tag-reference">Tag Reference</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../biz_samples/04/index.html">Extended Formatter Functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../biz_samples/04/0401_ExtendedDataFormatter.html">Data Formatter Expansion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../biz_samples/04/0402_ExtendedFieldType.html">Field Type Expansion in the Data Formatter Function</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../biz_samples/05/index.html">Sample File Management Function Using Database</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../biz_samples/05/index.html#summary">Summary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../biz_samples/05/index.html#functions">Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../biz_samples/05/index.html#structure">Structure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../biz_samples/05/index.html#how-to-use">How to Use</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../biz_samples/08/index.html">Sample of HTML Email Send Function</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../biz_samples/08/index.html#summary">Summary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../biz_samples/08/index.html#request">Request</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../biz_samples/08/index.html#structure">Structure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../biz_samples/08/index.html#implementation-examples">Implementation examples</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../biz_samples/09/index.html">How to Use a Sample to Send a Digitally Signed Email Using Bouncycastle</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../biz_samples/09/index.html#environment-preparation">Environment preparation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../biz_samples/09/index.html#structure-of-digitally-signed-email-send-function">Structure of digitally signed email send function</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../biz_samples/09/index.html#preparation-of-configuration-file">Preparation of configuration file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../biz_samples/09/index.html#execution">Execution</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../biz_samples/10/index.html">How to Use the Log Aggregation Sample</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../biz_samples/10/index.html#list-of-samples-provided">List of samples provided</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../biz_samples/11/index.html">Messaging Platform Test Simulator Sample</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../biz_samples/11/index.html#uses">Uses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../biz_samples/11/index.html#features">Features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../biz_samples/11/index.html#request">Request</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../biz_samples/11/index.html#how-to-use">How to use</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../biz_samples/11/index.html#expansion-example">Expansion example</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../biz_samples/12/index.html">Authentication sample using OIDC ID token</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../biz_samples/12/index.html#delivery-package">Delivery package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../biz_samples/12/index.html#summary">Summary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../biz_samples/12/index.html#structure">Structure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../biz_samples/12/index.html#how-to-use">How to Use</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../biz_samples/13/index.html">Sample Request/Response Log Output Using Logbook</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../biz_samples/13/index.html#summary">Summary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../biz_samples/13/index.html#how-to-use">How to Use</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../external_contents/index.html">Useful content for development in Nablarch</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../external_contents/index.html#nablarch-system-development-guide">Nablarch System Development Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../external_contents/index.html#development-standards">Development Standards</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../nablarch_api/index.html">Nablarch API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../about_nablarch/versionup_policy.html">Nablarch upgrade policy</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../about_nablarch/versionup_policy.html#release-unit">Release unit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../about_nablarch/versionup_policy.html#types-of-upgrades">Types of upgrades</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../about_nablarch/versionup_policy.html#version-numbering-system">Version numbering system</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../about_nablarch/versionup_policy.html#backward-compatibility-policy">Backward compatibility policy</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../about_nablarch/versionup_policy.html#extent-to-which-backward-compatibility-is-maintained">Extent to which backward compatibility is maintained</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../about_nablarch/versionup_policy.html#contents-of-backward-compatibility-maintenance">Contents of backward compatibility maintenance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../about_nablarch/versionup_policy.html#backward-compatibility-exception">Backward compatibility exception</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../migration/index.html">Nablarch 5 to 6 Migration Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../migration/index.html#major-differences-between-nablarch-5-and-6">Major differences between Nablarch 5 and 6</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../migration/index.html#supports-jakarta-ee-10">Supports Jakarta EE 10</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../migration/index.html#changed-required-java-version-to-17">Changed  required Java version to 17</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../migration/index.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../migration/index.html#overview-of-migration-steps">Overview of migration steps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../migration/index.html#details-of-migration-steps">Details of migration steps</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../migration/index.html#nablarch-version-upgrade">Nablarch version upgrade</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../migration/index.html#compatible-with-jakarta-ee">Compatible with Jakarta EE</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../migration/index.html#migration-procedure-of-jsr352-compliant-batch-application">Migration procedure of JSR352-compliant Batch Application</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../migration/index.html#what-to-do-if-an-error-occurs-during-execution">What to do if an error occurs during execution</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../migration/index.html#appendix">Appendix</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../migration/index.html#correspondence-table-between-java-ee-and-jakarta-ee-specifications">Correspondence table between Java EE and Jakarta EE specifications</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../jakarta_ee/index.html">Regarding the specification name of Jakarta EE</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../jakarta_ee/index.html#regarding-the-notation-of-acronyms">Regarding the notation of acronyms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../jakarta_ee/index.html#regarding-features-that-have-been-renamed-in-nablarch-5-and-6">Regarding features that have been renamed in Nablarch 5 and 6</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../terms_of_use/index.html">Terms of Use</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../terms_of_use/index.html#external-transmssion-of-information">External Transmssion of Information</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../terms_of_use/index.html#purpose-of-information-use">Purpose of Information Use</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../terms_of_use/index.html#destination-of-information">Destination of information</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../terms_of_use/index.html#type-and-use-of-information">Type and use of information</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">∇Nablarch </a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../index.html">Nablarch development tools</a> &raquo;</li>
+      
+          <li><a href="../index.html">Useful Tools When Developing Applications</a> &raquo;</li>
+      
+    <li>Nablarch OpenAPI Generator</li>
+    <li class="wy-breadcrumbs-aside">
+      <a href="https://github.com/nablarch" class="fa fa-github">GitHub</a>
+    </li>
+    <li class="wy-breadcrumbs-aside">
+        <a href="https://nablarch.github.io/docs/LATEST/doc/index.html" class="ja">日本語</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="nablarch-openapi-generator">
+<span id="id1"></span><h1>Nablarch OpenAPI Generator<a class="headerlink" href="#nablarch-openapi-generator" title="Permalink to this headline">¶</a></h1>
+<div class="contents local topic" id="table-of-contents">
+<p class="topic-title first">Table of Contents</p>
+<ul class="simple">
+<li><a class="reference internal" href="#summary" id="id2">Summary</a></li>
+<li><a class="reference internal" href="#prerequisites" id="id3">Prerequisites</a></li>
+<li><a class="reference internal" href="#overview" id="id4">Overview</a></li>
+<li><a class="reference internal" href="#tool-operation" id="id5">Tool operation</a></li>
+<li><a class="reference internal" href="#how-to-use" id="id6">How to Use</a><ul>
+<li><a class="reference internal" href="#configuring-the-maven-plugin" id="id7">Configuring the Maven Plugin</a></li>
+<li><a class="reference internal" href="#how-to-do-it" id="id8">How to do it</a></li>
+<li><a class="reference internal" href="#output-destination" id="id9">Output Destination</a></li>
+<li><a class="reference internal" href="#configure-the-generator" id="id10">Configure the Generator</a></li>
+<li><a class="reference internal" href="#generate-source-code-that-uses-bean-validation" id="id11">Generate source code that uses Bean Validation</a></li>
+<li><a class="reference internal" href="#use-as-cli" id="id12">Use as CLI</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#source-code-generation-specifications" id="id13">Source Code Generation Specifications</a><ul>
+<li><a class="reference internal" href="#resource-action-interface-generation-specifications" id="id14">Resource (Action) interface generation specifications</a></li>
+<li><a class="reference internal" href="#model-generation-specifications" id="id15">Model generation specifications</a></li>
+<li><a class="reference internal" href="#modules-on-which-the-generated-source-code-depends" id="id16">Modules on which the generated source code depends</a></li>
+<li><a class="reference internal" href="#correspondence-specifications-between-openapi-document-data-types-and-formats-and-java-data-types" id="id17">Correspondence specifications between OpenAPI document data types and formats and Java data types</a></li>
+<li><a class="reference internal" href="#mapping-openapi-document-validation-definitions-to-bean-validation" id="id18">Mapping OpenAPI document validation definitions to Bean Validation</a><ul>
+<li><a class="reference internal" href="#validation-corresponding-to-properties-defined-in-the-openapi-specification" id="id19">Validation corresponding to properties defined in the OpenAPI specification</a></li>
+<li><a class="reference internal" href="#domain-validation" id="id20">Domain validation</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#operational-precautions-regarding-validation" id="id21">Operational precautions regarding validation</a><ul>
+<li><a class="reference internal" href="#points-to-note-when-the-requirements-for-item-level-or-correlation-validation-cannot-be-met-within-the-scope-of-the-openapi-specification" id="id22">Points to note when the requirements for item-level or correlation validation cannot be met within the scope of the OpenAPI specification</a></li>
+<li><a class="reference internal" href="#points-to-note-when-using-domain-validation" id="id23">Points to note when using domain validation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#example-of-openapi-document-and-generated-source-code" id="id24">Example of OpenAPI document and generated source code</a><ul>
+<li><a class="reference internal" href="#example-of-defining-paths-and-operations-in-an-openapi-document-and-generating-source-code" id="id25">Example of defining paths and operations in an OpenAPI document and generating source code</a></li>
+<li><a class="reference internal" href="#example-of-openapi-document-schema-definition-and-source-code-generation" id="id26">Example of OpenAPI document schema definition and source code generation</a></li>
+<li><a class="reference internal" href="#example-of-generating-source-code-that-uses-bean-validation" id="id27">Example of generating source code that uses Bean Validation</a></li>
+<li><a class="reference internal" href="#example-of-source-code-generation-using-domain-validation" id="id28">Example of source code generation using domain validation</a></li>
+<li><a class="reference internal" href="#example-of-a-file-upload-definition" id="id29">Example of a file upload definition</a></li>
+<li><a class="reference internal" href="#example-of-a-file-download-definition" id="id30">Example of a file download definition</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="summary">
+<h2><a class="toc-backref" href="#id2">Summary</a><a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+<p>Nablarch OpenAPI Generator is a Generator implementation of  <a class="reference external" href="https://openapi-generator.tech/">OpenAPI Generator(external site)</a> that generate source code using <a class="reference external" href="https://www.openapis.org/">OpenAPI(external site)</a> document as input.</p>
+<p>This tool provides a generator for Nablarch RESTful web services, and generates source code by running it as <a class="reference external" href="https://openapi-generator.tech/docs/plugins">OpenAPI Generator Maven Plugin(external site)</a> .</p>
+<p>Using the generated source code makes it easy to implement action classes that conform to the REST API interface defined in the OpenAPI document.</p>
+</div>
+<div class="section" id="prerequisites">
+<h2><a class="toc-backref" href="#id3">Prerequisites</a><a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>An OpenAPI document has been created from which the source code for the Nablarch RESTful Web Service will be generated.</li>
+<li>OpenAPI documents must be written in <a class="reference external" href="https://spec.openapis.org/oas/v3.0.3.html">OpenAPI 3.0.3(external site)</a> specification.</li>
+</ul>
+</div>
+<div class="section" id="overview">
+<h2><a class="toc-backref" href="#id4">Overview</a><a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>This tool generates the following source code by specifying an OpenAPI document as input.</p>
+<ul class="simple">
+<li>Resource (Action) interfaces based on path and operation definitions.</li>
+<li>Model that corresponds to requests and responses based on a schema definition.</li>
+</ul>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p class="last">Due to the OpenAPI Generator specifications, <code class="docutils literal"><span class="pre">.openapi-generator-ignore</span></code>, <code class="docutils literal"><span class="pre">.openapi-generator/FILES</span></code>, and <code class="docutils literal"><span class="pre">.openapi-generator/VERSION</span></code> are generated under the directory specified in <code class="docutils literal"><span class="pre">output</span></code> of <a class="reference internal" href="#nablarchopenapigeneratorconfiguration"><span>Configure the Generator</span></a> . However, these are not used.</p>
+</div>
+</div>
+<div class="section" id="tool-operation">
+<h2><a class="toc-backref" href="#id5">Tool operation</a><a class="headerlink" href="#tool-operation" title="Permalink to this headline">¶</a></h2>
+<p>The assumed operation method for this tool is described below.</p>
+<ol class="arabic simple">
+<li>Create an OpenAPI document based on the web service design information.</li>
+<li>Create a Nablarch RESTful Web Service project and configure the OpenAPI Generator and this tool as a Maven plugin.</li>
+<li>Build the project and generate the Resource (Action) interfaces and Model.</li>
+<li>Implement the Nablarch RESTful Web Service using the generated Resource (Action) interfaces and Model.</li>
+</ol>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p class="last">It is assumed that this tool will be executed repeatedly as OpenAPI document is modified. The action classes of the Nablarch RESTful Web Service are created by implementing the generated Resource (Action) interfaces, so the contents implemented in the Action classes will not be lost even if automatic generation is performed again using this tool.</p>
+</div>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p class="last">OpenAPI Generator and this tool are assumed to be executed as Maven plugins. However, they can also be used as a CLI. For more information, see <a class="reference internal" href="#nablarchopenapigeneratorascli"><span>Use as CLI</span></a> .</p>
+</div>
+</div>
+<div class="section" id="how-to-use">
+<h2><a class="toc-backref" href="#id6">How to Use</a><a class="headerlink" href="#how-to-use" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="configuring-the-maven-plugin">
+<h3><a class="toc-backref" href="#id7">Configuring the Maven Plugin</a><a class="headerlink" href="#configuring-the-maven-plugin" title="Permalink to this headline">¶</a></h3>
+<p>An example of the minimum configuration of Maven plugin for OpenAPI Generator required to use this tool is shown below.</p>
+<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;plugin&gt;</span>
+  <span class="nt">&lt;groupId&gt;</span>org.openapitools<span class="nt">&lt;/groupId&gt;</span>
+  <span class="nt">&lt;artifactId&gt;</span>openapi-generator-maven-plugin<span class="nt">&lt;/artifactId&gt;</span>
+  <span class="nt">&lt;version&gt;</span>7.10.0<span class="nt">&lt;/version&gt;</span>
+  <span class="nt">&lt;dependencies&gt;</span>
+    <span class="c">&lt;!-- Add this tool&#39;s module to the dependencies --&gt;</span>
+    <span class="nt">&lt;dependency&gt;</span>
+      <span class="nt">&lt;groupId&gt;</span>com.nablarch.tool<span class="nt">&lt;/groupId&gt;</span>
+      <span class="nt">&lt;artifactId&gt;</span>nablarch-openapi-generator<span class="nt">&lt;/artifactId&gt;</span>
+      <span class="nt">&lt;version&gt;</span>1.0.0<span class="nt">&lt;/version&gt;</span>
+    <span class="nt">&lt;/dependency&gt;</span>
+  <span class="nt">&lt;/dependencies&gt;</span>
+  <span class="nt">&lt;executions&gt;</span>
+    <span class="nt">&lt;execution&gt;</span>
+      <span class="nt">&lt;goals&gt;</span>
+        <span class="nt">&lt;goal&gt;</span>generate<span class="nt">&lt;/goal&gt;</span>
+      <span class="nt">&lt;/goals&gt;</span>
+      <span class="nt">&lt;configuration&gt;</span>
+        <span class="c">&lt;!-- Specify the file path of the OpenAPI document --&gt;</span>
+        <span class="nt">&lt;inputSpec&gt;</span>${project.basedir}/src/main/resources/openapi.yaml<span class="nt">&lt;/inputSpec&gt;</span>
+        <span class="nt">&lt;generatorName&gt;</span>nablarch-jaxrs<span class="nt">&lt;/generatorName&gt;</span>
+        <span class="nt">&lt;configOptions&gt;</span>
+          <span class="nt">&lt;sourceFolder&gt;</span>src/gen/java<span class="nt">&lt;/sourceFolder&gt;</span>
+          <span class="nt">&lt;apiPackage&gt;</span>com.example.api<span class="nt">&lt;/apiPackage&gt;</span>
+          <span class="nt">&lt;modelPackage&gt;</span>com.example.model<span class="nt">&lt;/modelPackage&gt;</span>
+
+          <span class="c">&lt;!-- Specify the options for this tool --&gt;</span>
+        <span class="nt">&lt;/configOptions&gt;</span>
+      <span class="nt">&lt;/configuration&gt;</span>
+    <span class="nt">&lt;/execution&gt;</span>
+  <span class="nt">&lt;/executions&gt;</span>
+<span class="nt">&lt;/plugin&gt;</span>
+</pre></div>
+</div>
+<p>This tool is provided by the following dependencies.</p>
+<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;dependency&gt;</span>
+  <span class="nt">&lt;groupId&gt;</span>com.nablarch.tool<span class="nt">&lt;/groupId&gt;</span>
+  <span class="nt">&lt;artifactId&gt;</span>nablarch-openapi-generator<span class="nt">&lt;/artifactId&gt;</span>
+  <span class="nt">&lt;version&gt;</span>1.0.0<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+</pre></div>
+</div>
+<p>The minimum required settings to use the OpenAPI Generator Maven plugin are <code class="docutils literal"><span class="pre">inputSpec</span></code> , which specifies the OpenAPI document for which source code will be generated, and <code class="docutils literal"><span class="pre">generatorName</span></code> , which specifies which Generator to use.</p>
+<p>You can use this tool by specifying <code class="docutils literal"><span class="pre">nablarch-jaxrs</span></code> for <code class="docutils literal"><span class="pre">generatorName</span></code> .</p>
+<p>For other configurations, see <a class="reference internal" href="#nablarchopenapigeneratorconfiguration"><span>Configure the Generator</span></a> .</p>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p class="last">This tool was developed and tested using OpenAPI Generator 7.10.0.
+When changing the OpenAPI Generator version, test it on the project side to ensure that there are no problems.</p>
+</div>
+</div>
+<div class="section" id="how-to-do-it">
+<h3><a class="toc-backref" href="#id8">How to do it</a><a class="headerlink" href="#how-to-do-it" title="Permalink to this headline">¶</a></h3>
+<p>This tool can be run using compile goal.</p>
+<div class="highlight-text"><div class="highlight"><pre><span></span>mvn compile
+</pre></div>
+</div>
+<p>If you explicitly set the <code class="docutils literal"><span class="pre">sourceFolder</span></code> in <a class="reference internal" href="#nablarchopenapigeneratorconfiguration"><span>Configure the Generator</span></a> , the source code generated when you run <code class="docutils literal"><span class="pre">mvn</span> <span class="pre">compile</span></code> will be included in the compilation target of the project for which the Maven plugin is configured.</p>
+<p>This behavior is due to the OpenAPI Generator Maven plugin.</p>
+</div>
+<div class="section" id="output-destination">
+<h3><a class="toc-backref" href="#id9">Output Destination</a><a class="headerlink" href="#output-destination" title="Permalink to this headline">¶</a></h3>
+<p>With the default settings of the OpenAPI Generator Maven plugin, the generated source code is output to <code class="docutils literal"><span class="pre">target/generated-sources/openapi/src/gen/java</span></code> .</p>
+<p>If you want to change the output destination, see <code class="docutils literal"><span class="pre">output</span></code> and <code class="docutils literal"><span class="pre">sourceFolder</span></code> in <a class="reference internal" href="#nablarchopenapigeneratorconfiguration"><span>Configure the Generator</span></a> .</p>
+</div>
+<div class="section" id="configure-the-generator">
+<span id="nablarchopenapigeneratorconfiguration"></span><h3><a class="toc-backref" href="#id10">Configure the Generator</a><a class="headerlink" href="#configure-the-generator" title="Permalink to this headline">¶</a></h3>
+<p>The main configuration of the OpenAPI Generator Maven plugin is shown below. These are specified as tags directly under the <code class="docutils literal"><span class="pre">configuration</span></code> tag.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="14%" />
+<col width="45%" />
+<col width="16%" />
+<col width="25%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Name</th>
+<th class="head">Explanation</th>
+<th class="head">Required/Optional</th>
+<th class="head">Defautl value</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">inputSpec</span></code></td>
+<td>Specify the file path of the input OpenAPI document.</td>
+<td>Required</td>
+<td>None</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">generatorName</span></code></td>
+<td>Specifies the name of the Generator that generates <br />
+the source code. <br />
+For this tool, specify <code class="docutils literal"><span class="pre">nablarch-jarxrs</span></code>.</td>
+<td>Required</td>
+<td>None</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">output</span></code></td>
+<td>Specifies the directory where the source code <br />
+will be generated.</td>
+<td>Optional</td>
+<td><code class="docutils literal"><span class="pre">generated-sources/openapi</span></code></td>
+</tr>
+</tbody>
+</table>
+<p>The configuration for this tool is shown below. All are optional and should be specified within the <code class="docutils literal"><span class="pre">configOptions</span></code> tag.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="18%" />
+<col width="48%" />
+<col width="34%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Name</th>
+<th class="head">Explanation</th>
+<th class="head">Defautl value</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">apiPackage</span></code></td>
+<td>Specifies the package for the generated Resource (Action) interface.</td>
+<td><code class="docutils literal"><span class="pre">org.openapitools.api</span></code></td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">modelPackage</span></code></td>
+<td>Specifies the package of the Model to be generated.</td>
+<td><code class="docutils literal"><span class="pre">org.openapitools.model</span></code></td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">hideGenerationTimestamp</span></code></td>
+<td>Whether to add the <code class="docutils literal"><span class="pre">date</span></code> attribute when annotating <br />
+the <code class="docutils literal"><span class="pre">Generated</span></code> annotation. By default, the date and time <br />
+the source code was generated is output.</td>
+<td><code class="docutils literal"><span class="pre">false</span></code></td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">sourceFolder</span></code></td>
+<td>Specifies the directory where the source code will be generated. <br />
+It is interpreted as a relative path from the <code class="docutils literal"><span class="pre">output</span></code> of <br />
+the Maven plugin setting of the OpenAPI Generator. By configuring <br />
+this, the source code generated by this tool will be included in <br />
+the compilation target when <code class="docutils literal"><span class="pre">mvn</span> <span class="pre">compile</span></code> is executed.</td>
+<td><code class="docutils literal"><span class="pre">src/gen/java</span></code></td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">useTags</span></code></td>
+<td>The unit of the generated Resource (Action) interface is the tag <br />
+attached to the endpoint, not the path. If multiple tags are attached <br />
+to the endpoint, the first tag is used.</td>
+<td><code class="docutils literal"><span class="pre">false</span></code></td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">serializableModel</span></code></td>
+<td>Implement the <code class="docutils literal"><span class="pre">java.io.Serializable</span></code> interface in the Model <br />
+you are generating.</td>
+<td><code class="docutils literal"><span class="pre">false</span></code></td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">generateBuilders</span></code></td>
+<td>Generate a Builder class for the Model.</td>
+<td><code class="docutils literal"><span class="pre">false</span></code></td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">useBeanValidation</span></code></td>
+<td>From the validation definition in the OpenAPI document, <br />
+source code is generated to perform validation using <br />
+<a class="reference internal" href="../../../application_framework/application_framework/libraries/validation/bean_validation.html#bean-validation"><span>Bean Validation</span></a> .</td>
+<td><code class="docutils literal"><span class="pre">false</span></code></td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">additionalModelTypeAnnotations</span></code></td>
+<td>Add additional annotations to the class declaration of the Model <br />
+to be generated. To add multiple annotations, separate them with <code class="docutils literal"><span class="pre">;</span></code>.</td>
+<td>None</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">additionalEnumTypeAnnotations</span></code></td>
+<td>Annotate the generated enum type with additional annotations. <br />
+To add multiple annotations, separate them with <code class="docutils literal"><span class="pre">;</span></code> .</td>
+<td>None</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">primitivePropertiesAsString</span></code></td>
+<td>Prints all properties of the model that are primitive data types <br />
+as <code class="docutils literal"><span class="pre">String</span></code>.</td>
+<td><code class="docutils literal"><span class="pre">false</span></code></td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">supportConsumesMediaTypes</span></code></td>
+<td>Specifies the media types that the Resource (Action) interface to be <br />
+generated will accept requests for, separated by <code class="docutils literal"><span class="pre">,</span></code> .</td>
+<td><code class="docutils literal"><span class="pre">application/json,multipart/form-data</span></code></td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">supportProducesMediaTypes</span></code></td>
+<td>Specifies the media types that the generated Resource (Action) <br />
+interface will respond to, separated by <code class="docutils literal"><span class="pre">,</span></code> .</td>
+<td><code class="docutils literal"><span class="pre">application/json</span></code></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="generate-source-code-that-uses-bean-validation">
+<h3><a class="toc-backref" href="#id11">Generate source code that uses Bean Validation</a><a class="headerlink" href="#generate-source-code-that-uses-bean-validation" title="Permalink to this headline">¶</a></h3>
+<p>If you want to generate source code to use <a class="reference internal" href="../../../application_framework/application_framework/libraries/validation/bean_validation.html#bean-validation"><span>Bean Validation</span></a> , set the value of <code class="docutils literal"><span class="pre">useBeanValidation</span></code> to <code class="docutils literal"><span class="pre">true</span></code> .</p>
+<p>An example setting is shown below.</p>
+<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;configuration&gt;</span>
+  <span class="c">&lt;!-- Specify the file path of the OpenAPI document --&gt;</span>
+  <span class="nt">&lt;inputSpec&gt;</span>${project.basedir}/src/main/resources/openapi.yaml<span class="nt">&lt;/inputSpec&gt;</span>
+  <span class="nt">&lt;generatorName&gt;</span>nablarch-jaxrs<span class="nt">&lt;/generatorName&gt;</span>
+  <span class="nt">&lt;configOptions&gt;</span>
+    <span class="nt">&lt;sourceFolder&gt;</span>src/gen/java<span class="nt">&lt;/sourceFolder&gt;</span>
+    <span class="nt">&lt;apiPackage&gt;</span>com.example.api<span class="nt">&lt;/apiPackage&gt;</span>
+    <span class="nt">&lt;modelPackage&gt;</span>com.example.model<span class="nt">&lt;/modelPackage&gt;</span>
+    <span class="c">&lt;!-- Generate source code using Bean Validation --&gt;</span>
+    <span class="nt">&lt;useBeanValidation&gt;</span>true<span class="nt">&lt;/useBeanValidation&gt;</span>
+  <span class="nt">&lt;/configOptions&gt;</span>
+<span class="nt">&lt;/configuration&gt;</span>
+</pre></div>
+</div>
+<p>Default value of <code class="docutils literal"><span class="pre">useBeanValidation</span></code> is <code class="docutils literal"><span class="pre">false</span></code>, so annotations that use <a class="reference internal" href="../../../application_framework/application_framework/libraries/validation/bean_validation.html#bean-validation"><span>Bean Validation</span></a> function are not annotated by default.</p>
+<p>This is because the validation definitions defined in the OpenAPI specification often do not satisfy business requirements, and it is also not possible to define correlated validation.</p>
+<p>Please refer to <a class="reference internal" href="#openapi-property-to-bean-validation"><span>Mapping OpenAPI document validation definitions to Bean Validation</span></a> for details on the specifications and operational precautions when generating source code to use the validation function, including these points.</p>
+</div>
+<div class="section" id="use-as-cli">
+<span id="nablarchopenapigeneratorascli"></span><h3><a class="toc-backref" href="#id12">Use as CLI</a><a class="headerlink" href="#use-as-cli" title="Permalink to this headline">¶</a></h3>
+<p>This tool is assumed to be used as a Maven plugin. However, it can also be used as a CLI. Here we will introduce how to use it as a CLI as a supplement.</p>
+<p>To run it as a CLI, download the <a class="reference external" href="https://repo1.maven.org/maven2/org/openapitools/openapi-generator-cli/7.10.0/openapi-generator-cli-7.10.0.jar">OpenAPI Generator 7.10.0 JAR file(external site)</a> and <a class="reference external" href="https://repo1.maven.org/maven2/com/nablarch/tool/nablarch-openapi-generator/1.0.0/nablarch-openapi-generator-1.0.0.jar">this tool&#8217;s JAR file(external site)</a>  , and run it with the java command. An example of execution is shown below.</p>
+<div class="highlight-text"><div class="highlight"><pre><span></span>java -cp openapi-generator-cli-7.10.0.jar:nablarch-openapi-generator-1.0.0.jar org.openapitools.codegen.OpenAPIGenerator generate --generator-name nablarch-jaxrs --input-spec openapi.yaml --output out --additional-properties=apiPackage=com.example.api,modelPackage=com.example.model,useBeanValidation=true,hideGenerationTimestamp=true
+</pre></div>
+</div>
+<p>Specify <code class="docutils literal"><span class="pre">nablarch-jaxrs</span></code> for <code class="docutils literal"><span class="pre">--generator-name</span></code> . The OpenAPI Generator configuration items in <a class="reference internal" href="#nablarchopenapigeneratorconfiguration"><span>Configure the Generator</span></a> can also be specified in the OpenAPI Generator CLI. For details, see the result of the command below.</p>
+<div class="highlight-text"><div class="highlight"><pre><span></span>java -jar openapi-generator-cli-7.10.0.jar help generate
+</pre></div>
+</div>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p class="last">The format for specifying OpenAPI Generator options is hyphen-separated, like this: <code class="docutils literal"><span class="pre">--generator-name</span></code> .</p>
+</div>
+<p>The tool-specific configuration of <a class="reference internal" href="#nablarchopenapigeneratorconfiguration"><span>Configure the Generator</span></a> is specified in <code class="docutils literal"><span class="pre">--additional-properties</span></code> with the format <code class="docutils literal"><span class="pre">key=value</span></code>. Multiple settings are separated by <code class="docutils literal"><span class="pre">,</span></code> .</p>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p class="last">The tool-specific configuration is specified by <code class="docutils literal"><span class="pre">--additional-properties=</span></code> followed by the name of the item and its value as is. For example, <code class="docutils literal"><span class="pre">--additional-properties=hideGenerationTimestamp=true</span></code> .</p>
+</div>
+</div>
+</div>
+<div class="section" id="source-code-generation-specifications">
+<h2><a class="toc-backref" href="#id13">Source Code Generation Specifications</a><a class="headerlink" href="#source-code-generation-specifications" title="Permalink to this headline">¶</a></h2>
+<p>The following describes the specifications for how this tool generates source code based on an OpenAPI document.</p>
+<div class="admonition important">
+<p class="first admonition-title">Important</p>
+<p>Nablarch RESTful Web Service does not support all annotations provided by Jakarta RESTful Web Services. Therefore, please note that the contents of the OpenAPI document other than those described here will not be reflected in the generated source code.</p>
+<p class="last">For information about annotations supported by Nablarch RESTful Web Service, see <a class="reference internal" href="../../../application_framework/application_framework/web_service/rest/architecture.html#restful-web-service-architecture"><span>Architecture Overview</span></a> and <a class="reference internal" href="../../../application_framework/adaptors/router_adaptor.html#router-adaptor-path-annotation"><span>Mapping in Jakarta RESTful Web Services Path Annotation</span></a> for the routing adapter.</p>
+</div>
+<div class="section" id="resource-action-interface-generation-specifications">
+<h3><a class="toc-backref" href="#id14">Resource (Action) interface generation specifications</a><a class="headerlink" href="#resource-action-interface-generation-specifications" title="Permalink to this headline">¶</a></h3>
+<p>The generation specifications for Resource (Action) interface are described here. It will be generated in accordance with <a class="reference internal" href="../../../application_framework/application_framework/web_service/rest/feature_details/resource_signature.html#rest-feature-details-method-signature"><span>Signature of resource class methods</span></a>, so please refer to this as well.</p>
+<p>Specifications related to the generation unit and type definition of the Resource (Action) interface are shown below.</p>
+<ul class="simple">
+<li>Generated based on the path and operation information defined in the OpenAPI document.</li>
+<li>Generate it as a Java interface.</li>
+<li>The unit for generating Resource (Action) interface is selected from the following:<ul>
+<li>By default, it is compiled at the first level of the path defined in the OpenAPI document.</li>
+<li>If <code class="docutils literal"><span class="pre">useTags</span></code> is set to <code class="docutils literal"><span class="pre">true</span></code>, the unit of measurement will be the tags attached to the operation.</li>
+</ul>
+</li>
+<li>The Resource (Action) interface declaration is annotated with the <code class="docutils literal"><span class="pre">Path</span></code> annotation.</li>
+<li>Annotate with the <code class="docutils literal"><span class="pre">Generated</span></code> annotation.</li>
+</ul>
+<p>The specifications regarding method generation of Resource (Action) interface are shown below.</p>
+<p><strong>Annotations that annotate method declarations</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="14%" />
+<col width="86%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Annotation</th>
+<th class="head">Explanation</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">GET</span></code></td>
+<td>Annotate when the operation&#8217;s HTTP method is GET.</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">POST</span></code></td>
+<td>Annotate when the operation&#8217;s HTTP method is POST.</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">PUT</span></code></td>
+<td>Annotate when the operation&#8217;s HTTP method is PUT.</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">DELETE</span></code></td>
+<td>Annotate when the operation&#8217;s HTTP method is DELETE.</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">PATCH</span></code></td>
+<td>Annotate when the operation&#8217;s HTTP method is PATCH.</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">HEAD</span></code></td>
+<td>Annotate when the operation&#8217;s HTTP method is HEAD.</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">OPTIONS</span></code></td>
+<td>Annotate when the operation&#8217;s HTTP method is OPTIONS.</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">Consumes</span></code></td>
+<td>Annotate if the content type of the request is defined.</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">Produces</span></code></td>
+<td>Annotate if the response content type is defined and is other than <code class="docutils literal"><span class="pre">type:</span> <span class="pre">string</span></code> and <code class="docutils literal"><span class="pre">format:</span> <span class="pre">binary</span></code> .</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">Valid</span></code></td>
+<td>Annotate if a request body is defined and <code class="docutils literal"><span class="pre">useBeanValidation</span></code> is <code class="docutils literal"><span class="pre">true</span></code> .</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p class="last"><code class="docutils literal"><span class="pre">type:</span> <span class="pre">string</span></code> and <code class="docutils literal"><span class="pre">format:</span> <span class="pre">binary</span></code> indicate that a file will be downloaded. In this case, the content type is set using <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/fw/web/HttpResponse.html#setContentType(java.lang.String)" title="nablarch.fw.web.HttpResponse.setContentType(java.lang.String)">HttpResponse#setContentType</a> .</p>
+</div>
+<p><strong>Method name generation specification</strong></p>
+<ul class="simple">
+<li>Use the value of the <code class="docutils literal"><span class="pre">operationId</span></code> element in the OpenAPI document as the method name.</li>
+<li>If the <code class="docutils literal"><span class="pre">operationId</span></code> element is not set, the method name is generated by combining the path value and the HTTP method name.</li>
+</ul>
+<p><strong>Method argument generation specifications</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="36%" />
+<col width="64%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Method Argument Types</th>
+<th class="head">Explanation</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Request Model Type</td>
+<td>When a request body is received and the request content type is other than multipart, set the corresponding <br />
+Model type argument.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/fw/jaxrs/JaxRsHttpRequest.html" title="nablarch.fw.jaxrs.JaxRsHttpRequest">JaxRsHttpRequest</a></td>
+<td>Always generate and set as argument.</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/fw/ExecutionContext.html" title="nablarch.fw.ExecutionContext">ExecutionContext</a></td>
+<td>Always generate and set as argument.</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<ul class="last simple">
+<li>RESTful Web Service do not support annotations such as <code class="docutils literal"><span class="pre">PathParam</span></code> and <code class="docutils literal"><span class="pre">QueryParam</span></code> defined in Jakarta RESTful Web Services, so the definition of <code class="docutils literal"><span class="pre">parameters</span></code> in the OpenAPI document is not reflected in the method arguments. This information can be obtained from <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/fw/jaxrs/JaxRsHttpRequest.html" title="nablarch.fw.jaxrs.JaxRsHttpRequest">JaxRsHttpRequest</a> .</li>
+<li>If the content type of the request is <code class="docutils literal"><span class="pre">multipart/form-data</span></code>, the request Model type argument will not be generated. Uploaded files should be retrieved using <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/fw/jaxrs/JaxRsHttpRequest.html" title="nablarch.fw.jaxrs.JaxRsHttpRequest">JaxRsHttpRequest</a> .</li>
+</ul>
+</div>
+<p><strong>Method return value generation specifications</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="44%" />
+<col width="56%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Method Return Types</th>
+<th class="head">Explanation</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/fw/jaxrs/EntityResponse.html" title="nablarch.fw.jaxrs.EntityResponse">EntityResponse</a></td>
+<td>Generated if the response is a Model. The type parameter reflects the type of the Model.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/fw/web/HttpResponse.html" title="nablarch.fw.web.HttpResponse">HttpResponse</a></td>
+<td>Generated if the response is not a Model or the HTTP status code is other than <code class="docutils literal"><span class="pre">200</span></code> .</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="model-generation-specifications">
+<h3><a class="toc-backref" href="#id15">Model generation specifications</a><a class="headerlink" href="#model-generation-specifications" title="Permalink to this headline">¶</a></h3>
+<p>The specifications regarding the Model generation units and type definitions are shown below.</p>
+<ul class="simple">
+<li>Generate for a model defined as a schema.</li>
+<li>Generate as a Java class.</li>
+<li>Annotate the <code class="docutils literal"><span class="pre">JsonTypeName</span></code> annotation.</li>
+<li>Annotate the <code class="docutils literal"><span class="pre">Generated</span></code> annotation.</li>
+</ul>
+<p>The generation specifications for the Model properties are shown below.</p>
+<ul class="simple">
+<li>Generates properties corresponding to the fields defined in the schema in the OpenAPI document.</li>
+<li>Generate getters and setters for properties and annotate them with <code class="docutils literal"><span class="pre">JsonProperty</span></code> annotations.</li>
+<li>Generate a chainable method that sets the property value and returns the Model&#8217;s own type.</li>
+<li>If <code class="docutils literal"><span class="pre">useBeanValidation</span></code> is <code class="docutils literal"><span class="pre">true</span></code> and the OpenAPI document contains validation definitions, it enables <a class="reference internal" href="../../../application_framework/application_framework/libraries/validation/bean_validation.html#bean-validation"><span>Bean Validation</span></a> .</li>
+<li>The annotations used in validation are those provided by Nablarch in the <a class="reference internal" href="../../../application_framework/application_framework/libraries/validation/bean_validation.html#bean-validation"><span>Bean Validation</span></a> package and those in the Jakarta EE standard <a class="reference external" href="https://jakarta.ee/specifications/platform/10/apidocs/jakarta/validation/constraints/package-summary.html" title="jakarta.validation.constraints.package-summary">jakarta.validation.constraints</a> package.</li>
+</ul>
+<p>The correspondence specifications between data types and formats in the OpenAPI document and Java data types are described in <a class="reference internal" href="#openapi-datatypes-format-to-java-datatypes"><span>Correspondence specifications between OpenAPI document data types and formats and Java data types</span></a> , and the correspondence specifications between validation definitions and annotations used in validation are described in <a class="reference internal" href="#openapi-property-to-bean-validation"><span>Mapping OpenAPI document validation definitions to Bean Validation</span></a> .</p>
+<p>Other Model generation specifications are shown below.</p>
+<ul class="simple">
+<li>Generates the <code class="docutils literal"><span class="pre">hashCode</span></code>, <code class="docutils literal"><span class="pre">equals</span></code> and <code class="docutils literal"><span class="pre">toString</span></code> methods.</li>
+</ul>
+</div>
+<div class="section" id="modules-on-which-the-generated-source-code-depends">
+<h3><a class="toc-backref" href="#id16">Modules on which the generated source code depends</a><a class="headerlink" href="#modules-on-which-the-generated-source-code-depends" title="Permalink to this headline">¶</a></h3>
+<p>To build the source code generated by this tool, the following modules are required as dependencies.</p>
+<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;dependency&gt;</span>
+  <span class="nt">&lt;groupId&gt;</span>com.nablarch.framework<span class="nt">&lt;/groupId&gt;</span>
+  <span class="nt">&lt;artifactId&gt;</span>nablarch-fw-jaxrs<span class="nt">&lt;/artifactId&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+<span class="nt">&lt;dependency&gt;</span>
+   <span class="nt">&lt;groupId&gt;</span>com.nablarch.framework<span class="nt">&lt;/groupId&gt;</span>
+   <span class="nt">&lt;artifactId&gt;</span>nablarch-core-validation-ee<span class="nt">&lt;/artifactId&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+<span class="nt">&lt;dependency&gt;</span>
+  <span class="nt">&lt;groupId&gt;</span>jakarta.ws.rs<span class="nt">&lt;/groupId&gt;</span>
+  <span class="nt">&lt;artifactId&gt;</span>jakarta.ws.rs-api<span class="nt">&lt;/artifactId&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+<span class="nt">&lt;dependency&gt;</span>
+  <span class="nt">&lt;groupId&gt;</span>jakarta.annotation<span class="nt">&lt;/groupId&gt;</span>
+  <span class="nt">&lt;artifactId&gt;</span>jakarta.annotation-api<span class="nt">&lt;/artifactId&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+<span class="nt">&lt;dependency&gt;</span>
+  <span class="nt">&lt;groupId&gt;</span>com.fasterxml.jackson.core<span class="nt">&lt;/groupId&gt;</span>
+  <span class="nt">&lt;artifactId&gt;</span>jackson-annotations<span class="nt">&lt;/artifactId&gt;</span>
+  <span class="nt">&lt;version&gt;</span>2.17.1<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+</pre></div>
+</div>
+<p>All of these are included in the dependencies set up in the blank RESTful Web Service project.</p>
+</div>
+<div class="section" id="correspondence-specifications-between-openapi-document-data-types-and-formats-and-java-data-types">
+<span id="openapi-datatypes-format-to-java-datatypes"></span><h3><a class="toc-backref" href="#id17">Correspondence specifications between OpenAPI document data types and formats and Java data types</a><a class="headerlink" href="#correspondence-specifications-between-openapi-document-data-types-and-formats-and-java-data-types" title="Permalink to this headline">¶</a></h3>
+<p>The following table shows the correspondence between the data types and formats defined in the OpenAPI document and the Java data types defined by this tool.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="23%" />
+<col width="27%" />
+<col width="50%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">OpenAPI data types( <code class="docutils literal"><span class="pre">type</span></code> )</th>
+<th class="head">OpenAPI format( <code class="docutils literal"><span class="pre">format</span></code> )</th>
+<th class="head">Model property data types</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">integer</span></code></td>
+<td>&nbsp;</td>
+<td><code class="docutils literal"><span class="pre">java.lang.Integer</span></code></td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">integer</span></code></td>
+<td><code class="docutils literal"><span class="pre">int32</span></code></td>
+<td><code class="docutils literal"><span class="pre">java.lang.Integer</span></code></td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">integer</span></code></td>
+<td><code class="docutils literal"><span class="pre">int64</span></code></td>
+<td><code class="docutils literal"><span class="pre">java.lang.Long</span></code></td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">number</span></code></td>
+<td>&nbsp;</td>
+<td><code class="docutils literal"><span class="pre">java.math.BigDecimal</span></code></td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">number</span></code></td>
+<td><code class="docutils literal"><span class="pre">float</span></code></td>
+<td><code class="docutils literal"><span class="pre">java.lang.Float</span></code></td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">number</span></code></td>
+<td><code class="docutils literal"><span class="pre">double</span></code></td>
+<td><code class="docutils literal"><span class="pre">java.lang.Double</span></code></td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">boolean</span></code></td>
+<td>&nbsp;</td>
+<td><code class="docutils literal"><span class="pre">java.lang.Boolean</span></code></td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">string</span></code></td>
+<td>&nbsp;</td>
+<td><code class="docutils literal"><span class="pre">java.lang.String</span></code></td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">string</span></code></td>
+<td><code class="docutils literal"><span class="pre">byte</span></code></td>
+<td><code class="docutils literal"><span class="pre">byte[]</span></code></td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">string</span></code></td>
+<td><code class="docutils literal"><span class="pre">date</span></code></td>
+<td><code class="docutils literal"><span class="pre">java.time.LocalDate</span></code></td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">string</span></code></td>
+<td><code class="docutils literal"><span class="pre">date-time</span></code></td>
+<td><code class="docutils literal"><span class="pre">java.time.OffsetDateTime</span></code></td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">string</span></code></td>
+<td><code class="docutils literal"><span class="pre">number</span></code></td>
+<td><code class="docutils literal"><span class="pre">java.math.BigDecimal</span></code></td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">string</span></code></td>
+<td><code class="docutils literal"><span class="pre">uuid</span></code></td>
+<td><code class="docutils literal"><span class="pre">java.util.UUID</span></code></td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">string</span></code></td>
+<td><code class="docutils literal"><span class="pre">uri</span></code></td>
+<td><code class="docutils literal"><span class="pre">java.net.URI</span></code></td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">string</span></code></td>
+<td>&nbsp;</td>
+<td>enum ( Specifying <code class="docutils literal"><span class="pre">enum</span></code> will generate the corresponding Enum type. )</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">array</span></code></td>
+<td>&nbsp;</td>
+<td><code class="docutils literal"><span class="pre">java.util.List</span></code></td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">array</span></code></td>
+<td>&nbsp;</td>
+<td><code class="docutils literal"><span class="pre">java.util.Set</span></code> ( When <code class="docutils literal"><span class="pre">uniqueItems:</span> <span class="pre">true</span></code> )</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">object</span></code></td>
+<td>&nbsp;</td>
+<td>Corresponding Model type</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">object</span></code></td>
+<td>&nbsp;</td>
+<td>If there is no corresponding type, <code class="docutils literal"><span class="pre">java.lang.Object</span></code></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<ul class="last simple">
+<li><code class="docutils literal"><span class="pre">type:</span> <span class="pre">string</span></code> and <code class="docutils literal"><span class="pre">format:</span> <span class="pre">binary</span></code> are only available if the request content type is <code class="docutils literal"><span class="pre">multipart/form-data</span></code> . Using any other content type or encountering this data type/format combination in the response Model definition will abort Model creation.</li>
+<li>In the case of <code class="docutils literal"><span class="pre">type:</span> <span class="pre">string</span></code> , there are many other formats available in addition to those listed in the table above, but all are generated as <code class="docutils literal"><span class="pre">java.lang.String</span></code> .</li>
+</ul>
+</div>
+</div>
+<div class="section" id="mapping-openapi-document-validation-definitions-to-bean-validation">
+<span id="openapi-property-to-bean-validation"></span><h3><a class="toc-backref" href="#id18">Mapping OpenAPI document validation definitions to Bean Validation</a><a class="headerlink" href="#mapping-openapi-document-validation-definitions-to-bean-validation" title="Permalink to this headline">¶</a></h3>
+<p>In this tool, the default value of <code class="docutils literal"><span class="pre">useBeanValidation</span></code> is <code class="docutils literal"><span class="pre">false</span></code>, so by default, annotations used in <a class="reference internal" href="../../../application_framework/application_framework/libraries/validation/bean_validation.html#bean-validation"><span>Bean Validation</span></a> will not be added regardless of the definition in the OpenAPI document. However, if you set it to <code class="docutils literal"><span class="pre">true</span></code>, annotations will be added to properties according to the following two policies depending on the contents of the OpenAPI document.</p>
+<ul class="simple">
+<li>Validation corresponding to properties defined in the OpenAPI specification</li>
+<li>domain validation</li>
+</ul>
+<div class="section" id="validation-corresponding-to-properties-defined-in-the-openapi-specification">
+<h4><a class="toc-backref" href="#id19">Validation corresponding to properties defined in the OpenAPI specification</a><a class="headerlink" href="#validation-corresponding-to-properties-defined-in-the-openapi-specification" title="Permalink to this headline">¶</a></h4>
+<p>When validation is defined using <a class="reference external" href="https://spec.openapis.org/oas/v3.0.3.html#properties">properties defined in the OpenAPI specification(external site)</a> , annotations should be added according to the following table.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="16%" />
+<col width="18%" />
+<col width="19%" />
+<col width="48%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">OpenAPI data types( <code class="docutils literal"><span class="pre">type</span></code> )</th>
+<th class="head">OpenAPI format( <code class="docutils literal"><span class="pre">format</span></code> )</th>
+<th class="head">Properties used in OpenAPI</th>
+<th class="head">Annotations for validation</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">integer</span></code></td>
+<td>(any format)</td>
+<td><code class="docutils literal"><span class="pre">required</span></code></td>
+<td><a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/core/validation/ee/Required.html" title="nablarch.core.validation.ee.Required">Required</a></td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">integer</span></code></td>
+<td>&nbsp;</td>
+<td><code class="docutils literal"><span class="pre">minimum</span></code> and <code class="docutils literal"><span class="pre">maximum</span></code></td>
+<td><a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/core/validation/ee/NumberRange.html" title="nablarch.core.validation.ee.NumberRange">NumberRange(min = {minimum}, max = {maximum})</a></td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">integer</span></code></td>
+<td><code class="docutils literal"><span class="pre">int32</span></code></td>
+<td><code class="docutils literal"><span class="pre">required</span></code></td>
+<td><a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/core/validation/ee/Required.html" title="nablarch.core.validation.ee.Required">Required</a></td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">integer</span></code></td>
+<td><code class="docutils literal"><span class="pre">int32</span></code></td>
+<td><code class="docutils literal"><span class="pre">minimum</span></code> and <code class="docutils literal"><span class="pre">maximum</span></code></td>
+<td><a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/core/validation/ee/NumberRange.html" title="nablarch.core.validation.ee.NumberRange">NumberRange(min = {minimum}, max = {maximum})</a></td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">integer</span></code></td>
+<td><code class="docutils literal"><span class="pre">int64</span></code></td>
+<td><code class="docutils literal"><span class="pre">required</span></code></td>
+<td><a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/core/validation/ee/Required.html" title="nablarch.core.validation.ee.Required">Required</a></td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">integer</span></code></td>
+<td><code class="docutils literal"><span class="pre">int64</span></code></td>
+<td><code class="docutils literal"><span class="pre">minimum</span></code> and <code class="docutils literal"><span class="pre">maximum</span></code></td>
+<td><a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/core/validation/ee/NumberRange.html" title="nablarch.core.validation.ee.NumberRange">NumberRange(min = {minimum}, max = {maximum})</a></td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">number</span></code></td>
+<td>(any format)</td>
+<td><code class="docutils literal"><span class="pre">required</span></code></td>
+<td><a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/core/validation/ee/Required.html" title="nablarch.core.validation.ee.Required">Required</a></td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">number</span></code></td>
+<td>&nbsp;</td>
+<td><code class="docutils literal"><span class="pre">minimum</span></code> and <code class="docutils literal"><span class="pre">maximum</span></code></td>
+<td><a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/core/validation/ee/DecimalRange.html" title="nablarch.core.validation.ee.DecimalRange">DecimalRange(min = &#8220;{minimum}&#8221;, max = &#8220;{maximum}&#8221;)</a></td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">number</span></code></td>
+<td><code class="docutils literal"><span class="pre">float</span></code></td>
+<td><code class="docutils literal"><span class="pre">required</span></code></td>
+<td><a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/core/validation/ee/Required.html" title="nablarch.core.validation.ee.Required">Required</a></td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">number</span></code></td>
+<td><code class="docutils literal"><span class="pre">float</span></code></td>
+<td><code class="docutils literal"><span class="pre">minimum</span></code> and <code class="docutils literal"><span class="pre">maximum</span></code></td>
+<td><a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/core/validation/ee/DecimalRange.html" title="nablarch.core.validation.ee.DecimalRange">DecimalRange(min = &#8220;{minimum}&#8221;, max = &#8220;{maximum}&#8221;)</a></td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">number</span></code></td>
+<td><code class="docutils literal"><span class="pre">double</span></code></td>
+<td><code class="docutils literal"><span class="pre">required</span></code></td>
+<td><a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/core/validation/ee/Required.html" title="nablarch.core.validation.ee.Required">Required</a></td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">number</span></code></td>
+<td><code class="docutils literal"><span class="pre">double</span></code></td>
+<td><code class="docutils literal"><span class="pre">minimum</span></code> and <code class="docutils literal"><span class="pre">maximum</span></code></td>
+<td><a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/core/validation/ee/DecimalRange.html" title="nablarch.core.validation.ee.DecimalRange">DecimalRange(min = &#8220;{minimum}&#8221;, max = &#8220;{maximum}&#8221;)</a></td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">boolean</span></code></td>
+<td>&nbsp;</td>
+<td><code class="docutils literal"><span class="pre">required</span></code></td>
+<td><a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/core/validation/ee/Required.html" title="nablarch.core.validation.ee.Required">Required</a></td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">string</span></code></td>
+<td>(any format)</td>
+<td><code class="docutils literal"><span class="pre">required</span></code></td>
+<td><a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/core/validation/ee/Required.html" title="nablarch.core.validation.ee.Required">Required</a></td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">string</span></code></td>
+<td>&nbsp;</td>
+<td><code class="docutils literal"><span class="pre">minLength</span></code> and <code class="docutils literal"><span class="pre">maxLength</span></code></td>
+<td><a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/core/validation/ee/Length.html" title="nablarch.core.validation.ee.Length">Length(min = {minLength}, max = {maxLength})</a></td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">string</span></code></td>
+<td>&nbsp;</td>
+<td><code class="docutils literal"><span class="pre">pattern</span></code></td>
+<td><a class="reference external" href="https://jakarta.ee/specifications/platform/10/apidocs/jakarta/validation/constraints/Pattern.html" title="jakarta.validation.constraints.Pattern">Pattern(regexp = &#8220;{pattern}&#8221;)</a></td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">array</span></code></td>
+<td>&nbsp;</td>
+<td><code class="docutils literal"><span class="pre">required</span></code></td>
+<td><a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/core/validation/ee/Required.html" title="nablarch.core.validation.ee.Required">Required</a></td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">array</span></code></td>
+<td>&nbsp;</td>
+<td><code class="docutils literal"><span class="pre">minItems</span></code> and <code class="docutils literal"><span class="pre">maxItems</span></code></td>
+<td><a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/core/validation/ee/Size.html" title="nablarch.core.validation.ee.Size">Size(min = {minItems}, max = {maxItems})</a></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<ul class="last simple">
+<li><code class="docutils literal"><span class="pre">multipleOf</span></code> , <code class="docutils literal"><span class="pre">exclusiveMinimum</span></code> , <code class="docutils literal"><span class="pre">exclusiveMaximum</span></code> , <code class="docutils literal"><span class="pre">minProperties</span></code> and <code class="docutils literal"><span class="pre">maxProperties</span></code> are not supported.</li>
+<li>Combinations of <code class="docutils literal"><span class="pre">minimum</span></code> and <code class="docutils literal"><span class="pre">maximum</span></code> , <code class="docutils literal"><span class="pre">minLength</span></code> and <code class="docutils literal"><span class="pre">maxLength</span></code> , and <code class="docutils literal"><span class="pre">minItems</span></code> and <code class="docutils literal"><span class="pre">maxItems</span></code> can be specified with just one of them.</li>
+<li>If the Java data type is <code class="docutils literal"><span class="pre">java.math.BigDecimal</span></code> , <code class="docutils literal"><span class="pre">java.util.List</span></code> , <code class="docutils literal"><span class="pre">java.util.Set</span></code> , or a model, annotate with <code class="docutils literal"><span class="pre">Valid</span></code> annotation.</li>
+<li>Only <a class="reference external" href="https://jakarta.ee/specifications/platform/10/apidocs/jakarta/validation/constraints/Pattern.html" title="jakarta.validation.constraints.Pattern">Pattern</a> is annotated with Jakarta Bean Validation standard annotations, and the rest are annotated with annotations of <a class="reference internal" href="../../../application_framework/application_framework/libraries/validation/bean_validation.html#bean-validation"><span>Bean Validation</span></a> provided by Nablarch.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="domain-validation">
+<h4><a class="toc-backref" href="#id20">Domain validation</a><a class="headerlink" href="#domain-validation" title="Permalink to this headline">¶</a></h4>
+<p>This tool uses <a class="reference external" href="https://spec.openapis.org/oas/v3.0.3.html#specification-extensions">extension of the OpenAPI specification(external site)</a> to support <a class="reference internal" href="../../../application_framework/application_framework/libraries/validation/bean_validation.html#bean-validation-domain-validation"><span>domain validation</span></a> that cannot be expressed by the OpenAPI specification.</p>
+<p>Use <code class="docutils literal"><span class="pre">x-nablarch-domain</span></code> as the extended property and specify the domain name as the value.</p>
+<div class="highlight-yaml"><div class="highlight"><pre><span></span><span class="nt">propertyName</span><span class="p">:</span>
+  <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">string</span>
+  <span class="nt">x-nablarch-domain</span><span class="p">:</span> <span class="s">&quot;domainName&quot;</span>
+</pre></div>
+</div>
+<p>If you generate source code by specifying <code class="docutils literal"><span class="pre">useBeanValidation</span></code> as <code class="docutils literal"><span class="pre">true</span></code>, the target property will be annotated with <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/core/validation/ee/Domain.html" title="nablarch.core.validation.ee.Domain">Domain(&#8220;{domainName}&#8221;)</a> .</p>
+<p>Further, since domain validation can contain various validation definitions, if validation definitions that may conflict are detected, source code generation is stopped. This is because if the same validation rules as those included in the domain are specified, duplicate validation will be performed.</p>
+<p>Specifically, if any of <code class="docutils literal"><span class="pre">minimum</span></code> , <code class="docutils literal"><span class="pre">maximum</span></code> , <code class="docutils literal"><span class="pre">minLength</span></code> , <code class="docutils literal"><span class="pre">maxLength</span></code> , <code class="docutils literal"><span class="pre">minItems</span></code> , <code class="docutils literal"><span class="pre">maxItems</span></code>, or <code class="docutils literal"><span class="pre">pattern</span></code> is specified for a property that specifies <code class="docutils literal"><span class="pre">x-nablarch-domain</span></code>, source code generation will be stopped.</p>
+<p><code class="docutils literal"><span class="pre">required</span></code> indicates a required item and is not enforced by the domain, so it can be used in combination.</p>
+</div>
+</div>
+<div class="section" id="operational-precautions-regarding-validation">
+<h3><a class="toc-backref" href="#id21">Operational precautions regarding validation</a><a class="headerlink" href="#operational-precautions-regarding-validation" title="Permalink to this headline">¶</a></h3>
+<p>This section describes precautions to take when using this tool to generate source code including validation definitions.</p>
+<div class="section" id="points-to-note-when-the-requirements-for-item-level-or-correlation-validation-cannot-be-met-within-the-scope-of-the-openapi-specification">
+<h4><a class="toc-backref" href="#id22">Points to note when the requirements for item-level or correlation validation cannot be met within the scope of the OpenAPI specification</a><a class="headerlink" href="#points-to-note-when-the-requirements-for-item-level-or-correlation-validation-cannot-be-met-within-the-scope-of-the-openapi-specification" title="Permalink to this headline">¶</a></h4>
+<p>Validation stipulated in the OpenAPI specification only includes required definitions, length checks, and regular expression checks, so it is assumed that this will not be sufficient for business applications.</p>
+<p>Furthermore, since it is not desirable to directly modify the generated source code, correlation validation cannot be implemented in the generated model even if domain validation is used.</p>
+<p>For this reason, the validation requirements cannot be satisfied within the scope of the OpenAPI specification and this tool, and a separate implementation is required. As a result, it should be noted that the validation definitions are likely to be distributed between the generated model and manually implemented forms, etc.</p>
+<p><strong>How to implement when validation definitions are not included in the automatically generated Model</strong></p>
+<p>This section introduces a method to create a form etc. with the same definition as the model automatically generated as the validation definition, copy the property values using <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/core/beans/BeanUtil.html" title="nablarch.core.beans.BeanUtil">BeanUtil</a> , and then perform validation.</p>
+<p>The reason why this tool does not add validation annotations by default is that, as mentioned above, it is anticipated that validation definitions may end up being distributed, which is considered undesirable.</p>
+<p>The concept is similar to <a class="reference internal" href="../../../application_framework/application_framework/libraries/validation/bean_validation.html#bean-validation-execute-explicitly"><span>Performing Explicit Execution of Validation</span></a> and the implementation diagram is shown below.</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">ProjectAction</span> <span class="kd">implements</span> <span class="n">ProjectsApi</span> <span class="o">{</span>  <span class="c1">// ProjectsApi is the interface generated by this tool.</span>
+
+    <span class="c1">// Implement the methods defined in the interface</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="n">EntityResponse</span><span class="o">&lt;</span><span class="n">ProjectResponse</span><span class="o">&gt;</span> <span class="nf">createProject</span><span class="o">(</span><span class="n">ProjectCreateRequest</span> <span class="n">projectCreateRequest</span><span class="o">,</span> <span class="n">JaxRsHttpRequest</span> <span class="n">jaxRsHttpRequest</span><span class="o">,</span> <span class="n">ExecutionContext</span> <span class="n">context</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// A form with the same property definition as the Model, with single-item validation and correlation validation added</span>
+        <span class="n">ProjectCreateForm</span> <span class="n">form</span><span class="o">;</span>
+
+        <span class="k">try</span> <span class="o">{</span>
+            <span class="c1">// Explicitly run validation after copying values f​From the Model to the Form in a utility class</span>
+            <span class="n">form</span> <span class="o">=</span> <span class="n">ProjectValidatorUtil</span><span class="o">.</span><span class="na">validate</span><span class="o">(</span><span class="n">ProjectCreateForm</span><span class="o">.</span><span class="na">class</span><span class="o">,</span> <span class="n">projectCreateRequest</span><span class="o">);</span>
+        <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">ApplicationException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+            <span class="c1">// Perform any processing when a validation error occurs</span>
+            <span class="c1">// ...</span>
+
+            <span class="k">throw</span> <span class="n">e</span><span class="o">;</span>
+        <span class="o">}</span>
+
+        <span class="c1">// Omitted</span>
+
+        <span class="k">return</span> <span class="n">response</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="c1">// Image of utility class</span>
+<span class="kd">public</span> <span class="kd">final</span> <span class="kd">class</span> <span class="nc">ProjectValidatorUtil</span> <span class="o">{</span>
+    <span class="c1">// Other implementations are omitted.</span>
+
+    <span class="cm">/**</span>
+<span class="cm">     * Generate a Bean from the HTTP request and perform validation.</span>
+<span class="cm">     *</span>
+<span class="cm">     * @param beanClass Bean class you want to generate</span>
+<span class="cm">     * @param src The object from which the properties are copied</span>
+<span class="cm">     * @return  Bean object with registered values for properties</span>
+<span class="cm">     */</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">T</span> <span class="nf">validate</span><span class="o">(</span><span class="n">Class</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">beanClass</span><span class="o">,</span> <span class="n">Object</span> <span class="n">src</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">T</span> <span class="n">bean</span> <span class="o">=</span> <span class="n">BeanUtil</span><span class="o">.</span><span class="na">createAndCopy</span><span class="o">(</span><span class="n">beanClass</span><span class="o">,</span> <span class="n">src</span><span class="o">));</span>
+        <span class="n">ValidatorUtil</span><span class="o">.</span><span class="na">validate</span><span class="o">(</span><span class="n">bean</span><span class="o">);</span>
+        <span class="k">return</span> <span class="n">bean</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="points-to-note-when-using-domain-validation">
+<h4><a class="toc-backref" href="#id23">Points to note when using domain validation</a><a class="headerlink" href="#points-to-note-when-using-domain-validation" title="Permalink to this headline">¶</a></h4>
+<p>Domain validation allows you to organize your validation definitions by defining a domain for your Model properties, or to use validations that are not supported by the OpenAPI specification.</p>
+<p>However, the validation specifications, including those supported by the OpenAPI specification, will be hidden from the domain side. As a result, please note that the validation specifications may not be visible from the OpenAPI document.</p>
+</div>
+</div>
+</div>
+<div class="section" id="example-of-openapi-document-and-generated-source-code">
+<h2><a class="toc-backref" href="#id24">Example of OpenAPI document and generated source code</a><a class="headerlink" href="#example-of-openapi-document-and-generated-source-code" title="Permalink to this headline">¶</a></h2>
+<p>Below is an example of an OpenAPI document and the generated source code.</p>
+<p>The following is an example of the settings for this tool when generating source code. If settings different from these settings are required, the example settings for this tool are also provided.</p>
+<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;configuration&gt;</span>
+  <span class="nt">&lt;inputSpec&gt;</span>${project.basedir}/src/main/resources/openapi.yaml<span class="nt">&lt;/inputSpec&gt;</span>
+  <span class="nt">&lt;generatorName&gt;</span>nablarch-jaxrs<span class="nt">&lt;/generatorName&gt;</span>
+  <span class="nt">&lt;configOptions&gt;</span>
+    <span class="nt">&lt;sourceFolder&gt;</span>src/gen/java<span class="nt">&lt;/sourceFolder&gt;</span>
+    <span class="nt">&lt;apiPackage&gt;</span>com.example.api<span class="nt">&lt;/apiPackage&gt;</span>
+    <span class="nt">&lt;modelPackage&gt;</span>com.example.model<span class="nt">&lt;/modelPackage&gt;</span>
+  <span class="nt">&lt;/configOptions&gt;</span>
+<span class="nt">&lt;/configuration&gt;</span>
+</pre></div>
+</div>
+<p>The various examples described are excerpts for the purpose of getting an overview of the generated source code.</p>
+<div class="section" id="example-of-defining-paths-and-operations-in-an-openapi-document-and-generating-source-code">
+<h3><a class="toc-backref" href="#id25">Example of defining paths and operations in an OpenAPI document and generating source code</a><a class="headerlink" href="#example-of-defining-paths-and-operations-in-an-openapi-document-and-generating-source-code" title="Permalink to this headline">¶</a></h3>
+<p>Example OpenAPI document</p>
+<div class="highlight-yaml"><div class="highlight"><pre><span></span><span class="nt">/projects</span><span class="p">:</span>
+  <span class="nt">post</span><span class="p">:</span>
+    <span class="nt">tags</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">project</span>
+    <span class="nt">summary</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Create a project</span>
+    <span class="nt">description</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Create a project</span>
+    <span class="nt">operationId</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">createProject</span>
+    <span class="nt">requestBody</span><span class="p">:</span>
+      <span class="nt">description</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Project Creation Request</span>
+      <span class="nt">content</span><span class="p">:</span>
+        <span class="nt">application/json</span><span class="p">:</span>
+          <span class="nt">schema</span><span class="p">:</span>
+            <span class="nt">$ref</span><span class="p">:</span> <span class="s">&#39;#/components/schemas/ProjectCreateRequest&#39;</span>
+    <span class="nt">responses</span><span class="p">:</span>
+      <span class="s">&quot;200&quot;</span><span class="p p-Indicator">:</span>
+        <span class="nt">description</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Information about the created project</span>
+        <span class="nt">content</span><span class="p">:</span>
+          <span class="nt">application/json</span><span class="p">:</span>
+            <span class="nt">schema</span><span class="p">:</span>
+              <span class="nt">$ref</span><span class="p">:</span> <span class="s">&#39;#/components/schemas/ProjectResponse&#39;</span>
+<span class="l l-Scalar l-Scalar-Plain">/projects/{id}</span><span class="p p-Indicator">:</span>
+  <span class="nt">get</span><span class="p">:</span>
+    <span class="nt">tags</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">project</span>
+    <span class="nt">summary</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Get the project</span>
+    <span class="nt">description</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Get a project by specifying the project ID</span>
+    <span class="nt">operationId</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">findProjectById</span>
+    <span class="nt">parameters</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">id</span>
+      <span class="nt">in</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">path</span>
+      <span class="nt">description</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ID</span>
+      <span class="nt">required</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+      <span class="nt">schema</span><span class="p">:</span>
+        <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">string</span>
+    <span class="nt">responses</span><span class="p">:</span>
+      <span class="s">&quot;200&quot;</span><span class="p p-Indicator">:</span>
+        <span class="nt">description</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Project information obtained</span>
+        <span class="nt">content</span><span class="p">:</span>
+          <span class="nt">application/json</span><span class="p">:</span>
+            <span class="nt">schema</span><span class="p">:</span>
+              <span class="nt">$ref</span><span class="p">:</span> <span class="s">&#39;#/components/schemas/ProjectResponse&#39;</span>
+      <span class="s">&quot;404&quot;</span><span class="p p-Indicator">:</span>
+        <span class="nt">description</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">If the project is not found</span>
+</pre></div>
+</div>
+<p>Example of Resource (Action) interface generated by this tool</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="nd">@Path</span><span class="o">(</span><span class="s">&quot;/projects&quot;</span><span class="o">)</span>
+<span class="nd">@jakarta.annotation.Generated</span><span class="o">(</span><span class="n">value</span> <span class="o">=</span> <span class="s">&quot;nablarch.tool.openapi.codegen.JavaNablarchJaxrsServerCodegen&quot;</span><span class="o">,</span> <span class="n">date</span> <span class="o">=</span> <span class="s">&quot;2024-12-10T13:54:26.470544738+09:00[Asia/Tokyo]&quot;</span><span class="o">,</span> <span class="n">comments</span> <span class="o">=</span> <span class="s">&quot;Generator version: 7.10.0&quot;</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">interface</span> <span class="nc">ProjectsApi</span> <span class="o">{</span>
+    <span class="cm">/**</span>
+<span class="cm">     * POST  : Create a project</span>
+<span class="cm">     *</span>
+<span class="cm">     * Create a project</span>
+<span class="cm">     *</span>
+<span class="cm">     * @param projectCreateRequest Project Creation Request</span>
+<span class="cm">     * @param jaxRsHttpRequest HTTP Request</span>
+<span class="cm">     * @param context Handler Execution Context</span>
+<span class="cm">     * @return Information about the created project</span>
+<span class="cm">     */</span>
+    <span class="nd">@POST</span>
+    <span class="nd">@Consumes</span><span class="o">({</span> <span class="s">&quot;application/json&quot;</span> <span class="o">})</span>
+    <span class="nd">@Produces</span><span class="o">({</span> <span class="s">&quot;application/json&quot;</span> <span class="o">})</span>
+    <span class="n">EntityResponse</span><span class="o">&lt;</span><span class="n">ProjectResponse</span><span class="o">&gt;</span> <span class="nf">createProject</span><span class="o">(</span><span class="n">ProjectCreateRequest</span> <span class="n">projectCreateRequest</span><span class="o">,</span> <span class="n">JaxRsHttpRequest</span> <span class="n">jaxRsHttpRequest</span><span class="o">,</span> <span class="n">ExecutionContext</span> <span class="n">context</span><span class="o">);</span>
+
+    <span class="cm">/**</span>
+<span class="cm">     * GET /{id} : Get the project</span>
+<span class="cm">     *</span>
+<span class="cm">     * Get a project by specifying the project ID</span>
+<span class="cm">     *</span>
+<span class="cm">     * @param jaxRsHttpRequest HTTP Request</span>
+<span class="cm">     * @param context Handler Execution Context</span>
+<span class="cm">     * @return Project information obtained</span>
+<span class="cm">     * @return If the project is not found</span>
+<span class="cm">     */</span>
+    <span class="nd">@GET</span>
+    <span class="nd">@Path</span><span class="o">(</span><span class="s">&quot;/{id}&quot;</span><span class="o">)</span>
+    <span class="nd">@Produces</span><span class="o">({</span> <span class="s">&quot;application/json&quot;</span> <span class="o">})</span>
+    <span class="n">EntityResponse</span><span class="o">&lt;</span><span class="n">ProjectResponse</span><span class="o">&gt;</span> <span class="nf">findProjectById</span><span class="o">(</span><span class="n">JaxRsHttpRequest</span> <span class="n">jaxRsHttpRequest</span><span class="o">,</span> <span class="n">ExecutionContext</span> <span class="n">context</span><span class="o">);</span>
+
+<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="example-of-openapi-document-schema-definition-and-source-code-generation">
+<h3><a class="toc-backref" href="#id26">Example of OpenAPI document schema definition and source code generation</a><a class="headerlink" href="#example-of-openapi-document-schema-definition-and-source-code-generation" title="Permalink to this headline">¶</a></h3>
+<p>Example OpenAPI document</p>
+<div class="highlight-yaml"><div class="highlight"><pre><span></span><span class="nt">ProjectResponse</span><span class="p">:</span>
+  <span class="nt">description</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Project Information</span>
+  <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">object</span>
+  <span class="nt">properties</span><span class="p">:</span>
+    <span class="nt">id</span><span class="p">:</span>
+      <span class="nt">format</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">uuid</span>
+      <span class="nt">description</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Project ID</span>
+      <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">string</span>
+    <span class="nt">name</span><span class="p">:</span>
+      <span class="nt">description</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Project name</span>
+      <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">string</span>
+    <span class="nt">sales</span><span class="p">:</span>
+      <span class="nt">format</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">int64</span>
+      <span class="nt">description</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Sales</span>
+      <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">integer</span>
+    <span class="nt">startDate</span><span class="p">:</span>
+      <span class="nt">format</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">date</span>
+      <span class="nt">description</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Start date</span>
+      <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">string</span>
+    <span class="nt">endDate</span><span class="p">:</span>
+      <span class="nt">format</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">date</span>
+      <span class="nt">description</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">End date</span>
+      <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">string</span>
+</pre></div>
+</div>
+<p>Example of a model generated by this tool</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="nd">@JsonTypeName</span><span class="o">(</span><span class="s">&quot;ProjectResponse&quot;</span><span class="o">)</span>
+<span class="nd">@jakarta.annotation.Generated</span><span class="o">(</span><span class="n">value</span> <span class="o">=</span> <span class="s">&quot;nablarch.tool.openapi.codegen.JavaNablarchJaxrsServerCodegen&quot;</span><span class="o">,</span> <span class="n">date</span> <span class="o">=</span> <span class="s">&quot;2024-12-10T13:54:26.470544738+09:00[Asia/Tokyo]&quot;</span><span class="o">,</span> <span class="n">comments</span> <span class="o">=</span> <span class="s">&quot;Generator version: 7.10.0&quot;</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ProjectResponse</span>   <span class="o">{</span>
+  <span class="kd">private</span> <span class="n">UUID</span> <span class="n">id</span><span class="o">;</span>
+  <span class="kd">private</span> <span class="n">String</span> <span class="n">name</span><span class="o">;</span>
+  <span class="kd">private</span> <span class="n">Long</span> <span class="n">sales</span><span class="o">;</span>
+  <span class="kd">private</span> <span class="n">LocalDate</span> <span class="n">startDate</span><span class="o">;</span>
+  <span class="kd">private</span> <span class="n">LocalDate</span> <span class="n">endDate</span><span class="o">;</span>
+
+    <span class="cm">/**</span>
+<span class="cm">     * Project ID</span>
+<span class="cm">     */</span>
+    <span class="kd">public</span> <span class="n">ProjectResponse</span> <span class="nf">id</span><span class="o">(</span><span class="n">UUID</span> <span class="n">id</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">id</span> <span class="o">=</span> <span class="n">id</span><span class="o">;</span>
+        <span class="k">return</span> <span class="k">this</span><span class="o">;</span>
+    <span class="o">}</span>
+
+
+    <span class="nd">@JsonProperty</span><span class="o">(</span><span class="s">&quot;id&quot;</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="n">UUID</span> <span class="nf">getId</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">id</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="nd">@JsonProperty</span><span class="o">(</span><span class="s">&quot;id&quot;</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setId</span><span class="o">(</span><span class="n">UUID</span> <span class="n">id</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">id</span> <span class="o">=</span> <span class="n">id</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="cm">/**</span>
+<span class="cm">     * Project name</span>
+<span class="cm">     */</span>
+    <span class="kd">public</span> <span class="n">ProjectResponse</span> <span class="nf">name</span><span class="o">(</span><span class="n">String</span> <span class="n">name</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="n">name</span><span class="o">;</span>
+        <span class="k">return</span> <span class="k">this</span><span class="o">;</span>
+    <span class="o">}</span>
+
+
+    <span class="nd">@JsonProperty</span><span class="o">(</span><span class="s">&quot;name&quot;</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">getName</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">name</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="nd">@JsonProperty</span><span class="o">(</span><span class="s">&quot;name&quot;</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setName</span><span class="o">(</span><span class="n">String</span> <span class="n">name</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="n">name</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="cm">/**</span>
+<span class="cm">     * Sales</span>
+<span class="cm">     */</span>
+    <span class="kd">public</span> <span class="n">ProjectResponse</span> <span class="nf">sales</span><span class="o">(</span><span class="n">Long</span> <span class="n">sales</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">sales</span> <span class="o">=</span> <span class="n">sales</span><span class="o">;</span>
+        <span class="k">return</span> <span class="k">this</span><span class="o">;</span>
+    <span class="o">}</span>
+
+
+    <span class="nd">@JsonProperty</span><span class="o">(</span><span class="s">&quot;sales&quot;</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="n">Long</span> <span class="nf">getSales</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">sales</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="nd">@JsonProperty</span><span class="o">(</span><span class="s">&quot;sales&quot;</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setSales</span><span class="o">(</span><span class="n">Long</span> <span class="n">sales</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">sales</span> <span class="o">=</span> <span class="n">sales</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="cm">/**</span>
+<span class="cm">     * Start date</span>
+<span class="cm">     */</span>
+    <span class="kd">public</span> <span class="n">ProjectResponse</span> <span class="nf">startDate</span><span class="o">(</span><span class="n">LocalDate</span> <span class="n">startDate</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">startDate</span> <span class="o">=</span> <span class="n">startDate</span><span class="o">;</span>
+        <span class="k">return</span> <span class="k">this</span><span class="o">;</span>
+    <span class="o">}</span>
+
+
+    <span class="nd">@JsonProperty</span><span class="o">(</span><span class="s">&quot;startDate&quot;</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="n">LocalDate</span> <span class="nf">getStartDate</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">startDate</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="nd">@JsonProperty</span><span class="o">(</span><span class="s">&quot;startDate&quot;</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setStartDate</span><span class="o">(</span><span class="n">LocalDate</span> <span class="n">startDate</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">startDate</span> <span class="o">=</span> <span class="n">startDate</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="cm">/**</span>
+<span class="cm">     * End date</span>
+<span class="cm">     */</span>
+    <span class="kd">public</span> <span class="n">ProjectResponse</span> <span class="nf">endDate</span><span class="o">(</span><span class="n">LocalDate</span> <span class="n">endDate</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">endDate</span> <span class="o">=</span> <span class="n">endDate</span><span class="o">;</span>
+        <span class="k">return</span> <span class="k">this</span><span class="o">;</span>
+    <span class="o">}</span>
+
+
+    <span class="nd">@JsonProperty</span><span class="o">(</span><span class="s">&quot;endDate&quot;</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="n">LocalDate</span> <span class="nf">getEndDate</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">endDate</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="nd">@JsonProperty</span><span class="o">(</span><span class="s">&quot;endDate&quot;</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setEndDate</span><span class="o">(</span><span class="n">LocalDate</span> <span class="n">endDate</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">endDate</span> <span class="o">=</span> <span class="n">endDate</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="c1">// hashCode, equals, toString, etc. are omitted.</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="example-of-generating-source-code-that-uses-bean-validation">
+<h3><a class="toc-backref" href="#id27">Example of generating source code that uses Bean Validation</a><a class="headerlink" href="#example-of-generating-source-code-that-uses-bean-validation" title="Permalink to this headline">¶</a></h3>
+<p>Example OpenAPI document</p>
+<div class="highlight-yaml"><div class="highlight"><pre><span></span><span class="c1">## Paths and Operations</span>
+<span class="nt">/projects</span><span class="p">:</span>
+  <span class="nt">post</span><span class="p">:</span>
+    <span class="nt">tags</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">project</span>
+    <span class="nt">summary</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Create a project</span>
+    <span class="nt">description</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Create a project</span>
+    <span class="nt">operationId</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">createProject</span>
+    <span class="nt">requestBody</span><span class="p">:</span>
+      <span class="nt">description</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Project Creation Request</span>
+      <span class="nt">content</span><span class="p">:</span>
+        <span class="nt">application/json</span><span class="p">:</span>
+          <span class="nt">schema</span><span class="p">:</span>
+            <span class="nt">$ref</span><span class="p">:</span> <span class="s">&#39;#/components/schemas/ProjectCreateRequest&#39;</span>
+    <span class="nt">responses</span><span class="p">:</span>
+      <span class="s">&quot;200&quot;</span><span class="p p-Indicator">:</span>
+        <span class="nt">description</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Information about the created project</span>
+        <span class="nt">content</span><span class="p">:</span>
+          <span class="nt">application/json</span><span class="p">:</span>
+            <span class="nt">schema</span><span class="p">:</span>
+              <span class="nt">$ref</span><span class="p">:</span> <span class="s">&#39;#/components/schemas/ProjectResponse&#39;</span>
+
+  <span class="c1">## Scheme</span>
+  <span class="nt">ProjectCreateRequest</span><span class="p">:</span>
+    <span class="nt">description</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Project Create Request</span>
+    <span class="nt">required</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">projectName</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">projectType</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">startDate</span>
+    <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">object</span>
+    <span class="nt">properties</span><span class="p">:</span>
+      <span class="nt">projectName</span><span class="p">:</span>
+        <span class="nt">description</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Project name</span>
+        <span class="nt">maxLength</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">100</span>
+        <span class="nt">minLength</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
+        <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">string</span>
+      <span class="nt">projectType</span><span class="p">:</span>
+        <span class="nt">description</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Project type</span>
+        <span class="nt">maxLength</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">100</span>
+        <span class="nt">minLength</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
+        <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">string</span>
+      <span class="nt">startDate</span><span class="p">:</span>
+        <span class="nt">format</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">date</span>
+        <span class="nt">description</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Start date</span>
+        <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">string</span>
+      <span class="nt">endDate</span><span class="p">:</span>
+        <span class="nt">format</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">date</span>
+        <span class="nt">description</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">End date</span>
+        <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">string</span>
+</pre></div>
+</div>
+<p>Example of settings for this tool</p>
+<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;configuration&gt;</span>
+  <span class="nt">&lt;inputSpec&gt;</span>${project.basedir}/src/main/resources/openapi.yaml<span class="nt">&lt;/inputSpec&gt;</span>
+  <span class="nt">&lt;generatorName&gt;</span>nablarch-jaxrs<span class="nt">&lt;/generatorName&gt;</span>
+  <span class="nt">&lt;configOptions&gt;</span>
+    <span class="nt">&lt;sourceFolder&gt;</span>src/gen/java<span class="nt">&lt;/sourceFolder&gt;</span>
+    <span class="nt">&lt;apiPackage&gt;</span>com.example.api<span class="nt">&lt;/apiPackage&gt;</span>
+    <span class="nt">&lt;modelPackage&gt;</span>com.example.model<span class="nt">&lt;/modelPackage&gt;</span>
+    <span class="c">&lt;!-- If you want to use Bean Validation, specify true for useBeanValidation. --&gt;</span>
+    <span class="nt">&lt;useBeanValidation&gt;</span>true<span class="nt">&lt;/useBeanValidation&gt;</span>
+  <span class="nt">&lt;/configOptions&gt;</span>
+<span class="nt">&lt;/configuration&gt;</span>
+</pre></div>
+</div>
+<p>Example of Resource (Action) interface generated by this tool</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="nd">@Path</span><span class="o">(</span><span class="s">&quot;/projects&quot;</span><span class="o">)</span>
+<span class="nd">@jakarta.annotation.Generated</span><span class="o">(</span><span class="n">value</span> <span class="o">=</span> <span class="s">&quot;nablarch.tool.openapi.codegen.JavaNablarchJaxrsServerCodegen&quot;</span><span class="o">,</span> <span class="n">date</span> <span class="o">=</span> <span class="s">&quot;2024-12-10T13:54:26.470544738+09:00[Asia/Tokyo]&quot;</span><span class="o">,</span> <span class="n">comments</span> <span class="o">=</span> <span class="s">&quot;Generator version: 7.10.0&quot;</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">interface</span> <span class="nc">ProjectsApi</span> <span class="o">{</span>
+    <span class="cm">/**</span>
+<span class="cm">     * POST  : Create a project</span>
+<span class="cm">     *</span>
+<span class="cm">     * Create a project</span>
+<span class="cm">     *</span>
+<span class="cm">     * @param projectCreateRequest Project Creation Request</span>
+<span class="cm">     * @param jaxRsHttpRequest HTTP Request</span>
+<span class="cm">     * @param context Handler Execution Context</span>
+<span class="cm">     * @return Information about the created project</span>
+<span class="cm">     */</span>
+    <span class="nd">@POST</span>
+    <span class="nd">@Consumes</span><span class="o">({</span> <span class="s">&quot;application/json&quot;</span> <span class="o">})</span>
+    <span class="nd">@Produces</span><span class="o">({</span> <span class="s">&quot;application/json&quot;</span> <span class="o">})</span>
+    <span class="c1">// The @Valid annotation is added when a request is received in the HTTP body.</span>
+    <span class="nd">@Valid</span>
+    <span class="n">EntityResponse</span><span class="o">&lt;</span><span class="n">ProjectResponse</span><span class="o">&gt;</span> <span class="nf">createProject</span><span class="o">(</span><span class="n">ProjectCreateRequest</span> <span class="n">projectCreateRequest</span><span class="o">,</span> <span class="n">JaxRsHttpRequest</span> <span class="n">jaxRsHttpRequest</span><span class="o">,</span> <span class="n">ExecutionContext</span> <span class="n">context</span><span class="o">);</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>Example of a model generated by this tool</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="nd">@JsonTypeName</span><span class="o">(</span><span class="s">&quot;ProjectCreateRequest&quot;</span><span class="o">)</span>
+<span class="nd">@jakarta.annotation.Generated</span><span class="o">(</span><span class="n">value</span> <span class="o">=</span> <span class="s">&quot;nablarch.tool.openapi.codegen.JavaNablarchJaxrsServerCodegen&quot;</span><span class="o">,</span> <span class="n">date</span> <span class="o">=</span> <span class="s">&quot;2024-12-10T13:54:26.470544738+09:00[Asia/Tokyo]&quot;</span><span class="o">,</span> <span class="n">comments</span> <span class="o">=</span> <span class="s">&quot;Generator version: 7.10.0&quot;</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ProjectCreateRequest</span>   <span class="o">{</span>
+  <span class="kd">private</span> <span class="n">String</span> <span class="n">projectName</span><span class="o">;</span>
+  <span class="kd">private</span> <span class="n">String</span> <span class="n">projectType</span><span class="o">;</span>
+  <span class="kd">private</span> <span class="n">LocalDate</span> <span class="n">startDate</span><span class="o">;</span>
+  <span class="kd">private</span> <span class="n">LocalDate</span> <span class="n">endDate</span><span class="o">;</span>
+
+    <span class="cm">/**</span>
+<span class="cm">     * Project name</span>
+<span class="cm">     */</span>
+    <span class="kd">public</span> <span class="n">ProjectCreateRequest</span> <span class="nf">projectName</span><span class="o">(</span><span class="n">String</span> <span class="n">projectName</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">projectName</span> <span class="o">=</span> <span class="n">projectName</span><span class="o">;</span>
+        <span class="k">return</span> <span class="k">this</span><span class="o">;</span>
+    <span class="o">}</span>
+
+
+    <span class="nd">@JsonProperty</span><span class="o">(</span><span class="s">&quot;projectName&quot;</span><span class="o">)</span>
+    <span class="nd">@Required</span> <span class="nd">@Length</span><span class="o">(</span><span class="n">min</span> <span class="o">=</span> <span class="mi">1</span><span class="o">,</span> <span class="n">max</span> <span class="o">=</span> <span class="mi">100</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">getProjectName</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">projectName</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="nd">@JsonProperty</span><span class="o">(</span><span class="s">&quot;projectName&quot;</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setProjectName</span><span class="o">(</span><span class="n">String</span> <span class="n">projectName</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">projectName</span> <span class="o">=</span> <span class="n">projectName</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="cm">/**</span>
+<span class="cm">     * Project type</span>
+<span class="cm">     */</span>
+    <span class="kd">public</span> <span class="n">ProjectCreateRequest</span> <span class="nf">projectType</span><span class="o">(</span><span class="n">String</span> <span class="n">projectType</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">projectType</span> <span class="o">=</span> <span class="n">projectType</span><span class="o">;</span>
+        <span class="k">return</span> <span class="k">this</span><span class="o">;</span>
+    <span class="o">}</span>
+
+
+    <span class="nd">@JsonProperty</span><span class="o">(</span><span class="s">&quot;projectType&quot;</span><span class="o">)</span>
+    <span class="nd">@Required</span> <span class="nd">@Length</span><span class="o">(</span><span class="n">min</span> <span class="o">=</span> <span class="mi">1</span><span class="o">,</span> <span class="n">max</span> <span class="o">=</span> <span class="mi">100</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">getProjectType</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">projectType</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="nd">@JsonProperty</span><span class="o">(</span><span class="s">&quot;projectType&quot;</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setProjectType</span><span class="o">(</span><span class="n">String</span> <span class="n">projectType</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">projectType</span> <span class="o">=</span> <span class="n">projectType</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="cm">/**</span>
+<span class="cm">     * Start date</span>
+<span class="cm">     */</span>
+    <span class="kd">public</span> <span class="n">ProjectCreateRequest</span> <span class="nf">startDate</span><span class="o">(</span><span class="n">LocalDate</span> <span class="n">startDate</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">startDate</span> <span class="o">=</span> <span class="n">startDate</span><span class="o">;</span>
+        <span class="k">return</span> <span class="k">this</span><span class="o">;</span>
+    <span class="o">}</span>
+
+
+    <span class="nd">@JsonProperty</span><span class="o">(</span><span class="s">&quot;startDate&quot;</span><span class="o">)</span>
+    <span class="nd">@Required</span>
+    <span class="kd">public</span> <span class="n">LocalDate</span> <span class="nf">getStartDate</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">startDate</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="nd">@JsonProperty</span><span class="o">(</span><span class="s">&quot;startDate&quot;</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setStartDate</span><span class="o">(</span><span class="n">LocalDate</span> <span class="n">startDate</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">startDate</span> <span class="o">=</span> <span class="n">startDate</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="cm">/**</span>
+<span class="cm">     * End date</span>
+<span class="cm">     */</span>
+    <span class="kd">public</span> <span class="n">ProjectCreateRequest</span> <span class="nf">endDate</span><span class="o">(</span><span class="n">LocalDate</span> <span class="n">endDate</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">endDate</span> <span class="o">=</span> <span class="n">endDate</span><span class="o">;</span>
+        <span class="k">return</span> <span class="k">this</span><span class="o">;</span>
+    <span class="o">}</span>
+
+
+    <span class="nd">@JsonProperty</span><span class="o">(</span><span class="s">&quot;endDate&quot;</span><span class="o">)</span>
+
+    <span class="kd">public</span> <span class="n">LocalDate</span> <span class="nf">getEndDate</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">endDate</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="nd">@JsonProperty</span><span class="o">(</span><span class="s">&quot;endDate&quot;</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setEndDate</span><span class="o">(</span><span class="n">LocalDate</span> <span class="n">endDate</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">endDate</span> <span class="o">=</span> <span class="n">endDate</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="c1">// hashCode, equals, toString, etc. are omitted.</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="example-of-source-code-generation-using-domain-validation">
+<h3><a class="toc-backref" href="#id28">Example of source code generation using domain validation</a><a class="headerlink" href="#example-of-source-code-generation-using-domain-validation" title="Permalink to this headline">¶</a></h3>
+<p>Example OpenAPI document</p>
+<div class="highlight-yaml"><div class="highlight"><pre><span></span><span class="c1">## Paths and Operations</span>
+<span class="nt">/projects</span><span class="p">:</span>
+  <span class="nt">post</span><span class="p">:</span>
+    <span class="nt">tags</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">project</span>
+    <span class="nt">summary</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Create a project</span>
+    <span class="nt">description</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Create a project</span>
+    <span class="nt">operationId</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">createProject</span>
+    <span class="nt">requestBody</span><span class="p">:</span>
+      <span class="nt">description</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Project Creation Request</span>
+      <span class="nt">content</span><span class="p">:</span>
+        <span class="nt">application/json</span><span class="p">:</span>
+          <span class="nt">schema</span><span class="p">:</span>
+            <span class="nt">$ref</span><span class="p">:</span> <span class="s">&#39;#/components/schemas/ProjectCreateRequest&#39;</span>
+    <span class="nt">responses</span><span class="p">:</span>
+      <span class="s">&quot;200&quot;</span><span class="p p-Indicator">:</span>
+        <span class="nt">description</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Information about the created project</span>
+        <span class="nt">content</span><span class="p">:</span>
+          <span class="nt">application/json</span><span class="p">:</span>
+            <span class="nt">schema</span><span class="p">:</span>
+              <span class="nt">$ref</span><span class="p">:</span> <span class="s">&#39;#/components/schemas/ProjectResponse&#39;</span>
+
+  <span class="c1">## Scheme</span>
+  <span class="nt">ProjectCreateRequest</span><span class="p">:</span>
+    <span class="nt">description</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Project Create Request</span>
+    <span class="nt">required</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">projectName</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">projectType</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">startDate</span>
+    <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">object</span>
+    <span class="nt">properties</span><span class="p">:</span>
+      <span class="nt">projectName</span><span class="p">:</span>
+        <span class="nt">description</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Project name</span>
+        <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">string</span>
+        <span class="c1">## Using domain validation</span>
+        <span class="nt">x-nablarch-domain</span><span class="p">:</span> <span class="s">&quot;projectName&quot;</span>
+</pre></div>
+</div>
+<p>Example of settings for this tool</p>
+<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;configuration&gt;</span>
+  <span class="nt">&lt;inputSpec&gt;</span>${project.basedir}/src/main/resources/openapi.yaml<span class="nt">&lt;/inputSpec&gt;</span>
+  <span class="nt">&lt;generatorName&gt;</span>nablarch-jaxrs<span class="nt">&lt;/generatorName&gt;</span>
+  <span class="nt">&lt;configOptions&gt;</span>
+    <span class="nt">&lt;sourceFolder&gt;</span>src/gen/java<span class="nt">&lt;/sourceFolder&gt;</span>
+    <span class="nt">&lt;apiPackage&gt;</span>com.example.api<span class="nt">&lt;/apiPackage&gt;</span>
+    <span class="nt">&lt;modelPackage&gt;</span>com.example.model<span class="nt">&lt;/modelPackage&gt;</span>
+    <span class="c">&lt;!-- If you want to use Bean Validation, specify true for useBeanValidation. --&gt;</span>
+    <span class="nt">&lt;useBeanValidation&gt;</span>true<span class="nt">&lt;/useBeanValidation&gt;</span>
+  <span class="nt">&lt;/configOptions&gt;</span>
+<span class="nt">&lt;/configuration&gt;</span>
+</pre></div>
+</div>
+<p>Example of a model generated by this tool</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="nd">@JsonTypeName</span><span class="o">(</span><span class="s">&quot;ProjectCreateRequest&quot;</span><span class="o">)</span>
+<span class="nd">@jakarta.annotation.Generated</span><span class="o">(</span><span class="n">value</span> <span class="o">=</span> <span class="s">&quot;nablarch.tool.openapi.codegen.JavaNablarchJaxrsServerCodegen&quot;</span><span class="o">,</span> <span class="n">date</span> <span class="o">=</span> <span class="s">&quot;2024-12-10T13:54:26.470544738+09:00[Asia/Tokyo]&quot;</span><span class="o">,</span> <span class="n">comments</span> <span class="o">=</span> <span class="s">&quot;Generator version: 7.10.0&quot;</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ProjectCreateRequest</span>   <span class="o">{</span>
+  <span class="kd">private</span> <span class="n">String</span> <span class="n">projectName</span><span class="o">;</span>
+
+    <span class="cm">/**</span>
+<span class="cm">     * Project name</span>
+<span class="cm">     */</span>
+    <span class="kd">public</span> <span class="n">ProjectCreateRequest</span> <span class="nf">projectName</span><span class="o">(</span><span class="n">String</span> <span class="n">projectName</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">projectName</span> <span class="o">=</span> <span class="n">projectName</span><span class="o">;</span>
+        <span class="k">return</span> <span class="k">this</span><span class="o">;</span>
+    <span class="o">}</span>
+
+
+    <span class="nd">@JsonProperty</span><span class="o">(</span><span class="s">&quot;projectName&quot;</span><span class="o">)</span>
+    <span class="nd">@Required</span> <span class="nd">@Domain</span><span class="o">(</span><span class="s">&quot;projectName&quot;</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">getProjectName</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">projectName</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="nd">@JsonProperty</span><span class="o">(</span><span class="s">&quot;projectName&quot;</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setProjectName</span><span class="o">(</span><span class="n">String</span> <span class="n">projectName</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">projectName</span> <span class="o">=</span> <span class="n">projectName</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="c1">// hashCode, equals, toString, etc. are omitted.</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="example-of-a-file-upload-definition">
+<h3><a class="toc-backref" href="#id29">Example of a file upload definition</a><a class="headerlink" href="#example-of-a-file-upload-definition" title="Permalink to this headline">¶</a></h3>
+<p>Example OpenAPI document</p>
+<div class="highlight-yaml"><div class="highlight"><pre><span></span><span class="c1">## Paths and Operations</span>
+<span class="nt">/customers/upload</span><span class="p">:</span>
+  <span class="nt">post</span><span class="p">:</span>
+    <span class="nt">tags</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">customer</span>
+    <span class="nt">summary</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Upload a customer CSV file</span>
+    <span class="nt">description</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Import customer information by uploading a customer CSV file</span>
+    <span class="nt">operationId</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">uploadCustomersCsvFile</span>
+    <span class="nt">requestBody</span><span class="p">:</span>
+      <span class="nt">description</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Customer CSV file information</span>
+      <span class="nt">content</span><span class="p">:</span>
+        <span class="nt">multipart/form-data</span><span class="p">:</span>
+          <span class="nt">schema</span><span class="p">:</span>
+            <span class="nt">$ref</span><span class="p">:</span> <span class="s">&#39;#/components/schemas/CustomersCsvFileUploadRequest&#39;</span>
+    <span class="nt">responses</span><span class="p">:</span>
+      <span class="s">&quot;200&quot;</span><span class="p p-Indicator">:</span>
+        <span class="nt">description</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Result of importing customer CSV upload file</span>
+        <span class="nt">content</span><span class="p">:</span>
+          <span class="nt">application/json</span><span class="p">:</span>
+            <span class="nt">schema</span><span class="p">:</span>
+              <span class="nt">$ref</span><span class="p">:</span> <span class="s">&#39;#/components/schemas/CustomersCsvFileUploadResultResponse&#39;</span>
+
+
+  <span class="c1">## Schema</span>
+  <span class="nt">CustomersCsvFileUploadRequest</span><span class="p">:</span>
+    <span class="nt">description</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Customer CSV file information</span>
+    <span class="nt">required</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">fileName</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">file</span>
+    <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">object</span>
+    <span class="nt">properties</span><span class="p">:</span>
+      <span class="nt">fileName</span><span class="p">:</span>
+        <span class="nt">description</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">File name</span>
+        <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">string</span>
+      <span class="nt">file</span><span class="p">:</span>
+        <span class="nt">description</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Customer CSV file</span>
+        <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">string</span>
+        <span class="nt">format</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">binary</span>
+</pre></div>
+</div>
+<p>Example of Resource (Action) interface generated by this tool</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="nd">@Path</span><span class="o">(</span><span class="s">&quot;/customers/upload&quot;</span><span class="o">)</span>
+<span class="nd">@jakarta.annotation.Generated</span><span class="o">(</span><span class="n">value</span> <span class="o">=</span> <span class="s">&quot;nablarch.tool.openapi.codegen.JavaNablarchJaxrsServerCodegen&quot;</span><span class="o">,</span> <span class="n">date</span> <span class="o">=</span> <span class="s">&quot;2024-12-10T14:36:36.602623815+09:00[Asia/Tokyo]&quot;</span><span class="o">,</span> <span class="n">comments</span> <span class="o">=</span> <span class="s">&quot;Generator version: 7.10.0&quot;</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">interface</span> <span class="nc">CustomersApi</span> <span class="o">{</span>
+    <span class="cm">/**</span>
+<span class="cm">     * POST  : Upload a customer CSV file</span>
+<span class="cm">     *</span>
+<span class="cm">     * Import customer information by uploading a customer CSV file</span>
+<span class="cm">     *</span>
+<span class="cm">     * @param jaxRsHttpRequest HTTP Request</span>
+<span class="cm">     * @param context Handler Execution Context</span>
+<span class="cm">     * @return Result of importing customer CSV upload file</span>
+<span class="cm">     */</span>
+    <span class="nd">@POST</span>
+    <span class="nd">@Consumes</span><span class="o">({</span> <span class="s">&quot;multipart/form-data&quot;</span> <span class="o">})</span>
+    <span class="nd">@Produces</span><span class="o">({</span> <span class="s">&quot;application/json&quot;</span> <span class="o">})</span>
+    <span class="n">EntityResponse</span><span class="o">&lt;</span><span class="n">CustomersCsvFileUploadResultResponse</span><span class="o">&gt;</span> <span class="nf">uploadCustomersCsvFile</span><span class="o">(</span><span class="n">JaxRsHttpRequest</span> <span class="n">jaxRsHttpRequest</span><span class="o">,</span> <span class="n">ExecutionContext</span> <span class="n">context</span><span class="o">);</span>
+
+<span class="o">}</span>
+</pre></div>
+</div>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p class="last">When uploading a file, specify <code class="docutils literal"><span class="pre">multipart/form-data</span></code> as the request content type. Also, specify <code class="docutils literal"><span class="pre">type:</span> <span class="pre">string</span></code> and <code class="docutils literal"><span class="pre">format:</span> <span class="pre">binary</span></code> for the uploaded file. In this case, the source code for the Model corresponding to the schema is not generated. The uploaded file is retrieved from <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/fw/jaxrs/JaxRsHttpRequest.html" title="nablarch.fw.jaxrs.JaxRsHttpRequest">JaxRsHttpRequest</a> .</p>
+</div>
+</div>
+<div class="section" id="example-of-a-file-download-definition">
+<h3><a class="toc-backref" href="#id30">Example of a file download definition</a><a class="headerlink" href="#example-of-a-file-download-definition" title="Permalink to this headline">¶</a></h3>
+<p>Example OpenAPI document</p>
+<div class="highlight-yaml"><div class="highlight"><pre><span></span><span class="nt">/customers/upload</span><span class="p">:</span>
+  <span class="nt">get</span><span class="p">:</span>
+    <span class="nt">tags</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">customer</span>
+    <span class="nt">summary</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Download customer information as a CSV file</span>
+    <span class="nt">description</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Download customer information as a CSV file</span>
+    <span class="nt">operationId</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">downloadCustomersCsvFile</span>
+    <span class="nt">responses</span><span class="p">:</span>
+      <span class="s">&quot;200&quot;</span><span class="p p-Indicator">:</span>
+        <span class="nt">description</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Customer CSV file</span>
+        <span class="nt">content</span><span class="p">:</span>
+          <span class="nt">text/csv</span><span class="p">:</span>
+            <span class="nt">schema</span><span class="p">:</span>
+              <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">string</span>
+              <span class="nt">format</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">binary</span>
+</pre></div>
+</div>
+<p>Example of Resource (Action) interface generated by this tool</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="nd">@Path</span><span class="o">(</span><span class="s">&quot;/customers/upload&quot;</span><span class="o">)</span>
+<span class="nd">@jakarta.annotation.Generated</span><span class="o">(</span><span class="n">value</span> <span class="o">=</span> <span class="s">&quot;nablarch.tool.openapi.codegen.JavaNablarchJaxrsServerCodegen&quot;</span><span class="o">,</span> <span class="n">date</span> <span class="o">=</span> <span class="s">&quot;2024-12-10T14:48:03.670170037+09:00[Asia/Tokyo]&quot;</span><span class="o">,</span> <span class="n">comments</span> <span class="o">=</span> <span class="s">&quot;Generator version: 7.10.0&quot;</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">interface</span> <span class="nc">CustomersApi</span> <span class="o">{</span>
+    <span class="cm">/**</span>
+<span class="cm">     * GET  : Download customer information as a CSV file</span>
+<span class="cm">     *</span>
+<span class="cm">     * Download customer information as a CSV file</span>
+<span class="cm">     *</span>
+<span class="cm">     * @param jaxRsHttpRequest HTTP Request</span>
+<span class="cm">     * @param context Handler Execution Context</span>
+<span class="cm">     * @return Customer CSV file</span>
+<span class="cm">     */</span>
+    <span class="nd">@GET</span>
+    <span class="n">HttpResponse</span> <span class="nf">downloadCustomersCsvFile</span><span class="o">(</span><span class="n">JaxRsHttpRequest</span> <span class="n">jaxRsHttpRequest</span><span class="o">,</span> <span class="n">ExecutionContext</span> <span class="n">context</span><span class="o">);</span>
+
+<span class="o">}</span>
+</pre></div>
+</div>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p class="last">When downloading a file, you can specify any type as the response content type. The response schema definition should be <code class="docutils literal"><span class="pre">type:</span> <span class="pre">string</span></code> and <code class="docutils literal"><span class="pre">format:</span> <span class="pre">binary</span></code>, and the content of the file to be downloaded and the response headers should be set using <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/fw/web/HttpResponse.html" title="nablarch.fw.web.HttpResponse">HttpResponse</a> .</p>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+
+    <hr/>
+
+    <div role="contentinfo">
+        <p>
+            &copy; Copyright 2010-2025, TIS Inc.
+        </p>
+    </div>
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'6u3',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: ''
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/custom.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
