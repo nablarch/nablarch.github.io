@@ -274,10 +274,10 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../migration/index.html#jsr352">JSR352に準拠したバッチアプリケーションの移行手順</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../migration/index.html#id12">実行時にエラーになる場合の対処方法</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../migration/index.html#id13">実行時にエラーになる場合の対処方法</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../migration/index.html#id13">付録</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../migration/index.html#id14">付録</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../migration/index.html#java-ee-jakarta-ee-comparation">Java EEとJakarta EEの仕様の対応表</a></li>
 </ul>
 </li>
@@ -371,7 +371,7 @@
 </li>
 <li><a class="reference internal" href="#micrometer-default-metrics" id="id58">DefaultMeterBinderListProviderで収集されるメトリクス</a></li>
 <li><a class="reference internal" href="#id18" id="id59">共通のタグを設定する</a></li>
-<li><a class="reference internal" href="#id19" id="id60">監視サービスと連携する</a><ul>
+<li><a class="reference internal" href="#micrometer-collaboration" id="id60">監視サービスと連携する</a><ul>
 <li><a class="reference internal" href="#id20" id="id61">Datadog と連携する</a></li>
 <li><a class="reference internal" href="#id21" id="id62">CloudWatch と連携する</a></li>
 <li><a class="reference internal" href="#azure" id="id63">Azure と連携する</a></li>
@@ -902,8 +902,8 @@ $ export NABLARCH_MICROMETER_EXAMPLE_THREE=OS_ENV
 </div>
 <p>全てのメトリクスに、 <code class="docutils literal"><span class="pre">foo=FOO</span></code>, <code class="docutils literal"><span class="pre">bar=BAR</span></code> のタグが設定されていることが確認できる。</p>
 </div>
-<div class="section" id="id19">
-<h2><a class="toc-backref" href="#id60">監視サービスと連携する</a><a class="headerlink" href="#id19" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="micrometer-collaboration">
+<span id="id19"></span><h2><a class="toc-backref" href="#id60">監視サービスと連携する</a><a class="headerlink" href="#micrometer-collaboration" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>監視サービスと連携するためには、大きく次のとおり設定する必要がある。</p>
 <ol class="arabic simple">
 <li>監視サービスや連携方法ごとに用意された Micrometer のモジュールを依存関係に追加する</li>

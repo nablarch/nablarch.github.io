@@ -273,10 +273,10 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#jsr352">JSR352に準拠したバッチアプリケーションの移行手順</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id12">実行時にエラーになる場合の対処方法</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id13">実行時にエラーになる場合の対処方法</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#id13">付録</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id14">付録</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#java-ee-jakarta-ee-comparation">Java EEとJakarta EEの仕様の対応表</a></li>
 </ul>
 </li>
@@ -346,51 +346,53 @@
 <div class="contents local topic" id="id1">
 <p class="topic-title first">目次</p>
 <ul class="simple">
-<li><a class="reference internal" href="#id2" id="id16">Nablarch 5と6で大きく異なる点</a><ul>
-<li><a class="reference internal" href="#jakarta-ee-10" id="id17">Jakarta EE 10に対応</a></li>
-<li><a class="reference internal" href="#java17" id="id18">動作に必要なJavaの最低バージョンを17に変更</a></li>
+<li><a class="reference internal" href="#id2" id="id17">Nablarch 5と6で大きく異なる点</a><ul>
+<li><a class="reference internal" href="#jakarta-ee-10" id="id18">Jakarta EE 10に対応</a></li>
+<li><a class="reference internal" href="#java17" id="id19">動作に必要なJavaの最低バージョンを17に変更</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#id3" id="id19">前提条件</a></li>
-<li><a class="reference internal" href="#id5" id="id20">移行手順の概要</a></li>
-<li><a class="reference internal" href="#id6" id="id21">移行手順の詳細</a><ul>
-<li><a class="reference internal" href="#nablarch" id="id22">Nablarchのバージョンアップ</a></li>
-<li><a class="reference internal" href="#jakarta-ee" id="id23">Jakarta EE対応</a><ul>
-<li><a class="reference internal" href="#java-eejakarta-ee" id="id24">Java EEの依存関係をJakarta EEに変更する</a><ul>
-<li><a class="reference internal" href="#java-servlet-jakarta-servlet" id="id25">Java Servlet → Jakarta Servlet</a></li>
-<li><a class="reference internal" href="#jsp-jakarta-server-pages" id="id26">JSP → Jakarta Server Pages</a></li>
-<li><a class="reference internal" href="#jstl-jakarta-standard-tag-library" id="id27">JSTL → Jakarta Standard Tag Library</a></li>
-<li><a class="reference internal" href="#jpa-jakarta-persistence" id="id28">JPA → Jakarta Persistence</a></li>
-<li><a class="reference internal" href="#jax-rs-jakarta-restful-web-services" id="id29">JAX-RS → Jakarta RESTful Web Services</a></li>
-<li><a class="reference internal" href="#common-annotations-for-the-java-platform-jakarta-annotations" id="id30">Common Annotations for the Java Platform → Jakarta Annotations</a></li>
+<li><a class="reference internal" href="#id3" id="id20">前提条件</a></li>
+<li><a class="reference internal" href="#id5" id="id21">移行手順の概要</a></li>
+<li><a class="reference internal" href="#id6" id="id22">移行手順の詳細</a><ul>
+<li><a class="reference internal" href="#nablarch" id="id23">Nablarchのバージョンアップ</a></li>
+<li><a class="reference internal" href="#jakarta-ee" id="id24">Jakarta EE対応</a><ul>
+<li><a class="reference internal" href="#java-eejakarta-ee" id="id25">Java EEの依存関係をJakarta EEに変更する</a><ul>
+<li><a class="reference internal" href="#java-servlet-jakarta-servlet" id="id26">Java Servlet → Jakarta Servlet</a></li>
+<li><a class="reference internal" href="#jsp-jakarta-server-pages" id="id27">JSP → Jakarta Server Pages</a></li>
+<li><a class="reference internal" href="#jstl-jakarta-standard-tag-library" id="id28">JSTL → Jakarta Standard Tag Library</a></li>
+<li><a class="reference internal" href="#jpa-jakarta-persistence" id="id29">JPA → Jakarta Persistence</a></li>
+<li><a class="reference internal" href="#jax-rs-jakarta-restful-web-services" id="id30">JAX-RS → Jakarta RESTful Web Services</a></li>
+<li><a class="reference internal" href="#common-annotations-for-the-java-platform-jakarta-annotations" id="id31">Common Annotations for the Java Platform → Jakarta Annotations</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#java-ee" id="id31">Java EE仕様の実装ライブラリを更新する</a><ul>
-<li><a class="reference internal" href="#bean-validation-jakarta-bean-validation" id="id32">Bean Validation → Jakarta Bean Validation</a></li>
-<li><a class="reference internal" href="#id7" id="id33">JSTL → Jakarta Standard Tag Library</a></li>
-<li><a class="reference internal" href="#id8" id="id34">JAX-RS → Jakarta RESTful Web Services</a></li>
-<li><a class="reference internal" href="#jms-jakarta-messaging" id="id35">JMS → Jakarta Messaging</a></li>
+<li><a class="reference internal" href="#java-ee" id="id32">Java EE仕様の実装ライブラリを更新する</a><ul>
+<li><a class="reference internal" href="#bean-validation-jakarta-bean-validation" id="id33">Bean Validation → Jakarta Bean Validation</a></li>
+<li><a class="reference internal" href="#id8" id="id34">JSTL → Jakarta Standard Tag Library</a></li>
+<li><a class="reference internal" href="#id9" id="id35">JAX-RS → Jakarta RESTful Web Services</a></li>
+<li><a class="reference internal" href="#jms-jakarta-messaging" id="id36">JMS → Jakarta Messaging</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#gsp-dba-maven-plugin" id="id36">gsp-dba-maven-pluginを更新する</a></li>
-<li><a class="reference internal" href="#waitt-maven-pluginjetty-ee10-maven-plugin" id="id37">waitt-maven-pluginをjetty-ee10-maven-pluginに変更する</a></li>
-<li><a class="reference internal" href="#nablarch-testing-jetty6nablarch-testing-jetty12" id="id38">nablarch-testing-jetty6をnablarch-testing-jetty12に変更する</a></li>
-<li><a class="reference internal" href="#javaxjakarta" id="id39">javax名前空間をjakarta名前空間に変更する</a></li>
-<li><a class="reference internal" href="#xmljakarta-ee-10" id="id40">XMLスキーマ指定をJakarta EE 10のスキーマに変更する</a></li>
-<li><a class="reference internal" href="#id11" id="id41">タグライブラリのネームスペースをJakarta EE 10のネームスペースに変更する</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a class="reference internal" href="#jsr352" id="id42">JSR352に準拠したバッチアプリケーションの移行手順</a><ul>
-<li><a class="reference internal" href="#id12" id="id43">実行時にエラーになる場合の対処方法</a><ul>
-<li><a class="reference internal" href="#noclassdeffounderror" id="id44">NoClassDefFoundErrorになる場合</a></li>
+<li><a class="reference internal" href="#doma" id="id37">Domaアダプタを更新する</a></li>
+<li><a class="reference internal" href="#micrometer" id="id38">Micrometerアダプタを更新する</a></li>
+<li><a class="reference internal" href="#gsp-dba-maven-plugin" id="id39">gsp-dba-maven-pluginを更新する</a></li>
+<li><a class="reference internal" href="#waitt-maven-pluginjetty-ee10-maven-plugin" id="id40">waitt-maven-pluginをjetty-ee10-maven-pluginに変更する</a></li>
+<li><a class="reference internal" href="#nablarch-testing-jetty6nablarch-testing-jetty12" id="id41">nablarch-testing-jetty6をnablarch-testing-jetty12に変更する</a></li>
+<li><a class="reference internal" href="#javaxjakarta" id="id42">javax名前空間をjakarta名前空間に変更する</a></li>
+<li><a class="reference internal" href="#xmljakarta-ee-10" id="id43">XMLスキーマ指定をJakarta EE 10のスキーマに変更する</a></li>
+<li><a class="reference internal" href="#id12" id="id44">タグライブラリのネームスペースをJakarta EE 10のネームスペースに変更する</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a class="reference internal" href="#id13" id="id45">付録</a><ul>
-<li><a class="reference internal" href="#java-ee-jakarta-ee-comparation" id="id46">Java EEとJakarta EEの仕様の対応表</a></li>
+<li><a class="reference internal" href="#jsr352" id="id45">JSR352に準拠したバッチアプリケーションの移行手順</a><ul>
+<li><a class="reference internal" href="#id13" id="id46">実行時にエラーになる場合の対処方法</a><ul>
+<li><a class="reference internal" href="#noclassdeffounderror" id="id47">NoClassDefFoundErrorになる場合</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id14" id="id48">付録</a><ul>
+<li><a class="reference internal" href="#java-ee-jakarta-ee-comparation" id="id49">Java EEとJakarta EEの仕様の対応表</a></li>
 </ul>
 </li>
 </ul>
@@ -404,9 +406,9 @@
 6u3以降へバージョンアップする場合は、ここで説明する手順以外にも追加の手順が必要となる場合があるため、6u3以降のリリースノートを順に参照してバージョンアップ手順を必ず確認すること。</p>
 </div>
 <div class="section" id="id2">
-<h2><a class="toc-backref" href="#id16">Nablarch 5と6で大きく異なる点</a><a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2><a class="toc-backref" href="#id17">Nablarch 5と6で大きく異なる点</a><a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <div class="section" id="jakarta-ee-10">
-<h3><a class="toc-backref" href="#id17">Jakarta EE 10に対応</a><a class="headerlink" href="#jakarta-ee-10" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3><a class="toc-backref" href="#id18">Jakarta EE 10に対応</a><a class="headerlink" href="#jakarta-ee-10" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>Nablarch 6ではJakarta EE 10に対応している。</p>
 <p>Jakarta EEとは、Java EEがEclipse Foundationに移管された後の名前で、Java EEの後継となる。
 基本的にはJava EEの仕様がそのまま移管されているが、Jakarta EE 9で名前空間が <code class="docutils literal"><span class="pre">javax.*</span></code> から <code class="docutils literal"><span class="pre">jakarta.*</span></code> になるという大きな変更が入っている。</p>
@@ -414,12 +416,12 @@
 <p>また、名前空間の変更などにより後方互換性が維持されないため、アプリケーションサーバ上で動作させるにはJakarta EE 10に対応しているアプリケーションサーバが必要となる。</p>
 </div>
 <div class="section" id="java17">
-<h3><a class="toc-backref" href="#id18">動作に必要なJavaの最低バージョンを17に変更</a><a class="headerlink" href="#java17" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3><a class="toc-backref" href="#id19">動作に必要なJavaの最低バージョンを17に変更</a><a class="headerlink" href="#java17" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>Nablarch 6のモジュールはJava 17でコンパイルされているため、動作させるにはJava 17以上が必要となる。</p>
 </div>
 </div>
 <div class="section" id="id3">
-<h2><a class="toc-backref" href="#id19">前提条件</a><a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2><a class="toc-backref" href="#id20">前提条件</a><a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>ここで説明する手順は、Nablarch 5の最新版へのバージョンアップが済んでいることを前提としている。</p>
 <p>古いバージョンで作られたプロジェクトは、まずはNablarch 5の最新版へのバージョンアップを済ませてからNablarch 6への移行を行うこと。
 Nablarch 5の最新版へのバージョンアップに必要となる修正内容については、 <a class="reference external" href="https://nablarch.github.io/docs/5-LATEST/doc/releases/index.html">Nablarch 5のリリースノート</a> を参照のこと。</p>
@@ -431,7 +433,7 @@ Nablarch 5の最新版へのバージョンアップに必要となる修正内�
 </div>
 </div>
 <div class="section" id="id5">
-<h2><a class="toc-backref" href="#id20">移行手順の概要</a><a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2><a class="toc-backref" href="#id21">移行手順の概要</a><a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>Nablarch 5のプロジェクトをNablarch 6へ移行するためには、大まかに次の2つの修正が必要となる。</p>
 <ul class="simple">
 <li>Nablarchのバージョンアップ</li>
@@ -443,11 +445,11 @@ Nablarch 5の最新版へのバージョンアップに必要となる修正内�
 <p>以下で、それぞれの具体的な手順について説明する。</p>
 </div>
 <div class="section" id="id6">
-<h2><a class="toc-backref" href="#id21">移行手順の詳細</a><a class="headerlink" href="#id6" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2><a class="toc-backref" href="#id22">移行手順の詳細</a><a class="headerlink" href="#id6" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>ここでは、Nablarch 5のプロジェクトをNablarch 6へ移行する際に必要となる手順について、それぞれ詳細な内容を説明する。</p>
 <p>プロジェクトによっては不要な手順が含まれる可能性があるが、その場合は適宜取捨選択して読み進めること（例えば、 <a class="reference internal" href="#waitt-to-jetty"><span>waitt-maven-pluginをjetty-ee10-maven-pluginに変更する</span></a> や <a class="reference internal" href="#update-ntf-jetty"><span>nablarch-testing-jetty6をnablarch-testing-jetty12に変更する</span></a> はウェブプロジェクト固有の手順なので、バッチプロジェクトでは読み飛ばして問題ない）。</p>
 <div class="section" id="nablarch">
-<h3><a class="toc-backref" href="#id22">Nablarchのバージョンアップ</a><a class="headerlink" href="#nablarch" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3><a class="toc-backref" href="#id23">Nablarchのバージョンアップ</a><a class="headerlink" href="#nablarch" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>Nablarchを構成する各モジュールのバージョンはBOMで管理しているので、BOMのバージョンを変えることでNablarchのバージョンアップができる。
 以下のように、 <code class="docutils literal"><span class="pre">pom.xml</span></code> でNablarchのBOMを読み込んでいる部分の <code class="docutils literal"><span class="pre">&lt;version&gt;</span></code> を変更する。</p>
 <div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;dependencyManagement&gt;</span>
@@ -466,9 +468,9 @@ Nablarch 5の最新版へのバージョンアップに必要となる修正内�
 </div>
 </div>
 <div class="section" id="jakarta-ee">
-<h3><a class="toc-backref" href="#id23">Jakarta EE対応</a><a class="headerlink" href="#jakarta-ee" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3><a class="toc-backref" href="#id24">Jakarta EE対応</a><a class="headerlink" href="#jakarta-ee" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <div class="section" id="java-eejakarta-ee">
-<h4><a class="toc-backref" href="#id24">Java EEの依存関係をJakarta EEに変更する</a><a class="headerlink" href="#java-eejakarta-ee" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<h4><a class="toc-backref" href="#id25">Java EEの依存関係をJakarta EEに変更する</a><a class="headerlink" href="#java-eejakarta-ee" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <p>Java EEのAPIの依存関係(<code class="docutils literal"><span class="pre">dependency</span></code>)を、Jakarta EEのものに変更する必要がある。
 例えば代表的なものとしては、Java Servletなどが挙げられる。</p>
 <p>ただ、Java EEのAPIの <code class="docutils literal"><span class="pre">dependency</span></code> は、jarの提供元やバージョンによってバラバラになっており統一されていない。
@@ -495,7 +497,7 @@ Nablarch 5の最新版へのバージョンアップに必要となる修正内�
 Jakarta EEでの <code class="docutils literal"><span class="pre">dependency</span></code> が何になるかは各仕様のページに記載されているので、そちらも参考にすること。
 （例えば <a class="reference external" href="https://jakarta.ee/specifications/servlet/6.0/#details">Jakarta Servlet 6.0 の仕様のページ (外部サイト、英語)</a> には、「Maven coordinates」のところに <code class="docutils literal"><span class="pre">jakarta.servlet:jakarta.servlet-api:jar:6.0.0</span></code> と記載されている）</p>
 <div class="section" id="java-servlet-jakarta-servlet">
-<h5><a class="toc-backref" href="#id25">Java Servlet → Jakarta Servlet</a><a class="headerlink" href="#java-servlet-jakarta-servlet" title="このヘッドラインへのパーマリンク">¶</a></h5>
+<h5><a class="toc-backref" href="#id26">Java Servlet → Jakarta Servlet</a><a class="headerlink" href="#java-servlet-jakarta-servlet" title="このヘッドラインへのパーマリンク">¶</a></h5>
 <p><strong>修正前</strong></p>
 <div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;dependency&gt;</span>
   <span class="nt">&lt;groupId&gt;</span>javax.servlet<span class="nt">&lt;/groupId&gt;</span>
@@ -515,7 +517,7 @@ Jakarta EEでの <code class="docutils literal"><span class="pre">dependency</sp
 </div>
 </div>
 <div class="section" id="jsp-jakarta-server-pages">
-<h5><a class="toc-backref" href="#id26">JSP → Jakarta Server Pages</a><a class="headerlink" href="#jsp-jakarta-server-pages" title="このヘッドラインへのパーマリンク">¶</a></h5>
+<h5><a class="toc-backref" href="#id27">JSP → Jakarta Server Pages</a><a class="headerlink" href="#jsp-jakarta-server-pages" title="このヘッドラインへのパーマリンク">¶</a></h5>
 <p><strong>修正前</strong></p>
 <div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;dependency&gt;</span>
   <span class="nt">&lt;groupId&gt;</span>javax.servlet.jsp<span class="nt">&lt;/groupId&gt;</span>
@@ -535,7 +537,7 @@ Jakarta EEでの <code class="docutils literal"><span class="pre">dependency</sp
 </div>
 </div>
 <div class="section" id="jstl-jakarta-standard-tag-library">
-<h5><a class="toc-backref" href="#id27">JSTL → Jakarta Standard Tag Library</a><a class="headerlink" href="#jstl-jakarta-standard-tag-library" title="このヘッドラインへのパーマリンク">¶</a></h5>
+<h5><a class="toc-backref" href="#id28">JSTL → Jakarta Standard Tag Library</a><a class="headerlink" href="#jstl-jakarta-standard-tag-library" title="このヘッドラインへのパーマリンク">¶</a></h5>
 <p><strong>修正前</strong></p>
 <div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;dependency&gt;</span>
   <span class="nt">&lt;groupId&gt;</span>javax.servlet.jsp.jstl<span class="nt">&lt;/groupId&gt;</span>
@@ -553,7 +555,7 @@ Jakarta EEでの <code class="docutils literal"><span class="pre">dependency</sp
 </div>
 </div>
 <div class="section" id="jpa-jakarta-persistence">
-<h5><a class="toc-backref" href="#id28">JPA → Jakarta Persistence</a><a class="headerlink" href="#jpa-jakarta-persistence" title="このヘッドラインへのパーマリンク">¶</a></h5>
+<h5><a class="toc-backref" href="#id29">JPA → Jakarta Persistence</a><a class="headerlink" href="#jpa-jakarta-persistence" title="このヘッドラインへのパーマリンク">¶</a></h5>
 <p><strong>修正前</strong></p>
 <div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;dependency&gt;</span>
   <span class="nt">&lt;groupId&gt;</span>org.apache.geronimo.specs<span class="nt">&lt;/groupId&gt;</span>
@@ -571,7 +573,7 @@ Jakarta EEでの <code class="docutils literal"><span class="pre">dependency</sp
 </div>
 </div>
 <div class="section" id="jax-rs-jakarta-restful-web-services">
-<h5><a class="toc-backref" href="#id29">JAX-RS → Jakarta RESTful Web Services</a><a class="headerlink" href="#jax-rs-jakarta-restful-web-services" title="このヘッドラインへのパーマリンク">¶</a></h5>
+<h5><a class="toc-backref" href="#id30">JAX-RS → Jakarta RESTful Web Services</a><a class="headerlink" href="#jax-rs-jakarta-restful-web-services" title="このヘッドラインへのパーマリンク">¶</a></h5>
 <p><strong>修正前</strong></p>
 <div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;dependency&gt;</span>
   <span class="nt">&lt;groupId&gt;</span>javax.ws.rs<span class="nt">&lt;/groupId&gt;</span>
@@ -589,7 +591,7 @@ Jakarta EEでの <code class="docutils literal"><span class="pre">dependency</sp
 </div>
 </div>
 <div class="section" id="common-annotations-for-the-java-platform-jakarta-annotations">
-<h5><a class="toc-backref" href="#id30">Common Annotations for the Java Platform → Jakarta Annotations</a><a class="headerlink" href="#common-annotations-for-the-java-platform-jakarta-annotations" title="このヘッドラインへのパーマリンク">¶</a></h5>
+<h5><a class="toc-backref" href="#id31">Common Annotations for the Java Platform → Jakarta Annotations</a><a class="headerlink" href="#common-annotations-for-the-java-platform-jakarta-annotations" title="このヘッドラインへのパーマリンク">¶</a></h5>
 <p><strong>修正前</strong></p>
 <div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;dependency&gt;</span>
   <span class="nt">&lt;groupId&gt;</span>javax.annotation<span class="nt">&lt;/groupId&gt;</span>
@@ -608,7 +610,7 @@ Jakarta EEでの <code class="docutils literal"><span class="pre">dependency</sp
 </div>
 </div>
 <div class="section" id="java-ee">
-<h4><a class="toc-backref" href="#id31">Java EE仕様の実装ライブラリを更新する</a><a class="headerlink" href="#java-ee" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<h4><a class="toc-backref" href="#id32">Java EE仕様の実装ライブラリを更新する</a><a class="headerlink" href="#java-ee" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <p>Java EE仕様の実装ライブラリをアプリケーションに組み込んでいる場合は、これらをJakarta EEのものに置き換える。</p>
 <p>どの <code class="docutils literal"><span class="pre">dependency</span></code> がJava EE仕様の実装ライブラリであるのかは、それぞれの <code class="docutils literal"><span class="pre">dependency</span></code> ごとに個別に調査する必要がある。
 また、Java EE仕様の実装ライブラリであることが分かった場合、Jakarta EE対応版の <code class="docutils literal"><span class="pre">dependency</span></code> が何になるかは実装ライブラリごとに異なる。
@@ -616,8 +618,14 @@ Jakarta EEでの <code class="docutils literal"><span class="pre">dependency</sp
 <p>参考までに、Nablarchが提供しているアーキタイプやExampleでの変更内容を以下に記載する。</p>
 <p>また、Jakarta EEの各仕様のページでも互換実装が紹介されているので、そちらも参考にすること。
 (例えば、 <a class="reference external" href="https://jakarta.ee/specifications/restful-ws/3.1/#compatible-implementations">Jakarta RESTful Web Services 3.1 の仕様のページ (外部サイト、英語)</a> では、互換実装として Eclipse Jersey 3.1.0 が紹介されている)</p>
+<div class="admonition tip">
+<p class="first admonition-title">補足</p>
+<p class="last">Nablarch 6はJava 17以上を前提としているため、Java 17以上で必要となるモジュールを新たに組み込んでいる。
+そのため <a class="reference external" href="https://nablarch.github.io/docs/5-LATEST/doc/application_framework/application_framework/blank_project/FirstStep.html">Nablarch 5のセットアップ手順</a> にてJava 17以上で動作させるため依存関係に追加したモジュールは、アプリケーションによって追加不要になっている場合がある。
+<a class="reference external" href="https://maven.apache.org/plugins/maven-dependency-plugin/tree-mojo.html">dependency:tree</a> 等により依存関係を確認し、更新もしくは削除を判断すること。</p>
+</div>
 <div class="section" id="bean-validation-jakarta-bean-validation">
-<h5><a class="toc-backref" href="#id32">Bean Validation → Jakarta Bean Validation</a><a class="headerlink" href="#bean-validation-jakarta-bean-validation" title="このヘッドラインへのパーマリンク">¶</a></h5>
+<h5><a class="toc-backref" href="#id33">Bean Validation → Jakarta Bean Validation</a><a class="headerlink" href="#bean-validation-jakarta-bean-validation" title="このヘッドラインへのパーマリンク">¶</a></h5>
 <p><strong>修正前</strong></p>
 <div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;dependency&gt;</span>
   <span class="nt">&lt;groupId&gt;</span>org.hibernate<span class="nt">&lt;/groupId&gt;</span>
@@ -635,8 +643,8 @@ Jakarta EEでの <code class="docutils literal"><span class="pre">dependency</sp
 </pre></div>
 </div>
 </div>
-<div class="section" id="id7">
-<h5><a class="toc-backref" href="#id33">JSTL → Jakarta Standard Tag Library</a><a class="headerlink" href="#id7" title="このヘッドラインへのパーマリンク">¶</a></h5>
+<div class="section" id="id8">
+<h5><a class="toc-backref" href="#id34">JSTL → Jakarta Standard Tag Library</a><a class="headerlink" href="#id8" title="このヘッドラインへのパーマリンク">¶</a></h5>
 <p><strong>修正前</strong></p>
 <div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;dependency&gt;</span>
   <span class="nt">&lt;groupId&gt;</span>taglibs<span class="nt">&lt;/groupId&gt;</span>
@@ -654,8 +662,8 @@ Jakarta EEでの <code class="docutils literal"><span class="pre">dependency</sp
 </pre></div>
 </div>
 </div>
-<div class="section" id="id8">
-<h5><a class="toc-backref" href="#id34">JAX-RS → Jakarta RESTful Web Services</a><a class="headerlink" href="#id8" title="このヘッドラインへのパーマリンク">¶</a></h5>
+<div class="section" id="id9">
+<h5><a class="toc-backref" href="#id35">JAX-RS → Jakarta RESTful Web Services</a><a class="headerlink" href="#id9" title="このヘッドラインへのパーマリンク">¶</a></h5>
 <p><strong>修正前</strong></p>
 <div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;dependencyManagement&gt;</span>
   <span class="nt">&lt;dependencies&gt;</span>
@@ -718,7 +726,7 @@ Jakarta EEでの <code class="docutils literal"><span class="pre">dependency</sp
 </div>
 </div>
 <div class="section" id="jms-jakarta-messaging">
-<h5><a class="toc-backref" href="#id35">JMS → Jakarta Messaging</a><a class="headerlink" href="#jms-jakarta-messaging" title="このヘッドラインへのパーマリンク">¶</a></h5>
+<h5><a class="toc-backref" href="#id36">JMS → Jakarta Messaging</a><a class="headerlink" href="#jms-jakarta-messaging" title="このヘッドラインへのパーマリンク">¶</a></h5>
 <p><strong>修正前</strong></p>
 <div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;dependency&gt;</span>
   <span class="nt">&lt;groupId&gt;</span>org.apache.activemq<span class="nt">&lt;/groupId&gt;</span>
@@ -747,8 +755,20 @@ Jakarta EEでの <code class="docutils literal"><span class="pre">dependency</sp
 </div>
 </div>
 </div>
+<div class="section" id="doma">
+<h4><a class="toc-backref" href="#id37">Domaアダプタを更新する</a><a class="headerlink" href="#doma" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<p>Domaアダプタをアプリケーションに組み込んでいる場合は、依存関係の設定が必要となる。
+詳細については <a class="reference internal" href="../application_framework/adaptors/doma_adaptor.html#doma-dependency"><span>依存関係の設定</span></a> を参照のこと。</p>
+<p>また、新しいバージョンで推奨する実装方法についても案内しているため、必要に応じて対応する。
+詳細については <a class="reference internal" href="../application_framework/adaptors/doma_adaptor.html#migration-doma2-44-0"><span>Doma 2.44.0までの実装方法から移行する</span></a> を参照のこと。</p>
+</div>
+<div class="section" id="micrometer">
+<h4><a class="toc-backref" href="#id38">Micrometerアダプタを更新する</a><a class="headerlink" href="#micrometer" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<p>Micrometerアダプタをアプリケーションに組み込んで監視サービスと連携している場合は、依存関係に追加しているMicrometerモジュールのバージョン更新が必要となる。
+詳細については <a class="reference internal" href="../application_framework/adaptors/micrometer_adaptor.html#micrometer-collaboration"><span>監視サービスと連携する</span></a> を参照のこと。</p>
+</div>
 <div class="section" id="gsp-dba-maven-plugin">
-<h4><a class="toc-backref" href="#id36">gsp-dba-maven-pluginを更新する</a><a class="headerlink" href="#gsp-dba-maven-plugin" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<h4><a class="toc-backref" href="#id39">gsp-dba-maven-pluginを更新する</a><a class="headerlink" href="#gsp-dba-maven-plugin" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <p>nablarch-example-webをはじめ、アーキタイプから作ったプロジェクトには <a class="reference external" href="https://github.com/coastland/gsp-dba-maven-plugin">gsp-dba-maven-plugin (外部サイト)</a> があらかじめ組み込まれている。
 このプラグインは、データベーステーブルのメタデータからJavaのエンティティクラスを生成する機能(<code class="docutils literal"><span class="pre">generate-entity</span></code>)を提供している。
 このエンティティクラスにはJPAなどのJava EEのアノテーションが設定されるため、そのままではJakarta EE環境で使用できない。</p>
@@ -761,12 +781,13 @@ Jakarta EEでの <code class="docutils literal"><span class="pre">dependency</sp
   ...
 </pre></div>
 </div>
+<p>また、 変更前バージョンではJava 17で使用するために <a class="reference external" href="https://github.com/coastland/gsp-dba-maven-plugin/tree/4.x.x-main?tab=readme-ov-file#java17%E3%81%A7%E3%81%AE%E8%A8%AD%E5%AE%9A">Java 17での設定ガイド (外部サイト)</a> に沿って依存関係を追加しているが、バージョンアップ後にはこの設定が組み込まれており不要となるため、追加した依存関係を削除する。</p>
 <p>さらに、Jakarta EE対応されたgsp-dba-maven-pluginの <code class="docutils literal"><span class="pre">generate-entity</span></code> を使うためには、 <code class="docutils literal"><span class="pre">dependency</span></code> やJVM引数の追加が必要となる。
 詳細については <a class="reference external" href="https://github.com/coastland/gsp-dba-maven-plugin?tab=readme-ov-file#generate-entity">gsp-dba-maven-pluginのガイド (外部サイト)</a> を参照のこと。</p>
 <p>以上で、Jakarta EEのアノテーションが設定されたエンティティが生成されるようになる。</p>
 </div>
 <div class="section" id="waitt-maven-pluginjetty-ee10-maven-plugin">
-<span id="waitt-to-jetty"></span><h4><a class="toc-backref" href="#id37">waitt-maven-pluginをjetty-ee10-maven-pluginに変更する</a><a class="headerlink" href="#waitt-maven-pluginjetty-ee10-maven-plugin" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<span id="waitt-to-jetty"></span><h4><a class="toc-backref" href="#id40">waitt-maven-pluginをjetty-ee10-maven-pluginに変更する</a><a class="headerlink" href="#waitt-maven-pluginjetty-ee10-maven-plugin" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <p>nablarch-example-webをはじめ、アーキタイプから作ったウェブアプリケーションのプロジェクトには <a class="reference external" href="https://github.com/kawasima/waitt">waitt-maven-plugin (外部サイト、英語)</a> があらかじめ組み込まれている。
 このプラグインは、プロジェクトのコードを組み込みサーバ(Tomcatなど)にデプロイして簡単に実行できる機能を提供している。
 しかし、このプラグインはJakarta EE対応がされていないので、同様の機能を提供していてJakarta EEにも対応しているjetty-ee10-maven-pluginに変更する。</p>
@@ -804,7 +825,7 @@ Jakarta EEでの <code class="docutils literal"><span class="pre">dependency</sp
 </div>
 </div>
 <div class="section" id="nablarch-testing-jetty6nablarch-testing-jetty12">
-<span id="update-ntf-jetty"></span><h4><a class="toc-backref" href="#id38">nablarch-testing-jetty6をnablarch-testing-jetty12に変更する</a><a class="headerlink" href="#nablarch-testing-jetty6nablarch-testing-jetty12" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<span id="update-ntf-jetty"></span><h4><a class="toc-backref" href="#id41">nablarch-testing-jetty6をnablarch-testing-jetty12に変更する</a><a class="headerlink" href="#nablarch-testing-jetty6nablarch-testing-jetty12" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <p>ウェブアプリケーションのプロジェクトでNTF (Nablarch Testing Framework)を使用している場合、JUnitのテストで組み込みサーバを実行するために <code class="docutils literal"><span class="pre">nablarch-testing-jetty6</span></code> というモジュールを使用する。
 このモジュールで起動するJetty 6はJakarta EEに対応していない。
 JettyがJakarta EE 10に対応したのはJetty 12なので、Jetty 12を起動できる <code class="docutils literal"><span class="pre">nablarch-testing-jetty12</span></code> を使うように変更する必要がある。</p>
@@ -833,7 +854,7 @@ JettyがJakarta EE 10に対応したのはJetty 12なので、Jetty 12を起動�
 <p>以上で、NTF実行時に起動される組み込みサーバがJakarta EE対応版に切り替わる。</p>
 </div>
 <div class="section" id="javaxjakarta">
-<h4><a class="toc-backref" href="#id39">javax名前空間をjakarta名前空間に変更する</a><a class="headerlink" href="#javaxjakarta" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<h4><a class="toc-backref" href="#id42">javax名前空間をjakarta名前空間に変更する</a><a class="headerlink" href="#javaxjakarta" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <p>Jakarta EE 9で入った名前空間の変更の対応を、アプリケーションのコードにも実施する。
 名前空間の変更対応の大まかな流れを以下に記載する。</p>
 <ol class="arabic simple">
@@ -870,7 +891,7 @@ JettyがJakarta EE 10に対応したのはJetty 12なので、Jetty 12を起動�
 </div>
 </div>
 <div class="section" id="xmljakarta-ee-10">
-<h4><a class="toc-backref" href="#id40">XMLスキーマ指定をJakarta EE 10のスキーマに変更する</a><a class="headerlink" href="#xmljakarta-ee-10" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<h4><a class="toc-backref" href="#id43">XMLスキーマ指定をJakarta EE 10のスキーマに変更する</a><a class="headerlink" href="#xmljakarta-ee-10" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <p><code class="docutils literal"><span class="pre">web.xml</span></code> 等のXMLファイルではXMLスキーマを指定しているが、これをJakarta EE 10に対応したスキーマに変更する。
 Jakarta EE 10で提供されているスキーマは、 <a class="reference external" href="https://jakarta.ee/xml/ns/jakartaee/#10">Jakarta EE XML Schemas (外部サイト、英語)</a> で確認できる。</p>
 <p><strong>修正前</strong></p>
@@ -890,8 +911,8 @@ Jakarta EE 10で提供されているスキーマは、 <a class="reference exte
 </pre></div>
 </div>
 </div>
-<div class="section" id="id11">
-<h4><a class="toc-backref" href="#id41">タグライブラリのネームスペースをJakarta EE 10のネームスペースに変更する</a><a class="headerlink" href="#id11" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<div class="section" id="id12">
+<h4><a class="toc-backref" href="#id44">タグライブラリのネームスペースをJakarta EE 10のネームスペースに変更する</a><a class="headerlink" href="#id12" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <p>JSPファイルでは taglib ディレクティブでタグライブラリのネームスペースを指定しているが、これをJakarta EE 10に対応したネームスペースに変更する。
 Jakarta EE 10で提供されているネームスペースは、 <a class="reference external" href="https://jakarta.ee/specifications/tags/3.0/">Jakarta Standard Tag Library 3.0 (外部サイト、英語)</a> で確認できる。</p>
 <p><strong>修正前</strong></p>
@@ -906,7 +927,7 @@ Jakarta EE 10で提供されているネームスペースは、 <a class="refer
 </div>
 </div>
 <div class="section" id="jsr352">
-<h2><a class="toc-backref" href="#id42">JSR352に準拠したバッチアプリケーションの移行手順</a><a class="headerlink" href="#jsr352" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2><a class="toc-backref" href="#id45">JSR352に準拠したバッチアプリケーションの移行手順</a><a class="headerlink" href="#jsr352" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>Nablarchが提供する実行制御基盤は、いずれも前節で説明した手順で移行できる。</p>
 <p>ただし <a class="reference internal" href="../application_framework/application_framework/batch/jsr352/index.html"><em>Jakarta Batchに準拠したバッチアプリケーション</em></a> のみ、JSR352に準拠した実装として使用しているJBeretと関連するライブラリの更新が複雑であるため、ここで追加で説明する。</p>
 <p>JSR352に準拠したバッチアプリケーションをアーキタイプから生成した場合、Nablarch 5までは以下のように <code class="docutils literal"><span class="pre">dependency</span></code> が <code class="docutils literal"><span class="pre">pom.xml</span></code> に設定されている。</p>
@@ -1079,10 +1100,10 @@ Jakarta EE 10で提供されているネームスペースは、 <a class="refer
 <span class="nt">&lt;/dependency&gt;</span>
 </pre></div>
 </div>
-<div class="section" id="id12">
-<h3><a class="toc-backref" href="#id43">実行時にエラーになる場合の対処方法</a><a class="headerlink" href="#id12" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="section" id="id13">
+<h3><a class="toc-backref" href="#id46">実行時にエラーになる場合の対処方法</a><a class="headerlink" href="#id13" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <div class="section" id="noclassdeffounderror">
-<h4><a class="toc-backref" href="#id44">NoClassDefFoundErrorになる場合</a><a class="headerlink" href="#noclassdeffounderror" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<h4><a class="toc-backref" href="#id47">NoClassDefFoundErrorになる場合</a><a class="headerlink" href="#noclassdeffounderror" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <div class="highlight-text"><div class="highlight"><pre><span></span>org.jboss.weld.exceptions.WeldException
     at org.jboss.weld.executor.AbstractExecutorServices.checkForExceptions (AbstractExecutorServices.java:82)
     ...
@@ -1112,12 +1133,12 @@ Mavenで実行する場合は、 <code class="docutils literal"><span class="pre
 </div>
 </div>
 </div>
-<div class="section" id="id13">
-<h2><a class="toc-backref" href="#id45">付録</a><a class="headerlink" href="#id13" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="id14">
+<h2><a class="toc-backref" href="#id48">付録</a><a class="headerlink" href="#id14" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <div class="section" id="java-ee-jakarta-ee-comparation">
-<span id="id14"></span><h3><a class="toc-backref" href="#id46">Java EEとJakarta EEの仕様の対応表</a><a class="headerlink" href="#java-ee-jakarta-ee-comparation" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<table border="1" class="colwidths-given docutils" id="id15">
-<caption><span class="caption-text">Java EEとJakarta EEの仕様の対応表</span><a class="headerlink" href="#id15" title="このテーブルへのパーマリンク">¶</a></caption>
+<span id="id15"></span><h3><a class="toc-backref" href="#id49">Java EEとJakarta EEの仕様の対応表</a><a class="headerlink" href="#java-ee-jakarta-ee-comparation" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<table border="1" class="colwidths-given docutils" id="id16">
+<caption><span class="caption-text">Java EEとJakarta EEの仕様の対応表</span><a class="headerlink" href="#id16" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
 <col width="38%" />
 <col width="13%" />
