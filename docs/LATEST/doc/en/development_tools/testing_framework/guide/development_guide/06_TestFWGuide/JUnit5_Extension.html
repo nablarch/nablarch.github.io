@@ -9,7 +9,7 @@
   <meta http-equiv='content-language' content='ja'>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Extensions for JUnit 5 &mdash; ∇Nablarch  6u2 documentation</title>
+  <title>Extensions for JUnit 5 &mdash; ∇Nablarch  6u3 documentation</title>
   
 
   
@@ -35,7 +35,7 @@
   
   <link rel="canonical" href="https://nablarch.github.io/docs/LATEST/doc/development_tools/testing_framework/guide/development_guide/06_TestFWGuide/JUnit5_Extension.html" />
   
-    <link rel="top" title="∇Nablarch  6u2 documentation" href="../../../../../index.html"/>
+    <link rel="top" title="∇Nablarch  6u3 documentation" href="../../../../../index.html"/>
         <link rel="up" title="How to Use the Automated Test Framework" href="index.html"/>
         <link rel="next" title="Tools Used in the Programming Phase" href="../08_TestTools/index.html"/>
         <link rel="prev" title="Master Data Recovery Function" href="04_MasterDataRestore.html"/>
@@ -63,7 +63,7 @@
   
 
   
-    <div id="sidebar-version">Version: 6u2</div>
+    <div id="sidebar-version">Version: 6u3</div>
   </a>
 
   <div role="search">
@@ -142,6 +142,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../../toolbox/index.html">Useful Tools When Developing Applications</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../../toolbox/JspStaticAnalysis/index.html">Jakarta Server Pages Static Analysis Tool</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../toolbox/SqlExecutor/SqlExecutor.html">Nablarch SQL Executor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../toolbox/NablarchOpenApiGenerator/NablarchOpenApiGenerator.html">Nablarch OpenAPI Generator</a></li>
 </ul>
 </li>
 </ul>
@@ -399,18 +400,18 @@ For more information about JUnit 5 itself, see <a class="reference external" hre
 </div>
 <div class="section" id="basic-usage">
 <span id="ntf-junit5-extension-standard-usages"></span><h2><a class="toc-backref" href="#id5">Basic usage</a><a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h2>
-<p>The automated testing framework provides classes that implement the functionality required for testing, such as <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/test/TestSupport.html" title="nablarch.test.TestSupport">TestSupport</a>.
+<p>The automated testing framework provides classes that implement the functionality required for testing, such as <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/test/TestSupport.html" title="nablarch.test.TestSupport">TestSupport</a>.
 In JUnit 4, in order to use the functionality of the classes provided by the automated testing framework in your test classes, your test classes had to inherit from these classes.</p>
 <p>This extension provides a mechanism to generate instances of the classes provided by the automated testing framework on the extension side and inject them into the test classes.
 This mechanism makes use of the JUnit 5 <a class="reference external" href="https://junit.org/junit5/docs/5.11.0/user-guide/#extensions">Extension (external site)</a>.</p>
 <p>In this extension, <strong>Extension classes</strong> and <strong>Composed annotations</strong> are provided for each class provided by the automated testing framework.
-For example, <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/test/junit5/extension/TestSupportExtension.html" title="nablarch.test.junit5.extension.TestSupportExtension">TestSupportExtension</a> and <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/test/junit5/extension/NablarchTest.html" title="nablarch.test.junit5.extension.NablarchTest">NablarchTest</a> are provided for <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/test/TestSupport.html" title="nablarch.test.TestSupport">TestSupport</a>.</p>
+For example, <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/test/junit5/extension/TestSupportExtension.html" title="nablarch.test.junit5.extension.TestSupportExtension">TestSupportExtension</a> and <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/test/junit5/extension/NablarchTest.html" title="nablarch.test.junit5.extension.NablarchTest">NablarchTest</a> are provided for <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/test/TestSupport.html" title="nablarch.test.TestSupport">TestSupport</a>.</p>
 <div class="admonition tip">
 <p class="first admonition-title">Tip</p>
 <p class="last">Composed annotation is a feature provided by JUnit 5 that allows you to combine the settings of multiple annotations into one annotation.
 For more information, see <a class="reference external" href="https://junit.org/junit5/docs/5.11.0/user-guide/#writing-tests-meta-annotations">&#8220;2.1.1. Meta-Annotations and Composed Annotations&#8221; in the official guide (external site)</a>.</p>
 </div>
-<p>By using these classes and implementing them as follows, <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/test/TestSupport.html" title="nablarch.test.TestSupport">TestSupport</a> can be used in tests.</p>
+<p>By using these classes and implementing them as follows, <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/test/TestSupport.html" title="nablarch.test.TestSupport">TestSupport</a> can be used in tests.</p>
 <div class="highlight-java"><div class="highlight"><pre><span></span><span class="c1">// 1. Set the corresponding composed annotation to the test class</span>
 <span class="nd">@NablarchTest</span>
 <span class="kd">class</span> <span class="nc">YourTest</span> <span class="o">{</span>
@@ -427,11 +428,11 @@ For more information, see <a class="reference external" href="https://junit.org/
 <span class="o">}</span>
 </pre></div>
 </div>
-<p>When using <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/test/TestSupport.html" title="nablarch.test.TestSupport">TestSupport</a> in a test class, first set the corresponding composed annotation (<a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/test/junit5/extension/NablarchTest.html" title="nablarch.test.junit5.extension.NablarchTest">NablarchTest</a>) in the test class.
-This will cause <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/test/junit5/extension/TestSupportExtension.html" title="nablarch.test.junit5.extension.TestSupportExtension">TestSupportExtension</a> to be applied to the test class.</p>
-<p>Next, declare an instance field of type <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/test/TestSupport.html" title="nablarch.test.TestSupport">TestSupport</a> in the test class.
+<p>When using <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/test/TestSupport.html" title="nablarch.test.TestSupport">TestSupport</a> in a test class, first set the corresponding composed annotation (<a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/test/junit5/extension/NablarchTest.html" title="nablarch.test.junit5.extension.NablarchTest">NablarchTest</a>) in the test class.
+This will cause <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/test/junit5/extension/TestSupportExtension.html" title="nablarch.test.junit5.extension.TestSupportExtension">TestSupportExtension</a> to be applied to the test class.</p>
+<p>Next, declare an instance field of type <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/test/TestSupport.html" title="nablarch.test.TestSupport">TestSupport</a> in the test class.
 The visibility of the instance field can be anything.</p>
-<p>The extension creates an instance of the corresponding class (in this case <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/test/TestSupport.html" title="nablarch.test.TestSupport">TestSupport</a>) before executing the test.
+<p>The extension creates an instance of the corresponding class (in this case <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/test/TestSupport.html" title="nablarch.test.TestSupport">TestSupport</a>) before executing the test.
 Then, when it finds a field that can be assigned to the test class, it automatically injects an instance.</p>
 <div class="admonition warning">
 <p class="first admonition-title">Warning</p>
@@ -455,56 +456,56 @@ Then, when it finds a field that can be assigned to the test class, it automatic
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td><a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/test/TestSupport.html" title="nablarch.test.TestSupport">TestSupport</a></td>
-<td><a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/test/junit5/extension/TestSupportExtension.html" title="nablarch.test.junit5.extension.TestSupportExtension">TestSupportExtension</a></td>
-<td><a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/test/junit5/extension/NablarchTest.html" title="nablarch.test.junit5.extension.NablarchTest">NablarchTest</a></td>
+<tr class="row-even"><td><a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/test/TestSupport.html" title="nablarch.test.TestSupport">TestSupport</a></td>
+<td><a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/test/junit5/extension/TestSupportExtension.html" title="nablarch.test.junit5.extension.TestSupportExtension">TestSupportExtension</a></td>
+<td><a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/test/junit5/extension/NablarchTest.html" title="nablarch.test.junit5.extension.NablarchTest">NablarchTest</a></td>
 </tr>
-<tr class="row-odd"><td><a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/test/core/batch/BatchRequestTestSupport.html" title="nablarch.test.core.batch.BatchRequestTestSupport">BatchRequestTestSupport</a></td>
-<td><a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/test/junit5/extension/batch/BatchRequestTestExtension.html" title="nablarch.test.junit5.extension.batch.BatchRequestTestExtension">BatchRequestTestExtension</a></td>
-<td><a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/test/junit5/extension/batch/BatchRequestTest.html" title="nablarch.test.junit5.extension.batch.BatchRequestTest">BatchRequestTest</a></td>
+<tr class="row-odd"><td><a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/test/core/batch/BatchRequestTestSupport.html" title="nablarch.test.core.batch.BatchRequestTestSupport">BatchRequestTestSupport</a></td>
+<td><a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/test/junit5/extension/batch/BatchRequestTestExtension.html" title="nablarch.test.junit5.extension.batch.BatchRequestTestExtension">BatchRequestTestExtension</a></td>
+<td><a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/test/junit5/extension/batch/BatchRequestTest.html" title="nablarch.test.junit5.extension.batch.BatchRequestTest">BatchRequestTest</a></td>
 </tr>
-<tr class="row-even"><td><a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/test/core/db/DbAccessTestSupport.html" title="nablarch.test.core.db.DbAccessTestSupport">DbAccessTestSupport</a></td>
-<td><a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/test/junit5/extension/db/DbAccessTestExtension.html" title="nablarch.test.junit5.extension.db.DbAccessTestExtension">DbAccessTestExtension</a></td>
-<td><a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/test/junit5/extension/db/DbAccessTest.html" title="nablarch.test.junit5.extension.db.DbAccessTest">DbAccessTest</a></td>
+<tr class="row-even"><td><a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/test/core/db/DbAccessTestSupport.html" title="nablarch.test.core.db.DbAccessTestSupport">DbAccessTestSupport</a></td>
+<td><a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/test/junit5/extension/db/DbAccessTestExtension.html" title="nablarch.test.junit5.extension.db.DbAccessTestExtension">DbAccessTestExtension</a></td>
+<td><a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/test/junit5/extension/db/DbAccessTest.html" title="nablarch.test.junit5.extension.db.DbAccessTest">DbAccessTest</a></td>
 </tr>
-<tr class="row-odd"><td><a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/test/core/db/EntityTestSupport.html" title="nablarch.test.core.db.EntityTestSupport">EntityTestSupport</a></td>
-<td><a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/test/junit5/extension/db/EntityTestExtension.html" title="nablarch.test.junit5.extension.db.EntityTestExtension">EntityTestExtension</a></td>
-<td><a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/test/junit5/extension/db/EntityTest.html" title="nablarch.test.junit5.extension.db.EntityTest">EntityTest</a></td>
+<tr class="row-odd"><td><a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/test/core/db/EntityTestSupport.html" title="nablarch.test.core.db.EntityTestSupport">EntityTestSupport</a></td>
+<td><a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/test/junit5/extension/db/EntityTestExtension.html" title="nablarch.test.junit5.extension.db.EntityTestExtension">EntityTestExtension</a></td>
+<td><a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/test/junit5/extension/db/EntityTest.html" title="nablarch.test.junit5.extension.db.EntityTest">EntityTest</a></td>
 </tr>
-<tr class="row-even"><td><a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/test/core/http/BasicHttpRequestTestTemplate.html" title="nablarch.test.core.http.BasicHttpRequestTestTemplate">BasicHttpRequestTestTemplate</a></td>
-<td><a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/test/junit5/extension/http/BasicHttpRequestTestExtension.html" title="nablarch.test.junit5.extension.http.BasicHttpRequestTestExtension">BasicHttpRequestTestExtension</a></td>
-<td><a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/test/junit5/extension/http/BasicHttpRequestTest.html" title="nablarch.test.junit5.extension.http.BasicHttpRequestTest">BasicHttpRequestTest</a></td>
+<tr class="row-even"><td><a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/test/core/http/BasicHttpRequestTestTemplate.html" title="nablarch.test.core.http.BasicHttpRequestTestTemplate">BasicHttpRequestTestTemplate</a></td>
+<td><a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/test/junit5/extension/http/BasicHttpRequestTestExtension.html" title="nablarch.test.junit5.extension.http.BasicHttpRequestTestExtension">BasicHttpRequestTestExtension</a></td>
+<td><a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/test/junit5/extension/http/BasicHttpRequestTest.html" title="nablarch.test.junit5.extension.http.BasicHttpRequestTest">BasicHttpRequestTest</a></td>
 </tr>
-<tr class="row-odd"><td><a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/test/core/http/HttpRequestTestSupport.html" title="nablarch.test.core.http.HttpRequestTestSupport">HttpRequestTestSupport</a></td>
-<td><a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/test/junit5/extension/http/HttpRequestTestExtension.html" title="nablarch.test.junit5.extension.http.HttpRequestTestExtension">HttpRequestTestExtension</a></td>
-<td><a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/test/junit5/extension/http/HttpRequestTest.html" title="nablarch.test.junit5.extension.http.HttpRequestTest">HttpRequestTest</a></td>
+<tr class="row-odd"><td><a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/test/core/http/HttpRequestTestSupport.html" title="nablarch.test.core.http.HttpRequestTestSupport">HttpRequestTestSupport</a></td>
+<td><a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/test/junit5/extension/http/HttpRequestTestExtension.html" title="nablarch.test.junit5.extension.http.HttpRequestTestExtension">HttpRequestTestExtension</a></td>
+<td><a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/test/junit5/extension/http/HttpRequestTest.html" title="nablarch.test.junit5.extension.http.HttpRequestTest">HttpRequestTest</a></td>
 </tr>
-<tr class="row-even"><td><a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/test/core/http/RestTestSupport.html" title="nablarch.test.core.http.RestTestSupport">RestTestSupport</a></td>
-<td><a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/test/junit5/extension/http/RestTestExtension.html" title="nablarch.test.junit5.extension.http.RestTestExtension">RestTestExtension</a></td>
-<td><a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/test/junit5/extension/http/RestTest.html" title="nablarch.test.junit5.extension.http.RestTest">RestTest</a></td>
+<tr class="row-even"><td><a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/test/core/http/RestTestSupport.html" title="nablarch.test.core.http.RestTestSupport">RestTestSupport</a></td>
+<td><a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/test/junit5/extension/http/RestTestExtension.html" title="nablarch.test.junit5.extension.http.RestTestExtension">RestTestExtension</a></td>
+<td><a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/test/junit5/extension/http/RestTest.html" title="nablarch.test.junit5.extension.http.RestTest">RestTest</a></td>
 </tr>
-<tr class="row-odd"><td><a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/test/core/http/SimpleRestTestSupport.html" title="nablarch.test.core.http.SimpleRestTestSupport">SimpleRestTestSupport</a></td>
-<td><a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/test/junit5/extension/http/SimpleRestTestExtension.html" title="nablarch.test.junit5.extension.http.SimpleRestTestExtension">SimpleRestTestExtension</a></td>
-<td><a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/test/junit5/extension/http/SimpleRestTest.html" title="nablarch.test.junit5.extension.http.SimpleRestTest">SimpleRestTest</a></td>
+<tr class="row-odd"><td><a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/test/core/http/SimpleRestTestSupport.html" title="nablarch.test.core.http.SimpleRestTestSupport">SimpleRestTestSupport</a></td>
+<td><a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/test/junit5/extension/http/SimpleRestTestExtension.html" title="nablarch.test.junit5.extension.http.SimpleRestTestExtension">SimpleRestTestExtension</a></td>
+<td><a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/test/junit5/extension/http/SimpleRestTest.html" title="nablarch.test.junit5.extension.http.SimpleRestTest">SimpleRestTest</a></td>
 </tr>
-<tr class="row-even"><td><a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/test/core/integration/IntegrationTestSupport.html" title="nablarch.test.core.integration.IntegrationTestSupport">IntegrationTestSupport</a></td>
-<td><a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/test/junit5/extension/integration/IntegrationTestExtension.html" title="nablarch.test.junit5.extension.integration.IntegrationTestExtension">IntegrationTestExtension</a></td>
-<td><a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/test/junit5/extension/integration/IntegrationTest.html" title="nablarch.test.junit5.extension.integration.IntegrationTest">IntegrationTest</a></td>
+<tr class="row-even"><td><a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/test/core/integration/IntegrationTestSupport.html" title="nablarch.test.core.integration.IntegrationTestSupport">IntegrationTestSupport</a></td>
+<td><a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/test/junit5/extension/integration/IntegrationTestExtension.html" title="nablarch.test.junit5.extension.integration.IntegrationTestExtension">IntegrationTestExtension</a></td>
+<td><a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/test/junit5/extension/integration/IntegrationTest.html" title="nablarch.test.junit5.extension.integration.IntegrationTest">IntegrationTest</a></td>
 </tr>
-<tr class="row-odd"><td><a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/test/core/messaging/MessagingReceiveTestSupport.html" title="nablarch.test.core.messaging.MessagingReceiveTestSupport">MessagingReceiveTestSupport</a></td>
-<td><a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/test/junit5/extension/messaging/MessagingReceiveTestExtension.html" title="nablarch.test.junit5.extension.messaging.MessagingReceiveTestExtension">MessagingReceiveTestExtension</a></td>
-<td><a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/test/junit5/extension/messaging/MessagingReceiveTest.html" title="nablarch.test.junit5.extension.messaging.MessagingReceiveTest">MessagingReceiveTest</a></td>
+<tr class="row-odd"><td><a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/test/core/messaging/MessagingReceiveTestSupport.html" title="nablarch.test.core.messaging.MessagingReceiveTestSupport">MessagingReceiveTestSupport</a></td>
+<td><a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/test/junit5/extension/messaging/MessagingReceiveTestExtension.html" title="nablarch.test.junit5.extension.messaging.MessagingReceiveTestExtension">MessagingReceiveTestExtension</a></td>
+<td><a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/test/junit5/extension/messaging/MessagingReceiveTest.html" title="nablarch.test.junit5.extension.messaging.MessagingReceiveTest">MessagingReceiveTest</a></td>
 </tr>
-<tr class="row-even"><td><a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/test/core/messaging/MessagingRequestTestSupport.html" title="nablarch.test.core.messaging.MessagingRequestTestSupport">MessagingRequestTestSupport</a></td>
-<td><a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/test/junit5/extension/messaging/MessagingRequestTestExtension.html" title="nablarch.test.junit5.extension.messaging.MessagingRequestTestExtension">MessagingRequestTestExtension</a></td>
-<td><a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/test/junit5/extension/messaging/MessagingRequestTest.html" title="nablarch.test.junit5.extension.messaging.MessagingRequestTest">MessagingRequestTest</a></td>
+<tr class="row-even"><td><a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/test/core/messaging/MessagingRequestTestSupport.html" title="nablarch.test.core.messaging.MessagingRequestTestSupport">MessagingRequestTestSupport</a></td>
+<td><a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/test/junit5/extension/messaging/MessagingRequestTestExtension.html" title="nablarch.test.junit5.extension.messaging.MessagingRequestTestExtension">MessagingRequestTestExtension</a></td>
+<td><a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/test/junit5/extension/messaging/MessagingRequestTest.html" title="nablarch.test.junit5.extension.messaging.MessagingRequestTest">MessagingRequestTest</a></td>
 </tr>
 </tbody>
 </table>
 <div class="section" id="supplemental-information-on-using-basichttprequesttest">
 <h3><a class="toc-backref" href="#id7">Supplemental information on using BasicHttpRequestTest</a><a class="headerlink" href="#supplemental-information-on-using-basichttprequesttest" title="Permalink to this headline">¶</a></h3>
-<p>Except for <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/test/core/http/BasicHttpRequestTestTemplate.html" title="nablarch.test.core.http.BasicHttpRequestTestTemplate">BasicHttpRequestTestTemplate</a>, you can use it in the way described in <a class="reference internal" href="#ntf-junit5-extension-standard-usages"><span>Basic usage</span></a>. It can be used in the way described in <a class="reference internal" href="#ntf-junit5-extension-standard-usages"><span>Basic usage</span></a>.</p>
-<p>Only <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/test/core/http/BasicHttpRequestTestTemplate.html" title="nablarch.test.core.http.BasicHttpRequestTestTemplate">BasicHttpRequestTestTemplate</a> needs to specify parameters when using <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/test/junit5/extension/http/BasicHttpRequestTest.html" title="nablarch.test.junit5.extension.http.BasicHttpRequestTest">BasicHttpRequestTest</a>, which is a composed annotation, so we will supplement it.</p>
+<p>Except for <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/test/core/http/BasicHttpRequestTestTemplate.html" title="nablarch.test.core.http.BasicHttpRequestTestTemplate">BasicHttpRequestTestTemplate</a>, you can use it in the way described in <a class="reference internal" href="#ntf-junit5-extension-standard-usages"><span>Basic usage</span></a>. It can be used in the way described in <a class="reference internal" href="#ntf-junit5-extension-standard-usages"><span>Basic usage</span></a>.</p>
+<p>Only <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/test/core/http/BasicHttpRequestTestTemplate.html" title="nablarch.test.core.http.BasicHttpRequestTestTemplate">BasicHttpRequestTestTemplate</a> needs to specify parameters when using <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/test/junit5/extension/http/BasicHttpRequestTest.html" title="nablarch.test.junit5.extension.http.BasicHttpRequestTest">BasicHttpRequestTest</a>, which is a composed annotation, so we will supplement it.</p>
 <div class="highlight-java"><div class="highlight"><pre><span></span><span class="c1">// 1. Specify the baseUri of BasicHttpRequestTest</span>
 <span class="nd">@BasicHttpRequestTest</span><span class="o">(</span><span class="n">baseUri</span> <span class="o">=</span> <span class="s">&quot;/test/&quot;</span><span class="o">)</span>
 <span class="kd">class</span> <span class="nc">YourTestClass</span> <span class="o">{</span>
@@ -518,8 +519,8 @@ Then, when it finds a field that can be assigned to the test class, it automatic
 <span class="o">}</span>
 </pre></div>
 </div>
-<p>The <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/test/junit5/extension/http/BasicHttpRequestTest.html" title="nablarch.test.junit5.extension.http.BasicHttpRequestTest">BasicHttpRequestTest</a> annotation needs to set the <code class="docutils literal"><span class="pre">baseUri</span></code>.
-This value corresponds to the value returned by the <code class="docutils literal"><span class="pre">getBaseUri()</span></code> method of <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/test/core/http/AbstractHttpRequestTestTemplate.html" title="nablarch.test.core.http.AbstractHttpRequestTestTemplate">AbstractHttpRequestTestTemplate</a>.</p>
+<p>The <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/test/junit5/extension/http/BasicHttpRequestTest.html" title="nablarch.test.junit5.extension.http.BasicHttpRequestTest">BasicHttpRequestTest</a> annotation needs to set the <code class="docutils literal"><span class="pre">baseUri</span></code>.
+This value corresponds to the value returned by the <code class="docutils literal"><span class="pre">getBaseUri()</span></code> method of <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/test/core/http/AbstractHttpRequestTestTemplate.html" title="nablarch.test.core.http.AbstractHttpRequestTestTemplate">AbstractHttpRequestTestTemplate</a>.</p>
 </div>
 </div>
 <div class="section" id="add-your-own-extensions">
@@ -537,8 +538,8 @@ This value corresponds to the value returned by the <code class="docutils litera
 </ol>
 <div class="section" id="create-your-own-extension-class">
 <h3><a class="toc-backref" href="#id9">Create your own extension class</a><a class="headerlink" href="#create-your-own-extension-class" title="Permalink to this headline">¶</a></h3>
-<p>In this section, we will use the case of creating a class that extends <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/test/TestSupport.html" title="nablarch.test.TestSupport">TestSupport</a> as an example.</p>
-<p>First, create your own extension class that inherits from <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/test/TestSupport.html" title="nablarch.test.TestSupport">TestSupport</a>.</p>
+<p>In this section, we will use the case of creating a class that extends <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/test/TestSupport.html" title="nablarch.test.TestSupport">TestSupport</a> as an example.</p>
+<p>First, create your own extension class that inherits from <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/test/TestSupport.html" title="nablarch.test.TestSupport">TestSupport</a>.</p>
 <div class="highlight-java"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">CustomTestSupport</span> <span class="kd">extends</span> <span class="n">TestSupport</span> <span class="o">{</span>
     <span class="c1">// Implement the constructor to pass the Class instance of the test class to TestSupport.</span>
     <span class="kd">public</span> <span class="nf">CustomTestSupport</span><span class="o">(</span><span class="n">Class</span><span class="o">&lt;?&gt;</span> <span class="n">testClass</span><span class="o">)</span> <span class="o">{</span>
@@ -553,16 +554,16 @@ This value corresponds to the value returned by the <code class="docutils litera
 Therefore, you need to define a constructor of your own extension class that can accept <code class="docutils literal"><span class="pre">Class</span></code> objects of the test class.</p>
 <div class="admonition tip">
 <p class="first admonition-title">Tip</p>
-<p class="last"><a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/test/core/http/SimpleRestTestSupport.html" title="nablarch.test.core.http.SimpleRestTestSupport">SimpleRestTestSupport</a> can be used without passing a <code class="docutils literal"><span class="pre">Class</span></code> object of the test class to the constructor.</p>
+<p class="last"><a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/test/core/http/SimpleRestTestSupport.html" title="nablarch.test.core.http.SimpleRestTestSupport">SimpleRestTestSupport</a> can be used without passing a <code class="docutils literal"><span class="pre">Class</span></code> object of the test class to the constructor.</p>
 </div>
 </div>
 <div class="section" id="create-the-extension-for-your-own-extension">
 <h3><a class="toc-backref" href="#id10">Create the Extension for your own extension</a><a class="headerlink" href="#create-the-extension-for-your-own-extension" title="Permalink to this headline">¶</a></h3>
 <p>Next, create the Extension for your own extension by inheriting from the Extension class corresponding to the extension source class.</p>
-<p>In the example, since it inherits from <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/test/TestSupport.html" title="nablarch.test.TestSupport">TestSupport</a>, the corresponding Extension class will be <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/test/junit5/extension/TestSupportExtension.html" title="nablarch.test.junit5.extension.TestSupportExtension">TestSupportExtension</a>.</p>
+<p>In the example, since it inherits from <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/test/TestSupport.html" title="nablarch.test.TestSupport">TestSupport</a>, the corresponding Extension class will be <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/test/junit5/extension/TestSupportExtension.html" title="nablarch.test.junit5.extension.TestSupportExtension">TestSupportExtension</a>.</p>
 <div class="admonition tip">
 <p class="first admonition-title">Tip</p>
-<p class="last">If you use your own extension class that directly inherits from <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/test/core/http/AbstractHttpRequestTestTemplate.html" title="nablarch.test.core.http.AbstractHttpRequestTestTemplate">AbstractHttpRequestTestTemplate</a>, you can use <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/test/junit5/extension/http/BasicHttpRequestTestExtension.html" title="nablarch.test.junit5.extension.http.BasicHttpRequestTestExtension">BasicHttpRequestTestExtension</a> as the corresponding Extension.</p>
+<p class="last">If you use your own extension class that directly inherits from <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/test/core/http/AbstractHttpRequestTestTemplate.html" title="nablarch.test.core.http.AbstractHttpRequestTestTemplate">AbstractHttpRequestTestTemplate</a>, you can use <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/test/junit5/extension/http/BasicHttpRequestTestExtension.html" title="nablarch.test.junit5.extension.http.BasicHttpRequestTestExtension">BasicHttpRequestTestExtension</a> as the corresponding Extension.</p>
 </div>
 <div class="highlight-java"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">CustomTestSupportExtension</span> <span class="kd">extends</span> <span class="n">TestSupportExtension</span> <span class="o">{</span>
 
@@ -576,7 +577,7 @@ Therefore, you need to define a constructor of your own extension class that can
 </div>
 <p>Override <code class="docutils literal"><span class="pre">createSupport()</span></code> method in the Extension for your own extension.
 Then, implement it so that it returns an instance of the your own extension class you just created.</p>
-<p>Note that instances of your own extension class created by the <code class="docutils literal"><span class="pre">createSupport()</span></code> method are stored in the <code class="docutils literal"><span class="pre">support</span></code> instance field of <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/test/event/TestEventDispatcher.html" title="nablarch.test.event.TestEventDispatcher">TestEventDispatcher</a> type defined in the parent class <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/test/junit5/extension/event/TestEventDispatcherExtension.html" title="nablarch.test.junit5.extension.event.TestEventDispatcherExtension">TestEventDispatcherExtension</a>.
+<p>Note that instances of your own extension class created by the <code class="docutils literal"><span class="pre">createSupport()</span></code> method are stored in the <code class="docutils literal"><span class="pre">support</span></code> instance field of <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/test/event/TestEventDispatcher.html" title="nablarch.test.event.TestEventDispatcher">TestEventDispatcher</a> type defined in the parent class <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/test/junit5/extension/event/TestEventDispatcherExtension.html" title="nablarch.test.junit5.extension.event.TestEventDispatcherExtension">TestEventDispatcherExtension</a>.
 This field is <code class="docutils literal"><span class="pre">protected</span></code>, so it can be referenced by subclasses.</p>
 </div>
 <div class="section" id="applying-to-the-test-class-with-extendwith">
@@ -603,9 +604,9 @@ An example implementation is shown below.</p>
 </div>
 <div class="section" id="when-extending-basichttprequesttesttemplate-also-create-annotations">
 <h3><a class="toc-backref" href="#id12">When extending BasicHttpRequestTestTemplate, also create annotations</a><a class="headerlink" href="#when-extending-basichttprequesttesttemplate-also-create-annotations" title="Permalink to this headline">¶</a></h3>
-<p>When extending <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/test/core/http/BasicHttpRequestTestTemplate.html" title="nablarch.test.core.http.BasicHttpRequestTestTemplate">BasicHttpRequestTestTemplate</a> or <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/test/core/http/AbstractHttpRequestTestTemplate.html" title="nablarch.test.core.http.AbstractHttpRequestTestTemplate">AbstractHttpRequestTestTemplate</a>, it is necessary to pass <code class="docutils literal"><span class="pre">baseUri</span></code> to an instance of your own extension class.
+<p>When extending <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/test/core/http/BasicHttpRequestTestTemplate.html" title="nablarch.test.core.http.BasicHttpRequestTestTemplate">BasicHttpRequestTestTemplate</a> or <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/test/core/http/AbstractHttpRequestTestTemplate.html" title="nablarch.test.core.http.AbstractHttpRequestTestTemplate">AbstractHttpRequestTestTemplate</a>, it is necessary to pass <code class="docutils literal"><span class="pre">baseUri</span></code> to an instance of your own extension class.
 Since <code class="docutils literal"><span class="pre">ExtendWith</span></code> has no parameters other than the Extension class, you need to create your own annotations as well.</p>
-<p>The following is an example of implementation in <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/test/core/http/BasicHttpRequestTestTemplate.html" title="nablarch.test.core.http.BasicHttpRequestTestTemplate">BasicHttpRequestTestTemplate</a>.</p>
+<p>The following is an example of implementation in <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/test/core/http/BasicHttpRequestTestTemplate.html" title="nablarch.test.core.http.BasicHttpRequestTestTemplate">BasicHttpRequestTestTemplate</a>.</p>
 <div class="highlight-java"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">CustomHttpRequestTestSupport</span> <span class="kd">extends</span> <span class="n">BasicHttpRequestTestTemplate</span> <span class="o">{</span>
     <span class="kd">private</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">baseUri</span><span class="o">;</span>
 
@@ -622,7 +623,7 @@ Since <code class="docutils literal"><span class="pre">ExtendWith</span></code> 
 <span class="o">}</span>
 </pre></div>
 </div>
-<p>First, create your own extension class by inheriting from <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/test/core/http/BasicHttpRequestTestTemplate.html" title="nablarch.test.core.http.BasicHttpRequestTestTemplate">BasicHttpRequestTestTemplate</a>.
+<p>First, create your own extension class by inheriting from <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/test/core/http/BasicHttpRequestTestTemplate.html" title="nablarch.test.core.http.BasicHttpRequestTestTemplate">BasicHttpRequestTestTemplate</a>.
 The constructor needs to have the parameters the Class instance of the test class and <code class="docutils literal"><span class="pre">baseUri</span></code>.</p>
 <p>Next, create a composed annotation for your own extension class.</p>
 <div class="highlight-java"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.junit.jupiter.api.extension.ExtendWith</span><span class="o">;</span>
@@ -658,7 +659,7 @@ The Extension for your own extension specified by <code class="docutils literal"
 </div>
 <p>The <code class="docutils literal"><span class="pre">findAnnotation(Object,</span> <span class="pre">Class)</span></code> can be used to obtain information about annotations set in the test class.
 This allows you to pass the value of <code class="docutils literal"><span class="pre">baseUri</span></code> to your own extension class.</p>
-<p>Finally, you can use your own extension class that inherits from <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/test/core/http/BasicHttpRequestTestTemplate.html" title="nablarch.test.core.http.BasicHttpRequestTestTemplate">BasicHttpRequestTestTemplate</a> by implementing it as follows using your own composed annotation.</p>
+<p>Finally, you can use your own extension class that inherits from <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/test/core/http/BasicHttpRequestTestTemplate.html" title="nablarch.test.core.http.BasicHttpRequestTestTemplate">BasicHttpRequestTestTemplate</a> by implementing it as follows using your own composed annotation.</p>
 <div class="highlight-java"><div class="highlight"><pre><span></span><span class="c1">// Set your own composed annotation to the test class (also set baseUri)</span>
 <span class="nd">@CustomHttpRequestTest</span><span class="o">(</span><span class="n">baseUri</span> <span class="o">=</span> <span class="s">&quot;/custom/&quot;</span><span class="o">)</span>
 <span class="kd">class</span> <span class="nc">YourTest</span> <span class="o">{</span>
@@ -787,7 +788,7 @@ If used in an instance field, <code class="docutils literal"><span class="pre">b
 
     <div role="contentinfo">
         <p>
-            &copy; Copyright 2010-2024, TIS Inc.
+            &copy; Copyright 2010-2025, TIS Inc.
         </p>
     </div>
     Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
@@ -808,7 +809,7 @@ If used in an instance field, <code class="docutils literal"><span class="pre">b
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../../../',
-            VERSION:'6u2',
+            VERSION:'6u3',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

@@ -9,7 +9,7 @@
   <meta http-equiv='content-language' content='ja'>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Double submission prevention using the database &mdash; ∇Nablarch  6u2 documentation</title>
+  <title>Double submission prevention using the database &mdash; ∇Nablarch  6u3 documentation</title>
   
 
   
@@ -35,7 +35,7 @@
   
   <link rel="canonical" href="https://nablarch.github.io/docs/LATEST/doc/application_framework/application_framework/libraries/db_double_submit.html" />
   
-    <link rel="top" title="∇Nablarch  6u2 documentation" href="../../../index.html"/>
+    <link rel="top" title="∇Nablarch  6u3 documentation" href="../../../index.html"/>
         <link rel="up" title="Libraries Provided by Nablarch" href="index.html"/>
         <link rel="next" title="BeanUtil" href="bean_util.html"/>
         <link rel="prev" title="Tag Reference" href="tag/tag_reference.html"/>
@@ -63,7 +63,7 @@
   
 
   
-    <div id="sidebar-version">Version: 6u2</div>
+    <div id="sidebar-version">Version: 6u3</div>
   </a>
 
   <div role="search">
@@ -142,6 +142,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../development_tools/toolbox/index.html">Useful Tools When Developing Applications</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../development_tools/toolbox/JspStaticAnalysis/index.html">Jakarta Server Pages Static Analysis Tool</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../development_tools/toolbox/SqlExecutor/SqlExecutor.html">Nablarch SQL Executor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../development_tools/toolbox/NablarchOpenApiGenerator/NablarchOpenApiGenerator.html">Nablarch OpenAPI Generator</a></li>
 </ul>
 </li>
 </ul>
@@ -408,8 +409,8 @@ If you use this feature, use <a class="reference internal" href="../handlers/web
 </dd>
 </dl>
 <p>Table names and column names can be changed.
-If changing them, define a component of <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/common/web/token/DbTokenSchema.html" title="nablarch.common.web.token.DbTokenSchema">DbTokenSchema</a> in
-<a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/common/web/token/DbTokenManager.html#setDbTokenSchema(nablarch.common.web.token.DbTokenSchema)" title="nablarch.common.web.token.DbTokenManager.setDbTokenSchema(nablarch.common.web.token.DbTokenSchema)">DbTokenManager.dbTokenSchema</a>.</p>
+If changing them, define a component of <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/common/web/token/DbTokenSchema.html" title="nablarch.common.web.token.DbTokenSchema">DbTokenSchema</a> in
+<a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/common/web/token/DbTokenManager.html#setDbTokenSchema(nablarch.common.web.token.DbTokenSchema)" title="nablarch.common.web.token.DbTokenManager.setDbTokenSchema(nablarch.common.web.token.DbTokenSchema)">DbTokenManager.dbTokenSchema</a>.</p>
 <p>Add two component definitions.</p>
 <p>Add a component definition named <code class="docutils literal"><span class="pre">tokenManager</span></code>.
 This will allow the tokens to be managed in the database.
@@ -450,7 +451,7 @@ This will use UUIDs for the tokens, and eliminate the guessing and potential col
 <div class="admonition important">
 <p class="first admonition-title">Important</p>
 <p>The <a class="reference internal" href="../../../development_tools/testing_framework/guide/development_guide/06_TestFWGuide/02_RequestUnitTest.html#how-to-set-token-in-request-unit-test"><span>Testing framework token issuance</span></a> does not support DB storage of tokens.
-Therefore, you need to replace <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/common/web/token/HttpSessionTokenManager.html" title="nablarch.common.web.token.HttpSessionTokenManager">HttpSessionTokenManager</a>
+Therefore, you need to replace <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/common/web/token/HttpSessionTokenManager.html" title="nablarch.common.web.token.HttpSessionTokenManager">HttpSessionTokenManager</a>
 when you run the automated test.</p>
 <div class="last highlight-xml"><div class="highlight"><pre><span></span><span class="c">&lt;!-- Storing a token in an HTTP session --&gt;</span>
 <span class="nt">&lt;component</span> <span class="na">name=</span><span class="s">&quot;tokenManager&quot;</span> <span class="na">class=</span><span class="s">&quot;nablarch.common.web.token.HttpSessionTokenManager&quot;</span><span class="nt">/&gt;</span>
@@ -472,7 +473,7 @@ when you run the automated test.</p>
 
     <div role="contentinfo">
         <p>
-            &copy; Copyright 2010-2024, TIS Inc.
+            &copy; Copyright 2010-2025, TIS Inc.
         </p>
     </div>
     Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
@@ -493,7 +494,7 @@ when you run the automated test.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../',
-            VERSION:'6u2',
+            VERSION:'6u3',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

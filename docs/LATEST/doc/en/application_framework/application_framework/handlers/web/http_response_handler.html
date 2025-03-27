@@ -9,7 +9,7 @@
   <meta http-equiv='content-language' content='ja'>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>HTTP Response Handler &mdash; ∇Nablarch  6u2 documentation</title>
+  <title>HTTP Response Handler &mdash; ∇Nablarch  6u3 documentation</title>
   
 
   
@@ -35,7 +35,7 @@
   
   <link rel="canonical" href="https://nablarch.github.io/docs/LATEST/doc/application_framework/application_framework/handlers/web/http_response_handler.html" />
   
-    <link rel="top" title="∇Nablarch  6u2 documentation" href="../../../../index.html"/>
+    <link rel="top" title="∇Nablarch  6u3 documentation" href="../../../../index.html"/>
         <link rel="up" title="Web Application Dedicated Handler" href="index.html"/>
         <link rel="next" title="Secure Handler" href="secure_handler.html"/>
         <link rel="prev" title="HTTP Character Encoding Control Handler" href="http_character_encoding_handler.html"/>
@@ -63,7 +63,7 @@
   
 
   
-    <div id="sidebar-version">Version: 6u2</div>
+    <div id="sidebar-version">Version: 6u3</div>
   </a>
 
   <div role="search">
@@ -142,6 +142,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../../development_tools/toolbox/index.html">Useful Tools When Developing Applications</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../../development_tools/toolbox/JspStaticAnalysis/index.html">Jakarta Server Pages Static Analysis Tool</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../development_tools/toolbox/SqlExecutor/SqlExecutor.html">Nablarch SQL Executor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../development_tools/toolbox/NablarchOpenApiGenerator/NablarchOpenApiGenerator.html">Nablarch OpenAPI Generator</a></li>
 </ul>
 </li>
 </ul>
@@ -359,7 +360,7 @@
 <li><a class="reference internal" href="#how-to-handle-fatal-errors-that-occur-in-this-handler" id="id12">How to handle fatal errors that occur in this handler</a></li>
 </ul>
 </div>
-<p>This handler calls the servlet API and sends a response to the client according to <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/fw/web/HttpResponse.html" title="nablarch.fw.web.HttpResponse">HttpResponse</a>
+<p>This handler calls the servlet API and sends a response to the client according to <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/fw/web/HttpResponse.html" title="nablarch.fw.web.HttpResponse">HttpResponse</a>
 returned by the subsequent handler.
 There are four response methods.</p>
 <dl class="docutils">
@@ -377,7 +378,7 @@ There are four response methods.</p>
 <div class="section" id="handler-class-name">
 <h2><a class="toc-backref" href="#id5">Handler class name</a><a class="headerlink" href="#handler-class-name" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/fw/web/handler/HttpResponseHandler.html" title="nablarch.fw.web.handler.HttpResponseHandler">nablarch.fw.web.handler.HttpResponseHandler</a></li>
+<li><a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/fw/web/handler/HttpResponseHandler.html" title="nablarch.fw.web.handler.HttpResponseHandler">nablarch.fw.web.handler.HttpResponseHandler</a></li>
 </ul>
 </div>
 <div class="section" id="module-list">
@@ -433,9 +434,9 @@ and status code is 400 or more</td>
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
 <tr><td class="label"><a class="fn-backref" href="#id2">[1]</a></td><td>The &#8220;scheme&#8221; here refers to the return value of
-<a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/fw/web/ResourceLocator.html#getScheme()" title="nablarch.fw.web.ResourceLocator.getScheme()">getScheme() method</a>
-of <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/fw/web/ResourceLocator.html" title="nablarch.fw.web.ResourceLocator">ResourceLocator</a> acquired with
-<a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/fw/web/HttpResponse.html#getContentPath()" title="nablarch.fw.web.HttpResponse.getContentPath()">HttpResponse#getContentPath()</a> returned by the subsequent handler.
+<a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/fw/web/ResourceLocator.html#getScheme()" title="nablarch.fw.web.ResourceLocator.getScheme()">getScheme() method</a>
+of <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/fw/web/ResourceLocator.html" title="nablarch.fw.web.ResourceLocator">ResourceLocator</a> acquired with
+<a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/fw/web/HttpResponse.html#getContentPath()" title="nablarch.fw.web.HttpResponse.getContentPath()">HttpResponse#getContentPath()</a> returned by the subsequent handler.
 If no scheme is explicitly specified, the default scheme is <code class="docutils literal"><span class="pre">servlet</span></code> .</td></tr>
 </tbody>
 </table>
@@ -443,15 +444,15 @@ If no scheme is explicitly specified, the default scheme is <code class="docutil
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
 <tr><td class="label"><a class="fn-backref" href="#id3">[2]</a></td><td>The &#8220;status code&#8221; here refers to the return value of
-the <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/fw/web/HttpResponse.html#getStatusCode()" title="nablarch.fw.web.HttpResponse.getStatusCode()">getStatusCode()</a> method of
-<a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/fw/web/HttpResponse.html" title="nablarch.fw.web.HttpResponse">HttpResponse</a> class returned by the subsequent handler.</td></tr>
+the <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/fw/web/HttpResponse.html#getStatusCode()" title="nablarch.fw.web.HttpResponse.getStatusCode()">getStatusCode()</a> method of
+<a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/fw/web/HttpResponse.html" title="nablarch.fw.web.HttpResponse">HttpResponse</a> class returned by the subsequent handler.</td></tr>
 </tbody>
 </table>
 </div>
 <div class="section" id="custom-response-writer">
 <span id="http-response-handler-convert-status-code"></span><h2><a class="toc-backref" href="#id9">Custom response writer</a><a class="headerlink" href="#custom-response-writer" title="Permalink to this headline">¶</a></h2>
 <p>By configuring the implementation class of
-<a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/fw/web/handler/responsewriter/CustomResponseWriter.html" title="nablarch.fw.web.handler.responsewriter.CustomResponseWriter">CustomResponseWriter</a> to the <code class="docutils literal"><span class="pre">customResponseWriter</span></code> property of this handler,
+<a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/fw/web/handler/responsewriter/CustomResponseWriter.html" title="nablarch.fw.web.handler.responsewriter.CustomResponseWriter">CustomResponseWriter</a> to the <code class="docutils literal"><span class="pre">customResponseWriter</span></code> property of this handler,
 an any response output process <a class="footnote-reference" href="#resp" id="id4">[3]</a>  can be  executed.</p>
 <table class="docutils footnote" frame="void" id="resp" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
@@ -504,7 +505,7 @@ By using this function, the function to switch the JSP to be forwarded according
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td><a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/fw/web/i18n/DirectoryBasedResourcePathRule.html" title="nablarch.fw.web.i18n.DirectoryBasedResourcePathRule">DirectoryBasedResourcePathRule</a></td>
+<tr class="row-even"><td><a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/fw/web/i18n/DirectoryBasedResourcePathRule.html" title="nablarch.fw.web.i18n.DirectoryBasedResourcePathRule">DirectoryBasedResourcePathRule</a></td>
 <td><p class="first">A class that
 <br />
 uses the directory directly under the context root for switching the language.</p>
@@ -527,7 +528,7 @@ Context root
 </div></blockquote>
 </td>
 </tr>
-<tr class="row-odd"><td><a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/fw/web/i18n/FilenameBasedResourcePathRule.html" title="nablarch.fw.web.i18n.FilenameBasedResourcePathRule">FilenameBasedResourcePathRule</a></td>
+<tr class="row-odd"><td><a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/fw/web/i18n/FilenameBasedResourcePathRule.html" title="nablarch.fw.web.i18n.FilenameBasedResourcePathRule">FilenameBasedResourcePathRule</a></td>
 <td><p class="first">A class that uses file names to switch the languages.</p>
 <blockquote class="last">
 <div><div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1"># Placement example when supporting /management/user/search.jsp</span>
@@ -556,7 +557,7 @@ Context root
 <span class="nt">&lt;/component&gt;</span>
 </pre></div>
 </div>
-<p>To switch contents by a method other than the above, create a class that inherits <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/fw/web/i18n/ResourcePathRule.html" title="nablarch.fw.web.i18n.ResourcePathRule">ResourcePathRule</a>
+<p>To switch contents by a method other than the above, create a class that inherits <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/fw/web/i18n/ResourcePathRule.html" title="nablarch.fw.web.i18n.ResourcePathRule">ResourcePathRule</a>
 class and configure the created class in the <code class="docutils literal"><span class="pre">resourcePathRule</span></code> property as above.</p>
 <div class="admonition tip">
 <p class="first admonition-title">Tip</p>
@@ -609,7 +610,7 @@ consider preparing handlers with reference to this handler.</p>
 
     <div role="contentinfo">
         <p>
-            &copy; Copyright 2010-2024, TIS Inc.
+            &copy; Copyright 2010-2025, TIS Inc.
         </p>
     </div>
     Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
@@ -630,7 +631,7 @@ consider preparing handlers with reference to this handler.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../../',
-            VERSION:'6u2',
+            VERSION:'6u3',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

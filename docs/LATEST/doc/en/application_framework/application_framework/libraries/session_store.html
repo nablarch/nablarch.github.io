@@ -9,7 +9,7 @@
   <meta http-equiv='content-language' content='ja'>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Session Store &mdash; ∇Nablarch  6u2 documentation</title>
+  <title>Session Store &mdash; ∇Nablarch  6u3 documentation</title>
   
 
   
@@ -35,7 +35,7 @@
   
   <link rel="canonical" href="https://nablarch.github.io/docs/LATEST/doc/application_framework/application_framework/libraries/session_store.html" />
   
-    <link rel="top" title="∇Nablarch  6u2 documentation" href="../../../index.html"/>
+    <link rel="top" title="∇Nablarch  6u3 documentation" href="../../../index.html"/>
         <link rel="up" title="Libraries Provided by Nablarch" href="index.html"/>
         <link rel="next" title="Implementation Example with Registration Function" href="session_store/create_example.html"/>
         <link rel="prev" title="Service Availability Check" href="service_availability.html"/>
@@ -63,7 +63,7 @@
   
 
   
-    <div id="sidebar-version">Version: 6u2</div>
+    <div id="sidebar-version">Version: 6u3</div>
   </a>
 
   <div role="search">
@@ -142,6 +142,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../development_tools/toolbox/index.html">Useful Tools When Developing Applications</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../development_tools/toolbox/JspStaticAnalysis/index.html">Jakarta Server Pages Static Analysis Tool</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../development_tools/toolbox/SqlExecutor/SqlExecutor.html">Nablarch SQL Executor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../development_tools/toolbox/NablarchOpenApiGenerator/NablarchOpenApiGenerator.html">Nablarch OpenAPI Generator</a></li>
 </ul>
 </li>
 </ul>
@@ -383,7 +384,7 @@ It provides a function called a session store for each session ID to read and wr
 <img alt="../../../_images/session_store.png" src="../../../_images/session_store.png" />
 <ol class="arabic simple">
 <li>The request process of <a class="reference internal" href="../handlers/web/SessionStoreHandler.html#session-store-handler"><span>Session Variable Store Handler</span></a> loads the session variable from the session store based on the session ID obtained from the cookie.</li>
-<li>Reads from/writes to session variable using <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/common/web/session/SessionUtil.html" title="nablarch.common.web.session.SessionUtil">SessionUtil</a> from business action.</li>
+<li>Reads from/writes to session variable using <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/common/web/session/SessionUtil.html" title="nablarch.common.web.session.SessionUtil">SessionUtil</a> from business action.</li>
 <li>The response process of <a class="reference internal" href="../handlers/web/SessionStoreHandler.html#session-store-handler"><span>Session Variable Store Handler</span></a> saves the session variables in the session store.</li>
 <li>Configure session variable in request scope so that it can be referenced in JSP. (Do not configure if a value with the same name already exists in the request scope.)</li>
 </ol>
@@ -393,7 +394,7 @@ It provides a function called a session store for each session ID to read and wr
 <ul class="last simple">
 <li><a class="reference internal" href="tag.html#tag-hidden-encryption"><span>hidden encryption</span></a></li>
 <li><a class="reference internal" href="../handlers/web/session_concurrent_access_handler.html#session-concurrent-access-handler"><span>Session Concurrent Access Handler</span></a></li>
-<li>API to access the session scope of <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/fw/ExecutionContext.html" title="nablarch.fw.ExecutionContext">ExecutionContext</a>.</li>
+<li>API to access the session scope of <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/fw/ExecutionContext.html" title="nablarch.fw.ExecutionContext">ExecutionContext</a>.</li>
 </ul>
 </div>
 <div class="admonition tip">
@@ -427,9 +428,9 @@ It provides a function called a session store for each session ID to read and wr
 <p>The serialization mechanism when saving session variables in session store can be selected from the following.
 For details of each function, refer to the linked Javadoc.</p>
 <ul class="simple">
-<li><a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/common/web/session/encoder/JavaSerializeStateEncoder.html" title="nablarch.common.web.session.encoder.JavaSerializeStateEncoder">serialization by Java standard serialize (default)</a></li>
-<li><a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/common/web/session/encoder/JavaSerializeEncryptStateEncoder.html" title="nablarch.common.web.session.encoder.JavaSerializeEncryptStateEncoder">serialization and encryption by Java standard serialize</a></li>
-<li><a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/common/web/session/encoder/JaxbStateEncoder.html" title="nablarch.common.web.session.encoder.JaxbStateEncoder">XML-based serialization with Jakarta XML Binding</a></li>
+<li><a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/common/web/session/encoder/JavaSerializeStateEncoder.html" title="nablarch.common.web.session.encoder.JavaSerializeStateEncoder">serialization by Java standard serialize (default)</a></li>
+<li><a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/common/web/session/encoder/JavaSerializeEncryptStateEncoder.html" title="nablarch.common.web.session.encoder.JavaSerializeEncryptStateEncoder">serialization and encryption by Java standard serialize</a></li>
+<li><a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/common/web/session/encoder/JaxbStateEncoder.html" title="nablarch.common.web.session.encoder.JaxbStateEncoder">XML-based serialization with Jakarta XML Binding</a></li>
 </ul>
 </div>
 </div>
@@ -461,7 +462,7 @@ Arrays and collections can also be used for properties.</p>
 <h2><a class="toc-backref" href="#id15">How to use</a><a class="headerlink" href="#how-to-use" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="configure-for-using-session-store">
 <span id="session-store-use-config"></span><h3><a class="toc-backref" href="#id16">Configure for using session store</a><a class="headerlink" href="#configure-for-using-session-store" title="Permalink to this headline">¶</a></h3>
-<p>To use session store, configure <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/common/web/session/SessionManager.html" title="nablarch.common.web.session.SessionManager">SessionManager</a> in the component
+<p>To use session store, configure <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/common/web/session/SessionManager.html" title="nablarch.common.web.session.SessionManager">SessionManager</a> in the component
 definition in addition to configuring <a class="reference internal" href="../handlers/web/SessionStoreHandler.html#session-store-handler"><span>Session Variable Store Handler</span></a>.</p>
 <p>The following is a configuration example when all the save destinations provided as standard are used.</p>
 <div class="highlight-xml"><div class="highlight"><pre><span></span><span class="c">&lt;!-- Configure with the component name &quot;sessionManager&quot; --&gt;</span>
@@ -537,8 +538,8 @@ definition in addition to configuring <a class="reference internal" href="../han
 </dl>
 <p><cite>SESSION_ID</cite> should be defined as VARCHAR instead of CHAR as it may not work properly in Oracle.</p>
 <p>The table name and column name can be changed.
-To change, define the components of <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/common/web/session/store/UserSessionSchema.html" title="nablarch.common.web.session.store.UserSessionSchema">UserSessionSchema</a>
-to <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/common/web/session/store/DbStore.html#setUserSessionSchema(nablarch.common.web.session.store.UserSessionSchema)" title="nablarch.common.web.session.store.DbStore.setUserSessionSchema(nablarch.common.web.session.store.UserSessionSchema)">DbStore.userSessionSchema</a>.</p>
+To change, define the components of <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/common/web/session/store/UserSessionSchema.html" title="nablarch.common.web.session.store.UserSessionSchema">UserSessionSchema</a>
+to <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/common/web/session/store/DbStore.html#setUserSessionSchema(nablarch.common.web.session.store.UserSessionSchema)" title="nablarch.common.web.session.store.DbStore.setUserSessionSchema(nablarch.common.web.session.store.UserSessionSchema)">DbStore.userSessionSchema</a>.</p>
 <div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;userSessionSchema&quot;</span><span class="nt">&gt;</span>
   <span class="nt">&lt;component</span> <span class="na">class=</span><span class="s">&quot;nablarch.common.web.session.store.UserSessionSchema&quot;</span><span class="nt">&gt;</span>
     <span class="c">&lt;!-- See Javadoc for details of the configuration value --&gt;</span>
@@ -703,8 +704,7 @@ To increase the key strength, the following functions may be used to generate th
 <li>Generate the key using <a class="reference external" href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/javax/crypto/KeyGenerator.html" title="javax.crypto.KeyGenerator">KeyGenerator</a>.</li>
 <li>Generate IV using <a class="reference external" href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/security/SecureRandom.html" title="java.security.SecureRandom">SecureRandom</a>.</li>
 </ul>
-<p class="last">Using <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/core/util/Base64Util.html" title="nablarch.core.util.Base64Util">Base64Util</a> or
-<code class="docutils literal"><span class="pre">java.util.Base64.Encoder</span></code> is better for base64 encoding.</p>
+<p class="last">Using <a class="reference external" href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Base64.Encoder.html" title="java.util.Base64.Encoder">java.util.Base64.Encoder</a> obtained from <a class="reference external" href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Base64.html#getEncoder()" title="java.util.Base64.getEncoder()">java.util.Base64.getEncoder()</a> is better for base64 encoding.</p>
 </dd>
 </dl>
 </div>
@@ -712,7 +712,7 @@ To increase the key strength, the following functions may be used to generate th
 <h3><a class="toc-backref" href="#id21">Specify the transition destination screen when the value does not exist in the session variable</a><a class="headerlink" href="#specify-the-transition-destination-screen-when-the-value-does-not-exist-in-the-session-variable" title="Permalink to this headline">¶</a></h3>
 <p>Session variables always exist in normal screen transitions, but in some cases,
 session variables that originally existed may not be accessible due to incorrect screen transitions being performed using the back button of the browser.
-Since an exception indicating that the session variable does not exist ( <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/common/web/session/SessionKeyNotFoundException.html" title="nablarch.common.web.session.SessionKeyNotFoundException">SessionKeyNotFoundException</a> ) is thrown,
+Since an exception indicating that the session variable does not exist ( <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/common/web/session/SessionKeyNotFoundException.html" title="nablarch.common.web.session.SessionKeyNotFoundException">SessionKeyNotFoundException</a> ) is thrown,
 transition to an arbitrary error page is possible by catching this exception.</p>
 <p>The realization method is shown below.</p>
 <dl class="docutils">
@@ -767,8 +767,8 @@ Note that the transition destination can be changed for only some of the request
 <h3><a class="toc-backref" href="#id23">Add the save destination of session variables</a><a class="headerlink" href="#add-the-save-destination-of-session-variables" title="Permalink to this headline">¶</a></h3>
 <p>The following steps are required to add the save destination for session variables.</p>
 <ol class="arabic simple">
-<li>Create a class by inheriting <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/common/web/session/SessionStore.html" title="nablarch.common.web.session.SessionStore">SessionStore</a> for supporting the save destination to be added.</li>
-<li>Add the component definition of the created class to <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/common/web/session/SessionManager.html#setAvailableStores(java.util.List)" title="nablarch.common.web.session.SessionManager.setAvailableStores(java.util.List)">SessionManager.availableStores</a>.</li>
+<li>Create a class by inheriting <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/common/web/session/SessionStore.html" title="nablarch.common.web.session.SessionStore">SessionStore</a> for supporting the save destination to be added.</li>
+<li>Add the component definition of the created class to <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/common/web/session/SessionManager.html#setAvailableStores(java.util.List)" title="nablarch.common.web.session.SessionManager.setAvailableStores(java.util.List)">SessionManager.availableStores</a>.</li>
 </ol>
 </div>
 </div>
@@ -931,7 +931,7 @@ You can store the session expiration date in the database by changing the settin
 
     <div role="contentinfo">
         <p>
-            &copy; Copyright 2010-2024, TIS Inc.
+            &copy; Copyright 2010-2025, TIS Inc.
         </p>
     </div>
     Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
@@ -952,7 +952,7 @@ You can store the session expiration date in the database by changing the settin
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../',
-            VERSION:'6u2',
+            VERSION:'6u3',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

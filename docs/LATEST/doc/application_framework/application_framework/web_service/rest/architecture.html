@@ -9,7 +9,7 @@
   <meta http-equiv='content-language' content='ja'>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>アーキテクチャ概要 &mdash; ∇Nablarch  6u2 ドキュメント</title>
+  <title>アーキテクチャ概要 &mdash; ∇Nablarch  6u3 ドキュメント</title>
   
 
   
@@ -35,7 +35,7 @@
   
   <link rel="canonical" href="https://nablarch.github.io/docs/LATEST/doc/application_framework/application_framework/web_service/rest/architecture.html" />
   
-    <link rel="top" title="∇Nablarch  6u2 ドキュメント" href="../../../../index.html"/>
+    <link rel="top" title="∇Nablarch  6u3 ドキュメント" href="../../../../index.html"/>
         <link rel="up" title="RESTfulウェブサービス編" href="index.html"/>
         <link rel="next" title="RESTFulウェブサービスの責務配置" href="application_design.html"/>
         <link rel="prev" title="RESTfulウェブサービス編" href="index.html"/>
@@ -63,7 +63,7 @@
   
 
   
-    <div id="sidebar-version">Version: 6u2</div>
+    <div id="sidebar-version">Version: 6u3</div>
   </a>
 
   <div role="search">
@@ -142,6 +142,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../../development_tools/toolbox/index.html">アプリケーション開発時に使える便利なツール</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../../development_tools/toolbox/JspStaticAnalysis/index.html">Jakarta Server Pages静的解析ツール</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../development_tools/toolbox/SqlExecutor/SqlExecutor.html">Nablarch SQL Executor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../development_tools/toolbox/NablarchOpenApiGenerator/NablarchOpenApiGenerator.html">Nablarch OpenAPI Generator</a></li>
 </ul>
 </li>
 </ul>
@@ -273,10 +274,10 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../migration/index.html#jsr352">JSR352に準拠したバッチアプリケーションの移行手順</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../../migration/index.html#id12">実行時にエラーになる場合の対処方法</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../migration/index.html#id13">実行時にエラーになる場合の対処方法</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../migration/index.html#id13">付録</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../migration/index.html#id14">付録</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../../migration/index.html#java-ee-jakarta-ee-comparation">Java EEとJakarta EEの仕様の対応表</a></li>
 </ul>
 </li>
@@ -357,7 +358,7 @@
 <li><a class="reference internal" href="#restful" id="id7">RESTfulウェブサービスの構成</a></li>
 <li><a class="reference internal" href="#id3" id="id8">RESTfulウェブサービスの処理の流れ</a></li>
 <li><a class="reference internal" href="#id4" id="id9">RESTfulウェブサービスで使用するハンドラ</a><ul>
-<li><a class="reference internal" href="#id5" id="id10">標準ハンドラ構成</a></li>
+<li><a class="reference internal" href="#id5" id="id10">最小ハンドラ構成</a></li>
 </ul>
 </li>
 </ul>
@@ -445,7 +446,7 @@ Jakarta RESTful Web Servicesのクライアントを使用する必要がある�
 </dd>
 </dl>
 <div class="section" id="id5">
-<h3><a class="toc-backref" href="#id10">標準ハンドラ構成</a><a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3><a class="toc-backref" href="#id10">最小ハンドラ構成</a><a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>NablarchでRESTfulウェブサービスを構築する際の、必要最小限のハンドラキューを以下に示す。
 これをベースに、プロジェクト要件に従ってNablarchの標準ハンドラやプロジェクトで作成したカスタムハンドラを追加する。</p>
 <table border="1" class="colwidths-given white-space-normal docutils" id="id6">
@@ -564,7 +565,7 @@ Jakarta RESTful Web Servicesのクライアントを使用する必要がある�
 
     <div role="contentinfo">
         <p>
-            &copy; Copyright 2010-2024, TIS Inc.
+            &copy; Copyright 2010-2025, TIS Inc.
         </p>
     </div>
     Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
@@ -585,7 +586,7 @@ Jakarta RESTful Web Servicesのクライアントを使用する必要がある�
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../../',
-            VERSION:'6u2',
+            VERSION:'6u3',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

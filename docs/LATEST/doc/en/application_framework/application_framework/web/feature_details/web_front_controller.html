@@ -9,7 +9,7 @@
   <meta http-equiv='content-language' content='ja'>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Web Front Controller &mdash; ∇Nablarch  6u2 documentation</title>
+  <title>Web Front Controller &mdash; ∇Nablarch  6u3 documentation</title>
   
 
   
@@ -35,7 +35,7 @@
   
   <link rel="canonical" href="https://nablarch.github.io/docs/LATEST/doc/application_framework/application_framework/web/feature_details/web_front_controller.html" />
   
-    <link rel="top" title="∇Nablarch  6u2 documentation" href="../../../../index.html"/>
+    <link rel="top" title="∇Nablarch  6u3 documentation" href="../../../../index.html"/>
         <link rel="up" title="Details of Function" href="../feature_details.html"/>
         <link rel="next" title="Display Validation Error Messages on the Screen" href="error_message.html"/>
         <link rel="prev" title="Nablarch Servlet Context Initialization Listener" href="nablarch_servlet_context_listener.html"/>
@@ -63,7 +63,7 @@
   
 
   
-    <div id="sidebar-version">Version: 6u2</div>
+    <div id="sidebar-version">Version: 6u3</div>
   </a>
 
   <div role="search">
@@ -142,6 +142,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../../development_tools/toolbox/index.html">Useful Tools When Developing Applications</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../../development_tools/toolbox/JspStaticAnalysis/index.html">Jakarta Server Pages Static Analysis Tool</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../development_tools/toolbox/SqlExecutor/SqlExecutor.html">Nablarch SQL Executor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../development_tools/toolbox/NablarchOpenApiGenerator/NablarchOpenApiGenerator.html">Nablarch OpenAPI Generator</a></li>
 </ul>
 </li>
 </ul>
@@ -370,8 +371,8 @@
 <p>This section describes the procedure for delegating the processing of a request to the handler queue.</p>
 <dl class="docutils">
 <dt>Configure in the component configuration file</dt>
-<dd><p class="first">Configure <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/fw/web/servlet/WebFrontController.html" title="nablarch.fw.web.servlet.WebFrontController">WebFrontController</a> in the component configuration file,
-add the handlers used by the application to <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/fw/HandlerQueueManager.html#setHandlerQueue(java.util.Collection)" title="nablarch.fw.HandlerQueueManager.setHandlerQueue(java.util.Collection)">handlerQueue</a>
+<dd><p class="first">Configure <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/fw/web/servlet/WebFrontController.html" title="nablarch.fw.web.servlet.WebFrontController">WebFrontController</a> in the component configuration file,
+add the handlers used by the application to <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/fw/HandlerQueueManager.html#setHandlerQueue(java.util.Collection)" title="nablarch.fw.HandlerQueueManager.setHandlerQueue(java.util.Collection)">handlerQueue</a>
 property in order.</p>
 <p>The configuration example of the component configuration file is shown below.</p>
 <dl class="docutils">
@@ -396,7 +397,7 @@ property in order.</p>
 </div>
 </dd>
 <dt>Configure servlet filters</dt>
-<dd><p class="first">Configure <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/fw/web/servlet/RepositoryBasedWebFrontController.html" title="nablarch.fw.web.servlet.RepositoryBasedWebFrontController">RepositoryBasedWebFrontController</a>
+<dd><p class="first">Configure <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/fw/web/servlet/RepositoryBasedWebFrontController.html" title="nablarch.fw.web.servlet.RepositoryBasedWebFrontController">RepositoryBasedWebFrontController</a>
 to <cite>web.xml</cite> as a servlet filter.
 This filter delegates the processing of the request received from the client to the handler queue that is registered earlier in the system repository.</p>
 <p>A configuration example for <cite>web.xml</cite> is shown below.</p>
@@ -436,7 +437,7 @@ This filter delegates the processing of the request received from the client to 
 <div><p>For example, if you want to process some requests as RESTful web services in a web application-based application.
 There may be a case where you want to use a web application and a web service together.
 In such a case, it is necessary to define multiple web front controllers with different handler configurations.
-<a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/fw/web/servlet/RepositoryBasedWebFrontController.html" title="nablarch.fw.web.servlet.RepositoryBasedWebFrontController">RepositoryBasedWebFrontController</a> is by default
+<a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/fw/web/servlet/RepositoryBasedWebFrontController.html" title="nablarch.fw.web.servlet.RepositoryBasedWebFrontController">RepositoryBasedWebFrontController</a> is by default
 Get the web front controller transferred from the system repository with the name <code class="docutils literal"><span class="pre">webFrontController</span></code>.
 You can change the name of the web front controller retrieved from the system repository by setting initialization parameters in <cite>web.xml</cite>.</p>
 <p>An example web front controller configuration with two handler configurations, one for web applications and one for RESTful web services, is shown below.</p>
@@ -519,7 +520,7 @@ and the web front controller with a handler configuration for a RESTful web serv
 
     <div role="contentinfo">
         <p>
-            &copy; Copyright 2010-2024, TIS Inc.
+            &copy; Copyright 2010-2025, TIS Inc.
         </p>
     </div>
     Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
@@ -540,7 +541,7 @@ and the web front controller with a handler configuration for a RESTful web serv
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../../',
-            VERSION:'6u2',
+            VERSION:'6u3',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

@@ -9,7 +9,7 @@
   <meta http-equiv='content-language' content='ja'>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>障害ログの出力 &mdash; ∇Nablarch  6u2 ドキュメント</title>
+  <title>障害ログの出力 &mdash; ∇Nablarch  6u3 ドキュメント</title>
   
 
   
@@ -35,7 +35,7 @@
   
   <link rel="canonical" href="https://nablarch.github.io/docs/LATEST/doc/application_framework/application_framework/libraries/log/failure_log.html" />
   
-    <link rel="top" title="∇Nablarch  6u2 ドキュメント" href="../../../../index.html"/>
+    <link rel="top" title="∇Nablarch  6u3 ドキュメント" href="../../../../index.html"/>
         <link rel="up" title="ログ出力" href="../log.html"/>
         <link rel="next" title="SQLログの出力" href="sql_log.html"/>
         <link rel="prev" title="ログ出力" href="../log.html"/>
@@ -63,7 +63,7 @@
   
 
   
-    <div id="sidebar-version">Version: 6u2</div>
+    <div id="sidebar-version">Version: 6u3</div>
   </a>
 
   <div role="search">
@@ -142,6 +142,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../../development_tools/toolbox/index.html">アプリケーション開発時に使える便利なツール</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../../development_tools/toolbox/JspStaticAnalysis/index.html">Jakarta Server Pages静的解析ツール</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../development_tools/toolbox/SqlExecutor/SqlExecutor.html">Nablarch SQL Executor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../development_tools/toolbox/NablarchOpenApiGenerator/NablarchOpenApiGenerator.html">Nablarch OpenAPI Generator</a></li>
 </ul>
 </li>
 </ul>
@@ -273,10 +274,10 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../migration/index.html#jsr352">JSR352に準拠したバッチアプリケーションの移行手順</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../../migration/index.html#id12">実行時にエラーになる場合の対処方法</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../migration/index.html#id13">実行時にエラーになる場合の対処方法</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../migration/index.html#id13">付録</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../migration/index.html#id14">付録</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../../migration/index.html#java-ee-jakarta-ee-comparation">Java EEとJakarta EEの仕様の対応表</a></li>
 </ul>
 </li>
@@ -454,7 +455,7 @@
 <h2><a class="toc-backref" href="#id13">使用方法</a><a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <div class="section" id="failure-log-logging">
 <span id="id5"></span><h3><a class="toc-backref" href="#id14">障害ログを出力する</a><a class="headerlink" href="#failure-log-logging" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>障害ログの出力には、 <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/core/log/app/FailureLogUtil.html" title="nablarch.core.log.app.FailureLogUtil">FailureLogUtil</a> を使用する。</p>
+<p>障害ログの出力には、 <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/core/log/app/FailureLogUtil.html" title="nablarch.core.log.app.FailureLogUtil">FailureLogUtil</a> を使用する。</p>
 <div class="highlight-java"><div class="highlight"><pre><span></span><span class="k">try</span> <span class="o">{</span>
     <span class="c1">// 業務処理</span>
 <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">UserNotFoundException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
@@ -466,8 +467,8 @@
 <p>なお、バッチとメッセージングにおいては、障害を検知した時点で、
 障害ログを出力して業務処理を終了したい場合がある。
 このような場合は、
-<a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/fw/results/TransactionAbnormalEnd.html" title="nablarch.fw.results.TransactionAbnormalEnd">TransactionAbnormalEnd</a> または
-<a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/fw/launcher/ProcessAbnormalEnd.html" title="nablarch.fw.launcher.ProcessAbnormalEnd">ProcessAbnormalEnd</a> を送出し、
+<a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/fw/results/TransactionAbnormalEnd.html" title="nablarch.fw.results.TransactionAbnormalEnd">TransactionAbnormalEnd</a> または
+<a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/fw/launcher/ProcessAbnormalEnd.html" title="nablarch.fw.launcher.ProcessAbnormalEnd">ProcessAbnormalEnd</a> を送出し、
 例外ハンドラ(<a class="reference internal" href="../../handlers/common/global_error_handler.html#global-error-handler"><span>グローバルエラーハンドラ</span></a> や <a class="reference internal" href="../../handlers/standalone/request_thread_loop_handler.html#request-thread-loop-handler"><span>リクエストスレッド内ループ制御ハンドラ</span></a>) に障害ログの出力を依頼する。</p>
 <div class="highlight-java"><div class="highlight"><pre><span></span><span class="c1">// 自ら例外を生成する場合</span>
 <span class="k">if</span> <span class="o">(</span><span class="n">user</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
@@ -512,7 +513,7 @@
 <dd><p class="first"></p>
 <dl class="docutils">
 <dt>failureLogFormatter.className</dt>
-<dd><a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/core/log/app/FailureLogFormatter.html" title="nablarch.core.log.app.FailureLogFormatter">FailureLogFormatter</a> を実装したクラス。
+<dd><a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/core/log/app/FailureLogFormatter.html" title="nablarch.core.log.app.FailureLogFormatter">FailureLogFormatter</a> を実装したクラス。
 差し替える場合に指定する。</dd>
 </dl>
 <dl class="docutils" id="failure-log-prop-default-failure-code">
@@ -526,7 +527,7 @@
 デフォルトの障害コードを使用する場合に出力するメッセージとなる。</dd>
 <dt>failureLogFormatter.language</dt>
 <dd>障害コードからメッセージを取得する際に使用する言語。
-指定がない場合は <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/core/ThreadContext.html" title="nablarch.core.ThreadContext">ThreadContext</a> に設定されている言語を使用する。</dd>
+指定がない場合は <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/core/ThreadContext.html" title="nablarch.core.ThreadContext">ThreadContext</a> に設定されている言語を使用する。</dd>
 </dl>
 <dl class="docutils" id="failure-log-prop-notification-format">
 <dt>failureLogFormatter.notificationFormat</dt>
@@ -621,7 +622,7 @@
 <p>大規模システムで障害時の連絡先が複数存在する場合など、障害ログに連絡先情報を含めたい場合がある。
 そこで、障害ログの出力では、リクエストID毎に連絡先情報を指定する機能を提供する。</p>
 <p>連絡先情報の追加は、プロパティファイルに指定する。キーにリクエストID、値に連絡先情報を指定する。
-キーに指定されたリクエストIDは、 <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/core/ThreadContext.html" title="nablarch.core.ThreadContext">ThreadContext</a> から取得したリクエストIDに対して、前方一致で検索する。
+キーに指定されたリクエストIDは、 <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/core/ThreadContext.html" title="nablarch.core.ThreadContext">ThreadContext</a> から取得したリクエストIDに対して、前方一致で検索する。
 このため、プロパティファイルの内容は読み込み後に、より限定的なリクエストIDから検索するように、キー名の長さの降順にソートする。</p>
 <p>連絡先情報の追加例を下記に示す。</p>
 <p>まず、プロパティファイルを準備する。 <code class="docutils literal"><span class="pre">failure-log-contact.properties</span></code> というファイル名でクラスパス直下に配置しているものとする。</p>
@@ -849,15 +850,15 @@ Stack Trace Information :
 プロジェクトのセキュリティ要件で特定項目をマスクした出力が要求されるケースが考えられる。
 このように、プレースホルダに対する出力処理をカスタマイズしたい場合は、以下のとおり対応する。</p>
 <ul class="simple">
-<li><a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/core/log/LogItem.html" title="nablarch.core.log.LogItem">LogItem</a> を実装したクラスを作る</li>
-<li><a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/core/log/app/FailureLogFormatter.html" title="nablarch.core.log.app.FailureLogFormatter">FailureLogFormatter</a> を継承したクラスを作り、プレースホルダを追加する</li>
-<li><a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/core/log/app/FailureLogFormatter.html" title="nablarch.core.log.app.FailureLogFormatter">FailureLogFormatter</a> を継承したクラスを使うように設定する</li>
+<li><a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/core/log/LogItem.html" title="nablarch.core.log.LogItem">LogItem</a> を実装したクラスを作る</li>
+<li><a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/core/log/app/FailureLogFormatter.html" title="nablarch.core.log.app.FailureLogFormatter">FailureLogFormatter</a> を継承したクラスを作り、プレースホルダを追加する</li>
+<li><a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/core/log/app/FailureLogFormatter.html" title="nablarch.core.log.app.FailureLogFormatter">FailureLogFormatter</a> を継承したクラスを使うように設定する</li>
 </ul>
 <p>ここでは、処理対象データ($data$)に対する出力処理のカスタマイズ例を示す。</p>
 <dl class="docutils">
-<dt><a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/core/log/LogItem.html" title="nablarch.core.log.LogItem">LogItem</a> を実装したクラスを作る</dt>
+<dt><a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/core/log/LogItem.html" title="nablarch.core.log.LogItem">LogItem</a> を実装したクラスを作る</dt>
 <dd><p class="first">処理対象データ($data$)に対する出力内容を提供するクラスを作る。
-今回はフレームワークが提供する <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/core/log/app/FailureLogFormatter.DataItem.html" title="nablarch.core.log.app.FailureLogFormatter.DataItem">DataItem</a> を継承して作成し、
+今回はフレームワークが提供する <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/core/log/app/FailureLogFormatter.DataItem.html" title="nablarch.core.log.app.FailureLogFormatter.DataItem">DataItem</a> を継承して作成し、
 処理対象データがMap型の場合のみマスク処理を行うように実装している。</p>
 <div class="last highlight-java"><div class="highlight"><pre><span></span><span class="c1">// FailureLogFormatterの拡張クラスにインナークラスとして定義している。</span>
 <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="kd">class</span> <span class="nc">CustomDataItem</span> <span class="kd">extends</span> <span class="n">DataItem</span> <span class="o">{</span>
@@ -901,8 +902,8 @@ Stack Trace Information :
 </pre></div>
 </div>
 </dd>
-<dt><a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/core/log/app/FailureLogFormatter.html" title="nablarch.core.log.app.FailureLogFormatter">FailureLogFormatter</a> を継承したクラスを作り、プレースホルダを追加する</dt>
-<dd><p class="first"><a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/core/log/app/FailureLogFormatter.html#getLogItems(java.util.Map)" title="nablarch.core.log.app.FailureLogFormatter.getLogItems(java.util.Map)">FailureLogFormatter#getLogItems</a>
+<dt><a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/core/log/app/FailureLogFormatter.html" title="nablarch.core.log.app.FailureLogFormatter">FailureLogFormatter</a> を継承したクラスを作り、プレースホルダを追加する</dt>
+<dd><p class="first"><a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/core/log/app/FailureLogFormatter.html#getLogItems(java.util.Map)" title="nablarch.core.log.app.FailureLogFormatter.getLogItems(java.util.Map)">FailureLogFormatter#getLogItems</a>
 をオーバライドし、プレースホルダ <code class="docutils literal"><span class="pre">$data$</span></code> に対して上記のCustomDataItemを設定する。</p>
 <div class="last highlight-java"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">CustomDataFailureLogFormatter</span> <span class="kd">extends</span> <span class="n">FailureLogFormatter</span> <span class="o">{</span>
 
@@ -924,7 +925,7 @@ Stack Trace Information :
 </pre></div>
 </div>
 </dd>
-<dt><a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/core/log/app/FailureLogFormatter.html" title="nablarch.core.log.app.FailureLogFormatter">FailureLogFormatter</a> を継承したクラスを使うように設定する</dt>
+<dt><a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/core/log/app/FailureLogFormatter.html" title="nablarch.core.log.app.FailureLogFormatter">FailureLogFormatter</a> を継承したクラスを使うように設定する</dt>
 <dd><p class="first">障害ログのフォーマッタとしてCustomDataFailureLogFormatterを使用するように <code class="docutils literal"><span class="pre">app-log.properties</span></code> に設定する。</p>
 <div class="last highlight-properties"><div class="highlight"><pre><span></span><span class="c"># CustomDataFailureLogFormatterを指定する。</span>
 <span class="na">failureLogFormatter.className</span><span class="o">=</span><span class="s">nablarch.core.log.app.CustomDataFailureLogFormatter</span>
@@ -940,19 +941,19 @@ Stack Trace Information :
 <div class="section" id="json">
 <span id="failure-log-json-setting"></span><h3><a class="toc-backref" href="#id20">JSON形式の構造化ログとして出力する</a><a class="headerlink" href="#json" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p><a class="reference internal" href="../log.html#log-json-log-setting"><span>JSON形式の構造化ログとして出力する</span></a> 設定でログをJSON形式で出力できるが、
-<a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/core/log/app/FailureLogFormatter.html" title="nablarch.core.log.app.FailureLogFormatter">FailureLogFormatter</a> では
+<a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/core/log/app/FailureLogFormatter.html" title="nablarch.core.log.app.FailureLogFormatter">FailureLogFormatter</a> では
 障害ログの各項目はmessageの値に文字列として出力される。
 障害ログの各項目もJSONの値として出力するには、
-<a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/core/log/app/FailureJsonLogFormatter.html" title="nablarch.core.log.app.FailureJsonLogFormatter">FailureJsonLogFormatter</a> を使用する。
+<a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/core/log/app/FailureJsonLogFormatter.html" title="nablarch.core.log.app.FailureJsonLogFormatter">FailureJsonLogFormatter</a> を使用する。
 設定は、 <a class="reference internal" href="../log.html#log-app-log-setting"><span>各種ログの設定</span></a> で説明したプロパティファイルに行う。</p>
 <dl class="docutils">
 <dt>記述ルール</dt>
-<dd><p class="first"><a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/core/log/app/FailureJsonLogFormatter.html" title="nablarch.core.log.app.FailureJsonLogFormatter">FailureJsonLogFormatter</a> を用いる際に
+<dd><p class="first"><a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/core/log/app/FailureJsonLogFormatter.html" title="nablarch.core.log.app.FailureJsonLogFormatter">FailureJsonLogFormatter</a> を用いる際に
 指定するプロパティは以下の通り。</p>
 <dl class="docutils">
 <dt>failureLogFormatter.className <code class="docutils literal"><span class="pre">必須</span></code></dt>
 <dd>JSON形式でログを出力する場合、
-<a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/core/log/app/FailureJsonLogFormatter.html" title="nablarch.core.log.app.FailureJsonLogFormatter">FailureJsonLogFormatter</a> を指定する。</dd>
+<a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/core/log/app/FailureJsonLogFormatter.html" title="nablarch.core.log.app.FailureJsonLogFormatter">FailureJsonLogFormatter</a> を指定する。</dd>
 <dt>failureLogFormatter.defaultFailureCode <code class="docutils literal"><span class="pre">必須</span></code></dt>
 <dd>デフォルトの障害コード。
 例外ハンドラで例外がエラーを捕捉した場合など、障害コードの指定がない場合に使用する。</dd>
@@ -961,7 +962,7 @@ Stack Trace Information :
 デフォルトの障害コードを使用する場合に出力するメッセージとなる。</dd>
 <dt>failureLogFormatter.language</dt>
 <dd>障害コードからメッセージを取得する際に使用する言語。
-指定がない場合は <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/core/ThreadContext.html" title="nablarch.core.ThreadContext">ThreadContext</a> に設定されている言語を使用する。</dd>
+指定がない場合は <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/core/ThreadContext.html" title="nablarch.core.ThreadContext">ThreadContext</a> に設定されている言語を使用する。</dd>
 </dl>
 <dl class="last docutils" id="failure-log-prop-notification-targets">
 <dt>failureLogFormatter.notificationTargets</dt>
@@ -1024,9 +1025,9 @@ Stack Trace Information :
 詳細は <a class="reference internal" href="#failure-log-change-fw-failure-code"><span>フレームワークの障害コードを変更する</span></a> を参照。</dd>
 <dt>failureLogFormatter.structuredMessagePrefix</dt>
 <dd>フォーマット後のメッセージ文字列が JSON 形式に整形されていることを識別できるようにするために、メッセージの先頭に付与するマーカー文字列。
-メッセージの先頭にあるマーカー文字列が <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/core/log/basic/JsonLogFormatter.html" title="nablarch.core.log.basic.JsonLogFormatter">JsonLogFormatter</a> に設定しているマーカー文字列と一致する場合、 <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/core/log/basic/JsonLogFormatter.html" title="nablarch.core.log.basic.JsonLogFormatter">JsonLogFormatter</a> はメッセージを JSON データとして処理する。
+メッセージの先頭にあるマーカー文字列が <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/core/log/basic/JsonLogFormatter.html" title="nablarch.core.log.basic.JsonLogFormatter">JsonLogFormatter</a> に設定しているマーカー文字列と一致する場合、 <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/core/log/basic/JsonLogFormatter.html" title="nablarch.core.log.basic.JsonLogFormatter">JsonLogFormatter</a> はメッセージを JSON データとして処理する。
 デフォルトは <code class="docutils literal"><span class="pre">&quot;$JSON$&quot;</span></code> となる。
-変更する場合は、LogWriterの <code class="docutils literal"><span class="pre">structuredMessagePrefix</span></code> プロパティを使用して <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/core/log/basic/JsonLogFormatter.html" title="nablarch.core.log.basic.JsonLogFormatter">JsonLogFormatter</a> にも同じ値を設定すること（LogWriterのプロパティについては <a class="reference internal" href="../log.html#log-basic-setting"><span>ログ出力の設定</span></a> を参照）。</dd>
+変更する場合は、LogWriterの <code class="docutils literal"><span class="pre">structuredMessagePrefix</span></code> プロパティを使用して <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/core/log/basic/JsonLogFormatter.html" title="nablarch.core.log.basic.JsonLogFormatter">JsonLogFormatter</a> にも同じ値を設定すること（LogWriterのプロパティについては <a class="reference internal" href="../log.html#log-basic-setting"><span>ログ出力の設定</span></a> を参照）。</dd>
 </dl>
 </dd>
 <dt>記述例</dt>
@@ -1056,7 +1057,7 @@ Stack Trace Information :
 
     <div role="contentinfo">
         <p>
-            &copy; Copyright 2010-2024, TIS Inc.
+            &copy; Copyright 2010-2025, TIS Inc.
         </p>
     </div>
     Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
@@ -1077,7 +1078,7 @@ Stack Trace Information :
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../../',
-            VERSION:'6u2',
+            VERSION:'6u3',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

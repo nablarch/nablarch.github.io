@@ -9,7 +9,7 @@
   <meta http-equiv='content-language' content='ja'>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Doma Adapter &mdash; ∇Nablarch  6u2 documentation</title>
+  <title>Doma Adapter &mdash; ∇Nablarch  6u3 documentation</title>
   
 
   
@@ -35,7 +35,7 @@
   
   <link rel="canonical" href="https://nablarch.github.io/docs/LATEST/doc/application_framework/adaptors/doma_adaptor.html" />
   
-    <link rel="top" title="∇Nablarch  6u2 documentation" href="../../index.html"/>
+    <link rel="top" title="∇Nablarch  6u3 documentation" href="../../index.html"/>
         <link rel="up" title="Adaptor" href="index.html"/>
         <link rel="next" title="JSR310(Date and Time API)Adapter" href="jsr310_adaptor.html"/>
         <link rel="prev" title="Jakarta RESTful Web Services Adapter" href="jaxrs_adaptor.html"/>
@@ -63,7 +63,7 @@
   
 
   
-    <div id="sidebar-version">Version: 6u2</div>
+    <div id="sidebar-version">Version: 6u3</div>
   </a>
 
   <div role="search">
@@ -142,6 +142,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../development_tools/toolbox/index.html">Useful Tools When Developing Applications</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../development_tools/toolbox/JspStaticAnalysis/index.html">Jakarta Server Pages Static Analysis Tool</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../development_tools/toolbox/SqlExecutor/SqlExecutor.html">Nablarch SQL Executor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../development_tools/toolbox/NablarchOpenApiGenerator/NablarchOpenApiGenerator.html">Nablarch OpenAPI Generator</a></li>
 </ul>
 </li>
 </ul>
@@ -377,7 +378,7 @@
 <li>Like Nablarch, you can build SQL statements dynamically during execution.</li>
 <li>Since it is 2waySQL, SQL statements are not required to be rewritten as in Nablarch and can be executed directly using an SQL tool.</li>
 </ul>
-<p>Since only the actions specified in  <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/integration/doma/Transactional.html" title="nablarch.integration.doma.Transactional">Transactional</a> .
+<p>Since only the actions specified in  <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/integration/doma/Transactional.html" title="nablarch.integration.doma.Transactional">Transactional</a> .
 interceptor can be subject to transaction management by using this adapter, unnecessary transaction control processing is reduced, and performance is improved.</p>
 <div class="section" id="module-list">
 <h2><a class="toc-backref" href="#id1">Module list</a><a class="headerlink" href="#module-list" title="Permalink to this headline">¶</a></h2>
@@ -398,7 +399,7 @@ When changing the version, test in the project to confirm that there are no prob
 <h2><a class="toc-backref" href="#id2">Configuration for using the Doma adapter</a><a class="headerlink" href="#configuration-for-using-the-doma-adapter" title="Permalink to this headline">¶</a></h2>
 <p>The steps for using this adapter are shown below.</p>
 <div class="section" id="configure-dependencies">
-<h3><a class="toc-backref" href="#id3">Configure dependencies</a><a class="headerlink" href="#configure-dependencies" title="Permalink to this headline">¶</a></h3>
+<span id="doma-dependency"></span><h3><a class="toc-backref" href="#id3">Configure dependencies</a><a class="headerlink" href="#configure-dependencies" title="Permalink to this headline">¶</a></h3>
 <p>You need to set the project dependencies by referring to the following.</p>
 <p>For details, see <a class="reference external" href="https://doma.readthedocs.io/en/latest/build/#build-with-maven">Maven build configuration in Doma2(external site)</a> .</p>
 <div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;build&gt;</span>
@@ -466,14 +467,14 @@ When changing the version, test in the project to confirm that there are no prob
 <dl class="docutils">
 <dt>Point</dt>
 <dd><ul class="first simple">
-<li>Configure <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/integration/doma/Transactional.html" title="nablarch.integration.doma.Transactional">Transactional</a> interceptor to make business action method be subject to transaction management</li>
-<li>Configure <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/integration/doma/DomaDaoRepository.html#get(java.lang.Class)" title="nablarch.integration.doma.DomaDaoRepository.get(java.lang.Class)">DomaDaoRepository#get</a> to look up Dao implementation class</li>
+<li>Configure <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/integration/doma/Transactional.html" title="nablarch.integration.doma.Transactional">Transactional</a> interceptor to make business action method be subject to transaction management</li>
+<li>Configure <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/integration/doma/DomaDaoRepository.html#get(java.lang.Class)" title="nablarch.integration.doma.DomaDaoRepository.get(java.lang.Class)">DomaDaoRepository#get</a> to look up Dao implementation class</li>
 </ul>
 <blockquote class="last">
 <div><div class="admonition tip">
 <p class="first admonition-title">Tip</p>
 <p class="last">In Doma, since the implementation class of Dao is automatically generated during compilation by annotation processing, the implementation class does not exist as yet at the time of coding.
-Therefore,  <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/integration/doma/DomaDaoRepository.html" title="nablarch.integration.doma.DomaDaoRepository">DomaDaoRepository</a> is provided as a function to look up the implementation class of Dao in this adapter.</p>
+Therefore,  <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/integration/doma/DomaDaoRepository.html" title="nablarch.integration.doma.DomaDaoRepository">DomaDaoRepository</a> is provided as a function to look up the implementation class of Dao in this adapter.</p>
 </div>
 </div></blockquote>
 </dd>
@@ -497,8 +498,8 @@ For more information, see <a class="reference internal" href="#migration-doma2-4
 </div>
 <div class="section" id="execute-in-another-transaction">
 <h2><a class="toc-backref" href="#id8">Execute in another transaction</a><a class="headerlink" href="#execute-in-another-transaction" title="Permalink to this headline">¶</a></h2>
-<p>Accessing the database using a different transaction than the one started by the <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/integration/doma/Transactional.html" title="nablarch.integration.doma.Transactional">Transactional</a> interceptor may be required in some cases</p>
-<p>n that case, control in another transaction using TransactionManager fetched by  <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/integration/doma/DomaConfig.html#getTransactionManager()" title="nablarch.integration.doma.DomaConfig.getTransactionManager()">DomaConfig#getTransactionManager</a>.</p>
+<p>Accessing the database using a different transaction than the one started by the <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/integration/doma/Transactional.html" title="nablarch.integration.doma.Transactional">Transactional</a> interceptor may be required in some cases</p>
+<p>n that case, control in another transaction using TransactionManager fetched by  <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/integration/doma/DomaConfig.html#getTransactionManager()" title="nablarch.integration.doma.DomaConfig.getTransactionManager()">DomaConfig#getTransactionManager</a>.</p>
 <p>An implementation example is shown below.</p>
 <div class="highlight-java"><div class="highlight"><pre><span></span><span class="n">DomaConfig</span><span class="o">.</span><span class="na">singleton</span><span class="o">()</span>
         <span class="o">.</span><span class="na">getTransactionManager</span><span class="o">()</span>
@@ -511,8 +512,8 @@ For more information, see <a class="reference internal" href="#migration-doma2-4
 <h2><a class="toc-backref" href="#id9">Using in a Jakarta Batch-compliant batch application</a><a class="headerlink" href="#using-in-a-jakarta-batch-compliant-batch-application" title="Permalink to this headline">¶</a></h2>
 <p>The following listeners are provided in this adapter to use Doma in Jakarta Batch-compliant batch applications.</p>
 <ul class="simple">
-<li><a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/integration/doma/batch/ee/listener/DomaTransactionStepListener.html" title="nablarch.integration.doma.batch.ee.listener.DomaTransactionStepListener">DomaTransactionStepListener</a></li>
-<li><a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/integration/doma/batch/ee/listener/DomaTransactionItemWriteListener.html" title="nablarch.integration.doma.batch.ee.listener.DomaTransactionItemWriteListener">DomaTransactionItemWriteListener</a></li>
+<li><a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/integration/doma/batch/ee/listener/DomaTransactionStepListener.html" title="nablarch.integration.doma.batch.ee.listener.DomaTransactionStepListener">DomaTransactionStepListener</a></li>
+<li><a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/integration/doma/batch/ee/listener/DomaTransactionItemWriteListener.html" title="nablarch.integration.doma.batch.ee.listener.DomaTransactionItemWriteListener">DomaTransactionItemWriteListener</a></li>
 </ul>
 <p>By defining these listeners in the listener list, it is possible to access the database using Doma even in Jakarta Batch-compliant batch applications.</p>
 <p>The configuration example shown below.</p>
@@ -546,10 +547,10 @@ For more information, see <a class="reference internal" href="#migration-doma2-4
 <div class="section" id="deferred-loading-in-jakarta-batch-compliant-batch-applications">
 <h2><a class="toc-backref" href="#id10">Deferred loading in Jakarta Batch-compliant batch applications</a><a class="headerlink" href="#deferred-loading-in-jakarta-batch-compliant-batch-applications" title="Permalink to this headline">¶</a></h2>
 <p>When loading a large amount of data with Jakarta Batch-compliant batch applications, you may want to use deferred loading.</p>
-<p>In that case, when looking up the Dao implementation class, use <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/integration/doma/DomaDaoRepository.html#get(java.lang.Class,java.lang.Class)" title="nablarch.integration.doma.DomaDaoRepository.get(java.lang.Class,java.lang.Class)">DomaDaoRepository#get(java.lang.Class,java.lang.Class)</a> and specify the Class class of <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/integration/doma/DomaTransactionNotSupportedConfig.html" title="nablarch.integration.doma.DomaTransactionNotSupportedConfig">DomaTransactionNotSupportedConfig</a> as the second argument.</p>
+<p>In that case, when looking up the Dao implementation class, use <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/integration/doma/DomaDaoRepository.html#get(java.lang.Class,java.lang.Class)" title="nablarch.integration.doma.DomaDaoRepository.get(java.lang.Class,java.lang.Class)">DomaDaoRepository#get(java.lang.Class,java.lang.Class)</a> and specify the Class class of <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/integration/doma/DomaTransactionNotSupportedConfig.html" title="nablarch.integration.doma.DomaTransactionNotSupportedConfig">DomaTransactionNotSupportedConfig</a> as the second argument.</p>
 <div class="admonition important">
 <p class="first admonition-title">Important</p>
-<p class="last">When <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/integration/doma/DomaDaoRepository.html#get(java.lang.Class)" title="nablarch.integration.doma.DomaDaoRepository.get(java.lang.Class)">DomaDaoRepository#get(java.lang.Class)</a> is used, <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/integration/doma/DomaConfig.html" title="nablarch.integration.doma.DomaConfig">DomaConfig</a> is used, therefore the stream is closed when the transaction is committed by <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/integration/doma/batch/ee/listener/DomaTransactionItemWriteListener.html" title="nablarch.integration.doma.batch.ee.listener.DomaTransactionItemWriteListener">DomaTransactionItemWriteListener</a> , and subsequent records cannot be read.</p>
+<p class="last">When <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/integration/doma/DomaDaoRepository.html#get(java.lang.Class)" title="nablarch.integration.doma.DomaDaoRepository.get(java.lang.Class)">DomaDaoRepository#get(java.lang.Class)</a> is used, <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/integration/doma/DomaConfig.html" title="nablarch.integration.doma.DomaConfig">DomaConfig</a> is used, therefore the stream is closed when the transaction is committed by <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/integration/doma/batch/ee/listener/DomaTransactionItemWriteListener.html" title="nablarch.integration.doma.batch.ee.listener.DomaTransactionItemWriteListener">DomaTransactionItemWriteListener</a> , and subsequent records cannot be read.</p>
 </div>
 <p>An implementation example is shown below.</p>
 <dl class="docutils">
@@ -574,7 +575,7 @@ For more information, see <a class="reference internal" href="#migration-doma2-4
 <dd><dl class="first docutils">
 <dt>Point</dt>
 <dd><ul class="first last simple">
-<li>To get the Dao implementation class, use <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/integration/doma/DomaDaoRepository.html#get(java.lang.Class,java.lang.Class)" title="nablarch.integration.doma.DomaDaoRepository.get(java.lang.Class,java.lang.Class)">DomaDaoRepository#get(java.lang.Class,java.lang.Class)</a> and specify <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/integration/doma/DomaTransactionNotSupportedConfig.html" title="nablarch.integration.doma.DomaTransactionNotSupportedConfig">DomaTransactionNotSupportedConfig</a> as the second argument.</li>
+<li>To get the Dao implementation class, use <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/integration/doma/DomaDaoRepository.html#get(java.lang.Class,java.lang.Class)" title="nablarch.integration.doma.DomaDaoRepository.get(java.lang.Class,java.lang.Class)">DomaDaoRepository#get(java.lang.Class,java.lang.Class)</a> and specify <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/integration/doma/DomaTransactionNotSupportedConfig.html" title="nablarch.integration.doma.DomaTransactionNotSupportedConfig">DomaTransactionNotSupportedConfig</a> as the second argument.</li>
 <li>Fetch the search result stream with open method.</li>
 <li>Always close the stream with the close method to prevent the release of resources.</li>
 </ul>
@@ -668,7 +669,7 @@ For more information, see <a class="reference internal" href="#migration-doma2-4
 <dd><dl class="first docutils">
 <dt>Point</dt>
 <dd><ul class="first last simple">
-<li>To get the Dao implementation class, use <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/integration/doma/DomaDaoRepository.html#get(java.lang.Class,java.lang.Class)" title="nablarch.integration.doma.DomaDaoRepository.get(java.lang.Class,java.lang.Class)">DomaDaoRepository#get(java.lang.Class,java.lang.Class)</a> and specify the created Config class as the second argument.</li>
+<li>To get the Dao implementation class, use <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/integration/doma/DomaDaoRepository.html#get(java.lang.Class,java.lang.Class)" title="nablarch.integration.doma.DomaDaoRepository.get(java.lang.Class,java.lang.Class)">DomaDaoRepository#get(java.lang.Class,java.lang.Class)</a> and specify the created Config class as the second argument.</li>
 </ul>
 </dd>
 </dl>
@@ -702,7 +703,7 @@ For example, when using <a class="reference internal" href="../application_frame
 <dd><p class="first">Add the following definition to the component configuration file.
 As a result, database access of Nablarch is automatically executed under the transaction of Doma.</p>
 <ul class="simple">
-<li>Define <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/integration/doma/ConnectionFactoryFromDomaConnection.html" title="nablarch.integration.doma.ConnectionFactoryFromDomaConnection">ConnectionFactoryFromDomaConnection</a> in the component configuration file.
+<li>Define <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/integration/doma/ConnectionFactoryFromDomaConnection.html" title="nablarch.integration.doma.ConnectionFactoryFromDomaConnection">ConnectionFactoryFromDomaConnection</a> in the component configuration file.
 The component name should be <code class="docutils literal"><span class="pre">connectionFactoryFromDoma</span></code>.</li>
 <li>Configure ConnectionFactoryFromDomaConnection in the listener that controls the transaction of Doma for Jakarta Batch.</li>
 </ul>
@@ -732,8 +733,8 @@ The component name should be <code class="docutils literal"><span class="pre">co
 </div>
 <div class="section" id="switch-logger">
 <h2><a class="toc-backref" href="#id13">Switch logger</a><a class="headerlink" href="#switch-logger" title="Permalink to this headline">¶</a></h2>
-<p>This adapter provides  <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/integration/doma/NablarchJdbcLogger.html" title="nablarch.integration.doma.NablarchJdbcLogger">NablarchJdbcLogger</a>, which uses Nablarch logger as an implementation of the logger used by Doma.
-Although  <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/integration/doma/NablarchJdbcLogger.html" title="nablarch.integration.doma.NablarchJdbcLogger">NablarchJdbcLogger</a> is used by default, if the logger is to be replaced with another one, it must be configured in the component definition file.</p>
+<p>This adapter provides  <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/integration/doma/NablarchJdbcLogger.html" title="nablarch.integration.doma.NablarchJdbcLogger">NablarchJdbcLogger</a>, which uses Nablarch logger as an implementation of the logger used by Doma.
+Although  <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/integration/doma/NablarchJdbcLogger.html" title="nablarch.integration.doma.NablarchJdbcLogger">NablarchJdbcLogger</a> is used by default, if the logger is to be replaced with another one, it must be configured in the component definition file.</p>
 <p>The configuration example when <code class="docutils literal"><span class="pre">org.seasar.doma.jdbc.UtilLoggingJdbcLogger</span></code> is used is shown below.</p>
 <dl class="docutils">
 <dt>Point</dt>
@@ -750,7 +751,7 @@ Although  <a class="reference external" href="https://nablarch.github.io/docs/6u
 <div class="section" id="perform-configuration-for-java-sql-statement">
 <h2><a class="toc-backref" href="#id14">Perform configuration for java.sql.Statement</a><a class="headerlink" href="#perform-configuration-for-java-sql-statement" title="Permalink to this headline">¶</a></h2>
 <p>You may want to configure items related to <code class="docutils literal"><span class="pre">java.sql.Statement</span></code> such as fetch size and query timeout for the whole project.</p>
-<p>In such a case, configure <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/integration/doma/DomaStatementProperties.html" title="nablarch.integration.doma.DomaStatementProperties">DomaStatementProperties</a> in the component configuration file.</p>
+<p>In such a case, configure <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/integration/doma/DomaStatementProperties.html" title="nablarch.integration.doma.DomaStatementProperties">DomaStatementProperties</a> in the component configuration file.</p>
 <p>Items that can be configured include the following.</p>
 <ul class="simple">
 <li>Maximum number of rows</li>
@@ -823,11 +824,11 @@ Although  <a class="reference external" href="https://nablarch.github.io/docs/6u
 <span class="o">}</span>
 </pre></div>
 </div>
-<p>When you use a Dao that does not specify the config attribute of the Dao annotation and obtain the Dao implementation class using <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/integration/doma/DomaDaoRepository.html#get(java.lang.Class)" title="nablarch.integration.doma.DomaDaoRepository.get(java.lang.Class)">DomaDaoRepository#get</a> , the Dao implementation class is constructed using <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/integration/doma/DomaConfig.html" title="nablarch.integration.doma.DomaConfig">DomaConfig</a> .</p>
+<p>When you use a Dao that does not specify the config attribute of the Dao annotation and obtain the Dao implementation class using <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/integration/doma/DomaDaoRepository.html#get(java.lang.Class)" title="nablarch.integration.doma.DomaDaoRepository.get(java.lang.Class)">DomaDaoRepository#get</a> , the Dao implementation class is constructed using <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/integration/doma/DomaConfig.html" title="nablarch.integration.doma.DomaConfig">DomaConfig</a> .</p>
 </div>
 <div class="section" id="if-you-are-using-domatransactionnotsupportedconfig-for-lazy-loading">
 <h3><a class="toc-backref" href="#id17">If you are using DomaTransactionNotSupportedConfig for lazy loading</a><a class="headerlink" href="#if-you-are-using-domatransactionnotsupportedconfig-for-lazy-loading" title="Permalink to this headline">¶</a></h3>
-<p>An implementation example using <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/integration/doma/DomaTransactionNotSupportedConfig.html" title="nablarch.integration.doma.DomaTransactionNotSupportedConfig">DomaTransactionNotSupportedConfig</a> is shown below to support lazy loading in a batch application compliant with Jakarta Batch.</p>
+<p>An implementation example using <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/integration/doma/DomaTransactionNotSupportedConfig.html" title="nablarch.integration.doma.DomaTransactionNotSupportedConfig">DomaTransactionNotSupportedConfig</a> is shown below to support lazy loading in a batch application compliant with Jakarta Batch.</p>
 <div class="highlight-java"><div class="highlight"><pre><span></span><span class="c1">// Definition of Dao</span>
 <span class="nd">@Dao</span><span class="o">(</span><span class="n">config</span> <span class="o">=</span> <span class="n">DomaTransactionNotSupportedConfig</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>  <span class="cm">/* Specify the config attribute */</span>
 <span class="kd">public</span> <span class="kd">interface</span> <span class="nc">ProjectDao</span> <span class="o">{</span>
@@ -887,7 +888,7 @@ Although  <a class="reference external" href="https://nablarch.github.io/docs/6u
 <span class="o">}</span>
 </pre></div>
 </div>
-<p>When <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/integration/doma/DomaDaoRepository.html#get(java.lang.Class,java.lang.Class)" title="nablarch.integration.doma.DomaDaoRepository.get(java.lang.Class,java.lang.Class)">DomaDaoRepository#get(java.lang.Class,java.lang.Class)</a> is called using a Dao that does not specify the config attribute in the Dao annotation, the implementation class of the Dao is constructed using the Config specified in the second argument.</p>
+<p>When <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/integration/doma/DomaDaoRepository.html#get(java.lang.Class,java.lang.Class)" title="nablarch.integration.doma.DomaDaoRepository.get(java.lang.Class,java.lang.Class)">DomaDaoRepository#get(java.lang.Class,java.lang.Class)</a> is called using a Dao that does not specify the config attribute in the Dao annotation, the implementation class of the Dao is constructed using the Config specified in the second argument.</p>
 </div>
 <div class="section" id="if-you-have-created-your-own-config-class">
 <h3><a class="toc-backref" href="#id18">If you have created your own Config class</a><a class="headerlink" href="#if-you-have-created-your-own-config-class" title="Permalink to this headline">¶</a></h3>
@@ -955,7 +956,7 @@ Although  <a class="reference external" href="https://nablarch.github.io/docs/6u
 <span class="o">}</span>
 </pre></div>
 </div>
-<p>When <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/integration/doma/DomaDaoRepository.html#get(java.lang.Class,java.lang.Class)" title="nablarch.integration.doma.DomaDaoRepository.get(java.lang.Class,java.lang.Class)">DomaDaoRepository#get(java.lang.Class,java.lang.Class)</a> is called using a Dao that does not specify the config attribute in the Dao annotation, the implementation class of the Dao is constructed using the Config specified in the second argument.</p>
+<p>When <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/integration/doma/DomaDaoRepository.html#get(java.lang.Class,java.lang.Class)" title="nablarch.integration.doma.DomaDaoRepository.get(java.lang.Class,java.lang.Class)">DomaDaoRepository#get(java.lang.Class,java.lang.Class)</a> is called using a Dao that does not specify the config attribute in the Dao annotation, the implementation class of the Dao is constructed using the Config specified in the second argument.</p>
 </div>
 </div>
 </div>
@@ -972,7 +973,7 @@ Although  <a class="reference external" href="https://nablarch.github.io/docs/6u
 
     <div role="contentinfo">
         <p>
-            &copy; Copyright 2010-2024, TIS Inc.
+            &copy; Copyright 2010-2025, TIS Inc.
         </p>
     </div>
     Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
@@ -993,7 +994,7 @@ Although  <a class="reference external" href="https://nablarch.github.io/docs/6u
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../',
-            VERSION:'6u2',
+            VERSION:'6u3',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

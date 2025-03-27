@@ -9,7 +9,7 @@
   <meta http-equiv='content-language' content='ja'>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Nablarch API &mdash; ∇Nablarch  6u2 documentation</title>
+  <title>Nablarch API &mdash; ∇Nablarch  6u3 documentation</title>
   
 
   
@@ -35,7 +35,7 @@
   
   <link rel="canonical" href="https://nablarch.github.io/docs/LATEST/doc/nablarch_api/index.html" />
   
-    <link rel="top" title="∇Nablarch  6u2 documentation" href="../index.html"/>
+    <link rel="top" title="∇Nablarch  6u3 documentation" href="../index.html"/>
         <link rel="next" title="Nablarch upgrade policy" href="../about_nablarch/versionup_policy.html"/>
         <link rel="prev" title="Useful content for development in Nablarch" href="../external_contents/index.html"/>
 
@@ -62,7 +62,7 @@
   
 
   
-    <div id="sidebar-version">Version: 6u2</div>
+    <div id="sidebar-version">Version: 6u3</div>
   </a>
 
   <div role="search">
@@ -141,6 +141,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../development_tools/toolbox/index.html">Useful Tools When Developing Applications</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../development_tools/toolbox/JspStaticAnalysis/index.html">Jakarta Server Pages Static Analysis Tool</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../development_tools/toolbox/SqlExecutor/SqlExecutor.html">Nablarch SQL Executor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../development_tools/toolbox/NablarchOpenApiGenerator/NablarchOpenApiGenerator.html">Nablarch OpenAPI Generator</a></li>
 </ul>
 </li>
 </ul>
@@ -338,8 +339,8 @@
   <div class="section" id="nablarch-api">
 <h1>Nablarch API<a class="headerlink" href="#nablarch-api" title="Permalink to this headline">¶</a></h1>
 <ul class="simple">
-<li><a class="reference external" href="https://nablarch.github.io/docs/6u2/publishedApi/nablarch-all/NablarchApi/">Nablarch API Documentation</a></li>
-<li><a class="reference external" href="https://nablarch.github.io/docs/6u2/publishedApi/nablarch-testing/NablarchTestingApi/">Nablarch Testing API Documentation</a></li>
+<li><a class="reference external" href="https://nablarch.github.io/docs/6u3/publishedApi/nablarch-all/NablarchApi/">Nablarch API Documentation</a></li>
+<li><a class="reference external" href="https://nablarch.github.io/docs/6u3/publishedApi/nablarch-testing/NablarchTestingApi/">Nablarch Testing API Documentation</a></li>
 </ul>
 <div class="admonition tip">
 <p class="first admonition-title">Tip</p>
@@ -347,8 +348,8 @@
 However, from Nablarch 6, we provide API documentation including non published APIs.</p>
 <p>This is because the Java version has been upgraded and the mechanism for extending Javadoc generation has changed, making it impossible to generate Javadoc for only published APIs.</p>
 <p>Whether or not the referenced class or method is a published API can be determined by whether <code class="docutils literal"><span class="pre">&#64;Published</span></code> is described on the target Javadoc.</p>
-<p>For example, <a class="reference external" href="https://nablarch.github.io/docs/6u2/publishedApi/nablarch-all/NablarchApi/nablarch/common/dao/DaoContext.html">DaoContext</a> is a public API for architects because <code class="docutils literal"><span class="pre">&#64;Published(tag=&quot;architect&quot;)</span></code> is described at the class.
-On the other hand, the <a class="reference external" href="https://nablarch.github.io/docs/6u2/publishedApi/nablarch-all/NablarchApi/nablarch/common/dao/BasicDaoContext.html#findAll(java.lang.Class)">findAll method of BasicDaoContext</a> is a non published API because <code class="docutils literal"><span class="pre">&#64;Published</span></code> is not described in either the class or the method.</p>
+<p>For example, <a class="reference external" href="https://nablarch.github.io/docs/6u3/publishedApi/nablarch-all/NablarchApi/nablarch/common/dao/DaoContext.html">DaoContext</a> is a public API for architects because <code class="docutils literal"><span class="pre">&#64;Published(tag=&quot;architect&quot;)</span></code> is described at the class.
+On the other hand, the <a class="reference external" href="https://nablarch.github.io/docs/6u3/publishedApi/nablarch-all/NablarchApi/nablarch/common/dao/BasicDaoContext.html#findAll(java.lang.Class)">findAll method of BasicDaoContext</a> is a non published API because <code class="docutils literal"><span class="pre">&#64;Published</span></code> is not described in either the class or the method.</p>
 <p class="last">Please refer to <a class="reference internal" href="../about_nablarch/versionup_policy.html#versionup-policy-backward-compatibility-policy"><span>Backward compatibility policy</span></a> and <a class="reference external" href="https://github.com/Fintan-contents/coding-standards/blob/main/en/java/staticanalysis/unpublished-api/README.md">README of Unauthorized API Check Tool (external site)</a> for the details of specifications related to public API.</p>
 </div>
 </div>
@@ -365,7 +366,7 @@ On the other hand, the <a class="reference external" href="https://nablarch.gith
 
     <div role="contentinfo">
         <p>
-            &copy; Copyright 2010-2024, TIS Inc.
+            &copy; Copyright 2010-2025, TIS Inc.
         </p>
     </div>
     Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
@@ -386,7 +387,7 @@ On the other hand, the <a class="reference external" href="https://nablarch.gith
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'6u2',
+            VERSION:'6u3',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

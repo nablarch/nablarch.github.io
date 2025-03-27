@@ -9,7 +9,7 @@
   <meta http-equiv='content-language' content='ja'>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Permission Check Handler &mdash; ∇Nablarch  6u2 documentation</title>
+  <title>Permission Check Handler &mdash; ∇Nablarch  6u3 documentation</title>
   
 
   
@@ -35,7 +35,7 @@
   
   <link rel="canonical" href="https://nablarch.github.io/docs/LATEST/doc/application_framework/application_framework/handlers/common/permission_check_handler.html" />
   
-    <link rel="top" title="∇Nablarch  6u2 documentation" href="../../../../index.html"/>
+    <link rel="top" title="∇Nablarch  6u3 documentation" href="../../../../index.html"/>
         <link rel="up" title="Common Handler" href="index.html"/>
         <link rel="next" title="Service Availability Check Handler" href="ServiceAvailabilityCheckHandler.html"/>
         <link rel="prev" title="Transaction Control Handler" href="transaction_management_handler.html"/>
@@ -63,7 +63,7 @@
   
 
   
-    <div id="sidebar-version">Version: 6u2</div>
+    <div id="sidebar-version">Version: 6u3</div>
   </a>
 
   <div role="search">
@@ -142,6 +142,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../../development_tools/toolbox/index.html">Useful Tools When Developing Applications</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../../development_tools/toolbox/JspStaticAnalysis/index.html">Jakarta Server Pages Static Analysis Tool</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../development_tools/toolbox/SqlExecutor/SqlExecutor.html">Nablarch SQL Executor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../development_tools/toolbox/NablarchOpenApiGenerator/NablarchOpenApiGenerator.html">Nablarch OpenAPI Generator</a></li>
 </ul>
 </li>
 </ul>
@@ -359,7 +360,7 @@
 </div>
 <p>This handler performs <a class="reference internal" href="#permission-check-handler-request-checking"><span>Permission check for request</span></a>.</p>
 <p>The permission check is performed using <a class="reference internal" href="../../libraries/authorization/permission_check.html#permission-check"><span>Permission Check by handler</span></a> from the library.
-Therefore, to use this handler, it is necessary to configure a class that implements <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/common/permission/PermissionFactory.html" title="nablarch.common.permission.PermissionFactory">PermissionFactory</a> in this handler.</p>
+Therefore, to use this handler, it is necessary to configure a class that implements <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/common/permission/PermissionFactory.html" title="nablarch.common.permission.PermissionFactory">PermissionFactory</a> in this handler.</p>
 <p>This handler performs the following process.</p>
 <ul class="simple">
 <li>Permission check</li>
@@ -369,7 +370,7 @@ Therefore, to use this handler, it is necessary to configure a class that implem
 <div class="section" id="handler-class-name">
 <h2><a class="toc-backref" href="#id2">Handler class name</a><a class="headerlink" href="#handler-class-name" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/common/permission/PermissionCheckHandler.html" title="nablarch.common.permission.PermissionCheckHandler">nablarch.common.permission.PermissionCheckHandler</a></li>
+<li><a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/common/permission/PermissionCheckHandler.html" title="nablarch.common.permission.PermissionCheckHandler">nablarch.common.permission.PermissionCheckHandler</a></li>
 </ul>
 </div>
 <div class="section" id="module-list">
@@ -390,7 +391,7 @@ this handler must be placed after <a class="reference internal" href="thread_con
 <dt>Place after <a class="reference internal" href="../web/forwarding_handler.html#forwarding-handler"><span>Internal Forward Handler</span></a></dt>
 <dd>To perform an permission check based on the request ID of the forward destination ( <a class="reference internal" href="../web/forwarding_handler.html#internal-request-id"><span>Internal Request ID</span></a> ) when an internal forward is performed,
 this handler must be placed after <a class="reference internal" href="../web/forwarding_handler.html#forwarding-handler"><span>Internal Forward Handler</span></a>.
-In addition, add <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/common/handler/threadcontext/InternalRequestIdAttribute.html" title="nablarch.common.handler.threadcontext.InternalRequestIdAttribute">InternalRequestIdAttribute</a> to <code class="docutils literal"><span class="pre">attributes</span></code> of <a class="reference internal" href="thread_context_handler.html#thread-context-handler"><span>Thread Context Variable Management Handler</span></a> .</dd>
+In addition, add <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/common/handler/threadcontext/InternalRequestIdAttribute.html" title="nablarch.common.handler.threadcontext.InternalRequestIdAttribute">InternalRequestIdAttribute</a> to <code class="docutils literal"><span class="pre">attributes</span></code> of <a class="reference internal" href="thread_context_handler.html#thread-context-handler"><span>Thread Context Variable Management Handler</span></a> .</dd>
 <dt>Place after <a class="reference internal" href="../web/HttpErrorHandler.html#http-error-handler"><span>HTTP Error Control Handler</span></a></dt>
 <dd>To specify the error page to be displayed when a permission check error occurs,
 this handler must be placed after <a class="reference internal" href="../web/HttpErrorHandler.html#http-error-handler"><span>HTTP Error Control Handler</span></a>.</dd>
@@ -402,14 +403,14 @@ this handler must be placed after <a class="reference internal" href="../web/Htt
 For details of check, see <a class="reference internal" href="../../libraries/authorization/permission_check.html#permission-check"><span>Permission Check by handler</span></a>.</p>
 <dl class="docutils">
 <dt>If permission is available</dt>
-<dd><a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/common/permission/Permission.html" title="nablarch.common.permission.Permission">Permission</a> used for permission check is configured in the thread local
+<dd><a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/common/permission/Permission.html" title="nablarch.common.permission.Permission">Permission</a> used for permission check is configured in the thread local
 so that it can be referenced by <a class="reference internal" href="../../libraries/authorization/permission_check.html#permission-check-server-side-check"><span>business logic</span></a> and <a class="reference internal" href="../../libraries/authorization/permission_check.html#permission-check-view-control"><span>screen display control</span></a>.
 Then the subsequent handler is called.</dd>
 <dt>If permission is not available</dt>
-<dd><a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/fw/results/Forbidden.html" title="nablarch.fw.results.Forbidden">Forbidden(403)</a> is thrown.</dd>
+<dd><a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/fw/results/Forbidden.html" title="nablarch.fw.results.Forbidden">Forbidden(403)</a> is thrown.</dd>
 </dl>
 <p>To change the request ID of the check target to the forward request ID, specify &#8220;true&#8221; in
-<a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/common/permission/PermissionCheckHandler.html#setUsesInternalRequestId(boolean)" title="nablarch.common.permission.PermissionCheckHandler.setUsesInternalRequestId(boolean)">PermissionCheckHandler.setUsesInternalRequestId</a>.
+<a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/common/permission/PermissionCheckHandler.html#setUsesInternalRequestId(boolean)" title="nablarch.common.permission.PermissionCheckHandler.setUsesInternalRequestId(boolean)">PermissionCheckHandler.setUsesInternalRequestId</a>.
 The default is &#8220;false&#8221;.</p>
 </div>
 <div class="section" id="specify-the-error-page-to-be-displayed-when-permission-is-not-available">
@@ -420,7 +421,7 @@ For more information, see <a class="reference internal" href="../web/HttpErrorHa
 <div class="section" id="exclude-specific-requests-from-permission-check">
 <h2><a class="toc-backref" href="#id7">Exclude specific requests from permission check</a><a class="headerlink" href="#exclude-specific-requests-from-permission-check" title="Permalink to this headline">¶</a></h2>
 <p>If there are requests to be excluded from permission check, such as requests before login, they are specified in
-<a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/common/permission/PermissionCheckHandler.html#setIgnoreRequestIds(java.lang.String...)" title="nablarch.common.permission.PermissionCheckHandler.setIgnoreRequestIds(java.lang.String...)">PermissionCheckHandler.setIgnoreRequestIds</a>.</p>
+<a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/common/permission/PermissionCheckHandler.html#setIgnoreRequestIds(java.lang.String...)" title="nablarch.common.permission.PermissionCheckHandler.setIgnoreRequestIds(java.lang.String...)">PermissionCheckHandler.setIgnoreRequestIds</a>.</p>
 <div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;component</span> <span class="na">name=</span><span class="s">&quot;permissionCheckHandler&quot;</span>
            <span class="na">class=</span><span class="s">&quot;nablarch.common.permission.PermissionCheckHandler&quot;</span><span class="nt">&gt;</span>
   <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;permissionFactory&quot;</span> <span class="na">ref=</span><span class="s">&quot;permissionFactory&quot;</span><span class="nt">/&gt;</span>
@@ -444,7 +445,7 @@ For more information, see <a class="reference internal" href="../web/HttpErrorHa
 
     <div role="contentinfo">
         <p>
-            &copy; Copyright 2010-2024, TIS Inc.
+            &copy; Copyright 2010-2025, TIS Inc.
         </p>
     </div>
     Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
@@ -465,7 +466,7 @@ For more information, see <a class="reference internal" href="../web/HttpErrorHa
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../../',
-            VERSION:'6u2',
+            VERSION:'6u3',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

@@ -9,7 +9,7 @@
   <meta http-equiv='content-language' content='ja'>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Messaging Context Management Handler &mdash; ∇Nablarch  6u2 documentation</title>
+  <title>Messaging Context Management Handler &mdash; ∇Nablarch  6u3 documentation</title>
   
 
   
@@ -35,7 +35,7 @@
   
   <link rel="canonical" href="https://nablarch.github.io/docs/LATEST/doc/application_framework/application_framework/handlers/mom_messaging/messaging_context_handler.html" />
   
-    <link rel="top" title="∇Nablarch  6u2 documentation" href="../../../../index.html"/>
+    <link rel="top" title="∇Nablarch  6u3 documentation" href="../../../../index.html"/>
         <link rel="up" title="MOM Messaging Dedicated Handler" href="index.html"/>
         <link rel="next" title="Resent Message Control Handler" href="message_resend_handler.html"/>
         <link rel="prev" title="MOM Messaging Dedicated Handler" href="index.html"/>
@@ -63,7 +63,7 @@
   
 
   
-    <div id="sidebar-version">Version: 6u2</div>
+    <div id="sidebar-version">Version: 6u3</div>
   </a>
 
   <div role="search">
@@ -142,6 +142,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../../development_tools/toolbox/index.html">Useful Tools When Developing Applications</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../../development_tools/toolbox/JspStaticAnalysis/index.html">Jakarta Server Pages Static Analysis Tool</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../development_tools/toolbox/SqlExecutor/SqlExecutor.html">Nablarch SQL Executor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../development_tools/toolbox/NablarchOpenApiGenerator/NablarchOpenApiGenerator.html">Nablarch OpenAPI Generator</a></li>
 </ul>
 </li>
 </ul>
@@ -367,7 +368,7 @@
 <div class="section" id="handler-class-name">
 <h2><a class="toc-backref" href="#id1">Handler class name</a><a class="headerlink" href="#handler-class-name" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/fw/messaging/handler/MessagingContextHandler.html" title="nablarch.fw.messaging.handler.MessagingContextHandler">nablarch.fw.messaging.handler.MessagingContextHandler</a></li>
+<li><a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/fw/messaging/handler/MessagingContextHandler.html" title="nablarch.fw.messaging.handler.MessagingContextHandler">nablarch.fw.messaging.handler.MessagingContextHandler</a></li>
 </ul>
 </div>
 <div class="section" id="module-list">
@@ -385,9 +386,9 @@
 </div>
 <div class="section" id="configure-the-connection-destination-of-mq">
 <h2><a class="toc-backref" href="#id4">Configure the connection destination of MQ</a><a class="headerlink" href="#configure-the-connection-destination-of-mq" title="Permalink to this headline">¶</a></h2>
-<p>This handler acquires the MQ connection using the provider class (  <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/fw/messaging/MessagingProvider.html" title="nablarch.fw.messaging.MessagingProvider">MessagingProvider</a> implementation class) configured in the  <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/fw/messaging/handler/MessagingContextHandler.html#setMessagingProvider(nablarch.fw.messaging.MessagingProvider)" title="nablarch.fw.messaging.handler.MessagingContextHandler.setMessagingProvider(nablarch.fw.messaging.MessagingProvider)">messagingProvider</a> property.</p>
+<p>This handler acquires the MQ connection using the provider class (  <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/fw/messaging/MessagingProvider.html" title="nablarch.fw.messaging.MessagingProvider">MessagingProvider</a> implementation class) configured in the  <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/fw/messaging/handler/MessagingContextHandler.html#setMessagingProvider(nablarch.fw.messaging.MessagingProvider)" title="nablarch.fw.messaging.handler.MessagingContextHandler.setMessagingProvider(nablarch.fw.messaging.MessagingProvider)">messagingProvider</a> property.</p>
 <p>A configuration example is shown below.
-For the configuration contents of provider class, refer to Javadoc of the implementation class <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/fw/messaging/MessagingProvider.html" title="nablarch.fw.messaging.MessagingProvider">MessagingProvider</a> .</p>
+For the configuration contents of provider class, refer to Javadoc of the implementation class <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/fw/messaging/MessagingProvider.html" title="nablarch.fw.messaging.MessagingProvider">MessagingProvider</a> .</p>
 <div class="highlight-xml"><div class="highlight"><pre><span></span><span class="c">&lt;!-- Message context management handler--&gt;</span>
 <span class="nt">&lt;component</span> <span class="na">class=</span><span class="s">&quot;nablarch.fw.messaging.handler.MessagingContextHandler&quot;</span><span class="nt">&gt;</span>
   <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;messagingProvider&quot;</span> <span class="na">ref=</span><span class="s">&quot;messagingProvider&quot;</span> <span class="nt">/&gt;</span>
@@ -415,7 +416,7 @@ For the configuration contents of provider class, refer to Javadoc of the implem
 
     <div role="contentinfo">
         <p>
-            &copy; Copyright 2010-2024, TIS Inc.
+            &copy; Copyright 2010-2025, TIS Inc.
         </p>
     </div>
     Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
@@ -436,7 +437,7 @@ For the configuration contents of provider class, refer to Javadoc of the implem
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../../',
-            VERSION:'6u2',
+            VERSION:'6u3',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

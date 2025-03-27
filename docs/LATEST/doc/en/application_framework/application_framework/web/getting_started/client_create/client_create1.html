@@ -9,7 +9,7 @@
   <meta http-equiv='content-language' content='ja'>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Create Initial Display of Registration Screen &mdash; ∇Nablarch  6u2 documentation</title>
+  <title>Create Initial Display of Registration Screen &mdash; ∇Nablarch  6u3 documentation</title>
   
 
   
@@ -35,7 +35,7 @@
   
   <link rel="canonical" href="https://nablarch.github.io/docs/LATEST/doc/application_framework/application_framework/web/getting_started/client_create/client_create1.html" />
   
-    <link rel="top" title="∇Nablarch  6u2 documentation" href="../../../../../index.html"/>
+    <link rel="top" title="∇Nablarch  6u3 documentation" href="../../../../../index.html"/>
         <link rel="up" title="Create a Registration Function (Hands-on Format)" href="index.html"/>
         <link rel="next" title="Confirmation of Registration Contents" href="client_create2.html"/>
         <link rel="prev" title="Create a Registration Function (Hands-on Format)" href="index.html"/>
@@ -63,7 +63,7 @@
   
 
   
-    <div id="sidebar-version">Version: 6u2</div>
+    <div id="sidebar-version">Version: 6u3</div>
   </a>
 
   <div role="search">
@@ -142,6 +142,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../../../development_tools/toolbox/index.html">Useful Tools When Developing Applications</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../../../development_tools/toolbox/JspStaticAnalysis/index.html">Jakarta Server Pages Static Analysis Tool</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../../development_tools/toolbox/SqlExecutor/SqlExecutor.html">Nablarch SQL Executor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../development_tools/toolbox/NablarchOpenApiGenerator/NablarchOpenApiGenerator.html">Nablarch OpenAPI Generator</a></li>
 </ul>
 </li>
 </ul>
@@ -359,33 +360,37 @@
 <dd><p class="first">Add the content of the registration screen to create.jsp.</p>
 <dl class="last docutils">
 <dt>/src/main/webapp/WEB-INF/view/client/create.jsp</dt>
-<dd><div class="first last highlight-jsp"><div class="highlight"><pre><span></span><span class="nt">&lt;n:form&gt;</span>
-    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;form-group label-static is-empty&quot;</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">&quot;control-label&quot;</span><span class="nt">&gt;</span> Client name<span class="nt">&lt;/label&gt;</span>
-        <span class="c">&lt;!-- Client name text box --&gt;</span>
-        <span class="c">&lt;!-- Since the form has not been created, specify a temporary value for the name attribute --&gt;</span>
-        <span class="nt">&lt;n:text</span> <span class="na">name=</span><span class="s">&quot;tmp&quot;</span> <span class="na">cssClass=</span><span class="s">&quot;form-control input-text&quot;</span><span class="nt">/&gt;</span>
-    <span class="nt">&lt;/div&gt;</span>
-    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;form-group label-static is-empty&quot;</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">&quot;control-label&quot;</span><span class="nt">&gt;</span>Industry type<span class="nt">&lt;/label&gt;</span>
-        <span class="c">&lt;!-- Pull down of industry type --&gt;</span>
-        <span class="c">&lt;!-- Since the form has not been created, specify a temporary value for the name attribute --&gt;</span>
-        <span class="nt">&lt;n:select</span>
-                <span class="na">listName=</span><span class="s">&quot;industries&quot;</span>
-                <span class="na">elementValueProperty=</span><span class="s">&quot;industryCode&quot;</span>
-                <span class="na">elementLabelProperty=</span><span class="s">&quot;industryName&quot;</span>
-                <span class="na">name=</span><span class="s">&quot;tmp&quot;</span>
-                <span class="na">withNoneOption=</span><span class="s">&quot;true&quot;</span>
-                <span class="na">cssClass=</span><span class="s">&quot;btn dropdown-toggle&quot;</span><span class="nt">/&gt;</span>
-    <span class="nt">&lt;/div&gt;</span>
-    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;button-nav&quot;</span><span class="nt">&gt;</span>
-        <span class="c">&lt;!-- Registration button --&gt;</span>
-        <span class="c">&lt;!-- Since the registration confirmation screen is not yet created, specify a temporary value for the uri attribute --&gt;</span>
-        <span class="nt">&lt;n:button</span>
-                <span class="na">uri=</span><span class="s">&quot;tmp&quot;</span>
-                <span class="na">cssClass=</span><span class="s">&quot;btn btn-raised btn-success&quot;</span><span class="nt">&gt;</span>Registration<span class="nt">&lt;/n:button&gt;</span>
-    <span class="nt">&lt;/div&gt;</span>
-<span class="nt">&lt;/n:form&gt;</span>
+<dd><div class="first last highlight-jsp"><div class="highlight"><pre><span></span>&lt;n:form&gt;
+    &lt;div class=&quot;row m-3&quot;&gt;
+        &lt;label class=&quot;col-md-2 col-form-label fs-5&quot;&gt; Client name&lt;/label&gt;
+        &lt;!-- Client name text box --&gt;
+        &lt;!-- Since the form has not been created, specify a temporary value for the name attribute --&gt;
+        &lt;div class=&quot;col-md-10 form-group&quot;&gt;
+            &lt;n:text name=&quot;tmp&quot; cssClass=&quot;form-control form-control-lg&quot;/&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;row m-3&quot;&gt;
+        &lt;label class=&quot;col-md-2 col-form-label fs-5&quot;Industry type&lt;/label&gt;
+        &lt;!-- Pull down of industry type --&gt;
+        &lt;!-- Since the form has not been created, specify a temporary value for the name attribute --&gt;
+        &lt;div class=&quot;col-md-10 form-group&quot;&gt;
+            &lt;n:select
+                listName=&quot;industries&quot;
+                elementValueProperty=&quot;industryCode&quot;
+                elementLabelProperty=&quot;industryName&quot;
+                name=&quot;tmp&quot;
+                withNoneOption=&quot;true&quot;
+                cssClass=&quot;form-select form-select-lg&quot;/&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;button-nav&quot;&gt;
+        &lt;!-- Registration button --&gt;
+        &lt;!-- Since the registration confirmation screen is not yet created, specify a temporary value for the uri attribute --&gt;
+        &lt;n:button
+                uri=&quot;tmp&quot;
+                cssClass=&quot;btn btn-lg btn-success&quot;&gt;Registration&lt;/n:button&gt;
+    &lt;/div&gt;
+&lt;/n:form&gt;
 </pre></div>
 </div>
 </dd>
@@ -473,10 +478,10 @@ Add configuration for mapping the specified URL and initial display process.</p>
 <dd><p class="first">Create a link to the client registration screen in the header menu.</p>
 <dl class="last docutils">
 <dt>/src/main/webapp/WEB-INF/view/common/menu.jsp</dt>
-<dd><div class="first last highlight-jsp"><div class="highlight"><pre><span></span><span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">&quot;nav navbar-nav&quot;</span><span class="nt">&gt;</span>
+<dd><div class="first last highlight-jsp"><div class="highlight"><pre><span></span><span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">&quot;navbar-nav me-auto&quot;</span><span class="nt">&gt;</span>
   <span class="c">&lt;!-- Other links are omitted --&gt;</span>
-  <span class="nt">&lt;li&gt;</span>
-    <span class="nt">&lt;n:a</span> <span class="na">href=</span><span class="s">&quot;/action/client&quot;</span><span class="nt">&gt;</span> Client registration<span class="nt">&lt;/n:a&gt;</span>
+  <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">&quot;nav-item px-2&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;n:a</span> <span class="na">href=</span><span class="s">&quot;/action/client&quot;</span> <span class="na">cssClass=</span><span class="s">&quot;nav-link&quot;</span><span class="nt">&gt;</span> Client registration<span class="nt">&lt;/n:a&gt;</span>
   <span class="nt">&lt;/li&gt;</span>
 <span class="nt">&lt;/ul&gt;</span>
 </pre></div>
@@ -526,7 +531,7 @@ Add configuration for mapping the specified URL and initial display process.</p>
 
     <div role="contentinfo">
         <p>
-            &copy; Copyright 2010-2024, TIS Inc.
+            &copy; Copyright 2010-2025, TIS Inc.
         </p>
     </div>
     Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
@@ -547,7 +552,7 @@ Add configuration for mapping the specified URL and initial display process.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../../../',
-            VERSION:'6u2',
+            VERSION:'6u3',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

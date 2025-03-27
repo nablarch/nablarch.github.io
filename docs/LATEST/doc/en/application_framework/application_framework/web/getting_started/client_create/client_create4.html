@@ -9,7 +9,7 @@
   <meta http-equiv='content-language' content='ja'>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Register to the Database &mdash; ∇Nablarch  6u2 documentation</title>
+  <title>Register to the Database &mdash; ∇Nablarch  6u3 documentation</title>
   
 
   
@@ -35,7 +35,7 @@
   
   <link rel="canonical" href="https://nablarch.github.io/docs/LATEST/doc/application_framework/application_framework/web/getting_started/client_create/client_create4.html" />
   
-    <link rel="top" title="∇Nablarch  6u2 documentation" href="../../../../../index.html"/>
+    <link rel="top" title="∇Nablarch  6u3 documentation" href="../../../../../index.html"/>
         <link rel="up" title="Create a Registration Function (Hands-on Format)" href="index.html"/>
         <link rel="next" title="Create a Search Function" href="../project_search/index.html"/>
         <link rel="prev" title="Return to the Registration Screen From the Registration Confirmation Screen" href="client_create3.html"/>
@@ -63,7 +63,7 @@
   
 
   
-    <div id="sidebar-version">Version: 6u2</div>
+    <div id="sidebar-version">Version: 6u3</div>
   </a>
 
   <div role="search">
@@ -142,6 +142,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../../../development_tools/toolbox/index.html">Useful Tools When Developing Applications</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../../../development_tools/toolbox/JspStaticAnalysis/index.html">Jakarta Server Pages Static Analysis Tool</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../../development_tools/toolbox/SqlExecutor/SqlExecutor.html">Nablarch SQL Executor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../development_tools/toolbox/NablarchOpenApiGenerator/NablarchOpenApiGenerator.html">Nablarch OpenAPI Generator</a></li>
 </ul>
 </li>
 </ul>
@@ -393,7 +394,7 @@ For the status code specified in redirect, see <a class="reference internal" hre
 </dd>
 <dt>Key points of this implementation</dt>
 <dd><ul class="first last simple">
-<li>Assign <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/common/web/token/OnDoubleSubmission.html" title="nablarch.common.web.token.OnDoubleSubmission">OnDoubleSubmission</a> for transitioning to the error page
+<li>Assign <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/common/web/token/OnDoubleSubmission.html" title="nablarch.common.web.token.OnDoubleSubmission">OnDoubleSubmission</a> for transitioning to the error page
 when the business action method is executed twice. For more information, see <a class="reference internal" href="../../../libraries/tag.html#tag-double-submission"><span>Preventing double submission</span></a>.</li>
 </ul>
 </dd>
@@ -409,11 +410,11 @@ For information on how to specify the default transition destination, see <a cla
 <span class="c">&lt;!-- Return to input, confirm button is only shown on the confirmation screen --&gt;</span>
   <span class="nt">&lt;n:forConfirmationPage&gt;</span>
       <span class="nt">&lt;n:button</span> <span class="na">uri=</span><span class="s">&quot;/action/client/back&quot;</span>
-                <span class="na">cssClass=</span><span class="s">&quot;btn btn-raised btn-default&quot;</span><span class="nt">&gt;</span>Return to input<span class="nt">&lt;/n:button&gt;</span>
+                <span class="na">cssClass=</span><span class="s">&quot;btn btn-lg btn-light&quot;</span><span class="nt">&gt;</span>Return to input<span class="nt">&lt;/n:button&gt;</span>
       <span class="c">&lt;!-- Specify false for allowDoubleSubmission attribute --&gt;</span>
       <span class="nt">&lt;n:button</span> <span class="na">uri=</span><span class="s">&quot;/action/client/create&quot;</span>
                 <span class="na">allowDoubleSubmission=</span><span class="s">&quot;false&quot;</span>
-                <span class="na">cssClass=</span><span class="s">&quot;btn btn-raised btn-success&quot;</span><span class="nt">&gt;</span>Confirm<span class="nt">&lt;/n:button&gt;</span>
+                <span class="na">cssClass=</span><span class="s">&quot;btn btn-lg btn-success&quot;</span><span class="nt">&gt;</span>Confirm<span class="nt">&lt;/n:button&gt;</span>
   <span class="nt">&lt;/n:forConfirmationPage&gt;</span>
 </pre></div>
 </div>
@@ -533,7 +534,7 @@ For information on how to specify the default transition destination, see <a cla
 
     <div role="contentinfo">
         <p>
-            &copy; Copyright 2010-2024, TIS Inc.
+            &copy; Copyright 2010-2025, TIS Inc.
         </p>
     </div>
     Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
@@ -554,7 +555,7 @@ For information on how to specify the default transition destination, see <a cla
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../../../',
-            VERSION:'6u2',
+            VERSION:'6u3',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

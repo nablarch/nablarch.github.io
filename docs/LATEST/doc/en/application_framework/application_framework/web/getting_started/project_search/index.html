@@ -9,7 +9,7 @@
   <meta http-equiv='content-language' content='ja'>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Create a Search Function &mdash; ∇Nablarch  6u2 documentation</title>
+  <title>Create a Search Function &mdash; ∇Nablarch  6u3 documentation</title>
   
 
   
@@ -35,7 +35,7 @@
   
   <link rel="canonical" href="https://nablarch.github.io/docs/LATEST/doc/application_framework/application_framework/web/getting_started/project_search/index.html" />
   
-    <link rel="top" title="∇Nablarch  6u2 documentation" href="../../../../../index.html"/>
+    <link rel="top" title="∇Nablarch  6u3 documentation" href="../../../../../index.html"/>
         <link rel="up" title="Getting Started" href="../index.html"/>
         <link rel="next" title="Create Update Function" href="../project_update/index.html"/>
         <link rel="prev" title="Register to the Database" href="../client_create/client_create4.html"/>
@@ -63,7 +63,7 @@
   
 
   
-    <div id="sidebar-version">Version: 6u2</div>
+    <div id="sidebar-version">Version: 6u3</div>
   </a>
 
   <div role="search">
@@ -142,6 +142,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../../../development_tools/toolbox/index.html">Useful Tools When Developing Applications</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../../../development_tools/toolbox/JspStaticAnalysis/index.html">Jakarta Server Pages Static Analysis Tool</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../../development_tools/toolbox/SqlExecutor/SqlExecutor.html">Nablarch SQL Executor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../development_tools/toolbox/NablarchOpenApiGenerator/NablarchOpenApiGenerator.html">Nablarch OpenAPI Generator</a></li>
 </ul>
 </li>
 </ul>
@@ -424,21 +425,21 @@
 <dt>/src/main/webapp/WEB-INF/view/common/sidemenu.jsp</dt>
 <dd><div class="first highlight-jsp"><div class="highlight"><pre><span></span><span class="nt">&lt;n:form</span> <span class="na">method=</span><span class="s">&quot;GET&quot;</span> <span class="na">action=</span><span class="s">&quot;list&quot;</span><span class="nt">&gt;</span>
     <span class="c">&lt;!-- Omitted --&gt;</span>
-    <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">&quot;projectName&quot;</span> <span class="na">class=</span><span class="s">&quot;control-label&quot;</span><span class="nt">&gt;</span>Project name<span class="nt">&lt;/label&gt;</span>
+    <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">&quot;projectName&quot;</span> <span class="na">class=</span><span class="s">&quot;control&quot;</span><span class="nt">&gt;</span>Project name<span class="nt">&lt;/label&gt;</span>
     <span class="nt">&lt;div&gt;</span>
         <span class="nt">&lt;n:text</span>
                 <span class="na">id=</span><span class="s">&quot;projectName&quot;</span>
                 <span class="na">name=</span><span class="s">&quot;searchForm.projectName&quot;</span>
                 <span class="na">size=</span><span class="s">&quot;25&quot;</span>
                 <span class="na">maxlength=</span><span class="s">&quot;64&quot;</span>
-                <span class="na">cssClass=</span><span class="s">&quot;form-control&quot;</span>
-                <span class="na">errorCss=</span><span class="s">&quot;input-error form-control&quot;</span>
+                <span class="na">cssClass=</span><span class="s">&quot;form-control form-control-lg&quot;</span>
+                <span class="na">errorCss=</span><span class="s">&quot;input-error&quot;</span>
                 <span class="na">placeholder=</span><span class="s">&quot;Project name&quot;</span><span class="nt">/&gt;</span>
         <span class="nt">&lt;n:error</span> <span class="na">errorCss=</span><span class="s">&quot;message-error&quot;</span> <span class="na">name=</span><span class="s">&quot;searchForm.projectName&quot;</span> <span class="nt">/&gt;</span>
     <span class="nt">&lt;/div&gt;</span>
     <span class="c">&lt;!-- Omitted --&gt;</span>
     <span class="nt">&lt;div</span> <span class="na">align=</span><span class="s">&quot;center&quot;</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;submit&quot;</span> <span class="na">id=</span><span class="s">&quot;search&quot;</span> <span class="na">class=</span><span class="s">&quot;btn btn-primary&quot;</span> <span class="na">value=</span><span class="s">&quot;Search&quot;</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;submit&quot;</span> <span class="na">id=</span><span class="s">&quot;search&quot;</span> <span class="na">class=</span><span class="s">&quot;btn btn-lg btn-primary&quot;</span> <span class="na">value=</span><span class="s">&quot;Search&quot;</span> <span class="nt">/&gt;</span>
     <span class="nt">&lt;/div&gt;</span>
 <span class="nt">&lt;/n:form&gt;</span>
 </pre></div>
@@ -477,10 +478,10 @@ Bean property should be of the <a class="reference internal" href="../../../libr
 <dl class="last docutils">
 <dt>Key points of this implementation</dt>
 <dd><ul class="first last simple">
-<li>Use <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/core/beans/BeanUtil.html" title="nablarch.core.beans.BeanUtil">BeanUtil</a> to transfer values from the form to search condition Bean.
-Since <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/core/beans/BeanUtil.html" title="nablarch.core.beans.BeanUtil">BeanUtil</a> transfers items with the same property name,
+<li>Use <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/core/beans/BeanUtil.html" title="nablarch.core.beans.BeanUtil">BeanUtil</a> to transfer values from the form to search condition Bean.
+Since <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/core/beans/BeanUtil.html" title="nablarch.core.beans.BeanUtil">BeanUtil</a> transfers items with the same property name,
 it is necessary to match the property names of the items used as search conditions in the form and search condition Bean.</li>
-<li>When values are transferred using <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/core/beans/BeanUtil.html" title="nablarch.core.beans.BeanUtil">BeanUtil</a> the property can be transferred with a type conversion for properties that are compatible.
+<li>When values are transferred using <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/core/beans/BeanUtil.html" title="nablarch.core.beans.BeanUtil">BeanUtil</a> the property can be transferred with a type conversion for properties that are compatible.
 For more information, see <a class="reference internal" href="../../../libraries/bean_util.html#utility-conversion"><span>type conversion rules</span></a>.</li>
 <li>Bean property is defined by Java type that matches the corresponding column type.</li>
 </ul>
@@ -569,10 +570,10 @@ $sort(sortId){
 <dt>Key points of this implementation</dt>
 <dd><ul class="first last simple">
 <li>The search condition is validated by adding
-<a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/common/web/interceptor/InjectForm.html" title="nablarch.common.web.interceptor.InjectForm">InjectForm</a> as the search condition is not guaranteed to be safe with input values from outside.</li>
-<li>Form validated by <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/common/web/interceptor/InjectForm.html" title="nablarch.common.web.interceptor.InjectForm">InjectForm</a>
+<a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/common/web/interceptor/InjectForm.html" title="nablarch.common.web.interceptor.InjectForm">InjectForm</a> as the search condition is not guaranteed to be safe with input values from outside.</li>
+<li>Form validated by <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/common/web/interceptor/InjectForm.html" title="nablarch.common.web.interceptor.InjectForm">InjectForm</a>
 can be acquired from the request scope.</li>
-<li>Copies the form value to the search condition bean using <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/core/beans/BeanUtil.html" title="nablarch.core.beans.BeanUtil">BeanUtil</a>.</li>
+<li>Copies the form value to the search condition bean using <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/core/beans/BeanUtil.html" title="nablarch.core.beans.BeanUtil">BeanUtil</a>.</li>
 </ul>
 </dd>
 </dl>
@@ -599,9 +600,9 @@ can be acquired from the request scope.</li>
 <dt>Key points of this implementation</dt>
 <dd><ul class="first last simple">
 <li>To execute the preceding SQL statement, specify <a class="reference internal" href="../../../libraries/database/database.html#database-execute-sqlid"><span>SQLID</span></a> (or &#8220;SEARCH_PROJECT&#8221; in the case of the preceding SQL) as the second argument of
-<a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/common/dao/UniversalDao.html#findAllBySqlFile(java.lang.Class,java.lang.String,java.lang.Object)" title="nablarch.common.dao.UniversalDao.findAllBySqlFile(java.lang.Class,java.lang.String,java.lang.Object)">UniversalDao#findAllBySqlFile</a>.</li>
-<li>Search for paging can be performed using the <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/common/dao/UniversalDao.html#per(long)" title="nablarch.common.dao.UniversalDao.per(long)">UniversalDao#per</a> method and
-<a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/common/dao/UniversalDao.html#page(long)" title="nablarch.common.dao.UniversalDao.page(long)">UniversalDao#page</a>.
+<a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/common/dao/UniversalDao.html#findAllBySqlFile(java.lang.Class,java.lang.String,java.lang.Object)" title="nablarch.common.dao.UniversalDao.findAllBySqlFile(java.lang.Class,java.lang.String,java.lang.Object)">UniversalDao#findAllBySqlFile</a>.</li>
+<li>Search for paging can be performed using the <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/common/dao/UniversalDao.html#per(long)" title="nablarch.common.dao.UniversalDao.per(long)">UniversalDao#per</a> method and
+<a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/common/dao/UniversalDao.html#page(long)" title="nablarch.common.dao.UniversalDao.page(long)">UniversalDao#page</a>.
 For more information, see <a class="reference internal" href="../../../libraries/database/universal_dao.html#universal-dao-paging"><span>narrow the search for paging</span></a>.</li>
 </ul>
 </dd>
@@ -701,7 +702,7 @@ To output the value in a format such as &#8220;date&#8221; or &#8220;amount&#822
 
     <div role="contentinfo">
         <p>
-            &copy; Copyright 2010-2024, TIS Inc.
+            &copy; Copyright 2010-2025, TIS Inc.
         </p>
     </div>
     Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
@@ -722,7 +723,7 @@ To output the value in a format such as &#8220;date&#8221; or &#8220;amount&#822
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../../../',
-            VERSION:'6u2',
+            VERSION:'6u3',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

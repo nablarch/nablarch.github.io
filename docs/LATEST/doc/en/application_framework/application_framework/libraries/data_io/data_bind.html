@@ -9,7 +9,7 @@
   <meta http-equiv='content-language' content='ja'>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Data Bind &mdash; ∇Nablarch  6u2 documentation</title>
+  <title>Data Bind &mdash; ∇Nablarch  6u3 documentation</title>
   
 
   
@@ -35,7 +35,7 @@
   
   <link rel="canonical" href="https://nablarch.github.io/docs/LATEST/doc/application_framework/application_framework/libraries/data_io/data_bind.html" />
   
-    <link rel="top" title="∇Nablarch  6u2 documentation" href="../../../../index.html"/>
+    <link rel="top" title="∇Nablarch  6u3 documentation" href="../../../../index.html"/>
         <link rel="up" title="Access to Data in Various Formats" href="../data_converter.html"/>
         <link rel="next" title="General Data Format" href="data_format.html"/>
         <link rel="prev" title="Access to Data in Various Formats" href="../data_converter.html"/>
@@ -63,7 +63,7 @@
   
 
   
-    <div id="sidebar-version">Version: 6u2</div>
+    <div id="sidebar-version">Version: 6u3</div>
   </a>
 
   <div role="search">
@@ -142,6 +142,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../../development_tools/toolbox/index.html">Useful Tools When Developing Applications</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../../development_tools/toolbox/JspStaticAnalysis/index.html">Jakarta Server Pages Static Analysis Tool</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../development_tools/toolbox/SqlExecutor/SqlExecutor.html">Nablarch SQL Executor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../development_tools/toolbox/NablarchOpenApiGenerator/NablarchOpenApiGenerator.html">Nablarch OpenAPI Generator</a></li>
 </ul>
 </li>
 </ul>
@@ -384,7 +385,7 @@
 <div class="section" id="data-can-be-handled-as-a-java-beans-object">
 <h3><a class="toc-backref" href="#id7">Data can be handled as a Java Beans object</a><a class="headerlink" href="#data-can-be-handled-as-a-java-beans-object" title="Permalink to this headline">¶</a></h3>
 <p>Data of data files can be handled as a Java Beans object.</p>
-<p>When converting to a Java Beans object, type conversion is automatically performed using <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/core/beans/BeanUtil.html" title="nablarch.core.beans.BeanUtil">BeanUtil</a> for the property type defined in the Java Beans class. When there is failure in the type conversion, an exception occurs and the Java Beans object is not generated.</p>
+<p>When converting to a Java Beans object, type conversion is automatically performed using <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/core/beans/BeanUtil.html" title="nablarch.core.beans.BeanUtil">BeanUtil</a> for the property type defined in the Java Beans class. When there is failure in the type conversion, an exception occurs and the Java Beans object is not generated.</p>
 <div class="admonition important">
 <p class="first admonition-title">Important</p>
 <p class="last">When reading external data such as upload files, all properties of the Java Beans class must be defined as String type since it is necessary to notify an invalid value as a business error without abnormal termination, even if the data is invalid.</p>
@@ -407,7 +408,7 @@
 </div>
 <div class="section" id="annotations-can-be-used-to-specify-the-data-file-format">
 <h3><a class="toc-backref" href="#id9">Annotations can be used to specify the data file format</a><a class="headerlink" href="#annotations-can-be-used-to-specify-the-data-file-format" title="Permalink to this headline">¶</a></h3>
-<p>The data file format can be defined using annotations or <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/common/databind/DataBindConfig.html" title="nablarch.common.databind.DataBindConfig">DataBindConfig</a> instead of describing it in the configuration file.</p>
+<p>The data file format can be defined using annotations or <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/common/databind/DataBindConfig.html" title="nablarch.common.databind.DataBindConfig">DataBindConfig</a> instead of describing it in the configuration file.</p>
 <p>See below for the detailed format specification methods.</p>
 <blockquote>
 <div><ul class="simple">
@@ -437,7 +438,7 @@
 <div class="section" id="read-data-as-a-java-beans-object">
 <span id="data-bind-file-to-bean"></span><h3><a class="toc-backref" href="#id12">Read data as a Java Beans object</a><a class="headerlink" href="#read-data-as-a-java-beans-object" title="Permalink to this headline">¶</a></h3>
 <p>Data files are read one by one from the beginning, and can be acquired as Java Beans objects.</p>
-<p>The data is read by using <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/common/databind/ObjectMapper.html" title="nablarch.common.databind.ObjectMapper">ObjectMapper</a> <a class="footnote-reference" href="#thread-unsafe" id="id2">[1]</a> that is generated by <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/common/databind/ObjectMapperFactory.html#create(java.lang.Class,java.io.InputStream)" title="nablarch.common.databind.ObjectMapperFactory.create(java.lang.Class,java.io.InputStream)">ObjectMapperFactory#create</a> , and the data is read based on the annotation defined in the Java Beans class specified when <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/common/databind/ObjectMapper.html" title="nablarch.common.databind.ObjectMapper">ObjectMapper</a> is generated.</p>
+<p>The data is read by using <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/common/databind/ObjectMapper.html" title="nablarch.common.databind.ObjectMapper">ObjectMapper</a> <a class="footnote-reference" href="#thread-unsafe" id="id2">[1]</a> that is generated by <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/common/databind/ObjectMapperFactory.html#create(java.lang.Class,java.io.InputStream)" title="nablarch.common.databind.ObjectMapperFactory.create(java.lang.Class,java.io.InputStream)">ObjectMapperFactory#create</a> , and the data is read based on the annotation defined in the Java Beans class specified when <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/common/databind/ObjectMapper.html" title="nablarch.common.databind.ObjectMapper">ObjectMapper</a> is generated.</p>
 <p>See below for details on how to define annotations for Java Beans classes.</p>
 <blockquote>
 <div><ul class="simple">
@@ -458,14 +459,14 @@
 </div>
 <div class="admonition important">
 <p class="first admonition-title">Important</p>
-<p>After reading all the data, release the resource using <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/common/databind/ObjectMapper.html#close()" title="nablarch.common.databind.ObjectMapper.close()">ObjectMapper#close</a> .</p>
+<p>After reading all the data, release the resource using <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/common/databind/ObjectMapper.html#close()" title="nablarch.common.databind.ObjectMapper.close()">ObjectMapper#close</a> .</p>
 <p class="last">It is possible to omit the close process by using <code class="docutils literal"><span class="pre">try-with-resources</span></code> .</p>
 </div>
 </div>
 <div class="section" id="write-the-contents-of-the-java-beans-object-to-the-data-file">
 <span id="data-bind-bean-to-file"></span><h3><a class="toc-backref" href="#id13">Write the contents of the Java Beans object to the data file</a><a class="headerlink" href="#write-the-contents-of-the-java-beans-object-to-the-data-file" title="Permalink to this headline">¶</a></h3>
 <p>The contents of the Java Beans object can be written to the data file one by one.</p>
-<p>The contents are written to the data file by using <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/common/databind/ObjectMapper.html" title="nablarch.common.databind.ObjectMapper">ObjectMapper</a>  <a class="footnote-reference" href="#thread-unsafe" id="id3">[1]</a> that is generated by <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/common/databind/ObjectMapperFactory.html#create(java.lang.Class,java.io.OutputStream)" title="nablarch.common.databind.ObjectMapperFactory.create(java.lang.Class,java.io.OutputStream)">ObjectMapperFactory#create</a> , and the data is written based on the annotation defined in the Java Beans class specified when <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/common/databind/ObjectMapper.html" title="nablarch.common.databind.ObjectMapper">ObjectMapper</a> is generated.</p>
+<p>The contents are written to the data file by using <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/common/databind/ObjectMapper.html" title="nablarch.common.databind.ObjectMapper">ObjectMapper</a>  <a class="footnote-reference" href="#thread-unsafe" id="id3">[1]</a> that is generated by <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/common/databind/ObjectMapperFactory.html#create(java.lang.Class,java.io.OutputStream)" title="nablarch.common.databind.ObjectMapperFactory.create(java.lang.Class,java.io.OutputStream)">ObjectMapperFactory#create</a> , and the data is written based on the annotation defined in the Java Beans class specified when <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/common/databind/ObjectMapper.html" title="nablarch.common.databind.ObjectMapper">ObjectMapper</a> is generated.</p>
 <p>See below for details on how to define annotations for Java Beans classes.</p>
 <blockquote>
 <div><ul class="simple">
@@ -489,8 +490,8 @@
 <div class="section" id="read-data-as-a-map-object">
 <span id="data-bind-file-to-map"></span><h3><a class="toc-backref" href="#id14">Read data as a Map object</a><a class="headerlink" href="#read-data-as-a-map-object" title="Permalink to this headline">¶</a></h3>
 <p>Data files are read one by one from the beginning and can be acquired as Map objects.</p>
-<p>The data is read by using <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/common/databind/ObjectMapper.html" title="nablarch.common.databind.ObjectMapper">ObjectMapper</a> <a class="footnote-reference" href="#thread-unsafe" id="id4">[1]</a> that is generated by <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/common/databind/ObjectMapperFactory.html#create(java.lang.Class,java.io.InputStream,nablarch.common.databind.DataBindConfig)" title="nablarch.common.databind.ObjectMapperFactory.create(java.lang.Class,java.io.InputStream,nablarch.common.databind.DataBindConfig)">ObjectMapperFactory#create</a> , and the data is read based on the configuration value of <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/common/databind/DataBindConfig.html" title="nablarch.common.databind.DataBindConfig">DataBindConfig</a> specified when <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/common/databind/ObjectMapper.html" title="nablarch.common.databind.ObjectMapper">ObjectMapper</a> is generated.</p>
-<p>See below for details on how to configure <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/common/databind/DataBindConfig.html" title="nablarch.common.databind.DataBindConfig">DataBindConfig</a> .</p>
+<p>The data is read by using <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/common/databind/ObjectMapper.html" title="nablarch.common.databind.ObjectMapper">ObjectMapper</a> <a class="footnote-reference" href="#thread-unsafe" id="id4">[1]</a> that is generated by <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/common/databind/ObjectMapperFactory.html#create(java.lang.Class,java.io.InputStream,nablarch.common.databind.DataBindConfig)" title="nablarch.common.databind.ObjectMapperFactory.create(java.lang.Class,java.io.InputStream,nablarch.common.databind.DataBindConfig)">ObjectMapperFactory#create</a> , and the data is read based on the configuration value of <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/common/databind/DataBindConfig.html" title="nablarch.common.databind.DataBindConfig">DataBindConfig</a> specified when <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/common/databind/ObjectMapper.html" title="nablarch.common.databind.ObjectMapper">ObjectMapper</a> is generated.</p>
+<p>See below for details on how to configure <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/common/databind/DataBindConfig.html" title="nablarch.common.databind.DataBindConfig">DataBindConfig</a> .</p>
 <blockquote>
 <div><ul class="simple">
 <li><a class="reference internal" href="#data-bind-csv-format-map"><span>Format specification method when binding a CSV file to Map class</span></a></li>
@@ -515,8 +516,8 @@
 <div class="section" id="write-the-contents-of-the-map-object-to-the-data-file">
 <span id="data-bind-map-to-file"></span><h3><a class="toc-backref" href="#id15">Write the contents of the Map object to the data file</a><a class="headerlink" href="#write-the-contents-of-the-map-object-to-the-data-file" title="Permalink to this headline">¶</a></h3>
 <p>The contents of the map object can be written to the data file one by one.</p>
-<p>The contents are written to the data file by using <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/common/databind/ObjectMapper.html" title="nablarch.common.databind.ObjectMapper">ObjectMapper</a> <a class="footnote-reference" href="#thread-unsafe" id="id5">[1]</a> that is generated by <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/common/databind/ObjectMapperFactory.html#create(java.lang.Class,java.io.OutputStream,nablarch.common.databind.DataBindConfig)" title="nablarch.common.databind.ObjectMapperFactory.create(java.lang.Class,java.io.OutputStream,nablarch.common.databind.DataBindConfig)">ObjectMapperFactory#create</a> , and the data is written based on the configuration value of <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/common/databind/DataBindConfig.html" title="nablarch.common.databind.DataBindConfig">DataBindConfig</a> specified when <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/common/databind/ObjectMapper.html" title="nablarch.common.databind.ObjectMapper">ObjectMapper</a> is generated.</p>
-<p>See below for details on how to configure <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/common/databind/DataBindConfig.html" title="nablarch.common.databind.DataBindConfig">DataBindConfig</a> .</p>
+<p>The contents are written to the data file by using <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/common/databind/ObjectMapper.html" title="nablarch.common.databind.ObjectMapper">ObjectMapper</a> <a class="footnote-reference" href="#thread-unsafe" id="id5">[1]</a> that is generated by <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/common/databind/ObjectMapperFactory.html#create(java.lang.Class,java.io.OutputStream,nablarch.common.databind.DataBindConfig)" title="nablarch.common.databind.ObjectMapperFactory.create(java.lang.Class,java.io.OutputStream,nablarch.common.databind.DataBindConfig)">ObjectMapperFactory#create</a> , and the data is written based on the configuration value of <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/common/databind/DataBindConfig.html" title="nablarch.common.databind.DataBindConfig">DataBindConfig</a> specified when <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/common/databind/ObjectMapper.html" title="nablarch.common.databind.ObjectMapper">ObjectMapper</a> is generated.</p>
+<p>See below for details on how to configure <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/common/databind/DataBindConfig.html" title="nablarch.common.databind.DataBindConfig">DataBindConfig</a> .</p>
 <blockquote>
 <div><ul class="simple">
 <li><a class="reference internal" href="#data-bind-csv-format-map"><span>Format specification method when binding a CSV file to Map class</span></a></li>
@@ -541,7 +542,7 @@
 </div>
 <div class="section" id="get-the-logical-line-number-of-the-file-data">
 <span id="data-bind-line-number"></span><h3><a class="toc-backref" href="#id16">Get the logical line number of the file data</a><a class="headerlink" href="#get-the-logical-line-number-of-the-file-data" title="Permalink to this headline">¶</a></h3>
-<p>When acquiring the file data as a Java Beans object, the logical line number of the data can also be acquired by defining properties in the Java Beans class and using <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/common/databind/LineNumber.html" title="nablarch.common.databind.LineNumber">LineNumber</a> .</p>
+<p>When acquiring the file data as a Java Beans object, the logical line number of the data can also be acquired by defining properties in the Java Beans class and using <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/common/databind/LineNumber.html" title="nablarch.common.databind.LineNumber">LineNumber</a> .</p>
 <p>For example, it is used to output the line number of the data with the validation error to the log when checking the input values.</p>
 <p>An implementation example is shown below.</p>
 <div class="highlight-java"><div class="highlight"><pre><span></span><span class="kd">private</span> <span class="n">Long</span> <span class="n">lineNumber</span><span class="o">;</span>
@@ -583,7 +584,7 @@
 <dd><ul class="first last simple">
 <li>Since the memory may be burdened when a large amount of data is downloaded when the data is expanded in the memory, the data is output to a temporary file.</li>
 <li>For writing to a data file, see <a class="reference internal" href="#data-bind-bean-to-file"><span>Write the contents of the Java Beans object to the data file</span></a> .</li>
-<li>Specify a data file when creating a <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/common/web/download/FileResponse.html" title="nablarch.common.web.download.FileResponse">FileResponse</a> .</li>
+<li>Specify a data file when creating a <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/common/web/download/FileResponse.html" title="nablarch.common.web.download.FileResponse">FileResponse</a> .</li>
 <li>To delete the file automatically at the end of the request process, specify <code class="docutils literal"><span class="pre">true</span></code> in the second argument of the <cite>FileResponse</cite> constructor.</li>
 <li>Configure <cite>Content-Type</cite> and <cite>Content-Disposition</cite> to response.</li>
 </ul>
@@ -619,7 +620,7 @@
 <dl class="docutils">
 <dt>Point</dt>
 <dd><ul class="first last simple">
-<li>Use <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/fw/web/upload/PartInfo.html#getInputStream()" title="nablarch.fw.web.upload.PartInfo.getInputStream()">PartInfo#getInputStream</a> to acquire the upload file stream.</li>
+<li>Use <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/fw/web/upload/PartInfo.html#getInputStream()" title="nablarch.fw.web.upload.PartInfo.getInputStream()">PartInfo#getInputStream</a> to acquire the upload file stream.</li>
 <li>Perform input check using <a class="reference internal" href="../validation/bean_validation.html#bean-validation"><span>Bean Validation</span></a> since invalid data may have been input.</li>
 </ul>
 </dd>
@@ -651,8 +652,8 @@
 <dt>When binding to a Java Beans class</dt>
 <dd><p class="first">Specify the format using the following annotations.</p>
 <ul class="simple">
-<li><a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/common/databind/csv/Csv.html" title="nablarch.common.databind.csv.Csv">Csv</a></li>
-<li><a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/common/databind/csv/CsvFormat.html" title="nablarch.common.databind.csv.CsvFormat">CsvFormat</a></li>
+<li><a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/common/databind/csv/Csv.html" title="nablarch.common.databind.csv.Csv">Csv</a></li>
+<li><a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/common/databind/csv/CsvFormat.html" title="nablarch.common.databind.csv.CsvFormat">CsvFormat</a></li>
 </ul>
 <p>The format of the CSV file can be selected from a format set prepared in advance. For information on format set, see <a class="reference internal" href="#data-bind-csv-format-set"><span>Format sets that can be specified as the CSV file format</span></a> .</p>
 <p>An implementation example is shown below.</p>
@@ -665,7 +666,7 @@
 <span class="o">}</span>
 </pre></div>
 </div>
-<p>If the CSV file format does not correspond to any of the pre-prepared format sets, the format can be specified individually using <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/common/databind/csv/CsvFormat.html" title="nablarch.common.databind.csv.CsvFormat">CsvFormat</a> .</p>
+<p>If the CSV file format does not correspond to any of the pre-prepared format sets, the format can be specified individually using <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/common/databind/csv/CsvFormat.html" title="nablarch.common.databind.csv.CsvFormat">CsvFormat</a> .</p>
 <p>An implementation example is shown below.</p>
 <div class="highlight-java"><div class="highlight"><pre><span></span><span class="c1">// Specify CUSTOM in the type attribute.</span>
 <span class="nd">@Csv</span><span class="o">(</span><span class="n">type</span> <span class="o">=</span> <span class="n">Csv</span><span class="o">.</span><span class="na">CsvType</span><span class="o">.</span><span class="na">CUSTOM</span><span class="o">,</span> <span class="n">properties</span> <span class="o">=</span> <span class="o">{</span><span class="s">&quot;age&quot;</span><span class="o">,</span> <span class="s">&quot;name&quot;</span><span class="o">})</span>
@@ -688,14 +689,14 @@
 </div>
 <div class="last admonition tip">
 <p class="first admonition-title">Tip</p>
-<p class="last">Since the format is specified by an annotation when binding to a Java Beans class, the format cannot be specified using <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/common/databind/DataBindConfig.html" title="nablarch.common.databind.DataBindConfig">DataBindConfig</a> when <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/common/databind/ObjectMapper.html" title="nablarch.common.databind.ObjectMapper">ObjectMapper</a> is generated.</p>
+<p class="last">Since the format is specified by an annotation when binding to a Java Beans class, the format cannot be specified using <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/common/databind/DataBindConfig.html" title="nablarch.common.databind.DataBindConfig">DataBindConfig</a> when <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/common/databind/ObjectMapper.html" title="nablarch.common.databind.ObjectMapper">ObjectMapper</a> is generated.</p>
 </div>
 </dd>
 </dl>
 <dl class="docutils" id="data-bind-csv-format-map">
 <dt>When binding to a Map class</dt>
-<dd><p class="first">Specify the format separately using <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/common/databind/csv/CsvDataBindConfig.html" title="nablarch.common.databind.csv.CsvDataBindConfig">CsvDataBindConfig</a> when <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/common/databind/ObjectMapper.html" title="nablarch.common.databind.ObjectMapper">ObjectMapper</a> is generated.</p>
-<p>The property name configured in <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/common/databind/csv/CsvDataBindConfig.html#withProperties(java.lang.String...)" title="nablarch.common.databind.csv.CsvDataBindConfig.withProperties(java.lang.String...)">CsvDataBindConfig#withProperties</a> is used as the key of the Map object when specifying the format. When the header row exists in CSV, the header title can be used as a key by omitting the configuration of the property name.</p>
+<dd><p class="first">Specify the format separately using <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/common/databind/csv/CsvDataBindConfig.html" title="nablarch.common.databind.csv.CsvDataBindConfig">CsvDataBindConfig</a> when <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/common/databind/ObjectMapper.html" title="nablarch.common.databind.ObjectMapper">ObjectMapper</a> is generated.</p>
+<p>The property name configured in <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/common/databind/csv/CsvDataBindConfig.html#withProperties(java.lang.String...)" title="nablarch.common.databind.csv.CsvDataBindConfig.withProperties(java.lang.String...)">CsvDataBindConfig#withProperties</a> is used as the key of the Map object when specifying the format. When the header row exists in CSV, the header title can be used as a key by omitting the configuration of the property name.</p>
 <p>An implementation example is shown below.</p>
 <dl class="docutils">
 <dt>Point</dt>
@@ -720,10 +721,10 @@
 <dt>When binding to a Java Beans class</dt>
 <dd><p class="first">Specify the format using the following annotations.</p>
 <ul class="simple">
-<li><a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/common/databind/fixedlength/FixedLength.html" title="nablarch.common.databind.fixedlength.FixedLength">FixedLength</a></li>
-<li><a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/common/databind/fixedlength/Field.html" title="nablarch.common.databind.fixedlength.Field">Field</a></li>
+<li><a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/common/databind/fixedlength/FixedLength.html" title="nablarch.common.databind.fixedlength.FixedLength">FixedLength</a></li>
+<li><a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/common/databind/fixedlength/Field.html" title="nablarch.common.databind.fixedlength.Field">Field</a></li>
 </ul>
-<p>In addition, a converter that performs conversion such as padding and trimming can be specified for each field of the fixed-length file. For converters that can be specified as standard, see below the package <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/common/databind/fixedlength/converter/package-summary.html" title="nablarch.common.databind.fixedlength.converter.package-summary">nablarch.common.databind.fixedlength.converter</a> .</p>
+<p>In addition, a converter that performs conversion such as padding and trimming can be specified for each field of the fixed-length file. For converters that can be specified as standard, see below the package <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/common/databind/fixedlength/converter/package-summary.html" title="nablarch.common.databind.fixedlength.converter.package-summary">nablarch.common.databind.fixedlength.converter</a> .</p>
 <p>An implementation example is shown below.</p>
 <div class="highlight-java"><div class="highlight"><pre><span></span><span class="nd">@FixedLength</span><span class="o">(</span><span class="n">length</span> <span class="o">=</span> <span class="mi">19</span><span class="o">,</span> <span class="n">charset</span> <span class="o">=</span> <span class="s">&quot;MS932&quot;</span><span class="o">,</span> <span class="n">lineSeparator</span> <span class="o">=</span> <span class="s">&quot;\r\n&quot;</span><span class="o">)</span>
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">Person</span> <span class="o">{</span>
@@ -760,8 +761,8 @@
 </dl>
 <dl class="docutils" id="data-bind-fixed-length-format-map">
 <dt>When binding to a Map class</dt>
-<dd><p class="first">Specify the format separately using <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/common/databind/fixedlength/FixedLengthDataBindConfig.html" title="nablarch.common.databind.fixedlength.FixedLengthDataBindConfig">FixedLengthDataBindConfig</a> when <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/common/databind/ObjectMapper.html" title="nablarch.common.databind.ObjectMapper">ObjectMapper</a> is generated.</p>
-<p><a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/common/databind/fixedlength/FixedLengthDataBindConfig.html" title="nablarch.common.databind.fixedlength.FixedLengthDataBindConfig">FixedLengthDataBindConfig</a> can be generated using <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/common/databind/fixedlength/FixedLengthDataBindConfigBuilder.html" title="nablarch.common.databind.fixedlength.FixedLengthDataBindConfigBuilder">FixedLengthDataBindConfigBuilder</a> .</p>
+<dd><p class="first">Specify the format separately using <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/common/databind/fixedlength/FixedLengthDataBindConfig.html" title="nablarch.common.databind.fixedlength.FixedLengthDataBindConfig">FixedLengthDataBindConfig</a> when <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/common/databind/ObjectMapper.html" title="nablarch.common.databind.ObjectMapper">ObjectMapper</a> is generated.</p>
+<p><a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/common/databind/fixedlength/FixedLengthDataBindConfig.html" title="nablarch.common.databind.fixedlength.FixedLengthDataBindConfig">FixedLengthDataBindConfig</a> can be generated using <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/common/databind/fixedlength/FixedLengthDataBindConfigBuilder.html" title="nablarch.common.databind.fixedlength.FixedLengthDataBindConfigBuilder">FixedLengthDataBindConfigBuilder</a> .</p>
 <p>An implementation example is shown below.</p>
 <div class="last highlight-java"><div class="highlight"><pre><span></span><span class="kd">final</span> <span class="n">DataBindConfig</span> <span class="n">config</span> <span class="o">=</span> <span class="n">FixedLengthDataBindConfigBuilder</span>
         <span class="o">.</span><span class="na">newBuilder</span><span class="o">()</span>
@@ -784,15 +785,15 @@
 <p>There are 2 ways of specifying the fixed-length file with multiple formats: When binding to a Java Beans class and when binding to a Map class.</p>
 <dl class="docutils">
 <dt>When binding to a Java Beans class</dt>
-<dd><p class="first">Fixed-length files in multiple formats can be supported by defining a JavaBeans class for each format and creating an inherited class of <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/common/databind/fixedlength/MultiLayout.html" title="nablarch.common.databind.fixedlength.MultiLayout">MultiLayout</a> with the Java Beans classes as properties.</p>
+<dd><p class="first">Fixed-length files in multiple formats can be supported by defining a JavaBeans class for each format and creating an inherited class of <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/common/databind/fixedlength/MultiLayout.html" title="nablarch.common.databind.fixedlength.MultiLayout">MultiLayout</a> with the Java Beans classes as properties.</p>
 <p>An implementation example for specifying the formats is shown below.</p>
 <dl class="docutils">
 <dt>Point</dt>
 <dd><ul class="first last simple">
 <li>Define a Java Beans class for each format.</li>
-<li>Define an inherited class of <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/common/databind/fixedlength/MultiLayout.html" title="nablarch.common.databind.fixedlength.MultiLayout">MultiLayout</a> with a Java Beans class that defines the above format as a property.</li>
-<li>Configure the <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/common/databind/fixedlength/FixedLength.html" title="nablarch.common.databind.fixedlength.FixedLength">FixedLength</a> annotation to the inherited class of <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/common/databind/fixedlength/MultiLayout.html" title="nablarch.common.databind.fixedlength.MultiLayout">MultiLayout</a> and configure <code class="docutils literal"><span class="pre">true</span></code> in the <code class="docutils literal"><span class="pre">multiLayout</span></code> attribute.</li>
-<li>Override the <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/common/databind/fixedlength/MultiLayout.html#getRecordIdentifier()" title="nablarch.common.databind.fixedlength.MultiLayout.getRecordIdentifier()">MultiLayout#getRecordIdentifier</a> method and return <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/common/databind/fixedlength/MultiLayoutConfig.RecordIdentifier.html" title="nablarch.common.databind.fixedlength.MultiLayoutConfig.RecordIdentifier">RecordIdentifier</a> that identifies the format to which the target data is associated.</li>
+<li>Define an inherited class of <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/common/databind/fixedlength/MultiLayout.html" title="nablarch.common.databind.fixedlength.MultiLayout">MultiLayout</a> with a Java Beans class that defines the above format as a property.</li>
+<li>Configure the <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/common/databind/fixedlength/FixedLength.html" title="nablarch.common.databind.fixedlength.FixedLength">FixedLength</a> annotation to the inherited class of <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/common/databind/fixedlength/MultiLayout.html" title="nablarch.common.databind.fixedlength.MultiLayout">MultiLayout</a> and configure <code class="docutils literal"><span class="pre">true</span></code> in the <code class="docutils literal"><span class="pre">multiLayout</span></code> attribute.</li>
+<li>Override the <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/common/databind/fixedlength/MultiLayout.html#getRecordIdentifier()" title="nablarch.common.databind.fixedlength.MultiLayout.getRecordIdentifier()">MultiLayout#getRecordIdentifier</a> method and return <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/common/databind/fixedlength/MultiLayoutConfig.RecordIdentifier.html" title="nablarch.common.databind.fixedlength.MultiLayoutConfig.RecordIdentifier">RecordIdentifier</a> that identifies the format to which the target data is associated.</li>
 </ul>
 </dd>
 </dl>
@@ -889,7 +890,7 @@
 <dt>Point</dt>
 <dd><ul class="first last simple">
 <li>Call the <code class="docutils literal"><span class="pre">multiLayout</span></code> method and generate DataBindConfig for multi-layout.</li>
-<li>Specify the implementation class of <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/common/databind/fixedlength/MultiLayoutConfig.RecordIdentifier.html" title="nablarch.common.databind.fixedlength.MultiLayoutConfig.RecordIdentifier">RecordIdentifier</a> in the <code class="docutils literal"><span class="pre">recordIdentifier</span></code>  method to identify the associated format of the target data.</li>
+<li>Specify the implementation class of <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/common/databind/fixedlength/MultiLayoutConfig.RecordIdentifier.html" title="nablarch.common.databind.fixedlength.MultiLayoutConfig.RecordIdentifier">RecordIdentifier</a> in the <code class="docutils literal"><span class="pre">recordIdentifier</span></code>  method to identify the associated format of the target data.</li>
 </ul>
 </dd>
 </dl>
@@ -955,9 +956,9 @@
 <h3><a class="toc-backref" href="#id25">Add a file format that can be bound to the Java Beans class.</a><a class="headerlink" href="#add-a-file-format-that-can-be-bound-to-the-java-beans-class" title="Permalink to this headline">¶</a></h3>
 <p>The following steps are required to add a file format that can be bound to the Java Beans class.</p>
 <ol class="arabic simple">
-<li>Create an implementation class of <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/common/databind/ObjectMapper.html" title="nablarch.common.databind.ObjectMapper">ObjectMapper</a> to bind the Java Beans class with the file of a specified format.</li>
-<li>Create a class inheriting <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/common/databind/ObjectMapperFactory.html" title="nablarch.common.databind.ObjectMapperFactory">ObjectMapperFactory</a> , and add the process to generate the implementation class of <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/common/databind/ObjectMapper.html" title="nablarch.common.databind.ObjectMapper">ObjectMapper</a> created earlier.</li>
-<li>Configure the inherited class of <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/common/databind/ObjectMapperFactory.html" title="nablarch.common.databind.ObjectMapperFactory">ObjectMapperFactory</a> in the component configuration file. The configuration example of the component configuration file is shown below.</li>
+<li>Create an implementation class of <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/common/databind/ObjectMapper.html" title="nablarch.common.databind.ObjectMapper">ObjectMapper</a> to bind the Java Beans class with the file of a specified format.</li>
+<li>Create a class inheriting <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/common/databind/ObjectMapperFactory.html" title="nablarch.common.databind.ObjectMapperFactory">ObjectMapperFactory</a> , and add the process to generate the implementation class of <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/common/databind/ObjectMapper.html" title="nablarch.common.databind.ObjectMapper">ObjectMapper</a> created earlier.</li>
+<li>Configure the inherited class of <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/common/databind/ObjectMapperFactory.html" title="nablarch.common.databind.ObjectMapperFactory">ObjectMapperFactory</a> in the component configuration file. The configuration example of the component configuration file is shown below.</li>
 </ol>
 <blockquote>
 <div><dl class="docutils">
@@ -1068,7 +1069,7 @@
 <table class="docutils footnote" frame="void" id="thread-unsafe" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label">[1]</td><td><em>(<a class="fn-backref" href="#id2">1</a>, <a class="fn-backref" href="#id3">2</a>, <a class="fn-backref" href="#id4">3</a>, <a class="fn-backref" href="#id5">4</a>)</em> Since the reading and writing of <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/common/databind/ObjectMapper.html" title="nablarch.common.databind.ObjectMapper">ObjectMapper</a> is not thread safe, operation is not guaranteed when it is called from multiple threads simultaneously. For this reason, synchronous operation is performed by the caller when the instance <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/common/databind/ObjectMapper.html" title="nablarch.common.databind.ObjectMapper">ObjectMapper</a> is shared by multiple threads.</td></tr>
+<tr><td class="label">[1]</td><td><em>(<a class="fn-backref" href="#id2">1</a>, <a class="fn-backref" href="#id3">2</a>, <a class="fn-backref" href="#id4">3</a>, <a class="fn-backref" href="#id5">4</a>)</em> Since the reading and writing of <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/common/databind/ObjectMapper.html" title="nablarch.common.databind.ObjectMapper">ObjectMapper</a> is not thread safe, operation is not guaranteed when it is called from multiple threads simultaneously. For this reason, synchronous operation is performed by the caller when the instance <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/common/databind/ObjectMapper.html" title="nablarch.common.databind.ObjectMapper">ObjectMapper</a> is shared by multiple threads.</td></tr>
 </tbody>
 </table>
 </div>
@@ -1086,7 +1087,7 @@
 
     <div role="contentinfo">
         <p>
-            &copy; Copyright 2010-2024, TIS Inc.
+            &copy; Copyright 2010-2025, TIS Inc.
         </p>
     </div>
     Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
@@ -1107,7 +1108,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../../',
-            VERSION:'6u2',
+            VERSION:'6u3',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

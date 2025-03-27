@@ -9,7 +9,7 @@
   <meta http-equiv='content-language' content='ja'>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Jakarta Server Pages静的解析ツール &mdash; ∇Nablarch  6u2 ドキュメント</title>
+  <title>Jakarta Server Pages静的解析ツール &mdash; ∇Nablarch  6u3 ドキュメント</title>
   
 
   
@@ -35,7 +35,7 @@
   
   <link rel="canonical" href="https://nablarch.github.io/docs/LATEST/doc/development_tools/toolbox/JspStaticAnalysis/01_JspStaticAnalysis.html" />
   
-    <link rel="top" title="∇Nablarch  6u2 ドキュメント" href="../../../index.html"/>
+    <link rel="top" title="∇Nablarch  6u3 ドキュメント" href="../../../index.html"/>
         <link rel="up" title="Jakarta Server Pages静的解析ツール" href="index.html"/>
         <link rel="next" title="Jakarta Server Pages静的解析ツール 設定変更ガイド" href="02_JspStaticAnalysisInstall.html"/>
         <link rel="prev" title="Jakarta Server Pages静的解析ツール" href="index.html"/>
@@ -63,7 +63,7 @@
   
 
   
-    <div id="sidebar-version">Version: 6u2</div>
+    <div id="sidebar-version">Version: 6u3</div>
   </a>
 
   <div role="search">
@@ -142,6 +142,7 @@
 <li class="toctree-l2 current"><a class="reference internal" href="../index.html">アプリケーション開発時に使える便利なツール</a><ul class="current">
 <li class="toctree-l3 current"><a class="reference internal" href="index.html">Jakarta Server Pages静的解析ツール</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../SqlExecutor/SqlExecutor.html">Nablarch SQL Executor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../NablarchOpenApiGenerator/NablarchOpenApiGenerator.html">Nablarch OpenAPI Generator</a></li>
 </ul>
 </li>
 </ul>
@@ -273,10 +274,10 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../migration/index.html#jsr352">JSR352に準拠したバッチアプリケーションの移行手順</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../migration/index.html#id12">実行時にエラーになる場合の対処方法</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../migration/index.html#id13">実行時にエラーになる場合の対処方法</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../../migration/index.html#id13">付録</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../migration/index.html#id14">付録</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../migration/index.html#java-ee-jakarta-ee-comparation">Java EEとJakarta EEの仕様の対応表</a></li>
 </ul>
 </li>
@@ -471,7 +472,7 @@
 アーキテクトが作成するタグファイル内に隠蔽する場合等がこれに該当する。</p>
 <p>このような場合には、特定箇所のチェックを強制的に無効化する機能を使用する。
 特定箇所のチェックを無効化するには、該当行のすぐ上の行にチェックを無効化するJSPコメントを記述する。
-無効化コメントは、本ツールのチェックっ対象外のタグとなる。このため、JSPコメントを使用不可とした場合でもエラーとはならない。</p>
+無効化コメントは、本ツールのチェック対象外のタグとなる。このため、JSPコメントを使用不可とした場合でもエラーとはならない。</p>
 <p>無効化するJSPコメントは以下のルールに従い記述する。</p>
 <ul>
 <li><p class="first">コメントの開始タグと終了タグを同一行に記述する</p>
@@ -809,7 +810,7 @@ mvn verify -DskipTests=true
 <div class="admonition tip">
 <p class="first admonition-title">補足</p>
 <p class="last">本ツールの実行は、アプリケーション開発者任せではなくJenkinsのようなCIサーバで定期的に実行し、
-許可されていなタグが使われていないことを常に保証する必要がある。</p>
+許可されていないタグが使われていないことを常に保証する必要がある。</p>
 </div>
 </div>
 </div>
@@ -827,7 +828,7 @@ mvn verify -DskipTests=true
 
     <div role="contentinfo">
         <p>
-            &copy; Copyright 2010-2024, TIS Inc.
+            &copy; Copyright 2010-2025, TIS Inc.
         </p>
     </div>
     Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
@@ -848,7 +849,7 @@ mvn verify -DskipTests=true
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../',
-            VERSION:'6u2',
+            VERSION:'6u3',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

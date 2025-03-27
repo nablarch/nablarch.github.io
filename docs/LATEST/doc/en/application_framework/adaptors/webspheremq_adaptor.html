@@ -9,7 +9,7 @@
   <meta http-equiv='content-language' content='ja'>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>IBM MQ Adapter &mdash; ∇Nablarch  6u2 documentation</title>
+  <title>IBM MQ Adapter &mdash; ∇Nablarch  6u3 documentation</title>
   
 
   
@@ -35,7 +35,7 @@
   
   <link rel="canonical" href="https://nablarch.github.io/docs/LATEST/doc/application_framework/adaptors/webspheremq_adaptor.html" />
   
-    <link rel="top" title="∇Nablarch  6u2 documentation" href="../../index.html"/>
+    <link rel="top" title="∇Nablarch  6u3 documentation" href="../../index.html"/>
         <link rel="up" title="Adaptor" href="index.html"/>
         <link rel="next" title="Jakarta RESTful Web Services Adapter" href="jaxrs_adaptor.html"/>
         <link rel="prev" title="Routing Adapter" href="router_adaptor.html"/>
@@ -63,7 +63,7 @@
   
 
   
-    <div id="sidebar-version">Version: 6u2</div>
+    <div id="sidebar-version">Version: 6u3</div>
   </a>
 
   <div role="search">
@@ -142,6 +142,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../development_tools/toolbox/index.html">Useful Tools When Developing Applications</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../development_tools/toolbox/JspStaticAnalysis/index.html">Jakarta Server Pages Static Analysis Tool</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../development_tools/toolbox/SqlExecutor/SqlExecutor.html">Nablarch SQL Executor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../development_tools/toolbox/NablarchOpenApiGenerator/NablarchOpenApiGenerator.html">Nablarch OpenAPI Generator</a></li>
 </ul>
 </li>
 </ul>
@@ -372,6 +373,7 @@ When changing the version, test in the project to confirm that there are no prob
 <ol class="arabic simple">
 <li>Add the definition of <code class="docutils literal"><span class="pre">nablarch.integration.messaging.wmq.provider.WmqMessagingProvider</span></code> to the component configuration file.</li>
 <li>Configure <code class="docutils literal"><span class="pre">WmqMessagingProvider</span></code> configured in <code class="docutils literal"><span class="pre">1</span></code> to <a class="reference internal" href="../application_framework/handlers/mom_messaging/messaging_context_handler.html#messaging-context-handler"><span>Messaging Context Management Handler</span></a> .</li>
+<li>Configure <code class="docutils literal"><span class="pre">WmqMessagingProvider</span></code> configured in <code class="docutils literal"><span class="pre">1</span></code> in the list of initialization targets as it needs to be initialized.</li>
 </ol>
 <p>A configuration example is shown below.</p>
 <div class="highlight-xml"><div class="highlight"><pre><span></span><span class="c">&lt;!-- Provider implementation for IBM MQ Adapter- --&gt;</span>
@@ -387,6 +389,16 @@ When changing the version, test in the project to confirm that there are no prob
 <span class="c">--&gt;</span>
 <span class="nt">&lt;component</span> <span class="na">class=</span><span class="s">&quot;nablarch.fw.messaging.handler.MessagingContextHandler&quot;</span><span class="nt">&gt;</span>
   <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;messagingProvider&quot;</span> <span class="na">ref=</span><span class="s">&quot;wmqMessagingProvider&quot;</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;/component&gt;</span>
+
+<span class="nt">&lt;component</span> <span class="na">name=</span><span class="s">&quot;initializer&quot;</span>
+    <span class="na">class=</span><span class="s">&quot;nablarch.core.repository.initialization.BasicApplicationInitializer&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;initializeList&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;list&gt;</span>
+      <span class="c">&lt;!-- Initialize WmqMessagingProvider --&gt;</span>
+      <span class="nt">&lt;component-ref</span> <span class="na">name=</span><span class="s">&quot;wmqMessagingProvider&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;/list&gt;</span>
+  <span class="nt">&lt;/property&gt;</span>
 <span class="nt">&lt;/component&gt;</span>
 </pre></div>
 </div>
@@ -469,7 +481,7 @@ Refer to the manual of the product to be used for the detailed configuration met
 
     <div role="contentinfo">
         <p>
-            &copy; Copyright 2010-2024, TIS Inc.
+            &copy; Copyright 2010-2025, TIS Inc.
         </p>
     </div>
     Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
@@ -490,7 +502,7 @@ Refer to the manual of the product to be used for the detailed configuration met
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../',
-            VERSION:'6u2',
+            VERSION:'6u3',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

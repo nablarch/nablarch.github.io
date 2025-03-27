@@ -9,7 +9,7 @@
   <meta http-equiv='content-language' content='ja'>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Nablarch API &mdash; ∇Nablarch  6u2 ドキュメント</title>
+  <title>Nablarch API &mdash; ∇Nablarch  6u3 ドキュメント</title>
   
 
   
@@ -35,7 +35,7 @@
   
   <link rel="canonical" href="https://nablarch.github.io/docs/LATEST/doc/nablarch_api/index.html" />
   
-    <link rel="top" title="∇Nablarch  6u2 ドキュメント" href="../index.html"/>
+    <link rel="top" title="∇Nablarch  6u3 ドキュメント" href="../index.html"/>
         <link rel="next" title="リリース情報" href="../releases/index.html"/>
         <link rel="prev" title="Nablarchでの開発に役立つコンテンツ" href="../external_contents/index.html"/>
 
@@ -62,7 +62,7 @@
   
 
   
-    <div id="sidebar-version">Version: 6u2</div>
+    <div id="sidebar-version">Version: 6u3</div>
   </a>
 
   <div role="search">
@@ -141,6 +141,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../development_tools/toolbox/index.html">アプリケーション開発時に使える便利なツール</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../development_tools/toolbox/JspStaticAnalysis/index.html">Jakarta Server Pages静的解析ツール</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../development_tools/toolbox/SqlExecutor/SqlExecutor.html">Nablarch SQL Executor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../development_tools/toolbox/NablarchOpenApiGenerator/NablarchOpenApiGenerator.html">Nablarch OpenAPI Generator</a></li>
 </ul>
 </li>
 </ul>
@@ -272,10 +273,10 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../migration/index.html#jsr352">JSR352に準拠したバッチアプリケーションの移行手順</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../migration/index.html#id12">実行時にエラーになる場合の対処方法</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../migration/index.html#id13">実行時にエラーになる場合の対処方法</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../migration/index.html#id13">付録</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../migration/index.html#id14">付録</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../migration/index.html#java-ee-jakarta-ee-comparation">Java EEとJakarta EEの仕様の対応表</a></li>
 </ul>
 </li>
@@ -343,8 +344,8 @@
   <div class="section" id="nablarch-api">
 <h1>Nablarch API<a class="headerlink" href="#nablarch-api" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <ul class="simple">
-<li><a class="reference external" href="https://nablarch.github.io/docs/6u2/publishedApi/nablarch-all/NablarchApi/">Nablarch APIドキュメント</a></li>
-<li><a class="reference external" href="https://nablarch.github.io/docs/6u2/publishedApi/nablarch-testing/NablarchTestingApi/">Nablarch Testing APIドキュメント</a></li>
+<li><a class="reference external" href="https://nablarch.github.io/docs/6u3/publishedApi/nablarch-all/NablarchApi/">Nablarch APIドキュメント</a></li>
+<li><a class="reference external" href="https://nablarch.github.io/docs/6u3/publishedApi/nablarch-testing/NablarchTestingApi/">Nablarch Testing APIドキュメント</a></li>
 </ul>
 <div class="admonition tip">
 <p class="first admonition-title">補足</p>
@@ -352,8 +353,8 @@
 しかし、Nablarch 6からは非公開APIも含めた形でAPIドキュメントを提供している。</p>
 <p>これは、Javaのバージョンが上がってJavadocの生成を拡張する仕組みが変わり、公開APIだけに絞ったJavadoc生成ができなくなったためである。</p>
 <p>参照したクラスやメソッドが公開APIであるかどうかは、対象のJavadoc上に <code class="docutils literal"><span class="pre">&#64;Published</span></code> が記載されているかどうかで判断できる。</p>
-<p>例えば、 <a class="reference external" href="https://nablarch.github.io/docs/6u2/publishedApi/nablarch-all/NablarchApi/nablarch/common/dao/DaoContext.html">DaoContext</a> はクラスに <code class="docutils literal"><span class="pre">&#64;Published(tag=&quot;architect&quot;)</span></code> が記載されているためアーキテクト向けの公開APIであることが分かる。
-一方で、 <a class="reference external" href="https://nablarch.github.io/docs/6u2/publishedApi/nablarch-all/NablarchApi/nablarch/common/dao/BasicDaoContext.html#findAll(java.lang.Class)">BasicDaoContextのfindAllメソッド</a> はクラスにもメソッドにも <code class="docutils literal"><span class="pre">&#64;Published</span></code> が記載されていないことから非公開APIであることが分かる。</p>
+<p>例えば、 <a class="reference external" href="https://nablarch.github.io/docs/6u3/publishedApi/nablarch-all/NablarchApi/nablarch/common/dao/DaoContext.html">DaoContext</a> はクラスに <code class="docutils literal"><span class="pre">&#64;Published(tag=&quot;architect&quot;)</span></code> が記載されているためアーキテクト向けの公開APIであることが分かる。
+一方で、 <a class="reference external" href="https://nablarch.github.io/docs/6u3/publishedApi/nablarch-all/NablarchApi/nablarch/common/dao/BasicDaoContext.html#findAll(java.lang.Class)">BasicDaoContextのfindAllメソッド</a> はクラスにもメソッドにも <code class="docutils literal"><span class="pre">&#64;Published</span></code> が記載されていないことから非公開APIであることが分かる。</p>
 <p class="last">なお、公開APIに関する仕様の詳細は <a class="reference internal" href="../about_nablarch/versionup_policy.html#versionup-policy-backward-compatibility-policy"><span>後方互換性ポリシー</span></a> および <a class="reference external" href="https://github.com/Fintan-contents/coding-standards/blob/main/java/staticanalysis/unpublished-api/README.md">使用不許可APIチェックツールのREADME (外部サイト)</a> を参照すること。</p>
 </div>
 </div>
@@ -370,7 +371,7 @@
 
     <div role="contentinfo">
         <p>
-            &copy; Copyright 2010-2024, TIS Inc.
+            &copy; Copyright 2010-2025, TIS Inc.
         </p>
     </div>
     Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
@@ -391,7 +392,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'6u2',
+            VERSION:'6u3',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

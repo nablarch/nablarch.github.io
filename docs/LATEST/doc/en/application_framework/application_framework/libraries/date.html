@@ -9,7 +9,7 @@
   <meta http-equiv='content-language' content='ja'>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Date Management &mdash; ∇Nablarch  6u2 documentation</title>
+  <title>Date Management &mdash; ∇Nablarch  6u3 documentation</title>
   
 
   
@@ -35,7 +35,7 @@
   
   <link rel="canonical" href="https://nablarch.github.io/docs/LATEST/doc/application_framework/application_framework/libraries/date.html" />
   
-    <link rel="top" title="∇Nablarch  6u2 documentation" href="../../../index.html"/>
+    <link rel="top" title="∇Nablarch  6u3 documentation" href="../../../index.html"/>
         <link rel="up" title="Libraries Provided by Nablarch" href="index.html"/>
         <link rel="next" title="Permission Check" href="permission_check.html"/>
         <link rel="prev" title="Code Management" href="code.html"/>
@@ -63,7 +63,7 @@
   
 
   
-    <div id="sidebar-version">Version: 6u2</div>
+    <div id="sidebar-version">Version: 6u3</div>
   </a>
 
   <div role="search">
@@ -142,6 +142,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../development_tools/toolbox/index.html">Useful Tools When Developing Applications</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../development_tools/toolbox/JspStaticAnalysis/index.html">Jakarta Server Pages Static Analysis Tool</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../development_tools/toolbox/SqlExecutor/SqlExecutor.html">Nablarch SQL Executor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../development_tools/toolbox/NablarchOpenApiGenerator/NablarchOpenApiGenerator.html">Nablarch OpenAPI Generator</a></li>
 </ul>
 </li>
 </ul>
@@ -402,7 +403,7 @@ This switching can be used to temporarily switch the system date/time (OS date/t
 <div class="section" id="configure-settings-to-use-the-system-date-and-time-management-function">
 <span id="date-system-time-settings"></span><h3><a class="toc-backref" href="#id5">Configure settings to use the system date and time management function</a><a class="headerlink" href="#configure-settings-to-use-the-system-date-and-time-management-function" title="Permalink to this headline">¶</a></h3>
 <p>To use the system date and time management function,
-add <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/core/date/BasicSystemTimeProvider.html" title="nablarch.core.date.BasicSystemTimeProvider">BasicSystemTimeProvider</a> configuration to the component definition.
+add <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/core/date/BasicSystemTimeProvider.html" title="nablarch.core.date.BasicSystemTimeProvider">BasicSystemTimeProvider</a> configuration to the component definition.
 Specify the component name as  <strong>systemTimeProvider</strong> .</p>
 <div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;component</span> <span class="na">name=</span><span class="s">&quot;systemTimeProvider&quot;</span> <span class="na">class=</span><span class="s">&quot;nablarch.core.date.BasicSystemTimeProvider&quot;</span> <span class="nt">/&gt;</span>
 </pre></div>
@@ -410,7 +411,7 @@ Specify the component name as  <strong>systemTimeProvider</strong> .</p>
 </div>
 <div class="section" id="acquire-system-date-and-time">
 <h3><a class="toc-backref" href="#id6">Acquire system date and time</a><a class="headerlink" href="#acquire-system-date-and-time" title="Permalink to this headline">¶</a></h3>
-<p>Use  <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/core/date/SystemTimeUtil.html" title="nablarch.core.date.SystemTimeUtil">SystemTimeUtil</a>  to acquire the system date and time.</p>
+<p>Use  <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/core/date/SystemTimeUtil.html" title="nablarch.core.date.SystemTimeUtil">SystemTimeUtil</a>  to acquire the system date and time.</p>
 </div>
 <div class="section" id="configure-settings-to-use-the-business-date-management-function">
 <span id="date-business-date-settings"></span><h3><a class="toc-backref" href="#id7">Configure settings to use the business date management function</a><a class="headerlink" href="#configure-settings-to-use-the-business-date-management-function" title="Permalink to this headline">¶</a></h3>
@@ -431,8 +432,9 @@ The table layout is as follows.</p>
 </tbody>
 </table>
 <p>To use the business date management function,
-add <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/core/date/BasicBusinessDateProvider.html" title="nablarch.core.date.BasicBusinessDateProvider">BasicBusinessDateProvider</a> configuration to the component definition.
+add <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/core/date/BasicBusinessDateProvider.html" title="nablarch.core.date.BasicBusinessDateProvider">BasicBusinessDateProvider</a> configuration to the component definition.
 Specify the component name as  <strong>businessDateProvider</strong>.</p>
+<p>Also, since initialization is required, set it in the list to be initialized.</p>
 <div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;component</span> <span class="na">name=</span><span class="s">&quot;businessDateProvider&quot;</span> <span class="na">class=</span><span class="s">&quot;nablarch.core.date.BasicBusinessDateProvider&quot;</span><span class="nt">&gt;</span>
   <span class="c">&lt;!-- Table name --&gt;</span>
   <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;tableName&quot;</span> <span class="na">value=</span><span class="s">&quot;BUSINESS_DATE&quot;</span> <span class="nt">/&gt;</span>
@@ -445,12 +447,22 @@ Specify the component name as  <strong>businessDateProvider</strong>.</p>
   <span class="c">&lt;!-- Transaction manager used for database access --&gt;</span>
   <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;transactionManager&quot;</span> <span class="na">ref=</span><span class="s">&quot;transactionManager&quot;</span> <span class="nt">/&gt;</span>
 <span class="nt">&lt;/component&gt;</span>
+
+<span class="nt">&lt;component</span> <span class="na">name=</span><span class="s">&quot;initializer&quot;</span>
+    <span class="na">class=</span><span class="s">&quot;nablarch.core.repository.initialization.BasicApplicationInitializer&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;initializeList&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;list&gt;</span>
+      <span class="c">&lt;!-- Other components are omitted --&gt;</span>
+      <span class="nt">&lt;component-ref</span> <span class="na">name=</span><span class="s">&quot;businessDateProvider&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;/list&gt;</span>
+  <span class="nt">&lt;/property&gt;</span>
+<span class="nt">&lt;/component&gt;</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="acquire-business-date">
 <h3><a class="toc-backref" href="#id8">Acquire business date</a><a class="headerlink" href="#acquire-business-date" title="Permalink to this headline">¶</a></h3>
-<p>Use  <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/core/date/BusinessDateUtil.html" title="nablarch.core.date.BusinessDateUtil">BusinessDateUtil</a>  to acquire the business date.</p>
+<p>Use  <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/core/date/BusinessDateUtil.html" title="nablarch.core.date.BusinessDateUtil">BusinessDateUtil</a>  to acquire the business date.</p>
 </div>
 <div class="section" id="overwrite-business-date-to-an-arbitrary-date">
 <h3><a class="toc-backref" href="#id9">Overwrite business date to an arbitrary date</a><a class="headerlink" href="#overwrite-business-date-to-an-arbitrary-date" title="Permalink to this headline">¶</a></h3>
@@ -476,7 +488,7 @@ Specify as a system property in the following format.</p>
 </div>
 <div class="section" id="update-business-date">
 <h3><a class="toc-backref" href="#id10">Update business date</a><a class="headerlink" href="#update-business-date" title="Permalink to this headline">¶</a></h3>
-<p>Business date is updated by using  <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/core/date/BasicBusinessDateProvider.html" title="nablarch.core.date.BasicBusinessDateProvider">BasicBusinessDateProvider</a> .</p>
+<p>Business date is updated by using  <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/core/date/BasicBusinessDateProvider.html" title="nablarch.core.date.BasicBusinessDateProvider">BasicBusinessDateProvider</a> .</p>
 <div class="highlight-java"><div class="highlight"><pre><span></span><span class="c1">// Acquire BasicBusinessDateProvider from the system repository</span>
 <span class="n">BusinessDateProvider</span> <span class="n">provider</span> <span class="o">=</span> <span class="n">SystemRepository</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">&quot;businessDateProvider&quot;</span><span class="o">);</span>
 
@@ -492,7 +504,7 @@ Specify as a system property in the following format.</p>
 <span id="date-system-time-change"></span><h3><a class="toc-backref" href="#id12">Switch system date and time</a><a class="headerlink" href="#switch-system-date-and-time" title="Permalink to this headline">¶</a></h3>
 <p>To switch the system date and time when executing a unit test, perform the following procedure.</p>
 <ol class="arabic simple">
-<li>Create a class that implements  <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/core/date/SystemTimeProvider.html" title="nablarch.core.date.SystemTimeProvider">SystemTimeProvider</a> .</li>
+<li>Create a class that implements  <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/core/date/SystemTimeProvider.html" title="nablarch.core.date.SystemTimeProvider">SystemTimeProvider</a> .</li>
 <li>Configure in accordance with <a class="reference internal" href="#date-system-time-settings"><span>Configure settings to use the system date and time management function</span></a> .</li>
 </ol>
 </div>
@@ -500,7 +512,7 @@ Specify as a system property in the following format.</p>
 <span id="date-business-date-change"></span><h3><a class="toc-backref" href="#id13">Switch business date</a><a class="headerlink" href="#switch-business-date" title="Permalink to this headline">¶</a></h3>
 <p>To switch the business date when executing a unit test, perform the following procedure.</p>
 <ol class="arabic simple">
-<li>Create a class that implements <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/core/date/BusinessDateProvider.html" title="nablarch.core.date.BusinessDateProvider">BusinessDateProvider</a> .</li>
+<li>Create a class that implements <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/core/date/BusinessDateProvider.html" title="nablarch.core.date.BusinessDateProvider">BusinessDateProvider</a> .</li>
 <li>Configure in accordance with <a class="reference internal" href="#date-business-date-settings"><span>Configure settings to use the business date management function</span></a> .</li>
 </ol>
 </div>
@@ -519,7 +531,7 @@ Specify as a system property in the following format.</p>
 
     <div role="contentinfo">
         <p>
-            &copy; Copyright 2010-2024, TIS Inc.
+            &copy; Copyright 2010-2025, TIS Inc.
         </p>
     </div>
     Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
@@ -540,7 +552,7 @@ Specify as a system property in the following format.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../',
-            VERSION:'6u2',
+            VERSION:'6u3',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

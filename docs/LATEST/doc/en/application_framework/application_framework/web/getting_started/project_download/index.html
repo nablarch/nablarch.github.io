@@ -9,7 +9,7 @@
   <meta http-equiv='content-language' content='ja'>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Create a File Download Function &mdash; ∇Nablarch  6u2 documentation</title>
+  <title>Create a File Download Function &mdash; ∇Nablarch  6u3 documentation</title>
   
 
   
@@ -35,7 +35,7 @@
   
   <link rel="canonical" href="https://nablarch.github.io/docs/LATEST/doc/application_framework/application_framework/web/getting_started/project_download/index.html" />
   
-    <link rel="top" title="∇Nablarch  6u2 documentation" href="../../../../../index.html"/>
+    <link rel="top" title="∇Nablarch  6u3 documentation" href="../../../../../index.html"/>
         <link rel="up" title="Getting Started" href="../index.html"/>
         <link rel="next" title="Create a Pop-up Screen" href="../popup/index.html"/>
         <link rel="prev" title="Create a Batch registration Function Using Upload" href="../project_upload/index.html"/>
@@ -63,7 +63,7 @@
   
 
   
-    <div id="sidebar-version">Version: 6u2</div>
+    <div id="sidebar-version">Version: 6u3</div>
   </a>
 
   <div role="search">
@@ -142,6 +142,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../../../development_tools/toolbox/index.html">Useful Tools When Developing Applications</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../../../development_tools/toolbox/JspStaticAnalysis/index.html">Jakarta Server Pages Static Analysis Tool</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../../development_tools/toolbox/SqlExecutor/SqlExecutor.html">Nablarch SQL Executor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../development_tools/toolbox/NablarchOpenApiGenerator/NablarchOpenApiGenerator.html">Nablarch OpenAPI Generator</a></li>
 </ul>
 </li>
 </ul>
@@ -388,9 +389,6 @@
         <span class="nt">&lt;c:if</span> <span class="na">test=</span><span class="s">&quot;${not empty searchResult}&quot;</span><span class="nt">&gt;</span>
             <span class="nt">&lt;n:write</span> <span class="na">name=</span><span class="s">&quot;searchResult.pagination.resultCount&quot;</span> <span class="nt">/&gt;</span>
         <span class="nt">&lt;/c:if&gt;</span>
-        <span class="nt">&lt;c:if</span> <span class="na">test=</span><span class="s">&quot;${empty searchResult}&quot;</span><span class="nt">&gt;</span>
-            0
-        <span class="nt">&lt;/c:if&gt;</span>
     <span class="nt">&lt;/span&gt;</span>
     <span class="c">&lt;!-- Configure the current search condition as a parameter --&gt;</span>
     <span class="nt">&lt;c:url</span> <span class="na">value=</span><span class="s">&quot;/action/project/download&quot;</span> <span class="na">var=</span><span class="s">&quot;download_uri&quot;</span><span class="nt">&gt;</span>
@@ -446,9 +444,9 @@
 </dd>
 <dt>Key points of this implementation</dt>
 <dd><ul class="first last simple">
-<li>Use <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/common/databind/csv/Csv.html" title="nablarch.common.databind.csv.Csv">&#64;Csv</a> to configure the association between the contents of the downloaded CSV fie and Bean properties.
-Use <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/common/databind/csv/CsvFormat.html" title="nablarch.common.databind.csv.CsvFormat">&#64;CsvFormat</a> to specify the acceptable CSV format.
-（<a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/common/databind/csv/CsvFormat.html" title="nablarch.common.databind.csv.CsvFormat">&#64;CsvFormat</a> is not required when using the <a class="reference internal" href="../../../libraries/data_io/data_bind.html#data-bind-csv-format-set"><span>default format specification</span></a>）
+<li>Use <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/common/databind/csv/Csv.html" title="nablarch.common.databind.csv.Csv">&#64;Csv</a> to configure the association between the contents of the downloaded CSV fie and Bean properties.
+Use <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/common/databind/csv/CsvFormat.html" title="nablarch.common.databind.csv.CsvFormat">&#64;CsvFormat</a> to specify the acceptable CSV format.
+（<a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/common/databind/csv/CsvFormat.html" title="nablarch.common.databind.csv.CsvFormat">&#64;CsvFormat</a> is not required when using the <a class="reference internal" href="../../../libraries/data_io/data_bind.html#data-bind-csv-format-set"><span>default format specification</span></a>）
 For information on how to configure the annotation, refer to <a class="reference internal" href="../../../libraries/data_io/data_bind.html#data-bind-csv-format-beans"><span>format specification method when binding the CSV file to the Java Beans</span></a>.</li>
 </ul>
 </dd>
@@ -493,17 +491,17 @@ For information on how to configure the annotation, refer to <a class="reference
 <dt>Key points of this implementation</dt>
 <dd><ul class="first last simple">
 <li>For implementation method of the search process, refer to <a class="reference internal" href="../project_search/index.html#project-search-create-action"><span>create search function: Business action implementation</span></a>.</li>
-<li>To bind the bean to a file and generate an output, use <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/common/databind/ObjectMapper.html" title="nablarch.common.databind.ObjectMapper">ObjectMapper</a>
+<li>To bind the bean to a file and generate an output, use <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/common/databind/ObjectMapper.html" title="nablarch.common.databind.ObjectMapper">ObjectMapper</a>
 provided by <a class="reference internal" href="../../../libraries/data_io/data_bind.html#data-bind"><span>Data bind</span></a>.</li>
-<li>To download the data output to a file, use <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/common/web/download/FileResponse.html" title="nablarch.common.web.download.FileResponse">FileResponse</a>.
+<li>To download the data output to a file, use <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/common/web/download/FileResponse.html" title="nablarch.common.web.download.FileResponse">FileResponse</a>.
 For more information, see <a class="reference internal" href="../../../libraries/data_io/data_bind.html#data-bind-file-download"><span>Use data binding for download</span></a>.</li>
-<li>When reading a large amount of data, to prevent straining of the memory, use <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/common/dao/UniversalDao.html#defer()" title="nablarch.common.dao.UniversalDao.defer()">UniversalDao#defer</a>
+<li>When reading a large amount of data, to prevent straining of the memory, use <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/common/dao/UniversalDao.html#defer()" title="nablarch.common.dao.UniversalDao.defer()">UniversalDao#defer</a>
 for <a class="reference internal" href="../../../libraries/database/universal_dao.html#universal-dao-lazy-load"><span>deferred loading</span></a> of the search results.</li>
 <li>Configure the response content type using
-<a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/fw/web/HttpResponse.html#setContentType(java.lang.String)" title="nablarch.fw.web.HttpResponse.setContentType(java.lang.String)">HttpResponse#setContentType</a>.
+<a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/fw/web/HttpResponse.html#setContentType(java.lang.String)" title="nablarch.fw.web.HttpResponse.setContentType(java.lang.String)">HttpResponse#setContentType</a>.
 For more information, see <a class="reference internal" href="../../../libraries/data_io/data_format.html#data-format-file-download"><span>Use general data format for downloads</span></a>.</li>
 <li>Configure the file name of the downloaded file using
-<a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/fw/web/HttpResponse.html#setContentDisposition(java.lang.String)" title="nablarch.fw.web.HttpResponse.setContentDisposition(java.lang.String)">HttpResponse#setContentDisposition</a>.
+<a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/fw/web/HttpResponse.html#setContentDisposition(java.lang.String)" title="nablarch.fw.web.HttpResponse.setContentDisposition(java.lang.String)">HttpResponse#setContentDisposition</a>.
 For more information, see <a class="reference internal" href="../../../libraries/data_io/data_format.html#data-format-file-download"><span>Use general data format for downloads</span></a>.</li>
 </ul>
 </dd>
@@ -527,7 +525,7 @@ For more information, see <a class="reference internal" href="../../../libraries
 
     <div role="contentinfo">
         <p>
-            &copy; Copyright 2010-2024, TIS Inc.
+            &copy; Copyright 2010-2025, TIS Inc.
         </p>
     </div>
     Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
@@ -548,7 +546,7 @@ For more information, see <a class="reference internal" href="../../../libraries
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../../../',
-            VERSION:'6u2',
+            VERSION:'6u3',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

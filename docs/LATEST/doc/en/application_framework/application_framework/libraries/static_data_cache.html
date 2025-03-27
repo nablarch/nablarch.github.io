@@ -9,7 +9,7 @@
   <meta http-equiv='content-language' content='ja'>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Static Data Cache &mdash; ∇Nablarch  6u2 documentation</title>
+  <title>Static Data Cache &mdash; ∇Nablarch  6u3 documentation</title>
   
 
   
@@ -35,7 +35,7 @@
   
   <link rel="canonical" href="https://nablarch.github.io/docs/LATEST/doc/application_framework/application_framework/libraries/static_data_cache.html" />
   
-    <link rel="top" title="∇Nablarch  6u2 documentation" href="../../../index.html"/>
+    <link rel="top" title="∇Nablarch  6u3 documentation" href="../../../index.html"/>
         <link rel="up" title="Libraries Provided by Nablarch" href="index.html"/>
         <link rel="next" title="Input Value Check" href="validation.html"/>
         <link rel="prev" title="Transaction Management" href="transaction.html"/>
@@ -63,7 +63,7 @@
   
 
   
-    <div id="sidebar-version">Version: 6u2</div>
+    <div id="sidebar-version">Version: 6u3</div>
   </a>
 
   <div role="search">
@@ -142,6 +142,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../development_tools/toolbox/index.html">Useful Tools When Developing Applications</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../development_tools/toolbox/JspStaticAnalysis/index.html">Jakarta Server Pages Static Analysis Tool</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../development_tools/toolbox/SqlExecutor/SqlExecutor.html">Nablarch SQL Executor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../development_tools/toolbox/NablarchOpenApiGenerator/NablarchOpenApiGenerator.html">Nablarch OpenAPI Generator</a></li>
 </ul>
 </li>
 </ul>
@@ -393,14 +394,14 @@ A significant advantage is that implementation of a synchronization process like
 <span id="static-data-cache-load-data"></span><h3><a class="toc-backref" href="#id5">Cache arbitrarily data</a><a class="headerlink" href="#cache-arbitrarily-data" title="Permalink to this headline">¶</a></h3>
 <p>The following operations are necessary to cache arbitrary static data.</p>
 <ol class="arabic simple">
-<li>Implement the <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/core/cache/StaticDataLoader.html" title="nablarch.core.cache.StaticDataLoader">StaticDataLoader</a> interface and then implement the process to load data.</li>
-<li>Configure the implementation class of <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/core/cache/StaticDataLoader.html" title="nablarch.core.cache.StaticDataLoader">StaticDataLoader</a> to <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/core/cache/BasicStaticDataCache.html" title="nablarch.core.cache.BasicStaticDataCache">BasicStaticDataCache</a>.</li>
-<li>Configure  <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/core/cache/BasicStaticDataCache.html" title="nablarch.core.cache.BasicStaticDataCache">BasicStaticDataCache</a> to the class that uses the cache.</li>
+<li>Implement the <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/core/cache/StaticDataLoader.html" title="nablarch.core.cache.StaticDataLoader">StaticDataLoader</a> interface and then implement the process to load data.</li>
+<li>Configure the implementation class of <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/core/cache/StaticDataLoader.html" title="nablarch.core.cache.StaticDataLoader">StaticDataLoader</a> to <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/core/cache/BasicStaticDataCache.html" title="nablarch.core.cache.BasicStaticDataCache">BasicStaticDataCache</a>.</li>
+<li>Configure  <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/core/cache/BasicStaticDataCache.html" title="nablarch.core.cache.BasicStaticDataCache">BasicStaticDataCache</a> to the class that uses the cache.</li>
 </ol>
 <p>The detailed procedure is shown below.</p>
 <dl class="docutils">
 <dt>Create a loader by implementing the StaticDataLoader interface</dt>
-<dd><p class="first">Implement <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/core/cache/StaticDataLoader.html" title="nablarch.core.cache.StaticDataLoader">StaticDataLoader</a> and then implement the process that loads the static data from any arbitrary store.</p>
+<dd><p class="first">Implement <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/core/cache/StaticDataLoader.html" title="nablarch.core.cache.StaticDataLoader">StaticDataLoader</a> and then implement the process that loads the static data from any arbitrary store.</p>
 <p>Although there are many methods of implementation, implementation based on the following rules is recommended.</p>
 <table class="last docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -423,18 +424,18 @@ As a general rule, this function is not used, as the implementation method is co
 </table>
 </dd>
 <dt>Configure the loader in the BasicStaticDataCache class</dt>
-<dd><p class="first">Configure the loader implementing <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/core/cache/StaticDataLoader.html" title="nablarch.core.cache.StaticDataLoader">StaticDataLoader</a> to <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/core/cache/BasicStaticDataCache.html#setLoader(nablarch.core.cache.StaticDataLoader)" title="nablarch.core.cache.BasicStaticDataCache.setLoader(nablarch.core.cache.StaticDataLoader)">BasicStaticDataCache.loader</a>.</p>
+<dd><p class="first">Configure the loader implementing <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/core/cache/StaticDataLoader.html" title="nablarch.core.cache.StaticDataLoader">StaticDataLoader</a> to <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/core/cache/BasicStaticDataCache.html#setLoader(nablarch.core.cache.StaticDataLoader)" title="nablarch.core.cache.BasicStaticDataCache.setLoader(nablarch.core.cache.StaticDataLoader)">BasicStaticDataCache.loader</a>.</p>
 <p>For configuration example, see <a class="reference internal" href="#static-data-cache-config-sample"><span>configuration file example of static data cache</span></a>.</p>
 <div class="last admonition important">
 <p class="first admonition-title">Important</p>
-<p class="last">As done even in the implementation example, <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/core/cache/BasicStaticDataCache.html" title="nablarch.core.cache.BasicStaticDataCache">BasicStaticDataCache</a> must be configured in the initialization target.
+<p class="last">As done even in the implementation example, <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/core/cache/BasicStaticDataCache.html" title="nablarch.core.cache.BasicStaticDataCache">BasicStaticDataCache</a> must be configured in the initialization target.
 For details of initialization, see <a class="reference internal" href="repository.html#repository-initialize-object"><span>Initialize the object</span></a>.</p>
 </div>
 </dd>
 <dt>Configure BasicStaticDataCache to the class using the cache.</dt>
-<dd><p class="first">Cached data can be accessed by configuring <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/core/cache/BasicStaticDataCache.html" title="nablarch.core.cache.BasicStaticDataCache">BasicStaticDataCache</a> which has a loader in the class that uses the cache.</p>
+<dd><p class="first">Cached data can be accessed by configuring <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/core/cache/BasicStaticDataCache.html" title="nablarch.core.cache.BasicStaticDataCache">BasicStaticDataCache</a> which has a loader in the class that uses the cache.</p>
 <p>An example showing the class that uses the cache is given below.</p>
-<p>In this example, the cached data is acquired using the configured <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/core/cache/StaticDataCache.html" title="nablarch.core.cache.StaticDataCache">StaticDataCache</a>.</p>
+<p>In this example, the cached data is acquired using the configured <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/core/cache/StaticDataCache.html" title="nablarch.core.cache.StaticDataCache">StaticDataCache</a>.</p>
 <p>For configuration example, see  <a class="reference internal" href="#static-data-cache-config-sample"><span>configuration file example of static data cache</span></a>.</p>
 <div class="last highlight-java"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">SampleService</span> <span class="o">{</span>
 
@@ -498,7 +499,7 @@ For details of initialization, see <a class="reference internal" href="repositor
 <p class="last">As a general rule, there is no problem with batch loading during startup, but if there is a large amount of static data and only a part of it is used, then on-demand loading is a better option.
 For example, on-demand loading is a better option while accessing only a part of the data such as a batch application.</p>
 </div>
-<p>Change the load timing with <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/core/cache/BasicStaticDataCache.html#setLoadOnStartup(boolean)" title="nablarch.core.cache.BasicStaticDataCache.setLoadOnStartup(boolean)">BasicStaticDataCache.loadOnStartup</a> that has configured the loader.
+<p>Change the load timing with <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/core/cache/BasicStaticDataCache.html#setLoadOnStartup(boolean)" title="nablarch.core.cache.BasicStaticDataCache.setLoadOnStartup(boolean)">BasicStaticDataCache.loadOnStartup</a> that has configured the loader.
 If this property is set to <cite>true</cite>, data is loaded in a batch during startup.</p>
 <p>Since <cite>true</cite> is configured in the following example, data is cached in a batch during startup.</p>
 <div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;component</span> <span class="na">name=</span><span class="s">&quot;sampleLoader&quot;</span> <span class="na">class=</span><span class="s">&quot;sample.SampleLoader&quot;</span> <span class="nt">/&gt;</span>
@@ -525,7 +526,7 @@ If this property is set to <cite>true</cite>, data is loaded in a batch during s
 
     <div role="contentinfo">
         <p>
-            &copy; Copyright 2010-2024, TIS Inc.
+            &copy; Copyright 2010-2025, TIS Inc.
         </p>
     </div>
     Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
@@ -546,7 +547,7 @@ If this property is set to <cite>true</cite>, data is loaded in a batch during s
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../',
-            VERSION:'6u2',
+            VERSION:'6u3',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

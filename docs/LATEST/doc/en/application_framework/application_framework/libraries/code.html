@@ -9,7 +9,7 @@
   <meta http-equiv='content-language' content='ja'>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Code Management &mdash; ∇Nablarch  6u2 documentation</title>
+  <title>Code Management &mdash; ∇Nablarch  6u3 documentation</title>
   
 
   
@@ -35,7 +35,7 @@
   
   <link rel="canonical" href="https://nablarch.github.io/docs/LATEST/doc/application_framework/application_framework/libraries/code.html" />
   
-    <link rel="top" title="∇Nablarch  6u2 documentation" href="../../../index.html"/>
+    <link rel="top" title="∇Nablarch  6u3 documentation" href="../../../index.html"/>
         <link rel="up" title="Libraries Provided by Nablarch" href="index.html"/>
         <link rel="next" title="Date Management" href="date.html"/>
         <link rel="prev" title="Exclusive Control" href="exclusive_control.html"/>
@@ -63,7 +63,7 @@
   
 
   
-    <div id="sidebar-version">Version: 6u2</div>
+    <div id="sidebar-version">Version: 6u3</div>
   </a>
 
   <div role="search">
@@ -142,6 +142,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../development_tools/toolbox/index.html">Useful Tools When Developing Applications</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../development_tools/toolbox/JspStaticAnalysis/index.html">Jakarta Server Pages Static Analysis Tool</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../development_tools/toolbox/SqlExecutor/SqlExecutor.html">Nablarch SQL Executor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../development_tools/toolbox/NablarchOpenApiGenerator/NablarchOpenApiGenerator.html">Nablarch OpenAPI Generator</a></li>
 </ul>
 </li>
 </ul>
@@ -501,9 +502,9 @@ The required number of column names and columns can be defined.</p>
 <dl class="docutils">
 <dt>Point</dt>
 <dd><ul class="first last simple">
-<li>Set the component name of  <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/common/code/BasicCodeManager.html" title="nablarch.common.code.BasicCodeManager">BasicCodeManager</a>  to  <strong>codeManager</strong> .</li>
-<li>Refer to  <a class="reference internal" href="static_data_cache.html#static-data-cache-cache-timing"><span>Control the cache timing of data</span></a>  for configuration value of <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/core/cache/BasicStaticDataCache.html#setLoadOnStartup(boolean)" title="nablarch.core.cache.BasicStaticDataCache.setLoadOnStartup(boolean)">loadOnStartup</a> of  <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/core/cache/BasicStaticDataCache.html" title="nablarch.core.cache.BasicStaticDataCache">BasicStaticDataCache</a> .</li>
-<li>Configure <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/core/cache/BasicStaticDataCache.html" title="nablarch.core.cache.BasicStaticDataCache">BasicStaticDataCache</a>  in the list of initialization targets as it needs to be initialized.</li>
+<li>Set the component name of  <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/common/code/BasicCodeManager.html" title="nablarch.common.code.BasicCodeManager">BasicCodeManager</a>  to  <strong>codeManager</strong> .</li>
+<li>Refer to  <a class="reference internal" href="static_data_cache.html#static-data-cache-cache-timing"><span>Control the cache timing of data</span></a>  for configuration value of <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/core/cache/BasicStaticDataCache.html#setLoadOnStartup(boolean)" title="nablarch.core.cache.BasicStaticDataCache.setLoadOnStartup(boolean)">loadOnStartup</a> of  <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/core/cache/BasicStaticDataCache.html" title="nablarch.core.cache.BasicStaticDataCache">BasicStaticDataCache</a> .</li>
+<li>Configure <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/common/code/BasicCodeLoader.html" title="nablarch.common.code.BasicCodeLoader">BasicCodeLoader</a> and <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/core/cache/BasicStaticDataCache.html" title="nablarch.core.cache.BasicStaticDataCache">BasicStaticDataCache</a>  in the initialization list as they require initialization.</li>
 </ul>
 </dd>
 </dl>
@@ -536,12 +537,12 @@ The required number of column names and columns can be defined.</p>
   <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;codeDefinitionCache&quot;</span> <span class="na">ref=</span><span class="s">&quot;codeCache&quot;</span><span class="nt">/&gt;</span>
 <span class="nt">&lt;/component&gt;</span>
 
-<span class="c">&lt;!-- Configure BasicStaticDataCache in the initialization list as it requires</span>
-<span class="c">to be initialized --&gt;</span>
+<span class="c">&lt;!-- Configure BasicCodeLoader and BasicStaticDataCache in the initialization list as they require initialization --&gt;</span>
 <span class="nt">&lt;component</span> <span class="na">name=</span><span class="s">&quot;initializer&quot;</span>
     <span class="na">class=</span><span class="s">&quot;nablarch.core.repository.initialization.BasicApplicationInitializer&quot;</span><span class="nt">&gt;</span>
   <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;initializeList&quot;</span><span class="nt">&gt;</span>
     <span class="nt">&lt;list&gt;</span>
+      <span class="nt">&lt;component-ref</span> <span class="na">name=</span><span class="s">&quot;codeLoader&quot;</span><span class="nt">/&gt;</span>
       <span class="nt">&lt;component-ref</span> <span class="na">name=</span><span class="s">&quot;codeCache&quot;</span><span class="nt">/&gt;</span>
     <span class="nt">&lt;/list&gt;</span>
   <span class="nt">&lt;/property&gt;</span>
@@ -559,7 +560,7 @@ In such a case, the pattern of the code pattern table is used to switch which pa
 <dl class="docutils">
 <dt>Define pattern column in the code pattern table</dt>
 <dd><p class="first">Define a pattern column that has a display pattern in the code pattern table.</p>
-<p>Pattern column can be used by configuring  <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/common/code/schema/CodePatternSchema.html#setPatternColumnNames(java.lang.String[])" title="nablarch.common.code.schema.CodePatternSchema.setPatternColumnNames(java.lang.String[])">CodePatternSchema.patternColumnNames</a> .
+<p>Pattern column can be used by configuring  <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/common/code/schema/CodePatternSchema.html#setPatternColumnNames(java.lang.String[])" title="nablarch.common.code.schema.CodePatternSchema.setPatternColumnNames(java.lang.String[])">CodePatternSchema.patternColumnNames</a> .
 For configuring the configuration file, see  <a class="reference internal" href="#code-setup-table"><span>Initial configuration to use the code value management function</span></a> .</p>
 <p>In this example, two patterns <code class="docutils literal"><span class="pre">PATTERN1</span></code> and <code class="docutils literal"><span class="pre">PATTERN2</span></code> are defined,
 and OTHER is hidden in <code class="docutils literal"><span class="pre">PATTERN2</span></code> .</p>
@@ -646,7 +647,7 @@ and OTHER is hidden in <code class="docutils literal"><span class="pre">PATTERN2
 </dd>
 <dt>Specify the pattern and acquire the code information</dt>
 <dd><blockquote class="first">
-<div><a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/common/code/CodeUtil.html" title="nablarch.common.code.CodeUtil">CodeUtil</a>  is used to acquire the code name.</div></blockquote>
+<div><a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/common/code/CodeUtil.html" title="nablarch.common.code.CodeUtil">CodeUtil</a>  is used to acquire the code name.</div></blockquote>
 <p>When using a pattern, specify which pattern to use with a character string.
 This value must exactly match the column name configured in the configuration file with  <a class="reference internal" href="#code-setup-table"><span>Initial configuration to use the code value management function</span></a> .</p>
 <div class="last highlight-java"><div class="highlight"><pre><span></span><span class="c1">// Acquire the PATTER1 list.</span>
@@ -746,7 +747,7 @@ This value must exactly match the column name configured in the configuration fi
 </table>
 </dd>
 <dt>Specify the language and get the code information</dt>
-<dd><p class="first">The name corresponding to the language can be obtained by specifying the language by using <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/common/code/CodeUtil.html" title="nablarch.common.code.CodeUtil">CodeUtil</a> .</p>
+<dd><p class="first">The name corresponding to the language can be obtained by specifying the language by using <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/common/code/CodeUtil.html" title="nablarch.common.code.CodeUtil">CodeUtil</a> .</p>
 <div class="last highlight-java"><div class="highlight"><pre><span></span><span class="c1">// Name</span>
 <span class="n">CodeUtil</span><span class="o">.</span><span class="na">getName</span><span class="o">(</span><span class="s">&quot;GENDER&quot;</span><span class="o">,</span> <span class="s">&quot;MALE&quot;</span><span class="o">,</span> <span class="n">Locale</span><span class="o">.</span><span class="na">JAPANESE</span><span class="o">);</span>    <span class="c1">// -&gt; 男性</span>
 <span class="n">CodeUtil</span><span class="o">.</span><span class="na">getName</span><span class="o">(</span><span class="s">&quot;GENDER&quot;</span><span class="o">,</span> <span class="s">&quot;MALE&quot;</span><span class="o">,</span> <span class="n">Locale</span><span class="o">.</span><span class="na">ENGLISH</span><span class="o">);</span>     <span class="c1">// -&gt; Male</span>
@@ -832,7 +833,7 @@ Support such cases by using the option name area.</p>
 <dl class="docutils">
 <dt>Define option name column in the code name table</dt>
 <dd><p class="first">Define a column with an optional name in the code name table.</p>
-<p>Pattern column can be used by configuring <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/common/code/schema/CodePatternSchema.html#setPatternColumnNames(java.lang.String[])" title="nablarch.common.code.schema.CodePatternSchema.setPatternColumnNames(java.lang.String[])">CodePatternSchema.patternColumnNames</a> .
+<p>Pattern column can be used by configuring <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/common/code/schema/CodePatternSchema.html#setPatternColumnNames(java.lang.String[])" title="nablarch.common.code.schema.CodePatternSchema.setPatternColumnNames(java.lang.String[])">CodePatternSchema.patternColumnNames</a> .
 For configuring the configuration file, see  <a class="reference internal" href="#code-setup-table"><span>Initial configuration to use the code value management function</span></a> .</p>
 <p>In this example, two columns are defined as option name columns, <code class="docutils literal"><span class="pre">FORM_NAME</span></code> and <code class="docutils literal"><span class="pre">KANA_NAME</span></code> .</p>
 <table border="1" class="last docutils">
@@ -890,7 +891,7 @@ For configuring the configuration file, see  <a class="reference internal" href=
 </dd>
 <dt>Acquire option name</dt>
 <dd><blockquote class="first">
-<div><a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/common/code/CodeUtil.html" title="nablarch.common.code.CodeUtil">CodeUtil</a> is used to acquire option name.</div></blockquote>
+<div><a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/common/code/CodeUtil.html" title="nablarch.common.code.CodeUtil">CodeUtil</a> is used to acquire option name.</div></blockquote>
 <p>When acquiring the option name, specify which option name is to be acquired with a string.
 This value must exactly match the column name configured in the configuration file with <a class="reference internal" href="#code-setup-table"><span>Initial configuration to use the code value management function</span></a> .</p>
 <div class="last highlight-java"><div class="highlight"><pre><span></span><span class="n">CodeUtil</span><span class="o">.</span><span class="na">getOptionalName</span><span class="o">(</span><span class="s">&quot;GENDER&quot;</span><span class="o">,</span> <span class="s">&quot;MALE&quot;</span><span class="o">,</span> <span class="s">&quot;KANA_NAME&quot;</span><span class="o">)</span> <span class="c1">// -&gt; おとこ</span>
@@ -921,14 +922,14 @@ Input values can be checked with this function only by configuring the annotatio
 <p>An example is shown below.</p>
 <dl class="docutils">
 <dt><a class="reference internal" href="validation/bean_validation.html#bean-validation"><span>Bean Validation</span></a></dt>
-<dd><p class="first">To use <a class="reference internal" href="validation/bean_validation.html#bean-validation"><span>Bean Validation</span></a> , use the annotation <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/common/code/validator/ee/CodeValue.html" title="nablarch.common.code.validator.ee.CodeValue">nablarch.common.code.validator.ee.CodeValue</a>.</p>
+<dd><p class="first">To use <a class="reference internal" href="validation/bean_validation.html#bean-validation"><span>Bean Validation</span></a> , use the annotation <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/common/code/validator/ee/CodeValue.html" title="nablarch.common.code.validator.ee.CodeValue">nablarch.common.code.validator.ee.CodeValue</a>.</p>
 <div class="last highlight-java"><div class="highlight"><pre><span></span><span class="nd">@CodeValue</span><span class="o">(</span><span class="n">codeId</span> <span class="o">=</span> <span class="s">&quot;GENDER&quot;</span><span class="o">)</span>
 <span class="kd">private</span> <span class="n">String</span> <span class="n">gender</span><span class="o">;</span>
 </pre></div>
 </div>
 </dd>
 <dt><a class="reference internal" href="validation/nablarch_validation.html#nablarch-validation"><span>Nablarch Validation</span></a></dt>
-<dd><p class="first">To use <a class="reference internal" href="validation/nablarch_validation.html#nablarch-validation"><span>Nablarch Validation</span></a> , use the annotation  <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/common/code/validator/CodeValue.html" title="nablarch.common.code.validator.CodeValue">nablarch.common.code.validator.CodeValue</a>.</p>
+<dd><p class="first">To use <a class="reference internal" href="validation/nablarch_validation.html#nablarch-validation"><span>Nablarch Validation</span></a> , use the annotation  <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/common/code/validator/CodeValue.html" title="nablarch.common.code.validator.CodeValue">nablarch.common.code.validator.CodeValue</a>.</p>
 <div class="last highlight-java"><div class="highlight"><pre><span></span><span class="nd">@CodeValue</span><span class="o">(</span><span class="n">codeId</span> <span class="o">=</span> <span class="s">&quot;GENDER&quot;</span><span class="o">)</span>
 <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setGender</span><span class="o">(</span><span class="n">String</span> <span class="n">gender</span><span class="o">)</span> <span class="o">{</span>
   <span class="k">this</span><span class="o">.</span><span class="na">gender</span> <span class="o">=</span> <span class="n">gender</span><span class="o">;</span>
@@ -981,7 +982,7 @@ Therefore, to support multiple patterns, a domain corresponding to the pattern i
 
     <div role="contentinfo">
         <p>
-            &copy; Copyright 2010-2024, TIS Inc.
+            &copy; Copyright 2010-2025, TIS Inc.
         </p>
     </div>
     Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
@@ -1002,7 +1003,7 @@ Therefore, to support multiple patterns, a domain corresponding to the pattern i
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../',
-            VERSION:'6u2',
+            VERSION:'6u3',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

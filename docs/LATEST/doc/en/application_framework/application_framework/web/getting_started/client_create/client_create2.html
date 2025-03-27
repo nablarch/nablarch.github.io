@@ -9,7 +9,7 @@
   <meta http-equiv='content-language' content='ja'>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Confirmation of Registration Contents &mdash; ∇Nablarch  6u2 documentation</title>
+  <title>Confirmation of Registration Contents &mdash; ∇Nablarch  6u3 documentation</title>
   
 
   
@@ -35,7 +35,7 @@
   
   <link rel="canonical" href="https://nablarch.github.io/docs/LATEST/doc/application_framework/application_framework/web/getting_started/client_create/client_create2.html" />
   
-    <link rel="top" title="∇Nablarch  6u2 documentation" href="../../../../../index.html"/>
+    <link rel="top" title="∇Nablarch  6u3 documentation" href="../../../../../index.html"/>
         <link rel="up" title="Create a Registration Function (Hands-on Format)" href="index.html"/>
         <link rel="next" title="Return to the Registration Screen From the Registration Confirmation Screen" href="client_create3.html"/>
         <link rel="prev" title="Create Initial Display of Registration Screen" href="client_create1.html"/>
@@ -63,7 +63,7 @@
   
 
   
-    <div id="sidebar-version">Version: 6u2</div>
+    <div id="sidebar-version">Version: 6u3</div>
   </a>
 
   <div role="search">
@@ -142,6 +142,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../../../development_tools/toolbox/index.html">Useful Tools When Developing Applications</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../../../development_tools/toolbox/JspStaticAnalysis/index.html">Jakarta Server Pages Static Analysis Tool</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../../development_tools/toolbox/SqlExecutor/SqlExecutor.html">Nablarch SQL Executor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../development_tools/toolbox/NablarchOpenApiGenerator/NablarchOpenApiGenerator.html">Nablarch OpenAPI Generator</a></li>
 </ul>
 </li>
 </ul>
@@ -376,7 +377,7 @@
 <dt>Key points of this implementation</dt>
 <dd><ul class="first last simple">
 <li>A setter and getter must be created in a form class.</li>
-<li>To implement validation ( <a class="reference internal" href="#client-create-setup-validation"><span>described later</span></a> ) using <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/common/web/interceptor/InjectForm.html" title="nablarch.common.web.interceptor.InjectForm">&#64;InjectForm</a>, the form implements the serializable interface.</li>
+<li>To implement validation ( <a class="reference internal" href="#client-create-setup-validation"><span>described later</span></a> ) using <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/common/web/interceptor/InjectForm.html" title="nablarch.common.web.interceptor.InjectForm">&#64;InjectForm</a>, the form implements the serializable interface.</li>
 <li>All properties that accept input values are declared as string type. For more information, see <a class="reference internal" href="../../../libraries/validation/bean_validation.html#bean-validation-form-property"><span>how to set validation rules</span></a>.</li>
 </ul>
 </dd>
@@ -396,33 +397,37 @@ Refer to <a class="reference internal" href="../../../libraries/tag.html#tag-spe
 <dl class="last docutils">
 <dt>/src/main/webapp/WEB-INF/view/client/create.jsp</dt>
 <dd><div class="first last highlight-jsp"><div class="highlight"><pre><span></span><span class="nt">&lt;n:form&gt;</span>
-    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;form-group label-static is-empty&quot;</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">&quot;control-label&quot;</span><span class="nt">&gt;</span>Client name<span class="nt">&lt;/label&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;row m-3&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">&quot;col-md-2 col-form-label fs-5&quot;</span><span class="nt">&gt;</span>Client name<span class="nt">&lt;/label&gt;</span>
         <span class="c">&lt;!-- Client name text box --&gt;</span>
-<span class="hll">        <span class="nt">&lt;n:text</span> <span class="na">name=</span><span class="s">&quot;form.clientName&quot;</span>
-</span><span class="hll">                <span class="na">cssClass=</span><span class="s">&quot;form-control input-text&quot;</span> <span class="na">errorCss=</span><span class="s">&quot;form-control input-error&quot;</span> <span class="nt">/&gt;</span>
-</span>        <span class="c">&lt;!-- Error message at the time of client name input error --&gt;</span>
-<span class="hll">        <span class="nt">&lt;n:error</span> <span class="na">errorCss=</span><span class="s">&quot;message-error&quot;</span> <span class="na">name=</span><span class="s">&quot;form.clientName&quot;</span> <span class="nt">/&gt;</span>
-</span>    <span class="nt">&lt;/div&gt;</span>
-    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;form-group label-static is-empty&quot;</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">&quot;control-label&quot;</span><span class="nt">&gt;</span>Industry type<span class="nt">&lt;/label&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;col-md-10 form-group&quot;</span><span class="nt">&gt;</span>
+<span class="hll">            <span class="nt">&lt;n:text</span> <span class="na">name=</span><span class="s">&quot;form.clientName&quot;</span>
+</span><span class="hll">                    <span class="na">cssClass=</span><span class="s">&quot;form-control form-control-lg&quot;</span> <span class="na">errorCss=</span><span class="s">&quot;input-error&quot;</span> <span class="nt">/&gt;</span>
+</span>            <span class="c">&lt;!-- Error message at the time of client name input error --&gt;</span>
+<span class="hll">            <span class="nt">&lt;n:error</span> <span class="na">errorCss=</span><span class="s">&quot;message-error mt-2&quot;</span> <span class="na">name=</span><span class="s">&quot;form.clientName&quot;</span> <span class="nt">/&gt;</span>
+</span>        <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;row m-3&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">&quot;col-md-2 col-form-label fs-5&quot;</span><span class="nt">&gt;</span>Industry type<span class="nt">&lt;/label&gt;</span>
         <span class="c">&lt;!-- Pull down of industry type --&gt;</span>
-        <span class="nt">&lt;n:select</span>
-                <span class="na">listName=</span><span class="s">&quot;industries&quot;</span>
-                <span class="na">elementValueProperty=</span><span class="s">&quot;industryCode&quot;</span>
-                <span class="na">elementLabelProperty=</span><span class="s">&quot;industryName&quot;</span>
-<span class="hll">                <span class="na">name=</span><span class="s">&quot;form.industryCode&quot;</span>
-</span>                <span class="na">withNoneOption=</span><span class="s">&quot;true&quot;</span>
-                <span class="na">cssClass=</span><span class="s">&quot;btn dropdown-toggle&quot;</span>
-<span class="hll">                <span class="na">errorCss=</span><span class="s">&quot;btn dropdown-toggle input-error&quot;</span> <span class="nt">/&gt;</span>
-</span>        <span class="c">&lt;!-- Error message when the input of the industry type is not correct --&gt;</span>
-<span class="hll">        <span class="nt">&lt;n:error</span> <span class="na">errorCss=</span><span class="s">&quot;message-error&quot;</span> <span class="na">name=</span><span class="s">&quot;form.industryCode&quot;</span> <span class="nt">/&gt;</span>
-</span>    <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;col-md-10 form-group&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;n:select</span>
+                    <span class="na">listName=</span><span class="s">&quot;industries&quot;</span>
+                    <span class="na">elementValueProperty=</span><span class="s">&quot;industryCode&quot;</span>
+                    <span class="na">elementLabelProperty=</span><span class="s">&quot;industryName&quot;</span>
+<span class="hll">                    <span class="na">name=</span><span class="s">&quot;form.industryCode&quot;</span>
+</span>                    <span class="na">withNoneOption=</span><span class="s">&quot;true&quot;</span>
+                    <span class="na">cssClass=</span><span class="s">&quot;form-select form-select-lg&quot;</span>
+<span class="hll">                    <span class="na">errorCss=</span><span class="s">&quot;input-error&quot;</span> <span class="nt">/&gt;</span>
+</span>            <span class="c">&lt;!-- Error message when the input of the industry type is not correct --&gt;</span>
+<span class="hll">            <span class="nt">&lt;n:error</span> <span class="na">errorCss=</span><span class="s">&quot;message-error mt-2&quot;</span> <span class="na">name=</span><span class="s">&quot;form.industryCode&quot;</span> <span class="nt">/&gt;</span>
+</span>        <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
     <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;button-nav&quot;</span><span class="nt">&gt;</span>
         <span class="c">&lt;!-- Registration button --&gt;</span>
         <span class="nt">&lt;n:button</span>
 <span class="hll">                <span class="na">uri=</span><span class="s">&quot;/action/client/confirm&quot;</span>
-</span>                <span class="na">cssClass=</span><span class="s">&quot;btn btn-raised btn-success&quot;</span><span class="nt">&gt;</span>Registration <span class="nt">&lt;/n:button&gt;</span>
+</span>                <span class="na">cssClass=</span><span class="s">&quot;btn btn-lg btn-success&quot;</span><span class="nt">&gt;</span>Registration <span class="nt">&lt;/n:button&gt;</span>
     <span class="nt">&lt;/div&gt;</span>
 <span class="nt">&lt;/n:form&gt;</span>
 </pre></div>
@@ -464,7 +469,7 @@ Refer to <a class="reference internal" href="../../../libraries/tag.html#tag-spe
 <li>An annotation under <cite>nablarch.core.validation.ee</cite> is assigned to perform <a class="reference internal" href="../../../libraries/validation/bean_validation.html#bean-validation"><span>Bean Validation</span></a>.
 (note that an annotation with the same name may exist under <cite>nablarch.core.validation.validator</cite>).</li>
 <li>Use <a class="reference internal" href="../../../libraries/validation/bean_validation.html#bean-validation-domain-validation"><span>domain validation</span></a> to define validation rules for properties of the <cite>ClientForm</cite> class.</li>
-<li>To display the appropriate message for the target item, specify the message defined in the <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/core/validation/ee/Required.html" title="nablarch.core.validation.ee.Required">Required</a> <cite>message</cite> attribute.
+<li>To display the appropriate message for the target item, specify the message defined in the <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/core/validation/ee/Required.html" title="nablarch.core.validation.ee.Required">Required</a> <cite>message</cite> attribute.
 For more information about message definitions, see <a class="reference internal" href="../../../libraries/message.html#message-property-definition"><span>Defining messages in property files</span></a>.</li>
 </ul>
 </dd>
@@ -490,8 +495,8 @@ For more information about message definitions, see <a class="reference internal
 </dd>
 <dt>Key points of this implementation</dt>
 <dd><ul class="first last simple">
-<li>Execute <a class="reference internal" href="../../../libraries/validation/bean_validation.html#bean-validation"><span>Bean Validation</span></a> assigning <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/common/web/interceptor/InjectForm.html" title="nablarch.common.web.interceptor.InjectForm">InjectForm</a> to the business action method.</li>
-<li>Configure the <cite>path</cite> attribute of <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/fw/web/interceptor/OnError.html" title="nablarch.fw.web.interceptor.OnError">OnError</a> for internally forwarding to the input method when a validation error occurs
+<li>Execute <a class="reference internal" href="../../../libraries/validation/bean_validation.html#bean-validation"><span>Bean Validation</span></a> assigning <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/common/web/interceptor/InjectForm.html" title="nablarch.common.web.interceptor.InjectForm">InjectForm</a> to the business action method.</li>
+<li>Configure the <cite>path</cite> attribute of <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/fw/web/interceptor/OnError.html" title="nablarch.fw.web.interceptor.OnError">OnError</a> for internally forwarding to the input method when a validation error occurs
 (to refresh the registration screen, the industry type list must be configured).</li>
 <li>A validated object can be obtained from the request scope if a validation error does not occur.</li>
 </ul>
@@ -521,9 +526,9 @@ For more information about message definitions, see <a class="reference internal
 <dt>Key points of this implementation</dt>
 <dd><ul class="first last simple">
 <li>Similar to the process of displaying the registration screen, import the industry type information from the database and configure in the request scope.</li>
-<li>Use <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/common/web/session/SessionUtil.html" title="nablarch.common.web.session.SessionUtil">SessionUtil</a> for saving to <a class="reference internal" href="../../../libraries/session_store.html#session-store"><span>session store</span></a>.</li>
+<li>Use <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/common/web/session/SessionUtil.html" title="nablarch.common.web.session.SessionUtil">SessionUtil</a> for saving to <a class="reference internal" href="../../../libraries/session_store.html#session-store"><span>session store</span></a>.</li>
 <li>Since the <a class="reference internal" href="../../../libraries/session_store.html#session-store-form"><span>form is not stored in session store</span></a>,
-use <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/core/beans/BeanUtil.html" title="nablarch.core.beans.BeanUtil">BeanUtil</a> to convert the form to an entity, and then register in the <a class="reference internal" href="../../../libraries/session_store.html#session-store"><span>session store</span></a>.</li>
+use <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/core/beans/BeanUtil.html" title="nablarch.core.beans.BeanUtil">BeanUtil</a> to convert the form to an entity, and then register in the <a class="reference internal" href="../../../libraries/session_store.html#session-store"><span>session store</span></a>.</li>
 <li>See <a class="reference internal" href="../../../libraries/session_store/create_example.html#create-example"><span>Implementation Example with Registration Function</span></a> for a detailed implementation when using <a class="reference internal" href="../../../libraries/session_store.html#session-store"><span>session store</span></a>.</li>
 </ul>
 </dd>
@@ -558,14 +563,14 @@ use <a class="reference external" href="https://nablarch.github.io/docs/6u2/java
     <span class="c">&lt;!--  Registration button appears only on the registration screen --&gt;</span>
     <span class="nt">&lt;n:forInputPage&gt;</span>
         <span class="nt">&lt;n:button</span> <span class="na">uri=</span><span class="s">&quot;/action/client/confirm&quot;</span>
-                  <span class="na">cssClass=</span><span class="s">&quot;btn btn-raised btn-success&quot;</span><span class="nt">&gt;</span>Registration <span class="nt">&lt;/n:button&gt;</span>
+                  <span class="na">cssClass=</span><span class="s">&quot;btn btn-lg btn-success&quot;</span><span class="nt">&gt;</span>Registration <span class="nt">&lt;/n:button&gt;</span>
     <span class="nt">&lt;/n:forInputPage&gt;</span>
     <span class="c">&lt;!-- Return to input, confirm button is only shown on the confirmation screen --&gt;</span>
     <span class="nt">&lt;n:forConfirmationPage&gt;</span>
         <span class="nt">&lt;n:button</span> <span class="na">uri=</span><span class="s">&quot;/action/client/back&quot;</span>
-                  <span class="na">cssClass=</span><span class="s">&quot;btn btn-raised btn-default&quot;</span><span class="nt">&gt;</span>Return to input<span class="nt">&lt;/n:button&gt;</span>
+                  <span class="na">cssClass=</span><span class="s">&quot;btn btn-lg btn-light&quot;</span><span class="nt">&gt;</span>Return to input<span class="nt">&lt;/n:button&gt;</span>
         <span class="nt">&lt;n:button</span> <span class="na">uri=</span><span class="s">&quot;/action/client/create&quot;</span>
-                  <span class="na">cssClass=</span><span class="s">&quot;btn btn-raised btn-success&quot;</span><span class="nt">&gt;</span>Confirm<span class="nt">&lt;/n:button&gt;</span>
+                  <span class="na">cssClass=</span><span class="s">&quot;btn btn-lg btn-success&quot;</span><span class="nt">&gt;</span>Confirm<span class="nt">&lt;/n:button&gt;</span>
     <span class="nt">&lt;/n:forConfirmationPage&gt;</span>
 <span class="nt">&lt;/div&gt;</span>
 </pre></div>
@@ -637,7 +642,7 @@ use <a class="reference external" href="https://nablarch.github.io/docs/6u2/java
 
     <div role="contentinfo">
         <p>
-            &copy; Copyright 2010-2024, TIS Inc.
+            &copy; Copyright 2010-2025, TIS Inc.
         </p>
     </div>
     Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
@@ -658,7 +663,7 @@ use <a class="reference external" href="https://nablarch.github.io/docs/6u2/java
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../../../',
-            VERSION:'6u2',
+            VERSION:'6u3',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

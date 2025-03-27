@@ -9,7 +9,7 @@
   <meta http-equiv='content-language' content='ja'>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Redis Health Checker (Lettus) adapter &mdash; ∇Nablarch  6u2 documentation</title>
+  <title>Redis Health Checker (Lettus) adapter &mdash; ∇Nablarch  6u3 documentation</title>
   
 
   
@@ -35,7 +35,7 @@
   
   <link rel="canonical" href="https://nablarch.github.io/docs/LATEST/doc/application_framework/adaptors/lettuce_adaptor/redishealthchecker_lettuce_adaptor.html" />
   
-    <link rel="top" title="∇Nablarch  6u2 documentation" href="../../../index.html"/>
+    <link rel="top" title="∇Nablarch  6u3 documentation" href="../../../index.html"/>
         <link rel="up" title="Lettuce Adapter" href="../lettuce_adaptor.html"/>
         <link rel="next" title="SLF4J Adapter" href="../slf4j_adaptor.html"/>
         <link rel="prev" title="Redis Store (Lettus) Adapter" href="redisstore_lettuce_adaptor.html"/>
@@ -63,7 +63,7 @@
   
 
   
-    <div id="sidebar-version">Version: 6u2</div>
+    <div id="sidebar-version">Version: 6u3</div>
   </a>
 
   <div role="search">
@@ -142,6 +142,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../development_tools/toolbox/index.html">Useful Tools When Developing Applications</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../development_tools/toolbox/JspStaticAnalysis/index.html">Jakarta Server Pages Static Analysis Tool</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../development_tools/toolbox/SqlExecutor/SqlExecutor.html">Nablarch SQL Executor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../development_tools/toolbox/NablarchOpenApiGenerator/NablarchOpenApiGenerator.html">Nablarch OpenAPI Generator</a></li>
 </ul>
 </li>
 </ul>
@@ -352,8 +353,8 @@
 </div>
 <p>Provides adapters that enable <a class="reference external" href="https://redis.io/">Redis(External sites)</a> health checks.
 See <a class="reference internal" href="../../application_framework/handlers/web/health_check_endpoint_handler.html#health-check-endpoint-handler"><span>Health Check Endpoint Handler</span></a> for health checks.</p>
-<p>You can add health checks by creating a class that inherits from <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/fw/web/handler/health/HealthChecker.html" title="nablarch.fw.web.handler.health.HealthChecker">HealthChecker</a> , described in <a class="reference internal" href="../../application_framework/handlers/web/health_check_endpoint_handler.html#health-check-endpoint-handler-add-health-checker"><span>Add a health check</span></a> .
-The adapter offers <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/integration/health/RedisHealthChecker.html" title="nablarch.integration.health.RedisHealthChecker">RedisHealthChecker</a> , a successor to HealthChecker.</p>
+<p>You can add health checks by creating a class that inherits from <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/fw/web/handler/health/HealthChecker.html" title="nablarch.fw.web.handler.health.HealthChecker">HealthChecker</a> , described in <a class="reference internal" href="../../application_framework/handlers/web/health_check_endpoint_handler.html#health-check-endpoint-handler-add-health-checker"><span>Add a health check</span></a> .
+The adapter offers <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/integration/health/RedisHealthChecker.html" title="nablarch.integration.health.RedisHealthChecker">RedisHealthChecker</a> , a successor to HealthChecker.</p>
 <div class="section" id="perform-a-redis-health-check">
 <span id="redishealthchecker-lettuce-adaptor-settings"></span><h2><a class="toc-backref" href="#id1">Perform a redis health check</a><a class="headerlink" href="#perform-a-redis-health-check" title="Permalink to this headline">¶</a></h2>
 <p>Redis health checks can be implemented by specifying RedisHealthChecker in the healthCheckers property of the HealthCheckEndpointHandler.</p>
@@ -373,7 +374,7 @@ The adapter offers <a class="reference external" href="https://nablarch.github.i
 <span class="nt">&lt;/component&gt;</span>
 </pre></div>
 </div>
-<p>The RedisHealthChecker uses the <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/integration/redisstore/lettuce/LettuceRedisClient.html" title="nablarch.integration.redisstore.lettuce.LettuceRedisClient">LettuceRedisClient</a> to check for the existence of the key and judge the health check to be successful if no exception is thrown.
+<p>The RedisHealthChecker uses the <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/integration/redisstore/lettuce/LettuceRedisClient.html" title="nablarch.integration.redisstore.lettuce.LettuceRedisClient">LettuceRedisClient</a> to check for the existence of the key and judge the health check to be successful if no exception is thrown.
 The key need not exist.
 For LettuceRedisClient, refer to the <a class="reference internal" href="redisstore_lettuce_adaptor.html#redisstore-redis-client-config-client-classes"><span>Client classes prepared per composition</span></a> .
 If want to change the key, specify it in the key property of RedisHealthChecker.</p>
@@ -401,7 +402,7 @@ If want to change the key, specify it in the key property of RedisHealthChecker.
 
     <div role="contentinfo">
         <p>
-            &copy; Copyright 2010-2024, TIS Inc.
+            &copy; Copyright 2010-2025, TIS Inc.
         </p>
     </div>
     Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
@@ -422,7 +423,7 @@ If want to change the key, specify it in the key property of RedisHealthChecker.
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../',
-            VERSION:'6u2',
+            VERSION:'6u3',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

@@ -9,7 +9,7 @@
   <meta http-equiv='content-language' content='ja'>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>データベースをキューとしたメッセージングのエラー処理 &mdash; ∇Nablarch  6u2 ドキュメント</title>
+  <title>データベースをキューとしたメッセージングのエラー処理 &mdash; ∇Nablarch  6u3 ドキュメント</title>
   
 
   
@@ -35,7 +35,7 @@
   
   <link rel="canonical" href="https://nablarch.github.io/docs/LATEST/doc/application_framework/application_framework/messaging/db/feature_details/error_processing.html" />
   
-    <link rel="top" title="∇Nablarch  6u2 ドキュメント" href="../../../../../index.html"/>
+    <link rel="top" title="∇Nablarch  6u3 ドキュメント" href="../../../../../index.html"/>
         <link rel="up" title="機能詳細" href="../feature_details.html"/>
         <link rel="next" title="マルチプロセス化" href="multiple_process.html"/>
         <link rel="prev" title="機能詳細" href="../feature_details.html"/>
@@ -63,7 +63,7 @@
   
 
   
-    <div id="sidebar-version">Version: 6u2</div>
+    <div id="sidebar-version">Version: 6u3</div>
   </a>
 
   <div role="search">
@@ -142,6 +142,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../../../development_tools/toolbox/index.html">アプリケーション開発時に使える便利なツール</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../../../development_tools/toolbox/JspStaticAnalysis/index.html">Jakarta Server Pages静的解析ツール</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../../development_tools/toolbox/SqlExecutor/SqlExecutor.html">Nablarch SQL Executor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../development_tools/toolbox/NablarchOpenApiGenerator/NablarchOpenApiGenerator.html">Nablarch OpenAPI Generator</a></li>
 </ul>
 </li>
 </ul>
@@ -273,10 +274,10 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../../migration/index.html#jsr352">JSR352に準拠したバッチアプリケーションの移行手順</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../../../migration/index.html#id12">実行時にエラーになる場合の対処方法</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../migration/index.html#id13">実行時にエラーになる場合の対処方法</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../../migration/index.html#id13">付録</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../migration/index.html#id14">付録</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../../../migration/index.html#java-ee-jakarta-ee-comparation">Java EEとJakarta EEの仕様の対応表</a></li>
 </ul>
 </li>
@@ -355,7 +356,7 @@
 <span id="id1"></span><h1>データベースをキューとしたメッセージングのエラー処理<a class="headerlink" href="#db-messaging-error-processing" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <div class="section" id="db-messaging-exclude-error-data">
 <span id="id2"></span><h2>エラーとなったデータを除外し処理を継続する<a class="headerlink" href="#db-messaging-exclude-error-data" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>エラーデータの除外は、例外発生時のコールバックメソッド(<a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/fw/action/BatchActionBase.html#transactionFailure(D,nablarch.fw.ExecutionContext)" title="nablarch.fw.action.BatchActionBase.transactionFailure(D,nablarch.fw.ExecutionContext)">transactionFailure</a>)で行う。</p>
+<p>エラーデータの除外は、例外発生時のコールバックメソッド(<a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/fw/action/BatchActionBase.html#transactionFailure(D,nablarch.fw.ExecutionContext)" title="nablarch.fw.action.BatchActionBase.transactionFailure(D,nablarch.fw.ExecutionContext)">transactionFailure</a>)で行う。</p>
 <div class="admonition important">
 <p class="first admonition-title">重要</p>
 <p class="last">エラーデータを除外しなかった場合、エラーとなったデータが再び処理対象として抽出され、再度例外が発生する。
@@ -373,7 +374,7 @@
 </div>
 <div class="section" id="db-messaging-process-abnormal-end">
 <span id="id3"></span><h2>プロセスを異常終了させる<a class="headerlink" href="#db-messaging-process-abnormal-end" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>プロセスを異常終了させたい場合は、 <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/fw/launcher/ProcessAbnormalEnd.html" title="nablarch.fw.launcher.ProcessAbnormalEnd">ProcessAbnormalEnd</a> を送出する。</p>
+<p>プロセスを異常終了させたい場合は、 <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/fw/launcher/ProcessAbnormalEnd.html" title="nablarch.fw.launcher.ProcessAbnormalEnd">ProcessAbnormalEnd</a> を送出する。</p>
 <div class="admonition important">
 <p class="first admonition-title">重要</p>
 <p class="last">プロセスを異常終了させると、テーブルキューの監視処理が終了するため、テーブルに未処理のデータが滞留することになり、データの取り込み遅延などが発生する。
@@ -407,7 +408,7 @@
 
     <div role="contentinfo">
         <p>
-            &copy; Copyright 2010-2024, TIS Inc.
+            &copy; Copyright 2010-2025, TIS Inc.
         </p>
     </div>
     Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
@@ -428,7 +429,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../../../',
-            VERSION:'6u2',
+            VERSION:'6u3',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

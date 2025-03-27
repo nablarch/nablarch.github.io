@@ -9,7 +9,7 @@
   <meta http-equiv='content-language' content='ja'>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Nablarch upgrade policy &mdash; ∇Nablarch  6u2 documentation</title>
+  <title>Nablarch upgrade policy &mdash; ∇Nablarch  6u3 documentation</title>
   
 
   
@@ -35,7 +35,7 @@
   
   <link rel="canonical" href="https://nablarch.github.io/docs/LATEST/doc/about_nablarch/versionup_policy.html" />
   
-    <link rel="top" title="∇Nablarch  6u2 documentation" href="../index.html"/>
+    <link rel="top" title="∇Nablarch  6u3 documentation" href="../index.html"/>
         <link rel="next" title="Nablarch 5 to 6 Migration Guide" href="../migration/index.html"/>
         <link rel="prev" title="Nablarch API" href="../nablarch_api/index.html"/>
 
@@ -62,7 +62,7 @@
   
 
   
-    <div id="sidebar-version">Version: 6u2</div>
+    <div id="sidebar-version">Version: 6u3</div>
   </a>
 
   <div role="search">
@@ -141,6 +141,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../development_tools/toolbox/index.html">Useful Tools When Developing Applications</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../development_tools/toolbox/JspStaticAnalysis/index.html">Jakarta Server Pages Static Analysis Tool</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../development_tools/toolbox/SqlExecutor/SqlExecutor.html">Nablarch SQL Executor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../development_tools/toolbox/NablarchOpenApiGenerator/NablarchOpenApiGenerator.html">Nablarch OpenAPI Generator</a></li>
 </ul>
 </li>
 </ul>
@@ -477,10 +478,10 @@ except in cases where <a class="reference internal" href="#versionup-policy-back
 <div class="admonition important">
 <p class="first admonition-title">Important</p>
 <p>This backward compatibility policy covers the public APIs defined by Nablarch among the framework&#8217;s APIs.
-The public APIs defined by Nablarch are those with the <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/core/util/annotation/Published.html" title="nablarch.core.util.annotation.Published">Published</a> annotation.
-When all APIs of a class are published, the <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/core/util/annotation/Published.html" title="nablarch.core.util.annotation.Published">Published</a>
+The public APIs defined by Nablarch are those with the <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/core/util/annotation/Published.html" title="nablarch.core.util.annotation.Published">Published</a> annotation.
+When all APIs of a class are published, the <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/core/util/annotation/Published.html" title="nablarch.core.util.annotation.Published">Published</a>
 annotation is added to the class declaration, and when individual methods are published,
-the <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/core/util/annotation/Published.html" title="nablarch.core.util.annotation.Published">Published</a> annotation is added to the method declaration.
+the <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/core/util/annotation/Published.html" title="nablarch.core.util.annotation.Published">Published</a> annotation is added to the method declaration.
 An API without the Published annotation is a unauthorized  API.</p>
 <p><strong>Do not use the unauthorized  API in your project as the unauthorized API may be upgraded without maintaining backward compatibility.</strong>
 <strong>If you use unauthorized  APIs in your project, backward compatibility will not be maintained when upgrading, and unexpected problems may occur.</strong></p>
@@ -551,7 +552,7 @@ In this case, even if the API is backward compatible, it needs to be dealt with 
 
     <div role="contentinfo">
         <p>
-            &copy; Copyright 2010-2024, TIS Inc.
+            &copy; Copyright 2010-2025, TIS Inc.
         </p>
     </div>
     Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
@@ -572,7 +573,7 @@ In this case, even if the API is backward compatible, it needs to be dealt with 
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'6u2',
+            VERSION:'6u3',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

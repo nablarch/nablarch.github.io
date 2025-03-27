@@ -9,7 +9,7 @@
   <meta http-equiv='content-language' content='ja'>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>検索機能の作成 &mdash; ∇Nablarch  6u2 ドキュメント</title>
+  <title>検索機能の作成 &mdash; ∇Nablarch  6u3 ドキュメント</title>
   
 
   
@@ -35,7 +35,7 @@
   
   <link rel="canonical" href="https://nablarch.github.io/docs/LATEST/doc/application_framework/application_framework/web/getting_started/project_search/index.html" />
   
-    <link rel="top" title="∇Nablarch  6u2 ドキュメント" href="../../../../../index.html"/>
+    <link rel="top" title="∇Nablarch  6u3 ドキュメント" href="../../../../../index.html"/>
         <link rel="up" title="Getting Started" href="../index.html"/>
         <link rel="next" title="更新機能の作成" href="../project_update/index.html"/>
         <link rel="prev" title="データベースへの登録" href="../client_create/client_create4.html"/>
@@ -63,7 +63,7 @@
   
 
   
-    <div id="sidebar-version">Version: 6u2</div>
+    <div id="sidebar-version">Version: 6u3</div>
   </a>
 
   <div role="search">
@@ -142,6 +142,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../../../development_tools/toolbox/index.html">アプリケーション開発時に使える便利なツール</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../../../development_tools/toolbox/JspStaticAnalysis/index.html">Jakarta Server Pages静的解析ツール</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../../development_tools/toolbox/SqlExecutor/SqlExecutor.html">Nablarch SQL Executor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../development_tools/toolbox/NablarchOpenApiGenerator/NablarchOpenApiGenerator.html">Nablarch OpenAPI Generator</a></li>
 </ul>
 </li>
 </ul>
@@ -273,10 +274,10 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../../migration/index.html#jsr352">JSR352に準拠したバッチアプリケーションの移行手順</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../../../migration/index.html#id12">実行時にエラーになる場合の対処方法</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../migration/index.html#id13">実行時にエラーになる場合の対処方法</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../../migration/index.html#id13">付録</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../migration/index.html#id14">付録</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../../../migration/index.html#java-ee-jakarta-ee-comparation">Java EEとJakarta EEの仕様の対応表</a></li>
 </ul>
 </li>
@@ -429,21 +430,21 @@
 <dt>/src/main/webapp/WEB-INF/view/common/sidemenu.jsp</dt>
 <dd><div class="first highlight-jsp"><div class="highlight"><pre><span></span><span class="nt">&lt;n:form</span> <span class="na">method=</span><span class="s">&quot;GET&quot;</span> <span class="na">action=</span><span class="s">&quot;list&quot;</span><span class="nt">&gt;</span>
     <span class="c">&lt;!-- 省略 --&gt;</span>
-    <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">&quot;projectName&quot;</span> <span class="na">class=</span><span class="s">&quot;control-label&quot;</span><span class="nt">&gt;</span>プロジェクト名<span class="nt">&lt;/label&gt;</span>
+    <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">&quot;projectName&quot;</span> <span class="na">class=</span><span class="s">&quot;control-label mb-3&quot;</span><span class="nt">&gt;</span>プロジェクト名<span class="nt">&lt;/label&gt;</span>
     <span class="nt">&lt;div&gt;</span>
         <span class="nt">&lt;n:text</span>
                 <span class="na">id=</span><span class="s">&quot;projectName&quot;</span>
                 <span class="na">name=</span><span class="s">&quot;searchForm.projectName&quot;</span>
                 <span class="na">size=</span><span class="s">&quot;25&quot;</span>
                 <span class="na">maxlength=</span><span class="s">&quot;64&quot;</span>
-                <span class="na">cssClass=</span><span class="s">&quot;form-control&quot;</span>
-                <span class="na">errorCss=</span><span class="s">&quot;input-error form-control&quot;</span>
+                <span class="na">cssClass=</span><span class="s">&quot;form-control form-control-lg&quot;</span>
+                <span class="na">errorCss=</span><span class="s">&quot;input-error&quot;</span>
                 <span class="na">placeholder=</span><span class="s">&quot;プロジェクト名&quot;</span><span class="nt">/&gt;</span>
         <span class="nt">&lt;n:error</span> <span class="na">errorCss=</span><span class="s">&quot;message-error&quot;</span> <span class="na">name=</span><span class="s">&quot;searchForm.projectName&quot;</span> <span class="nt">/&gt;</span>
     <span class="nt">&lt;/div&gt;</span>
     <span class="c">&lt;!-- 省略 --&gt;</span>
     <span class="nt">&lt;div</span> <span class="na">align=</span><span class="s">&quot;center&quot;</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;submit&quot;</span> <span class="na">id=</span><span class="s">&quot;search&quot;</span> <span class="na">class=</span><span class="s">&quot;btn btn-primary&quot;</span> <span class="na">value=</span><span class="s">&quot;検索&quot;</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;submit&quot;</span> <span class="na">id=</span><span class="s">&quot;search&quot;</span> <span class="na">class=</span><span class="s">&quot;btn btn-lg btn-primary&quot;</span> <span class="na">value=</span><span class="s">&quot;検索&quot;</span> <span class="nt">/&gt;</span>
     <span class="nt">&lt;/div&gt;</span>
 <span class="nt">&lt;/n:form&gt;</span>
 </pre></div>
@@ -482,10 +483,10 @@ Beanのプロパティは、<a class="reference internal" href="../../../librari
 <dl class="last docutils">
 <dt>この実装のポイント</dt>
 <dd><ul class="first last simple">
-<li>フォームから検索条件Beanへの値の移送は、 <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/core/beans/BeanUtil.html" title="nablarch.core.beans.BeanUtil">BeanUtil</a> を使用する。
-<a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/core/beans/BeanUtil.html" title="nablarch.core.beans.BeanUtil">BeanUtil</a> は、プロパティ名が同一の項目を移送するため、
+<li>フォームから検索条件Beanへの値の移送は、 <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/core/beans/BeanUtil.html" title="nablarch.core.beans.BeanUtil">BeanUtil</a> を使用する。
+<a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/core/beans/BeanUtil.html" title="nablarch.core.beans.BeanUtil">BeanUtil</a> は、プロパティ名が同一の項目を移送するため、
 検索条件に使用する項目のプロパティ名は、フォームと検索条件Beanで合わせる必要がある。</li>
-<li><a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/core/beans/BeanUtil.html" title="nablarch.core.beans.BeanUtil">BeanUtil</a> を用いて値を移送する場合は、互換性のある型であれば、
+<li><a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/core/beans/BeanUtil.html" title="nablarch.core.beans.BeanUtil">BeanUtil</a> を用いて値を移送する場合は、互換性のある型であれば、
 プロパティを型変換した上で移送できる。詳細は <a class="reference internal" href="../../../libraries/bean_util.html#utility-conversion"><span>BeanUtilの型変換ルール</span></a> を参照。</li>
 <li>Beanのプロパティは、対応するカラムの型に合わせたJavaの型で定義する。</li>
 </ul>
@@ -574,10 +575,10 @@ $sort(sortId){
 <dt>この実装のポイント</dt>
 <dd><ul class="first last simple">
 <li>検索条件は、外部からの入力値で安全である保証がないため、
-<a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/common/web/interceptor/InjectForm.html" title="nablarch.common.web.interceptor.InjectForm">InjectForm</a> を付与してバリデーションを行う。</li>
-<li><a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/common/web/interceptor/InjectForm.html" title="nablarch.common.web.interceptor.InjectForm">InjectForm</a> によるバリデーションが済んだフォームは、
+<a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/common/web/interceptor/InjectForm.html" title="nablarch.common.web.interceptor.InjectForm">InjectForm</a> を付与してバリデーションを行う。</li>
+<li><a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/common/web/interceptor/InjectForm.html" title="nablarch.common.web.interceptor.InjectForm">InjectForm</a> によるバリデーションが済んだフォームは、
 リクエストスコープから取り出すことができる。</li>
-<li>フォームの値を <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/core/beans/BeanUtil.html" title="nablarch.core.beans.BeanUtil">BeanUtil</a> を使用して検索条件Beanにコピーする。</li>
+<li>フォームの値を <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/core/beans/BeanUtil.html" title="nablarch.core.beans.BeanUtil">BeanUtil</a> を使用して検索条件Beanにコピーする。</li>
 </ul>
 </dd>
 </dl>
@@ -603,10 +604,10 @@ $sort(sortId){
 </dd>
 <dt>この実装のポイント</dt>
 <dd><ul class="first last simple">
-<li>前述のSQL文を実行するには、<a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/common/dao/UniversalDao.html#findAllBySqlFile(java.lang.Class,java.lang.String,java.lang.Object)" title="nablarch.common.dao.UniversalDao.findAllBySqlFile(java.lang.Class,java.lang.String,java.lang.Object)">UniversalDao#findAllBySqlFile</a> の第二引数として、
+<li>前述のSQL文を実行するには、<a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/common/dao/UniversalDao.html#findAllBySqlFile(java.lang.Class,java.lang.String,java.lang.Object)" title="nablarch.common.dao.UniversalDao.findAllBySqlFile(java.lang.Class,java.lang.String,java.lang.Object)">UniversalDao#findAllBySqlFile</a> の第二引数として、
 <a class="reference internal" href="../../../libraries/database/database.html#database-execute-sqlid"><span>SQLID</span></a> (前述のSQLの場合は&#8221;SEARCH_PROJECT&#8221;)を指定する。</li>
-<li>ページング用の検索は、 <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/common/dao/UniversalDao.html#per(long)" title="nablarch.common.dao.UniversalDao.per(long)">UniversalDao#per</a> メソッド、
-及び <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/common/dao/UniversalDao.html#page(long)" title="nablarch.common.dao.UniversalDao.page(long)">UniversalDao#page</a> を用いて行うことができる。
+<li>ページング用の検索は、 <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/common/dao/UniversalDao.html#per(long)" title="nablarch.common.dao.UniversalDao.per(long)">UniversalDao#per</a> メソッド、
+及び <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/common/dao/UniversalDao.html#page(long)" title="nablarch.common.dao.UniversalDao.page(long)">UniversalDao#page</a> を用いて行うことができる。
 詳細は <a class="reference internal" href="../../../libraries/database/universal_dao.html#universal-dao-paging"><span>ページングのために検索範囲を絞る</span></a> を参照。</li>
 </ul>
 </dd>
@@ -706,7 +707,7 @@ $sort(sortId){
 
     <div role="contentinfo">
         <p>
-            &copy; Copyright 2010-2024, TIS Inc.
+            &copy; Copyright 2010-2025, TIS Inc.
         </p>
     </div>
     Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
@@ -727,7 +728,7 @@ $sort(sortId){
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../../../',
-            VERSION:'6u2',
+            VERSION:'6u3',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

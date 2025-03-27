@@ -9,7 +9,7 @@
   <meta http-equiv='content-language' content='ja'>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Create a batch update function &mdash; ∇Nablarch  6u2 documentation</title>
+  <title>Create a batch update function &mdash; ∇Nablarch  6u3 documentation</title>
   
 
   
@@ -35,7 +35,7 @@
   
   <link rel="canonical" href="https://nablarch.github.io/docs/LATEST/doc/application_framework/application_framework/web/getting_started/project_bulk_update/index.html" />
   
-    <link rel="top" title="∇Nablarch  6u2 documentation" href="../../../../../index.html"/>
+    <link rel="top" title="∇Nablarch  6u3 documentation" href="../../../../../index.html"/>
         <link rel="up" title="Getting Started" href="../index.html"/>
         <link rel="next" title="Details of Function" href="../../feature_details.html"/>
         <link rel="prev" title="Create a Pop-up Screen" href="../popup/index.html"/>
@@ -63,7 +63,7 @@
   
 
   
-    <div id="sidebar-version">Version: 6u2</div>
+    <div id="sidebar-version">Version: 6u3</div>
   </a>
 
   <div role="search">
@@ -142,6 +142,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../../../development_tools/toolbox/index.html">Useful Tools When Developing Applications</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../../../development_tools/toolbox/JspStaticAnalysis/index.html">Jakarta Server Pages Static Analysis Tool</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../../development_tools/toolbox/SqlExecutor/SqlExecutor.html">Nablarch SQL Executor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../development_tools/toolbox/NablarchOpenApiGenerator/NablarchOpenApiGenerator.html">Nablarch OpenAPI Generator</a></li>
 </ul>
 </li>
 </ul>
@@ -439,7 +440,7 @@
 <dt>Key points of this implementation</dt>
 <dd><ul class="first last simple">
 <li>Since <a class="reference internal" href="../../../libraries/validation/bean_validation.html#bean-validation"><span>Bean Validation</span></a> is executed even for nested forms, assign annotations for validations such as
-<a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/core/validation/ee/Required.html" title="nablarch.core.validation.ee.Required">&#64;Required</a> and <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/core/validation/ee/Domain.html" title="nablarch.core.validation.ee.Domain">&#64;Domain</a>.</li>
+<a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/core/validation/ee/Required.html" title="nablarch.core.validation.ee.Required">&#64;Required</a> and <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/core/validation/ee/Domain.html" title="nablarch.core.validation.ee.Domain">&#64;Domain</a>.</li>
 </ul>
 </dd>
 </dl>
@@ -580,8 +581,8 @@ in the <a class="reference internal" href="../../../libraries/session_store.html
                 <span class="nt">&lt;td&gt;</span>
                     <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;form-group&quot;</span><span class="nt">&gt;</span>
                         <span class="nt">&lt;n:text</span> <span class="na">name=</span><span class="s">&quot;bulkForm.projectList[${status.index}].projectName&quot;</span>
-                                <span class="na">maxlength=</span><span class="s">&quot;64&quot;</span> <span class="na">cssClass=</span><span class="s">&quot;form-control&quot;</span>
-                                <span class="na">errorCss=</span><span class="s">&quot;input-error input-text&quot;</span><span class="nt">/&gt;</span>
+                                <span class="na">maxlength=</span><span class="s">&quot;64&quot;</span> <span class="na">cssClass=</span><span class="s">&quot;form-control form-control-lg&quot;</span>
+                                <span class="na">errorCss=</span><span class="s">&quot;input-error&quot;</span><span class="nt">/&gt;</span>
                         <span class="nt">&lt;n:error</span> <span class="na">errorCss=</span><span class="s">&quot;message-error&quot;</span>
                                 <span class="na">name=</span><span class="s">&quot;bulkForm.projectList[${status.index}].projectName&quot;</span> <span class="nt">/&gt;</span>
                     <span class="nt">&lt;/div&gt;</span>
@@ -594,10 +595,10 @@ in the <a class="reference internal" href="../../../libraries/session_store.html
     <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;title-nav page-footer&quot;</span><span class="nt">&gt;</span>
         <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;button-nav&quot;</span><span class="nt">&gt;</span>
             <span class="nt">&lt;n:button</span> <span class="na">id=</span><span class="s">&quot;bottomUpdateButton&quot;</span> <span class="na">uri=</span><span class="s">&quot;/action/projectBulk/confirmOfUpdate&quot;</span>
-                <span class="na">disabled=</span><span class="s">&quot;${isUpdatable}&quot;</span> <span class="na">cssClass=</span><span class="s">&quot;btn btn-raised btn-success&quot;</span><span class="nt">&gt;</span>
+                <span class="na">disabled=</span><span class="s">&quot;${isUpdatable}&quot;</span> <span class="na">cssClass=</span><span class="s">&quot;btn btn-lg btn-success&quot;</span><span class="nt">&gt;</span>
                     Update<span class="nt">&lt;/n:button&gt;</span>
             <span class="nt">&lt;n:a</span> <span class="na">id=</span><span class="s">&quot;bottomCreateButton&quot;</span> <span class="na">type=</span><span class="s">&quot;button&quot;</span> <span class="na">uri=</span><span class="s">&quot;/action/project&quot;</span>
-                <span class="na">cssClass=</span><span class="s">&quot;btn btn-raised btn-default&quot;</span> <span class="na">value=</span><span class="s">&quot;New registration&quot;</span><span class="nt">&gt;&lt;/n:a&gt;</span>
+                <span class="na">cssClass=</span><span class="s">&quot;btn btn-lg btn-light&quot;</span> <span class="na">value=</span><span class="s">&quot;New registration&quot;</span><span class="nt">&gt;&lt;/n:a&gt;</span>
         <span class="nt">&lt;/div&gt;</span>
     <span class="nt">&lt;/div&gt;</span>
 <span class="nt">&lt;/n:form&gt;</span>
@@ -666,7 +667,7 @@ For more information, see <a class="reference internal" href="../../../libraries
             <span class="nt">&lt;/n:form&gt;</span>
         <span class="nt">&lt;/div&gt;</span>
     <span class="nt">&lt;/div&gt;</span>
-    <span class="nt">&lt;h4</span> <span class="na">class=</span><span class="s">&quot;font-group&quot;</span><span class="nt">&gt;</span>Project update list<span class="nt">&lt;/h4&gt;</span>
+    <span class="nt">&lt;h2</span> <span class="na">class=</span><span class="s">&quot;font-group my-3&quot;</span><span class="nt">&gt;</span>Project update list<span class="nt">&lt;/h2&gt;</span>
     <span class="nt">&lt;div&gt;</span>
         <span class="nt">&lt;table</span> <span class="na">class=</span><span class="s">&quot;table table-striped table-hover&quot;</span><span class="nt">&gt;</span>
             <span class="nt">&lt;tr&gt;</span>
@@ -713,7 +714,7 @@ For more information, see <a class="reference internal" href="../../../libraries
 <dd><ul class="first last">
 <li><p class="first">The basic implementation method is the same as <a class="reference internal" href="../project_update/index.html#project-update-create-decide-action"><span>create an update function: Create business action method to update the database</span></a>.</p>
 </li>
-<li><p class="first">Execute <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/common/dao/UniversalDao.html#update(java.lang.Object)" title="nablarch.common.dao.UniversalDao.update(java.lang.Object)">UniversalDao#update</a> for the number of updates.
+<li><p class="first">Execute <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/common/dao/UniversalDao.html#update(java.lang.Object)" title="nablarch.common.dao.UniversalDao.update(java.lang.Object)">UniversalDao#update</a> for the number of updates.
 When an exclusive control error occurs, all updates are rolled back.</p>
 <div class="admonition tip">
 <p class="first admonition-title">Tip</p>
@@ -721,10 +722,10 @@ When an exclusive control error occurs, all updates are rolled back.</p>
 the screen transitions to the exclusive control error screen. For how to create error control handler, refer to <a class="reference internal" href="../../feature_details/forward_error_page.html#forward-error-page-handler"><span>transition to the error page for the exception class with the handler</span></a>.</p>
 </div>
 </li>
-<li><p class="first">Although <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/common/dao/UniversalDao.html" title="nablarch.common.dao.UniversalDao">UniversalDao</a> also provides a
-<a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/common/dao/UniversalDao.html#batchUpdate(java.util.List)" title="nablarch.common.dao.UniversalDao.batchUpdate(java.util.List)">UniversalDao#batchUpdate</a> method that takes a list of entities as arguments,
+<li><p class="first">Although <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/common/dao/UniversalDao.html" title="nablarch.common.dao.UniversalDao">UniversalDao</a> also provides a
+<a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/common/dao/UniversalDao.html#batchUpdate(java.util.List)" title="nablarch.common.dao.UniversalDao.batchUpdate(java.util.List)">UniversalDao#batchUpdate</a> method that takes a list of entities as arguments,
 method that takes a list of entities as arguments, <a class="reference internal" href="../../../libraries/database/universal_dao.html#universal-dao-batch-execute"><span>batch execution</span></a> and does not perform exclusive control.
-If exclusive control is required, use <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/common/dao/UniversalDao.html#update(java.lang.Object)" title="nablarch.common.dao.UniversalDao.update(java.lang.Object)">UniversalDao#update</a>.</p>
+If exclusive control is required, use <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/common/dao/UniversalDao.html#update(java.lang.Object)" title="nablarch.common.dao.UniversalDao.update(java.lang.Object)">UniversalDao#update</a>.</p>
 </li>
 </ul>
 </dd>
@@ -752,7 +753,7 @@ If exclusive control is required, use <a class="reference external" href="https:
 
     <div role="contentinfo">
         <p>
-            &copy; Copyright 2010-2024, TIS Inc.
+            &copy; Copyright 2010-2025, TIS Inc.
         </p>
     </div>
     Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
@@ -773,7 +774,7 @@ If exclusive control is required, use <a class="reference external" href="https:
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../../../',
-            VERSION:'6u2',
+            VERSION:'6u3',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

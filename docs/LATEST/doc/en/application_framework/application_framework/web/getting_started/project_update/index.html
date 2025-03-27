@@ -9,7 +9,7 @@
   <meta http-equiv='content-language' content='ja'>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Create Update Function &mdash; ∇Nablarch  6u2 documentation</title>
+  <title>Create Update Function &mdash; ∇Nablarch  6u3 documentation</title>
   
 
   
@@ -35,7 +35,7 @@
   
   <link rel="canonical" href="https://nablarch.github.io/docs/LATEST/doc/application_framework/application_framework/web/getting_started/project_update/index.html" />
   
-    <link rel="top" title="∇Nablarch  6u2 documentation" href="../../../../../index.html"/>
+    <link rel="top" title="∇Nablarch  6u3 documentation" href="../../../../../index.html"/>
         <link rel="up" title="Getting Started" href="../index.html"/>
         <link rel="next" title="Create a Delete Function" href="../project_delete/index.html"/>
         <link rel="prev" title="Create a Search Function" href="../project_search/index.html"/>
@@ -63,7 +63,7 @@
   
 
   
-    <div id="sidebar-version">Version: 6u2</div>
+    <div id="sidebar-version">Version: 6u3</div>
   </a>
 
   <div role="search">
@@ -142,6 +142,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../../../development_tools/toolbox/index.html">Useful Tools When Developing Applications</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../../../development_tools/toolbox/JspStaticAnalysis/index.html">Jakarta Server Pages Static Analysis Tool</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../../development_tools/toolbox/SqlExecutor/SqlExecutor.html">Nablarch SQL Executor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../development_tools/toolbox/NablarchOpenApiGenerator/NablarchOpenApiGenerator.html">Nablarch OpenAPI Generator</a></li>
 </ul>
 </li>
 </ul>
@@ -491,14 +492,14 @@ the form for the project update screen should be created since <a class="referen
 <dt>Key points of this implementation</dt>
 <dd><ul class="first last">
 <li><p class="first">A unique key lookup using
-<a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/common/dao/UniversalDao.html#findBySqlFile(java.lang.Class,java.lang.String,java.lang.Object)" title="nablarch.common.dao.UniversalDao.findBySqlFile(java.lang.Class,java.lang.String,java.lang.Object)">UniversalDao#findBySqlFile</a>
+<a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/common/dao/UniversalDao.html#findBySqlFile(java.lang.Class,java.lang.String,java.lang.Object)" title="nablarch.common.dao.UniversalDao.findBySqlFile(java.lang.Class,java.lang.String,java.lang.Object)">UniversalDao#findBySqlFile</a>
 to get the initial value to display in the edit form.
 For <a class="reference internal" href="../../../libraries/database/universal_dao.html#universal-dao-join"><span>acquire the result of table JOIN</span></a>, the search result is accepted as a bean.
-If there is no target data in the unique key search, <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/common/dao/NoDataException.html" title="nablarch.common.dao.NoDataException">NoDataException</a> is thrown.</p>
+If there is no target data in the unique key search, <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/common/dao/NoDataException.html" title="nablarch.common.dao.NoDataException">NoDataException</a> is thrown.</p>
 <blockquote>
 <div><div class="admonition tip">
 <p class="first admonition-title">Tip</p>
-<p class="last">Since an error control handler is added to the example application, <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/common/dao/NoDataException.html" title="nablarch.common.dao.NoDataException">NoDataException</a> occurs, the screen transitions to the 404 error screen.
+<p class="last">Since an error control handler is added to the example application, <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/common/dao/NoDataException.html" title="nablarch.common.dao.NoDataException">NoDataException</a> occurs, the screen transitions to the 404 error screen.
 For how to create an error control handler, refer to <a class="reference internal" href="../../feature_details/forward_error_page.html#forward-error-page-handler"><span>transition to the error page for the exception class with the handler</span></a>.</p>
 </div>
 </div></blockquote>
@@ -560,7 +561,7 @@ In addition to <a class="reference internal" href="../../../libraries/validation
 <dt>Key points of this implementation</dt>
 <dd><ul class="first last simple">
 <li>Validation that requires a database search is described in the business action method.
-To confirm the existence of data, use <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/common/dao/UniversalDao.html#exists(java.lang.Class,java.lang.String,java.lang.Object)" title="nablarch.common.dao.UniversalDao.exists(java.lang.Class,java.lang.String,java.lang.Object)">UniversalDao#exists</a>.
+To confirm the existence of data, use <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/common/dao/UniversalDao.html#exists(java.lang.Class,java.lang.String,java.lang.Object)" title="nablarch.common.dao.UniversalDao.exists(java.lang.Class,java.lang.String,java.lang.Object)">UniversalDao#exists</a>.
 For more information, see <a class="reference internal" href="../../../libraries/validation/bean_validation.html#bean-validation-database-validation"><span>Validation that requires a database lookup</span></a>.</li>
 <li>Since the <a class="reference internal" href="../../../libraries/session_store.html#session-store-form"><span>form should not be stored directly in the session store</span></a> due to responsibility assignment, it should be reworded to a bean.</li>
 </ul>
@@ -609,7 +610,7 @@ For more information, see <a class="reference internal" href="../../../libraries
             <span class="nt">&lt;n:forConfirmationPage&gt;</span>
                 <span class="c">&lt;!-- Button for confirmation screen --&gt;</span>
                 <span class="nt">&lt;n:submit</span> <span class="na">value =</span> <span class="s">&quot;Confirm&quot;</span> <span class="na">uri=</span><span class="s">&quot;/action/project/update&quot;</span> <span class="na">id=</span><span class="s">&quot;bottomSubmitButton&quot;</span>
-                        <span class="na">cssClass=</span><span class="s">&quot;btn btn-raised btn-success&quot;</span>
+                        <span class="na">cssClass=</span><span class="s">&quot;btn btn-lg btn-success&quot;</span>
                         <span class="na">allowDoubleSubmission=</span><span class="s">&quot;false&quot;</span> <span class="na">type=</span><span class="s">&quot;button&quot;</span> <span class="nt">/&gt;</span>
             <span class="nt">&lt;/n:forConfirmationPage&gt;</span>
         <span class="nt">&lt;/div&gt;</span>
@@ -663,11 +664,11 @@ The entity definition for performing <a class="reference internal" href="../../.
 <dl class="last docutils">
 <dt>Key points of this implementation</dt>
 <dd><ul class="first last simple">
-<li>Sets the values you want to update to an entity and updates the database using <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/common/dao/UniversalDao.html#update(java.lang.Object)" title="nablarch.common.dao.UniversalDao.update(java.lang.Object)">UniversalDao#update</a>.
+<li>Sets the values you want to update to an entity and updates the database using <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/common/dao/UniversalDao.html#update(java.lang.Object)" title="nablarch.common.dao.UniversalDao.update(java.lang.Object)">UniversalDao#update</a>.
 In the update process, optimistic locking is performed.</li>
-<li>Assign <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/common/web/token/OnDoubleSubmission.html" title="nablarch.common.web.token.OnDoubleSubmission">&#64;OnDoubleSubmission</a> to prevent duplicate form submission.</li>
+<li>Assign <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/common/web/token/OnDoubleSubmission.html" title="nablarch.common.web.token.OnDoubleSubmission">&#64;OnDoubleSubmission</a> to prevent duplicate form submission.</li>
 <li>Redirect the response to prevent a rerun in the browser update.<ul>
-<li>For the format of the resource path, see <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/fw/web/ResourceLocator.html" title="nablarch.fw.web.ResourceLocator">ResourceLocator</a>.</li>
+<li>For the format of the resource path, see <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/fw/web/ResourceLocator.html" title="nablarch.fw.web.ResourceLocator">ResourceLocator</a>.</li>
 <li>For the status code specified in redirect, see <a class="reference internal" href="../../feature_details.html#web-feature-details-status-code"><span>Status code</span></a>.</li>
 </ul>
 </li>
@@ -771,7 +772,7 @@ In the update process, optimistic locking is performed.</li>
 
     <div role="contentinfo">
         <p>
-            &copy; Copyright 2010-2024, TIS Inc.
+            &copy; Copyright 2010-2025, TIS Inc.
         </p>
     </div>
     Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
@@ -792,7 +793,7 @@ In the update process, optimistic locking is performed.</li>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../../../',
-            VERSION:'6u2',
+            VERSION:'6u3',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

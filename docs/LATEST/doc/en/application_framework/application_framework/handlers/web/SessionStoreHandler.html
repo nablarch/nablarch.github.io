@@ -9,7 +9,7 @@
   <meta http-equiv='content-language' content='ja'>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Session Variable Store Handler &mdash; ∇Nablarch  6u2 documentation</title>
+  <title>Session Variable Store Handler &mdash; ∇Nablarch  6u3 documentation</title>
   
 
   
@@ -35,7 +35,7 @@
   
   <link rel="canonical" href="https://nablarch.github.io/docs/LATEST/doc/application_framework/application_framework/handlers/web/SessionStoreHandler.html" />
   
-    <link rel="top" title="∇Nablarch  6u2 documentation" href="../../../../index.html"/>
+    <link rel="top" title="∇Nablarch  6u3 documentation" href="../../../../index.html"/>
         <link rel="up" title="Web Application Dedicated Handler" href="index.html"/>
         <link rel="next" title="HTTP Request Dispatch Handler" href="http_request_java_package_mapping.html"/>
         <link rel="prev" title="Multipart Request Handler" href="multipart_handler.html"/>
@@ -63,7 +63,7 @@
   
 
   
-    <div id="sidebar-version">Version: 6u2</div>
+    <div id="sidebar-version">Version: 6u3</div>
   </a>
 
   <div role="search">
@@ -142,6 +142,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../../development_tools/toolbox/index.html">Useful Tools When Developing Applications</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../../development_tools/toolbox/JspStaticAnalysis/index.html">Jakarta Server Pages Static Analysis Tool</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../development_tools/toolbox/SqlExecutor/SqlExecutor.html">Nablarch SQL Executor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../development_tools/toolbox/NablarchOpenApiGenerator/NablarchOpenApiGenerator.html">Nablarch OpenAPI Generator</a></li>
 </ul>
 </li>
 </ul>
@@ -376,7 +377,7 @@
 <div class="section" id="handler-class-name">
 <h2><a class="toc-backref" href="#id1">Handler class name</a><a class="headerlink" href="#handler-class-name" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/common/web/session/SessionStoreHandler.html" title="nablarch.common.web.session.SessionStoreHandler">nablarch.common.web.session.SessionStoreHandler</a></li>
+<li><a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/common/web/session/SessionStoreHandler.html" title="nablarch.common.web.session.SessionStoreHandler">nablarch.common.web.session.SessionStoreHandler</a></li>
 </ul>
 </div>
 <div class="section" id="module-list">
@@ -399,7 +400,7 @@
 <dl class="docutils">
 <dt>Place this handler after the <a class="reference internal" href="http_response_handler.html#http-response-handler"><span>HTTP Response Handler</span></a></dt>
 <dd>During servlet forward, this handler must be placed after the <a class="reference internal" href="http_response_handler.html#http-response-handler"><span>HTTP Response Handler</span></a> so that the value of the session store can be accessed at the forward destination.</dd>
-<dt>Place this handler after the <a class="reference internal" href="multipart_handler.html#multipart-handler"><span>Multipart Request Handler</span></a></dt>
+<dt>When using the HIDDEN store, place this handler after the <a class="reference internal" href="multipart_handler.html#multipart-handler"><span>Multipart Request Handler</span></a></dt>
 <dd>This handler must be placed after the <a class="reference internal" href="multipart_handler.html#multipart-handler"><span>Multipart Request Handler</span></a> so that the request parameters can be accessed when using the HIDDEN store.</dd>
 <dt>Place this handler before the <a class="reference internal" href="forwarding_handler.html#forwarding-handler"><span>Internal Forward Handler</span></a></dt>
 <dd>Although the session store is read and saved multiple times if the <a class="reference internal" href="forwarding_handler.html#forwarding-handler"><span>Internal Forward Handler</span></a> is configured before this handler, the HIDDEN store reads the session variable from the request parameter and saves the session variable in the request scope. Therefore, there is a problem that the latest session variable cannot be obtained when using the HIDDEN store during internal forward. Therefore, place this handler before the <a class="reference internal" href="forwarding_handler.html#forwarding-handler"><span>Internal Forward Handler</span></a> .</dd>
@@ -407,7 +408,7 @@
 </div>
 <div class="section" id="configure-for-using-session-store">
 <h2><a class="toc-backref" href="#id4">Configure for using session store</a><a class="headerlink" href="#configure-for-using-session-store" title="Permalink to this headline">¶</a></h2>
-<p>To use the session store, configure <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/common/web/session/SessionManager.html" title="nablarch.common.web.session.SessionManager">SessionManager</a> which has been configured as given below to the property <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/common/web/session/SessionStoreHandler.html#setSessionManager(nablarch.common.web.session.SessionManager)" title="nablarch.common.web.session.SessionStoreHandler.setSessionManager(nablarch.common.web.session.SessionManager)">sessionManager</a> of this handler.</p>
+<p>To use the session store, configure <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/common/web/session/SessionManager.html" title="nablarch.common.web.session.SessionManager">SessionManager</a> which has been configured as given below to the property <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/common/web/session/SessionStoreHandler.html#setSessionManager(nablarch.common.web.session.SessionManager)" title="nablarch.common.web.session.SessionStoreHandler.setSessionManager(nablarch.common.web.session.SessionManager)">sessionManager</a> of this handler.</p>
 <ul class="simple">
 <li>Session store used by the application (multiple specifications possible)</li>
 <li>Session store name used by default</li>
@@ -423,7 +424,7 @@
 <span class="nt">&lt;/component&gt;</span>
 </pre></div>
 </div>
-<p>For details of the property configured in <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/common/web/session/SessionManager.html" title="nablarch.common.web.session.SessionManager">SessionManager</a> , see <a class="reference internal" href="../../libraries/session_store.html#session-store-use-config"><span>Configure for using session store</span></a> .</p>
+<p>For details of the property configured in <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/common/web/session/SessionManager.html" title="nablarch.common.web.session.SessionManager">SessionManager</a> , see <a class="reference internal" href="../../libraries/session_store.html#session-store-use-config"><span>Configure for using session store</span></a> .</p>
 </div>
 <div class="section" id="serialize-the-session-variables-and-save-to-the-session-store">
 <h2><a class="toc-backref" href="#id5">Serialize the session variables and save to the session store</a><a class="headerlink" href="#serialize-the-session-variables-and-save-to-the-session-store" title="Permalink to this headline">¶</a></h2>
@@ -435,7 +436,7 @@
 <p>When reading the session variables from the session store, check the session store for tampering.</p>
 <dl class="docutils">
 <dt>When tampering of the HIDDEN store is detected</dt>
-<dd><a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/fw/web/HttpErrorResponse.html" title="nablarch.fw.web.HttpErrorResponse">HttpErrorResponse</a> of status code 400 is thrown.</dd>
+<dd><a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/fw/web/HttpErrorResponse.html" title="nablarch.fw.web.HttpErrorResponse">HttpErrorResponse</a> of status code 400 is thrown.</dd>
 <dt>When tampering of other stores is detected</dt>
 <dd>Exception that occurred during the decryption process of the session store is thrown without any changes.</dd>
 </dl>
@@ -537,10 +538,10 @@ If different expiry intervals are configured between multiple stores, use the va
 <div class="section" id="save-the-expiration-date-in-the-database">
 <span id="db-managed-expiration"></span><h2><a class="toc-backref" href="#id9">Save the expiration date in the database</a><a class="headerlink" href="#save-the-expiration-date-in-the-database" title="Permalink to this headline">¶</a></h2>
 <p>You can change where the session expiration date is stored.</p>
-<p>By default, <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/common/web/session/HttpSessionManagedExpiration.html" title="nablarch.common.web.session.HttpSessionManagedExpiration">HttpSessionManagedExpiration</a>
+<p>By default, <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/common/web/session/HttpSessionManagedExpiration.html" title="nablarch.common.web.session.HttpSessionManagedExpiration">HttpSessionManagedExpiration</a>
 is used, so the session expiration is stored in the HTTP session.</p>
-<p>You can save the session expiration  to the database by setting the <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/common/web/session/DbManagedExpiration.html" title="nablarch.common.web.session.DbManagedExpiration">DbManagedExpiration</a>
-to the <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/common/web/session/SessionStoreHandler.html#setExpiration(nablarch.common.web.session.Expiration)" title="nablarch.common.web.session.SessionStoreHandler.setExpiration(nablarch.common.web.session.Expiration)">expiration</a> property of this handler.</p>
+<p>You can save the session expiration  to the database by setting the <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/common/web/session/DbManagedExpiration.html" title="nablarch.common.web.session.DbManagedExpiration">DbManagedExpiration</a>
+to the <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/common/web/session/SessionStoreHandler.html#setExpiration(nablarch.common.web.session.Expiration)" title="nablarch.common.web.session.SessionStoreHandler.setExpiration(nablarch.common.web.session.Expiration)">expiration</a> property of this handler.</p>
 <div class="section" id="usage">
 <h3><a class="toc-backref" href="#id10">Usage</a><a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h3>
 <p>The table used to store the expiratoin date on the database shall be the table described in the <a class="reference internal" href="../../libraries/session_store.html#session-store-use-config"><span>DB store</span></a> when using the DB store.</p>
@@ -552,8 +553,8 @@ In projects created from archetypes before 5u15, it is defined as a required att
 It is necessary to issue ALTER statement or recreate the table if necessary.</p>
 </div>
 <p>If you change the table name and column names, define a component of the
-<a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/common/web/session/store/UserSessionSchema.html" title="nablarch.common.web.session.store.UserSessionSchema">UserSessionSchema</a> in
-<a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/common/web/session/DbManagedExpiration.html#setUserSessionSchema(nablarch.common.web.session.store.UserSessionSchema)" title="nablarch.common.web.session.DbManagedExpiration.setUserSessionSchema(nablarch.common.web.session.store.UserSessionSchema)">DbManagedExpiration.userSessionSchema</a>.
+<a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/common/web/session/store/UserSessionSchema.html" title="nablarch.common.web.session.store.UserSessionSchema">UserSessionSchema</a> in
+<a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/common/web/session/DbManagedExpiration.html#setUserSessionSchema(nablarch.common.web.session.store.UserSessionSchema)" title="nablarch.common.web.session.DbManagedExpiration.setUserSessionSchema(nablarch.common.web.session.store.UserSessionSchema)">DbManagedExpiration.userSessionSchema</a>.
 Change the table columns in the DB store to the same ones.</p>
 <p>Also, the expiration date needs <a class="reference internal" href="../../libraries/repository.html#repository-initialize-object"><span>initialize</span></a>.</p>
 <p>An example setting is shown below.</p>
@@ -615,7 +616,7 @@ Change the table columns in the DB store to the same ones.</p>
 
     <div role="contentinfo">
         <p>
-            &copy; Copyright 2010-2024, TIS Inc.
+            &copy; Copyright 2010-2025, TIS Inc.
         </p>
     </div>
     Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
@@ -636,7 +637,7 @@ Change the table columns in the DB store to the same ones.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../../',
-            VERSION:'6u2',
+            VERSION:'6u3',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

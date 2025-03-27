@@ -9,7 +9,7 @@
   <meta http-equiv='content-language' content='ja'>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Create Update Function &mdash; ∇Nablarch  6u2 documentation</title>
+  <title>Create Update Function &mdash; ∇Nablarch  6u3 documentation</title>
   
 
   
@@ -35,7 +35,7 @@
   
   <link rel="canonical" href="https://nablarch.github.io/docs/LATEST/doc/application_framework/application_framework/web_service/rest/getting_started/update/index.html" />
   
-    <link rel="top" title="∇Nablarch  6u2 documentation" href="../../../../../../index.html"/>
+    <link rel="top" title="∇Nablarch  6u3 documentation" href="../../../../../../index.html"/>
         <link rel="up" title="Getting Started" href="../index.html"/>
         <link rel="next" title="Details of Function" href="../../feature_details.html"/>
         <link rel="prev" title="Create a Search Function" href="../search/index.html"/>
@@ -63,7 +63,7 @@
   
 
   
-    <div id="sidebar-version">Version: 6u2</div>
+    <div id="sidebar-version">Version: 6u3</div>
   </a>
 
   <div role="search">
@@ -142,6 +142,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../../../../development_tools/toolbox/index.html">Useful Tools When Developing Applications</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../../../../development_tools/toolbox/JspStaticAnalysis/index.html">Jakarta Server Pages Static Analysis Tool</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../../../development_tools/toolbox/SqlExecutor/SqlExecutor.html">Nablarch SQL Executor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../../development_tools/toolbox/NablarchOpenApiGenerator/NablarchOpenApiGenerator.html">Nablarch OpenAPI Generator</a></li>
 </ul>
 </li>
 </ul>
@@ -469,13 +470,13 @@
 <li>To accept the request body in JSON format, specify <a class="reference external" href="https://jakarta.ee/specifications/platform/10/apidocs/jakarta/ws/rs/Consumes.html" title="jakarta.ws.rs.Consumes">Consumes</a> in the <code class="docutils literal"><span class="pre">MediaType.APPLICATION_JSON</span></code> annotation.</li>
 <li>Validates the request using the <a class="reference external" href="https://jakarta.ee/specifications/platform/10/apidocs/jakarta/validation/Valid.html" title="jakarta.validation.Valid">Valid</a> annotation.
 For details, see <a class="reference internal" href="../../../../handlers/rest/jaxrs_bean_validation_handler.html#jaxrs-bean-validation-handler"><span>Jakarta RESTful Web Servcies Bean Validation Handler</span></a>.</li>
-<li>Create an entity from a form with <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/core/beans/BeanUtil.html" title="nablarch.core.beans.BeanUtil">BeanUtil</a> and update the project information using <a class="reference internal" href="../../../../libraries/database/universal_dao.html#universal-dao"><span>Universal DAO</span></a>.</li>
-<li>If the update is successful, <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/fw/web/HttpResponse.html" title="nablarch.fw.web.HttpResponse">HttpResponse</a> , which indicates a successful completion (status code:<code class="docutils literal"><span class="pre">200</span></code>) is returned.</li>
+<li>Create an entity from a form with <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/core/beans/BeanUtil.html" title="nablarch.core.beans.BeanUtil">BeanUtil</a> and update the project information using <a class="reference internal" href="../../../../libraries/database/universal_dao.html#universal-dao"><span>Universal DAO</span></a>.</li>
+<li>If the update is successful, <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/fw/web/HttpResponse.html" title="nablarch.fw.web.HttpResponse">HttpResponse</a> , which indicates a successful completion (status code:<code class="docutils literal"><span class="pre">200</span></code>) is returned.</li>
 </ul>
 <div class="last admonition tip">
 <p class="first admonition-title">Tip</p>
-<p class="last">In the example application, <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/fw/jaxrs/ErrorResponseBuilder.html" title="nablarch.fw.jaxrs.ErrorResponseBuilder">ErrorResponseBuilder</a>  is uniquely extended,
-response <code class="docutils literal"><span class="pre">404</span></code> if <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/common/dao/NoDataException.html" title="nablarch.common.dao.NoDataException">NoDataException</a> occurs and <code class="docutils literal"><span class="pre">409</span></code> if <a class="reference external" href="https://jakarta.ee/specifications/platform/10/apidocs/jakarta/persistence/OptimisticLockException.html" title="jakarta.persistence.OptimisticLockException">OptimisticLockException</a> occurs is generated and returned to the client.</p>
+<p class="last">In the example application, <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/fw/jaxrs/ErrorResponseBuilder.html" title="nablarch.fw.jaxrs.ErrorResponseBuilder">ErrorResponseBuilder</a>  is uniquely extended,
+response <code class="docutils literal"><span class="pre">404</span></code> if <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/common/dao/NoDataException.html" title="nablarch.common.dao.NoDataException">NoDataException</a> occurs and <code class="docutils literal"><span class="pre">409</span></code> if <a class="reference external" href="https://jakarta.ee/specifications/platform/10/apidocs/jakarta/persistence/OptimisticLockException.html" title="jakarta.persistence.OptimisticLockException">OptimisticLockException</a> occurs is generated and returned to the client.</p>
 </div>
 </dd>
 </dl>
@@ -525,7 +526,7 @@ Use <a class="reference internal" href="../../../../../adaptors/router_adaptor.h
 
     <div role="contentinfo">
         <p>
-            &copy; Copyright 2010-2024, TIS Inc.
+            &copy; Copyright 2010-2025, TIS Inc.
         </p>
     </div>
     Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
@@ -546,7 +547,7 @@ Use <a class="reference internal" href="../../../../../adaptors/router_adaptor.h
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../../../../',
-            VERSION:'6u2',
+            VERSION:'6u3',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

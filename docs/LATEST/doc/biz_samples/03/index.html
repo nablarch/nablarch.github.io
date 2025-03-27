@@ -9,7 +9,7 @@
   <meta http-equiv='content-language' content='ja'>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>検索結果の一覧表示 &mdash; ∇Nablarch  6u2 ドキュメント</title>
+  <title>検索結果の一覧表示 &mdash; ∇Nablarch  6u3 ドキュメント</title>
   
 
   
@@ -35,7 +35,7 @@
   
   <link rel="canonical" href="https://nablarch.github.io/docs/LATEST/doc/biz_samples/03/index.html" />
   
-    <link rel="top" title="∇Nablarch  6u2 ドキュメント" href="../../index.html"/>
+    <link rel="top" title="∇Nablarch  6u3 ドキュメント" href="../../index.html"/>
         <link rel="up" title="目的別の実装サンプル集" href="../index.html"/>
         <link rel="next" title="フォーマッタ機能の拡張" href="../04/index.html"/>
         <link rel="prev" title="PBKDF2を用いたパスワード暗号化機能サンプル" href="../01/0101_PBKDF2PasswordEncryptor.html"/>
@@ -63,7 +63,7 @@
   
 
   
-    <div id="sidebar-version">Version: 6u2</div>
+    <div id="sidebar-version">Version: 6u3</div>
   </a>
 
   <div role="search">
@@ -142,6 +142,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../development_tools/toolbox/index.html">アプリケーション開発時に使える便利なツール</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../development_tools/toolbox/JspStaticAnalysis/index.html">Jakarta Server Pages静的解析ツール</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../development_tools/toolbox/SqlExecutor/SqlExecutor.html">Nablarch SQL Executor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../development_tools/toolbox/NablarchOpenApiGenerator/NablarchOpenApiGenerator.html">Nablarch OpenAPI Generator</a></li>
 </ul>
 </li>
 </ul>
@@ -273,10 +274,10 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../migration/index.html#jsr352">JSR352に準拠したバッチアプリケーションの移行手順</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../migration/index.html#id12">実行時にエラーになる場合の対処方法</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../migration/index.html#id13">実行時にエラーになる場合の対処方法</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../migration/index.html#id13">付録</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../migration/index.html#id14">付録</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../migration/index.html#java-ee-jakarta-ee-comparation">Java EEとJakarta EEの仕様の対応表</a></li>
 </ul>
 </li>
@@ -440,14 +441,14 @@
 </div>
 <div class="section" id="universaldao">
 <span id="listsearchresult-universaldao"></span><h2>UniversalDaoクラス<a class="headerlink" href="#universaldao" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p><a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/common/dao/UniversalDao.html" title="nablarch.common.dao.UniversalDao">UniversalDao</a> クラスは、複数件の検索結果をEntityListとして返すAPIを持つ。
+<p><a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/common/dao/UniversalDao.html" title="nablarch.common.dao.UniversalDao">UniversalDao</a> クラスは、複数件の検索結果をEntityListとして返すAPIを持つ。
 ページング機能を使う際は、<a class="reference internal" href="../../application_framework/application_framework/libraries/database/universal_dao.html#universal-dao-paging"><span>ページングを行う</span></a> を参照。</p>
 </div>
 <div class="section" id="listsearchinfo">
 <span id="listsearchresult-listsearchinfo"></span><h2>ListSearchInfoクラス<a class="headerlink" href="#listsearchinfo" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>ListSearchInfoクラスは、一覧検索用の情報を保持する抽象クラスである。
 ページネーションのためのページ数や検索条件に一致した件数などのフィールドおよびアクセッサメソッドは、本クラスで定義する。
-詳細は、 <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/core/db/support/ListSearchInfo.html" title="nablarch.core.db.support.ListSearchInfo">nablarch.core.db.support.ListSearchInfo</a> を参照。</p>
+詳細は、 <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/core/db/support/ListSearchInfo.html" title="nablarch.core.db.support.ListSearchInfo">nablarch.core.db.support.ListSearchInfo</a> を参照。</p>
 </div>
 <div class="section" id="pagination">
 <span id="listsearchresult-pagination"></span><h2>Paginationクラス<a class="headerlink" href="#pagination" title="このヘッドラインへのパーマリンク">¶</a></h2>
@@ -503,7 +504,7 @@ java.util.ArrayListクラスを継承し、Paginationクラスのインスタン
 <tr class="row-odd"><td colspan="2">検索結果</td>
 </tr>
 <tr class="row-even"><td>resultSetName(必須)</td>
-<td><a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/common/dao/EntityList.html" title="nablarch.common.dao.EntityList">ユニバーサルDAOの検索結果</a> をリクエストスコープから取得する際に使用する名前。検索結果には、ページネーションのためのページ数や検索条件に一致した件数なども含まれる。</td>
+<td><a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/common/dao/EntityList.html" title="nablarch.common.dao.EntityList">ユニバーサルDAOの検索結果</a> をリクエストスコープから取得する際に使用する名前。検索結果には、ページネーションのためのページ数や検索条件に一致した件数なども含まれる。</td>
 </tr>
 <tr class="row-odd"><td>headerRowFragment</td>
 <td>ヘッダ行のJSPフラグメント。ヘッダ行については、 <a class="reference internal" href="#listsearchresult-tableelement"><span>検索結果</span></a> を参照。<br /></td>
@@ -1037,7 +1038,7 @@ none(表示なし) <br />
 <td>検索結果を表示するか否か。デフォルトはtrue。</td>
 </tr>
 <tr class="row-even"><td>resultSetName(必須)</td>
-<td><a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/common/dao/EntityList.html" title="nablarch.common.dao.EntityList">ユニバーサルDAOの検索結果</a> をリクエストスコープから取得する際に使用する名前。検索結果には、ページネーションのためのページ数や検索条件に一致した件数なども含まれる。</td>
+<td><a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/common/dao/EntityList.html" title="nablarch.common.dao.EntityList">ユニバーサルDAOの検索結果</a> をリクエストスコープから取得する際に使用する名前。検索結果には、ページネーションのためのページ数や検索条件に一致した件数なども含まれる。</td>
 </tr>
 <tr class="row-odd"><td>resultSetCss</td>
 <td>検索結果テーブルのclass属性。<br />
@@ -1105,7 +1106,7 @@ none(表示なし) <br />
 
     <div role="contentinfo">
         <p>
-            &copy; Copyright 2010-2024, TIS Inc.
+            &copy; Copyright 2010-2025, TIS Inc.
         </p>
     </div>
     Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
@@ -1126,7 +1127,7 @@ none(表示なし) <br />
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../',
-            VERSION:'6u2',
+            VERSION:'6u3',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

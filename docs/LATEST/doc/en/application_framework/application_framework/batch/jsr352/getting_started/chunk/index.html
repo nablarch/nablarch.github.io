@@ -9,7 +9,7 @@
   <meta http-equiv='content-language' content='ja'>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Create Batch to Derive Data (Chunk Step) &mdash; ∇Nablarch  6u2 documentation</title>
+  <title>Create Batch to Derive Data (Chunk Step) &mdash; ∇Nablarch  6u3 documentation</title>
   
 
   
@@ -35,7 +35,7 @@
   
   <link rel="canonical" href="https://nablarch.github.io/docs/LATEST/doc/application_framework/application_framework/batch/jsr352/getting_started/chunk/index.html" />
   
-    <link rel="top" title="∇Nablarch  6u2 documentation" href="../../../../../../index.html"/>
+    <link rel="top" title="∇Nablarch  6u3 documentation" href="../../../../../../index.html"/>
         <link rel="up" title="Getting Started" href="../getting_started.html"/>
         <link rel="next" title="Details of Function" href="../../feature_details.html"/>
         <link rel="prev" title="Creating a Batch to Delete the data in the target table(Batchlet Step)" href="../batchlet/index.html"/>
@@ -63,7 +63,7 @@
   
 
   
-    <div id="sidebar-version">Version: 6u2</div>
+    <div id="sidebar-version">Version: 6u3</div>
   </a>
 
   <div role="search">
@@ -142,6 +142,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../../../../development_tools/toolbox/index.html">Useful Tools When Developing Applications</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../../../../development_tools/toolbox/JspStaticAnalysis/index.html">Jakarta Server Pages Static Analysis Tool</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../../../development_tools/toolbox/SqlExecutor/SqlExecutor.html">Nablarch SQL Executor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../../development_tools/toolbox/NablarchOpenApiGenerator/NablarchOpenApiGenerator.html">Nablarch OpenAPI Generator</a></li>
 </ul>
 </li>
 </ul>
@@ -527,7 +528,7 @@ and <a class="reference external" href="https://jakarta.ee/specifications/platfo
 For details, see <a class="reference internal" href="../batchlet/index.html#getting-started-batchlet-cdi"><span>Explanation of named and dependent of batchlet</span></a>.</li>
 <li>Read the data to be processed with <cite>open</cite> method.</li>
 <li>For the location and how to create the SQL file, see <a class="reference internal" href="../../../../libraries/database/universal_dao.html#universal-dao-sql-file"><span>Search with any SQL (SQL file)</span></a>.</li>
-<li>When reading a large amount of data, to prevent straining of the memory, use <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/common/dao/UniversalDao.html#defer()" title="nablarch.common.dao.UniversalDao.defer()">UniversalDao#defer</a>
+<li>When reading a large amount of data, to prevent straining of the memory, use <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/common/dao/UniversalDao.html#defer()" title="nablarch.common.dao.UniversalDao.defer()">UniversalDao#defer</a>
 to <a class="reference internal" href="../../../../libraries/database/universal_dao.html#universal-dao-lazy-load"><span>defer the loading</span></a> of the search results.</li>
 <li>Returns one line of data from the data read by <cite>readItem</cite> method.
 The object returned by this method is given as an argument of <cite>processItem</cite> method of <a class="reference external" href="https://jakarta.ee/specifications/platform/10/apidocs/jakarta/batch/api/chunk/ItemProcessor.html" title="jakarta.batch.api.chunk.ItemProcessor">ItemProcessor</a> that follows.</li>
@@ -654,7 +655,7 @@ the <cite>writeItems</cite> method of <a class="reference external" href="https:
 </dd>
 <dt>Key points of this implementation</dt>
 <dd><ul class="first last simple">
-<li>Uses <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/common/dao/UniversalDao.html#batchInsert(java.util.List)" title="nablarch.common.dao.UniversalDao.batchInsert(java.util.List)">UniversalDao#batchInsert</a> to batch register entity list.</li>
+<li>Uses <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/common/dao/UniversalDao.html#batchInsert(java.util.List)" title="nablarch.common.dao.UniversalDao.batchInsert(java.util.List)">UniversalDao#batchInsert</a> to batch register entity list.</li>
 <li>The transaction is committed after execution of the <cite>writeItems</cite> method and a new transaction is started.</li>
 <li>After execution of the <cite>writeItems</cite> method, the batch process is repeated from the execution of <cite>readItem</cite> method.</li>
 </ul>
@@ -716,7 +717,7 @@ the <cite>writeItems</cite> method of <a class="reference external" href="https:
 
     <div role="contentinfo">
         <p>
-            &copy; Copyright 2010-2024, TIS Inc.
+            &copy; Copyright 2010-2025, TIS Inc.
         </p>
     </div>
     Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
@@ -737,7 +738,7 @@ the <cite>writeItems</cite> method of <a class="reference external" href="https:
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../../../../',
-            VERSION:'6u2',
+            VERSION:'6u3',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

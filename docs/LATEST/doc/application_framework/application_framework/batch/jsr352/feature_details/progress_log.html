@@ -9,7 +9,7 @@
   <meta http-equiv='content-language' content='ja'>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>進捗状況のログ出力 &mdash; ∇Nablarch  6u2 ドキュメント</title>
+  <title>進捗状況のログ出力 &mdash; ∇Nablarch  6u3 ドキュメント</title>
   
 
   
@@ -35,7 +35,7 @@
   
   <link rel="canonical" href="https://nablarch.github.io/docs/LATEST/doc/application_framework/application_framework/batch/jsr352/feature_details/progress_log.html" />
   
-    <link rel="top" title="∇Nablarch  6u2 ドキュメント" href="../../../../../index.html"/>
+    <link rel="top" title="∇Nablarch  6u3 ドキュメント" href="../../../../../index.html"/>
         <link rel="up" title="機能詳細" href="../feature_details.html"/>
         <link rel="next" title="運用担当者向けのログ出力" href="operator_notice_log.html"/>
         <link rel="prev" title="運用方針" href="operation_policy.html"/>
@@ -63,7 +63,7 @@
   
 
   
-    <div id="sidebar-version">Version: 6u2</div>
+    <div id="sidebar-version">Version: 6u3</div>
   </a>
 
   <div role="search">
@@ -142,6 +142,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../../../development_tools/toolbox/index.html">アプリケーション開発時に使える便利なツール</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../../../development_tools/toolbox/JspStaticAnalysis/index.html">Jakarta Server Pages静的解析ツール</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../../development_tools/toolbox/SqlExecutor/SqlExecutor.html">Nablarch SQL Executor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../development_tools/toolbox/NablarchOpenApiGenerator/NablarchOpenApiGenerator.html">Nablarch OpenAPI Generator</a></li>
 </ul>
 </li>
 </ul>
@@ -273,10 +274,10 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../../migration/index.html#jsr352">JSR352に準拠したバッチアプリケーションの移行手順</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../../../migration/index.html#id12">実行時にエラーになる場合の対処方法</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../migration/index.html#id13">実行時にエラーになる場合の対処方法</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../../migration/index.html#id13">付録</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../migration/index.html#id14">付録</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../../../migration/index.html#java-ee-jakarta-ee-comparation">Java EEとJakarta EEの仕様の対応表</a></li>
 </ul>
 </li>
@@ -420,15 +421,15 @@ Batchletで、ループを伴う処理を行う必要がある場合には、下
 <dl class="docutils">
 <dt>ポイント</dt>
 <dd><ul class="first last">
-<li><p class="first">processメソッドの先頭で、処理対象件数(データベースへのcount結果やファイルのレコード数等)を取得し、 <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/fw/batch/ee/progress/ProgressManager.html#setInputCount(long)" title="nablarch.fw.batch.ee.progress.ProgressManager.setInputCount(long)">inputCount</a> に設定する。</p>
+<li><p class="first">processメソッドの先頭で、処理対象件数(データベースへのcount結果やファイルのレコード数等)を取得し、 <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/fw/batch/ee/progress/ProgressManager.html#setInputCount(long)" title="nablarch.fw.batch.ee.progress.ProgressManager.setInputCount(long)">inputCount</a> に設定する。</p>
 <div class="admonition important">
 <p class="first admonition-title">重要</p>
-<p class="last">TPSの算出の起点となる時間は、 <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/fw/batch/ee/progress/ProgressManager.html#setInputCount(long)" title="nablarch.fw.batch.ee.progress.ProgressManager.setInputCount(long)">inputCount</a> が呼び出されたタイミングとなる。
-<a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/fw/batch/ee/progress/ProgressManager.html#setInputCount(long)" title="nablarch.fw.batch.ee.progress.ProgressManager.setInputCount(long)">inputCount</a> を呼び出し後にデータベースから対象データを抽出するなどの重い処理を行った場合、
+<p class="last">TPSの算出の起点となる時間は、 <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/fw/batch/ee/progress/ProgressManager.html#setInputCount(long)" title="nablarch.fw.batch.ee.progress.ProgressManager.setInputCount(long)">inputCount</a> が呼び出されたタイミングとなる。
+<a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/fw/batch/ee/progress/ProgressManager.html#setInputCount(long)" title="nablarch.fw.batch.ee.progress.ProgressManager.setInputCount(long)">inputCount</a> を呼び出し後にデータベースから対象データを抽出するなどの重い処理を行った場合、
 TPSが実際と異なる(実際より小さい値)結果となるので注意すること。</p>
 </div>
 </li>
-<li><p class="first">処理を行うループ処理内で、一定間隔ごとに進捗ログを出力する <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/fw/batch/ee/progress/ProgressManager.html#outputProgressInfo(long)" title="nablarch.fw.batch.ee.progress.ProgressManager.outputProgressInfo(long)">outputProgressInfo</a> を呼び出す。</p>
+<li><p class="first">処理を行うループ処理内で、一定間隔ごとに進捗ログを出力する <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/fw/batch/ee/progress/ProgressManager.html#outputProgressInfo(long)" title="nablarch.fw.batch.ee.progress.ProgressManager.outputProgressInfo(long)">outputProgressInfo</a> を呼び出す。</p>
 </li>
 </ul>
 </dd>
@@ -487,13 +488,13 @@ TPSが実際と異なる(実際より小さい値)結果となるので注意す
 <dd><dl class="first last docutils">
 <dt>ポイント</dt>
 <dd><ul class="first last">
-<li><p class="first">コンストラクタインジェクションを使用して、進捗ログを出力するインタフェース( <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/fw/batch/ee/progress/ProgressManager.html" title="nablarch.fw.batch.ee.progress.ProgressManager">ProgressManager</a> )をインジェクションする。</p>
+<li><p class="first">コンストラクタインジェクションを使用して、進捗ログを出力するインタフェース( <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/fw/batch/ee/progress/ProgressManager.html" title="nablarch.fw.batch.ee.progress.ProgressManager">ProgressManager</a> )をインジェクションする。</p>
 </li>
-<li><p class="first">openメソッドにて、処理対象件数(データベースへのcount結果やファイルのレコード数等)を取得し、 <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/fw/batch/ee/progress/ProgressManager.html#setInputCount(long)" title="nablarch.fw.batch.ee.progress.ProgressManager.setInputCount(long)">inputCount</a> に設定する。</p>
+<li><p class="first">openメソッドにて、処理対象件数(データベースへのcount結果やファイルのレコード数等)を取得し、 <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/fw/batch/ee/progress/ProgressManager.html#setInputCount(long)" title="nablarch.fw.batch.ee.progress.ProgressManager.setInputCount(long)">inputCount</a> に設定する。</p>
 <div class="admonition important">
 <p class="first admonition-title">重要</p>
-<p class="last">TPSの算出の起点となる時間は、 <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/fw/batch/ee/progress/ProgressManager.html#setInputCount(long)" title="nablarch.fw.batch.ee.progress.ProgressManager.setInputCount(long)">inputCount</a> が呼び出されたタイミングとなる。
-<a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/fw/batch/ee/progress/ProgressManager.html#setInputCount(long)" title="nablarch.fw.batch.ee.progress.ProgressManager.setInputCount(long)">inputCount</a> を呼び出し後にデータベースから対象データを抽出するなどの重い処理を行った場合、
+<p class="last">TPSの算出の起点となる時間は、 <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/fw/batch/ee/progress/ProgressManager.html#setInputCount(long)" title="nablarch.fw.batch.ee.progress.ProgressManager.setInputCount(long)">inputCount</a> が呼び出されたタイミングとなる。
+<a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/fw/batch/ee/progress/ProgressManager.html#setInputCount(long)" title="nablarch.fw.batch.ee.progress.ProgressManager.setInputCount(long)">inputCount</a> を呼び出し後にデータベースから対象データを抽出するなどの重い処理を行った場合、
 TPSが実際と異なる(実際より小さい値)結果となるので注意すること。</p>
 </div>
 </li>
@@ -578,7 +579,7 @@ TPSが実際と異なる(実際より小さい値)結果となるので注意す
 これは、リスナーが処理済み件数として使用している <a class="reference external" href="https://jakarta.ee/specifications/platform/10/apidocs/jakarta/batch/runtime/context/StepContext.html#getMetrics()" title="jakarta.batch.runtime.context.StepContext.getMetrics()">metrics</a>
 の読み込み済み件数が実態とずれることに起因する。</p>
 <p class="last">このため、Retrying Exceptionsを使用して例外発生時のリトライ処理を行いたい場合には、 <a class="reference external" href="https://jakarta.ee/specifications/platform/10/apidocs/jakarta/batch/api/chunk/ItemWriter.html" title="jakarta.batch.api.chunk.ItemWriter">ItemWriter</a> の実装クラスにて処理済み件数を計算し、
-<a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/fw/batch/ee/progress/ProgressManager.html#outputProgressInfo(long)" title="nablarch.fw.batch.ee.progress.ProgressManager.outputProgressInfo(long)">outputProgressInfo</a> を使用して進捗ログを出力すること。</p>
+<a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/fw/batch/ee/progress/ProgressManager.html#outputProgressInfo(long)" title="nablarch.fw.batch.ee.progress.ProgressManager.outputProgressInfo(long)">outputProgressInfo</a> を使用して進捗ログを出力すること。</p>
 </div>
 </div>
 </div>
@@ -595,7 +596,7 @@ TPSが実際と異なる(実際より小さい値)結果となるので注意す
 
     <div role="contentinfo">
         <p>
-            &copy; Copyright 2010-2024, TIS Inc.
+            &copy; Copyright 2010-2025, TIS Inc.
         </p>
     </div>
     Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
@@ -616,7 +617,7 @@ TPSが実際と異なる(実際より小さい値)結果となるので注意す
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../../../',
-            VERSION:'6u2',
+            VERSION:'6u3',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

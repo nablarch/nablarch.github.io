@@ -9,7 +9,7 @@
   <meta http-equiv='content-language' content='ja'>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>OnErrors Interceptor &mdash; ∇Nablarch  6u2 documentation</title>
+  <title>OnErrors Interceptor &mdash; ∇Nablarch  6u3 documentation</title>
   
 
   
@@ -35,7 +35,7 @@
   
   <link rel="canonical" href="https://nablarch.github.io/docs/LATEST/doc/application_framework/application_framework/handlers/web_interceptor/on_errors.html" />
   
-    <link rel="top" title="∇Nablarch  6u2 documentation" href="../../../../index.html"/>
+    <link rel="top" title="∇Nablarch  6u3 documentation" href="../../../../index.html"/>
         <link rel="up" title="Dedicated Interceptor for Web Applications" href="index.html"/>
         <link rel="next" title="OnDoubleSubmission Interceptor" href="on_double_submission.html"/>
         <link rel="prev" title="OnError Interceptor" href="on_error.html"/>
@@ -63,7 +63,7 @@
   
 
   
-    <div id="sidebar-version">Version: 6u2</div>
+    <div id="sidebar-version">Version: 6u3</div>
   </a>
 
   <div role="search">
@@ -142,6 +142,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../../development_tools/toolbox/index.html">Useful Tools When Developing Applications</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../../development_tools/toolbox/JspStaticAnalysis/index.html">Jakarta Server Pages Static Analysis Tool</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../development_tools/toolbox/SqlExecutor/SqlExecutor.html">Nablarch SQL Executor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../development_tools/toolbox/NablarchOpenApiGenerator/NablarchOpenApiGenerator.html">Nablarch OpenAPI Generator</a></li>
 </ul>
 </li>
 </ul>
@@ -356,11 +357,11 @@
 </div>
 <p>Interceptor that returns a specified response when an exception occurs in a business action.
 Responses can be specified for multiple exceptions.</p>
-<p>This interceptor is enabled by configuring <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/fw/web/interceptor/OnErrors.html" title="nablarch.fw.web.interceptor.OnErrors">OnErrors</a> to the business action method.</p>
+<p>This interceptor is enabled by configuring <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/fw/web/interceptor/OnErrors.html" title="nablarch.fw.web.interceptor.OnErrors">OnErrors</a> to the business action method.</p>
 <div class="section" id="interceptor-class-name">
 <h2><a class="toc-backref" href="#id1">Interceptor class name</a><a class="headerlink" href="#interceptor-class-name" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/fw/web/interceptor/OnErrors.html" title="nablarch.fw.web.interceptor.OnErrors">nablarch.fw.web.interceptor.OnErrors</a></li>
+<li><a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/fw/web/interceptor/OnErrors.html" title="nablarch.fw.web.interceptor.OnErrors">nablarch.fw.web.interceptor.OnErrors</a></li>
 </ul>
 </div>
 <div class="section" id="module-list">
@@ -374,9 +375,9 @@ Responses can be specified for multiple exceptions.</p>
 </div>
 <div class="section" id="using-onerrors">
 <h2><a class="toc-backref" href="#id3">Using OnErrors</a><a class="headerlink" href="#using-onerrors" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/fw/web/interceptor/OnErrors.html" title="nablarch.fw.web.interceptor.OnErrors">OnErrors</a> annotation is configured
+<p><a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/fw/web/interceptor/OnErrors.html" title="nablarch.fw.web.interceptor.OnErrors">OnErrors</a> annotation is configured
 for the method that processes the request in the business action.</p>
-<p><a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/fw/web/interceptor/OnError.html" title="nablarch.fw.web.interceptor.OnError">OnError</a> is used to specify the response to each exception.</p>
+<p><a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/fw/web/interceptor/OnError.html" title="nablarch.fw.web.interceptor.OnError">OnError</a> is used to specify the response to each exception.</p>
 <p>An implementation example in which the following exceptions are thrown in the business action method is shown.</p>
 <ul class="simple">
 <li><cite>ApplicationException</cite> (Business error)</li>
@@ -395,7 +396,7 @@ for the method that processes the request in the business action.</p>
 </div>
 <div class="admonition important">
 <p class="first admonition-title">Important</p>
-<p class="last">Since the exceptions are processed in the order defined by <a class="reference external" href="https://nablarch.github.io/docs/6u2/javadoc/nablarch/fw/web/interceptor/OnError.html" title="nablarch.fw.web.interceptor.OnError">OnError</a>,
+<p class="last">Since the exceptions are processed in the order defined by <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/fw/web/interceptor/OnError.html" title="nablarch.fw.web.interceptor.OnError">OnError</a>,
 the exceptions of subclasses must be defined first when defining exceptions that have an inheritance relationship.</p>
 </div>
 </div>
@@ -413,7 +414,7 @@ the exceptions of subclasses must be defined first when defining exceptions that
 
     <div role="contentinfo">
         <p>
-            &copy; Copyright 2010-2024, TIS Inc.
+            &copy; Copyright 2010-2025, TIS Inc.
         </p>
     </div>
     Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
@@ -434,7 +435,7 @@ the exceptions of subclasses must be defined first when defining exceptions that
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../../',
-            VERSION:'6u2',
+            VERSION:'6u3',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,
