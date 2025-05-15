@@ -9,7 +9,7 @@
   <meta http-equiv='content-language' content='ja'>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>更新機能の作成 &mdash; ∇Nablarch  5u25 ドキュメント</title>
+  <title>更新機能の作成 &mdash; ∇Nablarch  5u26 ドキュメント</title>
   
 
   
@@ -33,9 +33,10 @@
   
 
   
+  
   <link rel="canonical" href="https://nablarch.github.io/docs/LATEST/doc/application_framework/application_framework/web_service/rest/getting_started/update/index.html" />
   
-    <link rel="top" title="∇Nablarch  5u25 ドキュメント" href="../../../../../../index.html"/>
+    <link rel="top" title="∇Nablarch  5u26 ドキュメント" href="../../../../../../index.html"/>
         <link rel="up" title="Getting Started" href="../index.html"/>
         <link rel="next" title="機能詳細" href="../../feature_details.html"/>
         <link rel="prev" title="検索機能の作成" href="../search/index.html"/>
@@ -63,7 +64,7 @@
   
 
   
-    <div id="sidebar-version">Version: 5u25</div>
+    <div id="sidebar-version">Version: 5u26</div>
   </a>
 
   <div role="search">
@@ -360,7 +361,7 @@
       <a href="https://github.com/nablarch" class="fa fa-github">GitHub</a>
     </li>
     <li class="wy-breadcrumbs-aside">
-        <a href="https://nablarch.github.io/docs/LATEST/doc/en/index.html" class="en">English</a>
+        <a href="https://nablarch.github.io/docs/5-LATEST/doc/en/index.html" class="en">English</a>
     </li>
   </ul>
   <hr/>
@@ -493,14 +494,14 @@
 <code class="docutils literal"><span class="pre">MediaType.APPLICATION_JSON</span></code> を指定する。</li>
 <li><a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/validation/Valid.html" title="javax.validation.Valid">Valid</a> アノテーションを使用して、リクエストのバリデーションを行う。
 詳細は <a class="reference internal" href="../../../../handlers/rest/jaxrs_bean_validation_handler.html#jaxrs-bean-validation-handler"><span>JAX-RS BeanValidationハンドラ</span></a> を参照。</li>
-<li><a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/core/beans/BeanUtil.html" title="nablarch.core.beans.BeanUtil">BeanUtil</a> でフォームからエンティティを作成し、
+<li><a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/core/beans/BeanUtil.html" title="nablarch.core.beans.BeanUtil">BeanUtil</a> でフォームからエンティティを作成し、
 <a class="reference internal" href="../../../../libraries/database/universal_dao.html#universal-dao"><span>ユニバーサルDAO</span></a> を使用してプロジェクト情報を更新する。</li>
-<li>更新に成功した場合は、正常終了(ステータスコード： <code class="docutils literal"><span class="pre">200</span></code> )を表す <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/web/HttpResponse.html" title="nablarch.fw.web.HttpResponse">HttpResponse</a> を返却する。</li>
+<li>更新に成功した場合は、正常終了(ステータスコード： <code class="docutils literal"><span class="pre">200</span></code> )を表す <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/web/HttpResponse.html" title="nablarch.fw.web.HttpResponse">HttpResponse</a> を返却する。</li>
 </ul>
 <div class="last admonition tip">
 <p class="first admonition-title">補足</p>
-<p class="last">Exampleアプリケーションでは <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/jaxrs/ErrorResponseBuilder.html" title="nablarch.fw.jaxrs.ErrorResponseBuilder">ErrorResponseBuilder</a> を独自に拡張しており、
-<a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/common/dao/NoDataException.html" title="nablarch.common.dao.NoDataException">NoDataException</a> が発生した場合は <code class="docutils literal"><span class="pre">404</span></code> 、
+<p class="last">Exampleアプリケーションでは <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/jaxrs/ErrorResponseBuilder.html" title="nablarch.fw.jaxrs.ErrorResponseBuilder">ErrorResponseBuilder</a> を独自に拡張しており、
+<a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/common/dao/NoDataException.html" title="nablarch.common.dao.NoDataException">NoDataException</a> が発生した場合は <code class="docutils literal"><span class="pre">404</span></code> 、
 <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/persistence/OptimisticLockException.html" title="javax.persistence.OptimisticLockException">OptimisticLockException</a> が発生した場合は <code class="docutils literal"><span class="pre">409</span></code>
 のレスポンスを生成してクライアントに返却している。</p>
 </div>
@@ -552,7 +553,7 @@
 
     <div role="contentinfo">
         <p>
-            &copy; Copyright 2010-2024, TIS Inc.
+            &copy; Copyright 2010-2025, TIS Inc.
         </p>
     </div>
     Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
@@ -573,7 +574,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../../../../',
-            VERSION:'5u25',
+            VERSION:'5u26',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

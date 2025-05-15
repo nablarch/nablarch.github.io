@@ -9,7 +9,7 @@
   <meta http-equiv='content-language' content='ja'>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Display Validation Error Messages on the Screen &mdash; ∇Nablarch  5u25 documentation</title>
+  <title>Display Validation Error Messages on the Screen &mdash; ∇Nablarch  5u26 documentation</title>
   
 
   
@@ -33,9 +33,10 @@
   
 
   
+  
   <link rel="canonical" href="https://nablarch.github.io/docs/LATEST/doc/application_framework/application_framework/web/feature_details/error_message.html" />
   
-    <link rel="top" title="∇Nablarch  5u25 documentation" href="../../../../index.html"/>
+    <link rel="top" title="∇Nablarch  5u26 documentation" href="../../../../index.html"/>
         <link rel="up" title="Details of Function" href="../feature_details.html"/>
         <link rel="next" title="How to Prevent JSP from Automatically Creating HTTP Sessions" href="jsp_session.html"/>
         <link rel="prev" title="Web Front Controller" href="web_front_controller.html"/>
@@ -63,7 +64,7 @@
   
 
   
-    <div id="sidebar-version">Version: 5u25</div>
+    <div id="sidebar-version">Version: 5u26</div>
   </a>
 
   <div role="search">
@@ -320,7 +321,7 @@
       <a href="https://github.com/nablarch" class="fa fa-github">GitHub</a>
     </li>
     <li class="wy-breadcrumbs-aside">
-        <a href="https://nablarch.github.io/docs/LATEST/doc/index.html" class="ja">日本語</a>
+        <a href="https://nablarch.github.io/docs/5-LATEST/doc/index.html" class="ja">日本語</a>
     </li>
   </ul>
   <hr/>
@@ -331,7 +332,7 @@
   <div class="section" id="display-validation-error-messages-on-the-screen">
 <h1>Display Validation Error Messages on the Screen<a class="headerlink" href="#display-validation-error-messages-on-the-screen" title="Permalink to this headline">¶</a></h1>
 <p>Error messages of the validation in the server are stored in the request scope by the <a class="reference internal" href="../../handlers/web/HttpErrorHandler.html#http-error-handler"><span>HTTP Error Control Handler</span></a>.
-The template engine can display the error messages by accessing <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/web/message/ErrorMessages.html" title="nablarch.fw.web.message.ErrorMessages">ErrorMessages</a> stored in the request scope.
+The template engine can display the error messages by accessing <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/web/message/ErrorMessages.html" title="nablarch.fw.web.message.ErrorMessages">ErrorMessages</a> stored in the request scope.
 For variable name of request scope, see <a class="reference internal" href="../../handlers/web/HttpErrorHandler.html#http-error-handler-error-messages"><span>setting error message in request scope</span></a>.</p>
 <div class="admonition tip">
 <p class="first admonition-title">Tip</p>
@@ -342,8 +343,8 @@ compatibility with the CSS framework is poor because of the limitations of the D
 <p>The following is an implementation example of <a class="reference internal" href="../../../adaptors/web_thymeleaf_adaptor.html#web-thymeleaf-adaptor"><span>Thymeleaf</span></a>.</p>
 <dl class="docutils">
 <dt>To display a message corresponding to a specific property</dt>
-<dd><p class="first"><a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/web/message/ErrorMessages.html#hasError-java.lang.String-" title="nablarch.fw.web.message.ErrorMessages.hasError(java.lang.String)">ErrorMessages#hasError</a> and
-<a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/web/message/ErrorMessages.html#getMessage-java.lang.String-" title="nablarch.fw.web.message.ErrorMessages.getMessage(java.lang.String)">ErrorMessages#getMessage</a>
+<dd><p class="first"><a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/web/message/ErrorMessages.html#hasError-java.lang.String-" title="nablarch.fw.web.message.ErrorMessages.hasError(java.lang.String)">ErrorMessages#hasError</a> and
+<a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/web/message/ErrorMessages.html#getMessage-java.lang.String-" title="nablarch.fw.web.message.ErrorMessages.getMessage(java.lang.String)">ErrorMessages#getMessage</a>
 can be used to display the error or message corresponding to the property (value of the name attribute of the input item).</p>
 <p>In this example, the message is displayed if the request scope has an error message corresponding to the <code class="docutils literal"><span class="pre">form.userName</span></code> property.</p>
 <div class="last highlight-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&#39;text&#39;</span> <span class="na">name</span><span class="o">=</span><span class="s">&#39;form.txt&#39;</span> <span class="p">/&gt;</span>
@@ -353,7 +354,7 @@ can be used to display the error or message corresponding to the property (value
 </div>
 </dd>
 <dt>To display global messages (messages that are not associated with a property)</dt>
-<dd><p class="first"><a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/web/message/ErrorMessages.html#getGlobalMessages--" title="nablarch.fw.web.message.ErrorMessages.getGlobalMessages()">ErrorMessages#getGlobalMessages()</a>
+<dd><p class="first"><a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/web/message/ErrorMessages.html#getGlobalMessages--" title="nablarch.fw.web.message.ErrorMessages.getGlobalMessages()">ErrorMessages#getGlobalMessages()</a>
 can be used to display the global messages.</p>
 <div class="last highlight-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">ul</span><span class="p">&gt;</span>
   <span class="p">&lt;</span><span class="nt">li</span> <span class="na">th:each</span><span class="o">=</span><span class="s">&quot;message : ${errors.globalMessages}&quot;</span> <span class="na">th:text</span><span class="o">=</span><span class="s">&quot;${message}&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
@@ -362,7 +363,7 @@ can be used to display the global messages.</p>
 </div>
 </dd>
 <dt>To display all the messages</dt>
-<dd><p class="first"><a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/web/message/ErrorMessages.html#getAllMessages--" title="nablarch.fw.web.message.ErrorMessages.getAllMessages()">ErrorMessages#getAllMessages()</a>
+<dd><p class="first"><a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/web/message/ErrorMessages.html#getAllMessages--" title="nablarch.fw.web.message.ErrorMessages.getAllMessages()">ErrorMessages#getAllMessages()</a>
 can be used to display all messages.</p>
 <div class="last highlight-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">ul</span><span class="p">&gt;</span>
   <span class="p">&lt;</span><span class="nt">li</span> <span class="na">th:each</span><span class="o">=</span><span class="s">&quot;message : ${errors.allMessages}&quot;</span> <span class="na">th:text</span><span class="o">=</span><span class="s">&quot;${message}&quot;</span><span class="p">&gt;</span> Error message <span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
@@ -385,7 +386,7 @@ can be used to display all messages.</p>
 
     <div role="contentinfo">
         <p>
-            &copy; Copyright 2010-2024, TIS Inc.
+            &copy; Copyright 2010-2025, TIS Inc.
         </p>
     </div>
     Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
@@ -406,7 +407,7 @@ can be used to display all messages.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../../',
-            VERSION:'5u25',
+            VERSION:'5u26',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

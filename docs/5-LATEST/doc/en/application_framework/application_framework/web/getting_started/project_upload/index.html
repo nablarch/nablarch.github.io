@@ -9,7 +9,7 @@
   <meta http-equiv='content-language' content='ja'>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Create a Batch registration Function Using Upload &mdash; ∇Nablarch  5u25 documentation</title>
+  <title>Create a Batch registration Function Using Upload &mdash; ∇Nablarch  5u26 documentation</title>
   
 
   
@@ -33,9 +33,10 @@
   
 
   
+  
   <link rel="canonical" href="https://nablarch.github.io/docs/LATEST/doc/application_framework/application_framework/web/getting_started/project_upload/index.html" />
   
-    <link rel="top" title="∇Nablarch  5u25 documentation" href="../../../../../index.html"/>
+    <link rel="top" title="∇Nablarch  5u26 documentation" href="../../../../../index.html"/>
         <link rel="up" title="Getting Started" href="../index.html"/>
         <link rel="next" title="Create a File Download Function" href="../project_download/index.html"/>
         <link rel="prev" title="Create a Delete Function" href="../project_delete/index.html"/>
@@ -63,7 +64,7 @@
   
 
   
-    <div id="sidebar-version">Version: 5u25</div>
+    <div id="sidebar-version">Version: 5u26</div>
   </a>
 
   <div role="search">
@@ -320,7 +321,7 @@
       <a href="https://github.com/nablarch" class="fa fa-github">GitHub</a>
     </li>
     <li class="wy-breadcrumbs-aside">
-        <a href="https://nablarch.github.io/docs/LATEST/doc/index.html" class="ja">日本語</a>
+        <a href="https://nablarch.github.io/docs/5-LATEST/doc/index.html" class="ja">日本語</a>
     </li>
   </ul>
   <hr/>
@@ -485,7 +486,7 @@
 <li>Specify <cite>multipart/form-data</cite> as <cite>enctype</cite> attribute of <a class="reference internal" href="../../../libraries/tag/tag_reference.html#tag-form-tag"><span>form tag</span></a> to send multipart file.</li>
 <li>Create a file upload field using <a class="reference internal" href="../../../libraries/tag/tag_reference.html#tag-file-tag"><span>file tag</span></a>. Specify the registration name of the request object in the <cite>name</cite> attribute.
 To acquire the file in a business action, specify this registration name as an argument of
-<a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/web/HttpRequest.html#getPart-java.lang.String-" title="nablarch.fw.web.HttpRequest.getPart(java.lang.String)">HttpRequest#getPart</a></li>
+<a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/web/HttpRequest.html#getPart-java.lang.String-" title="nablarch.fw.web.HttpRequest.getPart(java.lang.String)">HttpRequest#getPart</a></li>
 <li>Display upload completed message with <a class="reference internal" href="../../../libraries/tag/tag_reference.html#tag-message-tag"><span>message tag</span></a>, once the upload is completed.
 In order to include the number of uploads in the completion message, specify the number of uploads configured in the request scope in <cite>option0</cite> attribute.</li>
 <li>Use <a class="reference internal" href="../../../libraries/tag/tag_reference.html#tag-errors-tag"><span>errors tag</span></a> to create an area to display the list of validation error messages for the target file.
@@ -533,16 +534,16 @@ For the output format of the error message list, refer to <a class="reference in
 </dd>
 <dt>Key points of this implementation</dt>
 <dd><ul class="first last">
-<li><p class="first">Acquire the file <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/web/HttpRequest.html#getPart-java.lang.String-" title="nablarch.fw.web.HttpRequest.getPart(java.lang.String)">HttpRequest#getPart</a>.</p>
+<li><p class="first">Acquire the file <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/web/HttpRequest.html#getPart-java.lang.String-" title="nablarch.fw.web.HttpRequest.getPart(java.lang.String)">HttpRequest#getPart</a>.</p>
 </li>
-<li><p class="first">When the file does not exist (not uploaded), then the size of <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/web/upload/PartInfo.html" title="nablarch.fw.web.upload.PartInfo">PartInfo</a> list that is acquired will be zero.
+<li><p class="first">When the file does not exist (not uploaded), then the size of <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/web/upload/PartInfo.html" title="nablarch.fw.web.upload.PartInfo">PartInfo</a> list that is acquired will be zero.
 This value is used to perform control such as throwing a business exception.</p>
 </li>
 <li><p class="first">The uploaded file is stored in a temporary area by the <a class="reference internal" href="../../../handlers/web/multipart_handler.html#multipart-handler"><span>multipart request handler</span></a>.
 Since the temporary area is automatically deleted, if you need to permanently (save) an uploaded file, move the file to an arbitrary directory.
 However, file transfers are possible only when the <a class="reference internal" href="../../../libraries/file_path_management.html#file-path-management"><span>file path management</span></a> is used to manage the input and output of files and directories.</p>
 </li>
-<li><p class="first">Use <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/web/upload/util/UploadHelper.html#moveFileTo-java.lang.String-java.lang.String-" title="nablarch.fw.web.upload.util.UploadHelper.moveFileTo(java.lang.String-java.lang.String)">UploadHelper#moveFileTo</a> method to transfer files.
+<li><p class="first">Use <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/web/upload/util/UploadHelper.html#moveFileTo-java.lang.String-java.lang.String-" title="nablarch.fw.web.upload.util.UploadHelper.moveFileTo(java.lang.String-java.lang.String)">UploadHelper#moveFileTo</a> method to transfer files.
 The first argument is the key name of the file storage directory registered in the configuration file.
 In the Example Application, the configuration is described in the following file.</p>
 <dl class="docutils">
@@ -623,15 +624,15 @@ In the Example Application, the configuration is described in the following file
 </dd>
 <dt>Key points of this implementation</dt>
 <dd><ul class="first simple">
-<li>Use <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/common/databind/csv/Csv.html" title="nablarch.common.databind.csv.Csv">&#64;Csv</a> for configuration to link the contents of the uploaded CSV file with the bean property.
-Use  <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/common/databind/csv/CsvFormat.html" title="nablarch.common.databind.csv.CsvFormat">&#64;CsvFormat</a> to specify the acceptable CSV format.
-（ <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/common/databind/csv/CsvFormat.html" title="nablarch.common.databind.csv.CsvFormat">&#64;CsvFormat</a> is not required when using the <a class="reference internal" href="../../../libraries/data_io/data_bind.html#data-bind-csv-format-set"><span>default format specification</span></a>）
+<li>Use <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/common/databind/csv/Csv.html" title="nablarch.common.databind.csv.Csv">&#64;Csv</a> for configuration to link the contents of the uploaded CSV file with the bean property.
+Use  <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/common/databind/csv/CsvFormat.html" title="nablarch.common.databind.csv.CsvFormat">&#64;CsvFormat</a> to specify the acceptable CSV format.
+（ <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/common/databind/csv/CsvFormat.html" title="nablarch.common.databind.csv.CsvFormat">&#64;CsvFormat</a> is not required when using the <a class="reference internal" href="../../../libraries/data_io/data_bind.html#data-bind-csv-format-set"><span>default format specification</span></a>）
 For information on how to configure the annotation, refer to <a class="reference internal" href="../../../libraries/data_io/data_bind.html#data-bind-csv-format-beans"><span>format specification method when binding the CSV file to the Java Beans class</span></a>.</li>
-<li>Perform <a class="reference internal" href="../../../libraries/validation/bean_validation.html#bean-validation"><span>Bean Validation</span></a> by assigning annotations for validation of <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/core/validation/ee/Required.html" title="nablarch.core.validation.ee.Required">&#64;Required</a>
-and <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/core/validation/ee/Domain.html" title="nablarch.core.validation.ee.Domain">&#64;Domain</a> to the property.</li>
+<li>Perform <a class="reference internal" href="../../../libraries/validation/bean_validation.html#bean-validation"><span>Bean Validation</span></a> by assigning annotations for validation of <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/core/validation/ee/Required.html" title="nablarch.core.validation.ee.Required">&#64;Required</a>
+and <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/core/validation/ee/Domain.html" title="nablarch.core.validation.ee.Domain">&#64;Domain</a> to the property.</li>
 <li>To accept the values from a file, <a class="reference internal" href="../../../libraries/validation/bean_validation.html#bean-validation-form-property"><span>property is defined as string type</span></a>,
 and conversion to an appropriate type is performed as per the safe value that has passed the validation.</li>
-<li>By defining the line count property and granting <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/common/databind/LineNumber.html" title="nablarch.common.databind.LineNumber">LineNumber</a> to the getter,
+<li>By defining the line count property and granting <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/common/databind/LineNumber.html" title="nablarch.common.databind.LineNumber">LineNumber</a> to the getter,
 the line of the target data can be configured automatically.</li>
 </ul>
 <div class="last admonition tip">
@@ -716,15 +717,15 @@ For information on how to specify a validation message, refer to <a class="refer
 </dd>
 <dt>Key points of this implementation</dt>
 <dd><ul class="first last simple">
-<li>Use <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/common/databind/ObjectMapper.html" title="nablarch.common.databind.ObjectMapper">ObjectMapper</a> provided by
+<li>Use <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/common/databind/ObjectMapper.html" title="nablarch.common.databind.ObjectMapper">ObjectMapper</a> provided by
 <a class="reference internal" href="../../../libraries/data_io/data_bind.html#data-bind"><span>DataBind</span></a> to bind and get the file to the bean.</li>
-<li>By executing <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/common/databind/ObjectMapper.html#read--" title="nablarch.common.databind.ObjectMapper.read()">ObjectMapper#read</a> for the acquired
-<a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/common/databind/ObjectMapper.html" title="nablarch.common.databind.ObjectMapper">ObjectMapper</a> object, the list of bound bean can be obtained.</li>
+<li>By executing <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/common/databind/ObjectMapper.html#read--" title="nablarch.common.databind.ObjectMapper.read()">ObjectMapper#read</a> for the acquired
+<a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/common/databind/ObjectMapper.html" title="nablarch.common.databind.ObjectMapper">ObjectMapper</a> object, the list of bound bean can be obtained.</li>
 <li><a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/validation/Validator.html" title="javax.validation.Validator">Validator</a> object can be created by using
-<a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/core/validation/ee/ValidatorUtil.html#getValidator--" title="nablarch.core.validation.ee.ValidatorUtil.getValidator()">ValidatorUtil#getValidator</a>, and <a class="reference internal" href="../../../libraries/validation/bean_validation.html#bean-validation"><span>Bean Validation</span></a> can be executed for any Bean.</li>
+<a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/core/validation/ee/ValidatorUtil.html#getValidator--" title="nablarch.core.validation.ee.ValidatorUtil.getValidator()">ValidatorUtil#getValidator</a>, and <a class="reference internal" href="../../../libraries/validation/bean_validation.html#bean-validation"><span>Bean Validation</span></a> can be executed for any Bean.</li>
 <li>When verification is continued up to the last row and not aborted even when an error occurs,
-error messages for all rows are stored after the verification is completed in <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/core/message/Message.html" title="nablarch.core.message.Message">Message</a> list, by generating and
-throwing <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/core/message/ApplicationException.html" title="nablarch.core.message.ApplicationException">ApplicationException</a> with this list as an argument,
+error messages for all rows are stored after the verification is completed in <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/core/message/Message.html" title="nablarch.core.message.Message">Message</a> list, by generating and
+throwing <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/core/message/ApplicationException.html" title="nablarch.core.message.ApplicationException">ApplicationException</a> with this list as an argument,
 it can be output to the screen with <a class="reference internal" href="../../../libraries/tag/tag_reference.html#tag-errors-tag"><span>errors tag</span></a>.</li>
 <li>For how to assign a property name to the validation message,
 implement by referring to <a class="reference internal" href="../../../libraries/validation/bean_validation.html#bean-validation-property-name"><span>how to include item names in the message when a validation error occurs</span></a>.</li>
@@ -774,7 +775,7 @@ implement by referring to <a class="reference internal" href="../../../libraries
 </dd>
 <dt>Key points of this implementation</dt>
 <dd><ul class="first last simple">
-<li>Batch registration is executed using <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/common/dao/UniversalDao.html#batchInsert-java.util.List-" title="nablarch.common.dao.UniversalDao.batchInsert(java.util.List)">UniversalDao#batchInsert</a>.</li>
+<li>Batch registration is executed using <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/common/dao/UniversalDao.html#batchInsert-java.util.List-" title="nablarch.common.dao.UniversalDao.batchInsert(java.util.List)">UniversalDao#batchInsert</a>.</li>
 <li>Set an upper limit on the number of registrations per batch registration, because a large number of registrations at a time may result in a deterioration in performance.</li>
 </ul>
 </dd>
@@ -800,7 +801,7 @@ implement by referring to <a class="reference internal" href="../../../libraries
 
     <div role="contentinfo">
         <p>
-            &copy; Copyright 2010-2024, TIS Inc.
+            &copy; Copyright 2010-2025, TIS Inc.
         </p>
     </div>
     Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
@@ -821,7 +822,7 @@ implement by referring to <a class="reference internal" href="../../../libraries
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../../../',
-            VERSION:'5u25',
+            VERSION:'5u26',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

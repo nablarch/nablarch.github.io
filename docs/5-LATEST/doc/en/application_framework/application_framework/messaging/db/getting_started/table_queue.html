@@ -9,7 +9,7 @@
   <meta http-equiv='content-language' content='ja'>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Create an Application That Monitors Table Queues and Imports Unprocessed Data &mdash; ∇Nablarch  5u25 documentation</title>
+  <title>Create an Application That Monitors Table Queues and Imports Unprocessed Data &mdash; ∇Nablarch  5u26 documentation</title>
   
 
   
@@ -33,9 +33,10 @@
   
 
   
+  
   <link rel="canonical" href="https://nablarch.github.io/docs/LATEST/doc/application_framework/application_framework/messaging/db/getting_started/table_queue.html" />
   
-    <link rel="top" title="∇Nablarch  5u25 documentation" href="../../../../../index.html"/>
+    <link rel="top" title="∇Nablarch  5u26 documentation" href="../../../../../index.html"/>
         <link rel="up" title="Getting Started" href="../getting_started.html"/>
         <link rel="next" title="Details of Function" href="../feature_details.html"/>
         <link rel="prev" title="Getting Started" href="../getting_started.html"/>
@@ -63,7 +64,7 @@
   
 
   
-    <div id="sidebar-version">Version: 5u25</div>
+    <div id="sidebar-version">Version: 5u26</div>
   </a>
 
   <div role="search">
@@ -322,7 +323,7 @@
       <a href="https://github.com/nablarch" class="fa fa-github">GitHub</a>
     </li>
     <li class="wy-breadcrumbs-aside">
-        <a href="https://nablarch.github.io/docs/LATEST/doc/index.html" class="ja">日本語</a>
+        <a href="https://nablarch.github.io/docs/5-LATEST/doc/index.html" class="ja">日本語</a>
     </li>
   </ul>
   <hr/>
@@ -424,7 +425,7 @@ For information on the connection destination, see <code class="docutils literal
 </dl>
 <div class="section" id="create-a-action-class">
 <span id="db-queue-example-create-action"></span><h2>Create a action class<a class="headerlink" href="#create-a-action-class" title="Permalink to this headline">¶</a></h2>
-<p>Creates an action class by inheriting <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/action/BatchAction.html" title="nablarch.fw.action.BatchAction">BatchAction</a>.</p>
+<p>Creates an action class by inheriting <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/action/BatchAction.html" title="nablarch.fw.action.BatchAction">BatchAction</a>.</p>
 <dl class="docutils">
 <dt>Implementation examples</dt>
 <dd><div class="first last highlight-java"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">ProjectCreationServiceAction</span> <span class="kd">extends</span> <span class="n">BatchAction</span><span class="o">&lt;</span><span class="n">SqlRow</span><span class="o">&gt;</span> <span class="o">{</span>
@@ -436,7 +437,7 @@ For information on the connection destination, see <code class="docutils literal
 <dt>Point</dt>
 <dd><ul class="first last simple">
 <li>Since the table is handled as a queue, the input data becomes the search result of the table.
-For this reason, <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/core/db/statement/SqlRow.html" title="nablarch.core.db.statement.SqlRow">SqlRow</a> is specified in the type parameter of <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/action/BatchAction.html" title="nablarch.fw.action.BatchAction">BatchAction</a>.</li>
+For this reason, <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/core/db/statement/SqlRow.html" title="nablarch.core.db.statement.SqlRow">SqlRow</a> is specified in the type parameter of <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/action/BatchAction.html" title="nablarch.fw.action.BatchAction">BatchAction</a>.</li>
 </ul>
 </dd>
 </dl>
@@ -445,7 +446,7 @@ For this reason, <a class="reference external" href="https://nablarch.github.io/
 <h2>Create a reader to monitor the table<a class="headerlink" href="#create-a-reader-to-monitor-the-table" title="Permalink to this headline">¶</a></h2>
 <p>Create a method to generate a reader that monitors the table in the action class created with <a class="reference internal" href="#db-queue-example-create-action"><span>Create a action class</span></a>.</p>
 <p>As described in <a class="reference internal" href="../architecture.html#db-messaging-architecture-reader"><span>Reader used for database queue</span></a>, create
-<a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/reader/DatabaseTableQueueReader.html" title="nablarch.fw.reader.DatabaseTableQueueReader">DatabaseTableQueueReader</a> as reader.</p>
+<a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/reader/DatabaseTableQueueReader.html" title="nablarch.fw.reader.DatabaseTableQueueReader">DatabaseTableQueueReader</a> as reader.</p>
 <dl class="docutils">
 <dt>Implementation examples</dt>
 <dd><dl class="first last docutils">
@@ -503,17 +504,17 @@ For this reason, <a class="reference external" href="https://nablarch.github.io/
 </dd>
 <dt>Point</dt>
 <dd><ul class="first last simple">
-<li>Implement <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/action/BatchAction.html#createReader-nablarch.fw.ExecutionContext-" title="nablarch.fw.action.BatchAction.createReader(nablarch.fw.ExecutionContext)">createReader</a>
-and create <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/reader/DatabaseTableQueueReader.html" title="nablarch.fw.reader.DatabaseTableQueueReader">DatabaseTableQueueReader</a>.</li>
-<li>Specify the following in <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/reader/DatabaseTableQueueReader.html" title="nablarch.fw.reader.DatabaseTableQueueReader">DatabaseTableQueueReader</a>.<ul>
-<li>Reader for searching from the database (<a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/reader/DatabaseRecordReader.html" title="nablarch.fw.reader.DatabaseRecordReader">DatabaseRecordReader</a>)</li>
+<li>Implement <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/action/BatchAction.html#createReader-nablarch.fw.ExecutionContext-" title="nablarch.fw.action.BatchAction.createReader(nablarch.fw.ExecutionContext)">createReader</a>
+and create <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/reader/DatabaseTableQueueReader.html" title="nablarch.fw.reader.DatabaseTableQueueReader">DatabaseTableQueueReader</a>.</li>
+<li>Specify the following in <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/reader/DatabaseTableQueueReader.html" title="nablarch.fw.reader.DatabaseTableQueueReader">DatabaseTableQueueReader</a>.<ul>
+<li>Reader for searching from the database (<a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/reader/DatabaseRecordReader.html" title="nablarch.fw.reader.DatabaseRecordReader">DatabaseRecordReader</a>)</li>
 <li>Wait time when there is no unprocessed data (1 second in this example)</li>
 <li>List of primary key column names</li>
 </ul>
 </li>
-<li>Specify the following in <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/reader/DatabaseRecordReader.html" title="nablarch.fw.reader.DatabaseRecordReader">DatabaseRecordReader</a>.<ul>
-<li><a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/core/db/statement/SqlPStatement.html" title="nablarch.core.db.statement.SqlPStatement">SqlPStatement</a> to search the unprocessed data</li>
-<li>Implementation class <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/reader/DatabaseRecordListener.html" title="nablarch.fw.reader.DatabaseRecordListener">DatabaseRecordListener</a>
+<li>Specify the following in <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/reader/DatabaseRecordReader.html" title="nablarch.fw.reader.DatabaseRecordReader">DatabaseRecordReader</a>.<ul>
+<li><a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/core/db/statement/SqlPStatement.html" title="nablarch.core.db.statement.SqlPStatement">SqlPStatement</a> to search the unprocessed data</li>
+<li>Implementation class <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/reader/DatabaseRecordListener.html" title="nablarch.fw.reader.DatabaseRecordListener">DatabaseRecordListener</a>
 for pessimistic lock of unprocessed data.
 For details, see <a class="reference internal" href="../feature_details/multiple_process.html#db-messaging-multiple-process"><span>Multi-process</span></a>.</li>
 </ul>
@@ -558,10 +559,10 @@ same as the process ID for acquiring unprocessed data to be processed by the pro
 </dd>
 <dt>Point</dt>
 <dd><ul class="first last simple">
-<li>Implement the business process in the method <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/action/BatchAction.html#handle-D-nablarch.fw.ExecutionContext-" title="nablarch.fw.action.BatchAction.handle(D-nablarch.fw.ExecutionContext)">handle</a>.
+<li>Implement the business process in the method <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/action/BatchAction.html#handle-D-nablarch.fw.ExecutionContext-" title="nablarch.fw.action.BatchAction.handle(D-nablarch.fw.ExecutionContext)">handle</a>.
 (Detailed explanation of the process details is omitted as depends on the example dependent.)</li>
-<li>Returns <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/Result.Success.html" title="nablarch.fw.Result.Success">Result.Success</a>, which indicates that the processing was normal.
-Since an exception is thrown even if the processing fails, <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/Result.Success.html" title="nablarch.fw.Result.Success">Result.Success</a> can be always returned.</li>
+<li>Returns <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/Result.Success.html" title="nablarch.fw.Result.Success">Result.Success</a>, which indicates that the processing was normal.
+Since an exception is thrown even if the processing fails, <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/Result.Success.html" title="nablarch.fw.Result.Success">Result.Success</a> can be always returned.</li>
 </ul>
 </dd>
 </dl>
@@ -622,9 +623,9 @@ Since an exception is thrown even if the processing fails, <a class="reference e
 </dd>
 <dt>Point</dt>
 <dd><ul class="first last simple">
-<li>Implement the update process of the normally processed record in <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/action/BatchActionBase.html#transactionSuccess-D-nablarch.fw.ExecutionContext-" title="nablarch.fw.action.BatchActionBase.transactionSuccess(D-nablarch.fw.ExecutionContext)">transactionSuccess</a>.
+<li>Implement the update process of the normally processed record in <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/action/BatchActionBase.html#transactionSuccess-D-nablarch.fw.ExecutionContext-" title="nablarch.fw.action.BatchActionBase.transactionSuccess(D-nablarch.fw.ExecutionContext)">transactionSuccess</a>.
 (if the processing is normal (exception is not thrown), the method is called back by Nablarch.)</li>
-<li>The update process of records that were not processed normally is implemented in <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/action/BatchActionBase.html#transactionSuccess-D-nablarch.fw.ExecutionContext-" title="nablarch.fw.action.BatchActionBase.transactionSuccess(D-nablarch.fw.ExecutionContext)">transactionFailure</a>.
+<li>The update process of records that were not processed normally is implemented in <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/action/BatchActionBase.html#transactionSuccess-D-nablarch.fw.ExecutionContext-" title="nablarch.fw.action.BatchActionBase.transactionSuccess(D-nablarch.fw.ExecutionContext)">transactionFailure</a>.
 (The method where an exception or error is thrown during processing is called back by Nablarch.)</li>
 <li>The status of the specific record is updated in SQL.</li>
 <li>For SQL description rules to prepare the SQL file, see <a class="reference internal" href="../../../libraries/database/database.html#database-use-sql-file"><span>Manage SQL in files</span></a>.</li>
@@ -646,7 +647,7 @@ Since an exception is thrown even if the processing fails, <a class="reference e
 
     <div role="contentinfo">
         <p>
-            &copy; Copyright 2010-2024, TIS Inc.
+            &copy; Copyright 2010-2025, TIS Inc.
         </p>
     </div>
     Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
@@ -667,7 +668,7 @@ Since an exception is thrown even if the processing fails, <a class="reference e
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../../../',
-            VERSION:'5u25',
+            VERSION:'5u26',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

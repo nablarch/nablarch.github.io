@@ -9,7 +9,7 @@
   <meta http-equiv='content-language' content='ja'>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Display a List of Search Results &mdash; ∇Nablarch  5u25 documentation</title>
+  <title>Display a List of Search Results &mdash; ∇Nablarch  5u26 documentation</title>
   
 
   
@@ -33,9 +33,10 @@
   
 
   
+  
   <link rel="canonical" href="https://nablarch.github.io/docs/LATEST/doc/biz_samples/03/index.html" />
   
-    <link rel="top" title="∇Nablarch  5u25 documentation" href="../../index.html"/>
+    <link rel="top" title="∇Nablarch  5u26 documentation" href="../../index.html"/>
         <link rel="up" title="Implementation Examples Per Use Cases" href="../index.html"/>
         <link rel="next" title="Extended Formatter Functions" href="../04/index.html"/>
         <link rel="prev" title="Sample Password Encryption Function Using PBKDF2" href="../01/0101_PBKDF2PasswordEncryptor.html"/>
@@ -63,7 +64,7 @@
   
 
   
-    <div id="sidebar-version">Version: 5u25</div>
+    <div id="sidebar-version">Version: 5u26</div>
   </a>
 
   <div role="search">
@@ -314,7 +315,7 @@
       <a href="https://github.com/nablarch" class="fa fa-github">GitHub</a>
     </li>
     <li class="wy-breadcrumbs-aside">
-        <a href="https://nablarch.github.io/docs/LATEST/doc/index.html" class="ja">日本語</a>
+        <a href="https://nablarch.github.io/docs/5-LATEST/doc/index.html" class="ja">日本語</a>
     </li>
   </ul>
   <hr/>
@@ -325,7 +326,7 @@
   <div class="section" id="display-a-list-of-search-results">
 <span id="list-search-result"></span><h1>Display a List of Search Results<a class="headerlink" href="#display-a-list-of-search-results" title="Permalink to this headline">¶</a></h1>
 <p>This sample is an implementation sample of the tag file that displays a list of search results.</p>
-<p><a class="reference external" href="https://github.com/nablarch/nablarch-biz-sample-all">Source code</a></p>
+<p><a class="reference external" href="https://github.com/nablarch/nablarch-biz-sample-all/tree/v5-main">Source code</a></p>
 <div class="section" id="delivery-package">
 <h2>Delivery package<a class="headerlink" href="#delivery-package" title="Permalink to this headline">¶</a></h2>
 <p>The sample is provided in the following package.</p>
@@ -420,14 +421,14 @@ by the framework and the tag files provided by the sample perform the processing
 </div>
 <div class="section" id="universaldao-class">
 <span id="listsearchresult-universaldao"></span><h2>UniversalDao class<a class="headerlink" href="#universaldao-class" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/common/dao/UniversalDao.html" title="nablarch.common.dao.UniversalDao">UniversalDao</a> class has an API that returns multiple search results as an EntityList.
+<p><a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/common/dao/UniversalDao.html" title="nablarch.common.dao.UniversalDao">UniversalDao</a> class has an API that returns multiple search results as an EntityList.
 See <a class="reference internal" href="../../application_framework/application_framework/libraries/database/universal_dao.html#universal-dao-paging"><span>Paging</span></a> when using the paging feature.</p>
 </div>
 <div class="section" id="listsearchinfo-class">
 <span id="listsearchresult-listsearchinfo"></span><h2>ListSearchInfo class<a class="headerlink" href="#listsearchinfo-class" title="Permalink to this headline">¶</a></h2>
 <p>ListSearchInfo class is an abstract class that holds list search information.
 Fields and accessor methods such as number of pages for pagination and number of items matching search conditions are defined in this class.
-See <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/core/db/support/ListSearchInfo.html" title="nablarch.core.db.support.ListSearchInfo">nablarch.core.db.support.ListSearchInfo</a> for details.</p>
+See <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/core/db/support/ListSearchInfo.html" title="nablarch.core.db.support.ListSearchInfo">nablarch.core.db.support.ListSearchInfo</a> for details.</p>
 </div>
 <div class="section" id="pagination-class">
 <span id="listsearchresult-pagination"></span><h2>Pagination class<a class="headerlink" href="#pagination-class" title="Permalink to this headline">¶</a></h2>
@@ -489,7 +490,7 @@ Must be specified when paging is displayed.</td>
 <tr class="row-even"><td colspan="2">Search result</td>
 </tr>
 <tr class="row-odd"><td>resultSetName (required)</td>
-<td>The name to use when retrieving <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/common/dao/EntityList.html" title="nablarch.common.dao.EntityList">Universal DAO search results</a> from the request scope. The search results also include the number of pages for pagination and the number of items that match the search conditions. <br /></td>
+<td>The name to use when retrieving <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/common/dao/EntityList.html" title="nablarch.common.dao.EntityList">Universal DAO search results</a> from the request scope. The search results also include the number of pages for pagination and the number of items that match the search conditions. <br /></td>
 </tr>
 <tr class="row-even"><td>headerRowFragment</td>
 <td>JSP fragment of the header row. For more information on the header row, see <a class="reference internal" href="#listsearchresult-tableelement"><span>Search result</span></a>  <br /></td>
@@ -1044,7 +1045,7 @@ For example, if the default and display position is upper, it will be &#8220;las
 Default is true.</td>
 </tr>
 <tr class="row-even"><td>resultSetName(required)</td>
-<td>The name to use when fetching <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/common/dao/EntityList.html" title="nablarch.common.dao.EntityList">Universal DAO search results</a> from the request scope. The search results also include the number of pages for pagination and the number of items that match the search conditions.</td>
+<td>The name to use when fetching <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/common/dao/EntityList.html" title="nablarch.common.dao.EntityList">Universal DAO search results</a> from the request scope. The search results also include the number of pages for pagination and the number of items that match the search conditions.</td>
 </tr>
 <tr class="row-odd"><td>resultSetCss</td>
 <td>Class attribute of the search result table. <br />
@@ -1114,7 +1115,7 @@ Default is &#8220;nablarch_even&#8221;.</td>
 
     <div role="contentinfo">
         <p>
-            &copy; Copyright 2010-2024, TIS Inc.
+            &copy; Copyright 2010-2025, TIS Inc.
         </p>
     </div>
     Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
@@ -1135,7 +1136,7 @@ Default is &#8220;nablarch_even&#8221;.</td>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../',
-            VERSION:'5u25',
+            VERSION:'5u26',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

@@ -9,7 +9,7 @@
   <meta http-equiv='content-language' content='ja'>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>日付管理 &mdash; ∇Nablarch  5u25 ドキュメント</title>
+  <title>日付管理 &mdash; ∇Nablarch  5u26 ドキュメント</title>
   
 
   
@@ -33,9 +33,10 @@
   
 
   
+  
   <link rel="canonical" href="https://nablarch.github.io/docs/LATEST/doc/application_framework/application_framework/libraries/date.html" />
   
-    <link rel="top" title="∇Nablarch  5u25 ドキュメント" href="../../../index.html"/>
+    <link rel="top" title="∇Nablarch  5u26 ドキュメント" href="../../../index.html"/>
         <link rel="up" title="Nablarchが提供するライブラリ" href="index.html"/>
         <link rel="next" title="認可チェック" href="permission_check.html"/>
         <link rel="prev" title="コード管理" href="code.html"/>
@@ -63,7 +64,7 @@
   
 
   
-    <div id="sidebar-version">Version: 5u25</div>
+    <div id="sidebar-version">Version: 5u26</div>
   </a>
 
   <div role="search">
@@ -356,7 +357,7 @@
       <a href="https://github.com/nablarch" class="fa fa-github">GitHub</a>
     </li>
     <li class="wy-breadcrumbs-aside">
-        <a href="https://nablarch.github.io/docs/LATEST/doc/en/index.html" class="en">English</a>
+        <a href="https://nablarch.github.io/docs/5-LATEST/doc/en/index.html" class="en">English</a>
     </li>
   </ul>
   <hr/>
@@ -425,7 +426,7 @@
 <div class="section" id="date-system-time-settings">
 <span id="id6"></span><h3><a class="toc-backref" href="#id19">システム日時の管理機能を使うための設定</a><a class="headerlink" href="#date-system-time-settings" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>システム日時の管理機能を使うためには、
-<a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/core/date/BasicSystemTimeProvider.html" title="nablarch.core.date.BasicSystemTimeProvider">BasicSystemTimeProvider</a> の設定をコンポーネント定義に追加する。
+<a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/core/date/BasicSystemTimeProvider.html" title="nablarch.core.date.BasicSystemTimeProvider">BasicSystemTimeProvider</a> の設定をコンポーネント定義に追加する。
 コンポーネント名には <strong>systemTimeProvider</strong> と指定する。</p>
 <div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;component</span> <span class="na">name=</span><span class="s">&quot;systemTimeProvider&quot;</span> <span class="na">class=</span><span class="s">&quot;nablarch.core.date.BasicSystemTimeProvider&quot;</span> <span class="nt">/&gt;</span>
 </pre></div>
@@ -433,7 +434,7 @@
 </div>
 <div class="section" id="id7">
 <h3><a class="toc-backref" href="#id20">システム日時を取得する</a><a class="headerlink" href="#id7" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>システム日時の取得は、 <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/core/date/SystemTimeUtil.html" title="nablarch.core.date.SystemTimeUtil">SystemTimeUtil</a> を使用する。</p>
+<p>システム日時の取得は、 <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/core/date/SystemTimeUtil.html" title="nablarch.core.date.SystemTimeUtil">SystemTimeUtil</a> を使用する。</p>
 </div>
 <div class="section" id="date-business-date-settings">
 <span id="id8"></span><h3><a class="toc-backref" href="#id21">業務日付管理機能を使うための設定</a><a class="headerlink" href="#date-business-date-settings" title="このヘッドラインへのパーマリンク">¶</a></h3>
@@ -454,7 +455,7 @@
 </tbody>
 </table>
 <p>業務日付管理機能を使うためには、
-<a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/core/date/BasicBusinessDateProvider.html" title="nablarch.core.date.BasicBusinessDateProvider">BasicBusinessDateProvider</a> の設定をコンポーネント定義に追加する。
+<a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/core/date/BasicBusinessDateProvider.html" title="nablarch.core.date.BasicBusinessDateProvider">BasicBusinessDateProvider</a> の設定をコンポーネント定義に追加する。
 コンポーネント名には <strong>businessDateProvider</strong> と指定する。</p>
 <div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;component</span> <span class="na">name=</span><span class="s">&quot;businessDateProvider&quot;</span> <span class="na">class=</span><span class="s">&quot;nablarch.core.date.BasicBusinessDateProvider&quot;</span><span class="nt">&gt;</span>
   <span class="c">&lt;!-- テーブル名 --&gt;</span>
@@ -473,7 +474,7 @@
 </div>
 <div class="section" id="id9">
 <h3><a class="toc-backref" href="#id22">業務日付を取得する</a><a class="headerlink" href="#id9" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>業務日付の取得は、 <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/core/date/BusinessDateUtil.html" title="nablarch.core.date.BusinessDateUtil">BusinessDateUtil</a> を使用する。</p>
+<p>業務日付の取得は、 <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/core/date/BusinessDateUtil.html" title="nablarch.core.date.BusinessDateUtil">BusinessDateUtil</a> を使用する。</p>
 </div>
 <div class="section" id="id10">
 <h3><a class="toc-backref" href="#id23">業務日付を任意の日付に上書く</a><a class="headerlink" href="#id10" title="このヘッドラインへのパーマリンク">¶</a></h3>
@@ -499,7 +500,7 @@
 </div>
 <div class="section" id="id11">
 <h3><a class="toc-backref" href="#id24">業務日付を更新する</a><a class="headerlink" href="#id11" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>業務日付の更新は、 <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/core/date/BasicBusinessDateProvider.html" title="nablarch.core.date.BasicBusinessDateProvider">BasicBusinessDateProvider</a> を使用して行う。</p>
+<p>業務日付の更新は、 <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/core/date/BasicBusinessDateProvider.html" title="nablarch.core.date.BasicBusinessDateProvider">BasicBusinessDateProvider</a> を使用して行う。</p>
 <div class="highlight-java"><div class="highlight"><pre><span></span><span class="c1">// システムリポジトリからBasicBusinessDateProviderを取得する</span>
 <span class="n">BusinessDateProvider</span> <span class="n">provider</span> <span class="o">=</span> <span class="n">SystemRepository</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">&quot;businessDateProvider&quot;</span><span class="o">);</span>
 
@@ -515,7 +516,7 @@
 <span id="id13"></span><h3><a class="toc-backref" href="#id26">システム日時を切り替える</a><a class="headerlink" href="#date-system-time-change" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>ユニットテストの実行時など、システム日時を切り替えたい場合は、以下の手順で行う。</p>
 <ol class="arabic simple">
-<li><a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/core/date/SystemTimeProvider.html" title="nablarch.core.date.SystemTimeProvider">SystemTimeProvider</a> を実装したクラスを作成する。</li>
+<li><a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/core/date/SystemTimeProvider.html" title="nablarch.core.date.SystemTimeProvider">SystemTimeProvider</a> を実装したクラスを作成する。</li>
 <li><a class="reference internal" href="#date-system-time-settings"><span>システム日時の管理機能を使うための設定</span></a> に従い設定する。</li>
 </ol>
 </div>
@@ -523,7 +524,7 @@
 <span id="id14"></span><h3><a class="toc-backref" href="#id27">業務日付を切り替える</a><a class="headerlink" href="#date-business-date-change" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>ユニットテストの実行時など、業務日付を切り替えたい場合は、以下の手順で行う。</p>
 <ol class="arabic simple">
-<li><a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/core/date/BusinessDateProvider.html" title="nablarch.core.date.BusinessDateProvider">BusinessDateProvider</a> を実装したクラスを作成する。</li>
+<li><a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/core/date/BusinessDateProvider.html" title="nablarch.core.date.BusinessDateProvider">BusinessDateProvider</a> を実装したクラスを作成する。</li>
 <li><a class="reference internal" href="#date-business-date-settings"><span>業務日付管理機能を使うための設定</span></a> に従い設定する。</li>
 </ol>
 </div>
@@ -542,7 +543,7 @@
 
     <div role="contentinfo">
         <p>
-            &copy; Copyright 2010-2024, TIS Inc.
+            &copy; Copyright 2010-2025, TIS Inc.
         </p>
     </div>
     Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
@@ -563,7 +564,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../',
-            VERSION:'5u25',
+            VERSION:'5u26',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

@@ -9,7 +9,7 @@
   <meta http-equiv='content-language' content='ja'>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Nablarchバッチアプリケーションのエラー処理 &mdash; ∇Nablarch  5u25 ドキュメント</title>
+  <title>Nablarchバッチアプリケーションのエラー処理 &mdash; ∇Nablarch  5u26 ドキュメント</title>
   
 
   
@@ -33,9 +33,10 @@
   
 
   
+  
   <link rel="canonical" href="https://nablarch.github.io/docs/LATEST/doc/application_framework/application_framework/batch/nablarch_batch/feature_details/nablarch_batch_error_process.html" />
   
-    <link rel="top" title="∇Nablarch  5u25 ドキュメント" href="../../../../../index.html"/>
+    <link rel="top" title="∇Nablarch  5u26 ドキュメント" href="../../../../../index.html"/>
         <link rel="up" title="機能詳細" href="../feature_details.html"/>
         <link rel="next" title="バッチアプリケーションで実行中の状態を保持する" href="nablarch_batch_retention_state.html"/>
         <link rel="prev" title="Nablarchバッチアプリケーションの悲観的ロック" href="nablarch_batch_pessimistic_lock.html"/>
@@ -63,7 +64,7 @@
   
 
   
-    <div id="sidebar-version">Version: 5u25</div>
+    <div id="sidebar-version">Version: 5u26</div>
   </a>
 
   <div role="search">
@@ -360,7 +361,7 @@
       <a href="https://github.com/nablarch" class="fa fa-github">GitHub</a>
     </li>
     <li class="wy-breadcrumbs-aside">
-        <a href="https://nablarch.github.io/docs/LATEST/doc/en/index.html" class="en">English</a>
+        <a href="https://nablarch.github.io/docs/5-LATEST/doc/en/index.html" class="en">English</a>
     </li>
   </ul>
   <hr/>
@@ -388,7 +389,7 @@
 処理成功や失敗時のステータス変更の実装方法については、
 <a class="reference internal" href="../../../handlers/batch/loop_handler.html#loop-handler-callback"><span>トランザクション終了時に任意の処理を実行したい</span></a> を参照。</p>
 <p>ファイル入力については、
-<a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/reader/ResumeDataReader.html" title="nablarch.fw.reader.ResumeDataReader">ResumeDataReader (レジューム機能付き読み込み)</a>
+<a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/reader/ResumeDataReader.html" title="nablarch.fw.reader.ResumeDataReader">ResumeDataReader (レジューム機能付き読み込み)</a>
 を使用することで、障害発生ポイントからの再実行ができる。</p>
 </div>
 <div class="section" id="nablarch-batch-error-process-continue">
@@ -396,14 +397,14 @@
 <p>エラー発生時の処理継続は、 <a class="reference internal" href="../architecture.html#nablarch-batch-resident-batch"><span>常駐バッチ</span></a> のみ対応している。
 <a class="reference internal" href="../architecture.html#nablarch-batch-each-time-batch"><span>都度起動バッチ</span></a> は対応していない。</p>
 <p><a class="reference internal" href="../architecture.html#nablarch-batch-resident-batch"><span>常駐バッチ</span></a> では、
-<a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/results/TransactionAbnormalEnd.html" title="nablarch.fw.results.TransactionAbnormalEnd">TransactionAbnormalEnd</a>
+<a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/results/TransactionAbnormalEnd.html" title="nablarch.fw.results.TransactionAbnormalEnd">TransactionAbnormalEnd</a>
 を送出すると、 <a class="reference internal" href="../../../handlers/standalone/retry_handler.html#retry-handler"><span>リトライハンドラ</span></a> により処理が継続される。
 ただし、 <a class="reference internal" href="#nablarch-batch-error-process-rerun"><span>バッチ処理をリランできるようにする</span></a> に記載した内容で、
 バッチ処理がリランできるようになっている必要がある。</p>
 <div class="admonition tip">
 <p class="first admonition-title">補足</p>
 <p class="last"><a class="reference internal" href="../architecture.html#nablarch-batch-each-time-batch"><span>都度起動バッチ</span></a> で
-<a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/results/TransactionAbnormalEnd.html" title="nablarch.fw.results.TransactionAbnormalEnd">TransactionAbnormalEnd</a>
+<a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/results/TransactionAbnormalEnd.html" title="nablarch.fw.results.TransactionAbnormalEnd">TransactionAbnormalEnd</a>
 が送出されると、バッチ処理が異常終了となる。</p>
 </div>
 </div>
@@ -412,9 +413,9 @@
 <p>アプリケーションでエラーを検知した場合に、
 処理を継続せずにバッチ処理を異常終了させたい場合がある。</p>
 <p>Nablarchバッチアプリケーションでは、
-<a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/launcher/ProcessAbnormalEnd.html" title="nablarch.fw.launcher.ProcessAbnormalEnd">ProcessAbnormalEnd</a>
+<a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/launcher/ProcessAbnormalEnd.html" title="nablarch.fw.launcher.ProcessAbnormalEnd">ProcessAbnormalEnd</a>
 を送出すると、バッチ処理を異常終了にできる。
-<a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/launcher/ProcessAbnormalEnd.html" title="nablarch.fw.launcher.ProcessAbnormalEnd">ProcessAbnormalEnd</a>
+<a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/launcher/ProcessAbnormalEnd.html" title="nablarch.fw.launcher.ProcessAbnormalEnd">ProcessAbnormalEnd</a>
 が送出された場合、プロセス終了コードはこのクラスに指定された値となる。</p>
 </div>
 </div>
@@ -431,7 +432,7 @@
 
     <div role="contentinfo">
         <p>
-            &copy; Copyright 2010-2024, TIS Inc.
+            &copy; Copyright 2010-2025, TIS Inc.
         </p>
     </div>
     Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
@@ -452,7 +453,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../../../',
-            VERSION:'5u25',
+            VERSION:'5u26',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

@@ -9,7 +9,7 @@
   <meta http-equiv='content-language' content='ja'>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Log Output of Progress Status &mdash; ∇Nablarch  5u25 documentation</title>
+  <title>Log Output of Progress Status &mdash; ∇Nablarch  5u26 documentation</title>
   
 
   
@@ -33,9 +33,10 @@
   
 
   
+  
   <link rel="canonical" href="https://nablarch.github.io/docs/LATEST/doc/application_framework/application_framework/batch/jsr352/feature_details/progress_log.html" />
   
-    <link rel="top" title="∇Nablarch  5u25 documentation" href="../../../../../index.html"/>
+    <link rel="top" title="∇Nablarch  5u26 documentation" href="../../../../../index.html"/>
         <link rel="up" title="Details of Function" href="../feature_details.html"/>
         <link rel="next" title="Output of Logs for Operator" href="operator_notice_log.html"/>
         <link rel="prev" title="Operation Policy" href="operation_policy.html"/>
@@ -63,7 +64,7 @@
   
 
   
-    <div id="sidebar-version">Version: 5u25</div>
+    <div id="sidebar-version">Version: 5u26</div>
   </a>
 
   <div role="search">
@@ -322,7 +323,7 @@
       <a href="https://github.com/nablarch" class="fa fa-github">GitHub</a>
     </li>
     <li class="wy-breadcrumbs-aside">
-        <a href="https://nablarch.github.io/docs/LATEST/doc/index.html" class="ja">日本語</a>
+        <a href="https://nablarch.github.io/docs/5-LATEST/doc/index.html" class="ja">日本語</a>
     </li>
   </ul>
   <hr/>
@@ -399,14 +400,14 @@ If loop processing is required in the batchlet, it would be better to output the
 <dl class="docutils">
 <dt>Point</dt>
 <dd><ul class="first last">
-<li><p class="first">At the beginning of the process method, acquire the number for processing (count result to the database, number of records in file, etc.) and configure in <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/batch/ee/progress/ProgressManager.html#setInputCount-long-" title="nablarch.fw.batch.ee.progress.ProgressManager.setInputCount(long)">inputCount</a> .</p>
+<li><p class="first">At the beginning of the process method, acquire the number for processing (count result to the database, number of records in file, etc.) and configure in <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/batch/ee/progress/ProgressManager.html#setInputCount-long-" title="nablarch.fw.batch.ee.progress.ProgressManager.setInputCount(long)">inputCount</a> .</p>
 <div class="admonition important">
 <p class="first admonition-title">Important</p>
-<p class="last">The starting time for calculating TPS is the timing when  <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/batch/ee/progress/ProgressManager.html#setInputCount-long-" title="nablarch.fw.batch.ee.progress.ProgressManager.setInputCount(long)">inputCount</a> is called.
-If intensive processing such as extracting the target data from the database after calling <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/batch/ee/progress/ProgressManager.html#setInputCount-long-" title="nablarch.fw.batch.ee.progress.ProgressManager.setInputCount(long)">inputCount</a> is performed, the TPS will be different (a value that is smaller than the actual value) from the actual result.</p>
+<p class="last">The starting time for calculating TPS is the timing when  <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/batch/ee/progress/ProgressManager.html#setInputCount-long-" title="nablarch.fw.batch.ee.progress.ProgressManager.setInputCount(long)">inputCount</a> is called.
+If intensive processing such as extracting the target data from the database after calling <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/batch/ee/progress/ProgressManager.html#setInputCount-long-" title="nablarch.fw.batch.ee.progress.ProgressManager.setInputCount(long)">inputCount</a> is performed, the TPS will be different (a value that is smaller than the actual value) from the actual result.</p>
 </div>
 </li>
-<li><p class="first">Calls <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/batch/ee/progress/ProgressManager.html#outputProgressInfo-long-" title="nablarch.fw.batch.ee.progress.ProgressManager.outputProgressInfo(long)">outputProgressInfo</a> to output the progress log at regular intervals in the loop process that performs the process.</p>
+<li><p class="first">Calls <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/batch/ee/progress/ProgressManager.html#outputProgressInfo-long-" title="nablarch.fw.batch.ee.progress.ProgressManager.outputProgressInfo(long)">outputProgressInfo</a> to output the progress log at regular intervals in the loop process that performs the process.</p>
 </li>
 </ul>
 </dd>
@@ -465,13 +466,13 @@ If intensive processing such as extracting the target data from the database aft
 <dd><dl class="first last docutils">
 <dt>Point</dt>
 <dd><ul class="first last">
-<li><p class="first">Use constructor injection to inject the interface ( <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/batch/ee/progress/ProgressManager.html" title="nablarch.fw.batch.ee.progress.ProgressManager">ProgressManager</a> ) that outputs the progress log.</p>
+<li><p class="first">Use constructor injection to inject the interface ( <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/batch/ee/progress/ProgressManager.html" title="nablarch.fw.batch.ee.progress.ProgressManager">ProgressManager</a> ) that outputs the progress log.</p>
 </li>
-<li><p class="first">With the open method, acquire the number for processing (count result to the database, number of records in file, etc.) and set in <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/batch/ee/progress/ProgressManager.html#setInputCount-long-" title="nablarch.fw.batch.ee.progress.ProgressManager.setInputCount(long)">inputCount</a> .</p>
+<li><p class="first">With the open method, acquire the number for processing (count result to the database, number of records in file, etc.) and set in <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/batch/ee/progress/ProgressManager.html#setInputCount-long-" title="nablarch.fw.batch.ee.progress.ProgressManager.setInputCount(long)">inputCount</a> .</p>
 <div class="admonition important">
 <p class="first admonition-title">Important</p>
-<p class="last">The starting time for calculating TPS is the timing when <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/batch/ee/progress/ProgressManager.html#setInputCount-long-" title="nablarch.fw.batch.ee.progress.ProgressManager.setInputCount(long)">inputCount</a> is called.
-If intensive processing such as extracting the target data from the database after calling <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/batch/ee/progress/ProgressManager.html#setInputCount-long-" title="nablarch.fw.batch.ee.progress.ProgressManager.setInputCount(long)">inputCount</a> is performed, the TPS will be different (a value that is smaller than the actual value) from the actual result.</p>
+<p class="last">The starting time for calculating TPS is the timing when <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/batch/ee/progress/ProgressManager.html#setInputCount-long-" title="nablarch.fw.batch.ee.progress.ProgressManager.setInputCount(long)">inputCount</a> is called.
+If intensive processing such as extracting the target data from the database after calling <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/batch/ee/progress/ProgressManager.html#setInputCount-long-" title="nablarch.fw.batch.ee.progress.ProgressManager.setInputCount(long)">inputCount</a> is performed, the TPS will be different (a value that is smaller than the actual value) from the actual result.</p>
 </div>
 </li>
 </ul>
@@ -552,7 +553,7 @@ Therefore, if the progress log is not required, make sure to delete the configur
 <p class="first admonition-title">Important</p>
 <p>If the setting of retrying exceptions was performed in the chunk step, the progress log output by the listener will not function properly.
 This is because the number of read logs <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/batch/runtime/context/StepContext.html#getMetrics--" title="javax.batch.runtime.context.StepContext.getMetrics()">metrics</a> being used by the listener as the number of processed logs, deviates from the actual number.</p>
-<p class="last">To perform the retry process using retrying exceptions when an exception occurs, calculate the number of processed logs with the implementation class <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/batch/api/chunk/ItemWriter.html" title="javax.batch.api.chunk.ItemWriter">ItemWriter</a> and output the progress log using <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/batch/ee/progress/ProgressManager.html#outputProgressInfo-long-" title="nablarch.fw.batch.ee.progress.ProgressManager.outputProgressInfo(long)">outputProgressInfo</a> .</p>
+<p class="last">To perform the retry process using retrying exceptions when an exception occurs, calculate the number of processed logs with the implementation class <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/batch/api/chunk/ItemWriter.html" title="javax.batch.api.chunk.ItemWriter">ItemWriter</a> and output the progress log using <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/batch/ee/progress/ProgressManager.html#outputProgressInfo-long-" title="nablarch.fw.batch.ee.progress.ProgressManager.outputProgressInfo(long)">outputProgressInfo</a> .</p>
 </div>
 </div>
 </div>
@@ -569,7 +570,7 @@ This is because the number of read logs <a class="reference external" href="http
 
     <div role="contentinfo">
         <p>
-            &copy; Copyright 2010-2024, TIS Inc.
+            &copy; Copyright 2010-2025, TIS Inc.
         </p>
     </div>
     Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
@@ -590,7 +591,7 @@ This is because the number of read logs <a class="reference external" href="http
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../../../',
-            VERSION:'5u25',
+            VERSION:'5u26',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

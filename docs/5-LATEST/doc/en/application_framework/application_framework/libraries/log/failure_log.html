@@ -9,7 +9,7 @@
   <meta http-equiv='content-language' content='ja'>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Output of Failure Log &mdash; ∇Nablarch  5u25 documentation</title>
+  <title>Output of Failure Log &mdash; ∇Nablarch  5u26 documentation</title>
   
 
   
@@ -33,9 +33,10 @@
   
 
   
+  
   <link rel="canonical" href="https://nablarch.github.io/docs/LATEST/doc/application_framework/application_framework/libraries/log/failure_log.html" />
   
-    <link rel="top" title="∇Nablarch  5u25 documentation" href="../../../../index.html"/>
+    <link rel="top" title="∇Nablarch  5u26 documentation" href="../../../../index.html"/>
         <link rel="up" title="Log Output" href="../log.html"/>
         <link rel="next" title="Output of SQL Log" href="sql_log.html"/>
         <link rel="prev" title="Log Output" href="../log.html"/>
@@ -63,7 +64,7 @@
   
 
   
-    <div id="sidebar-version">Version: 5u25</div>
+    <div id="sidebar-version">Version: 5u26</div>
   </a>
 
   <div role="search">
@@ -320,7 +321,7 @@
       <a href="https://github.com/nablarch" class="fa fa-github">GitHub</a>
     </li>
     <li class="wy-breadcrumbs-aside">
-        <a href="https://nablarch.github.io/docs/LATEST/doc/index.html" class="ja">日本語</a>
+        <a href="https://nablarch.github.io/docs/5-LATEST/doc/index.html" class="ja">日本語</a>
     </li>
   </ul>
   <hr/>
@@ -433,7 +434,7 @@ contact information for each request ID can be included in the log by using <a c
 <h2><a class="toc-backref" href="#id3">How to use</a><a class="headerlink" href="#how-to-use" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="output-failure-log">
 <span id="failure-log-logging"></span><h3><a class="toc-backref" href="#id4">Output failure log</a><a class="headerlink" href="#output-failure-log" title="Permalink to this headline">¶</a></h3>
-<p>For failure log output, use <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/core/log/app/FailureLogUtil.html" title="nablarch.core.log.app.FailureLogUtil">FailureLogUtil</a>.</p>
+<p>For failure log output, use <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/core/log/app/FailureLogUtil.html" title="nablarch.core.log.app.FailureLogUtil">FailureLogUtil</a>.</p>
 <div class="highlight-java"><div class="highlight"><pre><span></span><span class="k">try</span> <span class="o">{</span>
     <span class="c1">// Business process</span>
 <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">UserNotFoundException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
@@ -445,8 +446,8 @@ contact information for each request ID can be included in the log by using <a c
 <p>In batch process and messaging, it may be necessary to output the failure log and terminate the business process
 when a failure is detected.
 In such cases,
-<a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/results/TransactionAbnormalEnd.html" title="nablarch.fw.results.TransactionAbnormalEnd">TransactionAbnormalEnd</a> or
-<a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/launcher/ProcessAbnormalEnd.html" title="nablarch.fw.launcher.ProcessAbnormalEnd">ProcessAbnormalEnd</a> is thrown,
+<a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/results/TransactionAbnormalEnd.html" title="nablarch.fw.results.TransactionAbnormalEnd">TransactionAbnormalEnd</a> or
+<a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/launcher/ProcessAbnormalEnd.html" title="nablarch.fw.launcher.ProcessAbnormalEnd">ProcessAbnormalEnd</a> is thrown,
 and a request is sent to the exception handler (<a class="reference internal" href="../../handlers/common/global_error_handler.html#global-error-handler"><span>Global Error Handler</span></a> or <a class="reference internal" href="../../handlers/standalone/request_thread_loop_handler.html#request-thread-loop-handler"><span>Loop Control Handler in Request Thread</span></a>) to output the failure log.</p>
 <div class="highlight-java"><div class="highlight"><pre><span></span><span class="c1">// When an own exception is generated</span>
 <span class="k">if</span> <span class="o">(</span><span class="n">user</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
@@ -491,7 +492,7 @@ specified by the configuration are output.</p>
 <dd><p class="first"></p>
 <dl class="docutils">
 <dt>failureLogFormatter.className</dt>
-<dd>This class implements failureLogFormatter.className <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/core/log/app/FailureLogFormatter.html" title="nablarch.core.log.app.FailureLogFormatter">FailureLogFormatter</a>.
+<dd>This class implements failureLogFormatter.className <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/core/log/app/FailureLogFormatter.html" title="nablarch.core.log.app.FailureLogFormatter">FailureLogFormatter</a>.
 Specify to replace.</dd>
 </dl>
 <dl class="docutils" id="failure-log-prop-default-failure-code">
@@ -505,7 +506,7 @@ Use when there is no failure code specified, like in cases where an error is cap
 This message is output when a default failure code is used.</dd>
 <dt>failureLogFormatter.language</dt>
 <dd>The language used to acquire the message from the failure code.
-If it is not specified, the language configured in <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/core/ThreadContext.html" title="nablarch.core.ThreadContext">ThreadContext</a> will be used.</dd>
+If it is not specified, the language configured in <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/core/ThreadContext.html" title="nablarch.core.ThreadContext">ThreadContext</a> will be used.</dd>
 </dl>
 <dl class="docutils" id="failure-log-prop-notification-format">
 <dt>failureLogFormatter.notificationFormat</dt>
@@ -600,7 +601,7 @@ For information on how to output the derived source run time information, <a cla
 <p>The contact information may have to be included in the failure log, like in the case with multiple contacts during failure of large scale systems.
 Therefore, a function that specifies the contact information for each request ID should be provided in the output failure log.</p>
 <p>Addition of the contact information should be specified in the property file.Specify the request ID as the key and contact information as the value.
-Request ID specified as the key is searched using prefix match with the request ID acquired from <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/core/ThreadContext.html" title="nablarch.core.ThreadContext">ThreadContext</a>.
+Request ID specified as the key is searched using prefix match with the request ID acquired from <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/core/ThreadContext.html" title="nablarch.core.ThreadContext">ThreadContext</a>.
 Therefore, after reading the contents of the property file, sort in the descending order of the key name length for retrieval using limited request ID.</p>
 <p>An example of adding the contact information is shown below.</p>
 <p>First, prepare a property file. A file with the name <code class="docutils literal"><span class="pre">failure-log-contact.properties</span></code> that is placed directly under the class path.</p>
@@ -828,15 +829,15 @@ Stack Trace Information :
 in some cases masking certain specific items based on the project security requirements may be necessary.
 When the output process for the placeholder has to be customized, perform the following operation.</p>
 <ul class="simple">
-<li>Create a class that implements <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/core/log/LogItem.html" title="nablarch.core.log.LogItem">LogItem</a></li>
-<li>Create a class that inherits <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/core/log/app/FailureLogFormatter.html" title="nablarch.core.log.app.FailureLogFormatter">FailureLogFormatter</a> and add a placeholder</li>
-<li>Configure such that a class that inherits <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/core/log/app/FailureLogFormatter.html" title="nablarch.core.log.app.FailureLogFormatter">FailureLogFormatter</a> is used</li>
+<li>Create a class that implements <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/core/log/LogItem.html" title="nablarch.core.log.LogItem">LogItem</a></li>
+<li>Create a class that inherits <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/core/log/app/FailureLogFormatter.html" title="nablarch.core.log.app.FailureLogFormatter">FailureLogFormatter</a> and add a placeholder</li>
+<li>Configure such that a class that inherits <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/core/log/app/FailureLogFormatter.html" title="nablarch.core.log.app.FailureLogFormatter">FailureLogFormatter</a> is used</li>
 </ul>
 <p>A customization example of the output process corresponding to the process target data ($data$) is shown here.</p>
 <dl class="docutils">
-<dt>Create a class that implements <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/core/log/LogItem.html" title="nablarch.core.log.LogItem">LogItem</a></dt>
+<dt>Create a class that implements <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/core/log/LogItem.html" title="nablarch.core.log.LogItem">LogItem</a></dt>
 <dd><p class="first">Create a class that provides output contents corresponding to the process target data ($data$).
-Create a class by inheriting <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/core/log/app/FailureLogFormatter.DataItem.html" title="nablarch.core.log.app.FailureLogFormatter.DataItem">DataItem</a> provided by the framework
+Create a class by inheriting <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/core/log/app/FailureLogFormatter.DataItem.html" title="nablarch.core.log.app.FailureLogFormatter.DataItem">DataItem</a> provided by the framework
 and implement such that mask processing is performed only for Map type of process target data.</p>
 <div class="last highlight-java"><div class="highlight"><pre><span></span><span class="c1">// Defined as an inner class in the extension class of FailureLogFormatter.</span>
 <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="kd">class</span> <span class="nc">CustomDataItem</span> <span class="kd">extends</span> <span class="n">DataItem</span> <span class="o">{</span>
@@ -880,8 +881,8 @@ and implement such that mask processing is performed only for Map type of proces
 </pre></div>
 </div>
 </dd>
-<dt>Create a class that inherits <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/core/log/app/FailureLogFormatter.html" title="nablarch.core.log.app.FailureLogFormatter">FailureLogFormatter</a> and add a placeholder</dt>
-<dd><p class="first">Override <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/core/log/app/FailureLogFormatter.html#getLogItems-java.util.Map-" title="nablarch.core.log.app.FailureLogFormatter.getLogItems(java.util.Map)">FailureLogFormatter#getLogItems</a>
+<dt>Create a class that inherits <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/core/log/app/FailureLogFormatter.html" title="nablarch.core.log.app.FailureLogFormatter">FailureLogFormatter</a> and add a placeholder</dt>
+<dd><p class="first">Override <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/core/log/app/FailureLogFormatter.html#getLogItems-java.util.Map-" title="nablarch.core.log.app.FailureLogFormatter.getLogItems(java.util.Map)">FailureLogFormatter#getLogItems</a>
 and configure CustomDataItem for placeholder <code class="docutils literal"><span class="pre">$data$</span></code>.</p>
 <div class="last highlight-java"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">CustomDataFailureLogFormatter</span> <span class="kd">extends</span> <span class="n">FailureLogFormatter</span> <span class="o">{</span>
 
@@ -903,7 +904,7 @@ and configure CustomDataItem for placeholder <code class="docutils literal"><spa
 </pre></div>
 </div>
 </dd>
-<dt>Configure such that a class that inherits <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/core/log/app/FailureLogFormatter.html" title="nablarch.core.log.app.FailureLogFormatter">FailureLogFormatter</a> is used</dt>
+<dt>Configure such that a class that inherits <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/core/log/app/FailureLogFormatter.html" title="nablarch.core.log.app.FailureLogFormatter">FailureLogFormatter</a> is used</dt>
 <dd><p class="first">Configure in <code class="docutils literal"><span class="pre">app-log.properties</span></code> such that CustomDataFailureLogFormatter is used as the formatter for failure log.</p>
 <div class="last highlight-properties"><div class="highlight"><pre><span></span><span class="c"># Specify CustomDataFailureLogFormatter.</span>
 <span class="na">failureLogFormatter.className</span><span class="o">=</span><span class="s">nablarch.core.log.app.CustomDataFailureLogFormatter</span>
@@ -918,15 +919,15 @@ and configure CustomDataItem for placeholder <code class="docutils literal"><spa
 </div>
 <div class="section" id="output-as-a-structured-log-in-json-format">
 <span id="failure-log-json-setting"></span><h3><a class="toc-backref" href="#id10">Output as a structured log in JSON format</a><a class="headerlink" href="#output-as-a-structured-log-in-json-format" title="Permalink to this headline">¶</a></h3>
-<p>Logs can be output in JSON format by using <a class="reference internal" href="../log.html#log-json-log-setting"><span>Output as a structured log in JSON format</span></a> setting, but <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/core/log/app/FailureLogFormatter.html" title="nablarch.core.log.app.FailureLogFormatter">FailureLogFormatter</a> outputs each item of the failure log as a string in the message value.</p>
-<p>To output each item in the failure log as a JSON value as well, use the <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/core/log/app/FailureJsonLogFormatter.html" title="nablarch.core.log.app.FailureJsonLogFormatter">FailureJsonLogFormatter</a>.
+<p>Logs can be output in JSON format by using <a class="reference internal" href="../log.html#log-json-log-setting"><span>Output as a structured log in JSON format</span></a> setting, but <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/core/log/app/FailureLogFormatter.html" title="nablarch.core.log.app.FailureLogFormatter">FailureLogFormatter</a> outputs each item of the failure log as a string in the message value.</p>
+<p>To output each item in the failure log as a JSON value as well, use the <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/core/log/app/FailureJsonLogFormatter.html" title="nablarch.core.log.app.FailureJsonLogFormatter">FailureJsonLogFormatter</a>.
 You can configure in the property file described in <a class="reference internal" href="../log.html#log-app-log-setting"><span>Configure various logs</span></a>.</p>
 <dl class="docutils">
 <dt>Description rules</dt>
-<dd><p class="first">The properties to be specified when using <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/core/log/app/FailureJsonLogFormatter.html" title="nablarch.core.log.app.FailureJsonLogFormatter">FailureJsonLogFormatter</a> are as follows.</p>
+<dd><p class="first">The properties to be specified when using <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/core/log/app/FailureJsonLogFormatter.html" title="nablarch.core.log.app.FailureJsonLogFormatter">FailureJsonLogFormatter</a> are as follows.</p>
 <dl class="docutils">
 <dt>failureLogFormatter.className <code class="docutils literal"><span class="pre">required</span></code></dt>
-<dd>To output logs in JSON format, specify <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/core/log/app/FailureJsonLogFormatter.html" title="nablarch.core.log.app.FailureJsonLogFormatter">FailureJsonLogFormatter</a>.</dd>
+<dd>To output logs in JSON format, specify <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/core/log/app/FailureJsonLogFormatter.html" title="nablarch.core.log.app.FailureJsonLogFormatter">FailureJsonLogFormatter</a>.</dd>
 <dt>failureLogFormatter.defaultFailureCode <code class="docutils literal"><span class="pre">required</span></code></dt>
 <dd>Default fault code.
 Use when there is no failure code specified, like in cases where an error is captured by the exception handler.</dd>
@@ -935,7 +936,7 @@ Use when there is no failure code specified, like in cases where an error is cap
 This message is output when a default failure code is used.</dd>
 <dt>failureLogFormatter.language</dt>
 <dd>The language used to acquire the message from the failure code.
-If it is not specified, the language configured in <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/core/ThreadContext.html" title="nablarch.core.ThreadContext">ThreadContext</a> will be used.</dd>
+If it is not specified, the language configured in <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/core/ThreadContext.html" title="nablarch.core.ThreadContext">ThreadContext</a> will be used.</dd>
 </dl>
 <dl class="last docutils" id="failure-log-prop-notification-targets">
 <dt>failureLogFormatter.notificationTargets</dt>
@@ -997,9 +998,9 @@ Specify when changing the failure code of the framework at the time of failure l
 For details, see <a class="reference internal" href="#failure-log-change-fw-failure-code"><span>Change the framework failure codes</span></a>.</dd>
 <dt>failureLogFormatter.structuredMessagePrefix</dt>
 <dd>A marker string given at the beginning of a message to identify that the message string after formatting has been formatted into JSON format.
-If the marker string at the beginning of the message matches the marker string set in <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/core/log/basic/JsonLogFormatter.html" title="nablarch.core.log.basic.JsonLogFormatter">JsonLogFormatter</a>, <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/core/log/basic/JsonLogFormatter.html" title="nablarch.core.log.basic.JsonLogFormatter">JsonLogFormatter</a> processes the message as JSON data.
+If the marker string at the beginning of the message matches the marker string set in <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/core/log/basic/JsonLogFormatter.html" title="nablarch.core.log.basic.JsonLogFormatter">JsonLogFormatter</a>, <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/core/log/basic/JsonLogFormatter.html" title="nablarch.core.log.basic.JsonLogFormatter">JsonLogFormatter</a> processes the message as JSON data.
 The default is <code class="docutils literal"><span class="pre">&quot;$JSON$&quot;</span></code>.
-If you change it, set the same value in <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/core/log/basic/JsonLogFormatter.html" title="nablarch.core.log.basic.JsonLogFormatter">JsonLogFormatter</a> using LogWriter&#8217;s <code class="docutils literal"><span class="pre">structuredMessagePrefix</span></code> property (see <a class="reference internal" href="../log.html#log-basic-setting"><span>Configure log output</span></a> for LogWriter properties).</dd>
+If you change it, set the same value in <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/core/log/basic/JsonLogFormatter.html" title="nablarch.core.log.basic.JsonLogFormatter">JsonLogFormatter</a> using LogWriter&#8217;s <code class="docutils literal"><span class="pre">structuredMessagePrefix</span></code> property (see <a class="reference internal" href="../log.html#log-basic-setting"><span>Configure log output</span></a> for LogWriter properties).</dd>
 </dl>
 </dd>
 <dt>Example of the description</dt>
@@ -1029,7 +1030,7 @@ If you change it, set the same value in <a class="reference external" href="http
 
     <div role="contentinfo">
         <p>
-            &copy; Copyright 2010-2024, TIS Inc.
+            &copy; Copyright 2010-2025, TIS Inc.
         </p>
     </div>
     Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
@@ -1050,7 +1051,7 @@ If you change it, set the same value in <a class="reference external" href="http
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../../',
-            VERSION:'5u25',
+            VERSION:'5u26',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

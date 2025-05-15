@@ -9,7 +9,7 @@
   <meta http-equiv='content-language' content='ja'>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>ノーマライズハンドラ &mdash; ∇Nablarch  5u25 ドキュメント</title>
+  <title>ノーマライズハンドラ &mdash; ∇Nablarch  5u26 ドキュメント</title>
   
 
   
@@ -33,9 +33,10 @@
   
 
   
+  
   <link rel="canonical" href="https://nablarch.github.io/docs/LATEST/doc/application_framework/application_framework/handlers/web/normalize_handler.html" />
   
-    <link rel="top" title="∇Nablarch  5u25 ドキュメント" href="../../../../index.html"/>
+    <link rel="top" title="∇Nablarch  5u26 ドキュメント" href="../../../../index.html"/>
         <link rel="up" title="ウェブアプリケーション専用ハンドラ" href="index.html"/>
         <link rel="next" title="セッション並行アクセスハンドラ" href="session_concurrent_access_handler.html"/>
         <link rel="prev" title="POST再送信防止ハンドラ" href="post_resubmit_prevent_handler.html"/>
@@ -63,7 +64,7 @@
   
 
   
-    <div id="sidebar-version">Version: 5u25</div>
+    <div id="sidebar-version">Version: 5u26</div>
   </a>
 
   <div role="search">
@@ -358,7 +359,7 @@
       <a href="https://github.com/nablarch" class="fa fa-github">GitHub</a>
     </li>
     <li class="wy-breadcrumbs-aside">
-        <a href="https://nablarch.github.io/docs/LATEST/doc/en/index.html" class="en">English</a>
+        <a href="https://nablarch.github.io/docs/5-LATEST/doc/en/index.html" class="en">English</a>
     </li>
   </ul>
   <hr/>
@@ -388,7 +389,7 @@
 <div class="section" id="id3">
 <h2><a class="toc-backref" href="#id10">ハンドラクラス名</a><a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
-<li><a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/web/handler/NormalizationHandler.html" title="nablarch.fw.web.handler.NormalizationHandler">nablarch.fw.web.handler.NormalizationHandler</a></li>
+<li><a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/web/handler/NormalizationHandler.html" title="nablarch.fw.web.handler.NormalizationHandler">nablarch.fw.web.handler.NormalizationHandler</a></li>
 </ul>
 </div>
 <div class="section" id="id4">
@@ -412,13 +413,13 @@
 <h2><a class="toc-backref" href="#id13">標準で提供しているノーマライズ処理</a><a class="headerlink" href="#id6" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>標準では、以下のノーマライズ処理を提供している。</p>
 <ul class="simple">
-<li>リクエストパラメータの前後のホワイトスペースを除去するノーマライザ( <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/web/handler/normalizer/TrimNormalizer.html" title="nablarch.fw.web.handler.normalizer.TrimNormalizer">TrimNormalizer</a> ) <a class="footnote-reference" href="#whitespace" id="id7">[1]</a></li>
+<li>リクエストパラメータの前後のホワイトスペースを除去するノーマライザ( <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/web/handler/normalizer/TrimNormalizer.html" title="nablarch.fw.web.handler.normalizer.TrimNormalizer">TrimNormalizer</a> ) <a class="footnote-reference" href="#whitespace" id="id7">[1]</a></li>
 </ul>
 </div>
 <div class="section" id="id8">
 <h2><a class="toc-backref" href="#id14">ノーマライズ処理を追加する</a><a class="headerlink" href="#id8" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>このハンドラはデフォルト動作で、リクエストパラメータの前後のホワイトスペース <a class="footnote-reference" href="#whitespace" id="id9">[1]</a> を除去するノーマライザが有効となっている。</p>
-<p>プロジェクト要件で、ノーマライズ処理を追加する場合には、 <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/web/handler/normalizer/Normalizer.html" title="nablarch.fw.web.handler.normalizer.Normalizer">Normalizer</a> の実装クラスを作成し、本ハンドラに設定する。</p>
+<p>プロジェクト要件で、ノーマライズ処理を追加する場合には、 <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/web/handler/normalizer/Normalizer.html" title="nablarch.fw.web.handler.normalizer.Normalizer">Normalizer</a> の実装クラスを作成し、本ハンドラに設定する。</p>
 <p>以下に例を示す。</p>
 <dl class="docutils">
 <dt>ノーマライザの実装例</dt>
@@ -487,7 +488,7 @@
 
     <div role="contentinfo">
         <p>
-            &copy; Copyright 2010-2024, TIS Inc.
+            &copy; Copyright 2010-2025, TIS Inc.
         </p>
     </div>
     Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
@@ -508,7 +509,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../../',
-            VERSION:'5u25',
+            VERSION:'5u26',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

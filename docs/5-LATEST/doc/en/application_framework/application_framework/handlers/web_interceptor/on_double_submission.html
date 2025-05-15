@@ -9,7 +9,7 @@
   <meta http-equiv='content-language' content='ja'>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>OnDoubleSubmission Interceptor &mdash; ∇Nablarch  5u25 documentation</title>
+  <title>OnDoubleSubmission Interceptor &mdash; ∇Nablarch  5u26 documentation</title>
   
 
   
@@ -33,9 +33,10 @@
   
 
   
+  
   <link rel="canonical" href="https://nablarch.github.io/docs/LATEST/doc/application_framework/application_framework/handlers/web_interceptor/on_double_submission.html" />
   
-    <link rel="top" title="∇Nablarch  5u25 documentation" href="../../../../index.html"/>
+    <link rel="top" title="∇Nablarch  5u26 documentation" href="../../../../index.html"/>
         <link rel="up" title="Dedicated Interceptor for Web Applications" href="index.html"/>
         <link rel="next" title="UseToken Interceptor" href="use_token.html"/>
         <link rel="prev" title="OnErrors Interceptor" href="on_errors.html"/>
@@ -63,7 +64,7 @@
   
 
   
-    <div id="sidebar-version">Version: 5u25</div>
+    <div id="sidebar-version">Version: 5u26</div>
   </a>
 
   <div role="search">
@@ -320,7 +321,7 @@
       <a href="https://github.com/nablarch" class="fa fa-github">GitHub</a>
     </li>
     <li class="wy-breadcrumbs-aside">
-        <a href="https://nablarch.github.io/docs/LATEST/doc/index.html" class="ja">日本語</a>
+        <a href="https://nablarch.github.io/docs/5-LATEST/doc/index.html" class="ja">日本語</a>
     </li>
   </ul>
   <hr/>
@@ -346,7 +347,7 @@
 <div class="section" id="interceptor-class-name">
 <h2><a class="toc-backref" href="#id1">Interceptor class name</a><a class="headerlink" href="#interceptor-class-name" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/common/web/token/OnDoubleSubmission.html" title="nablarch.common.web.token.OnDoubleSubmission">nablarch.common.web.token.OnDoubleSubmission</a></li>
+<li><a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/common/web/token/OnDoubleSubmission.html" title="nablarch.common.web.token.OnDoubleSubmission">nablarch.common.web.token.OnDoubleSubmission</a></li>
 </ul>
 </div>
 <div class="section" id="module-list">
@@ -360,7 +361,7 @@
 </div>
 <div class="section" id="using-ondoublesubmission">
 <h2><a class="toc-backref" href="#id3">Using OnDoubleSubmission</a><a class="headerlink" href="#using-ondoublesubmission" title="Permalink to this headline">¶</a></h2>
-<p>Configure the <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/common/web/token/OnDoubleSubmission.html" title="nablarch.common.web.token.OnDoubleSubmission">OnDoubleSubmission</a>  annotation for the action method.</p>
+<p>Configure the <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/common/web/token/OnDoubleSubmission.html" title="nablarch.common.web.token.OnDoubleSubmission">OnDoubleSubmission</a>  annotation for the action method.</p>
 <div class="highlight-java"><div class="highlight"><pre><span></span><span class="c1">// Specify the transition destination in the path attribute when it is determined as double submission.</span>
 <span class="nd">@OnDoubleSubmission</span><span class="o">(</span><span class="n">path</span> <span class="o">=</span> <span class="s">&quot;/WEB-INF/view/error/userError.jsp&quot;</span><span class="o">)</span>
 <span class="kd">public</span> <span class="n">HttpResponse</span> <span class="nf">register</span><span class="o">(</span><span class="n">HttpRequest</span> <span class="n">req</span><span class="o">,</span> <span class="n">ExecutionContext</span> <span class="n">ctx</span><span class="o">)</span> <span class="o">{</span>
@@ -371,9 +372,9 @@
 </div>
 <div class="section" id="specify-the-default-value-of-ondoublesubmission">
 <h2><a class="toc-backref" href="#id4">Specify the default value of OnDoubleSubmission</a><a class="headerlink" href="#specify-the-default-value-of-ondoublesubmission" title="Permalink to this headline">¶</a></h2>
-<p>To configure the default value of the <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/common/web/token/OnDoubleSubmission.html" title="nablarch.common.web.token.OnDoubleSubmission">OnDoubleSubmission</a>  annotation that is used throughout the application,
-add <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/common/web/token/BasicDoubleSubmissionHandler.html" title="nablarch.common.web.token.BasicDoubleSubmissionHandler">BasicDoubleSubmissionHandler</a> to the component definition with the name <code class="docutils literal"><span class="pre">doubleSubmissionHandler</span></code>.</p>
-<p>If the annotation attribute is not specified in <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/common/web/token/BasicDoubleSubmissionHandler.html" title="nablarch.common.web.token.BasicDoubleSubmissionHandler">BasicDoubleSubmissionHandler</a>, then the resource path, message ID and status code configured in the own property are used.</p>
+<p>To configure the default value of the <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/common/web/token/OnDoubleSubmission.html" title="nablarch.common.web.token.OnDoubleSubmission">OnDoubleSubmission</a>  annotation that is used throughout the application,
+add <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/common/web/token/BasicDoubleSubmissionHandler.html" title="nablarch.common.web.token.BasicDoubleSubmissionHandler">BasicDoubleSubmissionHandler</a> to the component definition with the name <code class="docutils literal"><span class="pre">doubleSubmissionHandler</span></code>.</p>
+<p>If the annotation attribute is not specified in <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/common/web/token/BasicDoubleSubmissionHandler.html" title="nablarch.common.web.token.BasicDoubleSubmissionHandler">BasicDoubleSubmissionHandler</a>, then the resource path, message ID and status code configured in the own property are used.</p>
 <dl class="docutils">
 <dt>Configuration example</dt>
 <dd><div class="first last highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;component</span> <span class="na">name=</span><span class="s">&quot;doubleSubmissionHandler&quot;</span>
@@ -391,14 +392,14 @@ add <a class="reference external" href="https://nablarch.github.io/docs/5u25/jav
 </dl>
 <div class="admonition important">
 <p class="first admonition-title">Important</p>
-<p>If both <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/common/web/token/OnDoubleSubmission.html" title="nablarch.common.web.token.OnDoubleSubmission">OnDoubleSubmission</a> and  <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/common/web/token/BasicDoubleSubmissionHandler.html" title="nablarch.common.web.token.BasicDoubleSubmissionHandler">BasicDoubleSubmissionHandler</a> do not specify the path,
+<p>If both <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/common/web/token/OnDoubleSubmission.html" title="nablarch.common.web.token.OnDoubleSubmission">OnDoubleSubmission</a> and  <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/common/web/token/BasicDoubleSubmissionHandler.html" title="nablarch.common.web.token.BasicDoubleSubmissionHandler">BasicDoubleSubmissionHandler</a> do not specify the path,
 a system error occurs because the transition destination is not known when a double submission is determined.</p>
 <p class="last">One of the paths must be specified in the application that uses <a class="reference internal" href="../../libraries/tag.html#tag-double-submission-server-side"><span>Prevention of double submission using token</span></a>.</p>
 </div>
 </div>
 <div class="section" id="change-the-behavior-of-ondoublesubmission">
 <h2><a class="toc-backref" href="#id5">Change the behavior of OnDoubleSubmission</a><a class="headerlink" href="#change-the-behavior-of-ondoublesubmission" title="Permalink to this headline">¶</a></h2>
-<p>The behavior of the <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/common/web/token/OnDoubleSubmission.html" title="nablarch.common.web.token.OnDoubleSubmission">OnDoubleSubmission</a>  annotation can be changed by implementing the interface <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/common/web/token/DoubleSubmissionHandler.html" title="nablarch.common.web.token.DoubleSubmissionHandler">DoubleSubmissionHandler</a>.
+<p>The behavior of the <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/common/web/token/OnDoubleSubmission.html" title="nablarch.common.web.token.OnDoubleSubmission">OnDoubleSubmission</a>  annotation can be changed by implementing the interface <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/common/web/token/DoubleSubmissionHandler.html" title="nablarch.common.web.token.DoubleSubmissionHandler">DoubleSubmissionHandler</a>.
 Add the implemented class to the component definition with the name <code class="docutils literal"><span class="pre">doubleSubmissionHandler</span></code>.</p>
 </div>
 </div>
@@ -415,7 +416,7 @@ Add the implemented class to the component definition with the name <code class=
 
     <div role="contentinfo">
         <p>
-            &copy; Copyright 2010-2024, TIS Inc.
+            &copy; Copyright 2010-2025, TIS Inc.
         </p>
     </div>
     Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
@@ -436,7 +437,7 @@ Add the implemented class to the component definition with the name <code class=
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../../',
-            VERSION:'5u25',
+            VERSION:'5u26',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

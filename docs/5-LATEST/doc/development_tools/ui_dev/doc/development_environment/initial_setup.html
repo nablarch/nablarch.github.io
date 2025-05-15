@@ -9,7 +9,7 @@
   <meta http-equiv='content-language' content='ja'>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>UI開発基盤の導入 &mdash; ∇Nablarch  5u25 ドキュメント</title>
+  <title>UI開発基盤の導入 &mdash; ∇Nablarch  5u26 ドキュメント</title>
   
 
   
@@ -33,9 +33,10 @@
   
 
   
+  
   <link rel="canonical" href="https://nablarch.github.io/docs/LATEST/doc/development_tools/ui_dev/doc/development_environment/initial_setup.html" />
   
-    <link rel="top" title="∇Nablarch  5u25 ドキュメント" href="../../../../index.html"/>
+    <link rel="top" title="∇Nablarch  5u26 ドキュメント" href="../../../../index.html"/>
         <link rel="up" title="Nablarch UI開発基盤 解説書" href="../index.html"/>
         <link rel="next" title="UI標準のカスタマイズとUI開発基盤への反映" href="modifying_code_and_testing.html"/>
         <link rel="prev" title="基盤部品のテスト実施項目" href="../testing.html"/>
@@ -63,7 +64,7 @@
   
 
   
-    <div id="sidebar-version">Version: 5u25</div>
+    <div id="sidebar-version">Version: 5u26</div>
   </a>
 
   <div role="search">
@@ -356,7 +357,7 @@
       <a href="https://github.com/nablarch" class="fa fa-github">GitHub</a>
     </li>
     <li class="wy-breadcrumbs-aside">
-        <a href="https://nablarch.github.io/docs/LATEST/doc/en/index.html" class="en">English</a>
+        <a href="https://nablarch.github.io/docs/5-LATEST/doc/en/index.html" class="en">English</a>
     </li>
   </ul>
   <hr/>
@@ -625,15 +626,15 @@ font-awesome@4.0.3 node_modules/font-awesome
 import定義を削除する必要がある。</p>
 <p><a class="reference internal" href="../plugin_build.html#lessimport-less"><span>lessインポート定義ファイル</span></a> には、以下のようにプロジェクトが各表示モードで使用するlessファイルの
 import定義が列挙されている。</p>
-<div class="highlight-css"><div class="highlight"><pre><span></span>@import &quot;../../node_modules/nablarch-css-core/ui_public/css/core/reset&quot;;
-@import &quot;../../node_modules/nablarch-css-core/ui_public/css/core/css3&quot;;
-@import &quot;../../node_modules/nablarch-css-core/ui_public/css/core/grid&quot;;
+<div class="highlight-css"><div class="highlight"><pre><span></span><span class="p">@</span><span class="k">import</span> <span class="s2">&quot;../../node_modules/nablarch-css-core/ui_public/css/core/reset&quot;</span><span class="p">;</span>
+<span class="p">@</span><span class="k">import</span> <span class="s2">&quot;../../node_modules/nablarch-css-core/ui_public/css/core/css3&quot;</span><span class="p">;</span>
+<span class="p">@</span><span class="k">import</span> <span class="s2">&quot;../../node_modules/nablarch-css-core/ui_public/css/core/grid&quot;</span><span class="p">;</span>
 
- //---- 中略 ----//
+ <span class="o">//</span><span class="nt">----</span> <span class="nt">中略</span> <span class="nt">----</span><span class="o">//</span>
 
-@import &quot;../../node_modules/web_project-template-app_nav/ui_public/css/template/topnav&quot;;
-@import &quot;../../node_modules/web_project-template-app_nav/ui_public/css/template/topnav-wide&quot;;
-@import &quot;../../node_modules/web_project-template-error/ui_public/css/template/errorpage&quot;;
+<span class="p">@</span><span class="k">import</span> <span class="s2">&quot;../../node_modules/web_project-template-app_nav/ui_public/css/template/topnav&quot;</span><span class="p">;</span>
+<span class="p">@</span><span class="k">import</span> <span class="s2">&quot;../../node_modules/web_project-template-app_nav/ui_public/css/template/topnav-wide&quot;</span><span class="p">;</span>
+<span class="p">@</span><span class="k">import</span> <span class="s2">&quot;../../node_modules/web_project-template-error/ui_public/css/template/errorpage&quot;</span><span class="p">;</span>
 </pre></div>
 </div>
 <p>上記で削除したプラグインに対応するlessファイルは、それぞれの <a class="reference internal" href="../plugin_build.html#lessimport-less"><span>lessインポート定義ファイル</span></a> から削除する必要がある。
@@ -909,7 +910,7 @@ Nablarch開発元で行う改修とを正しくマージすることが困難、
 
     <div role="contentinfo">
         <p>
-            &copy; Copyright 2010-2024, TIS Inc.
+            &copy; Copyright 2010-2025, TIS Inc.
         </p>
     </div>
     Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
@@ -930,7 +931,7 @@ Nablarch開発元で行う改修とを正しくマージすることが困難、
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../../',
-            VERSION:'5u25',
+            VERSION:'5u26',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

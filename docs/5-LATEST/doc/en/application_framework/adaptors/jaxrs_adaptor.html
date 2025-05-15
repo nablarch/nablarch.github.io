@@ -9,7 +9,7 @@
   <meta http-equiv='content-language' content='ja'>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>JAX-RS Adapter &mdash; ∇Nablarch  5u25 documentation</title>
+  <title>JAX-RS Adapter &mdash; ∇Nablarch  5u26 documentation</title>
   
 
   
@@ -33,9 +33,10 @@
   
 
   
+  
   <link rel="canonical" href="https://nablarch.github.io/docs/LATEST/doc/application_framework/adaptors/jaxrs_adaptor.html" />
   
-    <link rel="top" title="∇Nablarch  5u25 documentation" href="../../index.html"/>
+    <link rel="top" title="∇Nablarch  5u26 documentation" href="../../index.html"/>
         <link rel="up" title="Adaptor" href="index.html"/>
         <link rel="next" title="Doma Adapter" href="doma_adaptor.html"/>
         <link rel="prev" title="IBM MQ Adapter" href="webspheremq_adaptor.html"/>
@@ -63,7 +64,7 @@
   
 
   
-    <div id="sidebar-version">Version: 5u25</div>
+    <div id="sidebar-version">Version: 5u26</div>
   </a>
 
   <div role="search">
@@ -316,7 +317,7 @@
       <a href="https://github.com/nablarch" class="fa fa-github">GitHub</a>
     </li>
     <li class="wy-breadcrumbs-aside">
-        <a href="https://nablarch.github.io/docs/LATEST/doc/index.html" class="ja">日本語</a>
+        <a href="https://nablarch.github.io/docs/5-LATEST/doc/index.html" class="ja">日本語</a>
     </li>
   </ul>
   <hr/>
@@ -382,12 +383,12 @@ If you have been using Jackson1-based libraries, you should migrate to Jackson2-
 <h2><a class="toc-backref" href="#id7">Using RESTful web services under Jersey environment</a><a class="headerlink" href="#using-restful-web-services-under-jersey-environment" title="Permalink to this headline">¶</a></h2>
 <p>If the implementation of <a class="reference external" href="https://jcp.org/en/jsr/detail?id=339">JAX-RS(external site)</a> bundled with the web application server is <a class="reference external" href="https://eclipse-ee4j.github.io/jersey/">Jersey(external site)</a> , use the adapter for Jersey.</p>
 <p>An application of Jersey adapter is shown below.</p>
-<p>For <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/jaxrs/JaxRsMethodBinderFactory.html#setHandlerList-java.util.List-" title="nablarch.fw.jaxrs.JaxRsMethodBinderFactory.setHandlerList(java.util.List)">JaxRsMethodBinderFactory#setHandlerList</a>, a factory class that constructs a Jersey handler (<a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/integration/jaxrs/jersey/JerseyJaxRsHandlerListFactory.html" title="nablarch.integration.jaxrs.jersey.JerseyJaxRsHandlerListFactory">JerseyJaxRsHandlerListFactory</a>) is factory injected. As a result, the following handler configurations for Jersey are automatically configured.</p>
+<p>For <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/jaxrs/JaxRsMethodBinderFactory.html#setHandlerList-java.util.List-" title="nablarch.fw.jaxrs.JaxRsMethodBinderFactory.setHandlerList(java.util.List)">JaxRsMethodBinderFactory#setHandlerList</a>, a factory class that constructs a Jersey handler (<a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/integration/jaxrs/jersey/JerseyJaxRsHandlerListFactory.html" title="nablarch.integration.jaxrs.jersey.JerseyJaxRsHandlerListFactory">JerseyJaxRsHandlerListFactory</a>) is factory injected. As a result, the following handler configurations for Jersey are automatically configured.</p>
 <ul class="simple">
 <li>Configuration of <a class="reference internal" href="../application_framework/handlers/rest/body_convert_handler.html#body-convert-handler"><span>Request Body Conversion Handler</span></a> (the following converters are set)<ul>
-<li><a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/integration/jaxrs/jackson/Jackson2BodyConverter.html" title="nablarch.integration.jaxrs.jackson.Jackson2BodyConverter">Jackson2BodyConverter</a> is configured for the JSON converter.</li>
-<li><a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/jaxrs/JaxbBodyConverter.html" title="nablarch.fw.jaxrs.JaxbBodyConverter">JaxbBodyConverter</a> is configured for the XML converter.</li>
-<li><a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/jaxrs/FormUrlEncodedConverter.html" title="nablarch.fw.jaxrs.FormUrlEncodedConverter">FormUrlEncodedConverter</a> is configured for the converter of application/x-www-form-urlencoded.</li>
+<li><a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/integration/jaxrs/jackson/Jackson2BodyConverter.html" title="nablarch.integration.jaxrs.jackson.Jackson2BodyConverter">Jackson2BodyConverter</a> is configured for the JSON converter.</li>
+<li><a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/jaxrs/JaxbBodyConverter.html" title="nablarch.fw.jaxrs.JaxbBodyConverter">JaxbBodyConverter</a> is configured for the XML converter.</li>
+<li><a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/jaxrs/FormUrlEncodedConverter.html" title="nablarch.fw.jaxrs.FormUrlEncodedConverter">FormUrlEncodedConverter</a> is configured for the converter of application/x-www-form-urlencoded.</li>
 </ul>
 </li>
 <li><a class="reference internal" href="../application_framework/handlers/rest/jaxrs_bean_validation_handler.html#jaxrs-bean-validation-handler"><span>JAX-RS BeanValidation Handler</span></a></li>
@@ -415,16 +416,16 @@ If you have been using Jackson1-based libraries, you should migrate to Jackson2-
 <h2><a class="toc-backref" href="#id8">Using RESTful web services under RESTEasy environment</a><a class="headerlink" href="#using-restful-web-services-under-resteasy-environment" title="Permalink to this headline">¶</a></h2>
 <p>If the implementation of <a class="reference external" href="https://jcp.org/en/jsr/detail?id=339">JAX-RS (external site)</a> bundled with the web application server is <a class="reference external" href="https://resteasy.dev/">RESTEasy (external site)</a> , use the adapter for RESTEasy.</p>
 <p>An application of RESTEasy adapter is shown below.</p>
-<p>For <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/jaxrs/JaxRsMethodBinderFactory.html#setHandlerList-java.util.List-" title="nablarch.fw.jaxrs.JaxRsMethodBinderFactory.setHandlerList(java.util.List)">JaxRsMethodBinderFactory#setHandlerList</a>, a factory class that constructs a RESTEasy handler (<a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/integration/jaxrs/resteasy/ResteasyJaxRsHandlerListFactory.html" title="nablarch.integration.jaxrs.resteasy.ResteasyJaxRsHandlerListFactory">ResteasyJaxRsHandlerListFactory</a>) is factory injected.
+<p>For <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/jaxrs/JaxRsMethodBinderFactory.html#setHandlerList-java.util.List-" title="nablarch.fw.jaxrs.JaxRsMethodBinderFactory.setHandlerList(java.util.List)">JaxRsMethodBinderFactory#setHandlerList</a>, a factory class that constructs a RESTEasy handler (<a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/integration/jaxrs/resteasy/ResteasyJaxRsHandlerListFactory.html" title="nablarch.integration.jaxrs.resteasy.ResteasyJaxRsHandlerListFactory">ResteasyJaxRsHandlerListFactory</a>) is factory injected.
 As a result, the following handler configurations for RESTEasy are automatically configured.</p>
 <ul class="simple">
 <li>Configuration of <a class="reference internal" href="../application_framework/handlers/rest/body_convert_handler.html#body-convert-handler"><span>Request Body Conversion Handler</span></a> (the following converters are set)</li>
 </ul>
 <blockquote>
 <div><ul class="simple">
-<li><a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/integration/jaxrs/jackson/Jackson2BodyConverter.html" title="nablarch.integration.jaxrs.jackson.Jackson2BodyConverter">Jackson2BodyConverter</a> is configured for the JSON converter.</li>
-<li><a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/jaxrs/JaxbBodyConverter.html" title="nablarch.fw.jaxrs.JaxbBodyConverter">JaxbBodyConverter</a> is configured for the XML converter.</li>
-<li><a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/jaxrs/FormUrlEncodedConverter.html" title="nablarch.fw.jaxrs.FormUrlEncodedConverter">FormUrlEncodedConverter</a> is configured for the converter of application/x-www-form-urlencoded.</li>
+<li><a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/integration/jaxrs/jackson/Jackson2BodyConverter.html" title="nablarch.integration.jaxrs.jackson.Jackson2BodyConverter">Jackson2BodyConverter</a> is configured for the JSON converter.</li>
+<li><a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/jaxrs/JaxbBodyConverter.html" title="nablarch.fw.jaxrs.JaxbBodyConverter">JaxbBodyConverter</a> is configured for the XML converter.</li>
+<li><a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/jaxrs/FormUrlEncodedConverter.html" title="nablarch.fw.jaxrs.FormUrlEncodedConverter">FormUrlEncodedConverter</a> is configured for the converter of application/x-www-form-urlencoded.</li>
 </ul>
 </div></blockquote>
 <ul class="simple">
@@ -451,8 +452,8 @@ As a result, the following handler configurations for RESTEasy are automatically
 </div>
 <div class="section" id="to-change-add-the-body-converter-used-in-each-environment">
 <h2><a class="toc-backref" href="#id9">To change (add) the body converter used in each environment</a><a class="headerlink" href="#to-change-add-the-body-converter-used-in-each-environment" title="Permalink to this headline">¶</a></h2>
-<p>If the MIME to be supported in the project increases, support by implementing <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/jaxrs/JaxRsHandlerListFactory.html" title="nablarch.fw.jaxrs.JaxRsHandlerListFactory">JaxRsHandlerListFactory</a>.</p>
-<p>For the implementation method, refer to this adapter (<a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/integration/jaxrs/jersey/JerseyJaxRsHandlerListFactory.html" title="nablarch.integration.jaxrs.jersey.JerseyJaxRsHandlerListFactory">JerseyJaxRsHandlerListFactory</a>, <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/integration/jaxrs/resteasy/ResteasyJaxRsHandlerListFactory.html" title="nablarch.integration.jaxrs.resteasy.ResteasyJaxRsHandlerListFactory">ResteasyJaxRsHandlerListFactory</a>).</p>
+<p>If the MIME to be supported in the project increases, support by implementing <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/jaxrs/JaxRsHandlerListFactory.html" title="nablarch.fw.jaxrs.JaxRsHandlerListFactory">JaxRsHandlerListFactory</a>.</p>
+<p>For the implementation method, refer to this adapter (<a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/integration/jaxrs/jersey/JerseyJaxRsHandlerListFactory.html" title="nablarch.integration.jaxrs.jersey.JerseyJaxRsHandlerListFactory">JerseyJaxRsHandlerListFactory</a>, <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/integration/jaxrs/resteasy/ResteasyJaxRsHandlerListFactory.html" title="nablarch.integration.jaxrs.resteasy.ResteasyJaxRsHandlerListFactory">ResteasyJaxRsHandlerListFactory</a>).</p>
 </div>
 </div>
 
@@ -468,7 +469,7 @@ As a result, the following handler configurations for RESTEasy are automatically
 
     <div role="contentinfo">
         <p>
-            &copy; Copyright 2010-2024, TIS Inc.
+            &copy; Copyright 2010-2025, TIS Inc.
         </p>
     </div>
     Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
@@ -489,7 +490,7 @@ As a result, the following handler configurations for RESTEasy are automatically
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../',
-            VERSION:'5u25',
+            VERSION:'5u26',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

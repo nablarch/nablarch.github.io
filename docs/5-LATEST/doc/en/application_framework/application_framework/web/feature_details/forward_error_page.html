@@ -9,7 +9,7 @@
   <meta http-equiv='content-language' content='ja'>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>How to Specify the Transition Destination When an Error Occurs &mdash; ∇Nablarch  5u25 documentation</title>
+  <title>How to Specify the Transition Destination When an Error Occurs &mdash; ∇Nablarch  5u26 documentation</title>
   
 
   
@@ -33,9 +33,10 @@
   
 
   
+  
   <link rel="canonical" href="https://nablarch.github.io/docs/LATEST/doc/application_framework/application_framework/web/feature_details/forward_error_page.html" />
   
-    <link rel="top" title="∇Nablarch  5u25 documentation" href="../../../../index.html"/>
+    <link rel="top" title="∇Nablarch  5u26 documentation" href="../../../../index.html"/>
         <link rel="up" title="Details of Function" href="../feature_details.html"/>
         <link rel="next" title="Web Service" href="../../web_service/index.html"/>
         <link rel="prev" title="Screen Development Using Other Template Engines" href="view/other.html"/>
@@ -63,7 +64,7 @@
   
 
   
-    <div id="sidebar-version">Version: 5u25</div>
+    <div id="sidebar-version">Version: 5u26</div>
   </a>
 
   <div role="search">
@@ -320,7 +321,7 @@
       <a href="https://github.com/nablarch" class="fa fa-github">GitHub</a>
     </li>
     <li class="wy-breadcrumbs-aside">
-        <a href="https://nablarch.github.io/docs/LATEST/doc/index.html" class="ja">日本語</a>
+        <a href="https://nablarch.github.io/docs/5-LATEST/doc/index.html" class="ja">日本語</a>
     </li>
   </ul>
   <hr/>
@@ -339,7 +340,7 @@ Also, it is very expensive (or is not realistic) to detect errors as it is neces
 <p>Therefore for transitioning to common error page in the system, a handler to manage the transition destination during an error can be added
 instead of specifying the transition destination for every particular action.</p>
 <p>An example is shown below.</p>
-<p>In this example, <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/common/dao/NoDataException.html" title="nablarch.common.dao.NoDataException">NoDataException</a> and <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/persistence/OptimisticLockException.html" title="javax.persistence.OptimisticLockException">javax.persistence.OptimisticLockException</a> are thrown, and then transitions to the dedicated error screen.</p>
+<p>In this example, <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/common/dao/NoDataException.html" title="nablarch.common.dao.NoDataException">NoDataException</a> and <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/persistence/OptimisticLockException.html" title="javax.persistence.OptimisticLockException">javax.persistence.OptimisticLockException</a> are thrown, and then transitions to the dedicated error screen.</p>
 <div class="highlight-java"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">ExampleErrorForwardHandler</span> <span class="kd">implements</span> <span class="n">Handler</span><span class="o">&lt;</span><span class="n">Object</span><span class="o">,</span> <span class="n">Object</span><span class="o">&gt;</span> <span class="o">{</span>
 
   <span class="nd">@Override</span>
@@ -364,9 +365,9 @@ instead of specifying the transition destination for every particular action.</p
 </div>
 <div class="section" id="implementation-method-when-there-are-multiple-transition-destinations-for-a-single-exception-class">
 <span id="forward-error-page-try-catch"></span><h2>Implementation method when there are multiple transition destinations for a single exception class<a class="headerlink" href="#implementation-method-when-there-are-multiple-transition-destinations-for-a-single-exception-class" title="Permalink to this headline">¶</a></h2>
-<p>The transition screen during an error may have to be switched depending on where the business exception ( <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/core/message/ApplicationException.html" title="nablarch.core.message.ApplicationException">ApplicationException</a> ) occurred.
+<p>The transition screen during an error may have to be switched depending on where the business exception ( <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/core/message/ApplicationException.html" title="nablarch.core.message.ApplicationException">ApplicationException</a> ) occurred.
 However, with <a class="reference internal" href="../../handlers/web_interceptor/on_error.html#on-error-interceptor"><span>OnError Interceptor</span></a>, as only one transition destination can be specified for one exception class,
-multiple transition destination screens cannot be specified for <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/core/message/ApplicationException.html" title="nablarch.core.message.ApplicationException">ApplicationException</a>.</p>
+multiple transition destination screens cannot be specified for <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/core/message/ApplicationException.html" title="nablarch.core.message.ApplicationException">ApplicationException</a>.</p>
 <p>In such cases, it is necessary to catch the exception and configure the transition destination screen when an error occurs by using <code class="docutils literal"><span class="pre">try-catch</span></code> in the action method.</p>
 <p>An example is shown below.</p>
 <div class="highlight-java"><div class="highlight"><pre><span></span><span class="nd">@InjectForm</span><span class="o">(</span><span class="n">form</span> <span class="o">=</span> <span class="n">ClientSearchForm</span><span class="o">.</span><span class="na">class</span><span class="o">,</span> <span class="n">prefix</span> <span class="o">=</span> <span class="s">&quot;form&quot;</span><span class="o">)</span>
@@ -402,7 +403,7 @@ multiple transition destination screens cannot be specified for <a class="refere
 
     <div role="contentinfo">
         <p>
-            &copy; Copyright 2010-2024, TIS Inc.
+            &copy; Copyright 2010-2025, TIS Inc.
         </p>
     </div>
     Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
@@ -423,7 +424,7 @@ multiple transition destination screens cannot be specified for <a class="refere
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../../',
-            VERSION:'5u25',
+            VERSION:'5u26',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

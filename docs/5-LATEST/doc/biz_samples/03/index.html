@@ -9,7 +9,7 @@
   <meta http-equiv='content-language' content='ja'>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>検索結果の一覧表示 &mdash; ∇Nablarch  5u25 ドキュメント</title>
+  <title>検索結果の一覧表示 &mdash; ∇Nablarch  5u26 ドキュメント</title>
   
 
   
@@ -33,9 +33,10 @@
   
 
   
+  
   <link rel="canonical" href="https://nablarch.github.io/docs/LATEST/doc/biz_samples/03/index.html" />
   
-    <link rel="top" title="∇Nablarch  5u25 ドキュメント" href="../../index.html"/>
+    <link rel="top" title="∇Nablarch  5u26 ドキュメント" href="../../index.html"/>
         <link rel="up" title="目的別の実装サンプル集" href="../index.html"/>
         <link rel="next" title="フォーマッタ機能の拡張" href="../04/index.html"/>
         <link rel="prev" title="PBKDF2を用いたパスワード暗号化機能サンプル" href="../01/0101_PBKDF2PasswordEncryptor.html"/>
@@ -63,7 +64,7 @@
   
 
   
-    <div id="sidebar-version">Version: 5u25</div>
+    <div id="sidebar-version">Version: 5u26</div>
   </a>
 
   <div role="search">
@@ -352,7 +353,7 @@
       <a href="https://github.com/nablarch" class="fa fa-github">GitHub</a>
     </li>
     <li class="wy-breadcrumbs-aside">
-        <a href="https://nablarch.github.io/docs/LATEST/doc/en/index.html" class="en">English</a>
+        <a href="https://nablarch.github.io/docs/5-LATEST/doc/en/index.html" class="en">English</a>
     </li>
   </ul>
   <hr/>
@@ -363,7 +364,7 @@
   <div class="section" id="list-search-result">
 <span id="id1"></span><h1>検索結果の一覧表示<a class="headerlink" href="#list-search-result" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p>本サンプルは、検索結果の一覧表示を行うタグファイルの実装サンプルである。</p>
-<p><a class="reference external" href="https://github.com/nablarch/nablarch-biz-sample-all">ソースコード</a></p>
+<p><a class="reference external" href="https://github.com/nablarch/nablarch-biz-sample-all/tree/v5-main">ソースコード</a></p>
 <div class="section" id="id3">
 <h2>提供パッケージ<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>本サンプルは、以下のパッケージで提供される。</p>
@@ -457,14 +458,14 @@
 </div>
 <div class="section" id="universaldao">
 <span id="listsearchresult-universaldao"></span><h2>UniversalDaoクラス<a class="headerlink" href="#universaldao" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p><a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/common/dao/UniversalDao.html" title="nablarch.common.dao.UniversalDao">UniversalDao</a> クラスは、複数件の検索結果をEntityListとして返すAPIを持つ。
+<p><a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/common/dao/UniversalDao.html" title="nablarch.common.dao.UniversalDao">UniversalDao</a> クラスは、複数件の検索結果をEntityListとして返すAPIを持つ。
 ページング機能を使う際は、<a class="reference internal" href="../../application_framework/application_framework/libraries/database/universal_dao.html#universal-dao-paging"><span>ページングを行う</span></a> を参照。</p>
 </div>
 <div class="section" id="listsearchinfo">
 <span id="listsearchresult-listsearchinfo"></span><h2>ListSearchInfoクラス<a class="headerlink" href="#listsearchinfo" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>ListSearchInfoクラスは、一覧検索用の情報を保持する抽象クラスである。
 ページネーションのためのページ数や検索条件に一致した件数などのフィールドおよびアクセッサメソッドは、本クラスで定義する。
-詳細は、 <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/core/db/support/ListSearchInfo.html" title="nablarch.core.db.support.ListSearchInfo">nablarch.core.db.support.ListSearchInfo</a> を参照。</p>
+詳細は、 <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/core/db/support/ListSearchInfo.html" title="nablarch.core.db.support.ListSearchInfo">nablarch.core.db.support.ListSearchInfo</a> を参照。</p>
 </div>
 <div class="section" id="pagination">
 <span id="listsearchresult-pagination"></span><h2>Paginationクラス<a class="headerlink" href="#pagination" title="このヘッドラインへのパーマリンク">¶</a></h2>
@@ -520,7 +521,7 @@ java.util.ArrayListクラスを継承し、Paginationクラスのインスタン
 <tr class="row-odd"><td colspan="2">検索結果</td>
 </tr>
 <tr class="row-even"><td>resultSetName(必須)</td>
-<td><a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/common/dao/EntityList.html" title="nablarch.common.dao.EntityList">ユニバーサルDAOの検索結果</a> をリクエストスコープから取得する際に使用する名前。検索結果には、ページネーションのためのページ数や検索条件に一致した件数なども含まれる。</td>
+<td><a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/common/dao/EntityList.html" title="nablarch.common.dao.EntityList">ユニバーサルDAOの検索結果</a> をリクエストスコープから取得する際に使用する名前。検索結果には、ページネーションのためのページ数や検索条件に一致した件数なども含まれる。</td>
 </tr>
 <tr class="row-odd"><td>headerRowFragment</td>
 <td>ヘッダ行のJSPフラグメント。ヘッダ行については、 <a class="reference internal" href="#listsearchresult-tableelement"><span>検索結果</span></a> を参照。<br /></td>
@@ -1054,7 +1055,7 @@ none(表示なし) <br />
 <td>検索結果を表示するか否か。デフォルトはtrue。</td>
 </tr>
 <tr class="row-even"><td>resultSetName(必須)</td>
-<td><a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/common/dao/EntityList.html" title="nablarch.common.dao.EntityList">ユニバーサルDAOの検索結果</a> をリクエストスコープから取得する際に使用する名前。検索結果には、ページネーションのためのページ数や検索条件に一致した件数なども含まれる。</td>
+<td><a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/common/dao/EntityList.html" title="nablarch.common.dao.EntityList">ユニバーサルDAOの検索結果</a> をリクエストスコープから取得する際に使用する名前。検索結果には、ページネーションのためのページ数や検索条件に一致した件数なども含まれる。</td>
 </tr>
 <tr class="row-odd"><td>resultSetCss</td>
 <td>検索結果テーブルのclass属性。<br />
@@ -1122,7 +1123,7 @@ none(表示なし) <br />
 
     <div role="contentinfo">
         <p>
-            &copy; Copyright 2010-2024, TIS Inc.
+            &copy; Copyright 2010-2025, TIS Inc.
         </p>
     </div>
     Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
@@ -1143,7 +1144,7 @@ none(表示なし) <br />
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../',
-            VERSION:'5u25',
+            VERSION:'5u26',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

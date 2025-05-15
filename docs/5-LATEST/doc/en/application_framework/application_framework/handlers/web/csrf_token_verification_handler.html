@@ -9,7 +9,7 @@
   <meta http-equiv='content-language' content='ja'>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>CSRF Token Verification Handler &mdash; ∇Nablarch  5u25 documentation</title>
+  <title>CSRF Token Verification Handler &mdash; ∇Nablarch  5u26 documentation</title>
   
 
   
@@ -33,9 +33,10 @@
   
 
   
+  
   <link rel="canonical" href="https://nablarch.github.io/docs/LATEST/doc/application_framework/application_framework/handlers/web/csrf_token_verification_handler.html" />
   
-    <link rel="top" title="∇Nablarch  5u25 documentation" href="../../../../index.html"/>
+    <link rel="top" title="∇Nablarch  5u26 documentation" href="../../../../index.html"/>
         <link rel="up" title="Web Application Dedicated Handler" href="index.html"/>
         <link rel="next" title="Health Check Endpoint Handler" href="health_check_endpoint_handler.html"/>
         <link rel="prev" title="Hot Deploy Handler" href="hot_deploy_handler.html"/>
@@ -63,7 +64,7 @@
   
 
   
-    <div id="sidebar-version">Version: 5u25</div>
+    <div id="sidebar-version">Version: 5u26</div>
   </a>
 
   <div role="search">
@@ -320,7 +321,7 @@
       <a href="https://github.com/nablarch" class="fa fa-github">GitHub</a>
     </li>
     <li class="wy-breadcrumbs-aside">
-        <a href="https://nablarch.github.io/docs/LATEST/doc/index.html" class="ja">日本語</a>
+        <a href="https://nablarch.github.io/docs/5-LATEST/doc/index.html" class="ja">日本語</a>
     </li>
   </ul>
   <hr/>
@@ -349,7 +350,7 @@ without the need for application programmers to implement them.</p>
 <p>To enable CSRF measures in <a class="reference internal" href="../../web_service/rest/index.html#restful-web-service"><span>RESTful web service</span></a>,
 this handler obtains a CSRF token from the request header or request parameters.
 The framework provides a utility class (
-<a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/common/web/csrf/CsrfTokenUtil.html" title="nablarch.common.web.csrf.CsrfTokenUtil">CsrfTokenUtil</a> ) for retrieving the generated CSRF token,
+<a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/common/web/csrf/CsrfTokenUtil.html" title="nablarch.common.web.csrf.CsrfTokenUtil">CsrfTokenUtil</a> ) for retrieving the generated CSRF token,
 so you can implement a mechanism to send the CSRF token to the client, depending on the architecture of your project.</p>
 <p>Since this handler stores the CSRF token in the session store, the use of <a class="reference internal" href="../../libraries/session_store.html#session-store"><span>Session Store</span></a> is required when using this handler.</p>
 <p>This handler performs the following processes.</p>
@@ -366,7 +367,7 @@ so you can implement a mechanism to send the CSRF token to the client, depending
 <div class="section" id="handler-class-name">
 <h2><a class="toc-backref" href="#id2">Handler class name</a><a class="headerlink" href="#handler-class-name" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/web/handler/CsrfTokenVerificationHandler.html" title="nablarch.fw.web.handler.CsrfTokenVerificationHandler">nablarch.fw.web.handler.CsrfTokenVerificationHandler</a></li>
+<li><a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/web/handler/CsrfTokenVerificationHandler.html" title="nablarch.fw.web.handler.CsrfTokenVerificationHandler">nablarch.fw.web.handler.CsrfTokenVerificationHandler</a></li>
 </ul>
 </div>
 <div class="section" id="module-list">
@@ -424,16 +425,16 @@ The following is an example of how to use <a class="reference internal" href="..
 </dd>
 <dt>If it cannot be obtained, it generates a CSRF token and stores it in the session store</dt>
 <dd><ul class="first last simple">
-<li>CSRF token generation is done by <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/web/handler/csrf/CsrfTokenGenerator.html" title="nablarch.fw.web.handler.csrf.CsrfTokenGenerator">CsrfTokenGenerator</a>.
-By default, the <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/web/handler/csrf/UUIDv4CsrfTokenGenerator.html" title="nablarch.fw.web.handler.csrf.UUIDv4CsrfTokenGenerator">UUIDv4CsrfTokenGenerator</a> is used to generate CSRF tokens using version 4 UUID.</li>
+<li>CSRF token generation is done by <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/web/handler/csrf/CsrfTokenGenerator.html" title="nablarch.fw.web.handler.csrf.CsrfTokenGenerator">CsrfTokenGenerator</a>.
+By default, the <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/web/handler/csrf/UUIDv4CsrfTokenGenerator.html" title="nablarch.fw.web.handler.csrf.UUIDv4CsrfTokenGenerator">UUIDv4CsrfTokenGenerator</a> is used to generate CSRF tokens using version 4 UUID.</li>
 <li>CSRF tokens are stored in the default session store. (Store CSRF tokens without specifying the name of the session store.)</li>
 </ul>
 </dd>
 <dt>Determines whether or not the HTTP request is target to verification</dt>
 <dd><ul class="first last simple">
-<li>The <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/web/handler/csrf/VerificationTargetMatcher.html" title="nablarch.fw.web.handler.csrf.VerificationTargetMatcher">VerificationTargetMatcher</a> determines whether the HTTP request is the target of the verification or not.
-By default, it uses the <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/web/handler/csrf/HttpMethodVerificationTargetMatcher.html" title="nablarch.fw.web.handler.csrf.HttpMethodVerificationTargetMatcher">HttpMethodVerificationTargetMatcher</a>, which determines if an HTTP request is a verification target from the HTTP method.</li>
-<li>The <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/web/handler/csrf/HttpMethodVerificationTargetMatcher.html" title="nablarch.fw.web.handler.csrf.HttpMethodVerificationTargetMatcher">HttpMethodVerificationTargetMatcher</a> determines the HTTP method <code class="docutils literal"><span class="pre">GET</span></code> <code class="docutils literal"><span class="pre">HEAD</span></code> <code class="docutils literal"><span class="pre">TRACE</span></code> <code class="docutils literal"><span class="pre">OPTIONS</span></code> as <strong>outside</strong> the CSRF token for verification. (i.e., POST, PUT, etc. are targeted for verification.)</li>
+<li>The <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/web/handler/csrf/VerificationTargetMatcher.html" title="nablarch.fw.web.handler.csrf.VerificationTargetMatcher">VerificationTargetMatcher</a> determines whether the HTTP request is the target of the verification or not.
+By default, it uses the <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/web/handler/csrf/HttpMethodVerificationTargetMatcher.html" title="nablarch.fw.web.handler.csrf.HttpMethodVerificationTargetMatcher">HttpMethodVerificationTargetMatcher</a>, which determines if an HTTP request is a verification target from the HTTP method.</li>
+<li>The <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/web/handler/csrf/HttpMethodVerificationTargetMatcher.html" title="nablarch.fw.web.handler.csrf.HttpMethodVerificationTargetMatcher">HttpMethodVerificationTargetMatcher</a> determines the HTTP method <code class="docutils literal"><span class="pre">GET</span></code> <code class="docutils literal"><span class="pre">HEAD</span></code> <code class="docutils literal"><span class="pre">TRACE</span></code> <code class="docutils literal"><span class="pre">OPTIONS</span></code> as <strong>outside</strong> the CSRF token for verification. (i.e., POST, PUT, etc. are targeted for verification.)</li>
 </ul>
 </dd>
 <dt>If it is a target of verification, the CSRF token is acquired from the HTTP request, and verification is performed</dt>
@@ -448,8 +449,8 @@ By default, it uses the <a class="reference external" href="https://nablarch.git
 </dd>
 <dt>If the validation succeeds, the process is moved to the next handler, and if the validation fails, the response of BadRequest(400) is returned</dt>
 <dd><ul class="first last simple">
-<li>If the verification fails, <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/web/handler/csrf/VerificationFailureHandler.html" title="nablarch.fw.web.handler.csrf.VerificationFailureHandler">VerificationFailureHandler</a> handles it.
-By default, BadRequest(400) BadRequest(400) response is generated by using <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/web/handler/csrf/BadRequestVerificationFailureHandler.html" title="nablarch.fw.web.handler.csrf.BadRequestVerificationFailureHandler">BadRequestVerificationFailureHandler</a>.</li>
+<li>If the verification fails, <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/web/handler/csrf/VerificationFailureHandler.html" title="nablarch.fw.web.handler.csrf.VerificationFailureHandler">VerificationFailureHandler</a> handles it.
+By default, BadRequest(400) BadRequest(400) response is generated by using <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/web/handler/csrf/BadRequestVerificationFailureHandler.html" title="nablarch.fw.web.handler.csrf.BadRequestVerificationFailureHandler">BadRequestVerificationFailureHandler</a>.</li>
 </ul>
 </dd>
 </dl>
@@ -489,7 +490,7 @@ Since the CSRF measure is not a part of the application programmer&#8217;s imple
 you can disable the CSRF measure in the request unit test.
 You can disable the CSRF measure by replacing this handler with a handler that does not do anything in the test execution setting.
 The following is an example of the configuration.
-This example uses <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/test/NopHandler.html" title="nablarch.test.NopHandler">NopHandler</a> , a handler that does not process anything provided by the testing framework.</p>
+This example uses <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/test/NopHandler.html" title="nablarch.test.NopHandler">NopHandler</a> , a handler that does not process anything provided by the testing framework.</p>
 <div class="last highlight-xml"><div class="highlight"><pre><span></span><span class="c">&lt;!-- Override the component definition of this handler in the test configuration.</span>
 <span class="c">     Overwriting is done by matching the component names. --&gt;</span>
 
@@ -506,7 +507,7 @@ and the user logs in unaware of the token.
 If the CSRF token is not regenerated, the malicious website could create a trap page with the CSRF token
 and send an unintended attack request to the user by forcing him or her to click on a link.
 To prevent this, we have to regenerate the CSRF token at login.</p>
-<p>In order to regenerate the CSRF token, if the <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/common/web/csrf/CsrfTokenUtil.html#regenerateCsrfToken-nablarch.fw.ExecutionContext-" title="nablarch.common.web.csrf.CsrfTokenUtil.regenerateCsrfToken(nablarch.fw.ExecutionContext)">CsrfTokenUtil.regenerateCsrfToken</a>
+<p>In order to regenerate the CSRF token, if the <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/common/web/csrf/CsrfTokenUtil.html#regenerateCsrfToken-nablarch.fw.ExecutionContext-" title="nablarch.common.web.csrf.CsrfTokenUtil.regenerateCsrfToken(nablarch.fw.ExecutionContext)">CsrfTokenUtil.regenerateCsrfToken</a>
 method is called in the request process such as an action,
 the CSRF token is regenerated in the response process of this handler.</p>
 <p>If the implementation destroys and regenerates the session store on login, you don&#8217;t need to use this method.
@@ -528,7 +529,7 @@ you must use this method to regenerate the CSRF token.</p>
 
     <div role="contentinfo">
         <p>
-            &copy; Copyright 2010-2024, TIS Inc.
+            &copy; Copyright 2010-2025, TIS Inc.
         </p>
     </div>
     Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
@@ -549,7 +550,7 @@ you must use this method to regenerate the CSRF token.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../../',
-            VERSION:'5u25',
+            VERSION:'5u26',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

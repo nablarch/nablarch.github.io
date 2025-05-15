@@ -9,7 +9,7 @@
   <meta http-equiv='content-language' content='ja'>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Permission Check by handler &mdash; ∇Nablarch  5u25 documentation</title>
+  <title>Permission Check by handler &mdash; ∇Nablarch  5u26 documentation</title>
   
 
   
@@ -33,9 +33,10 @@
   
 
   
+  
   <link rel="canonical" href="https://nablarch.github.io/docs/LATEST/doc/application_framework/application_framework/libraries/authorization/permission_check.html" />
   
-    <link rel="top" title="∇Nablarch  5u25 documentation" href="../../../../index.html"/>
+    <link rel="top" title="∇Nablarch  5u26 documentation" href="../../../../index.html"/>
         <link rel="up" title="Permission Check" href="../permission_check.html"/>
         <link rel="next" title="Permission Check by annotation" href="role_check.html"/>
         <link rel="prev" title="Permission Check" href="../permission_check.html"/>
@@ -63,7 +64,7 @@
   
 
   
-    <div id="sidebar-version">Version: 5u25</div>
+    <div id="sidebar-version">Version: 5u26</div>
   </a>
 
   <div role="search">
@@ -320,7 +321,7 @@
       <a href="https://github.com/nablarch" class="fa fa-github">GitHub</a>
     </li>
     <li class="wy-breadcrumbs-aside">
-        <a href="https://nablarch.github.io/docs/LATEST/doc/index.html" class="ja">日本語</a>
+        <a href="https://nablarch.github.io/docs/5-LATEST/doc/index.html" class="ja">日本語</a>
     </li>
   </ul>
   <hr/>
@@ -570,9 +571,9 @@ The table layout is as follows.</p>
 </dl>
 <p>Configure the following settings to use permission check</p>
 <ul class="simple">
-<li>Add the configuration of <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/common/permission/BasicPermissionFactory.html" title="nablarch.common.permission.BasicPermissionFactory">BasicPermissionFactory</a>
+<li>Add the configuration of <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/common/permission/BasicPermissionFactory.html" title="nablarch.common.permission.BasicPermissionFactory">BasicPermissionFactory</a>
 to the component definition.</li>
-<li>Since <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/common/permission/BasicPermissionFactory.html" title="nablarch.common.permission.BasicPermissionFactory">BasicPermissionFactory</a>
+<li>Since <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/common/permission/BasicPermissionFactory.html" title="nablarch.common.permission.BasicPermissionFactory">BasicPermissionFactory</a>
 is used by configuring to <a class="reference internal" href="../../handlers/common/permission_check_handler.html#permission-check-handler"><span>Permission Check Handler</span></a>, specify any name as the component name.</li>
 </ul>
 <div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;component</span> <span class="na">name=</span><span class="s">&quot;permissionFactory&quot;</span> <span class="na">class=</span><span class="s">&quot;nablarch.common.permission.BasicPermissionFactory&quot;</span><span class="nt">&gt;</span>
@@ -635,7 +636,7 @@ is used by configuring to <a class="reference internal" href="../../handlers/com
 </pre></div>
 </div>
 <p>Add the following component definition as
-<a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/common/permission/BasicPermissionFactory.html" title="nablarch.common.permission.BasicPermissionFactory">BasicPermissionFactory</a> requires initialization.</p>
+<a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/common/permission/BasicPermissionFactory.html" title="nablarch.common.permission.BasicPermissionFactory">BasicPermissionFactory</a> requires initialization.</p>
 <div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;component</span> <span class="na">name=</span><span class="s">&quot;initializer&quot;</span>
            <span class="na">class=</span><span class="s">&quot;nablarch.core.repository.initialization.BasicApplicationInitializer&quot;</span><span class="nt">&gt;</span>
   <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;initializeList&quot;</span><span class="nt">&gt;</span>
@@ -650,10 +651,10 @@ is used by configuring to <a class="reference internal" href="../../handlers/com
 </div>
 <div class="section" id="perform-permission-check-on-the-server">
 <span id="permission-check-server-side-check"></span><h3><a class="toc-backref" href="#id7">Perform permission check on the server</a><a class="headerlink" href="#perform-permission-check-on-the-server" title="Permalink to this headline">¶</a></h3>
-<p>Use <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/common/permission/Permission.html" title="nablarch.common.permission.Permission">Permission</a> for the permission check.
-Since <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/common/permission/Permission.html" title="nablarch.common.permission.Permission">Permission</a>
+<p>Use <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/common/permission/Permission.html" title="nablarch.common.permission.Permission">Permission</a> for the permission check.
+Since <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/common/permission/Permission.html" title="nablarch.common.permission.Permission">Permission</a>
 is configured to the thread context by <a class="reference internal" href="../../handlers/common/permission_check_handler.html#permission-check-handler"><span>Permission Check Handler</span></a>,
-acquire by using <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/common/permission/PermissionUtil.html#getPermission--" title="nablarch.common.permission.PermissionUtil.getPermission()">PermissionUtil.getPermission</a>.</p>
+acquire by using <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/common/permission/PermissionUtil.html#getPermission--" title="nablarch.common.permission.PermissionUtil.getPermission()">PermissionUtil.getPermission</a>.</p>
 <div class="highlight-java"><div class="highlight"><pre><span></span><span class="n">Permission</span> <span class="n">permission</span> <span class="o">=</span> <span class="n">PermissionUtil</span><span class="o">.</span><span class="na">getPermission</span><span class="o">();</span>
 <span class="k">if</span> <span class="o">(</span><span class="n">permission</span><span class="o">.</span><span class="na">permit</span><span class="o">(</span><span class="s">&quot;/action/user/unlock&quot;</span><span class="o">))</span> <span class="o">{</span>
     <span class="c1">// The process comes here when the permission check is OK</span>
@@ -693,7 +694,7 @@ to provide support by creating SQL.</p>
 
     <div role="contentinfo">
         <p>
-            &copy; Copyright 2010-2024, TIS Inc.
+            &copy; Copyright 2010-2025, TIS Inc.
         </p>
     </div>
     Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
@@ -714,7 +715,7 @@ to provide support by creating SQL.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../../',
-            VERSION:'5u25',
+            VERSION:'5u26',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

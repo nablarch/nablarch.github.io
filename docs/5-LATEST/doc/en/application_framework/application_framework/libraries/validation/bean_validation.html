@@ -9,7 +9,7 @@
   <meta http-equiv='content-language' content='ja'>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Bean Validation &mdash; ∇Nablarch  5u25 documentation</title>
+  <title>Bean Validation &mdash; ∇Nablarch  5u26 documentation</title>
   
 
   
@@ -33,9 +33,10 @@
   
 
   
+  
   <link rel="canonical" href="https://nablarch.github.io/docs/LATEST/doc/application_framework/application_framework/libraries/validation/bean_validation.html" />
   
-    <link rel="top" title="∇Nablarch  5u25 documentation" href="../../../../index.html"/>
+    <link rel="top" title="∇Nablarch  5u26 documentation" href="../../../../index.html"/>
         <link rel="up" title="Input Value Check" href="../validation.html"/>
         <link rel="next" title="Nablarch Validation" href="nablarch_validation.html"/>
         <link rel="prev" title="Input Value Check" href="../validation.html"/>
@@ -63,7 +64,7 @@
   
 
   
-    <div id="sidebar-version">Version: 5u25</div>
+    <div id="sidebar-version">Version: 5u26</div>
   </a>
 
   <div role="search">
@@ -320,7 +321,7 @@
       <a href="https://github.com/nablarch" class="fa fa-github">GitHub</a>
     </li>
     <li class="wy-breadcrumbs-aside">
-        <a href="https://nablarch.github.io/docs/LATEST/doc/index.html" class="ja">日本語</a>
+        <a href="https://nablarch.github.io/docs/5-LATEST/doc/index.html" class="ja">日本語</a>
     </li>
   </ul>
   <hr/>
@@ -386,8 +387,8 @@ For use outside Java EE environments, the Bean Validation implementation must be
 <p>Since Nablarch provides commonly used validators, basic validations can be used without having to create anything.</p>
 <p>For the validators provided by Nablarch, see the annotations (annotation type) in the following packages.</p>
 <ul class="simple">
-<li><a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/core/validation/ee/package-summary.html" title="nablarch.core.validation.ee.package-summary">nablarch.core.validation.ee</a></li>
-<li><a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/common/code/validator/ee/package-summary.html" title="nablarch.common.code.validator.ee.package-summary">nablarch.common.code.validator.ee</a></li>
+<li><a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/core/validation/ee/package-summary.html" title="nablarch.core.validation.ee.package-summary">nablarch.core.validation.ee</a></li>
+<li><a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/common/code/validator/ee/package-summary.html" title="nablarch.common.code.validator.ee.package-summary">nablarch.common.code.validator.ee</a></li>
 </ul>
 </div>
 </div>
@@ -429,7 +430,7 @@ For use outside Java EE environments, the Bean Validation implementation must be
 <dl class="docutils">
 <dt>MessageInterpolator configuration</dt>
 <dd><p class="first">Configure the class that constructs the message when validation errors occur in Bean Validation (a class that implements <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/validation/MessageInterpolator.html" title="javax.validation.MessageInterpolator">MessageInterpolator</a>).</p>
-<p>If this is not configured, then <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/core/validation/ee/NablarchMessageInterpolator.html" title="nablarch.core.validation.ee.NablarchMessageInterpolator">NablarchMessageInterpolator</a> which uses <a class="reference internal" href="../message.html#message"><span>Message Management</span></a> is used.</p>
+<p>If this is not configured, then <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/core/validation/ee/NablarchMessageInterpolator.html" title="nablarch.core.validation.ee.NablarchMessageInterpolator">NablarchMessageInterpolator</a> which uses <a class="reference internal" href="../message.html#message"><span>Message Management</span></a> is used.</p>
 <p>For example, when using the implementation that builds a message from the property file of Hibernate Validator, configure as shown below.</p>
 <div class="admonition important">
 <p class="first admonition-title">Important</p>
@@ -453,7 +454,7 @@ For use outside Java EE environments, the Bean Validation implementation must be
 <h3><a class="toc-backref" href="#id11">Define the error message for validation error</a><a class="headerlink" href="#define-the-error-message-for-validation-error" title="Permalink to this headline">¶</a></h3>
 <p>As explained in <a class="reference internal" href="#bean-validation-configuration"><span>Configure settings to use Bean Validation</span></a>, message during an error is built using <a class="reference internal" href="../message.html#message"><span>Message Management</span></a> by default.
 Therefore, refer to <a class="reference internal" href="../message.html#message"><span>Message Management</span></a> for more information, such as where the message is defined.</p>
-<p>The message definition rule when using the default <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/core/validation/ee/NablarchMessageInterpolator.html" title="nablarch.core.validation.ee.NablarchMessageInterpolator">NablarchMessageInterpolator</a> is as given below.</p>
+<p>The message definition rule when using the default <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/core/validation/ee/NablarchMessageInterpolator.html" title="nablarch.core.validation.ee.NablarchMessageInterpolator">NablarchMessageInterpolator</a> is as given below.</p>
 <ul class="simple">
 <li>Build a message using <a class="reference internal" href="../message.html#message"><span>Message Management</span></a> only when the value specified in the <code class="docutils literal"><span class="pre">message</span></code> attribute of the annotation is enclosed within <code class="docutils literal"><span class="pre">{</span></code> and <code class="docutils literal"><span class="pre">}</span></code>.</li>
 <li>A placeholder for embedding the attribute information of the validation annotation can be used in the message text.
@@ -554,7 +555,7 @@ Hence, it is recommended to use <a class="reference internal" href="#bean-valida
 The field name becomes the domain name. In the following example, two domains, <code class="docutils literal"><span class="pre">name</span></code> and <code class="docutils literal"><span class="pre">date</span></code>, have been defined.</p>
 <div class="admonition tip">
 <p class="first admonition-title">Tip</p>
-<p class="last">Configure the <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/core/validation/ee/Required.html" title="nablarch.core.validation.ee.Required">&#64;Required</a> annotation which indicates required items on the individual Bean side instead of in the domain Bean.
+<p class="last">Configure the <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/core/validation/ee/Required.html" title="nablarch.core.validation.ee.Required">&#64;Required</a> annotation which indicates required items on the individual Bean side instead of in the domain Bean.
 Whether an item is required or not cannot be enforced on the domain side, since it depends on the function design.</p>
 </div>
 <div class="last highlight-java"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">sample</span><span class="o">;</span>
@@ -577,8 +578,8 @@ Whether an item is required or not cannot be enforced on the domain side, since 
 </div>
 </dd>
 <dt>Domain Bean Enabled</dt>
-<dd><p class="first">To enable the domain bean, create the implementation class <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/core/validation/ee/DomainManager.html" title="nablarch.core.validation.ee.DomainManager">DomainManager</a>.
-<a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/core/validation/ee/DomainManager.html#getDomainBean--" title="nablarch.core.validation.ee.DomainManager.getDomainBean()">getDomainBean</a> returns the domain Bean class object.</p>
+<dd><p class="first">To enable the domain bean, create the implementation class <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/core/validation/ee/DomainManager.html" title="nablarch.core.validation.ee.DomainManager">DomainManager</a>.
+<a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/core/validation/ee/DomainManager.html#getDomainBean--" title="nablarch.core.validation.ee.DomainManager.getDomainBean()">getDomainBean</a> returns the domain Bean class object.</p>
 <div class="highlight-java"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">sample</span><span class="o">;</span>
 
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">SampleDomainManager</span> <span class="kd">implements</span> <span class="n">DomainManager</span><span class="o">&lt;</span><span class="n">SampleDomainBean</span><span class="o">&gt;</span> <span class="o">{</span>
@@ -590,7 +591,7 @@ Whether an item is required or not cannot be enforced on the domain side, since 
 <span class="o">}</span>
 </pre></div>
 </div>
-<p>By defining <cite>SampleDomainBean</cite> of the <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/core/validation/ee/DomainManager.html" title="nablarch.core.validation.ee.DomainManager">DomainManager</a> implementation class in the component configuration file,
+<p>By defining <cite>SampleDomainBean</cite> of the <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/core/validation/ee/DomainManager.html" title="nablarch.core.validation.ee.DomainManager">DomainManager</a> implementation class in the component configuration file,
 domain validation using <cite>SampleDomainBean</cite> will be enabled.</p>
 <div class="last highlight-xml"><div class="highlight"><pre><span></span><span class="c">&lt;!-- DomainManager implementation class should be configured with the name domainManager --&gt;</span>
 <span class="nt">&lt;component</span> <span class="na">name=</span><span class="s">&quot;domainManager&quot;</span> <span class="na">class=</span><span class="s">&quot;sample.SampleDomainManager&quot;</span><span class="nt">/&gt;</span>
@@ -598,7 +599,7 @@ domain validation using <cite>SampleDomainBean</cite> will be enabled.</p>
 </div>
 </dd>
 <dt>Use domain validation for each Bean</dt>
-<dd><p class="first">Domain validation is performed by configuring the <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/core/validation/ee/Domain.html" title="nablarch.core.validation.ee.Domain">&#64;Domain</a> annotation to the bean properties to be validated.</p>
+<dd><p class="first">Domain validation is performed by configuring the <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/core/validation/ee/Domain.html" title="nablarch.core.validation.ee.Domain">&#64;Domain</a> annotation to the bean properties to be validated.</p>
 <p>In this example, validation configured in the <cite>name</cite> field of <cite>SampleDomainBean</cite> is performed for <cite>userName</cite>.
 Similarly, validation configured in the <cite>date</cite> field is performed for <cite>birthday</cite>.</p>
 <ul class="simple">
@@ -631,9 +632,9 @@ For example, it is necessary to define that half-width numbers from <code class=
 <dd><p class="first">The set of allowed characters is registered using any one of the following classes.
 During registration, configure the component name to an arbitrary name that indicates the character type.</p>
 <ul class="simple">
-<li><a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/core/validation/validator/unicode/RangedCharsetDef.html" title="nablarch.core.validation.validator.unicode.RangedCharsetDef">RangedCharsetDef</a> (Used when registering the allowed character sets in the range)</li>
-<li><a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/core/validation/validator/unicode/LiteralCharsetDef.html" title="nablarch.core.validation.validator.unicode.LiteralCharsetDef">LiteralCharsetDef</a> (Used when registering all allowed character sets in the literal)</li>
-<li><a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/core/validation/validator/unicode/CompositeCharsetDef.html" title="nablarch.core.validation.validator.unicode.CompositeCharsetDef">CompositeCharsetDef</a> (Used when registering allowed characters consisting of multiple RangedCharsetDef and LiteralCharsetDef)</li>
+<li><a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/core/validation/validator/unicode/RangedCharsetDef.html" title="nablarch.core.validation.validator.unicode.RangedCharsetDef">RangedCharsetDef</a> (Used when registering the allowed character sets in the range)</li>
+<li><a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/core/validation/validator/unicode/LiteralCharsetDef.html" title="nablarch.core.validation.validator.unicode.LiteralCharsetDef">LiteralCharsetDef</a> (Used when registering all allowed character sets in the literal)</li>
+<li><a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/core/validation/validator/unicode/CompositeCharsetDef.html" title="nablarch.core.validation.validator.unicode.CompositeCharsetDef">CompositeCharsetDef</a> (Used when registering allowed characters consisting of multiple RangedCharsetDef and LiteralCharsetDef)</li>
 </ul>
 <p>A configuration example is shown below.</p>
 <div class="last highlight-xml"><div class="highlight"><pre><span></span><span class="c">&lt;!-- Half-width number --&gt;</span>
@@ -669,8 +670,8 @@ During registration, configure the component name to an arbitrary name that indi
 </div>
 </dd>
 <dt>Specify the character type with annotation</dt>
-<dd><p class="first">Configure the <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/core/validation/ee/SystemChar.html" title="nablarch.core.validation.ee.SystemChar">&#64;SystemChar</a> annotation in the property that performs character type validation.
-Configure the name indicating the allowed character type in the <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/core/validation/ee/SystemChar.html#charsetDef--" title="nablarch.core.validation.ee.SystemChar.charsetDef()">charsetDef</a> attribute of this annotation.
+<dd><p class="first">Configure the <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/core/validation/ee/SystemChar.html" title="nablarch.core.validation.ee.SystemChar">&#64;SystemChar</a> annotation in the property that performs character type validation.
+Configure the name indicating the allowed character type in the <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/core/validation/ee/SystemChar.html#charsetDef--" title="nablarch.core.validation.ee.SystemChar.charsetDef()">charsetDef</a> attribute of this annotation.
 This name will be the component name when the character type set is registered in the component configuration file mentioned above.</p>
 <p>Since <code class="docutils literal"><span class="pre">half-width</span> <span class="pre">numbers</span></code> have been specified in this example, &#8220;0123456789&#8221; are allowed as per the component definition mentioned above.</p>
 <div class="last highlight-java"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">SampleForm</span> <span class="o">{</span>
@@ -691,7 +692,7 @@ To solve this problem, provide a mechanism to cache the results of a character o
 <ul class="simple">
 <li>In principle, it is advisable to proceed with development without using the cache function, and consider using the cache function if character type validation becomes a bottleneck.</li>
 </ul>
-<p>Usage is simple. Configure the definition of the original character type set to <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/core/validation/validator/unicode/CachingCharsetDef.html" title="nablarch.core.validation.validator.unicode.CachingCharsetDef">CachingCharsetDef</a>
+<p>Usage is simple. Configure the definition of the original character type set to <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/core/validation/validator/unicode/CachingCharsetDef.html" title="nablarch.core.validation.validator.unicode.CachingCharsetDef">CachingCharsetDef</a>
 for caching, as in the component definition shown below.</p>
 <div class="last highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;component</span> <span class="na">name=</span><span class="s">&quot;Half-width character&quot;</span> <span class="na">class=</span><span class="s">&quot;nablarch.core.validation.validator.unicode.CachingCharsetDef&quot;</span><span class="nt">&gt;</span>
   <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;charsetDef&quot;</span><span class="nt">&gt;</span>
@@ -708,7 +709,7 @@ for caching, as in the component definition shown below.</p>
 <dt>Allowing Surrogate Pairs</dt>
 <dd><p class="first">This validation does not allow surrogate pairs by default.
 (They are not allowed even if the characters for surrogate pairs are explicitly defined in <cite>LiteralCharsetDef</cite>.)</p>
-<p>To allow surrogate pairs, <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/core/validation/ee/SystemCharConfig.html" title="nablarch.core.validation.ee.SystemCharConfig">SystemCharConfig</a> must be configured in the component configuration file as follows.</p>
+<p>To allow surrogate pairs, <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/core/validation/ee/SystemCharConfig.html" title="nablarch.core.validation.ee.SystemCharConfig">SystemCharConfig</a> must be configured in the component configuration file as follows.</p>
 <dl class="docutils">
 <dt>Point</dt>
 <dd><ul class="first last simple">
@@ -784,8 +785,8 @@ the database can be accessed using the validated safe value.</p>
 <span id="bean-validation-create-message-for-property"></span><h3><a class="toc-backref" href="#id17">To create a validation error message linked to a specific item</a><a class="headerlink" href="#to-create-a-validation-error-message-linked-to-a-specific-item" title="Permalink to this headline">¶</a></h3>
 <p>When an error occurs in the validation performed with action handlers such as <a class="reference internal" href="#bean-validation-database-validation"><span>Correlation validation with the database</span></a>,
 sometimes it may be required to highlight the target item as an error on the screen.</p>
-<p>In this case, as shown in the implementation example below, an error message is built using <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/core/validation/ValidationUtil.html#createMessageForProperty-java.lang.String-java.lang.String-java.lang.Object...-" title="nablarch.core.validation.ValidationUtil.createMessageForProperty(java.lang.String-java.lang.String-java.lang.Object...)">ValidationUtil#createMessageForProperty</a>
-and the <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/core/message/ApplicationException.html" title="nablarch.core.message.ApplicationException">ApplicationException</a> is thrown.</p>
+<p>In this case, as shown in the implementation example below, an error message is built using <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/core/validation/ValidationUtil.html#createMessageForProperty-java.lang.String-java.lang.String-java.lang.Object...-" title="nablarch.core.validation.ValidationUtil.createMessageForProperty(java.lang.String-java.lang.String-java.lang.Object...)">ValidationUtil#createMessageForProperty</a>
+and the <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/core/message/ApplicationException.html" title="nablarch.core.message.ApplicationException">ApplicationException</a> is thrown.</p>
 <div class="highlight-java"><div class="highlight"><pre><span></span><span class="k">throw</span> <span class="k">new</span> <span class="n">ApplicationException</span><span class="o">(</span>
         <span class="n">ValidationUtil</span><span class="o">.</span><span class="na">createMessageForProperty</span><span class="o">(</span><span class="s">&quot;form.mailAddress&quot;</span><span class="o">,</span> <span class="s">&quot;duplicate.mailAddress&quot;</span><span class="o">));</span>
 </pre></div>
@@ -836,7 +837,7 @@ Hence, implementation is required so that the status of the nested Bean can be r
 <dt>When parent Bean and nested Bean are 1:N</dt>
 <dd><p class="first">The nested Bean will be a target for validation, and the fields of the nested Bean are also initialized when the parent Bean is initialized.
 If the information of nested Bean is required (select or input at least one),
-configure the <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/core/validation/ee/Size.html" title="nablarch.core.validation.ee.Size">Size</a> annotation.</p>
+configure the <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/core/validation/ee/Size.html" title="nablarch.core.validation.ee.Size">Size</a> annotation.</p>
 <div class="last highlight-java"><div class="highlight"><pre><span></span><span class="c1">// Validates that at least one is selected by configuring the Size annotation.</span>
 <span class="nd">@Valid</span>
 <span class="nd">@Size</span><span class="o">(</span><span class="n">min</span> <span class="o">=</span> <span class="mi">1</span><span class="o">,</span> <span class="n">max</span> <span class="o">=</span> <span class="mi">5</span><span class="o">)</span>
@@ -870,7 +871,7 @@ When unable to respond to requests from the connection destination, perform impl
 <p>The user input values for web applications are checked using <a class="reference internal" href="../../handlers/web_interceptor/InjectForm.html#inject-form-interceptor"><span>InjectForm Interceptor</span></a>.
 For details, see <a class="reference internal" href="../../handlers/web_interceptor/InjectForm.html#inject-form-interceptor"><span>InjectForm Interceptor</span></a>.</p>
 <p>To use Bean Validation with <a class="reference internal" href="../../handlers/web_interceptor/InjectForm.html#inject-form-interceptor"><span>InjectForm Interceptor</span></a>, it must be defined in the component configuration file.
-As shown in the example below, Define a component definition of <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/common/web/validator/BeanValidationStrategy.html" title="nablarch.common.web.validator.BeanValidationStrategy">BeanValidationStrategy</a> with the name  <code class="docutils literal"><span class="pre">validationStrategy</span></code>.</p>
+As shown in the example below, Define a component definition of <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/common/web/validator/BeanValidationStrategy.html" title="nablarch.common.web.validator.BeanValidationStrategy">BeanValidationStrategy</a> with the name  <code class="docutils literal"><span class="pre">validationStrategy</span></code>.</p>
 <div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;component</span> <span class="na">name=</span><span class="s">&quot;validationStrategy&quot;</span> <span class="na">class=</span><span class="s">&quot;nablarch.common.web.validator.BeanValidationStrategy&quot;</span> <span class="nt">/&gt;</span>
 </pre></div>
 </div>
@@ -909,7 +910,7 @@ since it is not possible to implicitly refer to <a class="footnote-reference" hr
 </div>
 <p>In such a case, the Bean that copied the request parameters can be stored in the request scope
 even when a validation error occurs by configuring the property <code class="docutils literal"><span class="pre">copyBeanToRequestScopeOnError</span></code> of
-<a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/common/web/validator/BeanValidationStrategy.html" title="nablarch.common.web.validator.BeanValidationStrategy">BeanValidationStrategy</a> to <code class="docutils literal"><span class="pre">true</span></code>.
+<a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/common/web/validator/BeanValidationStrategy.html" title="nablarch.common.web.validator.BeanValidationStrategy">BeanValidationStrategy</a> to <code class="docutils literal"><span class="pre">true</span></code>.
 A configuration example is shown below.</p>
 <div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;component</span> <span class="na">name=</span><span class="s">&quot;validationStrategy&quot;</span> <span class="na">class=</span><span class="s">&quot;nablarch.common.web.validator.BeanValidationStrategy&quot;</span><span class="nt">&gt;</span>
   <span class="c">&lt;!-- Copies values to the request scope when a validation error occurs --&gt;</span>
@@ -942,7 +943,7 @@ Therefore, Nablarch provides a function that embeds the item name of the item in
 <dt>Component configuration file</dt>
 <dd><p class="first">Configure the factory class that generates the message converter which embeds the item name in a message.
 Configure <code class="docutils literal"><span class="pre">constraintViolationConverterFactory</span></code> in the component name
-and <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/core/validation/ee/ItemNamedConstraintViolationConverterFactory.html" title="nablarch.core.validation.ee.ItemNamedConstraintViolationConverterFactory">ItemNamedConstraintViolationConverterFactory</a> in the class name.</p>
+and <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/core/validation/ee/ItemNamedConstraintViolationConverterFactory.html" title="nablarch.core.validation.ee.ItemNamedConstraintViolationConverterFactory">ItemNamedConstraintViolationConverterFactory</a> in the class name.</p>
 <div class="last highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;component</span> <span class="na">name=</span><span class="s">&quot;constraintViolationConverterFactory&quot;</span>
     <span class="na">class=</span><span class="s">&quot;nablarch.core.validation.ee.ItemNamedConstraintViolationConverterFactory&quot;</span> <span class="nt">/&gt;</span>
 </pre></div>
@@ -988,27 +989,27 @@ Item name is enclosed by <code class="docutils literal"><span class="pre">[</spa
 </dl>
 <div class="admonition tip">
 <p class="first admonition-title">Tip</p>
-<p class="last">To change the method of adding the item name to the message, see <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/core/validation/ee/ItemNamedConstraintViolationConverterFactory.html" title="nablarch.core.validation.ee.ItemNamedConstraintViolationConverterFactory">ItemNamedConstraintViolationConverterFactory</a>
+<p class="last">To change the method of adding the item name to the message, see <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/core/validation/ee/ItemNamedConstraintViolationConverterFactory.html" title="nablarch.core.validation.ee.ItemNamedConstraintViolationConverterFactory">ItemNamedConstraintViolationConverterFactory</a>
 and add the implementation on the project side.</p>
 </div>
 </div>
 <div class="section" id="performing-explicit-execution-of-validation">
 <span id="bean-validation-execute-explicitly"></span><h3><a class="toc-backref" href="#id24">Performing Explicit Execution of Validation</a><a class="headerlink" href="#performing-explicit-execution-of-validation" title="Permalink to this headline">¶</a></h3>
 <p>Normally, validation is using the methods described in <a class="reference internal" href="#checking-user-input-values-for-web-applications">Checking User Input Values for Web Applications</a> or <a class="reference internal" href="#checking-user-input-values-for-restful-web-services">Checking User Input Values for RESTful Web Services</a> ,  but there are cases where these methods cannot be used, such as when you want to handle validation errors.</p>
-<p>In such cases, <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/core/validation/ee/ValidatorUtil.html#validate-java.lang.Object-" title="nablarch.core.validation.ee.ValidatorUtil.validate(java.lang.Object)">ValidatorUtil#validate</a> can be used to explicitly perform validation.</p>
+<p>In such cases, <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/core/validation/ee/ValidatorUtil.html#validate-java.lang.Object-" title="nablarch.core.validation.ee.ValidatorUtil.validate(java.lang.Object)">ValidatorUtil#validate</a> can be used to explicitly perform validation.</p>
 <blockquote>
 <div><div class="highlight-java"><div class="highlight"><pre><span></span><span class="c1">// Perform explicit execution of validation</span>
 <span class="n">ValidatorUtil</span><span class="o">.</span><span class="na">validate</span><span class="o">(</span><span class="n">form</span><span class="o">);</span>
 </pre></div>
 </div>
 </div></blockquote>
-<p>If a validation error occurs, <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/core/message/ApplicationException.html" title="nablarch.core.message.ApplicationException">ApplicationException</a> is thrown.</p>
+<p>If a validation error occurs, <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/core/message/ApplicationException.html" title="nablarch.core.message.ApplicationException">ApplicationException</a> is thrown.</p>
 <dl class="docutils">
 <dt>For web applications</dt>
 <dd><p class="first">When explicitly performing validation in a web application, the input values contained in the request parameters must be converted to beans.</p>
-<p>In order to convert to bean, it is necessary to obtain the request parameters from <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/web/HttpRequest.html#getParamMap--" title="nablarch.fw.web.HttpRequest.getParamMap()">HttpRequest#getParamMap</a>  before validation.
+<p>In order to convert to bean, it is necessary to obtain the request parameters from <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/web/HttpRequest.html#getParamMap--" title="nablarch.fw.web.HttpRequest.getParamMap()">HttpRequest#getParamMap</a>  before validation.
 However, if the application programmer can freely handle the input values before validation, the business logic will be executed without validation, and in some cases there is a risk of failure.</p>
-<p>For this reason, <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/web/HttpRequest.html#getParamMap--" title="nablarch.fw.web.HttpRequest.getParamMap()">HttpRequest#getParamMap</a> to obtain request parameters is a public API for architects, and its use in the Action class is prohibited.</p>
+<p>For this reason, <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/web/HttpRequest.html#getParamMap--" title="nablarch.fw.web.HttpRequest.getParamMap()">HttpRequest#getParamMap</a> to obtain request parameters is a public API for architects, and its use in the Action class is prohibited.</p>
 <p>If a web application needs to explicitly perform validation, it is recommended to create the following utility classes as common parts.</p>
 <div class="last highlight-java"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">final</span> <span class="kd">class</span> <span class="nc">ProjectValidatorUtil</span> <span class="o">{</span>
     <span class="c1">// Other processes are omitted</span>
@@ -1097,8 +1098,8 @@ Nablarch also provides APIs that allow group specification in Bean Validation.</
 </div>
 </dd>
 </dl>
-<p>See <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/core/validation/ee/ValidatorUtil.html#validateWithGroup-java.lang.Object-java.lang.Class...-" title="nablarch.core.validation.ee.ValidatorUtil.validateWithGroup(java.lang.Object-java.lang.Class...)">ValidatorUtil#validateWithGroup</a>
-and <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/core/validation/ee/ValidatorUtil.html#validateProperty-java.lang.Object-java.lang.String-java.lang.Class...-" title="nablarch.core.validation.ee.ValidatorUtil.validateProperty(java.lang.Object-java.lang.String-java.lang.Class...)">ValidatorUtil#validateProperty</a> for details on the APIs.</p>
+<p>See <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/core/validation/ee/ValidatorUtil.html#validateWithGroup-java.lang.Object-java.lang.Class...-" title="nablarch.core.validation.ee.ValidatorUtil.validateWithGroup(java.lang.Object-java.lang.Class...)">ValidatorUtil#validateWithGroup</a>
+and <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/core/validation/ee/ValidatorUtil.html#validateProperty-java.lang.Object-java.lang.String-java.lang.Class...-" title="nablarch.core.validation.ee.ValidatorUtil.validateProperty(java.lang.Object-java.lang.String-java.lang.Class...)">ValidatorUtil#validateProperty</a> for details on the APIs.</p>
 <div class="admonition tip">
 <p class="first admonition-title">Tip</p>
 <p class="last">By using the group function to switch validation rules, a single form class can be shared by multiple screens and APIs.
@@ -1134,7 +1135,7 @@ annotations and validation logic are added on the project side.</p>
 
     <div role="contentinfo">
         <p>
-            &copy; Copyright 2010-2024, TIS Inc.
+            &copy; Copyright 2010-2025, TIS Inc.
         </p>
     </div>
     Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
@@ -1155,7 +1156,7 @@ annotations and validation logic are added on the project side.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../../',
-            VERSION:'5u25',
+            VERSION:'5u26',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

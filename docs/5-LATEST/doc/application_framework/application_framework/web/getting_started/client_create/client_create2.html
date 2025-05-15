@@ -9,7 +9,7 @@
   <meta http-equiv='content-language' content='ja'>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>登録内容の確認 &mdash; ∇Nablarch  5u25 ドキュメント</title>
+  <title>登録内容の確認 &mdash; ∇Nablarch  5u26 ドキュメント</title>
   
 
   
@@ -33,9 +33,10 @@
   
 
   
+  
   <link rel="canonical" href="https://nablarch.github.io/docs/LATEST/doc/application_framework/application_framework/web/getting_started/client_create/client_create2.html" />
   
-    <link rel="top" title="∇Nablarch  5u25 ドキュメント" href="../../../../../index.html"/>
+    <link rel="top" title="∇Nablarch  5u26 ドキュメント" href="../../../../../index.html"/>
         <link rel="up" title="登録機能の作成(ハンズオン形式)" href="index.html"/>
         <link rel="next" title="登録内容確認画面から登録画面へ戻る" href="client_create3.html"/>
         <link rel="prev" title="登録画面初期表示の作成" href="client_create1.html"/>
@@ -63,7 +64,7 @@
   
 
   
-    <div id="sidebar-version">Version: 5u25</div>
+    <div id="sidebar-version">Version: 5u26</div>
   </a>
 
   <div role="search">
@@ -360,7 +361,7 @@
       <a href="https://github.com/nablarch" class="fa fa-github">GitHub</a>
     </li>
     <li class="wy-breadcrumbs-aside">
-        <a href="https://nablarch.github.io/docs/LATEST/doc/en/index.html" class="en">English</a>
+        <a href="https://nablarch.github.io/docs/5-LATEST/doc/en/index.html" class="en">English</a>
     </li>
   </ul>
   <hr/>
@@ -398,7 +399,7 @@
 <dt>この実装のポイント</dt>
 <dd><ul class="first last simple">
 <li>フォームクラスには必ずセッタ及びゲッタを作成する。</li>
-<li><a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/common/web/interceptor/InjectForm.html" title="nablarch.common.web.interceptor.InjectForm">&#64;InjectForm</a> を使用してバリデーションを実行する( <a class="reference internal" href="#client-create-setup-validation"><span>後述</span></a> )ために、フォームは <cite>Serializable</cite> インタフェースを実装する。</li>
+<li><a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/common/web/interceptor/InjectForm.html" title="nablarch.common.web.interceptor.InjectForm">&#64;InjectForm</a> を使用してバリデーションを実行する( <a class="reference internal" href="#client-create-setup-validation"><span>後述</span></a> )ために、フォームは <cite>Serializable</cite> インタフェースを実装する。</li>
 <li>入力値を受け付けるプロパティは全てString型で宣言する。詳細は <a class="reference internal" href="../../../libraries/validation/bean_validation.html#bean-validation-form-property"><span>バリデーションルールの設定方法</span></a> を参照。</li>
 </ul>
 </dd>
@@ -486,7 +487,7 @@
 <li><a class="reference internal" href="../../../libraries/validation/bean_validation.html#bean-validation"><span>Bean Validation</span></a> を行うためには、<cite>nablarch.core.validation.ee</cite> 配下のアノテーションを付与する
 ( <cite>nablarch.core.validation.validator</cite> 配下に同名アノテーションが存在する場合があるので注意)。</li>
 <li><a class="reference internal" href="../../../libraries/validation/bean_validation.html#bean-validation-domain-validation"><span>ドメインバリデーション</span></a> を使用して、<cite>ClientForm</cite> クラスのプロパティにバリデーションルールを定義する。</li>
-<li>対象項目に適したメッセージを表示するために、 <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/core/validation/ee/Required.html" title="nablarch.core.validation.ee.Required">Required</a> の <cite>message</cite> 属性に独自に定義したメッセージを指定する。
+<li>対象項目に適したメッセージを表示するために、 <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/core/validation/ee/Required.html" title="nablarch.core.validation.ee.Required">Required</a> の <cite>message</cite> 属性に独自に定義したメッセージを指定する。
 メッセージ定義の詳細は <a class="reference internal" href="../../../libraries/message.html#message-property-definition"><span>プロパティファイルにメッセージを定義する</span></a> を参照。</li>
 </ul>
 </dd>
@@ -512,8 +513,8 @@
 </dd>
 <dt>この実装のポイント</dt>
 <dd><ul class="first last simple">
-<li>業務アクションメソッドに <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/common/web/interceptor/InjectForm.html" title="nablarch.common.web.interceptor.InjectForm">InjectForm</a> を付与して <a class="reference internal" href="../../../libraries/validation/bean_validation.html#bean-validation"><span>Bean Validation</span></a> を実行する。</li>
-<li><a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/web/interceptor/OnError.html" title="nablarch.fw.web.interceptor.OnError">OnError</a> の <cite>path</cite> 属性で、バリデーションエラー発生時にinputメソッドへ内部フォーワードするよう設定する
+<li>業務アクションメソッドに <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/common/web/interceptor/InjectForm.html" title="nablarch.common.web.interceptor.InjectForm">InjectForm</a> を付与して <a class="reference internal" href="../../../libraries/validation/bean_validation.html#bean-validation"><span>Bean Validation</span></a> を実行する。</li>
+<li><a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/web/interceptor/OnError.html" title="nablarch.fw.web.interceptor.OnError">OnError</a> の <cite>path</cite> 属性で、バリデーションエラー発生時にinputメソッドへ内部フォーワードするよう設定する
 (登録画面を再表示するためには、業種リストを設定する必要があるため)。</li>
 <li>バリデーションエラーが発生しなかった場合は、リクエストスコープからバリデーション済みオブジェクトが取得出来る。</li>
 </ul>
@@ -543,9 +544,9 @@
 <dt>この実装のポイント</dt>
 <dd><ul class="first last simple">
 <li>登録画面の表示処理時と同様、業種情報をデータベースから取得してリクエストスコープに設定する。</li>
-<li><a class="reference internal" href="../../../libraries/session_store.html#session-store"><span>セッションストア</span></a> への保存は、<a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/common/web/session/SessionUtil.html" title="nablarch.common.web.session.SessionUtil">SessionUtil</a> を使用する。</li>
+<li><a class="reference internal" href="../../../libraries/session_store.html#session-store"><span>セッションストア</span></a> への保存は、<a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/common/web/session/SessionUtil.html" title="nablarch.common.web.session.SessionUtil">SessionUtil</a> を使用する。</li>
 <li><a class="reference internal" href="../../../libraries/session_store.html#session-store-form"><span>セッションストアにフォームは格納しない</span></a> ため、
-<a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/core/beans/BeanUtil.html" title="nablarch.core.beans.BeanUtil">BeanUtil</a> を使用してフォームをエンティティに変換した上で <a class="reference internal" href="../../../libraries/session_store.html#session-store"><span>セッションストア</span></a> に登録する。</li>
+<a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/core/beans/BeanUtil.html" title="nablarch.core.beans.BeanUtil">BeanUtil</a> を使用してフォームをエンティティに変換した上で <a class="reference internal" href="../../../libraries/session_store.html#session-store"><span>セッションストア</span></a> に登録する。</li>
 <li><a class="reference internal" href="../../../libraries/session_store.html#session-store"><span>セッションストア</span></a> を使用する際の詳しい実装例は <a class="reference internal" href="../../../libraries/session_store/create_example.html#create-example"><span>登録機能での実装例</span></a> を参照。</li>
 </ul>
 </dd>
@@ -659,7 +660,7 @@
 
     <div role="contentinfo">
         <p>
-            &copy; Copyright 2010-2024, TIS Inc.
+            &copy; Copyright 2010-2025, TIS Inc.
         </p>
     </div>
     Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
@@ -680,7 +681,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../../../',
-            VERSION:'5u25',
+            VERSION:'5u26',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

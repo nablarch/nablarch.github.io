@@ -9,7 +9,7 @@
   <meta http-equiv='content-language' content='ja'>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Implementation of the Resource (Action) Class &mdash; ∇Nablarch  5u25 documentation</title>
+  <title>Implementation of the Resource (Action) Class &mdash; ∇Nablarch  5u26 documentation</title>
   
 
   
@@ -33,9 +33,10 @@
   
 
   
+  
   <link rel="canonical" href="https://nablarch.github.io/docs/LATEST/doc/application_framework/application_framework/web_service/rest/feature_details/resource_signature.html" />
   
-    <link rel="top" title="∇Nablarch  5u25 documentation" href="../../../../../index.html"/>
+    <link rel="top" title="∇Nablarch  5u26 documentation" href="../../../../../index.html"/>
         <link rel="up" title="Details of Function" href="../feature_details.html"/>
         <link rel="next" title="HTTP Messaging" href="../../http_messaging/index.html"/>
         <link rel="prev" title="Details of Function" href="../feature_details.html"/>
@@ -63,7 +64,7 @@
   
 
   
-    <div id="sidebar-version">Version: 5u25</div>
+    <div id="sidebar-version">Version: 5u26</div>
   </a>
 
   <div role="search">
@@ -322,7 +323,7 @@
       <a href="https://github.com/nablarch" class="fa fa-github">GitHub</a>
     </li>
     <li class="wy-breadcrumbs-aside">
-        <a href="https://nablarch.github.io/docs/LATEST/doc/index.html" class="ja">日本語</a>
+        <a href="https://nablarch.github.io/docs/5-LATEST/doc/index.html" class="ja">日本語</a>
     </li>
   </ul>
   <hr/>
@@ -374,9 +375,9 @@
 </dl>
 </td>
 </tr>
-<tr class="row-even"><td><a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/jaxrs/JaxRsHttpRequest.html" title="nablarch.fw.jaxrs.JaxRsHttpRequest">JaxRsHttpRequest</a><a class="footnote-reference" href="#id2" id="id1">[1]</a></td>
+<tr class="row-even"><td><a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/jaxrs/JaxRsHttpRequest.html" title="nablarch.fw.jaxrs.JaxRsHttpRequest">JaxRsHttpRequest</a><a class="footnote-reference" href="#id2" id="id1">[1]</a></td>
 <td><p class="first">When <a class="reference internal" href="#rest-feature-details-path-param"><span>path parameter</span></a> and <a class="reference internal" href="#rest-feature-details-query-param"><span>query parameter</span></a> are used or when the value of HTTP header is acquired,
-<a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/jaxrs/JaxRsHttpRequest.html" title="nablarch.fw.jaxrs.JaxRsHttpRequest">JaxRsHttpRequest</a> is defined as an argument.</p>
+<a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/jaxrs/JaxRsHttpRequest.html" title="nablarch.fw.jaxrs.JaxRsHttpRequest">JaxRsHttpRequest</a> is defined as an argument.</p>
 <dl class="last docutils">
 <dt>Example:</dt>
 <dd><div class="first last highlight-java"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="n">HttpResponse</span> <span class="nf">sample</span><span class="o">(</span><span class="n">JaxRsHttpRequest</span> <span class="n">request</span><span class="o">)</span> <span class="o">{</span>
@@ -388,9 +389,9 @@
 </dl>
 </td>
 </tr>
-<tr class="row-odd"><td><a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/ExecutionContext.html" title="nablarch.fw.ExecutionContext">ExecutionContext</a></td>
-<td><p class="first">To access the scope variables provided by  <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/ExecutionContext.html" title="nablarch.fw.ExecutionContext">ExecutionContext</a>,
-<a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/ExecutionContext.html" title="nablarch.fw.ExecutionContext">ExecutionContext</a> is defined as an argument.</p>
+<tr class="row-odd"><td><a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/ExecutionContext.html" title="nablarch.fw.ExecutionContext">ExecutionContext</a></td>
+<td><p class="first">To access the scope variables provided by  <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/ExecutionContext.html" title="nablarch.fw.ExecutionContext">ExecutionContext</a>,
+<a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/ExecutionContext.html" title="nablarch.fw.ExecutionContext">ExecutionContext</a> is defined as an argument.</p>
 <dl class="last docutils">
 <dt>Example:</dt>
 <dd><div class="first last highlight-java"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="n">HttpResponse</span> <span class="nf">sample</span><span class="o">(</span><span class="n">ExecutionContext</span> <span class="n">context</span><span class="o">)</span> <span class="o">{</span>
@@ -441,8 +442,8 @@
 <tr class="row-odd"><td>Form (Java Beans)</td>
 <td>The form returned from the method is converted to the content to be output to the response body by using <a class="reference internal" href="../../../handlers/rest/body_convert_handler.html#body-convert-handler"><span>Request Body Conversion Handler</span></a> and returned to the client.</td>
 </tr>
-<tr class="row-even"><td><a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/web/HttpResponse.html" title="nablarch.fw.web.HttpResponse">HttpResponse</a></td>
-<td>The information of  <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/web/HttpResponse.html" title="nablarch.fw.web.HttpResponse">HttpResponse</a> returned from the method is returned to the client.</td>
+<tr class="row-even"><td><a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/web/HttpResponse.html" title="nablarch.fw.web.HttpResponse">HttpResponse</a></td>
+<td>The information of  <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/web/HttpResponse.html" title="nablarch.fw.web.HttpResponse">HttpResponse</a> returned from the method is returned to the client.</td>
 </tr>
 </tbody>
 </table>
@@ -470,9 +471,9 @@ In this example, the name <code class="docutils literal"><span class="pre">id</s
 </div>
 </dd>
 <dt>Implementation of resource class methods</dt>
-<dd><p class="first">Acquires the path parameter from  <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/jaxrs/JaxRsHttpRequest.html" title="nablarch.fw.jaxrs.JaxRsHttpRequest">JaxRsHttpRequest</a> .
-For this reason,  <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/jaxrs/JaxRsHttpRequest.html" title="nablarch.fw.jaxrs.JaxRsHttpRequest">JaxRsHttpRequest</a> is defined as a temporary argument for the method of the resource.</p>
-<p>For the parameter name specified in <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/jaxrs/JaxRsHttpRequest.html" title="nablarch.fw.jaxrs.JaxRsHttpRequest">JaxRsHttpRequest</a> ,
+<dd><p class="first">Acquires the path parameter from  <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/jaxrs/JaxRsHttpRequest.html" title="nablarch.fw.jaxrs.JaxRsHttpRequest">JaxRsHttpRequest</a> .
+For this reason,  <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/jaxrs/JaxRsHttpRequest.html" title="nablarch.fw.jaxrs.JaxRsHttpRequest">JaxRsHttpRequest</a> is defined as a temporary argument for the method of the resource.</p>
+<p>For the parameter name specified in <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/jaxrs/JaxRsHttpRequest.html" title="nablarch.fw.jaxrs.JaxRsHttpRequest">JaxRsHttpRequest</a> ,
 use the path parameter name specified in the routing configuration.</p>
 <div class="last highlight-java"><div class="highlight"><pre><span></span><span class="nd">@Produces</span><span class="o">(</span><span class="n">MediaType</span><span class="o">.</span><span class="na">APPLICATION_JSON</span><span class="o">)</span>
 <span class="kd">public</span> <span class="n">User</span> <span class="nf">delete</span><span class="o">(</span><span class="n">JaxRsHttpRequest</span> <span class="n">req</span><span class="o">)</span> <span class="o">{</span>
@@ -505,9 +506,9 @@ The implementation method for such a case is shown below.</p>
 </div>
 </dd>
 <dt>Implementation of resource class methods</dt>
-<dd><p class="first">Acquires the query parameter from  <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/jaxrs/JaxRsHttpRequest.html" title="nablarch.fw.jaxrs.JaxRsHttpRequest">JaxRsHttpRequest</a> .
-For this reason,  <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/jaxrs/JaxRsHttpRequest.html" title="nablarch.fw.jaxrs.JaxRsHttpRequest">JaxRsHttpRequest</a> is defined as a temporary argument for the method of the resource.</p>
-<p>Parameters acquired from <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/jaxrs/JaxRsHttpRequest.html" title="nablarch.fw.jaxrs.JaxRsHttpRequest">JaxRsHttpRequest</a>  is mapped to form class using <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/core/beans/BeanUtil.html" title="nablarch.core.beans.BeanUtil">BeanUtil</a>.</p>
+<dd><p class="first">Acquires the query parameter from  <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/jaxrs/JaxRsHttpRequest.html" title="nablarch.fw.jaxrs.JaxRsHttpRequest">JaxRsHttpRequest</a> .
+For this reason,  <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/jaxrs/JaxRsHttpRequest.html" title="nablarch.fw.jaxrs.JaxRsHttpRequest">JaxRsHttpRequest</a> is defined as a temporary argument for the method of the resource.</p>
+<p>Parameters acquired from <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/jaxrs/JaxRsHttpRequest.html" title="nablarch.fw.jaxrs.JaxRsHttpRequest">JaxRsHttpRequest</a>  is mapped to form class using <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/core/beans/BeanUtil.html" title="nablarch.core.beans.BeanUtil">BeanUtil</a>.</p>
 <div class="last highlight-java"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="n">HttpResponse</span> <span class="nf">search</span><span class="o">(</span><span class="n">JaxRsHttpRequest</span> <span class="n">req</span><span class="o">)</span> <span class="o">{</span>
 
   <span class="c1">// Convert request parameters to Bean</span>
@@ -541,7 +542,7 @@ For this reason,  <a class="reference external" href="https://nablarch.github.io
 <p class="last">If it is necessary to specify a response header that is common to the entire application, it should be set in the handler.
 If security-related response headers are to be specified, use <a class="reference internal" href="../../../handlers/web/secure_handler.html#secure-handler"><span>Secure Handler</span></a>.</p>
 </div>
-<p>To create an <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/web/HttpResponse.html" title="nablarch.fw.web.HttpResponse">HttpResponse</a> with a method of the resource class, just set the response header to HttpResponse.</p>
+<p>To create an <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/web/HttpResponse.html" title="nablarch.fw.web.HttpResponse">HttpResponse</a> with a method of the resource class, just set the response header to HttpResponse.</p>
 <blockquote>
 <div><div class="highlight-java"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="n">HttpResponse</span> <span class="nf">something</span><span class="o">(</span><span class="n">JaxRsHttpRequest</span> <span class="n">request</span><span class="o">)</span> <span class="o">{</span>
 
@@ -568,7 +569,7 @@ the response header cannot be specified.</p>
 </pre></div>
 </div>
 </div></blockquote>
-<p>The framework provides <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/jaxrs/EntityResponse.html" title="nablarch.fw.jaxrs.EntityResponse">EntityResponse</a>
+<p>The framework provides <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/jaxrs/EntityResponse.html" title="nablarch.fw.jaxrs.EntityResponse">EntityResponse</a>
 to set the response header and status code when Produces annotation is used.
 It should be implemented to return an EntityResponse instead of an entity.</p>
 <blockquote>
@@ -602,7 +603,7 @@ It should be implemented to return an EntityResponse instead of an entity.</p>
 
     <div role="contentinfo">
         <p>
-            &copy; Copyright 2010-2024, TIS Inc.
+            &copy; Copyright 2010-2025, TIS Inc.
         </p>
     </div>
     Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
@@ -623,7 +624,7 @@ It should be implemented to return an EntityResponse instead of an entity.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../../../',
-            VERSION:'5u25',
+            VERSION:'5u26',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

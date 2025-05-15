@@ -9,7 +9,7 @@
   <meta http-equiv='content-language' content='ja'>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>MOM Messaging &mdash; ∇Nablarch  5u25 documentation</title>
+  <title>MOM Messaging &mdash; ∇Nablarch  5u26 documentation</title>
   
 
   
@@ -33,9 +33,10 @@
   
 
   
+  
   <link rel="canonical" href="https://nablarch.github.io/docs/LATEST/doc/application_framework/application_framework/libraries/system_messaging/mom_system_messaging.html" />
   
-    <link rel="top" title="∇Nablarch  5u25 documentation" href="../../../../index.html"/>
+    <link rel="top" title="∇Nablarch  5u26 documentation" href="../../../../index.html"/>
         <link rel="up" title="Intersystem Messaging" href="../system_messaging.html"/>
         <link rel="next" title="HTTP Messaging" href="http_system_messaging.html"/>
         <link rel="prev" title="Intersystem Messaging" href="../system_messaging.html"/>
@@ -63,7 +64,7 @@
   
 
   
-    <div id="sidebar-version">Version: 5u25</div>
+    <div id="sidebar-version">Version: 5u26</div>
   </a>
 
   <div role="search">
@@ -320,7 +321,7 @@
       <a href="https://github.com/nablarch" class="fa fa-github">GitHub</a>
     </li>
     <li class="wy-breadcrumbs-aside">
-        <a href="https://nablarch.github.io/docs/LATEST/doc/index.html" class="ja">日本語</a>
+        <a href="https://nablarch.github.io/docs/5-LATEST/doc/index.html" class="ja">日本語</a>
     </li>
   </ul>
   <hr/>
@@ -399,12 +400,12 @@ by referring to <a class="reference internal" href="#mom-system-messaging-change
 <div class="section" id="compatible-with-various-moms">
 <h3><a class="toc-backref" href="#id2">Compatible with various MOMs</a><a class="headerlink" href="#compatible-with-various-moms" title="Permalink to this headline">¶</a></h3>
 <p>Since MOM messaging various MOMs,
-the <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/messaging/MessagingProvider.html" title="nablarch.fw.messaging.MessagingProvider">MessagingProvider</a> interface is provided.
+the <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/messaging/MessagingProvider.html" title="nablarch.fw.messaging.MessagingProvider">MessagingProvider</a> interface is provided.
 MQ connection that depends on MOM and message send/receive are performed by the class that implements this interface.
 Therefore, this function can be used in various MOMs
-by creating a class that implements the <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/messaging/MessagingProvider.html" title="nablarch.fw.messaging.MessagingProvider">MessagingProvider</a> interface.</p>
+by creating a class that implements the <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/messaging/MessagingProvider.html" title="nablarch.fw.messaging.MessagingProvider">MessagingProvider</a> interface.</p>
 <p>MOM messaging is compatible with JMS
-and offers <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/messaging/provider/JmsMessagingProvider.html" title="nablarch.fw.messaging.provider.JmsMessagingProvider">JmsMessagingProvider</a>.
+and offers <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/messaging/provider/JmsMessagingProvider.html" title="nablarch.fw.messaging.provider.JmsMessagingProvider">JmsMessagingProvider</a>.
 For details, refer to the linked Javadoc.</p>
 <p>It also supports IBM MQ,
 which is widely used as a MOM. For details, see <a class="reference internal" href="../../../adaptors/webspheremq_adaptor.html#webspheremq-adaptor"><span>IBM MQ Adapter</span></a>.</p>
@@ -429,7 +430,7 @@ which is widely used as a MOM. For details, see <a class="reference internal" hr
 <span id="mom-system-messaging-settings"></span><h3><a class="toc-backref" href="#id5">Configure settings to use MOM messaging</a><a class="headerlink" href="#configure-settings-to-use-mom-messaging" title="Permalink to this headline">¶</a></h3>
 <p>In MOM messaging, add the following classes to the component definition.</p>
 <ul class="simple">
-<li>Implementation class <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/messaging/MessagingProvider.html" title="nablarch.fw.messaging.MessagingProvider">MessagingProvider</a> (MQ connection, MQ send to/receive from)</li>
+<li>Implementation class <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/messaging/MessagingProvider.html" title="nablarch.fw.messaging.MessagingProvider">MessagingProvider</a> (MQ connection, MQ send to/receive from)</li>
 <li><a class="reference internal" href="../../handlers/mom_messaging/messaging_context_handler.html#messaging-context-handler"><span>Messaging Context Management Handler</span></a> (MQ connection management)</li>
 </ul>
 <p>A configuration example is shown below.</p>
@@ -449,18 +450,18 @@ which is widely used as a MOM. For details, see <a class="reference internal" hr
 <p>In the case of messages are received, it is necessary to set the data reader.
 Add the following class to the component definition.</p>
 <ul class="simple">
-<li><a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/messaging/reader/MessageReader.html" title="nablarch.fw.messaging.reader.MessageReader">MessageReader</a> (reads messages from MQ)</li>
-<li><a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/messaging/reader/FwHeaderReader.html" title="nablarch.fw.messaging.reader.FwHeaderReader">FwHeaderReader</a> (reads the framework control header from the message)</li>
+<li><a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/messaging/reader/MessageReader.html" title="nablarch.fw.messaging.reader.MessageReader">MessageReader</a> (reads messages from MQ)</li>
+<li><a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/messaging/reader/FwHeaderReader.html" title="nablarch.fw.messaging.reader.FwHeaderReader">FwHeaderReader</a> (reads the framework control header from the message)</li>
 </ul>
 <p>A configuration example is shown below.</p>
 <dl class="docutils">
 <dt>Point</dt>
 <dd><ul class="first last simple">
 <li>Specify <code class="docutils literal"><span class="pre">dataReader</span></code> in the component name of the data reader.</li>
-<li>Specify <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/messaging/reader/MessageReader.html" title="nablarch.fw.messaging.reader.MessageReader">MessageReader</a>
-in the <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/messaging/reader/FwHeaderReader.html#setMessageReader-nablarch.fw.DataReader-" title="nablarch.fw.messaging.reader.FwHeaderReader.setMessageReader(nablarch.fw.DataReader)">messageReader</a>
+<li>Specify <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/messaging/reader/MessageReader.html" title="nablarch.fw.messaging.reader.MessageReader">MessageReader</a>
+in the <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/messaging/reader/FwHeaderReader.html#setMessageReader-nablarch.fw.DataReader-" title="nablarch.fw.messaging.reader.FwHeaderReader.setMessageReader(nablarch.fw.DataReader)">messageReader</a>
 property
-of <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/messaging/reader/FwHeaderReader.html" title="nablarch.fw.messaging.reader.FwHeaderReader">FwHeaderReader</a>.</li>
+of <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/messaging/reader/FwHeaderReader.html" title="nablarch.fw.messaging.reader.FwHeaderReader">FwHeaderReader</a>.</li>
 </ul>
 </dd>
 </dl>
@@ -508,10 +509,10 @@ of <a class="reference external" href="https://nablarch.github.io/docs/5u25/java
 </dd>
 </dl>
 <p>Sending asynchronous message provides
-<a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/messaging/action/AsyncMessageSendAction.html" title="nablarch.fw.messaging.action.AsyncMessageSendAction">AsyncMessageSendAction</a>
+<a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/messaging/action/AsyncMessageSendAction.html" title="nablarch.fw.messaging.action.AsyncMessageSendAction">AsyncMessageSendAction</a>
 as a common action to acquire the data to be sent from the table (called a temporary table) held by the send message data,
 and create and send messages.
-<a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/messaging/action/AsyncMessageSendAction.html" title="nablarch.fw.messaging.action.AsyncMessageSendAction">AsyncMessageSendAction</a> is an action class
+<a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/messaging/action/AsyncMessageSendAction.html" title="nablarch.fw.messaging.action.AsyncMessageSendAction">AsyncMessageSendAction</a> is an action class
 that works with <a class="reference internal" href="../../batch/nablarch_batch/index.html#nablarch-batch"><span>Nablarch Batch Application</span></a>.</p>
 <div class="admonition tip">
 <p class="first admonition-title">Tip</p>
@@ -519,7 +520,7 @@ that works with <a class="reference internal" href="../../batch/nablarch_batch/i
 using <a class="reference internal" href="../database_management.html#database-management"><span>Database Access</span></a> with <a class="reference internal" href="../../web/index.html#web-application"><span>Web Application</span></a> or <a class="reference internal" href="../../batch/index.html#batch-application"><span>Batch Application</span></a>.</p>
 </div>
 <p>Only the following deliverables are required to be created using
-<a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/messaging/action/AsyncMessageSendAction.html" title="nablarch.fw.messaging.action.AsyncMessageSendAction">AsyncMessageSendAction</a>
+<a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/messaging/action/AsyncMessageSendAction.html" title="nablarch.fw.messaging.action.AsyncMessageSendAction">AsyncMessageSendAction</a>
 and the message send process can be implemented very easily.</p>
 <ul class="simple">
 <li>Temporary table that holds the data of send message</li>
@@ -695,10 +696,10 @@ all the attributes of the temporary table are not required to be retained as pro
 <dd><dl class="first last docutils">
 <dt>Point</dt>
 <dd><ul class="first last simple">
-<li>When <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/messaging/action/AsyncMessageSendAction.html" title="nablarch.fw.messaging.action.AsyncMessageSendAction">AsyncMessageSendAction</a> is used,
+<li>When <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/messaging/action/AsyncMessageSendAction.html" title="nablarch.fw.messaging.action.AsyncMessageSendAction">AsyncMessageSendAction</a> is used,
 configuration of queue name of send destination and storage directory of format definition file are required.
 Configured by adding
-<a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/messaging/action/AsyncMessageSendActionSettings.html" title="nablarch.fw.messaging.action.AsyncMessageSendActionSettings">AsyncMessageSendActionSettings</a>
+<a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/messaging/action/AsyncMessageSendActionSettings.html" title="nablarch.fw.messaging.action.AsyncMessageSendActionSettings">AsyncMessageSendActionSettings</a>
 to the component definition.
 For the configuration items, refer to the Javadoc link.</li>
 </ul>
@@ -727,9 +728,9 @@ For the configuration items, refer to the Javadoc link.</li>
 <dd><dl class="first last docutils">
 <dt>Point</dt>
 <dd><ul class="first last simple">
-<li>To make <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/messaging/action/AsyncMessageSendAction.html" title="nablarch.fw.messaging.action.AsyncMessageSendAction">AsyncMessageSendAction</a>
+<li>To make <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/messaging/action/AsyncMessageSendAction.html" title="nablarch.fw.messaging.action.AsyncMessageSendAction">AsyncMessageSendAction</a>
 work with <a class="reference internal" href="../../batch/nablarch_batch/index.html#nablarch-batch"><span>Nablarch Batch Application</span></a>,
-specify <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/messaging/action/AsyncMessageSendAction.html" title="nablarch.fw.messaging.action.AsyncMessageSendAction">AsyncMessageSendAction</a> in the component definition
+specify <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/messaging/action/AsyncMessageSendAction.html" title="nablarch.fw.messaging.action.AsyncMessageSendAction">AsyncMessageSendAction</a> in the component definition
 of <a class="reference internal" href="../../handlers/common/request_path_java_package_mapping.html#request-path-java-package-mapping"><span>Request Dispatch Handler</span></a>.</li>
 </ul>
 </dd>
@@ -807,13 +808,13 @@ as that of the send message is received at the reply to address. Therefore, the 
 </dd>
 </dl>
 <p>Sending synchronous message provides
-<a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/messaging/MessageSender.html" title="nablarch.fw.messaging.MessageSender">MessageSender</a> as a utility class that wraps routine processing.
+<a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/messaging/MessageSender.html" title="nablarch.fw.messaging.MessageSender">MessageSender</a> as a utility class that wraps routine processing.
 Only the following deliverables are required to be created using
-<a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/messaging/MessageSender.html" title="nablarch.fw.messaging.MessageSender">MessageSender</a>
+<a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/messaging/MessageSender.html" title="nablarch.fw.messaging.MessageSender">MessageSender</a>
 and the send synchronous response message can be created very easily.</p>
 <ul class="simple">
 <li>Format definition file used to send and receive</li>
-<li>Send/receive process with <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/messaging/MessageSender.html" title="nablarch.fw.messaging.MessageSender">MessageSender</a></li>
+<li>Send/receive process with <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/messaging/MessageSender.html" title="nablarch.fw.messaging.MessageSender">MessageSender</a></li>
 </ul>
 <p>The following is an implementation example of sending project information
 by batch action from the data stored in the table based on
@@ -867,10 +868,10 @@ Item definition omitted
 <dd><dl class="first last docutils">
 <dt>Point</dt>
 <dd><ul class="first last simple">
-<li>Create the request message with <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/messaging/SyncMessage.html" title="nablarch.fw.messaging.SyncMessage">SyncMessage</a>.</li>
+<li>Create the request message with <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/messaging/SyncMessage.html" title="nablarch.fw.messaging.SyncMessage">SyncMessage</a>.</li>
 <li>To send a message,
 use
-<a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/messaging/MessageSender.html#sendSync-nablarch.fw.messaging.SyncMessage-" title="nablarch.fw.messaging.MessageSender.sendSync(nablarch.fw.messaging.SyncMessage)">MessageSender#sendSync</a>.
+<a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/messaging/MessageSender.html#sendSync-nablarch.fw.messaging.SyncMessage-" title="nablarch.fw.messaging.MessageSender.sendSync(nablarch.fw.messaging.SyncMessage)">MessageSender#sendSync</a>.
 For How to Use, refer to the linked Javadoc.</li>
 </ul>
 </dd>
@@ -903,14 +904,14 @@ For How to Use, refer to the linked Javadoc.</li>
 <dd><dl class="first last docutils">
 <dt>Point</dt>
 <dd><ul class="first last simple">
-<li>When <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/messaging/MessageSender.html" title="nablarch.fw.messaging.MessageSender">MessageSender</a> is used,
+<li>When <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/messaging/MessageSender.html" title="nablarch.fw.messaging.MessageSender">MessageSender</a> is used,
 configuration of queue name of send and receive destination and storage directory of format definition file are required.
 Configured by <a class="reference internal" href="../repository.html#repository-environment-configuration"><span>Set the dependent value</span></a>.
 For configuration items,
 see
-<a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/messaging/MessageSenderSettings.html#MessageSenderSettings-java.lang.String-" title="nablarch.fw.messaging.MessageSenderSettings.MessageSenderSettings(java.lang.String)">MessageSenderSettings</a>.</li>
+<a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/messaging/MessageSenderSettings.html#MessageSenderSettings-java.lang.String-" title="nablarch.fw.messaging.MessageSenderSettings.MessageSenderSettings(java.lang.String)">MessageSenderSettings</a>.</li>
 <li>If you want to change the conversion process of sent and received messages,
-you can change it by defining a class that inherits <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/messaging/SyncMessageConvertor.html" title="nablarch.fw.messaging.SyncMessageConvertor">SyncMessageConvertor</a>
+you can change it by defining a class that inherits <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/messaging/SyncMessageConvertor.html" title="nablarch.fw.messaging.SyncMessageConvertor">SyncMessageConvertor</a>
 in the component definition file and specifying the name of the component in <code class="docutils literal"><span class="pre">messageSender.DEFAULT.messageConvertorName</span></code>.
 For details, see <a class="reference internal" href="#mom-system-messaging-change-fw-header-sync-ex"><span>Change the reading and writing of the framework control header(For sending synchronous message)</span></a>.</li>
 </ul>
@@ -965,16 +966,16 @@ For details, see <a class="reference internal" href="#mom-system-messaging-chang
 </dd>
 </dl>
 <p>Receiving asynchronous message provides
-<a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/messaging/action/AsyncMessageReceiveAction.html" title="nablarch.fw.messaging.action.AsyncMessageReceiveAction">AsyncMessageReceiveAction</a>
+<a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/messaging/action/AsyncMessageReceiveAction.html" title="nablarch.fw.messaging.action.AsyncMessageReceiveAction">AsyncMessageReceiveAction</a>
 as a common action to save the received message in the temporary table (message receive table).
-<a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/messaging/action/AsyncMessageReceiveAction.html" title="nablarch.fw.messaging.action.AsyncMessageReceiveAction">AsyncMessageReceiveAction</a>
+<a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/messaging/action/AsyncMessageReceiveAction.html" title="nablarch.fw.messaging.action.AsyncMessageReceiveAction">AsyncMessageReceiveAction</a>
 is an action class that works with <a class="reference internal" href="../../messaging/mom/index.html#mom-messaging"><span>Messaging with MOM</span></a>.</p>
 <div class="admonition tip">
 <p class="first admonition-title">Tip</p>
 <p class="last">Assumption is that the data stored in the temporary table will be imported to this table in the system
 using the <a class="reference internal" href="../../batch/index.html#batch-application"><span>Batch Application</span></a>.</p>
 </div>
-<p>Only the following deliverables are required to be created using <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/messaging/action/AsyncMessageReceiveAction.html" title="nablarch.fw.messaging.action.AsyncMessageReceiveAction">AsyncMessageReceiveAction</a>
+<p>Only the following deliverables are required to be created using <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/messaging/action/AsyncMessageReceiveAction.html" title="nablarch.fw.messaging.action.AsyncMessageReceiveAction">AsyncMessageReceiveAction</a>
 and the messages can be saved in the table very easily.</p>
 <ul class="simple">
 <li>Temporary table to register the messages</li>
@@ -1080,10 +1081,10 @@ INSERT INTO INS_PROJECT_RECEIVE_MESSAGE <span class="o">(</span>
 <dt>Point</dt>
 <dd><ul class="first last simple">
 <li>The file name is <code class="docutils literal"><span class="pre">&lt;Request</span> <span class="pre">ID</span> <span class="pre">of</span> <span class="pre">received</span> <span class="pre">message&gt;Form</span></code>.</li>
-<li>Define a constructor with two arguments: <a class="reference external" href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a>, <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/messaging/RequestMessage.html" title="nablarch.fw.messaging.RequestMessage">RequestMessage</a>.
+<li>Define a constructor with two arguments: <a class="reference external" href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a>, <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/messaging/RequestMessage.html" title="nablarch.fw.messaging.RequestMessage">RequestMessage</a>.
 The meaning of each parameter is as follows.<ul>
 <li><a class="reference external" href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a> -&gt; Received message serial number</li>
-<li><a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/messaging/RequestMessage.html" title="nablarch.fw.messaging.RequestMessage">RequestMessage</a> -&gt; Received message</li>
+<li><a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/messaging/RequestMessage.html" title="nablarch.fw.messaging.RequestMessage">RequestMessage</a> -&gt; Received message</li>
 </ul>
 </li>
 </ul>
@@ -1121,10 +1122,10 @@ The meaning of each parameter is as follows.<ul>
 <dd><dl class="first last docutils">
 <dt>Point</dt>
 <dd><ul class="first last simple">
-<li>When <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/messaging/action/AsyncMessageReceiveAction.html" title="nablarch.fw.messaging.action.AsyncMessageReceiveAction">AsyncMessageReceiveAction</a>
+<li>When <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/messaging/action/AsyncMessageReceiveAction.html" title="nablarch.fw.messaging.action.AsyncMessageReceiveAction">AsyncMessageReceiveAction</a>
 is used, configuration of format definition file and SQL file location, etc. are required.
 Configured by adding
-<a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/messaging/action/AsyncMessageReceiveActionSettings.html" title="nablarch.fw.messaging.action.AsyncMessageReceiveActionSettings">AsyncMessageReceiveActionSettings</a>
+<a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/messaging/action/AsyncMessageReceiveActionSettings.html" title="nablarch.fw.messaging.action.AsyncMessageReceiveActionSettings">AsyncMessageReceiveActionSettings</a>
 to the component definition.
 For the configuration items, refer to the Javadoc link.</li>
 </ul>
@@ -1152,9 +1153,9 @@ For the configuration items, refer to the Javadoc link.</li>
 <dd><dl class="first last docutils">
 <dt>Point</dt>
 <dd><ul class="first last simple">
-<li>To make <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/messaging/action/AsyncMessageReceiveAction.html" title="nablarch.fw.messaging.action.AsyncMessageReceiveAction">AsyncMessageReceiveAction</a>
+<li>To make <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/messaging/action/AsyncMessageReceiveAction.html" title="nablarch.fw.messaging.action.AsyncMessageReceiveAction">AsyncMessageReceiveAction</a>
 work with <a class="reference internal" href="../../messaging/mom/index.html#mom-messaging"><span>Messaging with MOM</span></a>,
-specify <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/messaging/action/AsyncMessageReceiveAction.html" title="nablarch.fw.messaging.action.AsyncMessageReceiveAction">AsyncMessageReceiveAction</a> in the component definition
+specify <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/messaging/action/AsyncMessageReceiveAction.html" title="nablarch.fw.messaging.action.AsyncMessageReceiveAction">AsyncMessageReceiveAction</a> in the component definition
 of <a class="reference internal" href="../../handlers/common/request_path_java_package_mapping.html#request-path-java-package-mapping"><span>Request Dispatch Handler</span></a>.</li>
 </ul>
 </dd>
@@ -1200,12 +1201,12 @@ At this time, the value of the message ID header of the received message is conf
 </tbody>
 </table>
 </div></blockquote>
-<p>Receiving synchronous message provides <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/messaging/action/MessagingAction.html" title="nablarch.fw.messaging.action.MessagingAction">MessagingAction</a> as a template class
+<p>Receiving synchronous message provides <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/messaging/action/MessagingAction.html" title="nablarch.fw.messaging.action.MessagingAction">MessagingAction</a> as a template class
 that performs routine processing.
-<a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/messaging/action/MessagingAction.html" title="nablarch.fw.messaging.action.MessagingAction">MessagingAction</a> is an action class
+<a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/messaging/action/MessagingAction.html" title="nablarch.fw.messaging.action.MessagingAction">MessagingAction</a> is an action class
 that works with <a class="reference internal" href="../../messaging/mom/index.html#mom-messaging"><span>Messaging with MOM</span></a>.</p>
 <p>Only the following deliverables are required to be created by using
-<a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/messaging/action/MessagingAction.html" title="nablarch.fw.messaging.action.MessagingAction">MessagingAction</a>.</p>
+<a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/messaging/action/MessagingAction.html" title="nablarch.fw.messaging.action.MessagingAction">MessagingAction</a>.</p>
 <ul class="simple">
 <li>Format definition file that represents the message layout</li>
 <li>Process when a message is received and when an error occurs (action class)</li>
@@ -1257,16 +1258,16 @@ Item definition omitted
 <dd><dl class="first last docutils">
 <dt>Point</dt>
 <dd><ul class="first last">
-<li><p class="first">Inherit <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/messaging/action/MessagingAction.html" title="nablarch.fw.messaging.action.MessagingAction">MessagingAction</a>
+<li><p class="first">Inherit <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/messaging/action/MessagingAction.html" title="nablarch.fw.messaging.action.MessagingAction">MessagingAction</a>
 and override the following method.</p>
 <blockquote>
 <div><ul class="simple">
-<li><a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/messaging/action/MessagingAction.html#onReceive-nablarch.fw.messaging.RequestMessage-nablarch.fw.ExecutionContext-" title="nablarch.fw.messaging.action.MessagingAction.onReceive(nablarch.fw.messaging.RequestMessage-nablarch.fw.ExecutionContext)">MessagingAction#onReceive</a></li>
-<li><a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/messaging/action/MessagingAction.html#onError-java.lang.Throwable-nablarch.fw.messaging.RequestMessage-nablarch.fw.ExecutionContext-" title="nablarch.fw.messaging.action.MessagingAction.onError(java.lang.Throwable-nablarch.fw.messaging.RequestMessage-nablarch.fw.ExecutionContext)">MessagingAction#onError</a></li>
+<li><a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/messaging/action/MessagingAction.html#onReceive-nablarch.fw.messaging.RequestMessage-nablarch.fw.ExecutionContext-" title="nablarch.fw.messaging.action.MessagingAction.onReceive(nablarch.fw.messaging.RequestMessage-nablarch.fw.ExecutionContext)">MessagingAction#onReceive</a></li>
+<li><a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/messaging/action/MessagingAction.html#onError-java.lang.Throwable-nablarch.fw.messaging.RequestMessage-nablarch.fw.ExecutionContext-" title="nablarch.fw.messaging.action.MessagingAction.onError(java.lang.Throwable-nablarch.fw.messaging.RequestMessage-nablarch.fw.ExecutionContext)">MessagingAction#onError</a></li>
 </ul>
 </div></blockquote>
 </li>
-<li><p class="first">Create the response message with <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/messaging/RequestMessage.html#reply--" title="nablarch.fw.messaging.RequestMessage.reply()">RequestMessage#reply</a>.</p>
+<li><p class="first">Create the response message with <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/messaging/RequestMessage.html#reply--" title="nablarch.fw.messaging.RequestMessage.reply()">RequestMessage#reply</a>.</p>
 </li>
 <li><p class="first">To retain the contents of request/response message, create a form class corresponding to each.</p>
 </li>
@@ -1337,41 +1338,41 @@ The following shows the support method for each type of send and receive.</p>
 <dd><p class="first">Since writing of the framework control header is performed by the following method,
 support is provided by overriding the following method.</p>
 <ul class="last simple">
-<li><a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/messaging/action/AsyncMessageSendAction.html#createHeaderRecordFormatter--" title="nablarch.fw.messaging.action.AsyncMessageSendAction.createHeaderRecordFormatter()">AsyncMessageSendAction#createHeaderRecordFormatter</a></li>
-<li><a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/messaging/action/AsyncMessageSendAction.html#createHeaderRecord-nablarch.core.db.statement.SqlRow-" title="nablarch.fw.messaging.action.AsyncMessageSendAction.createHeaderRecord(nablarch.core.db.statement.SqlRow)">AsyncMessageSendAction#createHeaderRecord</a></li>
+<li><a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/messaging/action/AsyncMessageSendAction.html#createHeaderRecordFormatter--" title="nablarch.fw.messaging.action.AsyncMessageSendAction.createHeaderRecordFormatter()">AsyncMessageSendAction#createHeaderRecordFormatter</a></li>
+<li><a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/messaging/action/AsyncMessageSendAction.html#createHeaderRecord-nablarch.core.db.statement.SqlRow-" title="nablarch.fw.messaging.action.AsyncMessageSendAction.createHeaderRecord(nablarch.core.db.statement.SqlRow)">AsyncMessageSendAction#createHeaderRecord</a></li>
 </ul>
 </dd>
 </dl>
 <dl class="docutils" id="mom-system-messaging-change-fw-header-sync-ex">
 <dt>For sending synchronous message</dt>
-<dd><p class="first"><a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/messaging/MessageSender.html" title="nablarch.fw.messaging.MessageSender">MessageSender</a> delegates the conversion process to
-<a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/messaging/SyncMessageConvertor.html" title="nablarch.fw.messaging.SyncMessageConvertor">SyncMessageConvertor</a> so the conversion process of sent and received messages can be changed,
+<dd><p class="first"><a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/messaging/MessageSender.html" title="nablarch.fw.messaging.MessageSender">MessageSender</a> delegates the conversion process to
+<a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/messaging/SyncMessageConvertor.html" title="nablarch.fw.messaging.SyncMessageConvertor">SyncMessageConvertor</a> so the conversion process of sent and received messages can be changed,
 and this class reads and writes the framework control headers.</p>
-<p class="last">Therefore, create a class that inherits <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/messaging/SyncMessageConvertor.html" title="nablarch.fw.messaging.SyncMessageConvertor">SyncMessageConvertor</a>,
-and specify in the configuration of <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/messaging/MessageSender.html" title="nablarch.fw.messaging.MessageSender">MessageSender</a>.
-See <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/messaging/MessageSenderSettings.html" title="nablarch.fw.messaging.MessageSenderSettings">MessageSenderSettings</a>
-for the configuration of <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/messaging/MessageSender.html" title="nablarch.fw.messaging.MessageSender">MessageSender</a>.</p>
+<p class="last">Therefore, create a class that inherits <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/messaging/SyncMessageConvertor.html" title="nablarch.fw.messaging.SyncMessageConvertor">SyncMessageConvertor</a>,
+and specify in the configuration of <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/messaging/MessageSender.html" title="nablarch.fw.messaging.MessageSender">MessageSender</a>.
+See <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/messaging/MessageSenderSettings.html" title="nablarch.fw.messaging.MessageSenderSettings">MessageSenderSettings</a>
+for the configuration of <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/messaging/MessageSender.html" title="nablarch.fw.messaging.MessageSender">MessageSender</a>.</p>
 </dd>
 </dl>
 <dl class="docutils" id="mom-system-messaging-change-fw-header-async-receive">
 <dt>For receiving asynchronous message</dt>
 <dd><p class="first">The framework control header is read by a class
-that implements the <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/messaging/FwHeaderDefinition.html" title="nablarch.fw.messaging.FwHeaderDefinition">FwHeaderDefinition</a> interface
-configured in <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/messaging/reader/FwHeaderReader.html" title="nablarch.fw.messaging.reader.FwHeaderReader">FwHeaderReader</a>.
-<a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/messaging/StandardFwHeaderDefinition.html" title="nablarch.fw.messaging.StandardFwHeaderDefinition">StandardFwHeaderDefinition</a> is used by default.</p>
-<p class="last">Therefore, referring to <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/messaging/StandardFwHeaderDefinition.html" title="nablarch.fw.messaging.StandardFwHeaderDefinition">StandardFwHeaderDefinition</a>,
-a class that implements the <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/messaging/FwHeaderDefinition.html" title="nablarch.fw.messaging.FwHeaderDefinition">FwHeaderDefinition</a> interface can be created in the project
+that implements the <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/messaging/FwHeaderDefinition.html" title="nablarch.fw.messaging.FwHeaderDefinition">FwHeaderDefinition</a> interface
+configured in <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/messaging/reader/FwHeaderReader.html" title="nablarch.fw.messaging.reader.FwHeaderReader">FwHeaderReader</a>.
+<a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/messaging/StandardFwHeaderDefinition.html" title="nablarch.fw.messaging.StandardFwHeaderDefinition">StandardFwHeaderDefinition</a> is used by default.</p>
+<p class="last">Therefore, referring to <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/messaging/StandardFwHeaderDefinition.html" title="nablarch.fw.messaging.StandardFwHeaderDefinition">StandardFwHeaderDefinition</a>,
+a class that implements the <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/messaging/FwHeaderDefinition.html" title="nablarch.fw.messaging.FwHeaderDefinition">FwHeaderDefinition</a> interface can be created in the project
 and specified as the
-<a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/messaging/reader/FwHeaderReader.html#setFwHeaderDefinition-nablarch.fw.messaging.FwHeaderDefinition-" title="nablarch.fw.messaging.reader.FwHeaderReader.setFwHeaderDefinition(nablarch.fw.messaging.FwHeaderDefinition)">FwHeaderReader#fwHeaderDefinition</a>
+<a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/messaging/reader/FwHeaderReader.html#setFwHeaderDefinition-nablarch.fw.messaging.FwHeaderDefinition-" title="nablarch.fw.messaging.reader.FwHeaderReader.setFwHeaderDefinition(nablarch.fw.messaging.FwHeaderDefinition)">FwHeaderReader#fwHeaderDefinition</a>
 property in the component definition.</p>
 </dd>
 <dt>For receiving synchronous message</dt>
 <dd><p class="first">Reading the framework control header is the same as
 <a class="reference internal" href="#mom-system-messaging-change-fw-header-async-receive"><span>receiving asynchronous message</span></a>.</p>
 <p class="last">Even when writing framework control header,
-creating the class with the implementation of <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/messaging/FwHeaderDefinition.html" title="nablarch.fw.messaging.FwHeaderDefinition">FwHeaderDefinition</a> interface is the same,
+creating the class with the implementation of <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/messaging/FwHeaderDefinition.html" title="nablarch.fw.messaging.FwHeaderDefinition">FwHeaderDefinition</a> interface is the same,
 but the class created with component definition can be specified in the
-<a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/messaging/handler/MessageReplyHandler.html#setFwHeaderDefinition-nablarch.fw.messaging.FwHeaderDefinition-" title="nablarch.fw.messaging.handler.MessageReplyHandler.setFwHeaderDefinition(nablarch.fw.messaging.FwHeaderDefinition)">fwHeaderDefinition</a>
+<a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/messaging/handler/MessageReplyHandler.html#setFwHeaderDefinition-nablarch.fw.messaging.FwHeaderDefinition-" title="nablarch.fw.messaging.handler.MessageReplyHandler.setFwHeaderDefinition(nablarch.fw.messaging.FwHeaderDefinition)">fwHeaderDefinition</a>
 property of <a class="reference internal" href="../../handlers/mom_messaging/message_reply_handler.html#message-reply-handler"><span>Message Response Control Handler</span></a>.</p>
 </dd>
 </dl>
@@ -1471,7 +1472,7 @@ For example, in the case of JMS messaging provider, all JMS headers, JMS extensi
 <dl class="docutils" id="mom-system-messaging-message-body">
 <dt>Message body</dt>
 <dd><p class="first">The data area of the message excluding the protocol header is called the message body.
-As a general rule, <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/messaging/MessagingProvider.html" title="nablarch.fw.messaging.MessagingProvider">MessagingProvider</a>,
+As a general rule, <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/messaging/MessagingProvider.html" title="nablarch.fw.messaging.MessagingProvider">MessagingProvider</a>,
 which depends on MON, uses only the protocol header area.
 The other data areas are handled as unanalyzed simple binary data.</p>
 <p class="last">The message body is analyzed by <a class="reference internal" href="../data_io/data_format.html#data-format"><span>General Data Format</span></a>.
@@ -1570,7 +1571,7 @@ that are required to manage optional items and framework functions that may be a
 
     <div role="contentinfo">
         <p>
-            &copy; Copyright 2010-2024, TIS Inc.
+            &copy; Copyright 2010-2025, TIS Inc.
         </p>
     </div>
     Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
@@ -1591,7 +1592,7 @@ that are required to manage optional items and framework functions that may be a
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../../',
-            VERSION:'5u25',
+            VERSION:'5u26',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

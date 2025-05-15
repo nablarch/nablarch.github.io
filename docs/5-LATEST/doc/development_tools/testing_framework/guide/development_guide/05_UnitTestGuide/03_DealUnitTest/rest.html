@@ -9,7 +9,7 @@
   <meta http-equiv='content-language' content='ja'>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>取引単体テストの実施方法 &mdash; ∇Nablarch  5u25 ドキュメント</title>
+  <title>取引単体テストの実施方法 &mdash; ∇Nablarch  5u26 ドキュメント</title>
   
 
   
@@ -33,9 +33,10 @@
   
 
   
+  
   <link rel="canonical" href="https://nablarch.github.io/docs/LATEST/doc/development_tools/testing_framework/guide/development_guide/05_UnitTestGuide/03_DealUnitTest/rest.html" />
   
-    <link rel="top" title="∇Nablarch  5u25 ドキュメント" href="../../../../../../index.html"/>
+    <link rel="top" title="∇Nablarch  5u26 ドキュメント" href="../../../../../../index.html"/>
         <link rel="up" title="単体テスト実施方法" href="../index.html"/>
         <link rel="next" title="リクエスト単体テストの実施方法(バッチ)" href="../02_RequestUnitTest/batch.html"/>
         <link rel="prev" title="リクエスト単体テストの実施方法" href="../02_RequestUnitTest/rest.html"/>
@@ -63,7 +64,7 @@
   
 
   
-    <div id="sidebar-version">Version: 5u25</div>
+    <div id="sidebar-version">Version: 5u26</div>
   </a>
 
   <div role="search">
@@ -356,7 +357,7 @@
       <a href="https://github.com/nablarch" class="fa fa-github">GitHub</a>
     </li>
     <li class="wy-breadcrumbs-aside">
-        <a href="https://nablarch.github.io/docs/LATEST/doc/en/index.html" class="en">English</a>
+        <a href="https://nablarch.github.io/docs/5-LATEST/doc/en/index.html" class="en">English</a>
     </li>
   </ul>
   <hr/>
@@ -402,19 +403,19 @@
 そのような場合は以下の方法で実現できる。</p>
 <div class="section" id="requestresponseprocessor">
 <h3><code class="docutils literal"><span class="pre">RequestResponseProcessor</span></code> の実装クラスを作成する<a class="headerlink" href="#requestresponseprocessor" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>RESTfulウェブサービス実行基盤向けテスティングフレームワークでは <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/test/core/http/RequestResponseProcessor.html" title="nablarch.test.core.http.RequestResponseProcessor">RequestResponseProcessor</a> という
+<p>RESTfulウェブサービス実行基盤向けテスティングフレームワークでは <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/test/core/http/RequestResponseProcessor.html" title="nablarch.test.core.http.RequestResponseProcessor">RequestResponseProcessor</a> という
 リクエスト・レスポンスを操作するためのインターフェースを用意している。</p>
 <p>各アプリケーションの要件に合わせてこのインタフェースの実装クラスを作成する。</p>
-<p>フレームワークではよく使われる実装として <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/test/core/http/RequestResponseCookieManager.html" title="nablarch.test.core.http.RequestResponseCookieManager">RequestResponseCookieManager</a> を提供している。
+<p>フレームワークではよく使われる実装として <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/test/core/http/RequestResponseCookieManager.html" title="nablarch.test.core.http.RequestResponseCookieManager">RequestResponseCookieManager</a> を提供している。
 この実装ではレスポンスの <code class="docutils literal"><span class="pre">Set-Cookie</span></code> ヘッダからプロパティで指定した名前のクッキーを抽出し、リクエストの <code class="docutils literal"><span class="pre">Cookie</span></code> ヘッダに値を引き継ぐことができる。</p>
-<p>クッキーのうち、 <a class="reference internal" href="../../../../../../application_framework/application_framework/libraries/session_store.html#session-store"><span>セッションストア</span></a> のセッションIDに特化した実装として <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/test/core/http/NablarchSIDManager.html" title="nablarch.test.core.http.NablarchSIDManager">NablarchSIDManager</a> も提供している。
+<p>クッキーのうち、 <a class="reference internal" href="../../../../../../application_framework/application_framework/libraries/session_store.html#session-store"><span>セッションストア</span></a> のセッションIDに特化した実装として <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/test/core/http/NablarchSIDManager.html" title="nablarch.test.core.http.NablarchSIDManager">NablarchSIDManager</a> も提供している。
 この実装では、 <a class="reference internal" href="../../../../../../application_framework/application_framework/handlers/web/SessionStoreHandler.html#session-store-handler"><span>セッション変数保存ハンドラ</span></a> がセッションIDを保持する際のデフォルトのクッキー名 <code class="docutils literal"><span class="pre">NABLARCH_SID</span></code> で、 <code class="docutils literal"><span class="pre">Set-Cookie</span></code> ヘッダからクッキーを抽出する。
-セッションIDのクッキー名をデフォルトから変更した場合は、 <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/test/core/http/RequestResponseCookieManager.html" title="nablarch.test.core.http.RequestResponseCookieManager">RequestResponseCookieManager</a> を使用し、クッキー名を明示する。</p>
+セッションIDのクッキー名をデフォルトから変更した場合は、 <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/test/core/http/RequestResponseCookieManager.html" title="nablarch.test.core.http.RequestResponseCookieManager">RequestResponseCookieManager</a> を使用し、クッキー名を明示する。</p>
 <p><code class="docutils literal"><span class="pre">RequestResponseProcessor</span></code> は1つの取引単体テストケース内で先に受信したレスポンスの値を次のリクエストに受け渡すために使用する。
 この時、レスポンスから抽出した値をリクエストに受け渡すために内部に状態として持つことになる。
 以下の方法でコンポーネント設定した場合、NablarchのDIコンテナではインスタンスはシングルトンとなってしまうため
 明示的に状態を初期化しないと、複数のテストケース間で状態が引き継がれてしまう。
-これを防ぐためにフレームワークではテストケースごとに <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/test/core/http/RequestResponseProcessor.html#reset--" title="nablarch.test.core.http.RequestResponseProcessor.reset()">RequestResponseProcessor#reset</a> を呼び出している。
+これを防ぐためにフレームワークではテストケースごとに <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/test/core/http/RequestResponseProcessor.html#reset--" title="nablarch.test.core.http.RequestResponseProcessor.reset()">RequestResponseProcessor#reset</a> を呼び出している。
 複数テストケース間で状態を引き継ぎたくない場合は、 <code class="docutils literal"><span class="pre">reset()</span></code> に初期化する処理を実装する必要がある。
 内部状態を持たない場合や、複数のテストケース間で状態を共有したい場合は、 <code class="docutils literal"><span class="pre">reset()</span></code> メソッドを何もしないメソッドとしてもよい。</p>
 </div>
@@ -425,7 +426,7 @@
 <span class="nt">&lt;/component&gt;</span>
 </pre></div>
 </div>
-<p>また、複数の <code class="docutils literal"><span class="pre">RequestResponseProcessor</span></code> を設定したい場合は、 <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/test/core/http/ComplexRequestResponseProcessor.html" title="nablarch.test.core.http.ComplexRequestResponseProcessor">ComplexRequestResponseProcessor</a> を
+<p>また、複数の <code class="docutils literal"><span class="pre">RequestResponseProcessor</span></code> を設定したい場合は、 <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/test/core/http/ComplexRequestResponseProcessor.html" title="nablarch.test.core.http.ComplexRequestResponseProcessor">ComplexRequestResponseProcessor</a> を
 使用することで実現できる。</p>
 <div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;component</span> <span class="na">name=</span><span class="s">&quot;defaultProcessor&quot;</span> <span class="na">class=</span><span class="s">&quot;nablarch.test.core.http.ComplexRequestResponseProcessor&quot;</span><span class="nt">&gt;</span>
   <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;processors&quot;</span><span class="nt">&gt;</span>
@@ -441,8 +442,8 @@
 </pre></div>
 </div>
 <p><code class="docutils literal"><span class="pre">defaultProcessor</span></code> という名前で設定された <code class="docutils literal"><span class="pre">RequestResponseProcessor</span></code> は、内蔵サーバへのリクエスト送信前に
-<a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/test/core/http/RequestResponseProcessor.html#processRequest-nablarch.fw.web.HttpRequest-" title="nablarch.test.core.http.RequestResponseProcessor.processRequest(nablarch.fw.web.HttpRequest)">RequestResponseProcessor#processRequest</a> が、
-レスポンス受信後に <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/test/core/http/RequestResponseProcessor.html#processResponse-nablarch.fw.web.HttpRequest-nablarch.fw.web.HttpResponse-" title="nablarch.test.core.http.RequestResponseProcessor.processResponse(nablarch.fw.web.HttpRequest-nablarch.fw.web.HttpResponse)">RequestResponseProcessor#processResponse</a> が
+<a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/test/core/http/RequestResponseProcessor.html#processRequest-nablarch.fw.web.HttpRequest-" title="nablarch.test.core.http.RequestResponseProcessor.processRequest(nablarch.fw.web.HttpRequest)">RequestResponseProcessor#processRequest</a> が、
+レスポンス受信後に <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/test/core/http/RequestResponseProcessor.html#processResponse-nablarch.fw.web.HttpRequest-nablarch.fw.web.HttpResponse-" title="nablarch.test.core.http.RequestResponseProcessor.processResponse(nablarch.fw.web.HttpRequest-nablarch.fw.web.HttpResponse)">RequestResponseProcessor#processResponse</a> が
 それぞれ実行される。</p>
 </div>
 </div>
@@ -460,7 +461,7 @@
 
     <div role="contentinfo">
         <p>
-            &copy; Copyright 2010-2024, TIS Inc.
+            &copy; Copyright 2010-2025, TIS Inc.
         </p>
     </div>
     Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
@@ -481,7 +482,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../../../../',
-            VERSION:'5u25',
+            VERSION:'5u26',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

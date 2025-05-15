@@ -9,7 +9,7 @@
   <meta http-equiv='content-language' content='ja'>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Architecture Overview &mdash; ∇Nablarch  5u25 documentation</title>
+  <title>Architecture Overview &mdash; ∇Nablarch  5u26 documentation</title>
   
 
   
@@ -33,9 +33,10 @@
   
 
   
+  
   <link rel="canonical" href="https://nablarch.github.io/docs/LATEST/doc/application_framework/application_framework/batch/nablarch_batch/architecture.html" />
   
-    <link rel="top" title="∇Nablarch  5u25 documentation" href="../../../../index.html"/>
+    <link rel="top" title="∇Nablarch  5u26 documentation" href="../../../../index.html"/>
         <link rel="up" title="Nablarch Batch Application" href="index.html"/>
         <link rel="next" title="Responsibility Assignment of Application" href="application_design.html"/>
         <link rel="prev" title="Nablarch Batch Application" href="index.html"/>
@@ -63,7 +64,7 @@
   
 
   
-    <div id="sidebar-version">Version: 5u25</div>
+    <div id="sidebar-version">Version: 5u26</div>
   </a>
 
   <div role="search">
@@ -320,7 +321,7 @@
       <a href="https://github.com/nablarch" class="fa fa-github">GitHub</a>
     </li>
     <li class="wy-breadcrumbs-aside">
-        <a href="https://nablarch.github.io/docs/LATEST/doc/index.html" class="ja">日本語</a>
+        <a href="https://nablarch.github.io/docs/5-LATEST/doc/index.html" class="ja">日本語</a>
     </li>
   </ul>
   <hr/>
@@ -401,15 +402,15 @@ the request ID is used as an identifier.</p>
 <a class="reference internal image-reference" href="../../../../_images/batch-flow.png"><img alt="../../../../_images/batch-flow.png" src="../../../../_images/batch-flow.png" /></a>
 <ol class="arabic simple">
 <li><a class="reference internal" href="../../handlers/standalone/main.html#main"><span>The common start-up launcher (Main)</span></a> executes the handler queue.</li>
-<li><a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/DataReader.html" title="nablarch.fw.DataReader">DataReader</a> reads the input data
+<li><a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/DataReader.html" title="nablarch.fw.DataReader">DataReader</a> reads the input data
 and provides the data records one by one.</li>
-<li><a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/handler/DispatchHandler.html" title="nablarch.fw.handler.DispatchHandler">DispatchHandler</a> configured in the handler queue
+<li><a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/handler/DispatchHandler.html" title="nablarch.fw.handler.DispatchHandler">DispatchHandler</a> configured in the handler queue
 specifies the action class to be processed based on the request path
 specified by the command line argument (-requestPath) and adds it to the end of the handler queue.</li>
 <li>The action class executes business logic for each data record using a form class and an entity class.</li>
-<li>The action class returns <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/Result.html" title="nablarch.fw.Result">Result</a>, which shows the results.</li>
+<li>The action class returns <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/Result.html" title="nablarch.fw.Result">Result</a>, which shows the results.</li>
 <li>Repeat steps 2-5 until there is no more data to process.</li>
-<li><a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/handler/StatusCodeConvertHandler.html" title="nablarch.fw.handler.StatusCodeConvertHandler">StatusCodeConvertHandler (StatusCodeConvertHandler)</a>
+<li><a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/handler/StatusCodeConvertHandler.html" title="nablarch.fw.handler.StatusCodeConvertHandler">StatusCodeConvertHandler (StatusCodeConvertHandler)</a>
 set in the handler queue converts the status code of the process result into the process exit code,
 and the process exit code is returned as the processing result of the batch application.</li>
 </ol>
@@ -701,7 +702,7 @@ If an error is sent, it will be rethrow without any change</td>
 <td><a class="reference internal" href="../../handlers/standalone/process_stop_handler.html#process-stop-handler"><span>Process Stop Control Handler</span></a></td>
 <td>Main</td>
 <td>If the process stop flag of the request table is on, a process stop exception
-( <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/handler/ProcessStopHandler.ProcessStop.html" title="nablarch.fw.handler.ProcessStopHandler.ProcessStop">ProcessStop</a> )
+( <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/handler/ProcessStopHandler.ProcessStop.html" title="nablarch.fw.handler.ProcessStopHandler.ProcessStop">ProcessStop</a> )
 is sent out without performing the subsequent handler process.</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
@@ -769,19 +770,19 @@ of the subsequent handler. Also, <a class="reference internal" href="../../libra
 <p>Nablarch provides several data readers required for building batch applications.
 For details of each data reader, refer to the links.</p>
 <ul class="simple">
-<li><a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/reader/DatabaseRecordReader.html" title="nablarch.fw.reader.DatabaseRecordReader">DatabaseRecordReader (read database)</a></li>
-<li><a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/reader/FileDataReader.html" title="nablarch.fw.reader.FileDataReader">FileDataReader (read file)</a></li>
-<li><a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/reader/ValidatableFileDataReader.html" title="nablarch.fw.reader.ValidatableFileDataReader">ValidatableFileDataReader (read files with validation function)</a></li>
-<li><a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/reader/ResumeDataReader.html" title="nablarch.fw.reader.ResumeDataReader">ResumeDataReader (read with resume function)</a></li>
+<li><a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/reader/DatabaseRecordReader.html" title="nablarch.fw.reader.DatabaseRecordReader">DatabaseRecordReader (read database)</a></li>
+<li><a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/reader/FileDataReader.html" title="nablarch.fw.reader.FileDataReader">FileDataReader (read file)</a></li>
+<li><a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/reader/ValidatableFileDataReader.html" title="nablarch.fw.reader.ValidatableFileDataReader">ValidatableFileDataReader (read files with validation function)</a></li>
+<li><a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/reader/ResumeDataReader.html" title="nablarch.fw.reader.ResumeDataReader">ResumeDataReader (read with resume function)</a></li>
 </ul>
 <div class="admonition tip">
 <p class="first admonition-title">Tip</p>
 <p class="last">If the above data readers cannot meet the project requirements,
-create a class that implements the <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/DataReader.html" title="nablarch.fw.DataReader">DataReader</a> interface in the project.</p>
+create a class that implements the <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/DataReader.html" title="nablarch.fw.DataReader">DataReader</a> interface in the project.</p>
 </div>
 <div class="admonition important">
 <p class="first admonition-title">Important</p>
-<p class="last">Standard <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/reader/FileDataReader.html" title="nablarch.fw.reader.FileDataReader">FileDataReader (read file)</a> and <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/reader/ValidatableFileDataReader.html" title="nablarch.fw.reader.ValidatableFileDataReader">ValidatableFileDataReader (read files with validation function)</a> use <a class="reference internal" href="../../libraries/data_io/data_format.html#data-format"><span>General Data Format</span></a> to access data. Do not use these data readers if you use <a class="reference internal" href="../../libraries/data_io/data_bind.html#data-bind"><span>Data Bind</span></a> to access data.</p>
+<p class="last">Standard <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/reader/FileDataReader.html" title="nablarch.fw.reader.FileDataReader">FileDataReader (read file)</a> and <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/reader/ValidatableFileDataReader.html" title="nablarch.fw.reader.ValidatableFileDataReader">ValidatableFileDataReader (read files with validation function)</a> use <a class="reference internal" href="../../libraries/data_io/data_format.html#data-format"><span>General Data Format</span></a> to access data. Do not use these data readers if you use <a class="reference internal" href="../../libraries/data_io/data_bind.html#data-bind"><span>Data Bind</span></a> to access data.</p>
 </div>
 </div>
 <div class="section" id="action-used-in-the-nablarch-batch-application">
@@ -789,14 +790,14 @@ create a class that implements the <a class="reference external" href="https://n
 <p>Nablarch provides several standard action classes required for building batch applications.
 For details of each action class, refer to the link.</p>
 <ul class="simple">
-<li><a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/action/BatchAction.html" title="nablarch.fw.action.BatchAction">BatchAction (template class of generic batch action)</a></li>
-<li><a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/action/FileBatchAction.html" title="nablarch.fw.action.FileBatchAction">FileBatchAction (template class of batch action for file input)</a></li>
-<li><a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/action/NoInputDataBatchAction.html" title="nablarch.fw.action.NoInputDataBatchAction">NoInputDataBatchAction (template class of batch action that does not use input data)</a></li>
-<li><a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/messaging/action/AsyncMessageSendAction.html" title="nablarch.fw.messaging.action.AsyncMessageSendAction">AsyncMessageSendAction (action class for sending asynchronous message)</a></li>
+<li><a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/action/BatchAction.html" title="nablarch.fw.action.BatchAction">BatchAction (template class of generic batch action)</a></li>
+<li><a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/action/FileBatchAction.html" title="nablarch.fw.action.FileBatchAction">FileBatchAction (template class of batch action for file input)</a></li>
+<li><a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/action/NoInputDataBatchAction.html" title="nablarch.fw.action.NoInputDataBatchAction">NoInputDataBatchAction (template class of batch action that does not use input data)</a></li>
+<li><a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/messaging/action/AsyncMessageSendAction.html" title="nablarch.fw.messaging.action.AsyncMessageSendAction">AsyncMessageSendAction (action class for sending asynchronous message)</a></li>
 </ul>
 <div class="admonition important">
 <p class="first admonition-title">Important</p>
-<p class="last">Standard <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/action/FileBatchAction.html" title="nablarch.fw.action.FileBatchAction">FileBatchAction (template class of batch action for file input)</a> use <a class="reference internal" href="../../libraries/data_io/data_format.html#data-format"><span>General Data Format</span></a> to access data. If you use <a class="reference internal" href="../../libraries/data_io/data_bind.html#data-bind"><span>Data Bind</span></a> to access data, use another action class.</p>
+<p class="last">Standard <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/action/FileBatchAction.html" title="nablarch.fw.action.FileBatchAction">FileBatchAction (template class of batch action for file input)</a> use <a class="reference internal" href="../../libraries/data_io/data_format.html#data-format"><span>General Data Format</span></a> to access data. If you use <a class="reference internal" href="../../libraries/data_io/data_bind.html#data-bind"><span>Data Bind</span></a> to access data, use another action class.</p>
 </div>
 </div>
 </div>
@@ -813,7 +814,7 @@ For details of each action class, refer to the link.</p>
 
     <div role="contentinfo">
         <p>
-            &copy; Copyright 2010-2024, TIS Inc.
+            &copy; Copyright 2010-2025, TIS Inc.
         </p>
     </div>
     Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
@@ -834,7 +835,7 @@ For details of each action class, refer to the link.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../../',
-            VERSION:'5u25',
+            VERSION:'5u26',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

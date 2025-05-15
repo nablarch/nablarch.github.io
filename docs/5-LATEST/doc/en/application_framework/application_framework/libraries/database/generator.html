@@ -9,7 +9,7 @@
   <meta http-equiv='content-language' content='ja'>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Surrogate Key Numbering &mdash; ∇Nablarch  5u25 documentation</title>
+  <title>Surrogate Key Numbering &mdash; ∇Nablarch  5u26 documentation</title>
   
 
   
@@ -33,9 +33,10 @@
   
 
   
+  
   <link rel="canonical" href="https://nablarch.github.io/docs/LATEST/doc/application_framework/application_framework/libraries/database/generator.html" />
   
-    <link rel="top" title="∇Nablarch  5u25 documentation" href="../../../../index.html"/>
+    <link rel="top" title="∇Nablarch  5u26 documentation" href="../../../../index.html"/>
         <link rel="up" title="Universal DAO" href="universal_dao.html"/>
         <link rel="next" title="Functional Comparison Between Universal DAO and JSR317 (JPA2.0)" href="functional_comparison.html"/>
         <link rel="prev" title="Universal DAO" href="universal_dao.html"/>
@@ -63,7 +64,7 @@
   
 
   
-    <div id="sidebar-version">Version: 5u25</div>
+    <div id="sidebar-version">Version: 5u26</div>
   </a>
 
   <div role="search">
@@ -322,7 +323,7 @@
       <a href="https://github.com/nablarch" class="fa fa-github">GitHub</a>
     </li>
     <li class="wy-breadcrumbs-aside">
-        <a href="https://nablarch.github.io/docs/LATEST/doc/index.html" class="ja">日本語</a>
+        <a href="https://nablarch.github.io/docs/5-LATEST/doc/index.html" class="ja">日本語</a>
     </li>
   </ul>
   <hr/>
@@ -426,7 +427,7 @@ For this reason, the use of numbering column or sequence in the database instead
 <h2><a class="toc-backref" href="#id5">How to use</a><a class="headerlink" href="#how-to-use" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="configure-numbering-for-universal-dao">
 <span id="generator-dao-setting"></span><h3><a class="toc-backref" href="#id6">Configure numbering for Universal DAO</a><a class="headerlink" href="#configure-numbering-for-universal-dao" title="Permalink to this headline">¶</a></h3>
-<p>To use this function in <a class="reference internal" href="universal_dao.html#universal-dao"><span>Universal DAO</span></a> , <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/common/dao/BasicDaoContextFactory.html" title="nablarch.common.dao.BasicDaoContextFactory">BasicDaoContextFactory</a>  must be configured.</p>
+<p>To use this function in <a class="reference internal" href="universal_dao.html#universal-dao"><span>Universal DAO</span></a> , <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/common/dao/BasicDaoContextFactory.html" title="nablarch.common.dao.BasicDaoContextFactory">BasicDaoContextFactory</a>  must be configured.</p>
 <p>In this example, although both sequence numbering and table numbering have been configured, and numbering that will not be used need not be configured.
 Since table numbering is not recommended,  <cite>sequenceIdGenerator</cite>  should be configured when using sequence numbering for numbering surrogate keys.</p>
 <p>If the numbering function (automatic numbering column) of the database is used without using sequence numbering, configuration of numbering is not required.</p>
@@ -456,7 +457,7 @@ Since table numbering is not recommended,  <cite>sequenceIdGenerator</cite>  sho
 <div class="section" id="replace-table-or-sequence-numbering">
 <h3><a class="toc-backref" href="#id8">Replace table or sequence numbering</a><a class="headerlink" href="#replace-table-or-sequence-numbering" title="Permalink to this headline">¶</a></h3>
 <p>When replacing the numbering implementation by a table or sequence,
-it can be supported by creating a class that implements <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/common/idgenerator/IdGenerator.html" title="nablarch.common.idgenerator.IdGenerator">IdGenerator</a> .</p>
+it can be supported by creating a class that implements <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/common/idgenerator/IdGenerator.html" title="nablarch.common.idgenerator.IdGenerator">IdGenerator</a> .</p>
 <p>The created class can be used by defining it in the component configuration file according to the  <a class="reference internal" href="#configure-numbering-for-universal-dao">Configure numbering for Universal DAO</a> .</p>
 </div>
 </div>
@@ -474,7 +475,7 @@ it can be supported by creating a class that implements <a class="reference exte
 
     <div role="contentinfo">
         <p>
-            &copy; Copyright 2010-2024, TIS Inc.
+            &copy; Copyright 2010-2025, TIS Inc.
         </p>
     </div>
     Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
@@ -495,7 +496,7 @@ it can be supported by creating a class that implements <a class="reference exte
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../../',
-            VERSION:'5u25',
+            VERSION:'5u26',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

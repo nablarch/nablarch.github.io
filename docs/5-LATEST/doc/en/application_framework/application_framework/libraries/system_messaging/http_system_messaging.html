@@ -9,7 +9,7 @@
   <meta http-equiv='content-language' content='ja'>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>HTTP Messaging &mdash; ∇Nablarch  5u25 documentation</title>
+  <title>HTTP Messaging &mdash; ∇Nablarch  5u26 documentation</title>
   
 
   
@@ -33,9 +33,10 @@
   
 
   
+  
   <link rel="canonical" href="https://nablarch.github.io/docs/LATEST/doc/application_framework/application_framework/libraries/system_messaging/http_system_messaging.html" />
   
-    <link rel="top" title="∇Nablarch  5u25 documentation" href="../../../../index.html"/>
+    <link rel="top" title="∇Nablarch  5u26 documentation" href="../../../../index.html"/>
         <link rel="up" title="Intersystem Messaging" href="../system_messaging.html"/>
         <link rel="next" title="Sending Emails" href="../mail.html"/>
         <link rel="prev" title="MOM Messaging" href="mom_system_messaging.html"/>
@@ -63,7 +64,7 @@
   
 
   
-    <div id="sidebar-version">Version: 5u25</div>
+    <div id="sidebar-version">Version: 5u26</div>
   </a>
 
   <div role="search">
@@ -320,7 +321,7 @@
       <a href="https://github.com/nablarch" class="fa fa-github">GitHub</a>
     </li>
     <li class="wy-breadcrumbs-aside">
-        <a href="https://nablarch.github.io/docs/LATEST/doc/index.html" class="ja">日本語</a>
+        <a href="https://nablarch.github.io/docs/5-LATEST/doc/index.html" class="ja">日本語</a>
     </li>
   </ul>
   <hr/>
@@ -395,8 +396,8 @@ and it is assumed to be included in the <a class="reference internal" href="#htt
 <p>Message send/receive is implemented in HTTP messaging using the same API as <a class="reference internal" href="mom_system_messaging.html#mom-system-messaging"><span>MOM Messaging</span></a> given below.
 Therefore, if users have experience in using <a class="reference internal" href="mom_system_messaging.html#mom-system-messaging"><span>MOM Messaging</span></a>, implementation time can be minimized.</p>
 <ul class="simple">
-<li><a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/messaging/action/MessagingAction.html" title="nablarch.fw.messaging.action.MessagingAction">MessagingAction</a></li>
-<li><a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/messaging/MessageSender.html" title="nablarch.fw.messaging.MessageSender">MessageSender</a></li>
+<li><a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/messaging/action/MessagingAction.html" title="nablarch.fw.messaging.action.MessagingAction">MessagingAction</a></li>
+<li><a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/messaging/MessageSender.html" title="nablarch.fw.messaging.MessageSender">MessageSender</a></li>
 </ul>
 </div>
 </div>
@@ -420,14 +421,14 @@ Therefore, if users have experience in using <a class="reference internal" href=
 <p>In the case of receive message, no special configuration is required other than the handler configuration of the runtime platform.</p>
 <p>In the case of send message, add the following classes to the component definition.</p>
 <ul class="simple">
-<li><a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/messaging/MessageSenderClient.html" title="nablarch.fw.messaging.MessageSenderClient">MessageSenderClient</a> implementation class (HTTP send/receive)</li>
+<li><a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/messaging/MessageSenderClient.html" title="nablarch.fw.messaging.MessageSenderClient">MessageSenderClient</a> implementation class (HTTP send/receive)</li>
 </ul>
 <p>A configuration example is shown below.</p>
 <dl class="docutils">
 <dt>Point</dt>
 <dd><ul class="first last simple">
-<li><a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/messaging/realtime/http/client/HttpMessagingClient.html" title="nablarch.fw.messaging.realtime.http.client.HttpMessagingClient">HttpMessagingClient</a> is provided as the default implementation
-of <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/messaging/MessageSenderClient.html" title="nablarch.fw.messaging.MessageSenderClient">MessageSenderClient</a>.</li>
+<li><a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/messaging/realtime/http/client/HttpMessagingClient.html" title="nablarch.fw.messaging.realtime.http.client.HttpMessagingClient">HttpMessagingClient</a> is provided as the default implementation
+of <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/messaging/MessageSenderClient.html" title="nablarch.fw.messaging.MessageSenderClient">MessageSenderClient</a>.</li>
 <li>Component name is specified as <code class="docutils literal"><span class="pre">messageSenderClient</span></code> because it is used as a lookup.</li>
 </ul>
 </dd>
@@ -446,8 +447,8 @@ of <a class="reference external" href="https://nablarch.github.io/docs/5u25/java
 <dd><dl class="first docutils">
 <dt>Point</dt>
 <dd><ul class="first last simple">
-<li>HTTP message receive is created with <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/messaging/action/MessagingAction.html" title="nablarch.fw.messaging.action.MessagingAction">MessagingAction</a>.</li>
-<li>Create the response message with <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/messaging/RequestMessage.html#reply--" title="nablarch.fw.messaging.RequestMessage.reply()">RequestMessage.reply</a>.</li>
+<li>HTTP message receive is created with <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/messaging/action/MessagingAction.html" title="nablarch.fw.messaging.action.MessagingAction">MessagingAction</a>.</li>
+<li>Create the response message with <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/messaging/RequestMessage.html#reply--" title="nablarch.fw.messaging.RequestMessage.reply()">RequestMessage.reply</a>.</li>
 </ul>
 </dd>
 </dl>
@@ -488,8 +489,8 @@ Wait until a response message is received or the wait timeout expires.</p>
 <dd><dl class="first docutils">
 <dt>Point</dt>
 <dd><ul class="first last simple">
-<li>Create the request message with <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/messaging/SyncMessage.html" title="nablarch.fw.messaging.SyncMessage">SyncMessage</a>.</li>
-<li>To send a message, use <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/messaging/MessageSender.html#sendSync-nablarch.fw.messaging.SyncMessage-" title="nablarch.fw.messaging.MessageSender.sendSync(nablarch.fw.messaging.SyncMessage)">MessageSender#sendSync</a>.
+<li>Create the request message with <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/messaging/SyncMessage.html" title="nablarch.fw.messaging.SyncMessage">SyncMessage</a>.</li>
+<li>To send a message, use <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/messaging/MessageSender.html#sendSync-nablarch.fw.messaging.SyncMessage-" title="nablarch.fw.messaging.MessageSender.sendSync(nablarch.fw.messaging.SyncMessage)">MessageSender#sendSync</a>.
 For details of how to use, refer to the linked Javadoc.</li>
 </ul>
 </dd>
@@ -531,10 +532,10 @@ The following shows the support method for each type of send and receive.</p>
 Therefore, the format definition of the message body may be changed according to the content.</dd>
 <dt>For HTTP receive message</dt>
 <dd><p class="first">Reading and writing to the framework control header is performed by the class with the
-<a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/messaging/FwHeaderDefinition.html" title="nablarch.fw.messaging.FwHeaderDefinition">FwHeaderDefinition</a> interface implementation.
-<a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/messaging/StandardFwHeaderDefinition.html" title="nablarch.fw.messaging.StandardFwHeaderDefinition">StandardFwHeaderDefinition</a> is used by default.</p>
-<p class="last">Therefore, referring to <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/messaging/StandardFwHeaderDefinition.html" title="nablarch.fw.messaging.StandardFwHeaderDefinition">StandardFwHeaderDefinition</a>,
-a class that implements the <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/messaging/FwHeaderDefinition.html" title="nablarch.fw.messaging.FwHeaderDefinition">FwHeaderDefinition</a> interface is created in the project
+<a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/messaging/FwHeaderDefinition.html" title="nablarch.fw.messaging.FwHeaderDefinition">FwHeaderDefinition</a> interface implementation.
+<a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/messaging/StandardFwHeaderDefinition.html" title="nablarch.fw.messaging.StandardFwHeaderDefinition">StandardFwHeaderDefinition</a> is used by default.</p>
+<p class="last">Therefore, referring to <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/messaging/StandardFwHeaderDefinition.html" title="nablarch.fw.messaging.StandardFwHeaderDefinition">StandardFwHeaderDefinition</a>,
+a class that implements the <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/messaging/FwHeaderDefinition.html" title="nablarch.fw.messaging.FwHeaderDefinition">FwHeaderDefinition</a> interface is created in the project
 and configured in <a class="reference internal" href="../../handlers/http_messaging/http_messaging_request_parsing_handler.html#http-messaging-request-parsing-handler"><span>HTTP Messaging Request Conversion Handler</span></a> and <a class="reference internal" href="../../handlers/http_messaging/http_messaging_response_building_handler.html#http-messaging-response-building-handler"><span>HTTP Messaging Response Conversion Handler</span></a>.</p>
 </dd>
 </dl>
@@ -547,13 +548,13 @@ Framework control header need not be used unless there are special requirements.
 <div class="section" id="change-the-http-client-process-of-http-send-message">
 <span id="http-system-messaging-change-http-client-process"></span><h3><a class="toc-backref" href="#id10">Change the HTTP client process of HTTP send message</a><a class="headerlink" href="#change-the-http-client-process-of-http-send-message" title="Permalink to this headline">¶</a></h3>
 <p>As explained in <a class="reference internal" href="#http-system-messaging-settings"><span>Configure settings to use HTTP messaging</span></a>,
-<a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/messaging/realtime/http/client/HttpMessagingClient.html" title="nablarch.fw.messaging.realtime.http.client.HttpMessagingClient">HttpMessagingClient</a> is used for HTTP send message.</p>
-<p><a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/messaging/realtime/http/client/HttpMessagingClient.html" title="nablarch.fw.messaging.realtime.http.client.HttpMessagingClient">HttpMessagingClient</a>
+<a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/messaging/realtime/http/client/HttpMessagingClient.html" title="nablarch.fw.messaging.realtime.http.client.HttpMessagingClient">HttpMessagingClient</a> is used for HTTP send message.</p>
+<p><a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/messaging/realtime/http/client/HttpMessagingClient.html" title="nablarch.fw.messaging.realtime.http.client.HttpMessagingClient">HttpMessagingClient</a>
 performs various processes as an HTTP client.
 For example, <code class="docutils literal"><span class="pre">Accept:</span> <span class="pre">text/json,text/xml</span></code> is fixedly configured in the HTTP header of the message to be sent.</p>
-<p>If the default operation of <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/messaging/realtime/http/client/HttpMessagingClient.html" title="nablarch.fw.messaging.realtime.http.client.HttpMessagingClient">HttpMessagingClient</a>
+<p>If the default operation of <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/messaging/realtime/http/client/HttpMessagingClient.html" title="nablarch.fw.messaging.realtime.http.client.HttpMessagingClient">HttpMessagingClient</a>
 does not meet the project requirements,
-customize by creating a class that inherits <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/messaging/realtime/http/client/HttpMessagingClient.html" title="nablarch.fw.messaging.realtime.http.client.HttpMessagingClient">HttpMessagingClient</a>
+customize by creating a class that inherits <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/messaging/realtime/http/client/HttpMessagingClient.html" title="nablarch.fw.messaging.realtime.http.client.HttpMessagingClient">HttpMessagingClient</a>
 and configuring to the component definition with the method given in <a class="reference internal" href="#http-system-messaging-settings"><span>Configure settings to use HTTP messaging</span></a>.</p>
 </div>
 </div>
@@ -702,7 +703,7 @@ and framework functions that may be added in the future.</p>
 
     <div role="contentinfo">
         <p>
-            &copy; Copyright 2010-2024, TIS Inc.
+            &copy; Copyright 2010-2025, TIS Inc.
         </p>
     </div>
     Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
@@ -723,7 +724,7 @@ and framework functions that may be added in the future.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../../',
-            VERSION:'5u25',
+            VERSION:'5u26',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

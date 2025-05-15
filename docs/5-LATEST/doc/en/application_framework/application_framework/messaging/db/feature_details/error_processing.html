@@ -9,7 +9,7 @@
   <meta http-equiv='content-language' content='ja'>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Error Handling for Messaging Which Uses Database as Queue &mdash; ∇Nablarch  5u25 documentation</title>
+  <title>Error Handling for Messaging Which Uses Database as Queue &mdash; ∇Nablarch  5u26 documentation</title>
   
 
   
@@ -33,9 +33,10 @@
   
 
   
+  
   <link rel="canonical" href="https://nablarch.github.io/docs/LATEST/doc/application_framework/application_framework/messaging/db/feature_details/error_processing.html" />
   
-    <link rel="top" title="∇Nablarch  5u25 documentation" href="../../../../../index.html"/>
+    <link rel="top" title="∇Nablarch  5u26 documentation" href="../../../../../index.html"/>
         <link rel="up" title="Details of Function" href="../feature_details.html"/>
         <link rel="next" title="Multi-process" href="multiple_process.html"/>
         <link rel="prev" title="Details of Function" href="../feature_details.html"/>
@@ -63,7 +64,7 @@
   
 
   
-    <div id="sidebar-version">Version: 5u25</div>
+    <div id="sidebar-version">Version: 5u26</div>
   </a>
 
   <div role="search">
@@ -322,7 +323,7 @@
       <a href="https://github.com/nablarch" class="fa fa-github">GitHub</a>
     </li>
     <li class="wy-breadcrumbs-aside">
-        <a href="https://nablarch.github.io/docs/LATEST/doc/index.html" class="ja">日本語</a>
+        <a href="https://nablarch.github.io/docs/5-LATEST/doc/index.html" class="ja">日本語</a>
     </li>
   </ul>
   <hr/>
@@ -334,7 +335,7 @@
 <span id="db-messaging-error-processing"></span><h1>Error Handling for Messaging Which Uses Database as Queue<a class="headerlink" href="#error-handling-for-messaging-which-uses-database-as-queue" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="exclude-error-data-and-continue-processing">
 <span id="db-messaging-exclude-error-data"></span><h2>Exclude error data and continue processing<a class="headerlink" href="#exclude-error-data-and-continue-processing" title="Permalink to this headline">¶</a></h2>
-<p>The exclusion of error data is done by the callback method (<a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/action/BatchActionBase.html#transactionFailure-D-nablarch.fw.ExecutionContext-" title="nablarch.fw.action.BatchActionBase.transactionFailure(D-nablarch.fw.ExecutionContext)">transactionFailure</a>) when an exception occurs.</p>
+<p>The exclusion of error data is done by the callback method (<a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/action/BatchActionBase.html#transactionFailure-D-nablarch.fw.ExecutionContext-" title="nablarch.fw.action.BatchActionBase.transactionFailure(D-nablarch.fw.ExecutionContext)">transactionFailure</a>) when an exception occurs.</p>
 <div class="admonition important">
 <p class="first admonition-title">Important</p>
 <p class="last">If the error data is not excluded, the data containing errors gets extracted again and exceptions reoccur.
@@ -353,7 +354,7 @@ The error data is repeatedly processed if it is not excluded and other data is n
 </div>
 <div class="section" id="terminate-the-process-abnormally">
 <span id="db-messaging-process-abnormal-end"></span><h2>Terminate the process abnormally<a class="headerlink" href="#terminate-the-process-abnormally" title="Permalink to this headline">¶</a></h2>
-<p>To terminate the process abnormally, throws <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/launcher/ProcessAbnormalEnd.html" title="nablarch.fw.launcher.ProcessAbnormalEnd">ProcessAbnormalEnd</a>.</p>
+<p>To terminate the process abnormally, throws <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/launcher/ProcessAbnormalEnd.html" title="nablarch.fw.launcher.ProcessAbnormalEnd">ProcessAbnormalEnd</a>.</p>
 <div class="admonition important">
 <p class="first admonition-title">Important</p>
 <p class="last">Since the monitoring process of the table queue is terminated when the process is abnormally terminated, it causes unprocessed data to pile on, delaying capture of data.
@@ -387,7 +388,7 @@ Continuation of the process using <a class="reference internal" href="#db-messag
 
     <div role="contentinfo">
         <p>
-            &copy; Copyright 2010-2024, TIS Inc.
+            &copy; Copyright 2010-2025, TIS Inc.
         </p>
     </div>
     Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
@@ -408,7 +409,7 @@ Continuation of the process using <a class="reference internal" href="#db-messag
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../../../',
-            VERSION:'5u25',
+            VERSION:'5u26',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

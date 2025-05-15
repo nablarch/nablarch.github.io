@@ -9,7 +9,7 @@
   <meta http-equiv='content-language' content='ja'>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>UI標準修正事例一覧 &mdash; ∇Nablarch  5u25 ドキュメント</title>
+  <title>UI標準修正事例一覧 &mdash; ∇Nablarch  5u26 ドキュメント</title>
   
 
   
@@ -33,9 +33,10 @@
   
 
   
+  
   <link rel="canonical" href="https://nablarch.github.io/docs/LATEST/doc/development_tools/ui_dev/doc/reference_ui_standard/index.html" />
   
-    <link rel="top" title="∇Nablarch  5u25 ドキュメント" href="../../../../index.html"/>
+    <link rel="top" title="∇Nablarch  5u26 ドキュメント" href="../../../../index.html"/>
         <link rel="up" title="Nablarch UI開発基盤 解説書" href="../index.html"/>
         <link rel="next" title="標準プロジェクト構成" href="../structure/directory_layout.html"/>
         <link rel="prev" title="UIプラグイン一覧" href="../reference_ui_plugin/index.html"/>
@@ -63,7 +64,7 @@
   
 
   
-    <div id="sidebar-version">Version: 5u25</div>
+    <div id="sidebar-version">Version: 5u26</div>
   </a>
 
   <div role="search">
@@ -356,7 +357,7 @@
       <a href="https://github.com/nablarch" class="fa fa-github">GitHub</a>
     </li>
     <li class="wy-breadcrumbs-aside">
-        <a href="https://nablarch.github.io/docs/LATEST/doc/en/index.html" class="en">English</a>
+        <a href="https://nablarch.github.io/docs/5-LATEST/doc/en/index.html" class="en">English</a>
     </li>
   </ul>
   <hr/>
@@ -449,11 +450,11 @@
 <p>画面の全体的な配色は <strong>nablarch-css-color-default</strong> プラグイン内のスタイル定義により
 一括変更できる。</p>
 <p>デフォルトの配色は以下のような設定になっている。</p>
-<div class="highlight-css"><div class="highlight"><pre><span></span>// Nablarchブランドカラーを基調とした配色設定
-@baseColor  : rgb(255, 255, 255); // 白
-@mainColor1 : rgb(235, 92,  21);  // オレンジ
-@mainColor2 : rgb(76,  42,  26);  // こげ茶
-@subColor   : rgb(170, 10,  10);  // 赤
+<div class="highlight-css"><div class="highlight"><pre><span></span><span class="o">//</span> <span class="nt">Nablarchブランドカラーを基調とした配色設定</span>
+<span class="p">@</span><span class="k">baseColor</span>  <span class="o">:</span> <span class="nt">rgb</span><span class="o">(</span><span class="nt">255</span><span class="o">,</span> <span class="nt">255</span><span class="o">,</span> <span class="nt">255</span><span class="o">)</span><span class="p">;</span> <span class="o">//</span> <span class="nt">白</span>
+<span class="p">@</span><span class="k">mainColor1</span> <span class="o">:</span> <span class="nt">rgb</span><span class="o">(</span><span class="nt">235</span><span class="o">,</span> <span class="nt">92</span><span class="o">,</span>  <span class="nt">21</span><span class="o">)</span><span class="p">;</span>  <span class="o">//</span> <span class="nt">オレンジ</span>
+<span class="p">@</span><span class="k">mainColor2</span> <span class="o">:</span> <span class="nt">rgb</span><span class="o">(</span><span class="nt">76</span><span class="o">,</span>  <span class="nt">42</span><span class="o">,</span>  <span class="nt">26</span><span class="o">)</span><span class="p">;</span>  <span class="o">//</span> <span class="nt">こげ茶</span>
+<span class="p">@</span><span class="k">subColor</span>   <span class="o">:</span> <span class="nt">rgb</span><span class="o">(</span><span class="nt">170</span><span class="o">,</span> <span class="nt">10</span><span class="o">,</span>  <span class="nt">10</span><span class="o">)</span><span class="p">;</span>  <span class="o">//</span> <span class="nt">赤</span>
 </pre></div>
 </div>
 <p>各パラメータの役割は以下のとおり。</p>
@@ -476,10 +477,10 @@
 </div>
 <p>以下は配色の調整例である。
 左上のロゴは画像なので、別途差し替えが必要である。</p>
-<div class="highlight-css"><div class="highlight"><pre><span></span>@baseColor  : rgb(255, 255, 255);              // 白
-@mainColor1 : darken(rgb(173, 210,  16), 15%); // 薄い緑
-@mainColor2 : darken(rgb(82,  108,   8), 20%); // 濃い緑
-@subColor   : rgb(348, 99, 8);                 // オレンジ
+<div class="highlight-css"><div class="highlight"><pre><span></span><span class="p">@</span><span class="k">baseColor</span>  <span class="o">:</span> <span class="nt">rgb</span><span class="o">(</span><span class="nt">255</span><span class="o">,</span> <span class="nt">255</span><span class="o">,</span> <span class="nt">255</span><span class="o">)</span><span class="p">;</span>              <span class="o">//</span> <span class="nt">白</span>
+<span class="p">@</span><span class="k">mainColor1</span> <span class="o">:</span> <span class="nt">darken</span><span class="o">(</span><span class="nt">rgb</span><span class="o">(</span><span class="nt">173</span><span class="o">,</span> <span class="nt">210</span><span class="o">,</span>  <span class="nt">16</span><span class="o">),</span> <span class="nt">15</span><span class="o">%)</span><span class="p">;</span> <span class="o">//</span> <span class="nt">薄い緑</span>
+<span class="p">@</span><span class="k">mainColor2</span> <span class="o">:</span> <span class="nt">darken</span><span class="o">(</span><span class="nt">rgb</span><span class="o">(</span><span class="nt">82</span><span class="o">,</span>  <span class="nt">108</span><span class="o">,</span>   <span class="nt">8</span><span class="o">),</span> <span class="nt">20</span><span class="o">%)</span><span class="p">;</span> <span class="o">//</span> <span class="nt">濃い緑</span>
+<span class="p">@</span><span class="k">subColor</span>   <span class="o">:</span> <span class="nt">rgb</span><span class="o">(</span><span class="nt">348</span><span class="o">,</span> <span class="nt">99</span><span class="o">,</span> <span class="nt">8</span><span class="o">)</span><span class="p">;</span>                 <span class="o">//</span> <span class="nt">オレンジ</span>
 </pre></div>
 </div>
 <div class="figure align-center">
@@ -890,7 +891,7 @@ UI部品を修正する場合は、対応するプラグインをそれぞれ修
 
     <div role="contentinfo">
         <p>
-            &copy; Copyright 2010-2024, TIS Inc.
+            &copy; Copyright 2010-2025, TIS Inc.
         </p>
     </div>
     Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
@@ -911,7 +912,7 @@ UI部品を修正する場合は、対応するプラグインをそれぞれ修
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../../',
-            VERSION:'5u25',
+            VERSION:'5u26',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

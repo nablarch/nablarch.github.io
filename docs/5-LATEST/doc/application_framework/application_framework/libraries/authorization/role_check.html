@@ -9,7 +9,7 @@
   <meta http-equiv='content-language' content='ja'>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>アノテーションによる認可チェック &mdash; ∇Nablarch  5u25 ドキュメント</title>
+  <title>アノテーションによる認可チェック &mdash; ∇Nablarch  5u26 ドキュメント</title>
   
 
   
@@ -33,9 +33,10 @@
   
 
   
+  
   <link rel="canonical" href="https://nablarch.github.io/docs/LATEST/doc/application_framework/application_framework/libraries/authorization/role_check.html" />
   
-    <link rel="top" title="∇Nablarch  5u25 ドキュメント" href="../../../../index.html"/>
+    <link rel="top" title="∇Nablarch  5u26 ドキュメント" href="../../../../index.html"/>
         <link rel="up" title="認可チェック" href="../permission_check.html"/>
         <link rel="next" title="サービス提供可否チェック" href="../service_availability.html"/>
         <link rel="prev" title="ハンドラによる認可チェック" href="permission_check.html"/>
@@ -63,7 +64,7 @@
   
 
   
-    <div id="sidebar-version">Version: 5u25</div>
+    <div id="sidebar-version">Version: 5u26</div>
   </a>
 
   <div role="search">
@@ -358,7 +359,7 @@
       <a href="https://github.com/nablarch" class="fa fa-github">GitHub</a>
     </li>
     <li class="wy-breadcrumbs-aside">
-        <a href="https://nablarch.github.io/docs/LATEST/doc/en/index.html" class="en">English</a>
+        <a href="https://nablarch.github.io/docs/5-LATEST/doc/en/index.html" class="en">English</a>
     </li>
   </ul>
   <hr/>
@@ -462,8 +463,8 @@
            <span class="na">class=</span><span class="s">&quot;nablarch.common.authorization.role.session.SessionStoreUserRoleResolver&quot;</span> <span class="nt">/&gt;</span>
 </pre></div>
 </div>
-<p>アノテーションによる認可チェックを使用するためには、まず <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/common/authorization/role/BasicRoleEvaluator.html" title="nablarch.common.authorization.role.BasicRoleEvaluator">BasicRoleEvaluator</a> のコンポーネントを定義する。
-また、このとき <code class="docutils literal"><span class="pre">userRoleResolver</span></code> プロパティには <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/common/authorization/role/session/SessionStoreUserRoleResolver.html" title="nablarch.common.authorization.role.session.SessionStoreUserRoleResolver">SessionStoreUserRoleResolver</a> を設定する。</p>
+<p>アノテーションによる認可チェックを使用するためには、まず <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/common/authorization/role/BasicRoleEvaluator.html" title="nablarch.common.authorization.role.BasicRoleEvaluator">BasicRoleEvaluator</a> のコンポーネントを定義する。
+また、このとき <code class="docutils literal"><span class="pre">userRoleResolver</span></code> プロパティには <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/common/authorization/role/session/SessionStoreUserRoleResolver.html" title="nablarch.common.authorization.role.session.SessionStoreUserRoleResolver">SessionStoreUserRoleResolver</a> を設定する。</p>
 <p>なお、この設定はデフォルトコンフィグレーションとしても提供している。
 デフォルトコンフィグレーションを使う場合は、以下のようにファイルをインポートすることで同様の設定となる。</p>
 <div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;import</span> <span class="na">file=</span><span class="s">&quot;nablarch/common/authorization/role/session/authorization-session.xml&quot;</span> <span class="nt">/&gt;</span>
@@ -472,8 +473,8 @@
 </div>
 <div class="section" id="interceptorsorder">
 <h4><a class="toc-backref" href="#id26">interceptorsOrderに追加する</a><a class="headerlink" href="#interceptorsorder" title="このヘッドラインへのパーマリンク">¶</a></h4>
-<p>アノテーションによるチェックは、Nablarchの <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/Interceptor.html" title="nablarch.fw.Interceptor">インターセプタ</a> の仕組みを用いて実現している。
-したがって、既にコンポーネント定義にて <code class="docutils literal"><span class="pre">interceptorsOrder</span></code> を定義している場合は、 <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/common/authorization/role/CheckRole.html" title="nablarch.common.authorization.role.CheckRole">CheckRole</a> を追加する必要がある。</p>
+<p>アノテーションによるチェックは、Nablarchの <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/Interceptor.html" title="nablarch.fw.Interceptor">インターセプタ</a> の仕組みを用いて実現している。
+したがって、既にコンポーネント定義にて <code class="docutils literal"><span class="pre">interceptorsOrder</span></code> を定義している場合は、 <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/common/authorization/role/CheckRole.html" title="nablarch.common.authorization.role.CheckRole">CheckRole</a> を追加する必要がある。</p>
 <div class="highlight-xml"><div class="highlight"><pre><span></span><span class="c">&lt;!-- インターセプタの実行順定義 --&gt;</span>
 <span class="nt">&lt;list</span> <span class="na">name=</span><span class="s">&quot;interceptorsOrder&quot;</span><span class="nt">&gt;</span>
   <span class="c">&lt;!-- CheckRole を追加する --&gt;</span>
@@ -510,7 +511,7 @@
 <span class="n">SessionStoreUserRoleUtil</span><span class="o">.</span><span class="na">save</span><span class="o">(</span><span class="n">userRoles</span><span class="o">,</span> <span class="n">executionContext</span><span class="o">);</span>
 </pre></div>
 </div>
-<p>ここでは、ログインIDを元にユーザに割り当てられたロールの一覧を解決し、それを <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/common/authorization/role/session/SessionStoreUserRoleUtil.html" title="nablarch.common.authorization.role.session.SessionStoreUserRoleUtil">SessionStoreUserRoleUtil</a> の <code class="docutils literal"><span class="pre">save</span></code> メソッドでセッションストアに保存している。</p>
+<p>ここでは、ログインIDを元にユーザに割り当てられたロールの一覧を解決し、それを <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/common/authorization/role/session/SessionStoreUserRoleUtil.html" title="nablarch.common.authorization.role.session.SessionStoreUserRoleUtil">SessionStoreUserRoleUtil</a> の <code class="docutils literal"><span class="pre">save</span></code> メソッドでセッションストアに保存している。</p>
 <div class="admonition tip">
 <p class="first admonition-title">補足</p>
 <p><code class="docutils literal"><span class="pre">resolveUserRoles</span></code> メソッドが行う、ユーザからロールを解決する方法については、フレームワークでは特に規定していない。
@@ -527,10 +528,10 @@
 <span class="kd">public</span> <span class="n">HttpResponse</span> <span class="nf">index</span><span class="o">(</span><span class="n">HttpRequest</span> <span class="n">request</span><span class="o">,</span> <span class="n">ExecutionContext</span> <span class="n">context</span><span class="o">)</span> <span class="o">{</span>
 </pre></div>
 </div>
-<p><a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/common/authorization/role/CheckRole.html" title="nablarch.common.authorization.role.CheckRole">CheckRole</a> アノテーションをアクションメソッドに設定し <code class="docutils literal"><span class="pre">value</span></code> にロールを指定することで、アクションメソッドにロールを割り当てることができる。
+<p><a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/common/authorization/role/CheckRole.html" title="nablarch.common.authorization.role.CheckRole">CheckRole</a> アノテーションをアクションメソッドに設定し <code class="docutils literal"><span class="pre">value</span></code> にロールを指定することで、アクションメソッドにロールを割り当てることができる。
 上記例では、 <code class="docutils literal"><span class="pre">index</span></code> メソッドに対して <code class="docutils literal"><span class="pre">ADMIN</span></code> ロールを割り当てている。
 これにより、 <code class="docutils literal"><span class="pre">index</span></code> メソッドは <code class="docutils literal"><span class="pre">ADMIN</span></code> ロールを持つユーザだけが実行できるようになる。
-もし <code class="docutils literal"><span class="pre">ADMIN</span></code> ロールを持たないユーザがメソッドを実行しようとした場合は、 <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/results/Forbidden.html" title="nablarch.fw.results.Forbidden">Forbidden</a> がスローされる。</p>
+もし <code class="docutils literal"><span class="pre">ADMIN</span></code> ロールを持たないユーザがメソッドを実行しようとした場合は、 <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/results/Forbidden.html" title="nablarch.fw.results.Forbidden">Forbidden</a> がスローされる。</p>
 <p>複数のロールを割り当てたい場合は、配列で指定できる。
 以下に実装例を示す。</p>
 <div class="highlight-java"><div class="highlight"><pre><span></span><span class="nd">@CheckRole</span><span class="o">({</span><span class="n">Roles</span><span class="o">.</span><span class="na">ROLE_ADMIN</span><span class="o">,</span> <span class="n">Roles</span><span class="o">.</span><span class="na">ROLE_PROJECT_MANAGER</span><span class="o">})</span>
@@ -551,11 +552,11 @@
 </div>
 <div class="section" id="checkrole">
 <h3><a class="toc-backref" href="#id30">アノテーションに割り当てた CheckRole の設定を一覧で確認する</a><a class="headerlink" href="#checkrole" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>アクションメソッドに設定した <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/common/authorization/role/CheckRole.html" title="nablarch.common.authorization.role.CheckRole">CheckRole</a> アノテーションに誤りがないかチェックするために、アノテーションの設定状況を一覧表示する機能を提供している。
+<p>アクションメソッドに設定した <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/common/authorization/role/CheckRole.html" title="nablarch.common.authorization.role.CheckRole">CheckRole</a> アノテーションに誤りがないかチェックするために、アノテーションの設定状況を一覧表示する機能を提供している。
 本機能を利用することで、アノテーションの設定に漏れが無いか、設定されている内容に過不足がないかをチェックできるようになる。</p>
 <p>本機能は、システム起動時にアノテーションの設定情報を収集して、デバッグレベルでログに出力するという方法で実現している。
 以下で、設定方法について説明する。</p>
-<p>まず、 <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/common/authorization/role/CheckRoleLogger.html" title="nablarch.common.authorization.role.CheckRoleLogger">CheckRoleLogger</a> のコンポーネントを以下のように定義する。</p>
+<p>まず、 <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/common/authorization/role/CheckRoleLogger.html" title="nablarch.common.authorization.role.CheckRoleLogger">CheckRoleLogger</a> のコンポーネントを以下のように定義する。</p>
 <div class="highlight-xml"><div class="highlight"><pre><span></span><span class="c">&lt;!-- 初期化が必要なコンポーネント --&gt;</span>
 <span class="nt">&lt;component</span> <span class="na">name=</span><span class="s">&quot;initializer&quot;</span>
            <span class="na">class=</span><span class="s">&quot;nablarch.core.repository.initialization.BasicApplicationInitializer&quot;</span><span class="nt">&gt;</span>
@@ -571,11 +572,11 @@
 <span class="nt">&lt;/component&gt;</span>
 </pre></div>
 </div>
-<p><a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/common/authorization/role/CheckRoleLogger.html" title="nablarch.common.authorization.role.CheckRoleLogger">CheckRoleLogger</a> は、初期化が必要なコンポーネントとして <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/core/repository/initialization/BasicApplicationInitializer.html" title="nablarch.core.repository.initialization.BasicApplicationInitializer">BasicApplicationInitializer</a> の <code class="docutils literal"><span class="pre">initializeList</span></code> に設定する。
+<p><a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/common/authorization/role/CheckRoleLogger.html" title="nablarch.common.authorization.role.CheckRoleLogger">CheckRoleLogger</a> は、初期化が必要なコンポーネントとして <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/core/repository/initialization/BasicApplicationInitializer.html" title="nablarch.core.repository.initialization.BasicApplicationInitializer">BasicApplicationInitializer</a> の <code class="docutils literal"><span class="pre">initializeList</span></code> に設定する。
 またこのとき、 <code class="docutils literal"><span class="pre">targetPackage</span></code> プロパティにアクションクラスが存在するパッケージを指定する(サブパッケージも対象となる)。</p>
 <p>なお、デフォルトでは末尾が <code class="docutils literal"><span class="pre">Action</span></code> で終わる名前のクラスが処理の対象となる。
 この設定は <code class="docutils literal"><span class="pre">targetClassPattern</span></code> プロパティに任意の正規表現を指定することで変更できる。
-詳細は <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/common/authorization/role/CheckRoleLogger.html" title="nablarch.common.authorization.role.CheckRoleLogger">CheckRoleLogger</a> のJavadocを参照のこと。</p>
+詳細は <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/common/authorization/role/CheckRoleLogger.html" title="nablarch.common.authorization.role.CheckRoleLogger">CheckRoleLogger</a> のJavadocを参照のこと。</p>
 <p>上記設定が完了したら、ログレベルをデバッグレベルにしてシステムを起動する。
 これにより、システム起動時に以下のようなログが出力されるようになる。</p>
 <div class="highlight-text"><div class="highlight"><pre><span></span>2023-01-11 14:29:31.643 -DEBUG- nablarch.common.authorization.role.CheckRoleLogger [null] boot_proc = [] proc_sys = [nablarch-example-web] req_id = [null] usr_id = [null] CheckRole Annotation Settings
@@ -639,7 +640,7 @@ com.nablarch.example.app.web.action.ProjectUploadAction       index(nablarch.fw.
 <span class="o">}</span>
 </pre></div>
 </div>
-<p>プログラムでロールの有無を判定する場合は、 <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/common/authorization/role/CheckRoleUtil.html" title="nablarch.common.authorization.role.CheckRoleUtil">CheckRoleUtil</a> を使用する。
+<p>プログラムでロールの有無を判定する場合は、 <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/common/authorization/role/CheckRoleUtil.html" title="nablarch.common.authorization.role.CheckRoleUtil">CheckRoleUtil</a> を使用する。
 上記例では、 <code class="docutils literal"><span class="pre">checkRole</span></code> メソッドを使って現在のユーザが <code class="docutils literal"><span class="pre">ADMIN</span></code> ロールを持っているかどうかを判定している。</p>
 <p>複数のロールを指定する場合は、 <code class="docutils literal"><span class="pre">checkRoleAllOf</span></code> メソッドか <code class="docutils literal"><span class="pre">checkRoleAnyOf</span></code> メソッドを使用して判定できる。</p>
 </div>
@@ -673,25 +674,25 @@ com.nablarch.example.app.web.action.ProjectUploadAction       index(nablarch.fw.
 <h2><a class="toc-backref" href="#id33">仕組み</a><a class="headerlink" href="#id15" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>ここでは、アノテーションによる認可チェックの仕組みについて説明する。</p>
 <img alt="../../../../_images/architecture.png" src="../../../../_images/architecture.png" />
-<p>アノテーションを用いたチェック処理の実行は、Nablarchの <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/Interceptor.html" title="nablarch.fw.Interceptor">インターセプタ</a> の仕組みを利用して実現している。
-<a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/common/authorization/role/CheckRole.html" title="nablarch.common.authorization.role.CheckRole">CheckRole</a> アノテーションは、このインターセプタを実装したものとなっている。</p>
-<p><a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/common/authorization/role/CheckRole.html" title="nablarch.common.authorization.role.CheckRole">CheckRole</a> と <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/common/authorization/role/CheckRoleUtil.html" title="nablarch.common.authorization.role.CheckRoleUtil">CheckRoleUtil</a> 自体は直接認可チェックは行わず、 <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/common/authorization/role/RoleEvaluator.html" title="nablarch.common.authorization.role.RoleEvaluator">RoleEvaluator</a> に処理を委譲する。
-このとき、 <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/common/authorization/role/RoleEvaluator.html" title="nablarch.common.authorization.role.RoleEvaluator">RoleEvaluator</a> のインスタンスは <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/core/repository/SystemRepository.html" title="nablarch.core.repository.SystemRepository">SystemRepository</a> から <code class="docutils literal"><span class="pre">roleEvaluator</span></code> という名前で取得したものを使用する。
-また、チェック処理に渡すユーザIDは、 <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/core/ThreadContext.html" title="nablarch.core.ThreadContext">ThreadContext</a> の <code class="docutils literal"><span class="pre">getUserId</span></code> メソッドで取得したものを使用する。</p>
-<p><a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/common/authorization/role/RoleEvaluator.html" title="nablarch.common.authorization.role.RoleEvaluator">RoleEvaluator</a> のデフォルトの実装クラスとして、本認可チェックでは <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/common/authorization/role/BasicRoleEvaluator.html" title="nablarch.common.authorization.role.BasicRoleEvaluator">BasicRoleEvaluator</a> というクラスを提供している。
+<p>アノテーションを用いたチェック処理の実行は、Nablarchの <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/Interceptor.html" title="nablarch.fw.Interceptor">インターセプタ</a> の仕組みを利用して実現している。
+<a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/common/authorization/role/CheckRole.html" title="nablarch.common.authorization.role.CheckRole">CheckRole</a> アノテーションは、このインターセプタを実装したものとなっている。</p>
+<p><a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/common/authorization/role/CheckRole.html" title="nablarch.common.authorization.role.CheckRole">CheckRole</a> と <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/common/authorization/role/CheckRoleUtil.html" title="nablarch.common.authorization.role.CheckRoleUtil">CheckRoleUtil</a> 自体は直接認可チェックは行わず、 <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/common/authorization/role/RoleEvaluator.html" title="nablarch.common.authorization.role.RoleEvaluator">RoleEvaluator</a> に処理を委譲する。
+このとき、 <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/common/authorization/role/RoleEvaluator.html" title="nablarch.common.authorization.role.RoleEvaluator">RoleEvaluator</a> のインスタンスは <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/core/repository/SystemRepository.html" title="nablarch.core.repository.SystemRepository">SystemRepository</a> から <code class="docutils literal"><span class="pre">roleEvaluator</span></code> という名前で取得したものを使用する。
+また、チェック処理に渡すユーザIDは、 <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/core/ThreadContext.html" title="nablarch.core.ThreadContext">ThreadContext</a> の <code class="docutils literal"><span class="pre">getUserId</span></code> メソッドで取得したものを使用する。</p>
+<p><a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/common/authorization/role/RoleEvaluator.html" title="nablarch.common.authorization.role.RoleEvaluator">RoleEvaluator</a> のデフォルトの実装クラスとして、本認可チェックでは <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/common/authorization/role/BasicRoleEvaluator.html" title="nablarch.common.authorization.role.BasicRoleEvaluator">BasicRoleEvaluator</a> というクラスを提供している。
 このクラスは、ユーザに紐づくロールと引数で渡されたロールとを比較し、条件を満たすかどうかを判定するシンプルな作りとなっている。
-なお、ユーザに紐づくロールの解決は <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/common/authorization/role/UserRoleResolver.html" title="nablarch.common.authorization.role.UserRoleResolver">UserRoleResolver</a> に委譲している。</p>
-<p><a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/common/authorization/role/UserRoleResolver.html" title="nablarch.common.authorization.role.UserRoleResolver">UserRoleResolver</a> のデフォルト実装としては、　<a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/common/authorization/role/session/SessionStoreUserRoleResolver.html" title="nablarch.common.authorization.role.session.SessionStoreUserRoleResolver">SessionStoreUserRoleResolver</a> を提供している。
+なお、ユーザに紐づくロールの解決は <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/common/authorization/role/UserRoleResolver.html" title="nablarch.common.authorization.role.UserRoleResolver">UserRoleResolver</a> に委譲している。</p>
+<p><a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/common/authorization/role/UserRoleResolver.html" title="nablarch.common.authorization.role.UserRoleResolver">UserRoleResolver</a> のデフォルト実装としては、　<a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/common/authorization/role/session/SessionStoreUserRoleResolver.html" title="nablarch.common.authorization.role.session.SessionStoreUserRoleResolver">SessionStoreUserRoleResolver</a> を提供している。
 このクラスは、セッションストアに保存された情報でユーザのロールを解決する仕組みとなっている。</p>
 </div>
 <div class="section" id="id16">
 <h2><a class="toc-backref" href="#id34">拡張方法</a><a class="headerlink" href="#id16" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>前述の仕組みの説明から、 <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/common/authorization/role/RoleEvaluator.html" title="nablarch.common.authorization.role.RoleEvaluator">RoleEvaluator</a> または <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/common/authorization/role/UserRoleResolver.html" title="nablarch.common.authorization.role.UserRoleResolver">UserRoleResolver</a> の実体を差し替えることで任意の処理に拡張できることがわかる。</p>
-<p><a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/common/authorization/role/RoleEvaluator.html" title="nablarch.common.authorization.role.RoleEvaluator">RoleEvaluator</a> の実体の差し替えは、 <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/common/authorization/role/RoleEvaluator.html" title="nablarch.common.authorization.role.RoleEvaluator">RoleEvaluator</a> を実装した独自クラスを作成し、そのクラスを <code class="docutils literal"><span class="pre">roleEvaluator</span></code> という名前でコンポーネント登録することで実現できる。</p>
+<p>前述の仕組みの説明から、 <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/common/authorization/role/RoleEvaluator.html" title="nablarch.common.authorization.role.RoleEvaluator">RoleEvaluator</a> または <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/common/authorization/role/UserRoleResolver.html" title="nablarch.common.authorization.role.UserRoleResolver">UserRoleResolver</a> の実体を差し替えることで任意の処理に拡張できることがわかる。</p>
+<p><a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/common/authorization/role/RoleEvaluator.html" title="nablarch.common.authorization.role.RoleEvaluator">RoleEvaluator</a> の実体の差し替えは、 <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/common/authorization/role/RoleEvaluator.html" title="nablarch.common.authorization.role.RoleEvaluator">RoleEvaluator</a> を実装した独自クラスを作成し、そのクラスを <code class="docutils literal"><span class="pre">roleEvaluator</span></code> という名前でコンポーネント登録することで実現できる。</p>
 <div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;component</span> <span class="na">name=</span><span class="s">&quot;roleEvaluator&quot;</span> <span class="na">class=</span><span class="s">&quot;com.example.CustomRoleEvaluator&quot;</span> <span class="nt">/&gt;</span>
 </pre></div>
 </div>
-<p><a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/common/authorization/role/RoleEvaluator.html" title="nablarch.common.authorization.role.RoleEvaluator">RoleEvaluator</a> の実体には <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/common/authorization/role/BasicRoleEvaluator.html" title="nablarch.common.authorization.role.BasicRoleEvaluator">BasicRoleEvaluator</a> を使いつつ、 <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/common/authorization/role/UserRoleResolver.html" title="nablarch.common.authorization.role.UserRoleResolver">UserRoleResolver</a> の実体だけを差し替えたい場合は、 <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/common/authorization/role/BasicRoleEvaluator.html" title="nablarch.common.authorization.role.BasicRoleEvaluator">BasicRoleEvaluator</a> の <code class="docutils literal"><span class="pre">userRoleResolver</span></code> プロパティに設定するコンポーネントを差し替えればいい。
+<p><a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/common/authorization/role/RoleEvaluator.html" title="nablarch.common.authorization.role.RoleEvaluator">RoleEvaluator</a> の実体には <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/common/authorization/role/BasicRoleEvaluator.html" title="nablarch.common.authorization.role.BasicRoleEvaluator">BasicRoleEvaluator</a> を使いつつ、 <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/common/authorization/role/UserRoleResolver.html" title="nablarch.common.authorization.role.UserRoleResolver">UserRoleResolver</a> の実体だけを差し替えたい場合は、 <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/common/authorization/role/BasicRoleEvaluator.html" title="nablarch.common.authorization.role.BasicRoleEvaluator">BasicRoleEvaluator</a> の <code class="docutils literal"><span class="pre">userRoleResolver</span></code> プロパティに設定するコンポーネントを差し替えればいい。
 デフォルトコンフィグレーションを利用している場合は、 <code class="docutils literal"><span class="pre">userRoleResolver</span></code> という名前のコンポーネントを設定するように定義されているので、同じ名前で独自クラスのコンポーネントを定義することで差し替えができる。</p>
 <div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;component</span> <span class="na">name=</span><span class="s">&quot;userRoleResolver&quot;</span> <span class="na">class=</span><span class="s">&quot;com.example.CustomUserRoleResolver&quot;</span> <span class="nt">/&gt;</span>
 </pre></div>
@@ -711,7 +712,7 @@ com.nablarch.example.app.web.action.ProjectUploadAction       index(nablarch.fw.
 
     <div role="contentinfo">
         <p>
-            &copy; Copyright 2010-2024, TIS Inc.
+            &copy; Copyright 2010-2025, TIS Inc.
         </p>
     </div>
     Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
@@ -732,7 +733,7 @@ com.nablarch.example.app.web.action.ProjectUploadAction       index(nablarch.fw.
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../../',
-            VERSION:'5u25',
+            VERSION:'5u26',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

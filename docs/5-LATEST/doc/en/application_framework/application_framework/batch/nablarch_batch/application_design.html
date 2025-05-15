@@ -9,7 +9,7 @@
   <meta http-equiv='content-language' content='ja'>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Responsibility Assignment of Application &mdash; ∇Nablarch  5u25 documentation</title>
+  <title>Responsibility Assignment of Application &mdash; ∇Nablarch  5u26 documentation</title>
   
 
   
@@ -33,9 +33,10 @@
   
 
   
+  
   <link rel="canonical" href="https://nablarch.github.io/docs/LATEST/doc/application_framework/application_framework/batch/nablarch_batch/application_design.html" />
   
-    <link rel="top" title="∇Nablarch  5u25 documentation" href="../../../../index.html"/>
+    <link rel="top" title="∇Nablarch  5u26 documentation" href="../../../../index.html"/>
         <link rel="up" title="Nablarch Batch Application" href="index.html"/>
         <link rel="next" title="Getting Started" href="getting_started/getting_started.html"/>
         <link rel="prev" title="Architecture Overview" href="architecture.html"/>
@@ -63,7 +64,7 @@
   
 
   
-    <div id="sidebar-version">Version: 5u25</div>
+    <div id="sidebar-version">Version: 5u26</div>
   </a>
 
   <div role="search">
@@ -320,7 +321,7 @@
       <a href="https://github.com/nablarch" class="fa fa-github">GitHub</a>
     </li>
     <li class="wy-breadcrumbs-aside">
-        <a href="https://nablarch.github.io/docs/LATEST/doc/index.html" class="ja">日本語</a>
+        <a href="https://nablarch.github.io/docs/5-LATEST/doc/index.html" class="ja">日本語</a>
     </li>
   </ul>
   <hr/>
@@ -337,19 +338,19 @@
 <dt>Action class</dt>
 <dd><p class="first">Action classes perform two things.</p>
 <ul class="simple">
-<li>Generates <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/DataReader.html" title="nablarch.fw.DataReader">DataReader</a> used to read input data.</li>
-<li>Executes the business logic based on the data records read by <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/DataReader.html" title="nablarch.fw.DataReader">DataReader</a>
-and returns <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/Result.html" title="nablarch.fw.Result">Result</a>.</li>
+<li>Generates <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/DataReader.html" title="nablarch.fw.DataReader">DataReader</a> used to read input data.</li>
+<li>Executes the business logic based on the data records read by <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/DataReader.html" title="nablarch.fw.DataReader">DataReader</a>
+and returns <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/Result.html" title="nablarch.fw.Result">Result</a>.</li>
 </ul>
 <p>For example, the following process is performed as business logic in the case of a batch for importing from a file.</p>
 <ul class="last simple">
 <li>Creates a form class from data record and performs validation.</li>
 <li>Creates entity class from the form class and add data to database.</li>
-<li>Returns <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/Result.Success.html" title="nablarch.fw.Result.Success">Success</a> as the processing result.</li>
+<li>Returns <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/Result.Success.html" title="nablarch.fw.Result.Success">Success</a> as the processing result.</li>
 </ul>
 </dd>
 <dt>Form class</dt>
-<dd><p class="first">Class that maps data records read by <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/DataReader.html" title="nablarch.fw.DataReader">DataReader</a>.</p>
+<dd><p class="first">Class that maps data records read by <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/DataReader.html" title="nablarch.fw.DataReader">DataReader</a>.</p>
 <p>Contains configuration of annotation for validation of data record and logic for correlation validation.
 Depending on external input data, it may have a hierarchical structure (form having a form).</p>
 <dl class="docutils">
@@ -383,7 +384,7 @@ The entity class has property corresponding to columns.</dd>
 
     <div role="contentinfo">
         <p>
-            &copy; Copyright 2010-2024, TIS Inc.
+            &copy; Copyright 2010-2025, TIS Inc.
         </p>
     </div>
     Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
@@ -404,7 +405,7 @@ The entity class has property corresponding to columns.</dd>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../../',
-            VERSION:'5u25',
+            VERSION:'5u26',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

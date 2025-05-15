@@ -9,7 +9,7 @@
   <meta http-equiv='content-language' content='ja'>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Request Dispatch Handler &mdash; ∇Nablarch  5u25 documentation</title>
+  <title>Request Dispatch Handler &mdash; ∇Nablarch  5u26 documentation</title>
   
 
   
@@ -33,9 +33,10 @@
   
 
   
+  
   <link rel="canonical" href="https://nablarch.github.io/docs/LATEST/doc/application_framework/application_framework/handlers/common/request_path_java_package_mapping.html" />
   
-    <link rel="top" title="∇Nablarch  5u25 documentation" href="../../../../index.html"/>
+    <link rel="top" title="∇Nablarch  5u26 documentation" href="../../../../index.html"/>
         <link rel="up" title="Common Handler" href="index.html"/>
         <link rel="next" title="Request Handler Entry" href="request_handler_entry.html"/>
         <link rel="prev" title="Output File Release Handler" href="file_record_writer_dispose_handler.html"/>
@@ -63,7 +64,7 @@
   
 
   
-    <div id="sidebar-version">Version: 5u25</div>
+    <div id="sidebar-version">Version: 5u26</div>
   </a>
 
   <div role="search">
@@ -320,7 +321,7 @@
       <a href="https://github.com/nablarch" class="fa fa-github">GitHub</a>
     </li>
     <li class="wy-breadcrumbs-aside">
-        <a href="https://nablarch.github.io/docs/LATEST/doc/index.html" class="ja">日本語</a>
+        <a href="https://nablarch.github.io/docs/5-LATEST/doc/index.html" class="ja">日本語</a>
     </li>
   </ul>
   <hr/>
@@ -346,7 +347,7 @@
 <p>This handler delegates processing to an action that describes the process to be performed for each function of the application.
 This handler is mainly a function for <a class="reference internal" href="../../messaging/index.html#messaging"><span>messaging</span></a>, and is used for dispatching to an arbitrary action.</p>
 <p>In this handler, the dispatch destination action is selected based on the request path acquired by
-<a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/Request.html#getRequestPath--" title="nablarch.fw.Request.getRequestPath()">Request#getRequestPath()</a>.
+<a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/Request.html#getRequestPath--" title="nablarch.fw.Request.getRequestPath()">Request#getRequestPath()</a>.
 The request path format assumes the following:</p>
 <p>Request path format: /&lt;basePath&gt;/&lt;className&gt;</p>
 <p>Each of the parts enclosed by &lt;&gt; in the format above have the following meanings.</p>
@@ -373,7 +374,7 @@ The request path format assumes the following:</p>
 if the base path is <code class="docutils literal"><span class="pre">batch</span></code>, specify a request path like <code class="docutils literal"><span class="pre">/batch/ExampleBatchAction</span></code>.</p>
 <div class="admonition important">
 <p class="first admonition-title">Important</p>
-<p class="last">Normally, the request path acquired by <a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/Request.html#getRequestPath--" title="nablarch.fw.Request.getRequestPath()">Request#getRequestPath()</a> is
+<p class="last">Normally, the request path acquired by <a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/Request.html#getRequestPath--" title="nablarch.fw.Request.getRequestPath()">Request#getRequestPath()</a> is
 specified by the <code class="docutils literal"><span class="pre">-requestPath</span></code> option when launched in the command line as described in <a class="reference internal" href="../standalone/main.html#main"><span>Common Launcher</span></a>.</p>
 </div>
 <p>This handler performs the following process.</p>
@@ -385,7 +386,7 @@ specified by the <code class="docutils literal"><span class="pre">-requestPath</
 <div class="section" id="handler-class-name">
 <h2><a class="toc-backref" href="#id1">Handler class name</a><a class="headerlink" href="#handler-class-name" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/handler/RequestPathJavaPackageMapping.html" title="nablarch.fw.handler.RequestPathJavaPackageMapping">nablarch.fw.handler.RequestPathJavaPackageMapping</a></li>
+<li><a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/handler/RequestPathJavaPackageMapping.html" title="nablarch.fw.handler.RequestPathJavaPackageMapping">nablarch.fw.handler.RequestPathJavaPackageMapping</a></li>
 </ul>
 </div>
 <div class="section" id="module-list">
@@ -464,7 +465,7 @@ This handler provides a method for separately configuring the package in which a
 </tbody>
 </table>
 <p>To perform such a dispatch, the <code class="docutils literal"><span class="pre">optionalPackageMappingEntries</span></code> is configured using the
-<a class="reference external" href="https://nablarch.github.io/docs/5u25/javadoc/nablarch/fw/handler/JavaPackageMappingEntry.html" title="nablarch.fw.handler.JavaPackageMappingEntry">JavaPackageMappingEntry</a> class as follows.</p>
+<a class="reference external" href="https://nablarch.github.io/docs/5u26/javadoc/nablarch/fw/handler/JavaPackageMappingEntry.html" title="nablarch.fw.handler.JavaPackageMappingEntry">JavaPackageMappingEntry</a> class as follows.</p>
 <div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;component</span> <span class="na">class=</span><span class="s">&quot;nablarch.fw.handler.RequestPathJavaPackageMapping&quot;</span><span class="nt">&gt;</span>
     <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;optionalPackageMappingEntries&quot;</span><span class="nt">&gt;</span>
       <span class="c">&lt;!-- Describe the combination of the request path pattern and Java package in the order to be matched. --&gt;</span>
@@ -510,7 +511,7 @@ If you want to delegate to the dispatched class after the execution of subsequen
 
     <div role="contentinfo">
         <p>
-            &copy; Copyright 2010-2024, TIS Inc.
+            &copy; Copyright 2010-2025, TIS Inc.
         </p>
     </div>
     Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
@@ -531,7 +532,7 @@ If you want to delegate to the dispatched class after the execution of subsequen
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../../',
-            VERSION:'5u25',
+            VERSION:'5u26',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,
