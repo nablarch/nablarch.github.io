@@ -145,6 +145,10 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../../../toolbox/NablarchOpenApiGenerator/NablarchOpenApiGenerator.html">Nablarch OpenAPI Generator</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../ai_tools/index.html">AIコーディング支援</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../ai_tools/nabledge/index.html">Nablarch専用AIコーディングツール向けプラグイン</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../../examples/index.html">Example</a><ul>
@@ -1031,7 +1035,7 @@
 通常、テストシート名とテストメソッド名は同一である。引数なしのexecuteメソッドを使用すると、テストデータのシート名に
 テストメソッド名を指定したのと同じ動作となる。</p>
 <div class="highlight-java"><div class="highlight"><pre><span></span><span class="nd">@Test</span>
-<span class="kd">public</span> <span class="kt">void</span> <span class="nf">testResigster</span><span class="o">()</span> <span class="o">{</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">testRegister</span><span class="o">()</span> <span class="o">{</span>
     <span class="n">execute</span><span class="o">();</span>   <span class="c1">// 【説明】execute(&quot;testRegisterUser&quot;) と等価</span>
 <span class="o">}</span>
 </pre></div>
@@ -1109,7 +1113,7 @@ IDの記述方法だけが異なる。
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
 <tr><td class="label"><a class="fn-backref" href="#id36">[5]</a></td><td><strong>N</strong>は1以上の整数を指定することで複数の値（連続する値であること）
-(例) messsage1, message2...</td></tr>
+(例) message1, message2...</td></tr>
 </tbody>
 </table>
 <div class="admonition tip">
@@ -1173,7 +1177,7 @@ LIST_MAP要素が存在しない場合には、本フレームワークは期待
 
     <div role="contentinfo">
         <p>
-            &copy; Copyright 2010-2025, TIS Inc.
+            &copy; Copyright 2010, TISI Inc.
         </p>
     </div>
     Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.

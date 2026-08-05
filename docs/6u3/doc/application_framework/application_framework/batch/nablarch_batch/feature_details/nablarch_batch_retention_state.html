@@ -145,6 +145,10 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../../../development_tools/toolbox/NablarchOpenApiGenerator/NablarchOpenApiGenerator.html">Nablarch OpenAPI Generator</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../development_tools/ai_tools/index.html">AIコーディング支援</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../development_tools/ai_tools/nabledge/index.html">Nablarch専用AIコーディングツール向けプラグイン</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../examples/index.html">Example</a><ul>
@@ -356,7 +360,7 @@
 <span id="id1"></span><h1>バッチアプリケーションで実行中の状態を保持する<a class="headerlink" href="#nablarch-batch-retention-state" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p>バッチアプリケーションの実行中の状態を保持したい場合がある。
 例えば、バッチアクションで行った登録件数や更新件数を保持したい場合などが該当する。
-このような場合は、バッチアクション内で状態を保持しすることで対応する。</p>
+このような場合は、バッチアクション内で状態を保持することで対応する。</p>
 <p>以下に、登録件数を保持するアクションの実装例を示す。</p>
 <p>マルチスレッドで実行されるバッチについては、アプリケーション側でスレッドセーフであることを保証する必要がある。
 この例では、 <a class="reference external" href="https://docs.oracle.com/javase/jp/17/docs/api/java.base/java/util/concurrent/atomic/AtomicInteger.html" title="java.util.concurrent.atomic.AtomicInteger">AtomicInteger</a> を使用して保証している。</p>
@@ -409,7 +413,7 @@
 
     <div role="contentinfo">
         <p>
-            &copy; Copyright 2010-2025, TIS Inc.
+            &copy; Copyright 2010, TISI Inc.
         </p>
     </div>
     Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.

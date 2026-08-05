@@ -145,6 +145,10 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../../../development_tools/toolbox/NablarchOpenApiGenerator/NablarchOpenApiGenerator.html">Nablarch OpenAPI Generator</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../development_tools/ai_tools/index.html">AIコーディング支援</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../development_tools/ai_tools/nabledge/index.html">Nablarch専用AIコーディングツール向けプラグイン</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../examples/index.html">Example</a><ul>
@@ -444,7 +448,7 @@
 <span class="c1">#</span>
 file-type:     <span class="s2">&quot;Fixed&quot;</span>  <span class="c1"># 固定長</span>
 text-encoding: <span class="s2">&quot;ms932&quot;</span>  <span class="c1"># 文字コードはms932</span>
-record-length:  <span class="m">120</span>     <span class="c1"># 各業の長さは120バイト</span>
+record-length:  <span class="m">120</span>     <span class="c1"># 各行の長さは120バイト</span>
 </pre></div>
 </div>
 </div>
@@ -641,7 +645,7 @@ record-length:                  <span class="m">120</span>      <span class="c1"
 positive-zone-sign-nibble:      <span class="s2">&quot;C&quot;</span>      <span class="c1"># ゾーン数値の正符号</span>
 negative-zone-sign-nibble:      <span class="s2">&quot;D&quot;</span>      <span class="c1"># ゾーン数値の負符号</span>
 positive-pack-sign-nibble:      <span class="s2">&quot;C&quot;</span>      <span class="c1"># パック数値の正符号</span>
-negative-pack-sign-nibbleL      <span class="s2">&quot;D&quot;</span>      <span class="c1"># パック数値の負符号</span>
+negative-pack-sign-nibble:      <span class="s2">&quot;D&quot;</span>      <span class="c1"># パック数値の負符号</span>
 required-decimal-point:         <span class="nb">true</span>     <span class="c1"># 小数点あり</span>
 fixed-sign-position:            <span class="nb">true</span>     <span class="c1"># 符号は先頭に</span>
 required-plus-sign:             <span class="nb">false</span>    <span class="c1"># 正符号は付加しない</span>
@@ -737,7 +741,7 @@ text-encoding:  <span class="s2">&quot;utf-8&quot;</span>     <span class="c1">#
 </div>
 <div class="section" id="xml">
 <h3><a class="toc-backref" href="#id26">XML形式で指定可能なディレクティブ一覧</a><a class="headerlink" href="#xml" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>XMLデータ形式固有のディレクティブは存在いない。</p>
+<p>XMLデータ形式固有のディレクティブは存在しない。</p>
 <p>以下に例を示す。</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>file-type:      <span class="s2">&quot;XML&quot;</span>       <span class="c1"># xmlフォーマット</span>
 text-encoding:  <span class="s2">&quot;utf-8&quot;</span>     <span class="c1"># 文字列型フィールドの文字エンコーディング</span>
@@ -810,7 +814,7 @@ text-encoding:  <span class="s2">&quot;utf-8&quot;</span>     <span class="c1">#
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Fixed(固定長):</th><td class="field-body">フィールドの開始バイト数(1起算)を設定する。</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Variable(可変長:</th><td class="field-body">フィールドの項目通番を設定する。</td>
+<tr class="field-even field"><th class="field-name">Variable(可変長):</th><td class="field-body">フィールドの項目通番を設定する。</td>
 </tr>
 <tr class="field-odd field"><th class="field-name">JSON:</th><td class="field-body">フィールドの要素通番</td>
 </tr>
@@ -1046,7 +1050,7 @@ record-separator: <span class="s2">&quot;\r\n&quot;</span>  <span class="c1"># �
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">引数1:</th><td class="field-body">バイト長(数値) <code class="docutils literal"><span class="pre">必須</span></code></td>
 </tr>
-<tr class="field-even field"><th class="field-name">引数2:</th><td class="field-body">少数点以下桁数(数値) <code class="docutils literal"><span class="pre">任意</span></code> デフォルト: <code class="docutils literal"><span class="pre">0</span></code></td>
+<tr class="field-even field"><th class="field-name">引数2:</th><td class="field-body">小数点以下桁数(数値) <code class="docutils literal"><span class="pre">任意</span></code> デフォルト: <code class="docutils literal"><span class="pre">0</span></code></td>
 </tr>
 <tr class="field-odd field"><th class="field-name">引数3:</th><td class="field-body">ゾーン部に設定する正符号(16進表記の文字列) <code class="docutils literal"><span class="pre">任意</span></code></td>
 </tr>
@@ -1070,7 +1074,7 @@ record-separator: <span class="s2">&quot;\r\n&quot;</span>  <span class="c1"># �
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">引数1:</th><td class="field-body">バイト長(数値) <code class="docutils literal"><span class="pre">必須</span></code></td>
 </tr>
-<tr class="field-even field"><th class="field-name">引数2:</th><td class="field-body">少数点以下桁数(数値) <code class="docutils literal"><span class="pre">任意</span></code> デフォルト: <code class="docutils literal"><span class="pre">0</span></code></td>
+<tr class="field-even field"><th class="field-name">引数2:</th><td class="field-body">小数点以下桁数(数値) <code class="docutils literal"><span class="pre">任意</span></code> デフォルト: <code class="docutils literal"><span class="pre">0</span></code></td>
 </tr>
 </tbody>
 </table>
@@ -1088,7 +1092,7 @@ record-separator: <span class="s2">&quot;\r\n&quot;</span>  <span class="c1"># �
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">引数1:</th><td class="field-body">バイト長(数値) <code class="docutils literal"><span class="pre">必須</span></code></td>
 </tr>
-<tr class="field-even field"><th class="field-name">引数2:</th><td class="field-body">少数点以下桁数(数値) <code class="docutils literal"><span class="pre">任意</span></code> デフォルト: <code class="docutils literal"><span class="pre">0</span></code></td>
+<tr class="field-even field"><th class="field-name">引数2:</th><td class="field-body">小数点以下桁数(数値) <code class="docutils literal"><span class="pre">任意</span></code> デフォルト: <code class="docutils literal"><span class="pre">0</span></code></td>
 </tr>
 <tr class="field-odd field"><th class="field-name">引数3:</th><td class="field-body">符号ビットに設定する正符号 (16進表記の文字列) <code class="docutils literal"><span class="pre">任意</span></code></td>
 </tr>
@@ -1126,7 +1130,7 @@ record-separator: <span class="s2">&quot;\r\n&quot;</span>  <span class="c1"># �
 <td><p class="first">符号無し数値文字列 (バイト長 = 文字数)</p>
 <p>フィールド中のシングルバイト文字列(X)を数値として扱う。</p>
 <p>デフォルトでは、 <code class="docutils literal"><span class="pre">0</span></code> による左トリム・パディングを行う。
-文字列中に小数点記号( <code class="docutils literal"><span class="pre">.</span></code> )を含めることできる。</p>
+文字列中に小数点記号( <code class="docutils literal"><span class="pre">.</span></code> )を含めることができる。</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1228,7 +1232,7 @@ XN</p>
 <td><p class="first">文字列データタイプ</p>
 <p>パディングなどの編集は行わない。</p>
 <p>JSONの場合は、出力時に値がダブルクォート <code class="docutils literal"><span class="pre">&quot;</span></code> で括られる。</p>
-<p class="last">出力対象の値が <code class="docutils literal"><span class="pre">null</span></code> の場合、JSONでは値の変換は行わなず、
+<p class="last">出力対象の値が <code class="docutils literal"><span class="pre">null</span></code> の場合、JSONでは値の変換は行わず、
 XMLでは空文字に変換する。</p>
 </td>
 </tr>
@@ -1239,7 +1243,7 @@ SX9 <br/></td>
 <p>パディングなどのデータ編集は行わない。出力時は値がそのまま出力される。</p>
 <p>もし、文字列を数値形式(BigDecimal)として読み書きしたい場合は、
 <a class="reference internal" href="#data-format-number-convertor"><span>numberコンバータ</span></a>
-または <a class="reference internal" href="#data-format-signed-number-convertor"><span>signed_numberコンバータ</span></a> 使用すること。</p>
+または <a class="reference internal" href="#data-format-signed-number-convertor"><span>signed_numberコンバータ</span></a> を使用すること。</p>
 <p class="last">出力対象の値が <code class="docutils literal"><span class="pre">null</span></code> の場合の扱いは、
 <a class="reference internal" href="#data-format-field-type-nullable-string"><span>文字列データタイプのフィールドタイプ</span></a> と同じ。</p>
 </td>
@@ -1459,7 +1463,7 @@ SX9 <br/></td>
 
     <div role="contentinfo">
         <p>
-            &copy; Copyright 2010-2025, TIS Inc.
+            &copy; Copyright 2010, TISI Inc.
         </p>
     </div>
     Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.

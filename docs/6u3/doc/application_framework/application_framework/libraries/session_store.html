@@ -145,6 +145,10 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../development_tools/toolbox/NablarchOpenApiGenerator/NablarchOpenApiGenerator.html">Nablarch OpenAPI Generator</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../../../development_tools/ai_tools/index.html">AIコーディング支援</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../development_tools/ai_tools/nabledge/index.html">Nablarch専用AIコーディングツール向けプラグイン</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../../examples/index.html">Example</a><ul>
@@ -718,7 +722,7 @@ JSPからセッションストアで保持しているセッション変数の�
 <p>正常な画面遷移では必ずセッション変数が存在しているが、ブラウザの戻るボタンを使用され不正な画面遷移が行われることで、
 本来存在しているはずのセッション変数にアクセスできない場合がある。
 この場合、セッション変数が存在しないことを示す例外( <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/common/web/session/SessionKeyNotFoundException.html" title="nablarch.common.web.session.SessionKeyNotFoundException">SessionKeyNotFoundException</a> )が送出されるので、
-この例外を補足することで任意のエラーページに遷移させることが出来る。</p>
+この例外を捕捉することで任意のエラーページに遷移させることが出来る。</p>
 <p>以下に実現方法を示す。</p>
 <dl class="docutils">
 <dt>システムで共通のエラーページに遷移させる</dt>
@@ -931,7 +935,7 @@ JSPからセッションストアで保持しているセッション変数の�
 
     <div role="contentinfo">
         <p>
-            &copy; Copyright 2010-2025, TIS Inc.
+            &copy; Copyright 2010, TISI Inc.
         </p>
     </div>
     Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.

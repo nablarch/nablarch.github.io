@@ -145,6 +145,10 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../../development_tools/toolbox/NablarchOpenApiGenerator/NablarchOpenApiGenerator.html">Nablarch OpenAPI Generator</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../development_tools/ai_tools/index.html">AIコーディング支援</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../development_tools/ai_tools/nabledge/index.html">Nablarch専用AIコーディングツール向けプラグイン</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../examples/index.html">Example</a><ul>
@@ -429,7 +433,7 @@ Jakarta RESTful Web Servicesのクライアントを使用する必要がある�
 </dd>
 <dt>リクエストの検証を行うハンドラ</dt>
 <dd><ul class="first last simple">
-<li><a class="reference internal" href="../../handlers/rest/jaxrs_bean_validation_handler.html#jaxrs-bean-validation-handler"><span>Jakarta RESTful Web Servcies Bean Validationハンドラ</span></a></li>
+<li><a class="reference internal" href="../../handlers/rest/jaxrs_bean_validation_handler.html#jaxrs-bean-validation-handler"><span>Jakarta RESTful Web Services Bean Validationハンドラ</span></a></li>
 <li><a class="reference internal" href="../../handlers/web/csrf_token_verification_handler.html#csrf-token-verification-handler"><span>CSRFトークン検証ハンドラ</span></a></li>
 </ul>
 </dd>
@@ -504,7 +508,7 @@ Jakarta RESTful Web Servicesのクライアントを使用する必要がある�
 <td>&nbsp;</td>
 </tr>
 <tr class="row-even"><td>7</td>
-<td><a class="reference internal" href="../../handlers/rest/jaxrs_bean_validation_handler.html#jaxrs-bean-validation-handler"><span>Jakarta RESTful Web Servcies Bean Validationハンドラ</span></a></td>
+<td><a class="reference internal" href="../../handlers/rest/jaxrs_bean_validation_handler.html#jaxrs-bean-validation-handler"><span>Jakarta RESTful Web Services Bean Validationハンドラ</span></a></td>
 <td>No6で変換したフォームクラスに対してバリデーションを実行する。</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
@@ -515,8 +519,8 @@ Jakarta RESTful Web Servicesのクライアントを使用する必要がある�
 <p class="first admonition-title">補足</p>
 <p><a class="reference internal" href="../../../adaptors/router_adaptor.html#router-adaptor"><span>リクエストURIとアクションを紐付けるハンドラ</span></a> より後ろに設定するハンドラは、
 ハンドラキューに直接設定するのではなく <a class="reference internal" href="../../../adaptors/router_adaptor.html#router-adaptor"><span>リクエストURIとアクションを紐付けるハンドラ</span></a> に対して設定する。</p>
-<p><a class="reference internal" href="../../../adaptors/jaxrs_adaptor.html#jaxrs-adaptor"><span>Jakarta RESTful Web Servicesアダプタ</span></a> を使用した場合、自動的に <a class="reference internal" href="../../handlers/rest/body_convert_handler.html#body-convert-handler"><span>リクエストボディ変換ハンドラ</span></a> と <a class="reference internal" href="../../handlers/rest/jaxrs_bean_validation_handler.html#jaxrs-bean-validation-handler"><span>Jakarta RESTful Web Servcies Bean Validationハンドラ</span></a> がハンドラキューに追加される。</p>
-<p><a class="reference internal" href="../../handlers/rest/body_convert_handler.html#body-convert-handler"><span>リクエストボディ変換ハンドラ</span></a> と <a class="reference internal" href="../../handlers/rest/jaxrs_bean_validation_handler.html#jaxrs-bean-validation-handler"><span>Jakarta RESTful Web Servcies Bean Validationハンドラ</span></a> 以外のハンドラを設定したい場合や、サポートするメディアタイプを増やしたい場合は、
+<p><a class="reference internal" href="../../../adaptors/jaxrs_adaptor.html#jaxrs-adaptor"><span>Jakarta RESTful Web Servicesアダプタ</span></a> を使用した場合、自動的に <a class="reference internal" href="../../handlers/rest/body_convert_handler.html#body-convert-handler"><span>リクエストボディ変換ハンドラ</span></a> と <a class="reference internal" href="../../handlers/rest/jaxrs_bean_validation_handler.html#jaxrs-bean-validation-handler"><span>Jakarta RESTful Web Services Bean Validationハンドラ</span></a> がハンドラキューに追加される。</p>
+<p><a class="reference internal" href="../../handlers/rest/body_convert_handler.html#body-convert-handler"><span>リクエストボディ変換ハンドラ</span></a> と <a class="reference internal" href="../../handlers/rest/jaxrs_bean_validation_handler.html#jaxrs-bean-validation-handler"><span>Jakarta RESTful Web Services Bean Validationハンドラ</span></a> 以外のハンドラを設定したい場合や、サポートするメディアタイプを増やしたい場合は、
 以下の設定例や <a class="reference internal" href="../../../adaptors/jaxrs_adaptor.html#jaxrs-adaptor"><span>Jakarta RESTful Web Servicesアダプタ</span></a> の実装を参考にハンドラキューを構築すること。</p>
 <div class="last highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;component</span> <span class="na">name=</span><span class="s">&quot;webFrontController&quot;</span> <span class="na">class=</span><span class="s">&quot;nablarch.fw.web.servlet.WebFrontController&quot;</span><span class="nt">&gt;</span>
   <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;handlerQueue&quot;</span><span class="nt">&gt;</span>
@@ -565,7 +569,7 @@ Jakarta RESTful Web Servicesのクライアントを使用する必要がある�
 
     <div role="contentinfo">
         <p>
-            &copy; Copyright 2010-2025, TIS Inc.
+            &copy; Copyright 2010, TISI Inc.
         </p>
     </div>
     Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.

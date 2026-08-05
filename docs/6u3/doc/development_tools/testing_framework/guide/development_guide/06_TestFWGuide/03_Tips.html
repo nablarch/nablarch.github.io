@@ -145,6 +145,10 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../../toolbox/NablarchOpenApiGenerator/NablarchOpenApiGenerator.html">Nablarch OpenAPI Generator</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../ai_tools/index.html">AIコーディング支援</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../ai_tools/nabledge/index.html">Nablarch専用AIコーディングツール向けプラグイン</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../examples/index.html">Example</a><ul>
@@ -361,7 +365,7 @@
 <li><a class="reference internal" href="#using-testdataparser"><span>任意のディレクトリのExcelファイルを読み込みたい</span></a></li>
 <li><a class="reference internal" href="#using-junit-annotation"><span>テスト実行前後に共通処理を行いたい。</span></a></li>
 <li><a class="reference internal" href="#using-transactions"><span>デフォルト以外のトランザクションを使用したい</span></a></li>
-<li><a class="reference internal" href="#using-ohter-class"><span>本フレームワークのクラスを継承せずに使用したい</span></a></li>
+<li><a class="reference internal" href="#using-other-class"><span>本フレームワークのクラスを継承せずに使用したい</span></a></li>
 <li><a class="reference internal" href="#how-to-assert-property-from-excel"><span>クラスのプロパティを検証したい</span></a></li>
 <li><a class="reference internal" href="#tips-test-data"><span>テストデータに空白、空文字、改行やnullを記述したい</span></a></li>
 <li><a class="reference internal" href="#how-to-express-empty-line"><span>テストデータに空行を記述したい</span></a></li>
@@ -396,11 +400,11 @@
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">testGetName</span><span class="o">()</span> <span class="o">{</span>
        <span class="c1">// Excelファイルからデータ取得</span>
        <span class="n">List</span><span class="o">&lt;</span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">String</span><span class="o">&gt;&gt;</span> <span class="n">parameters</span> <span class="o">=</span> <span class="n">getListMap</span><span class="o">(</span><span class="s">&quot;testGetName&quot;</span><span class="o">,</span> <span class="s">&quot;parameters&quot;</span><span class="o">);</span>
-       <span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">String</span><span class="o">&gt;&gt;</span> <span class="n">param</span> <span class="o">=</span> <span class="n">parameters</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">0</span><span class="o">);</span>
+       <span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">String</span><span class="o">&gt;</span> <span class="n">param</span> <span class="o">=</span> <span class="n">parameters</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">0</span><span class="o">);</span>
 
        <span class="c1">// 引数および期待値を取得</span>
-       <span class="n">String</span> <span class="n">empNo</span> <span class="o">=</span> <span class="n">parameter</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">&quot;empNo&quot;</span><span class="o">);</span>
-       <span class="n">String</span> <span class="n">expected</span> <span class="o">=</span> <span class="n">parameter</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">&quot;expected&quot;</span><span class="o">);</span>
+       <span class="n">String</span> <span class="n">empNo</span> <span class="o">=</span> <span class="n">param</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">&quot;empNo&quot;</span><span class="o">);</span>
+       <span class="n">String</span> <span class="n">expected</span> <span class="o">=</span> <span class="n">param</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">&quot;expected&quot;</span><span class="o">);</span>
 
        <span class="c1">// テスト対象メソッド起動</span>
        <span class="n">EmployeeComponent</span> <span class="n">target</span> <span class="o">=</span> <span class="k">new</span> <span class="n">EmployeeComponent</span><span class="o">();</span>
@@ -446,7 +450,7 @@
 <span class="n">list</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">first</span><span class="o">);</span>
 <span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">String</span><span class="o">&gt;</span> <span class="n">second</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">String</span><span class="o">&gt;();</span>
 <span class="n">second</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&quot;empNo&quot;</span><span class="o">,</span><span class="s">&quot;00002&quot;</span><span class="o">);</span>
-<span class="n">map</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&quot;expected&quot;</span><span class="o">,</span> <span class="s">&quot;鈴木一郎&quot;</span><span class="o">);</span>
+<span class="n">second</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&quot;expected&quot;</span><span class="o">,</span> <span class="s">&quot;鈴木一郎&quot;</span><span class="o">);</span>
 <span class="n">list</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">second</span><span class="o">);</span>
 </pre></div>
 </div>
@@ -469,12 +473,12 @@
        <span class="n">setUpDb</span><span class="o">(</span><span class="s">&quot;testSelectByPk&quot;</span><span class="o">);</span>
 
        <span class="c1">// Excelファイルからデータ取得</span>
-       <span class="n">List</span><span class="o">&lt;</span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">String</span><span class="o">&gt;&gt;</span> <span class="n">parameters</span> <span class="o">=</span> <span class="n">getListMap</span><span class="o">(</span><span class="s">&quot;testGetName&quot;</span><span class="o">,</span> <span class="s">&quot;parameters&quot;</span><span class="o">);</span>
+       <span class="n">List</span><span class="o">&lt;</span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">String</span><span class="o">&gt;&gt;</span> <span class="n">parameters</span> <span class="o">=</span> <span class="n">getListMap</span><span class="o">(</span><span class="s">&quot;testSelectByPk&quot;</span><span class="o">,</span> <span class="s">&quot;parameters&quot;</span><span class="o">);</span>
 
        <span class="k">for</span> <span class="o">(</span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">String</span><span class="o">&gt;</span> <span class="n">param</span> <span class="o">:</span> <span class="n">parameters</span><span class="o">)</span> <span class="o">{</span>
            <span class="c1">// 引数および期待値を取得</span>
-           <span class="n">String</span> <span class="n">empNo</span> <span class="o">=</span> <span class="n">parameter</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">&quot;empNo&quot;</span><span class="o">);</span>
-           <span class="n">String</span> <span class="n">expectedDataId</span> <span class="o">=</span> <span class="n">parameter</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">&quot;expectedDataId&quot;</span><span class="o">);</span>
+           <span class="n">String</span> <span class="n">empNo</span> <span class="o">=</span> <span class="n">param</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">&quot;empNo&quot;</span><span class="o">);</span>
+           <span class="n">String</span> <span class="n">expectedDataId</span> <span class="o">=</span> <span class="n">param</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">&quot;expectedDataId&quot;</span><span class="o">);</span>
 
            <span class="c1">// テスト対象メソッド起動</span>
            <span class="n">EmployeeComponent</span> <span class="n">target</span> <span class="o">=</span> <span class="k">new</span> <span class="n">EmployeeComponent</span><span class="o">();</span>
@@ -749,7 +753,7 @@ FixedSystemTimeProviderを指定し、そのプロパティに任意の日時を
 例えば、システム日時を2010年9月14日12時34分56秒とする場合は以下のように設定する。</p>
 <div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;component</span> <span class="na">name=</span><span class="s">&quot;systemTimeProvider&quot;</span>
     <span class="na">class=</span><span class="s">&quot;nablarch.test.FixedSystemTimeProvider&quot;</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;fixedDate&quot;</span> <span class="na">value=</span><span class="s">&quot;20100913123456&quot;</span> <span class="nt">/&gt;</span>
+  <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;fixedDate&quot;</span> <span class="na">value=</span><span class="s">&quot;20100914123456&quot;</span> <span class="nt">/&gt;</span>
 <span class="nt">&lt;/component&gt;</span>
 </pre></div>
 </div>
@@ -974,7 +978,7 @@ FixedSystemTimeProviderを指定し、そのプロパティに任意の日時を
 <p>テストソースコードと同じディレクトリに存在するExcelファイルであれば、
 シート名を指定するだけで読み込み可能であるが、別のディレクトリに存在するファイルを
 読み込みたい場合は、TestDataParser実装クラスを直接使用することで取得できる。</p>
-<p>&#8220;/foo/bar/&#8221;に存在する&#8221;Buz.xlsx&#8221;というファイルからデータを読み込む場合の例を以下に示す。</p>
+<p>&#8220;/foo/bar/&#8221;に存在する&#8221;Baz.xlsx&#8221;というファイルからデータを読み込む場合の例を以下に示す。</p>
 <div class="section" id="id18">
 <h3>テストソースコード実装例<a class="headerlink" href="#id18" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <blockquote>
@@ -996,7 +1000,7 @@ FixedSystemTimeProviderを指定し、そのプロパティに任意の日時を
 <h4>&#64;BeforeClass, &#64;AfterClass使用時の注意点<a class="headerlink" href="#beforeclass-afterclass" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <blockquote>
 <div><ul class="simple">
-<li>サブクラスにて、スーパークラスと同名の名前、同じアノテーションを付与のメソッドを作成しないこと。
+<li>サブクラスにて、スーパークラスと同名で同じアノテーションを付与したメソッドを作成しないこと。
 同名のメソッドに同種のアノテーションを付与した場合、スーパークラスのメソッドは起動されなくなる。</li>
 </ul>
 <div class="highlight-java"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">TestSuper</span> <span class="o">{</span>
@@ -1039,8 +1043,8 @@ FixedSystemTimeProviderを指定し、そのプロパティに任意の日時を
 </dd>
 </dl>
 </div>
-<div class="section" id="using-ohter-class">
-<span id="id22"></span><h2>本フレームワークのクラスを継承せずに使用したい<a class="headerlink" href="#using-ohter-class" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="using-other-class">
+<span id="id22"></span><h2>本フレームワークのクラスを継承せずに使用したい<a class="headerlink" href="#using-other-class" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>通常、テストクラス作成時は本フレームワークで用意されているスーパークラスを継承すればよいが、
 別のクラスを継承しなければならない等の理由で、本フレームワークのスーパークラスを継承できない場合がある。この場合、本フレームワークのスーパークラスをインスタンス化し、処理を委譲することで代替可能である。</p>
 <p>委譲を使用する場合、コンストラクタにテストクラス自身のClassインスタンスを渡す必要がある。
@@ -1116,8 +1120,9 @@ FixedSystemTimeProviderを指定し、そのプロパティに任意の日時を
                 <span class="c1">// users のプロパティ kanjiName,kanaName,mailAddress を検証。</span>
                 <span class="n">assertObjectPropertyEquals</span><span class="o">(</span><span class="n">message</span><span class="o">,</span> <span class="n">sheetName</span><span class="o">,</span> <span class="s">&quot;expectedUsers&quot;</span><span class="o">,</span> <span class="n">users</span><span class="o">);</span>
             <span class="o">}</span>
-        <span class="o">}</span>
+        <span class="o">});</span>
     <span class="o">}</span>
+<span class="o">}</span>
 </pre></div>
 </div>
 </div></blockquote>
@@ -1313,7 +1318,7 @@ FixedSystemTimeProviderを指定し、そのプロパティに任意の日時を
 
     <div role="contentinfo">
         <p>
-            &copy; Copyright 2010-2025, TIS Inc.
+            &copy; Copyright 2010, TISI Inc.
         </p>
     </div>
     Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.

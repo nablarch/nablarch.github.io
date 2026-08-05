@@ -145,6 +145,10 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../../development_tools/toolbox/NablarchOpenApiGenerator/NablarchOpenApiGenerator.html">Nablarch OpenAPI Generator</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../development_tools/ai_tools/index.html">AIコーディング支援</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../development_tools/ai_tools/nabledge/index.html">Nablarch専用AIコーディングツール向けプラグイン</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../examples/index.html">Example</a><ul>
@@ -415,7 +419,7 @@
 <dt><a class="reference internal" href="forwarding_handler.html#forwarding-handler"><span>内部フォーワードハンドラ</span></a> より前に配置すること</dt>
 <dd><a class="reference internal" href="forwarding_handler.html#forwarding-handler"><span>内部フォーワードハンドラ</span></a> を本ハンドラよりも前に設定した場合、セッションストアの読み込み、保存が複数回実行されるが、
 HIDDENストアはリクエストパラメータからセッション変数を読み込み、リクエストスコープにセッション変数を保存するため、
-内部フォーワード時にHIDDENストアを使用した場合、最新のセッション変数を取得できない問題がある。
+内部フォワード時にHIDDENストアを使用した場合、最新のセッション変数を取得できない問題がある。
 このため、本ハンドラは <a class="reference internal" href="forwarding_handler.html#forwarding-handler"><span>内部フォーワードハンドラ</span></a> より前に配置すること。</dd>
 </dl>
 </div>
@@ -628,7 +632,7 @@ DBストアのテーブル・カラムも同じものに変更すること。</p
 
     <div role="contentinfo">
         <p>
-            &copy; Copyright 2010-2025, TIS Inc.
+            &copy; Copyright 2010, TISI Inc.
         </p>
     </div>
     Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.

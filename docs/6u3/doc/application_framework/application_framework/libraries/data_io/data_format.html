@@ -145,6 +145,10 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../../development_tools/toolbox/NablarchOpenApiGenerator/NablarchOpenApiGenerator.html">Nablarch OpenAPI Generator</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../development_tools/ai_tools/index.html">AIコーディング支援</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../development_tools/ai_tools/nabledge/index.html">Nablarch専用AIコーディングツール向けプラグイン</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../examples/index.html">Example</a><ul>
@@ -566,9 +570,9 @@ field-separator:  <span class="s2">&quot;,&quot;</span>        <span class="c1">
 <div class="admonition important">
 <p class="first admonition-title">重要</p>
 <p class="last"><a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/common/io/FileRecordWriterHolder.html" title="nablarch.common.io.FileRecordWriterHolder">FileRecordWriterHolder</a> で開いたファイルリソースは、
-<a class="reference internal" href="../../handlers/common/file_record_writer_dispose_handler.html#file-record-writer-dispose-handler"><span>出力ファイル開放ハンドラ</span></a> にて自動的に開放される。
+<a class="reference internal" href="../../handlers/common/file_record_writer_dispose_handler.html#file-record-writer-dispose-handler"><span>出力ファイル解放ハンドラ</span></a> にて自動的に開放される。
 このため、 <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/common/io/FileRecordWriterHolder.html" title="nablarch.common.io.FileRecordWriterHolder">FileRecordWriterHolder</a> を使用する場合には、
-必ず <a class="reference internal" href="../../handlers/common/file_record_writer_dispose_handler.html#file-record-writer-dispose-handler"><span>出力ファイル開放ハンドラ</span></a> をハンドラキュー上に設定すること。</p>
+必ず <a class="reference internal" href="../../handlers/common/file_record_writer_dispose_handler.html#file-record-writer-dispose-handler"><span>出力ファイル解放ハンドラ</span></a> をハンドラキュー上に設定すること。</p>
 </div>
 <div class="admonition important">
 <p class="first admonition-title">重要</p>
@@ -611,8 +615,8 @@ field-separator:  <span class="s2">&quot;,&quot;</span>        <span class="c1">
 
   <span class="c1">// 業務処理</span>
 
-  <span class="c1">// ダウンロードデータを格納したMapの作成する。</span>
-  <span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">Object</span><span class="o">&gt;</span> <span class="n">user</span> <span class="o">=</span> <span class="k">new</span> <span class="n">hashMap</span><span class="o">&lt;&gt;()</span>
+  <span class="c1">// ダウンロードデータを格納したMapを作成する。</span>
+  <span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">Object</span><span class="o">&gt;</span> <span class="n">user</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;&gt;();</span>
   <span class="n">user</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&quot;name&quot;</span><span class="o">,</span> <span class="s">&quot;なまえ&quot;</span><span class="o">);</span>
   <span class="n">user</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&quot;age&quot;</span><span class="o">,</span> <span class="mi">30</span><span class="o">);</span>
 
@@ -831,7 +835,7 @@ text-encoding:    <span class="s2">&quot;UTF-8&quot;</span>
       <span class="nt">&quot;age&quot;</span><span class="p">:</span> <span class="mi">30</span>
     <span class="p">},</span>
     <span class="p">{</span>
-      <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;ななえ2&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;なまえ2&quot;</span><span class="p">,</span>
       <span class="nt">&quot;address&quot;</span><span class="p">:</span> <span class="s2">&quot;住所2&quot;</span><span class="p">,</span>
       <span class="nt">&quot;age&quot;</span><span class="p">:</span> <span class="mi">31</span>
     <span class="p">}</span>
@@ -1215,7 +1219,7 @@ text-encoding:    <span class="s2">&quot;UTF-8&quot;</span>
 
     <div role="contentinfo">
         <p>
-            &copy; Copyright 2010-2025, TIS Inc.
+            &copy; Copyright 2010, TISI Inc.
         </p>
     </div>
     Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.

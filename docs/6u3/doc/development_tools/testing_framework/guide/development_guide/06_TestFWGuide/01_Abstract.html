@@ -145,6 +145,10 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../../toolbox/NablarchOpenApiGenerator/NablarchOpenApiGenerator.html">Nablarch OpenAPI Generator</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../ai_tools/index.html">AIコーディング支援</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../ai_tools/nabledge/index.html">Nablarch専用AIコーディングツール向けプラグイン</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../examples/index.html">Example</a><ul>
@@ -474,10 +478,10 @@ Excelファイルを使用することにより、このようなデータをス
 <tr class="row-even"><td>テストソースファイル</td>
 <td rowspan="2">&lt;PROJECT_ROOT&gt;/test
 /jp/co/tis/example/db/</td>
-<td>ExampleDbAcessTest.java</td>
+<td>ExampleDbAccessTest.java</td>
 </tr>
 <tr class="row-odd"><td>Excelファイル</td>
-<td>ExampleDbAcessTest.xlsx <a class="footnote-reference" href="#id9" id="id8">[1]</a></td>
+<td>ExampleDbAccessTest.xlsx <a class="footnote-reference" href="#id9" id="id8">[1]</a></td>
 </tr>
 </tbody>
 </table>
@@ -521,7 +525,7 @@ Excelファイルを使用することにより、このようなデータをス
 </div>
 <div class="section" id="id11">
 <h3>シート内の構造<a class="headerlink" href="#id11" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>Excelシートの記述方法関する規約について説明する。
+<p>Excelシートの記述方法に関する規約について説明する。
 以下にシートの記述例を記載する。</p>
 <a class="reference internal image-reference" href="../../../../../_images/sheet_example.JPG"><img alt="../../../../../_images/sheet_example.JPG" src="../../../../../_images/sheet_example.JPG" /></a>
 <p>シート内には、データベースに格納するデータやデータベース検索結果など、さまざまな種類のデータを記載できる。テストデータの種類を判別するために「データタイプ」というメタ情報をテストデータに付与する必要がある。「データタイプ」は、そのテストデータが何を表しているかを示す。</p>
@@ -770,16 +774,16 @@ Excelシートの見た目上は存在するデータを記述できる。</p>
 <tbody valign="top">
 <tr class="row-even"><td><div class="first last line-block">
 <div class="line">ミリ秒を省略</div>
-<div class="line">・yyyMMddHHmmss</div>
-<div class="line">・yyy-MM-dd HH:mm:ss</div>
+<div class="line">・yyyyMMddHHmmss</div>
+<div class="line">・yyyy-MM-dd HH:mm:ss</div>
 </div>
 </td>
 <td>ミリ秒として0を指定したものとして扱われる。</td>
 </tr>
 <tr class="row-odd"><td><div class="first last line-block">
 <div class="line">時刻全部を省略</div>
-<div class="line">・yyyMMdd</div>
-<div class="line">・yyy-MM-dd</div>
+<div class="line">・yyyyMMdd</div>
+<div class="line">・yyyy-MM-dd</div>
 </div>
 </td>
 <td>時刻として0時0分0秒000を指定したものとして扱われる。</td>
@@ -847,7 +851,7 @@ Excelシートの見た目上は存在するデータを記述できる。</p>
 <td rowspan="8"><p class="first">文字列の前後がダブルクォート(半角、全角問わず)で囲われている場合は、前後のダブルクォートを取り除いた文字列を扱う。<a class="footnote-reference" href="#id26" id="id20">[4]</a></p>
 <p>例えば、「null」や「NULL」を文字列として扱う必要がある場合には、記述方法にあるように 「&#8221;null&#8221;」や「&#8221;NULL&#8221;」と記述する。</p>
 <p class="last">また、セルの値にスペースがあることを解りやすくする目的で、記述方法にあるよ
-うに「&#8221;1?&#8221;」や「&#8221;?&#8221;」も記述できる。</p>
+うに「&#8221;1⊔&#8221;」や「&#8221;⊔&#8221;」も記述できる。</p>
 </td>
 </tr>
 <tr class="row-odd"><td>&#8220;NULL&#8221;</td>
@@ -979,9 +983,9 @@ Excelシートの見た目上は存在するデータを記述できる。</p>
 以下に例を示す。</p>
 <table border="1" class="last docutils">
 <colgroup>
-<col width="31%" />
-<col width="27%" />
-<col width="42%" />
+<col width="33%" />
+<col width="26%" />
+<col width="41%" />
 </colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">記述例</th>
@@ -998,7 +1002,7 @@ Excelシートの見た目上は存在するデータを記述できる。</p>
 <td>ぱさぇん</td>
 <td>全角ひらがな4文字に変換される。</td>
 </tr>
-<tr class="row-even"><td>${半角数字,2}-{半角数字4}</td>
+<tr class="row-even"><td>${半角数字,2}-${半角数字,4}</td>
 <td>37-3425</td>
 <td>-以外が変換される。</td>
 </tr>
@@ -1130,7 +1134,7 @@ EXPECTED_COMPLETE_TABLE=TABLE4
 <p class="first admonition-title">重要</p>
 <p>この機能は、あくまでJUnit 4のテストをJUnit 4として動かしているにすぎない。
 したがって、この機能を使ったからといって、JUnit 4のテストの中でJUnit 5の機能が使えるわけではない。</p>
-<p class="last">この機能は、JUnit 4からJUnit 5への移行を段階的進めるための補助として利用できる。
+<p class="last">この機能は、JUnit 4からJUnit 5への移行を段階的に進めるための補助として利用できる。
 JUnit 4からJUnit 5に移行するときの手順については、 <a class="reference external" href="https://junit.org/junit5/docs/5.11.0/user-guide/#migrating-from-junit4">公式のガイド(外部サイト、英語)</a> を参照。</p>
 </div>
 <div class="admonition tip">
@@ -1203,7 +1207,7 @@ JUnit 4からJUnit 5に移行するときの手順については、 <a class="r
 
     <div role="contentinfo">
         <p>
-            &copy; Copyright 2010-2025, TIS Inc.
+            &copy; Copyright 2010, TISI Inc.
         </p>
     </div>
     Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.

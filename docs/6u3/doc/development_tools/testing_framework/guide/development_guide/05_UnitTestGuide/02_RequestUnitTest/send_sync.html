@@ -145,6 +145,10 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../../../toolbox/NablarchOpenApiGenerator/NablarchOpenApiGenerator.html">Nablarch OpenAPI Generator</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../ai_tools/index.html">AIコーディング支援</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../ai_tools/nabledge/index.html">Nablarch専用AIコーディングツール向けプラグイン</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../../examples/index.html">Example</a><ul>
@@ -405,7 +409,7 @@ Excelファイルを使用することで、外部インターフェース設計
 <h2>テストの実施方法<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>同期応答メッセージ送信処理のテストは、ウェブアプリケーションやバッチ処理などのテスト方式を踏襲して行われる。
 テストクラスの書き方や各種準備データの準備方法については、これらのテストの実施方法を参照すること。 </p>
-<p>本項では、同期応答メッセージ送信処理個有の実施方法についてのみ解説する。</p>
+<p>本項では、同期応答メッセージ送信処理固有の実施方法についてのみ解説する。</p>
 <div class="section" id="send-sync-request-write-test-data">
 <span id="id6"></span><h3>テストデータの書き方<a class="headerlink" href="#send-sync-request-write-test-data" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>テストデータを記載したExcelファイルは、クラス単体テストと同様にテストソースコードと同じディレクトリに同じ名前で格納する（拡張子のみ異なる）。</p>
@@ -632,7 +636,7 @@ Excelファイルを使用することで、外部インターフェース設計
 <a class="reference internal image-reference" href="../../../../../../_images/send_sync_ok_pattern_expected.png"><img alt="../../../../../../_images/send_sync_ok_pattern_expected.png" src="../../../../../../_images/send_sync_ok_pattern_expected.png" /></a>
 <div class="admonition tip">
 <p class="first admonition-title">補足</p>
-<p class="last">送信対象のリクエストIDが複数存在する場合、送信順のテストは不可能である。上記の例の場合、 <code class="docutils literal"><span class="pre">ProjectInsertMessage</span></code> より先に、 <code class="docutils literal"><span class="pre">ProjectInsert2Messag</span></code> が送信された場合であってもテストは成功となる。</p>
+<p class="last">送信対象のリクエストIDが複数存在する場合、送信順のテストは不可能である。上記の例の場合、 <code class="docutils literal"><span class="pre">ProjectInsertMessage</span></code> より先に、 <code class="docutils literal"><span class="pre">ProjectInsert2Message</span></code> が送信された場合であってもテストは成功となる。</p>
 </div>
 </div>
 <div class="section" id="send-sync-failure-test">
@@ -702,7 +706,7 @@ Excelファイルを使用することで、外部インターフェース設計
 
     <div role="contentinfo">
         <p>
-            &copy; Copyright 2010-2025, TIS Inc.
+            &copy; Copyright 2010, TISI Inc.
         </p>
     </div>
     Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.

@@ -145,6 +145,10 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../../../toolbox/NablarchOpenApiGenerator/NablarchOpenApiGenerator.html">Nablarch OpenAPI Generator</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../ai_tools/index.html">AIコーディング支援</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../ai_tools/nabledge/index.html">Nablarch専用AIコーディングツール向けプラグイン</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../../examples/index.html">Example</a><ul>
@@ -448,7 +452,7 @@
 </table>
 </div>
 <div class="section" id="id6">
-<h2>1テストケースを複数シートを分割する場合<a class="headerlink" href="#id6" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>1テストケースを複数シートに分割する場合<a class="headerlink" href="#id6" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>例えば、前項(<a class="reference internal" href="#id5">基本的な記述方法</a>)で例示したテストケースは、以下のように分割して記述可能である。</p>
 <div class="highlight-java"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">nablarch.sample.ss21AA01</span>
 
@@ -465,7 +469,7 @@
         <span class="c1">// 入力ファイルをテンポラリテーブルに登録</span>
         <span class="n">execute</span><span class="o">(</span><span class="s">&quot;testSuccess_fileInput&quot;</span><span class="o">);</span>
 
-        <span class="c1">// テンポラリテーブルの情報をユーザ関連テーブルを削除</span>
+        <span class="c1">// テンポラリテーブルの情報をもとにユーザ関連テーブルを削除</span>
         <span class="n">execute</span><span class="o">(</span><span class="s">&quot;testSuccess_userDelete&quot;</span><span class="o">);</span>
 
         <span class="c1">// 結果をファイル出力</span>
@@ -661,7 +665,7 @@
 
     <div role="contentinfo">
         <p>
-            &copy; Copyright 2010-2025, TIS Inc.
+            &copy; Copyright 2010, TISI Inc.
         </p>
     </div>
     Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.

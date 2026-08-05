@@ -145,6 +145,10 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../../development_tools/toolbox/NablarchOpenApiGenerator/NablarchOpenApiGenerator.html">Nablarch OpenAPI Generator</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../development_tools/ai_tools/index.html">AIコーディング支援</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../development_tools/ai_tools/nabledge/index.html">Nablarch専用AIコーディングツール向けプラグイン</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../examples/index.html">Example</a><ul>
@@ -518,7 +522,7 @@ DB等のリソースのヘルスチェックは <a class="reference external" hr
         <span class="c">&lt;!-- 省略 --&gt;</span>
       <span class="nt">&lt;/component&gt;</span>
       <span class="c">&lt;!-- HealthCheckerを継承して作成したクラスを指定 --&gt;</span>
-      <span class="nt">&lt;component</span> <span class="na">class=</span><span class="s">&quot;com.example.CustomHealthChecker&quot;</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;component</span> <span class="na">class=</span><span class="s">&quot;com.example.CustomHealthChecker&quot;</span> <span class="nt">/&gt;</span>
     <span class="nt">&lt;/list&gt;</span>
   <span class="nt">&lt;/property&gt;</span>
 <span class="nt">&lt;/component&gt;</span>
@@ -588,7 +592,7 @@ DB等のリソースのヘルスチェックは <a class="reference external" hr
       <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;unhealthyStatusCode&quot;</span> <span class="na">value=</span><span class="s">&quot;500&quot;</span> <span class="nt">/&gt;</span>
       <span class="c">&lt;!-- ヘルスチェック失敗時のラベル --&gt;</span>
       <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;unhealthyStatus&quot;</span> <span class="na">value=</span><span class="s">&quot;NG&quot;</span> <span class="nt">/&gt;</span>
-      <span class="c">&lt;!-- リクエストボディを出力するか否か。出力しない場合にfalseを指定 --&gt;</span>
+      <span class="c">&lt;!-- レスポンスボディを出力するか否か。出力しない場合にfalseを指定 --&gt;</span>
       <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;writeBody&quot;</span> <span class="na">value=</span><span class="s">&quot;false&quot;</span> <span class="nt">/&gt;</span>
     <span class="nt">&lt;/component&gt;</span>
   <span class="nt">&lt;/property&gt;</span>
@@ -607,7 +611,7 @@ DB等のリソースのヘルスチェックは <a class="reference external" hr
     <span class="nd">@Override</span>
     <span class="kd">protected</span> <span class="n">String</span> <span class="nf">buildResponseBody</span><span class="o">(</span>
             <span class="n">HttpRequest</span> <span class="n">request</span><span class="o">,</span> <span class="n">ExecutionContext</span> <span class="n">context</span><span class="o">,</span> <span class="n">HealthCheckResult</span> <span class="n">result</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// リクエストボディを返す。</span>
+        <span class="c1">// レスポンスボディを返す。</span>
         <span class="c1">// ヘルスチェック結果が入っているHealthCheckResultを使ってレスポンスボディを作成する。</span>
         <span class="n">StringBuilder</span> <span class="n">builder</span> <span class="o">=</span> <span class="k">new</span> <span class="n">StringBuilder</span><span class="o">();</span>
         <span class="n">builder</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="s">&quot;All=&quot;</span> <span class="o">+</span> <span class="n">getStatus</span><span class="o">(</span><span class="n">result</span><span class="o">.</span><span class="na">isHealthy</span><span class="o">()));</span>
@@ -650,7 +654,7 @@ DB等のリソースのヘルスチェックは <a class="reference external" hr
 
     <div role="contentinfo">
         <p>
-            &copy; Copyright 2010-2025, TIS Inc.
+            &copy; Copyright 2010, TISI Inc.
         </p>
     </div>
     Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.

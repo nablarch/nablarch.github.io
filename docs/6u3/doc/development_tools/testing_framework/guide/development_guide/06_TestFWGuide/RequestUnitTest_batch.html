@@ -145,6 +145,10 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../../toolbox/NablarchOpenApiGenerator/NablarchOpenApiGenerator.html">Nablarch OpenAPI Generator</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../ai_tools/index.html">AIコーディング支援</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../ai_tools/nabledge/index.html">Nablarch専用AIコーディングツール向けプラグイン</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../examples/index.html">Example</a><ul>
@@ -451,7 +455,7 @@
 </div>
 <div class="section" id="batchrequesttestsupport">
 <h3>BatchRequestTestSupport<a class="headerlink" href="#batchrequesttestsupport" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>バッチ処理テスト用のスーパクラス。アプリケーションプログラマは本クラスを継承してテストクラスを作成する。</p>
+<p>バッチ処理テスト用のスーパークラス。アプリケーションプログラマは本クラスを継承してテストクラスを作成する。</p>
 <p>本クラスは、<a class="reference internal" href="#testshot">TestShot</a> が提供する準備処理、結果確認に以下の機能を追加する。</p>
 <blockquote>
 <div><table border="1" class="docutils">
@@ -488,7 +492,7 @@
 主に以下の機能を提供する。</p>
 <ul class="simple">
 <li>テストデータから入力ファイルを作成する</li>
-<li>テストデータの期待値と実際に出力されたファイルと内容を比較する。</li>
+<li>テストデータの期待値と実際に出力されたファイルの内容を比較する。</li>
 </ul>
 <p>ファイルに関する操作は、バッチ処理以外でも必要となるため（例えば、ファイルダウンロード等）、独立したクラスとして提供している。</p>
 </div>
@@ -604,7 +608,7 @@
 </tr>
 </tbody>
 </table>
-<p>設定例を以下に例を示す。</p>
+<p>設定例を以下に示す。</p>
 <div class="highlight-xml"><div class="highlight"><pre><span></span><span class="c">&lt;!-- ディレクティブ（共通） --&gt;</span>
 <span class="nt">&lt;map</span> <span class="na">name=</span><span class="s">&quot;defaultDirectives&quot;</span><span class="nt">&gt;</span>
   <span class="nt">&lt;entry</span> <span class="na">key=</span><span class="s">&quot;text-encoding&quot;</span> <span class="na">value=</span><span class="s">&quot;Windows-31J&quot;</span> <span class="nt">/&gt;</span>
@@ -638,7 +642,7 @@
 
     <div role="contentinfo">
         <p>
-            &copy; Copyright 2010-2025, TIS Inc.
+            &copy; Copyright 2010, TISI Inc.
         </p>
     </div>
     Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.

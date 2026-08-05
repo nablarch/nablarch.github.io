@@ -145,6 +145,10 @@
 <li class="toctree-l3"><a class="reference internal" href="../../development_tools/toolbox/NablarchOpenApiGenerator/NablarchOpenApiGenerator.html">Nablarch OpenAPI Generator</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../../development_tools/ai_tools/index.html">AIコーディング支援</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../development_tools/ai_tools/nabledge/index.html">Nablarch専用AIコーディングツール向けプラグイン</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../examples/index.html">Example</a><ul>
@@ -434,6 +438,18 @@
 <p>クラスパス直下に <cite>routes.xml</cite> を作成し、
 指定したURLと業務アクションのマッピングを設定する。</p>
 <p>ルート定義ファイルへの設定方法は、<a class="reference external" href="https://github.com/kawasima/http-request-router/blob/master/README.ja.md">ライブラリのREADMEドキュメント(外部サイト)</a> を参照。</p>
+<p>ルート定義ファイルは以下のタイミングで読み込まれる。</p>
+<ul class="simple">
+<li><a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/integration/router/RoutesMapping.html" title="nablarch.integration.router.RoutesMapping">RoutesMapping</a> の初期化時</li>
+<li>ルート定義ファイル再読み込みの設定が有効であり、以下のすべての条件を満たしている時<ul>
+<li>最後にルート定義ファイルを読み込んでから指定された秒数が経過している</li>
+<li>URLと業務アクションのマッピング処理が行われている</li>
+<li>ルート定義ファイルが変更されている</li>
+</ul>
+</li>
+</ul>
+<p>ルート定義ファイルの再読み込みを有効にするには、 <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/integration/router/RoutesMapping.html#setCheckInterval(long)" title="nablarch.integration.router.RoutesMapping.setCheckInterval(long)">RoutesMapping#setCheckInterval(long)</a> に0以上の値を指定する。</p>
+<p><a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/integration/router/RoutesMapping.html#setCheckInterval(long)" title="nablarch.integration.router.RoutesMapping.setCheckInterval(long)">RoutesMapping#setCheckInterval(long)</a> の指定単位は秒数となる。パフォーマンスを重視する環境では-1を指定し、ルート定義ファイルの変更確認を行わないよう設定することを推奨する。</p>
 </div>
 </div>
 <div class="section" id="url">
@@ -500,7 +516,7 @@
 <div class="admonition important">
 <p class="first admonition-title">重要</p>
 <p>本機能は、クラスパス配下のリソースを独自のファイルシステムで管理している一部のウェブアプリケーションサーバでは使用できない。</p>
-<p>例えば、JbossやWildflyでは、vfsと呼ばれるバーチャルファイルシステムで
+<p>例えば、JBossやWildFlyでは、vfsと呼ばれるバーチャルファイルシステムで
 クラスパス配下のリソースが管理されるため、 <code class="docutils literal"><span class="pre">Path</span></code> アノテーションで注釈されたクラスの検索ができない。</p>
 <p class="last">そのようなウェブアプリケーションサーバを使用する場合は、従来通りXMLを用いたルーティングの定義を使用すること。</p>
 </div>
@@ -884,7 +900,7 @@ POST /api/foo/(:id) =&gt; com.example.FooAction#update
 
     <div role="contentinfo">
         <p>
-            &copy; Copyright 2010-2025, TIS Inc.
+            &copy; Copyright 2010, TISI Inc.
         </p>
     </div>
     Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.

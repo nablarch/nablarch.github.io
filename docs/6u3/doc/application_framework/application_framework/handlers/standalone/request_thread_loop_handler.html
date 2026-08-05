@@ -145,6 +145,10 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../../development_tools/toolbox/NablarchOpenApiGenerator/NablarchOpenApiGenerator.html">Nablarch OpenAPI Generator</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../development_tools/ai_tools/index.html">AIコーディング支援</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../development_tools/ai_tools/nabledge/index.html">Nablarch専用AIコーディングツール向けプラグイン</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../examples/index.html">Example</a><ul>
@@ -443,19 +447,19 @@
 <dt>プロセスの異常終了を示す例外(<a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/fw/launcher/ProcessAbnormalEnd.html" title="nablarch.fw.launcher.ProcessAbnormalEnd">ProcessAbnormalEnd</a>)</dt>
 <dd>プロセスの異常終了を示す例外のため、捕捉した例外を再送出する。</dd>
 <dt>処理を継続することができなかったことを示すサービスエラー(<a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/fw/results/ServiceError.html" title="nablarch.fw.results.ServiceError">ServiceError</a>)</dt>
-<dd>補足した例外クラスにログ出力処理を委譲し、 <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/fw/handler/retry/Retryable.html" title="nablarch.fw.handler.retry.Retryable">リトライ可能例外(Retryable)</a> を送出する。</dd>
+<dd>捕捉した例外クラスにログ出力処理を委譲し、 <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/fw/handler/retry/Retryable.html" title="nablarch.fw.handler.retry.Retryable">リトライ可能例外(Retryable)</a> を送出する。</dd>
 <dt>ハンドラの処理が異常終了したことを示す例外(<a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/fw/Result.Error.html" title="nablarch.fw.Result.Error">Result.Error</a>)</dt>
 <dd><code class="docutils literal"><span class="pre">FATAL</span></code> レベルのログを出力し、 <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/fw/handler/retry/Retryable.html" title="nablarch.fw.handler.retry.Retryable">リトライ可能例外(Retryable)</a> を送出する。</dd>
 <dt>実行時例外(<a class="reference external" href="https://docs.oracle.com/javase/jp/17/docs/api/java.base/java/lang/RuntimeException.html" title="java.lang.RuntimeException">RuntimeException</a>)</dt>
 <dd><code class="docutils literal"><span class="pre">FATAL</span></code> レベルのログを出力し、 <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/fw/handler/retry/Retryable.html" title="nablarch.fw.handler.retry.Retryable">リトライ可能例外(Retryable)</a> を送出する。</dd>
 <dt>スレッドの停止を示す例外(<a class="reference external" href="https://docs.oracle.com/javase/jp/17/docs/api/java.base/java/lang/ThreadDeath.html" title="java.lang.ThreadDeath">ThreadDeath</a>)</dt>
-<dd><code class="docutils literal"><span class="pre">INFO</span></code> レベルのログを出力し、補足した例外(ThreadDeath)を再送出する。</dd>
+<dd><code class="docutils literal"><span class="pre">INFO</span></code> レベルのログを出力し、捕捉した例外(ThreadDeath)を再送出する。</dd>
 <dt>スタックオーバーフローエラー(<a class="reference external" href="https://docs.oracle.com/javase/jp/17/docs/api/java.base/java/lang/StackOverflowError.html" title="java.lang.StackOverflowError">StackOverflowError</a>)</dt>
 <dd><code class="docutils literal"><span class="pre">FATAL</span></code> レベルのログを出力し、 <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/fw/handler/retry/Retryable.html" title="nablarch.fw.handler.retry.Retryable">リトライ可能例外(Retryable)</a> を送出する。</dd>
 <dt>ヒープ不足のエラー(<a class="reference external" href="https://docs.oracle.com/javase/jp/17/docs/api/java.base/java/lang/OutOfMemoryError.html" title="java.lang.OutOfMemoryError">OutOfMemoryError</a>)</dt>
 <dd><p class="first">標準エラー出力にヒープ不足が発生したことを示すメッセージを出力し、 <code class="docutils literal"><span class="pre">FATAL</span></code> レベルのログ出力を行う。
 (ログ出力時に再度ヒープ不足が発生する可能性があるため、標準エラー出力にメッセージ出力後にログを出力する。)</p>
-<p class="last">ヒープ不足の原因不足となったオブジェクトへの参照が切れ、処理継続可能な場合があるため <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/fw/handler/retry/Retryable.html" title="nablarch.fw.handler.retry.Retryable">リトライ可能例外(Retryable)</a> を送出する。</p>
+<p class="last">ヒープ不足の原因となったオブジェクトへの参照が切れ、処理継続可能な場合があるため <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/fw/handler/retry/Retryable.html" title="nablarch.fw.handler.retry.Retryable">リトライ可能例外(Retryable)</a> を送出する。</p>
 </dd>
 <dt>JVMの異常を示すエラー(<a class="reference external" href="https://docs.oracle.com/javase/jp/17/docs/api/java.base/java/lang/VirtualMachineError.html" title="java.lang.VirtualMachineError">VirtualMachineError</a>)</dt>
 <dd>発生した例外を再送出する</dd>
@@ -477,7 +481,7 @@
 
     <div role="contentinfo">
         <p>
-            &copy; Copyright 2010-2025, TIS Inc.
+            &copy; Copyright 2010, TISI Inc.
         </p>
     </div>
     Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.

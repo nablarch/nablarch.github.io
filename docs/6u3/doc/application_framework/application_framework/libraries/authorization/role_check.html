@@ -145,6 +145,10 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../../development_tools/toolbox/NablarchOpenApiGenerator/NablarchOpenApiGenerator.html">Nablarch OpenAPI Generator</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../development_tools/ai_tools/index.html">AIコーディング支援</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../development_tools/ai_tools/nabledge/index.html">Nablarch専用AIコーディングツール向けプラグイン</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../examples/index.html">Example</a><ul>
@@ -462,7 +466,7 @@
 <span class="nt">&lt;list</span> <span class="na">name=</span><span class="s">&quot;interceptorsOrder&quot;</span><span class="nt">&gt;</span>
   <span class="c">&lt;!-- CheckRole を追加する --&gt;</span>
   <span class="nt">&lt;value&gt;</span>nablarch.common.authorization.role.CheckRole<span class="nt">&lt;/value&gt;</span>
-  <span class="c">&lt;!-- 他のインターセプターの記述は省略 --&gt;</span>
+  <span class="c">&lt;!-- 他のインターセプタの記述は省略 --&gt;</span>
 <span class="nt">&lt;/list&gt;</span>
 </pre></div>
 </div>
@@ -632,7 +636,7 @@ com.nablarch.example.app.web.action.ProjectUploadAction       index(nablarch.fw.
 <p><a class="reference internal" href="permission_check.html"><em>ハンドラによる認可チェック</em></a> では、JSPのカスタムタグで認可チェックを行い自動的にボタンの表示・非表示を切り替えるような仕組みが提供されている。
 しかし本認可チェックでは、このような仕組みは提供していない。</p>
 <p>そこでここでは、本認可チェックを採用したうえでJSPの表示・非表示をロールの有無で制御する方法について説明する。</p>
-<p>ロールによる表示の制御は、サーバー側で判定した結果をセッションストアなどに保存することで実現する。
+<p>ロールによる表示の制御は、サーバ側で判定した結果をセッションストアなどに保存することで実現する。
 実装例を以下に示す。</p>
 <div class="highlight-java"><div class="highlight"><pre><span></span><span class="n">UserContext</span> <span class="n">userContext</span> <span class="o">=</span> <span class="k">new</span> <span class="n">UserContext</span><span class="o">();</span>
 <span class="n">userContext</span><span class="o">.</span><span class="na">setAdmin</span><span class="o">(</span><span class="n">CheckRoleUtil</span><span class="o">.</span><span class="na">checkRole</span><span class="o">(</span><span class="n">Roles</span><span class="o">.</span><span class="na">ROLE_ADMIN</span><span class="o">,</span> <span class="n">executionContext</span><span class="o">));</span>
@@ -695,7 +699,7 @@ com.nablarch.example.app.web.action.ProjectUploadAction       index(nablarch.fw.
 
     <div role="contentinfo">
         <p>
-            &copy; Copyright 2010-2025, TIS Inc.
+            &copy; Copyright 2010, TISI Inc.
         </p>
     </div>
     Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
