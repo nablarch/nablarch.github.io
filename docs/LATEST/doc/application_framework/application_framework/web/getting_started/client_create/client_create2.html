@@ -145,6 +145,10 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../../../development_tools/toolbox/NablarchOpenApiGenerator/NablarchOpenApiGenerator.html">Nablarch OpenAPI Generator</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../development_tools/ai_tools/index.html">AIコーディング支援</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../development_tools/ai_tools/nabledge/index.html">Nablarch専用AIコーディングツール向けプラグイン</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../examples/index.html">Example</a><ul>
@@ -448,8 +452,7 @@
 <dd><p class="first"><a class="reference internal" href="../../../libraries/validation/bean_validation.html#bean-validation"><span>Bean Validation</span></a> を使用して、入力値のチェックルールを設定する。</p>
 <dl class="last docutils">
 <dt>ClientForm.java</dt>
-<dd><blockquote class="first">
-<div><div class="highlight-java"><div class="highlight"><pre><span></span><span class="nd">@Required</span>
+<dd><div class="first last highlight-java"><div class="highlight"><pre><span></span><span class="nd">@Required</span>
 <span class="nd">@Domain</span><span class="o">(</span><span class="s">&quot;clientName&quot;</span><span class="o">)</span>
 <span class="kd">private</span> <span class="n">String</span> <span class="n">clientName</span><span class="o">;</span>
 
@@ -458,16 +461,13 @@
 <span class="kd">private</span> <span class="n">String</span> <span class="n">industryCode</span><span class="o">;</span>
 </pre></div>
 </div>
-</div></blockquote>
-<dl class="last docutils">
+</dd>
 <dt>messages.properties</dt>
 <dd><div class="first last highlight-jproperties"><div class="highlight"><pre><span></span><span class="c">#その他のメッセージは省略</span>
 <span class="c">#プルダウンに適した入力必須メッセージを追加する</span>
 <span class="na">nablarch.core.validation.ee.Required.select.message</span><span class="o">=</span><span class="s">選択してください。</span>
 </pre></div>
 </div>
-</dd>
-</dl>
 </dd>
 <dt>この実装のポイント</dt>
 <dd><ul class="first last simple">
@@ -647,7 +647,7 @@
 
     <div role="contentinfo">
         <p>
-            &copy; Copyright 2010-2025, TIS Inc.
+            &copy; Copyright 2010, TISI Inc.
         </p>
     </div>
     Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.

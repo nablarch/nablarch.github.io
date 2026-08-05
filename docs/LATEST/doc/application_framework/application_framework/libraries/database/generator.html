@@ -145,6 +145,10 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../../development_tools/toolbox/NablarchOpenApiGenerator/NablarchOpenApiGenerator.html">Nablarch OpenAPI Generator</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../development_tools/ai_tools/index.html">AIコーディング支援</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../development_tools/ai_tools/nabledge/index.html">Nablarch専用AIコーディングツール向けプラグイン</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../examples/index.html">Example</a><ul>
@@ -385,7 +389,7 @@
 (本機能でも実現可能だが、設計及び実装(設定)が必要となるため、本機能を使うメリットは無い)</p>
 <p>例えば、親キーの中での連番を採番するケースでは、以下の手順にて値を採番できる。</p>
 <ol class="last arabic simple">
-<li>親キーの毎に連番を採番するための専用テーブルを作成する。</li>
+<li>親キー毎に連番を採番するための専用テーブルを作成する。</li>
 <li>アプリケーションでは、親のキーが登録されたタイミングで専用テーブルにレコードを登録する。</li>
 <li>採番が必要なタイミングで親キーに対応する採番済みの値をインクリメントすることで、親キー内での連番を採番できる。</li>
 </ol>
@@ -508,7 +512,7 @@
 
     <div role="contentinfo">
         <p>
-            &copy; Copyright 2010-2025, TIS Inc.
+            &copy; Copyright 2010, TISI Inc.
         </p>
     </div>
     Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.

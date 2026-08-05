@@ -145,6 +145,10 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../../toolbox/NablarchOpenApiGenerator/NablarchOpenApiGenerator.html">Nablarch OpenAPI Generator</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../ai_tools/index.html">AIコーディング支援</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../ai_tools/nabledge/index.html">Nablarch専用AIコーディングツール向けプラグイン</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../examples/index.html">Example</a><ul>
@@ -368,7 +372,7 @@
 </div>
 <div class="section" id="id3">
 <h2><a class="toc-backref" href="#id14">概要</a><a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>通常の場合、テスト行う際にマスタデータを書き換えることはない。
+<p>通常の場合、テストを行う際にマスタデータを書き換えることはない。
 しかし、マスタメンテナンス機能等のテストでは、マスタデータを変更しないと
 実施できないテストケースが存在する。例えば、存在するはずのデータが存在しなかった場合のような
 異常系テストケースでは、マスタデータからレコードを削除する必要がある。</p>
@@ -473,7 +477,7 @@
 <tr class="row-even"><td>testEventListeners</td>
 <td>テストイベントリスナーの一覧。
 ここにマスタデータ復旧クラス(nablarch.test.core.db.MasterDataRestorer)を登録することで、
-テストメソッド終了時にマスタデータが行われるようになる。</td>
+テストメソッド終了時にマスタデータ復旧が行われるようになる。</td>
 <td>なし</td>
 </tr>
 </tbody>
@@ -558,7 +562,7 @@ loggers.sql.writerNames=nop
 
     <div role="contentinfo">
         <p>
-            &copy; Copyright 2010-2025, TIS Inc.
+            &copy; Copyright 2010, TISI Inc.
         </p>
     </div>
     Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.

@@ -145,6 +145,10 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../../development_tools/toolbox/NablarchOpenApiGenerator/NablarchOpenApiGenerator.html">Nablarch OpenAPI Generator</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../development_tools/ai_tools/index.html">AIコーディング支援</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../development_tools/ai_tools/nabledge/index.html">Nablarch専用AIコーディングツール向けプラグイン</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../examples/index.html">Example</a><ul>
@@ -477,7 +481,7 @@ javaコマンドから直接起動し、システムリポジトリやログの�
 <li><a class="reference internal" href="../../handlers/common/thread_context_handler.html#thread-context-handler"><span>スレッドコンテキスト変数管理ハンドラ</span></a></li>
 <li><a class="reference internal" href="../../handlers/common/thread_context_clear_handler.html#thread-context-clear-handler"><span>スレッドコンテキスト変数削除ハンドラ</span></a></li>
 <li><a class="reference internal" href="../../handlers/common/ServiceAvailabilityCheckHandler.html#serviceavailabilitycheckhandler"><span>サービス提供可否チェックハンドラ</span></a></li>
-<li><a class="reference internal" href="../../handlers/common/file_record_writer_dispose_handler.html#file-record-writer-dispose-handler"><span>出力ファイル開放ハンドラ</span></a></li>
+<li><a class="reference internal" href="../../handlers/common/file_record_writer_dispose_handler.html#file-record-writer-dispose-handler"><span>出力ファイル解放ハンドラ</span></a></li>
 </ul>
 </dd>
 </dl>
@@ -576,7 +580,7 @@ javaコマンドから直接起動し、システムリポジトリやログの�
 </tr>
 </tbody>
 </table>
-<p>DBに接続しない場は、DB接続関連ハンドラが不要であるのと、ループ制御ハンドラでトランザクション制御が不要であるため、以下の構成となる。</p>
+<p>DBに接続しない場合は、DB接続関連ハンドラが不要であるのと、ループ制御ハンドラでトランザクション制御が不要であるため、以下の構成となる。</p>
 <table border="1" class="colwidths-given white-space-normal docutils" id="id10">
 <caption><span class="caption-text">都度起動バッチ（DB接続無し）の最小ハンドラ構成</span><a class="headerlink" href="#id10" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
@@ -792,7 +796,7 @@ javaコマンドから直接起動し、システムリポジトリやログの�
 <ul class="simple">
 <li><a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/fw/reader/DatabaseRecordReader.html" title="nablarch.fw.reader.DatabaseRecordReader">DatabaseRecordReader (データベース読み込み)</a></li>
 <li><a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/fw/reader/FileDataReader.html" title="nablarch.fw.reader.FileDataReader">FileDataReader (ファイル読み込み)</a></li>
-<li><a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/fw/reader/ValidatableFileDataReader.html" title="nablarch.fw.reader.ValidatableFileDataReader">ValidatableFileDataReader (バリデージョン機能付きファイル読み込み)</a></li>
+<li><a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/fw/reader/ValidatableFileDataReader.html" title="nablarch.fw.reader.ValidatableFileDataReader">ValidatableFileDataReader (バリデーション機能付きファイル読み込み)</a></li>
 <li><a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/fw/reader/ResumeDataReader.html" title="nablarch.fw.reader.ResumeDataReader">ResumeDataReader (レジューム機能付き読み込み)</a></li>
 </ul>
 <div class="admonition tip">
@@ -803,7 +807,7 @@ javaコマンドから直接起動し、システムリポジトリやログの�
 </div>
 <div class="admonition important">
 <p class="first admonition-title">重要</p>
-<p class="last">標準で提供している <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/fw/reader/FileDataReader.html" title="nablarch.fw.reader.FileDataReader">FileDataReader (ファイル読み込み)</a> 、 <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/fw/reader/ValidatableFileDataReader.html" title="nablarch.fw.reader.ValidatableFileDataReader">ValidatableFileDataReader (バリデージョン機能付きファイル読み込み)</a> では、データへのアクセスに <a class="reference internal" href="../../libraries/data_io/data_format.html#data-format"><span>汎用データフォーマット</span></a> を使用している。データへのアクセスに <a class="reference internal" href="../../libraries/data_io/data_bind.html#data-bind"><span>データバインド</span></a> を使用する場合は、これらのデータリーダを使用しないこと。</p>
+<p class="last">標準で提供している <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/fw/reader/FileDataReader.html" title="nablarch.fw.reader.FileDataReader">FileDataReader (ファイル読み込み)</a> 、 <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/fw/reader/ValidatableFileDataReader.html" title="nablarch.fw.reader.ValidatableFileDataReader">ValidatableFileDataReader (バリデーション機能付きファイル読み込み)</a> では、データへのアクセスに <a class="reference internal" href="../../libraries/data_io/data_format.html#data-format"><span>汎用データフォーマット</span></a> を使用している。データへのアクセスに <a class="reference internal" href="../../libraries/data_io/data_bind.html#data-bind"><span>データバインド</span></a> を使用する場合は、これらのデータリーダを使用しないこと。</p>
 </div>
 </div>
 <div class="section" id="nablarch-batch-action">
@@ -835,7 +839,7 @@ javaコマンドから直接起動し、システムリポジトリやログの�
 
     <div role="contentinfo">
         <p>
-            &copy; Copyright 2010-2025, TIS Inc.
+            &copy; Copyright 2010, TISI Inc.
         </p>
     </div>
     Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.

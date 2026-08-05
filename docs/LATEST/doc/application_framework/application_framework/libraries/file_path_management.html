@@ -145,6 +145,10 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../development_tools/toolbox/NablarchOpenApiGenerator/NablarchOpenApiGenerator.html">Nablarch OpenAPI Generator</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../../../development_tools/ai_tools/index.html">AIコーディング支援</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../development_tools/ai_tools/nabledge/index.html">Nablarch専用AIコーディングツール向けプラグイン</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../../examples/index.html">Example</a><ul>
@@ -410,7 +414,7 @@
 クラスパス配下のリソースなどを管理していることに起因する。</p>
 <p>例えば、JbossやWildflyでは、vfsと呼ばれるバーチャルファイルシステムで、
 クラスパス配下のリソースが管理されるため、classpathスキームは使用できない。</p>
-<p class="last">このため、classpthスキームではなくfileスキームを使用することを推奨する。</p>
+<p class="last">このため、classpathスキームではなくfileスキームを使用することを推奨する。</p>
 </div>
 </dd>
 </dl>
@@ -448,13 +452,13 @@
 <p><a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/core/util/FilePathSetting.html" title="nablarch.core.util.FilePathSetting">FilePathSetting</a> を使用して、論理名に対応するファイルパスを取得する。</p>
 <p>以下に幾つかの使用例を示す。</p>
 <div class="highlight-java"><div class="highlight"><pre><span></span><span class="c1">// /var/nablarch/input/users.csv</span>
-<span class="n">File</span> <span class="n">users</span> <span class="o">=</span> <span class="n">filePathSetting</span><span class="o">.</span><span class="na">getFileWithoutCreate</span><span class="o">(</span><span class="s">&quot;csv-input&quot;</span><span class="o">,</span> <span class="s">&quot;users&quot;</span><span class="o">)</span>
+<span class="n">File</span> <span class="n">users</span> <span class="o">=</span> <span class="n">filePathSetting</span><span class="o">.</span><span class="na">getFileWithoutCreate</span><span class="o">(</span><span class="s">&quot;csv-input&quot;</span><span class="o">,</span> <span class="s">&quot;users&quot;</span><span class="o">);</span>
 
 <span class="c1">//  /var/nablarch/output</span>
 <span class="n">File</span> <span class="n">csvOutputDir</span> <span class="o">=</span> <span class="n">filePathSetting</span><span class="o">.</span><span class="na">getBaseDirectory</span><span class="o">(</span><span class="s">&quot;csv-output&quot;</span><span class="o">);</span>
 
 <span class="c1">// /var/nablarch/input/users</span>
-<span class="n">File</span> <span class="n">users</span> <span class="o">=</span> <span class="n">filePathSetting</span><span class="o">.</span><span class="na">getFileWithoutCreate</span><span class="o">(</span><span class="s">&quot;fixed-file-input&quot;</span><span class="o">,</span> <span class="s">&quot;users&quot;</span><span class="o">)</span>
+<span class="n">File</span> <span class="n">users</span> <span class="o">=</span> <span class="n">filePathSetting</span><span class="o">.</span><span class="na">getFileWithoutCreate</span><span class="o">(</span><span class="s">&quot;fixed-file-input&quot;</span><span class="o">,</span> <span class="s">&quot;users&quot;</span><span class="o">);</span>
 </pre></div>
 </div>
 </div>
@@ -472,7 +476,7 @@
 
     <div role="contentinfo">
         <p>
-            &copy; Copyright 2010-2025, TIS Inc.
+            &copy; Copyright 2010, TISI Inc.
         </p>
     </div>
     Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.

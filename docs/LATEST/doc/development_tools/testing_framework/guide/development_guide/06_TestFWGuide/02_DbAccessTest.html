@@ -145,6 +145,10 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../../toolbox/NablarchOpenApiGenerator/NablarchOpenApiGenerator.html">Nablarch OpenAPI Generator</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../ai_tools/index.html">AIコーディング支援</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../ai_tools/nabledge/index.html">Nablarch専用AIコーディングツール向けプラグイン</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../examples/index.html">Example</a><ul>
@@ -429,7 +433,7 @@
         <span class="n">setUpDb</span><span class="o">(</span><span class="s">&quot;testSelectAll&quot;</span><span class="o">);</span>
 
         <span class="c1">// テスト対象メソッドを起動する。</span>
-        <span class="n">EmployeeDbAcess</span> <span class="n">target</span> <span class="o">=</span> <span class="k">new</span> <span class="n">EmployeeDbAccess</span><span class="o">();</span>
+        <span class="n">EmployeeDbAccess</span> <span class="n">target</span> <span class="o">=</span> <span class="k">new</span> <span class="n">EmployeeDbAccess</span><span class="o">();</span>
         <span class="n">SqlResultSet</span> <span class="n">actual</span> <span class="o">=</span> <span class="n">target</span><span class="o">.</span><span class="na">selectAll</span><span class="o">();</span>
 
         <span class="c1">// 結果確認</span>
@@ -561,7 +565,7 @@
 <div class="section" id="id14">
 <h4>テストソースコード実装例<a class="headerlink" href="#id14" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <blockquote>
-<div><div class="highlight-java"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">DbAccessTestSample</span> <span class="kd">extends</span> <span class="n">DbAccsessTestSupport</span> <span class="o">{</span>
+<div><div class="highlight-java"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">DbAccessTestSample</span> <span class="kd">extends</span> <span class="n">DbAccessTestSupport</span> <span class="o">{</span>
     <span class="nd">@Test</span>
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">testDeleteExpired</span><span class="o">()</span> <span class="o">{</span>
 
@@ -570,7 +574,7 @@
         <span class="n">setUpDb</span><span class="o">(</span><span class="s">&quot;testDeleteExpired&quot;</span><span class="o">);</span>
 
         <span class="c1">// テスト対象メソッドを起動する。</span>
-        <span class="n">EmployeeDbAcess</span> <span class="n">target</span> <span class="o">=</span> <span class="k">new</span> <span class="n">EmployeeDbAccess</span><span class="o">();</span>
+        <span class="n">EmployeeDbAccess</span> <span class="n">target</span> <span class="o">=</span> <span class="k">new</span> <span class="n">EmployeeDbAccess</span><span class="o">();</span>
         <span class="n">SqlResultSet</span> <span class="n">actual</span> <span class="o">=</span> <span class="n">target</span><span class="o">.</span><span class="na">deleteExpired</span><span class="o">();</span>  <span class="c1">// 期限切れデータを削除</span>
 
         <span class="c1">// トランザクションをコミット</span>
@@ -1080,7 +1084,7 @@ ThreadContextの設定方法については、次の項を参照。（  <a class
 
     <div role="contentinfo">
         <p>
-            &copy; Copyright 2010-2025, TIS Inc.
+            &copy; Copyright 2010, TISI Inc.
         </p>
     </div>
     Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.

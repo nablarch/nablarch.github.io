@@ -145,6 +145,10 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../development_tools/toolbox/NablarchOpenApiGenerator/NablarchOpenApiGenerator.html">Nablarch OpenAPI Generator</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../../../development_tools/ai_tools/index.html">AIコーディング支援</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../development_tools/ai_tools/nabledge/index.html">Nablarch専用AIコーディングツール向けプラグイン</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../../examples/index.html">Example</a><ul>
@@ -823,7 +827,7 @@ sendProcessIdColumnNameプロパティについては <a class="reference intern
 <span class="n">mailRequest</span><span class="o">.</span><span class="na">setVariable</span><span class="o">(</span><span class="s">&quot;address&quot;</span><span class="o">,</span> <span class="s">&quot;住所&quot;</span><span class="o">);</span>
 <span class="n">mailRequest</span><span class="o">.</span><span class="na">setVariable</span><span class="o">(</span><span class="s">&quot;tel&quot;</span><span class="o">,</span> <span class="s">&quot;電話番号&quot;</span><span class="o">);</span>
 <span class="c1">// 以下のように値にnullを設定した場合、空文字列で置き換えが行われる。</span>
-<span class="n">mailRequest</span><span class="o">.</span><span class="na">setVariable</span><span class="o">(</span><span class="s">&quot;opeion&quot;</span><span class="o">,</span> <span class="kc">null</span><span class="o">);</span>
+<span class="n">mailRequest</span><span class="o">.</span><span class="na">setVariable</span><span class="o">(</span><span class="s">&quot;option&quot;</span><span class="o">,</span> <span class="kc">null</span><span class="o">);</span>
 
 <span class="c1">// 添付ファイルを設定する。</span>
 <span class="n">AttachedFile</span> <span class="n">attachedFile</span> <span class="o">=</span> <span class="k">new</span> <span class="n">AttachedFile</span><span class="o">(</span><span class="s">&quot;text/plain&quot;</span><span class="o">,</span> <span class="k">new</span> <span class="n">File</span><span class="o">(</span><span class="s">&quot;path/to/file&quot;</span><span class="o">));</span>
@@ -946,7 +950,7 @@ sendProcessIdColumnNameプロパティについては <a class="reference intern
 <tr class="row-odd"><td><a class="reference internal" href="#mail-mail-header-injection"><span>メールヘッダインジェクション攻撃への対策</span></a> での <a class="reference external" href="https://nablarch.github.io/docs/6u3/javadoc/nablarch/common/mail/InvalidCharacterException.html" title="nablarch.common.mail.InvalidCharacterException">InvalidCharacterException</a></td>
 <td>ヘッダ文字列をログ出力(ログレベル: ERROR)する。</td>
 </tr>
-<tr class="row-even"><td>メール送信失敗時の <a class="reference external" href="https://jakarta.ee/specifications/platform/10/apidocs/jakarta/mail/SendFailedException.html" title="jakarta.mail.SendFailedException">Jakarta MailのSendFailureException</a></td>
+<tr class="row-even"><td>メール送信失敗時の <a class="reference external" href="https://jakarta.ee/specifications/platform/10/apidocs/jakarta/mail/SendFailedException.html" title="jakarta.mail.SendFailedException">Jakarta MailのSendFailedException</a></td>
 <td>送信されたアドレス、送信されなかったアドレス、不正なアドレスをログ出力(ログレベル: ERROR)する。</td>
 </tr>
 <tr class="row-odd"><td>上記以外のメール送信時の <a class="reference external" href="https://docs.oracle.com/javase/jp/17/docs/api/java.base/java/lang/Exception.html" title="java.lang.Exception">Exception</a></td>
@@ -1094,7 +1098,7 @@ sendProcessIdColumnNameプロパティについては <a class="reference intern
 
     <div role="contentinfo">
         <p>
-            &copy; Copyright 2010-2025, TIS Inc.
+            &copy; Copyright 2010, TISI Inc.
         </p>
     </div>
     Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.

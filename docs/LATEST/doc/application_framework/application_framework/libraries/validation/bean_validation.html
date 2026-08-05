@@ -145,6 +145,10 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../../development_tools/toolbox/NablarchOpenApiGenerator/NablarchOpenApiGenerator.html">Nablarch OpenAPI Generator</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../development_tools/ai_tools/index.html">AIコーディング支援</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../development_tools/ai_tools/nabledge/index.html">Nablarch専用AIコーディングツール向けプラグイン</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../examples/index.html">Example</a><ul>
@@ -458,7 +462,7 @@ Jakarta EE環境外で使用するには、別途Jakarta Bean Validationの実�
 <p class="last">componentの名前は、必ず <strong>messageInterpolator</strong> とすること。</p>
 </div>
 <div class="last highlight-xml"><div class="highlight"><pre><span></span><span class="c">&lt;!-- コンポーネント名にmessageInterpolatorを指定し、MessageInterpolatorの実装クラスを設定する --&gt;</span>
-<span class="nt">&lt;compnent</span> <span class="na">name=</span><span class="s">&quot;messageInterpolator&quot;</span>
+<span class="nt">&lt;component</span> <span class="na">name=</span><span class="s">&quot;messageInterpolator&quot;</span>
     <span class="na">class=</span><span class="s">&quot;org.hibernate.validator.messageinterpolation.ResourceBundleMessageInterpolator&quot;</span><span class="nt">/&gt;</span>
 </pre></div>
 </div>
@@ -658,7 +662,7 @@ Jakarta EE環境外で使用するには、別途Jakarta Bean Validationの実�
 <p>設定例は以下のとおり。</p>
 <div class="last highlight-xml"><div class="highlight"><pre><span></span><span class="c">&lt;!-- 半角数字 --&gt;</span>
 <span class="nt">&lt;component</span> <span class="na">name=</span><span class="s">&quot;半角数字&quot;</span> <span class="na">class=</span><span class="s">&quot;nablarch.core.validation.validator.unicode.LiteralCharsetDef&quot;</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;allowedCharacters&quot;</span> <span class="na">value=</span><span class="s">&quot;01234567890&quot;</span> <span class="nt">/&gt;</span>
+  <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;allowedCharacters&quot;</span> <span class="na">value=</span><span class="s">&quot;0123456789&quot;</span> <span class="nt">/&gt;</span>
   <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;messageId&quot;</span> <span class="na">value=</span><span class="s">&quot;numberString.message&quot;</span> <span class="nt">/&gt;</span>
 <span class="nt">&lt;/component&gt;</span>
 
@@ -714,7 +718,7 @@ Jakarta EE環境外で使用するには、別途Jakarta Bean Validationの実�
 <div class="last highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;component</span> <span class="na">name=</span><span class="s">&quot;半角数字&quot;</span> <span class="na">class=</span><span class="s">&quot;nablarch.core.validation.validator.unicode.CachingCharsetDef&quot;</span><span class="nt">&gt;</span>
   <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;charsetDef&quot;</span><span class="nt">&gt;</span>
     <span class="nt">&lt;component</span> <span class="na">class=</span><span class="s">&quot;nablarch.core.validation.validator.unicode.LiteralCharsetDef&quot;</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;allowedCharacters&quot;</span> <span class="na">value=</span><span class="s">&quot;01234567890&quot;</span> <span class="nt">/&gt;</span>
+      <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;allowedCharacters&quot;</span> <span class="na">value=</span><span class="s">&quot;0123456789&quot;</span> <span class="nt">/&gt;</span>
     <span class="nt">&lt;/component&gt;</span>
   <span class="nt">&lt;/property&gt;</span>
   <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;messageId&quot;</span> <span class="na">value=</span><span class="s">&quot;numberString.message&quot;</span> <span class="nt">/&gt;</span>
@@ -1149,7 +1153,7 @@ Nablarchでも、Bean Validationでグループ指定可能なAPIを提供して
 
     <div role="contentinfo">
         <p>
-            &copy; Copyright 2010-2025, TIS Inc.
+            &copy; Copyright 2010, TISI Inc.
         </p>
     </div>
     Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.

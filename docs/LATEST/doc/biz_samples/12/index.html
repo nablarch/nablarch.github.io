@@ -145,6 +145,10 @@
 <li class="toctree-l3"><a class="reference internal" href="../../development_tools/toolbox/NablarchOpenApiGenerator/NablarchOpenApiGenerator.html">Nablarch OpenAPI Generator</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../../development_tools/ai_tools/index.html">AIコーディング支援</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../development_tools/ai_tools/nabledge/index.html">Nablarch専用AIコーディングツール向けプラグイン</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../examples/index.html">Example</a><ul>
@@ -363,7 +367,7 @@
 <li>認証成功時にログインセッションを確立し、認証後はステートフルなセッション管理を行う</li>
 <li>認証処理は業務アクションで実装する</li>
 </ul>
-<p>OIDCは様々なサービスで対応しているが、本サンプルでは以下のユーザー管理サービスで発行されるIDトークンを取り扱う。</p>
+<p>OIDCは様々なサービスで対応しているが、本サンプルでは以下のユーザ管理サービスで発行されるIDトークンを取り扱う。</p>
 <ul class="simple">
 <li>Amazon Web Services（以下AWS）<ul>
 <li><a class="reference external" href="https://aws.amazon.com/jp/cognito/">Amazon Cognito ユーザープール</a> （以下ユーザープール）</li>
@@ -730,7 +734,7 @@ CSRF対策の詳細については <a class="reference internal" href="../../app
     <span class="n">SessionUtil</span><span class="o">.</span><span class="na">changeId</span><span class="o">(</span><span class="n">context</span><span class="o">);</span>
     <span class="n">CsrfTokenUtil</span><span class="o">.</span><span class="na">regenerateCsrfToken</span><span class="o">(</span><span class="n">context</span><span class="o">);</span>
 
-    <span class="c1">// IDトークンで連携された情報からユーザー情報を特定して、認証状態をセッションに保持する</span>
+    <span class="c1">// IDトークンで連携された情報からユーザ情報を特定して、認証状態をセッションに保持する</span>
     <span class="n">String</span> <span class="n">userId</span> <span class="o">=</span> <span class="n">decodedJWT</span><span class="o">.</span><span class="na">getSubject</span><span class="o">();</span>
     <span class="n">SessionUtil</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">context</span><span class="o">,</span> <span class="s">&quot;user.id&quot;</span><span class="o">,</span> <span class="n">userId</span><span class="o">);</span>
 <span class="o">}</span>
@@ -774,7 +778,7 @@ CSRF対策の詳細については <a class="reference internal" href="../../app
 
     <div role="contentinfo">
         <p>
-            &copy; Copyright 2010-2025, TIS Inc.
+            &copy; Copyright 2010, TISI Inc.
         </p>
     </div>
     Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.

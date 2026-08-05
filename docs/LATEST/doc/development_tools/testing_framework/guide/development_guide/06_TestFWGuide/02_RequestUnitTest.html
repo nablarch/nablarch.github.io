@@ -145,6 +145,10 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../../toolbox/NablarchOpenApiGenerator/NablarchOpenApiGenerator.html">Nablarch OpenAPI Generator</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../ai_tools/index.html">AIコーディング支援</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../ai_tools/nabledge/index.html">Nablarch専用AIコーディングツール向けプラグイン</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../examples/index.html">Example</a><ul>
@@ -493,7 +497,7 @@ BasicHttpReqestTestSupport</td>
 <span class="n">String</span> <span class="n">isTokenValid</span><span class="o">;</span>
 
 <span class="c1">// 【説明】&quot;true&quot;の場合はトークンが設定される。</span>
-<span class="n">setToken</span><span class="o">(</span><span class="n">req</span><span class="o">,</span> <span class="n">ctx</span><span class="o">,</span> <span class="n">Boolean</span><span class="o">.</span><span class="na">parseBoolean</span><span class="o">(</span><span class="n">isTokenValid</span><span class="o">)));</span>
+<span class="n">setToken</span><span class="o">(</span><span class="n">req</span><span class="o">,</span> <span class="n">ctx</span><span class="o">,</span> <span class="n">Boolean</span><span class="o">.</span><span class="na">parseBoolean</span><span class="o">(</span><span class="n">isTokenValid</span><span class="o">));</span>
 </pre></div>
 </div>
 </div>
@@ -509,7 +513,7 @@ BasicHttpReqestTestSupport</td>
 <ul class="simple">
 <li>テストケース説明</li>
 <li>HttpRequest</li>
-<li>ExectionContext</li>
+<li>ExecutionContext</li>
 </ul>
 <p>テストケース説明は、HTMLダンプ出力時のファイル名に使用される。
 詳細は
@@ -537,7 +541,7 @@ BasicHttpReqestTestSupport</td>
 <p>引数には、以下の値を引き渡す。</p>
 <ul class="simple">
 <li>期待するメッセージ（複数ある場合はカンマ区切りで指定する。）</li>
-<li>先に作成したExectionContext</li>
+<li>先に作成したExecutionContext</li>
 </ul>
 <p>例外が発生しなかった場合や、アプリケーション例外以外の例外が発生した場合は、アサート失敗となる。</p>
 <div class="admonition tip">
@@ -665,10 +669,10 @@ HTMLリソースコピー時のパフォーマンスが向上する。</p>
 <td><p class="first">jettyのデフォルト動作に依存</p>
 <div class="last admonition tip">
 <p class="first admonition-title">補足</p>
-<p class="last">jettyのデフォルト動作では、.「/work」
+<p class="last">jettyのデフォルト動作では、「./work」
 がコンパイル先ディレクトリとなる。
 「./work」が存在しない場合は、
-Tempフォルダ(Windownの場合は、ユーザのホーム
+Tempフォルダ(Windowsの場合は、ユーザのホーム
 ディレクトリ/Local Settings/Temp)が
 出力先となる。</p>
 </div>
@@ -792,7 +796,7 @@ Tempフォルダ(Windownの場合は、ユーザのホーム
 <p>性能が高くないPCで開発をしており、リクエスト単体テスト実行速度を向上させたい場合は、以下の設定をすることで実行速度の改善が見込まれる。</p>
 <div class="admonition tip">
 <p class="first admonition-title">補足</p>
-<p class="last">Pentium4、Pentinum Dual-Core等の処理性能が低いCPUを搭載したPCに効果がある。逆に、これら以降のCPUを搭載したマシンでは、それほど効果的ではないので無理に設定する必要はない。</p>
+<p class="last">Pentium4、Pentium Dual-Core等の処理性能が低いCPUを搭載したPCに効果がある。逆に、これら以降のCPUを搭載したマシンでは、それほど効果的ではないので無理に設定する必要はない。</p>
 </div>
 <div class="section" id="jvm">
 <h4>JVMオプションの指定<a class="headerlink" href="#jvm" title="このヘッドラインへのパーマリンク">¶</a></h4>
@@ -801,7 +805,7 @@ Tempフォルダ(Windownの場合は、ユーザのホーム
 <div><strong>-Xms256m -Xmx256m</strong></div></blockquote>
 <p>また、クラスファイルの検証を省略することで実行速度が向上する。</p>
 <blockquote>
-<div><strong>-Xverfiy:none</strong></div></blockquote>
+<div><strong>-Xverify:none</strong></div></blockquote>
 <p>Eclipseでの設定方法は以下のとおり。</p>
 <ul class="simple">
 <li>メニューバーより「実行」→「実行構成」を選択する。</li>
@@ -810,7 +814,7 @@ Tempフォルダ(Windownの場合は、ユーザのホーム
 <img alt="../../../../../_images/vmoptions.png" src="../../../../../_images/vmoptions.png" />
 <p>また、実行構成を変更しなくても、以下の方法でデフォルトのVM引数を設定できる。</p>
 <ul class="simple">
-<li>メニューバーより「ウィンドウ」→「設定」を選択する。 「設定」ウィンドウが表示されるので、「インストール済みのJRE」をする。</li>
+<li>メニューバーより「ウィンドウ」→「設定」を選択する。 「設定」ウィンドウが表示されるので、「インストール済みのJRE」を選択する。</li>
 <li>インストール済みのJREの一覧が表示されるので、使用するJREを選択し「編集」ボタンを押下する。</li>
 </ul>
 <img alt="../../../../../_images/installed_jre.png" src="../../../../../_images/installed_jre.png" />
@@ -859,7 +863,7 @@ CSSなどのHTMLリソースを編集しても<a class="reference internal" href
 
     <div role="contentinfo">
         <p>
-            &copy; Copyright 2010-2025, TIS Inc.
+            &copy; Copyright 2010, TISI Inc.
         </p>
     </div>
     Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.

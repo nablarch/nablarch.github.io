@@ -37,7 +37,7 @@
   
     <link rel="top" title="∇Nablarch  6u3 ドキュメント" href="../../../index.html"/>
         <link rel="up" title="アプリケーション開発時に使える便利なツール" href="../index.html"/>
-        <link rel="next" title="Example" href="../../../examples/index.html"/>
+        <link rel="next" title="AIコーディング支援" href="../../ai_tools/index.html"/>
         <link rel="prev" title="Nablarch SQL Executor" href="../SqlExecutor/SqlExecutor.html"/>
 
 <script defer data-domain="nablarch.github.io,all.fintan" src=https://plausible.io/js/script.js></script>
@@ -143,6 +143,10 @@
 <li class="toctree-l3"><a class="reference internal" href="../JspStaticAnalysis/index.html">Jakarta Server Pages静的解析ツール</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../SqlExecutor/SqlExecutor.html">Nablarch SQL Executor</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="">Nablarch OpenAPI Generator</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../ai_tools/index.html">AIコーディング支援</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../ai_tools/nabledge/index.html">Nablarch専用AIコーディングツール向けプラグイン</a></li>
 </ul>
 </li>
 </ul>
@@ -530,7 +534,7 @@ OpenAPI Generatorのバージョンを変更する場合は、プロジェクト
 </tr>
 <tr class="row-odd"><td><code class="docutils literal"><span class="pre">generatorName</span></code></td>
 <td>ソースコードを生成するGeneratorの名前を指定する。 <br />
-本ツールでは <code class="docutils literal"><span class="pre">nablarch-jarxrs</span></code> と指定すること。</td>
+本ツールでは <code class="docutils literal"><span class="pre">nablarch-jaxrs</span></code> と指定すること。</td>
 <td>必須</td>
 <td>なし</td>
 </tr>
@@ -1144,7 +1148,7 @@ OpenAPI GeneratorのMavenプラグイン設定の <code class="docutils literal"
 <span class="cm">     * @return  プロパティに値が登録されたBeanオブジェクト</span>
 <span class="cm">     */</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">T</span> <span class="nf">validate</span><span class="o">(</span><span class="n">Class</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">beanClass</span><span class="o">,</span> <span class="n">Object</span> <span class="n">src</span><span class="o">)</span> <span class="o">{</span>
-        <span class="n">T</span> <span class="n">bean</span> <span class="o">=</span> <span class="n">BeanUtil</span><span class="o">.</span><span class="na">createAndCopy</span><span class="o">(</span><span class="n">beanClass</span><span class="o">,</span> <span class="n">src</span><span class="o">));</span>
+        <span class="n">T</span> <span class="n">bean</span> <span class="o">=</span> <span class="n">BeanUtil</span><span class="o">.</span><span class="na">createAndCopy</span><span class="o">(</span><span class="n">beanClass</span><span class="o">,</span> <span class="n">src</span><span class="o">);</span>
         <span class="n">ValidatorUtil</span><span class="o">.</span><span class="na">validate</span><span class="o">(</span><span class="n">bean</span><span class="o">);</span>
         <span class="k">return</span> <span class="n">bean</span><span class="o">;</span>
     <span class="o">}</span>
@@ -1797,7 +1801,7 @@ OpenAPI GeneratorのMavenプラグイン設定の <code class="docutils literal"
 
     <div role="contentinfo">
         <p>
-            &copy; Copyright 2010-2025, TIS Inc.
+            &copy; Copyright 2010, TISI Inc.
         </p>
     </div>
     Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.

@@ -145,6 +145,10 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../../../toolbox/NablarchOpenApiGenerator/NablarchOpenApiGenerator.html">Nablarch OpenAPI Generator</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../ai_tools/index.html">AIコーディング支援</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../ai_tools/nabledge/index.html">Nablarch専用AIコーディングツール向けプラグイン</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../../examples/index.html">Example</a><ul>
@@ -778,7 +782,7 @@ BasicAdviceクラスには以下のメソッドが用意されており、それ
         <span class="kd">public</span> <span class="kt">void</span> <span class="nf">afterExecute</span><span class="o">(</span><span class="n">TestCaseInfo</span> <span class="n">testCaseInfo</span><span class="o">,</span>
                 <span class="n">ExecutionContext</span> <span class="n">context</span><span class="o">)</span> <span class="o">{</span>
 
-            <span class="n">String</span> <span class="n">messgae</span> <span class="o">=</span> <span class="n">testCaseInfo</span><span class="o">.</span><span class="na">getTestCaseName</span><span class="o">();</span>   <span class="c1">// 【説明】比較失敗時のメッセージ</span>
+            <span class="n">String</span> <span class="n">message</span> <span class="o">=</span> <span class="n">testCaseInfo</span><span class="o">.</span><span class="na">getTestCaseName</span><span class="o">();</span>   <span class="c1">// 【説明】比較失敗時のメッセージ</span>
             <span class="n">String</span> <span class="n">sheetName</span> <span class="o">=</span> <span class="n">testCaseInfo</span><span class="o">.</span><span class="na">getSheetName</span><span class="o">();</span>    <span class="c1">// 【説明】シート名</span>
             <span class="n">String</span> <span class="n">no</span> <span class="o">=</span> <span class="n">testCaseInfo</span><span class="o">.</span><span class="na">getTestCaseNo</span><span class="o">();</span>          <span class="c1">// 【説明】テストケース番号</span>
 
@@ -1029,7 +1033,7 @@ ThreadContextへの値設定はハンドラで実施される。
 
     <div role="contentinfo">
         <p>
-            &copy; Copyright 2010-2025, TIS Inc.
+            &copy; Copyright 2010, TISI Inc.
         </p>
     </div>
     Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
